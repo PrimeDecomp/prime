@@ -20,13 +20,20 @@ enum EQuitAction { kQA_None, kQA_Yes, kQA_No };
 class CQuitGameScreen {
 public:
   CQuitGameScreen(EQuitType type);
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  ~CQuitGameScreen();
+#endif
 
   void SetColors();
   void FinishedLoading();
   void DoSelectionChange(CGuiTableGroup* caller, int oldSel);
   void DoAdvance(CGuiTableGroup* caller);
   EQuitAction Update(float dt);
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  void Draw();
+#else
   void Draw() const;
+#endif
   void ProcessUserInput(const CFinalInput& input);
 
 private:
@@ -35,7 +42,16 @@ private:
   CGuiFrame* x10_loadedFrame;
   CGuiTableGroup* x14_tablegroup_quitgame;
   EQuitAction x18_action;
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  int x1c_;
+  int x20_;
+  int x24_;
+#endif
 };
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+CHECK_SIZEOF(CQuitGameScreen, 0x28)
+#else
 CHECK_SIZEOF(CQuitGameScreen, 0x1c)
+#endif
 
 #endif // _CQUITGAMESCREEN

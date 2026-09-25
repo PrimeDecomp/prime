@@ -83,13 +83,18 @@ private:
   CSystemState xa8_systemState;
   CGameOptions x17c_gameOptions;
   CHintOptions x1f8_hintOptions;
+#if VERSION == VERSION_GM8J_00
+  uchar x20c_japaneseUnknown[0x18];
+#endif
   uint x20c_saveIdx;
   u64 x210_cardSerial;
   rstl::vector< uchar > x218_backupBuf;
   bool x228_24_hardMode : 1;
   bool x228_25_initPowerupsAtFirstSpawn : 1;
 };
-#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_GM8J_00
+#if VERSION == VERSION_GM8J_00
+CHECK_SIZEOF(CGameState, 0x7e0)
+#elif VERSION == VERSION_GM8P_00
 CHECK_SIZEOF(CGameState, 0x1e8)
 #else
 CHECK_SIZEOF(CGameState, 0x230)

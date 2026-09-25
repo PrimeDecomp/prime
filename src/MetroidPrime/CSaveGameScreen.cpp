@@ -394,7 +394,11 @@ void CSaveGameScreen::ContinueWithoutSaving() {
   gpGameState->SetCardSerial(0);
 }
 
-void CSaveGameScreen::Draw() const {
+void CSaveGameScreen::Draw()
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+    const
+#endif
+{
   if (x50_loadedFrame != nullptr) {
     x50_loadedFrame->Draw(CGuiWidgetDrawParms::Default());
   }

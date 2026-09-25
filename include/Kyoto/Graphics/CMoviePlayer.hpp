@@ -64,6 +64,9 @@ public:
   void DecodeFromRead(const void* ptr);
 
   bool DrawVideo() const;
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  void DrawFrame(int left, int right, int top, int bottom);
+#endif
   void DrawFrame(const CVector3f&, const CVector3f&, const CVector3f&, const CVector3f&);
   void MixAudio(short* out, const short* in, unsigned long samples);
 

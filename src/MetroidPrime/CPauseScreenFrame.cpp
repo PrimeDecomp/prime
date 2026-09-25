@@ -32,9 +32,19 @@ CQuitGameScreen::CQuitGameScreen(EQuitType type)
 , x4_frame(gpSimplePool->GetObj("FRME_QuitScreen"))
 , x10_loadedFrame(nullptr)
 , x14_tablegroup_quitgame(nullptr)
-, x18_action(kQA_None) {
+, x18_action(kQA_None)
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+, x1c_(0)
+, x20_(0)
+, x24_(0)
+#endif
+{
   x4_frame.Lock();
 }
+
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+CQuitGameScreen::~CQuitGameScreen() {}
+#endif
 
 void CQuitGameScreen::ProcessUserInput(const CFinalInput& input) {
   if (input.ControllerNumber() != 0) {
@@ -48,7 +58,11 @@ void CQuitGameScreen::ProcessUserInput(const CFinalInput& input) {
   }
 }
 
-void CQuitGameScreen::Draw() const {
+void CQuitGameScreen::Draw()
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+    const
+#endif
+{
   if (x0_type == kQT_QuitGame) {
     CCameraFilterPass::DrawFilter(CCameraFilterPass::kFT_Blend, CCameraFilterPass::kFS_Fullscreen,
                                   CColor::Black().WithAlphaOf(0.5f), nullptr, 1.f);

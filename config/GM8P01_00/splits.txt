@@ -100,9 +100,13 @@ MetroidPrime/CMFGame.cpp:
 	.sdata2     start:0x8046C170 end:0x8046C174
 
 MetroidPrime/CCredits.cpp:
-	.text       start:0x800268E8 end:0x800295D4
+	.text       start:0x800268E0 end:0x80029684
+	.ctors      start:0x803B4FA0 end:0x803B4FA4
+	.rodata     start:0x803B6F80 end:0x803B71D0
 	.data       start:0x803C4EA8 end:0x803C4F08
+	.bss        start:0x803E3020 end:0x803E3050
 	.sdata      start:0x80468E08 end:0x80468E38
+	.sbss       start:0x8046ADD8 end:0x8046ADE0
 	.sdata2     start:0x8046C180 end:0x8046C1F8
 
 MetroidPrime/CSplashScreen.cpp:
@@ -1640,7 +1644,7 @@ MetroidPrime/ScriptObjects/CScriptMemoryRelay.cpp:
 	.data       start:0x803D0F00 end:0x803D0F20
 
 MetroidPrime/CPauseScreenFrame.cpp:
-	.text       start:0x80231410 end:0x8023496C
+	.text       start:0x80231410 end:0x80234ACC
 	.rodata     start:0x803BEE10 end:0x803BF1A8
 	.data       start:0x803D0F20 end:0x803D10C8
 	.sdata      start:0x8046A368 end:0x8046A378

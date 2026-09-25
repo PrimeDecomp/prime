@@ -52,7 +52,11 @@ public:
   void StartGame(int idx);
   void ResetCardDriver();
   void ProcessUserInput(const CFinalInput& input);
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  void Draw();
+#else
   void Draw() const;
+#endif
   static bool IsHiddenFromFrontEnd(EUIType type);
   void SetInGame(bool inGame);
   void SaveNESState();
