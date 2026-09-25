@@ -26,63 +26,63 @@
 
 
 CMapArea::CMapArea(CInputStream& in, uint size)
-: x0_magic(in.ReadLong())
-, x4_version(in.ReadLong())
+: mMagic(in.ReadLong())
+, mVersion(in.ReadLong())
 , x8_(in.ReadLong())
-, xc_visibilityMode(static_cast<EVisMode>(in.ReadLong()))
-, x10_box(in)
-, x28_mappableObjCount(in.ReadLong())
-, x2c_vertexCount(in.ReadLong())
-, x30_surfaceCount(in.ReadLong()) {
-  x34_size = size - 52;
-  x44_buf = rs_new uchar[x34_size];
-  in.Get(x44_buf.get(), x34_size);
+, mVisibilityMode(static_cast<EVisMode>(in.ReadLong()))
+, mBox(in)
+, mMappableObjCount(in.ReadLong())
+, mVertexCount(in.ReadLong())
+, mSurfaceCount(in.ReadLong()) {
+  mSize = size - 52;
+  mBuf = rs_new uchar[mSize];
+  in.Get(mBuf.get(), mSize);
   PostConstruct();
 
-  DCFlushRange(x3c_vertexStart, x2c_vertexCount * 0xc);
-  CMemoryDrawEnum::AddWorldMemory(x34_size + sizeof(*this));
+  DCFlushRange(mVertexStart, mVertexCount * 0xc);
+  CMemoryDrawEnum::AddWorldMemory(mSize + sizeof(*this));
 }
 
 CMapArea::~CMapArea() {
-  CMemoryDrawEnum::SubtractWorldMemory(x34_size + sizeof(*this));
-  CFrameDelayedKiller::ScheduleDeletion(CFrameDelayedKiller::kWhichFrame_NextFrame, x44_buf.release());
+  CMemoryDrawEnum::SubtractWorldMemory(mSize + sizeof(*this));
+  CFrameDelayedKiller::ScheduleDeletion(CFrameDelayedKiller::kWhichFrame_NextFrame, mBuf.release());
 }
 
 void CMapArea::PostConstruct() {
-  uchar* moStart = x44_buf.get();;
-  x38_moStart = reinterpret_cast< CMappableObject* >(x44_buf.get());
-  moStart += x28_mappableObjCount * sizeof(CMappableObject);
-  x3c_vertexStart = reinterpret_cast< CVector3f* >(moStart);
-  moStart += x2c_vertexCount * sizeof(CVector3f);
+  uchar* moStart = mBuf.get();;
+  mMoStart = reinterpret_cast< CMappableObject* >(mBuf.get());
+  moStart += mMappableObjCount * sizeof(CMappableObject);
+  mVertexStart = reinterpret_cast< CVector3f* >(moStart);
+  moStart += mVertexCount * sizeof(CVector3f);
 #if UINTPTR_MAX == UINT32_MAX
-  x40_surfaceStart = reinterpret_cast< CMapAreaSurface* >(moStart);
+  mSurfaceStart = reinterpret_cast< CMapAreaSurface* >(moStart);
 #endif
 
-  for (int i = 0; i < x28_mappableObjCount; ++i) {
-    x38_moStart[i].PostConstruct(x44_buf.get());
+  for (int i = 0; i < mMappableObjCount; ++i) {
+    mMoStart[i].PostConstruct(mBuf.get());
   }
-  float* floatStart = reinterpret_cast< float* >(x3c_vertexStart);
-  for (int i = 0; i < x2c_vertexCount * 3; ++i) {
+  float* floatStart = reinterpret_cast< float* >(mVertexStart);
+  for (int i = 0; i < mVertexCount * 3; ++i) {
     floatStart[i] = CBasics::SwapBytes(floatStart[i]);
   }
 #if UINTPTR_MAX > UINT32_MAX
   // Each serialized surface has six floats and two 32-bit offsets, regardless
   // of the host pointer size. Keep the resolved pointers in native records.
-  CMemoryInStream surfaces(moStart, x30_surfaceCount * 32);
-  mNativeSurfaces.reserve(x30_surfaceCount);
-  for (int i = 0; i < x30_surfaceCount; ++i) {
-    mNativeSurfaces.push_back(CMapAreaSurface(surfaces, x44_buf.get()));
+  CMemoryInStream surfaces(moStart, mSurfaceCount * 32);
+  mNativeSurfaces.reserve(mSurfaceCount);
+  for (int i = 0; i < mSurfaceCount; ++i) {
+    mNativeSurfaces.push_back(CMapAreaSurface(surfaces, mBuf.get()));
   }
-  x40_surfaceStart = mNativeSurfaces.data();
+  mSurfaceStart = mNativeSurfaces.data();
 #else
-  for (int i = 0; i < x30_surfaceCount; ++i) {
-    x40_surfaceStart[i].PostConstruct(x44_buf.get());
+  for (int i = 0; i < mSurfaceCount; ++i) {
+    mSurfaceStart[i].PostConstruct(mBuf.get());
   }
 #endif
 }
 
 bool CMapArea::GetIsVisibleToAutoMapper(bool worldVis, bool areaVis) const {
-  switch (xc_visibilityMode) {
+  switch (mVisibilityMode) {
   case kVM_Always:
     return true;
   case kVM_MapStationOrVisit:
@@ -96,45 +96,45 @@ bool CMapArea::GetIsVisibleToAutoMapper(bool worldVis, bool areaVis) const {
   }
 }
 
-CVector3f CMapArea::GetAreaCenterPoint() const { return x10_box.GetCenterPoint(); }
+CVector3f CMapArea::GetAreaCenterPoint() const { return mBox.GetCenterPoint(); }
 
 #if UINTPTR_MAX > UINT32_MAX
 CMapArea::CMapAreaSurface::CMapAreaSurface(CInputStream& in, const void* buf)
-: x0_normal(in)
-, xc_centroid(in)
-, x18_surfOffset(reinterpret_cast< const int* >(static_cast< const uchar* >(buf) + in.ReadLong()))
-, x1c_outlineOffset(reinterpret_cast< const int* >(static_cast< const uchar* >(buf) + in.ReadLong())) {}
+: mNormal(in)
+, mCentroid(in)
+, mSurfOffset(reinterpret_cast< const int* >(static_cast< const uchar* >(buf) + in.ReadLong()))
+, mOutlineOffset(reinterpret_cast< const int* >(static_cast< const uchar* >(buf) + in.ReadLong())) {}
 #else
 void CMapArea::CMapAreaSurface::PostConstruct(const void* buf) {
 #if TARGET_LITTLE_ENDIAN
-  x0_normal = CVector3f(CBasics::SwapBytes(x0_normal.GetX()), CBasics::SwapBytes(x0_normal.GetY()),
-                        CBasics::SwapBytes(x0_normal.GetZ()));
-  xc_centroid = CVector3f(CBasics::SwapBytes(xc_centroid.GetX()),
-                          CBasics::SwapBytes(xc_centroid.GetY()),
-                          CBasics::SwapBytes(xc_centroid.GetZ()));
-  x18_surfOffset = reinterpret_cast< const int* >(
+  mNormal = CVector3f(CBasics::SwapBytes(mNormal.GetX()), CBasics::SwapBytes(mNormal.GetY()),
+                        CBasics::SwapBytes(mNormal.GetZ()));
+  mCentroid = CVector3f(CBasics::SwapBytes(mCentroid.GetX()),
+                          CBasics::SwapBytes(mCentroid.GetY()),
+                          CBasics::SwapBytes(mCentroid.GetZ()));
+  mSurfOffset = reinterpret_cast< const int* >(
       static_cast< const uchar* >(buf) +
-      CBasics::SwapBytes(static_cast< uint >(reinterpret_cast< uintptr_t >(x18_surfOffset))));
-  x1c_outlineOffset = reinterpret_cast< const int* >(
+      CBasics::SwapBytes(static_cast< uint >(reinterpret_cast< uintptr_t >(mSurfOffset))));
+  mOutlineOffset = reinterpret_cast< const int* >(
       static_cast< const uchar* >(buf) +
-      CBasics::SwapBytes(static_cast< uint >(reinterpret_cast< uintptr_t >(x1c_outlineOffset))));
+      CBasics::SwapBytes(static_cast< uint >(reinterpret_cast< uintptr_t >(mOutlineOffset))));
 #else
-  x18_surfOffset = reinterpret_cast< const int* >(static_cast< const uchar* >(buf) +
-                                                  reinterpret_cast< uintptr_t >(x18_surfOffset));
-  x1c_outlineOffset = reinterpret_cast< const int* >(
-      static_cast< const uchar* >(buf) + reinterpret_cast< uintptr_t >(x1c_outlineOffset));
+  mSurfOffset = reinterpret_cast< const int* >(static_cast< const uchar* >(buf) +
+                                                  reinterpret_cast< uintptr_t >(mSurfOffset));
+  mOutlineOffset = reinterpret_cast< const int* >(
+      static_cast< const uchar* >(buf) + reinterpret_cast< uintptr_t >(mOutlineOffset));
 #endif
 
-  int numSurfaces = CBasics::SwapBytes(*x18_surfOffset);
-  const int* surfOffset = x18_surfOffset + 1;
+  int numSurfaces = CBasics::SwapBytes(*mSurfOffset);
+  const int* surfOffset = mSurfOffset + 1;
   for (int i = 0; i < numSurfaces; ++i) {
     int numVertices = CBasics::SwapBytes(*++surfOffset);
     surfOffset++; // skip primitive type
     surfOffset += ((numVertices + 3) & ~3) / 4;
   }
 
-  int numOutlines = CBasics::SwapBytes(*x1c_outlineOffset);
-  const int* outlineOffset = x1c_outlineOffset + 1;
+  int numOutlines = CBasics::SwapBytes(*mOutlineOffset);
+  const int* outlineOffset = mOutlineOffset + 1;
   for (int i = 0; i < numOutlines; ++i) {
     int numVertices = CBasics::SwapBytes(*outlineOffset++);
     outlineOffset += ((numVertices + 3) & ~3) / 4;
@@ -151,14 +151,14 @@ void CMapArea::CMapAreaSurface::Draw(const CVector3f* verts, const CColor& surfC
                                      const CColor& lineColor, float lineWidth) const {
   bool hasSurfAlpha = surfColor.GetAlpha() > 0.0f;
   bool hasLineAlpha = lineColor.GetAlpha() > 0.0f;
-  int numSurfaces = CBasics::SwapBytes(*x18_surfOffset);
-  int numOutlines = CBasics::SwapBytes(*x1c_outlineOffset);
+  int numSurfaces = CBasics::SwapBytes(*mSurfOffset);
+  int numOutlines = CBasics::SwapBytes(*mOutlineOffset);
   if (verts) {
     CGX::SetArray(GX_VA_POS, verts, sizeof(CVector3f));
   }
   if (hasSurfAlpha) {
     CGX::SetTevKColor(GX_KCOLOR0, surfColor.GetGXColor());
-    const int* surface = &x18_surfOffset[1];
+    const int* surface = &mSurfOffset[1];
     for (int i = 0; i < numSurfaces; ++i) {
       uint primitive = *surface++;
       primitive = CBasics::SwapBytes(primitive);
@@ -178,7 +178,7 @@ void CMapArea::CMapAreaSurface::Draw(const CVector3f* verts, const CColor& surfC
   if (hasLineAlpha) {
     bool thickLine = lineWidth > 1.f;
     for (int j = 0; j < (thickLine ? 1 : 0) + 1; ++j) {
-      const int* outline = &x1c_outlineOffset[1];
+      const int* outline = &mOutlineOffset[1];
 
       if (thickLine) {
         CGraphics::SetLineWidth(lineWidth - j, kTO_One);

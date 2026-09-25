@@ -59,15 +59,15 @@ CGuiTextPane::CGuiTextPane(const CGuiWidgetParms& parms, CSimplePool* sp, const 
                          const CGuiTextProperties& props, const CColor& col1, const CColor& col2,
                          const int padX, const int padY, CAssetId jpFontId, int jpExtentX, int jpExtentY)
 : CGuiPane(parms, dimX, dimY, vec)
-, xd4_textSupport(fontId, padX, padY, props, col1, col2, CColor::White(), sp)
-, xd00_drawShadow(false) {}
+, mTextSupport(fontId, padX, padY, props, col1, col2, CColor::White(), sp)
+, mDrawShadow(false) {}
 #else
 CGuiTextPane::CGuiTextPane(const CGuiWidgetParms& parms, CSimplePool* sp, const float dimX,
                          const float dimY, const CVector3f& vec, const CAssetId fontId,
                          const CGuiTextProperties& props, const CColor& col1, const CColor& col2,
                          const int padX, const int padY)
 : CGuiPane(parms, dimX, dimY, vec)
-, xd4_textSupport(fontId, props, col1, col2, CColor::White(), padX, padY, sp) {}
+, mTextSupport(fontId, props, col1, col2, CColor::White(), padX, padY, sp) {}
 #endif
 
 CGuiTextPane::~CGuiTextPane() {}
@@ -98,23 +98,23 @@ void CGuiTextPane::Draw(const CGuiWidgetDrawParms& parms) const {
   CColor geomCol = GetModifiedColor().WithAlphaModulatedBy(parms.GetAlpha());
   CGraphics::SetDepthWriteMode(GetIsAlwaysDepthRead(), kE_LEqual, GetIsAlwaysDepthWrite());
 
-  if (xd00_drawShadow) {
+  if (mDrawShadow) {
     CGraphics::SetModelMatrix(model * CTransform4f::Translate(2.f, 0.f, -2.f));
-    xd4_textSupport.SetGeometryColor(
+    mTextSupport.SetGeometryColor(
         CColor(static_cast< uchar >(0), static_cast< uchar >(0), static_cast< uchar >(0))
             .WithAlphaOf(0.99f * geomCol.GetAlpha()));
     CGraphics::SetBlendMode(kBM_Blend, kBF_SrcAlpha, kBF_InvSrcAlpha, kLO_Clear);
-    xd4_textSupport.Render();
+    mTextSupport.Render();
   }
 
   CGraphics::SetModelMatrix(model);
-  CGuiTextSupport& text = xd4_textSupport;
+  CGuiTextSupport& text = mTextSupport;
   text.SetGeometryColor(geomCol);
 #else
   CGraphics::SetModelMatrix(model);
 
   CColor geomCol = GetModifiedColor().WithAlphaModulatedBy(parms.GetAlpha());
-  CGuiTextSupport& text = xd4_textSupport;
+  CGuiTextSupport& text = mTextSupport;
   text.SetGeometryColor(geomCol);
   CGraphics::SetDepthWriteMode(GetIsAlwaysDepthRead(), kE_LEqual, GetIsAlwaysDepthWrite());
 #endif

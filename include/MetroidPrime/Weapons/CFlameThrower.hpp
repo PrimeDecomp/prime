@@ -28,7 +28,7 @@ public:
   void Touch(CActor& actor, CStateManager& mgr) override;
 
   void Reset(CStateManager& mgr, bool resetWarp);
-  bool GetParticlesActive() const { return x400_25_particlesActive; }
+  bool GetParticlesActive() const { return mParticlesActive; }
 
   void Fire(const CTransform4f&, CStateManager& mgr, bool);
 
@@ -47,22 +47,22 @@ private:
   void ApplyDamageToWorld(CStateManager& mgr, TUniqueId id, const CVector3f& point,
                           const CDamageInfo& dInfo, const CMaterialFilter& filter);
 
-  CTransform4f x2e8_flameXf;
-  CAABox x318_flameBounds;
-  float x330_particleWaitDelayTimer;
-  float x334_fireStopTimer;
-  float x338_flame;
-  TLockedToken< CGenDescription > x33c_flamethrowerDesc;
-  rstl::single_ptr< CElementGen > x348_flameGen;
-  CFlameWarp x34c_flameWarp;
-  EFlameState x3f0_flameState;
-  CAssetId x3f4_playerSteamTextureId;
-  ushort x3f8_playerHitSfx;
-  CAssetId x3fc_playerIceTextureId;
-  bool x400_24_active : 1;
-  bool x400_25_particlesActive : 1;
-  bool x400_26_zTest : 1;
-  bool x400_27_coneCollision : 1;
+  CTransform4f mFlameXf;
+  CAABox mFlameBounds;
+  float mParticleWaitDelayTimer;
+  float mFireStopTimer;
+  float mFlame;
+  TLockedToken< CGenDescription > mFlamethrowerDesc;
+  rstl::single_ptr< CElementGen > mFlameGen;
+  CFlameWarp mFlameWarp;
+  EFlameState mFlameState;
+  CAssetId mPlayerSteamTextureId;
+  ushort mPlayerHitSfx;
+  CAssetId mPlayerIceTextureId;
+  bool mActive : 1;
+  bool mParticlesActive : 1;
+  bool mZTest : 1;
+  bool mConeCollision : 1;
   bool x428_28_ : 1;
 
   static const CVector3f kLightOffset;

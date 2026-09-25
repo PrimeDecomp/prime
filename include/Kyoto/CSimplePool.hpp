@@ -29,15 +29,15 @@ public:
   CToken GetObj(const char* name, const CVParamTransfer& xfer) override;
   bool HasObject(const SObjectTag& tag) const override;
   bool ObjectIsLive(const SObjectTag& tag) const override;
-  IFactory& GetFactory() const override { return x18_factory; }
+  IFactory& GetFactory() const override { return mFactory; }
   void Flush() override;
   void ObjectUnreferenced(const SObjectTag& tag) override;
   rstl::vector< SObjectTag > GetReferencedTags();
 
 private:
-  ResourceMap x4_resources;
-  IFactory& x18_factory;
-  CVParamTransfer x1c_paramXfr;
+  ResourceMap mResources;
+  IFactory& mFactory;
+  CVParamTransfer mParamXfr;
 };
 CHECK_SIZEOF(CSimplePool, 0x20)
 

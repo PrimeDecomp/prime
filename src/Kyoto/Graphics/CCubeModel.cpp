@@ -23,16 +23,16 @@ CCubeModel::CCubeModel(rstl::vector< void* >* surfaces,
                        const void* positions, const void* normals, const void* colors,
                        const void* uvs, const void* compressedUvs, const CAABox& bounds,
                        const uchar visorFlags, const bool texturesLoaded, const uint idx)
-: x0_instance(*surfaces, materialData, positions, normals, colors, uvs, compressedUvs)
-, x1c_textures(textures)
-, x20_bounds(bounds)
-, x38_firstUnsorted(nullptr)
-, x3c_firstSorted(nullptr)
-, x40_24_loadTextures(static_cast< uchar >(!texturesLoaded))
-, x40_25_visible(false)
-, x41_visorFlags(visorFlags)
-, x44_idx(idx) {
-  rstl::vector< void* >& surf = x0_instance.Surfaces();
+: mInstance(*surfaces, materialData, positions, normals, colors, uvs, compressedUvs)
+, mTextures(textures)
+, mBounds(bounds)
+, mFirstUnsorted(nullptr)
+, mFirstSorted(nullptr)
+, mLoadTextures(static_cast< uchar >(!texturesLoaded))
+, mVisible(false)
+, mVisorFlags(visorFlags)
+, mIdx(idx) {
+  rstl::vector< void* >& surf = mInstance.Surfaces();
   for (AUTO(it, surf.begin()); it != surf.end(); ++it) {
     CCubeSurface::SSurfaceData* data = static_cast< CCubeSurface::SSurfaceData* >(*it);
     data->mParent = this;
@@ -42,11 +42,11 @@ CCubeModel::CCubeModel(rstl::vector< void* >* surfaces,
     void*& data = surf[i - 1];
     uint materialIndex = static_cast< CCubeSurface::SSurfaceData* >(data)->mMaterialIndex;
     if (GetMaterialByIndex(materialIndex).IsFlagSet(kStateFlag_DepthSorting)) {
-      static_cast< CCubeSurface::SSurfaceData* >(data)->mNextSurface = x3c_firstSorted.x0_rawdata;
-      x3c_firstSorted.x0_rawdata = static_cast< uchar* >(data);
+      static_cast< CCubeSurface::SSurfaceData* >(data)->mNextSurface = mFirstSorted.mRawdata;
+      mFirstSorted.mRawdata = static_cast< uchar* >(data);
     } else {
-      static_cast< CCubeSurface::SSurfaceData* >(data)->mNextSurface = x38_firstUnsorted.x0_rawdata;
-      x38_firstUnsorted.x0_rawdata = static_cast< uchar* >(data);
+      static_cast< CCubeSurface::SSurfaceData* >(data)->mNextSurface = mFirstUnsorted.mRawdata;
+      mFirstUnsorted.mRawdata = static_cast< uchar* >(data);
     }
   }
 }
@@ -69,9 +69,9 @@ void CCubeModel::MakeTexturesFromMats(const void* data,
 }
 
 void CCubeModel::SetStaticArraysCurrent() const {
-  CGX::SetArray(GX_VA_CLR0, x0_instance.GetColorPointer(), sizeof(CColor));
-  const void* packed = x0_instance.GetPackedTCPointer();
-  const void* unpacked = x0_instance.GetTCPointer();
+  CGX::SetArray(GX_VA_CLR0, mInstance.GetColorPointer(), sizeof(CColor));
+  const void* packed = mInstance.GetPackedTCPointer();
+  const void* unpacked = mInstance.GetTCPointer();
   if (!packed) {
     sUsingPackedLightmaps = false;
   }
@@ -92,32 +92,32 @@ void CCubeModel::SetStaticArraysCurrent() const {
 }
 
 void CCubeModel::SetArraysCurrent() const {
-  CGX::SetArray(GX_VA_POS, x0_instance.GetVertexPointer(), sizeof(CVector3f));
-  const int stride = (x41_visorFlags & 1) ? sizeof(short) * 3 : sizeof(CVector3f);
-  CGX::SetArray(GX_VA_NRM, x0_instance.GetNormalPointer(), stride);
+  CGX::SetArray(GX_VA_POS, mInstance.GetVertexPointer(), sizeof(CVector3f));
+  const int stride = (mVisorFlags & 1) ? sizeof(short) * 3 : sizeof(CVector3f);
+  CGX::SetArray(GX_VA_NRM, mInstance.GetNormalPointer(), stride);
   SetStaticArraysCurrent();
 }
 
 void CCubeModel::SetSkinningArraysCurrent(const float* positions, const float* normals) const {
   CGraphics::sRenderState.SetVtxState(positions, normals,
-                                      static_cast< const uint* >(x0_instance.GetColorPointer()));
+                                      static_cast< const uint* >(mInstance.GetColorPointer()));
   SetStaticArraysCurrent();
 }
 
 void CCubeModel::SetUsingPackedLightmaps(const bool use) const {
   sUsingPackedLightmaps = use;
   if (sUsingPackedLightmaps) {
-    CGX::SetArray(GX_VA_TEX0, x0_instance.GetPackedTCPointer(), sizeof(ushort) * 2);
+    CGX::SetArray(GX_VA_TEX0, mInstance.GetPackedTCPointer(), sizeof(ushort) * 2);
   } else {
-    CGX::SetArray(GX_VA_TEX0, x0_instance.GetTCPointer(), sizeof(CVector2f));
+    CGX::SetArray(GX_VA_TEX0, mInstance.GetTCPointer(), sizeof(CVector2f));
   }
 }
 
 CCubeMaterial CCubeModel::GetMaterialByIndex(const int idx) const {
   uint materialCount = 0;
   uint materialOffset = 0;
-  const uchar* materialData = static_cast< const uchar* >(x0_instance.GetMaterialPointer()) +
-                              (x1c_textures->size() + 1) * 4;
+  const uchar* materialData = static_cast< const uchar* >(mInstance.GetMaterialPointer()) +
+                              (mTextures->size() + 1) * 4;
   materialCount = *reinterpret_cast< const uint* >(materialData++);
   materialCount = CBasics::SwapBytes(materialCount);
   materialData++;
@@ -253,7 +253,7 @@ void CCubeModel::DrawSurfaceWireframe(const CCubeSurface& surface) const {
 }
 
 bool CCubeModel::TryLockTextures() const {
-  if (!x40_24_loadTextures) {
+  if (!mLoadTextures) {
     bool texturesLoading = false;
     for (int i = 0; i < GetTextures().size(); ++i) {
       GetTextures()[i].Lock();
@@ -265,11 +265,11 @@ bool CCubeModel::TryLockTextures() const {
     }
 
     if (!texturesLoading) {
-      x40_24_loadTextures = true;
+      mLoadTextures = true;
     }
   }
 
-  return !!x40_24_loadTextures;
+  return !!mLoadTextures;
 }
 
 void CCubeModel::DrawSurfaces(const CModelFlags& flags) const {
@@ -331,7 +331,7 @@ void CCubeModel::DrawFlat(const float* positions, const float* normals,
   }
 
   if (which != kSS_Sorted) {
-    for (CCubeSurface surface = x38_firstUnsorted; surface.IsValid();
+    for (CCubeSurface surface = mFirstUnsorted; surface.IsValid();
          surface = surface.GetNextSurface()) {
       CCubeMaterial material = GetMaterialByIndex(surface.GetMaterialIndex());
       CGX::SetVtxDescv_Compressed(material.GetVertexDescLwzx());
@@ -340,7 +340,7 @@ void CCubeModel::DrawFlat(const float* positions, const float* normals,
   }
 
   if (which != kSS_Unsorted) {
-    for (CCubeSurface surface = x3c_firstSorted; surface.IsValid();
+    for (CCubeSurface surface = mFirstSorted; surface.IsValid();
          surface = surface.GetNextSurface()) {
       CCubeMaterial material = GetMaterialByIndex(surface.GetMaterialIndex());
       CGX::SetVtxDescv_Compressed(material.GetVertexDescLwzx());
@@ -381,19 +381,19 @@ void CCubeModel::SetDrawingOccluders(const bool drawOccluders) {
 void CCubeModel::SetModelWireframe(const bool drawWireframe) { sDrawingWireframe = drawWireframe; }
 
 void CCubeModel::UnlockTextures() const {
-  for (AUTO(texture, x1c_textures->begin()); texture != x1c_textures->end(); ++texture) {
+  for (AUTO(texture, mTextures->begin()); texture != mTextures->end(); ++texture) {
     texture->Unlock();
   }
 
-  x40_24_loadTextures = false;
+  mLoadTextures = false;
 }
 
 void CCubeModel::RemapMaterialData(const void* data,
                                    rstl::vector< TCachedToken< CTexture > >* texture) {
 
-  x0_instance.SetMaterialPointer(data);
-  x1c_textures = texture;
-  x40_24_loadTextures = false;
+  mInstance.SetMaterialPointer(data);
+  mTextures = texture;
+  mLoadTextures = false;
 }
 
 void CCubeModel::DrawNormal(const float* positions, const float* normals,

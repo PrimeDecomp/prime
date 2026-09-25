@@ -17,7 +17,7 @@
 
 const CFactoryFnReturn RGuiFrameFactoryInGame(const SObjectTag& tag, CInputStream& in,
                                       const CVParamTransfer& xfer) {
-  rstl::rc_ptr< IVParamObj > obj = xfer.x0_obj;
+  rstl::rc_ptr< IVParamObj > obj = xfer.mObj;
   CSimplePool* pool = static_cast< TObjOwnerParam< CSimplePool* >* >(obj.GetPtr())->GetData();
   CGuiFrame* const frame =
       CGuiFrame::CreateFrame(tag.GetId(), *CGuiSys::GetGlobalGuiSys(), in, pool);

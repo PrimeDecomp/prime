@@ -30,13 +30,13 @@ public:
                 const TLockedToken< CCharLayoutInfo >&, EDataOwnership);
   virtual ~CSkinnedModel();
 
-  TLockedToken< CModel >& Model() { return x4_model; }
-  const TLockedToken< CModel >& GetModel() const { return x4_model; }
-  const TLockedToken< CCharLayoutInfo >& GetLayoutInfo() const { return x1c_layoutInfo; }
-  void SetLayoutInfo(const TLockedToken< CCharLayoutInfo >& layout) { x1c_layoutInfo = layout; }
+  TLockedToken< CModel >& Model() { return mModel; }
+  const TLockedToken< CModel >& GetModel() const { return mModel; }
+  const TLockedToken< CCharLayoutInfo >& GetLayoutInfo() const { return mLayoutInfo; }
+  void SetLayoutInfo(const TLockedToken< CCharLayoutInfo >& layout) { mLayoutInfo = layout; }
 
   void CalculateDefault();
-  int GetNumPoints() const { return x10_skinRules->GetNumPoints(); }
+  int GetNumPoints() const { return mSkinRules->GetNumPoints(); }
   const CVector3f* GetPositions() const;
   void Calculate(const CPoseAsTransforms&, const rstl::optional_object< CVertexMorphEffect >&,
                  const float*, float*);
@@ -70,23 +70,23 @@ public:
   }
 
 private:
-  TLockedToken< CModel > x4_model;
-  TLockedToken< CSkinRules > x10_skinRules;
-  TLockedToken< CCharLayoutInfo > x1c_layoutInfo;
-  mutable rstl::auto_ptr< float > x28_vertWorkspace;
-  mutable rstl::auto_ptr< float > x30_normalWorkspace;
-  bool x38_owned;
-  bool x39_disableWorkspaces;
+  TLockedToken< CModel > mModel;
+  TLockedToken< CSkinRules > mSkinRules;
+  TLockedToken< CCharLayoutInfo > mLayoutInfo;
+  mutable rstl::auto_ptr< float > mVertWorkspace;
+  mutable rstl::auto_ptr< float > mNormalWorkspace;
+  bool mOwned;
+  bool mDisableWorkspaces;
 };
 
 class CSkinnedModelWithAvgNormals {
-  CSkinnedModel x0_skinnedModel;
-  rstl::auto_ptr< float > x3c_avgNormals;
+  CSkinnedModel mSkinnedModel;
+  rstl::auto_ptr< float > mAvgNormals;
 
 public:
   CSkinnedModelWithAvgNormals(const CSkinnedModel& model);
-  const CSkinnedModel& GetSkinnedModel() const { return x0_skinnedModel; }
-  float* GetAvgNormals() const { return x3c_avgNormals.get(); }
+  const CSkinnedModel& GetSkinnedModel() const { return mSkinnedModel; }
+  float* GetAvgNormals() const { return mAvgNormals.get(); }
 };
 
 #endif // _CSKINNEDMODEL

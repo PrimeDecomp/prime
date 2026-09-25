@@ -35,9 +35,9 @@ class CHudThreatInterface
 public:
   struct StringTableHolder {
     public:
-      int x0_pad;
-      int x4_pad;
-      CStringTable* x8_table;
+      int mPad0;
+      int mPad1;
+      CStringTable* mTable;
   };
 
   void SetThreatDistance(float distance);
@@ -67,29 +67,29 @@ private:
   const rstl::wstring BuildWarningString(EThreatStatus status);
 
 #if VERSION >= VERSION_GM8P_00
-  StringTableHolder* x0_stringTable;
+  StringTableHolder* mStringTable;
 #endif
 
-  EHudType x4_hudType;
-  float x8_damagePulseTimer;
-  float xc_damagePulse;
-  float x10_threatDist;
-  float x14_arrowTimer;
-  CTransform4f x18_threatIconXf;
-  float x48_warningLerpAlpha;
-  EThreatStatus x4c_threatStatus;
-  float x50_warningColorLerp;
-  bool x54_24_visibleDebug : 1;
-  bool x54_25_visibleGame : 1;
-  bool x54_26_hasArrows : 1;
-  bool x54_27_notXRay : 1;
-  CGuiWidget* x58_basewidget_threatstuff;
-  CGuiWidget* x5c_basewidget_threaticon;
-  CGuiModel* x60_model_threatarrowup;
-  CGuiModel* x64_model_threatarrowdown;
-  CGuiTextPane* x68_textpane_threatwarning;
-  CAuiEnergyBarT01* x6c_energybart01_threatbar;
-  CGuiTextPane* x70_textpane_threatdigits;
+  EHudType mHudType;
+  float mDamagePulseTimer;
+  float mDamagePulse;
+  float mThreatDist;
+  float mArrowTimer;
+  CTransform4f mThreatIconXf;
+  float mWarningLerpAlpha;
+  EThreatStatus mThreatStatus;
+  float mWarningColorLerp;
+  bool mVisibleDebug : 1;
+  bool mVisibleGame : 1;
+  bool mHasArrows : 1;
+  bool mNotXRay : 1;
+  CGuiWidget* mBasewidget_threatstuff;
+  CGuiWidget* mBasewidget_threaticon;
+  CGuiModel* mModel_threatarrowup;
+  CGuiModel* mModel_threatarrowdown;
+  CGuiTextPane* mTextpane_threatwarning;
+  CAuiEnergyBarT01* mEnergybart01_threatbar;
+  CGuiTextPane* mTextpane_threatdigits;
 };
 CHECK_SIZEOF(CHudThreatInterface, 0x74)
 

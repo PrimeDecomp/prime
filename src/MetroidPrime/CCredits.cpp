@@ -165,39 +165,39 @@ static const char* GetMovieName(int movie) {
 
 CPlayMovie::CPlayMovie(EWhichMovie movie)
 : CIOWin(rstl::string_l("PlayMovie"))
-, x14_state(0)
-, x18_which(movie)
-, x38_moviePlayer(nullptr)
-, x3c_movieIndex(-1)
-, x48_completionScreenStrings(static_cast< CStringTable* >(nullptr))
-, x50_largeFont(static_cast< CRasterFont* >(nullptr))
-, x68_textDelay(gpTweakGui->GetCompletionScreenTextDelay())
-, x6c_resultsTime(0.f)
-, x70_pulseTime(gpTweakGui->GetCompletionScreenPulseTime())
-, x74_printedCharacters(0.f)
+, mState(0)
+, mWhich(movie)
+, mMoviePlayer(nullptr)
+, mMovieIndex(-1)
+, mCompletionScreenStrings(static_cast< CStringTable* >(nullptr))
+, mLargeFont(static_cast< CRasterFont* >(nullptr))
+, mTextDelay(gpTweakGui->GetCompletionScreenTextDelay())
+, mResultsTime(0.f)
+, mPulseTime(gpTweakGui->GetCompletionScreenPulseTime())
+, mPrintedCharacters(0.f)
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-, x78_pulseStartColor(skPulseStartColor)
-, x7c_pulseEndColor(skPulseEndColor)
+, mPulseStartColor(skPulseStartColor)
+, mPulseEndColor(skPulseEndColor)
 #endif
-, x78_24_finished(false)
-, x78_25_exit(false)
-, x78_26_resultsScreen(false)
-, x78_27_quitScreen(false) {
-  if (IsGameWon(x18_which)) {
-    x78_26_resultsScreen = true;
+, mFinished(false)
+, mExit(false)
+, mResultsScreen(false)
+, mQuitScreenFlag(false) {
+  if (IsGameWon(mWhich)) {
+    mResultsScreen = true;
   } else if (movie == kWM_LoseGame) {
-    x40_quitScreen = rs_new CQuitGameScreen(kQT_ContinueFromLastSave);
-    x78_27_quitScreen = true;
+    mQuitScreen = rs_new CQuitGameScreen(kQT_ContinueFromLastSave);
+    mQuitScreenFlag = true;
   }
   CGraphics::SetIsBeginSceneClearFb(true);
-  if (x78_26_resultsScreen) {
-    x48_completionScreenStrings =
+  if (mResultsScreen) {
+    mCompletionScreenStrings =
         gpSimplePool->GetObj(gpTweakGui->GetCompletionScreenTable().data());
-    x48_completionScreenStrings.Lock();
-    x50_largeFont = gpSimplePool->GetObj(gpTweakGui->GetCompletionScreenTitleFont().data());
-    x50_largeFont.Lock();
+    mCompletionScreenStrings.Lock();
+    mLargeFont = gpSimplePool->GetObj(gpTweakGui->GetCompletionScreenTitleFont().data());
+    mLargeFont.Lock();
     int start = 0;
-    switch (x18_which) {
+    switch (mWhich) {
 #if VERSION == VERSION_GM8E_48 || (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02)
     case kWM_WinGameBad:
       start = 0;
@@ -221,16 +221,16 @@ CPlayMovie::CPlayMovie(EWhichMovie movie)
     const int end = start + 3;
     for (int i = start; i < end; ++i) {
       const bool loop = i % 3 == 1;
-      x1c_movies.push_back(rstl::auto_ptr< CMoviePlayer >(
+      mMovies.push_back(rstl::auto_ptr< CMoviePlayer >(
           rs_new CMoviePlayer(skCompletionMovieNames[i], 0.05f, loop, false)));
     }
   } else {
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
     const char* movieName = GetMovieName(movie);
-    x1c_movies.push_back(rstl::auto_ptr< CMoviePlayer >(
+    mMovies.push_back(rstl::auto_ptr< CMoviePlayer >(
         rs_new CMoviePlayer(movieName, 0.f, false, movie == kWM_LoseGame)));
 #else
-    x1c_movies.push_back(rstl::auto_ptr< CMoviePlayer >(
+    mMovies.push_back(rstl::auto_ptr< CMoviePlayer >(
         rs_new CMoviePlayer(skMovieNames[movie], 0.f, false, movie == kWM_LoseGame)));
 #endif
   }
@@ -247,57 +247,57 @@ CIOWin::EMessageReturn CPlayMovie::OnMessage(const CArchitectureMessage& msg,
   switch (msg.GetType()) {
   case kAM_TimerTick: {
     const float dt = MakeMsg::GetParmTimerTick(msg).GetReal();
-    switch (x14_state) {
+    switch (mState) {
     case 0: {
-      if (x78_26_resultsScreen) {
-        if (!x48_completionScreenStrings.IsLoaded() || !x50_largeFont.IsLoaded()) {
+      if (mResultsScreen) {
+        if (!mCompletionScreenStrings.IsLoaded() || !mLargeFont.IsLoaded()) {
           return kMR_Exit;
         }
         const int width = CGraphics::GetViewport().mWidth;
         const int height = CGraphics::GetViewport().mHeight;
         const SObjectTag* font = gpResourceFactory->GetResourceIdByName(
             gpTweakGui->GetCompletionScreenTitleFont().data());
-        x58_titleText = rs_new CGuiTextSupport(
+        mTitleText = rs_new CGuiTextSupport(
             font->GetId(),
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
             width, height,
 #endif
             CGuiTextProperties(false, true, kJustification_Right, kVerticalJustification_Bottom),
-            gpTweakGui->x344_completionTitleColor, gpTweakGui->x348_completionTitleOutlineColor,
+            gpTweakGui->mCompletionTitleColor, gpTweakGui->mCompletionTitleOutlineColor,
             CColor::White(),
 #if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
             width, height,
 #endif
             gpSimplePool);
-        x58_titleText->SetTypeWriteEffectOptions(true, 1.f, 10.f);
-        x58_titleText->SetText(x48_completionScreenStrings->GetString(0));
+        mTitleText->SetTypeWriteEffectOptions(true, 1.f, 10.f);
+        mTitleText->SetText(mCompletionScreenStrings->GetString(0));
 #if VERSION == VERSION_GM8J_00
         font = gpResourceFactory->GetResourceIdByName(skJapaneseBodyFont);
 #else
         font = gpResourceFactory->GetResourceIdByName(
             gpTweakGui->GetCompletionScreenBodyFont().data());
 #endif
-        x5c_resultsText = rs_new CGuiTextSupport(
+        mResultsText = rs_new CGuiTextSupport(
             font->GetId(),
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
             width, height,
 #endif
             CGuiTextProperties(false, true, kJustification_Right, kVerticalJustification_Top),
-            gpTweakGui->x34c_completionBodyColor, gpTweakGui->x350_completionBodyOutlineColor,
+            gpTweakGui->mCompletionBodyColor, gpTweakGui->mCompletionBodyOutlineColor,
             CColor::White(),
 #if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
             width, height,
 #endif
             gpSimplePool);
-        x5c_resultsText->SetTypeWriteEffectOptions(true, 1.f, 15.f);
+        mResultsText->SetTypeWriteEffectOptions(true, 1.f, 15.f);
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
         const int percent = gpGameState->GetPlayerState()->CalculateItemCollectionPercentage();
 #else
         const int percent = gpGameState->GetPlayerState()->CalculateItemCollectionRate() * 100 /
                             gpGameState->GetPlayerState()->GetTotalPickupCount();
 #endif
-        x5c_resultsText->AddText(x48_completionScreenStrings->GetString(1));
-        x5c_resultsText->AddText(
+        mResultsText->AddText(mCompletionScreenStrings->GetString(1));
+        mResultsText->AddText(
             CStringExtras::ConvertToUNICODE(CBasics::Stringize(" %d%%\n", percent)));
         int minutes;
         int remainingMinutes;
@@ -305,60 +305,60 @@ CIOWin::EMessageReturn CPlayMovie::OnMessage(const CArchitectureMessage& msg,
         minutes = gpGameState->GetTotalPlayTime() / 60.0;
         hours = minutes / 60.f;
         remainingMinutes = minutes - hours * 60;
-        x5c_resultsText->AddText(x48_completionScreenStrings->GetString(2));
-        x5c_resultsText->AddText(CStringExtras::ConvertToUNICODE(
+        mResultsText->AddText(mCompletionScreenStrings->GetString(2));
+        mResultsText->AddText(CStringExtras::ConvertToUNICODE(
             CBasics::Stringize(" %02d:%02d\n", hours, remainingMinutes)));
 #if VERSION == VERSION_GM8P_00
-        x78_pulseStartColor = gpTweakGui->x354_completionUnlockColor;
-        x7c_pulseEndColor = skPulseEndColor;
+        mPulseStartColor = gpTweakGui->mCompletionUnlockColor;
+        mPulseEndColor = skPulseEndColor;
 #endif
-        x60_unlockText = rs_new CGuiTextSupport(
+        mUnlockText = rs_new CGuiTextSupport(
             font->GetId(),
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
             width, height,
 #endif
             CGuiTextProperties(false, true, kJustification_Right, kVerticalJustification_Top),
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-            x78_pulseStartColor,
+            mPulseStartColor,
 #else
-            gpTweakGui->x354_completionUnlockColor,
+            gpTweakGui->mCompletionUnlockColor,
 #endif
-            gpTweakGui->x358_completionUnlockOutlineColor, CColor::White(),
+            gpTweakGui->mCompletionUnlockOutlineColor, CColor::White(),
 #if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
             width, height,
 #endif
             gpSimplePool);
-        x60_unlockText->SetTypeWriteEffectOptions(true, 1.f, 15.f);
+        mUnlockText->SetTypeWriteEffectOptions(true, 1.f, 15.f);
         if (!gpGameState->SystemState().GetNormalModeBeat()) {
           gpGameState->SystemState().SetHasHardMode(true);
-          x60_unlockText->AddText(x48_completionScreenStrings->GetString(3));
+          mUnlockText->AddText(mCompletionScreenStrings->GetString(3));
         } else if (!gpGameState->SystemState().GetHardModeBeat() && gpGameState->GetHardMode()) {
           gpGameState->SystemState().SetHardModeBeat(true);
-          x60_unlockText->AddText(x48_completionScreenStrings->GetString(4));
+          mUnlockText->AddText(mCompletionScreenStrings->GetString(4));
         }
-        x64_continueText = rs_new CGuiTextSupport(
+        mContinueText = rs_new CGuiTextSupport(
             font->GetId(),
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
             width, height,
 #endif
             CGuiTextProperties(false, true, kJustification_Center, kVerticalJustification_Bottom),
-            gpTweakGui->x354_completionUnlockColor, gpTweakGui->x358_completionUnlockOutlineColor,
+            gpTweakGui->mCompletionUnlockColor, gpTweakGui->mCompletionUnlockOutlineColor,
             CColor::White(),
 #if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
             width, height,
 #endif
             gpSimplePool);
-        x64_continueText->SetText(x48_completionScreenStrings->GetString(5));
+        mContinueText->SetText(mCompletionScreenStrings->GetString(5));
       }
-      x14_state = 1;
+      mState = 1;
     }
     case 1:
-      if (x78_26_resultsScreen) {
+      if (mResultsScreen) {
         bool loaded = true;
-        for (int i = 0; i < x1c_movies.size(); ++i) {
-          if (!x1c_movies[i]->PumpIndexLoad()) {
-            x1c_movies[i]->Update(dt);
-            if (!x1c_movies[i]->GetIsFullyCached()) {
+        for (int i = 0; i < mMovies.size(); ++i) {
+          if (!mMovies[i]->PumpIndexLoad()) {
+            mMovies[i]->Update(dt);
+            if (!mMovies[i]->GetIsFullyCached()) {
               loaded = false;
             }
           } else {
@@ -370,28 +370,28 @@ CIOWin::EMessageReturn CPlayMovie::OnMessage(const CArchitectureMessage& msg,
         }
       }
       SetMovieIndex(0);
-      x14_state = 2;
+      mState = 2;
     case 2:
-      if (x78_26_resultsScreen) {
-        if (x44_audioPlayer.null()) {
-          x44_audioPlayer =
+      if (mResultsScreen) {
+        if (mAudioPlayer.null()) {
+          mAudioPlayer =
               rs_new CStaticAudioPlayer(rstl::string_l(skCompletionAudio), 0x297988, 0x78cb60);
         }
-        if (!x44_audioPlayer->IsReady()) {
+        if (!mAudioPlayer->IsReady()) {
           return kMR_Exit;
         }
-        SetStaticAudioPlayerVolume(x44_audioPlayer, 0.91f);
+        SetStaticAudioPlayerVolume(mAudioPlayer, 0.91f);
       }
-      x14_state = 3;
+      mState = 3;
     case 3:
-      if (x38_moviePlayer->PumpIndexLoad()) {
+      if (mMoviePlayer->PumpIndexLoad()) {
         break;
       }
-      x38_moviePlayer->Update(dt);
-      if (x78_26_resultsScreen) {
+      mMoviePlayer->Update(dt);
+      if (mResultsScreen) {
         UpdateText(dt);
-        if (x38_moviePlayer->GetIsMovieFinishedPlaying()) {
-          switch (x3c_movieIndex) {
+        if (mMoviePlayer->GetIsMovieFinishedPlaying()) {
+          switch (mMovieIndex) {
           case 0:
             SetMovieIndex(1);
             break;
@@ -399,39 +399,39 @@ CIOWin::EMessageReturn CPlayMovie::OnMessage(const CArchitectureMessage& msg,
             SetMovieIndex(2);
             break;
           case 2:
-            x78_24_finished = true;
+            mFinished = true;
             break;
           }
         }
-        if (x3c_movieIndex == 2) {
-          const float played = x38_moviePlayer->GetPlayedSeconds();
-          const float remaining = x38_moviePlayer->GetTotalSeconds() - played;
+        if (mMovieIndex == 2) {
+          const float played = mMoviePlayer->GetPlayedSeconds();
+          const float remaining = mMoviePlayer->GetTotalSeconds() - played;
           if (remaining <= 2.f) {
-            SetStaticAudioPlayerVolume(x44_audioPlayer,
+            SetStaticAudioPlayerVolume(mAudioPlayer,
                                        0.91f * CMath::Clamp(0.f, remaining / 2.f, 1.f));
           }
         }
       } else {
-        if (x18_which != kWM_LoseGame && x1c_movies.size() == 1 &&
-            x38_moviePlayer->GetIsMovieFinishedPlaying()) {
-          x78_24_finished = true;
+        if (mWhich != kWM_LoseGame && mMovies.size() == 1 &&
+            mMoviePlayer->GetIsMovieFinishedPlaying()) {
+          mFinished = true;
         }
       }
-      if (x78_27_quitScreen) {
-        const EQuitAction action = x40_quitScreen->Update(dt);
+      if (mQuitScreenFlag) {
+        const EQuitAction action = mQuitScreen->Update(dt);
         if (action == kQA_Yes) {
           gpMain->SetRestartMode(CMain::kRM_StateSetter);
-          x78_24_finished = true;
+          mFinished = true;
         } else if (action == kQA_No) {
-          x78_24_finished = true;
+          mFinished = true;
         }
       }
-      if (x78_24_finished) {
-        x78_25_exit = true;
+      if (mFinished) {
+        mExit = true;
       }
-      if (x78_25_exit) {
+      if (mExit) {
         CFrameDelayedKiller::StallAndFlushAllAllocations();
-        switch (x18_which) {
+        switch (mWhich) {
         case kWM_AfterCredits: {
           EWhichMovie next = kWM_WinGameBad;
           switch (gpMain->GetRestartMode()) {
@@ -471,8 +471,8 @@ CIOWin::EMessageReturn CPlayMovie::OnMessage(const CArchitectureMessage& msg,
   case kAM_UserInput: {
     const CArchMsgParmUserInput parm = MakeMsg::GetParmUserInput(msg);
     const CFinalInput input = parm.GetUserInput();
-    if (x78_27_quitScreen) {
-      x40_quitScreen->ProcessUserInput(input);
+    if (mQuitScreenFlag) {
+      mQuitScreen->ProcessUserInput(input);
     } else {
       ProcessUserInput(input);
     }
@@ -485,61 +485,61 @@ CIOWin::EMessageReturn CPlayMovie::OnMessage(const CArchitectureMessage& msg,
 }
 
 void CPlayMovie::Draw() const {
-  if (x14_state == 3) {
+  if (mState == 3) {
     DrawVideo();
-    if (x78_27_quitScreen) {
-      x40_quitScreen->Draw();
-    } else if (x78_26_resultsScreen) {
+    if (mQuitScreenFlag) {
+      mQuitScreen->Draw();
+    } else if (mResultsScreen) {
       DrawText();
     }
   }
 }
 
 void CPlayMovie::DrawVideo() const {
-  if (x38_moviePlayer != nullptr) {
-    x38_moviePlayer->DrawVideo();
+  if (mMoviePlayer != nullptr) {
+    mMoviePlayer->DrawVideo();
   }
 }
 
 void CPlayMovie::DrawText() const {
 #if VERSION == VERSION_GM8J_00
-  if (x3c_movieIndex == 2 && x38_moviePlayer->GetPlayedSeconds() > 0.65f) {
+  if (mMovieIndex == 2 && mMoviePlayer->GetPlayedSeconds() > 0.65f) {
     return;
   }
   gpRender->SetBlendMode_AdditiveAlpha();
   const int width = CGraphics::GetViewport().mWidth;
   const int height = CGraphics::GetViewport().mHeight;
   const float y = 0.318f * height;
-  if (!x58_titleText.null()) {
+  if (!mTitleText.null()) {
     CTransform4f transform = CTransform4f::Scale(1.00887001f, 1.f, 1.00887001f);
     transform.SetTranslation(
         CVector3f(-32.f + -0.00887000561f * width, 0.f, height + y - -0.00887000561f * height) +
         skTextOffset0);
-    CCredits::DrawText(*x58_titleText, transform);
+    CCredits::DrawText(*mTitleText, transform);
   }
-  if (!x5c_resultsText.null()) {
+  if (!mResultsText.null()) {
     CTransform4f transform = CTransform4f::Scale(0.875819981f, 1.f, 0.875819981f);
     transform.SetTranslation(CVector3f(-32.f + 0.124180019f * width, 0.f, y) + skTextOffset1);
-    CCredits::DrawText(*x5c_resultsText, transform);
+    CCredits::DrawText(*mResultsText, transform);
   }
-  if (!x60_unlockText.null()) {
-    const rstl::pair< CVector2i, CVector2i >& bounds = x5c_resultsText->GetBounds();
+  if (!mUnlockText.null()) {
+    const rstl::pair< CVector2i, CVector2i >& bounds = mResultsText->GetBounds();
     const int textHeight = bounds.second.GetY() - bounds.first.GetY() + 25;
     CTransform4f transform = CTransform4f::Scale(0.935598016f, 1.f, 0.935598016f);
     transform.SetTranslation(
         CVector3f(-32.f + 0.0644019842f * width, 0.f, y - 0.875819981f * textHeight) +
         skTextOffset2);
-    CCredits::DrawText(*x60_unlockText, transform);
+    CCredits::DrawText(*mUnlockText, transform);
   }
-  if (!x64_continueText.null() && x6c_resultsTime >= 2.f) {
+  if (!mContinueText.null() && mResultsTime >= 2.f) {
     CTransform4f transform = CTransform4f::Scale(0.869831026f, 1.f, 0.869831026f);
     transform.SetTranslation(
         CVector3f((0.130168974f * width) / 2.f, 0.f, height + 32 - 0.130168974f * height) +
         skTextOffset3);
-    CCredits::DrawText(*x64_continueText, transform);
+    CCredits::DrawText(*mContinueText, transform);
   }
 #else
-  if (x3c_movieIndex == 2 && x38_moviePlayer->GetPlayedSeconds() >
+  if (mMovieIndex == 2 && mMoviePlayer->GetPlayedSeconds() >
 #if VERSION == VERSION_GM8P_00
                                  0.65f
 #else
@@ -550,104 +550,104 @@ void CPlayMovie::DrawText() const {
   }
   const int height = CGraphics::GetViewport().mHeight;
   const float y = 0.318f * height;
-  if (!x58_titleText.null()) {
+  if (!mTitleText.null()) {
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
     CTransform4f transform = CTransform4f::Scale(1.f, 1.f, 1.f);
     transform.SetTranslation(CVector3f(-32.f, 0.f, height + y) + skTextOffset0);
-    CCredits::DrawText(*x58_titleText, transform);
+    CCredits::DrawText(*mTitleText, transform);
 #else
     const CVector3f position(-32.f, 0.f, height + y);
-    CCredits::DrawText(*x58_titleText, position);
+    CCredits::DrawText(*mTitleText, position);
 #endif
   }
-  if (!x5c_resultsText.null()) {
+  if (!mResultsText.null()) {
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
     CTransform4f transform = CTransform4f::Scale(1.f, 1.f, 1.f);
     transform.SetTranslation(CVector3f(-32.f, 0.f, y) + skTextOffset1);
-    CCredits::DrawText(*x5c_resultsText, transform);
+    CCredits::DrawText(*mResultsText, transform);
 #else
     const CVector3f position(-32.f, 0.f, y);
-    CCredits::DrawText(*x5c_resultsText, position);
+    CCredits::DrawText(*mResultsText, position);
 #endif
   }
-  if (!x60_unlockText.null()) {
-    const rstl::pair< CVector2i, CVector2i >& bounds = x5c_resultsText->GetBounds();
+  if (!mUnlockText.null()) {
+    const rstl::pair< CVector2i, CVector2i >& bounds = mResultsText->GetBounds();
     const int textHeight = bounds.second.GetY() - bounds.first.GetY() + 25;
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
     CTransform4f transform = CTransform4f::Scale(1.f, 1.f, 1.f);
     transform.SetTranslation(CVector3f(-32.f, 0.f, y - textHeight) + skTextOffset2);
-    CCredits::DrawText(*x60_unlockText, transform);
+    CCredits::DrawText(*mUnlockText, transform);
 #else
     const CVector3f position(-32.f, 0.f, y - textHeight);
-    CCredits::DrawText(*x60_unlockText, position);
+    CCredits::DrawText(*mUnlockText, position);
 #endif
   }
-  if (!x64_continueText.null() && x6c_resultsTime >= 2.f) {
+  if (!mContinueText.null() && mResultsTime >= 2.f) {
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
     CTransform4f transform = CTransform4f::Scale(1.f, 1.f, 1.f);
     transform.SetTranslation(CVector3f(0.f, 0.f, height + 32) + skTextOffset3);
-    CCredits::DrawText(*x64_continueText, transform);
+    CCredits::DrawText(*mContinueText, transform);
 #else
     const CVector3f position(0.f, 0.f, height + 32);
-    CCredits::DrawText(*x64_continueText, position);
+    CCredits::DrawText(*mContinueText, position);
 #endif
   }
 #endif
 }
 
 void CPlayMovie::UpdateText(float dt) {
-  if (x3c_movieIndex == 1) {
-    x6c_resultsTime = rstl::min_val(x6c_resultsTime + dt, 2.5f);
-  } else if (x3c_movieIndex == 2) {
-    x6c_resultsTime = rstl::max_val(x6c_resultsTime - dt, 0.f);
+  if (mMovieIndex == 1) {
+    mResultsTime = rstl::min_val(mResultsTime + dt, 2.5f);
+  } else if (mMovieIndex == 2) {
+    mResultsTime = rstl::max_val(mResultsTime - dt, 0.f);
   }
-  x68_textDelay -= dt;
-  if (x68_textDelay > 0.f) {
+  mTextDelay -= dt;
+  if (mTextDelay > 0.f) {
     return;
   }
-  x70_pulseTime += dt;
+  mPulseTime += dt;
   const float angle =
-      M_PIF / 2.f * (2.f * (x70_pulseTime / gpTweakGui->GetCompletionScreenPulseTime()));
-  if (!x58_titleText.null()) {
-    x58_titleText->Update(dt);
+      M_PIF / 2.f * (2.f * (mPulseTime / gpTweakGui->GetCompletionScreenPulseTime()));
+  if (!mTitleText.null()) {
+    mTitleText->Update(dt);
   }
-  if (!x5c_resultsText.null()) {
-    x5c_resultsText->Update(dt);
+  if (!mResultsText.null()) {
+    mResultsText->Update(dt);
 #if VERSION == VERSION_GM8P_00
     const float printStep = 0.9f;
 #else
     const float printStep = 0.3f;
 #endif
-    if (x5c_resultsText->GetNumCharactersPrinted() >= x74_printedCharacters + printStep) {
-      x74_printedCharacters += printStep;
+    if (mResultsText->GetNumCharactersPrinted() >= mPrintedCharacters + printStep) {
+      mPrintedCharacters += printStep;
       CSfxManager::SfxStart(0x59e, 127, 64, false, CSfxManager::kMedPriority, false,
                             CSfxManager::kAllAreas);
     }
   }
-  if (!x60_unlockText.null()) {
+  if (!mUnlockText.null()) {
     const float alpha = 0.5f * CMath::FastSinR(angle) + 0.5f;
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-    const CColor fontColor = CColor::Lerp(x78_pulseStartColor, x7c_pulseEndColor, alpha);
+    const CColor fontColor = CColor::Lerp(mPulseStartColor, mPulseEndColor, alpha);
 #else
     const CColor fontColor =
-        CColor::Lerp(gpTweakGui->x354_completionUnlockColor, CColor::Grey(), alpha);
+        CColor::Lerp(gpTweakGui->mCompletionUnlockColor, CColor::Grey(), alpha);
 #endif
     const CColor outlineColor =
-        CColor::Lerp(gpTweakGui->x358_completionUnlockOutlineColor, CColor::Grey(), alpha);
-    x60_unlockText->SetFontColor(fontColor);
-    x60_unlockText->SetOutlineColor(outlineColor);
-    x60_unlockText->Update(dt);
+        CColor::Lerp(gpTweakGui->mCompletionUnlockOutlineColor, CColor::Grey(), alpha);
+    mUnlockText->SetFontColor(fontColor);
+    mUnlockText->SetOutlineColor(outlineColor);
+    mUnlockText->Update(dt);
   }
-  if (!x64_continueText.null() && x6c_resultsTime > 2.f) {
-    x64_continueText->SetGeometryColor(
-        CColor::White().WithAlphaModulatedBy((x6c_resultsTime - 2.f) / 0.5f));
-    x64_continueText->Update(dt);
+  if (!mContinueText.null() && mResultsTime > 2.f) {
+    mContinueText->SetGeometryColor(
+        CColor::White().WithAlphaModulatedBy((mResultsTime - 2.f) / 0.5f));
+    mContinueText->Update(dt);
   }
 }
 
 CIOWin::EMessageReturn CPlayMovie::ProcessUserInput(const CFinalInput& input) {
-  if (x3c_movieIndex == 1 && input.PA() && x6c_resultsTime >= 2.f) {
-    x38_moviePlayer->DisableLoop();
+  if (mMovieIndex == 1 && input.PA() && mResultsTime >= 2.f) {
+    mMoviePlayer->DisableLoop();
     CSfxManager::SfxStart(0x58d, 127, 64, false, CSfxManager::kMedPriority, false,
                           CSfxManager::kAllAreas);
   }
@@ -655,37 +655,37 @@ CIOWin::EMessageReturn CPlayMovie::ProcessUserInput(const CFinalInput& input) {
 }
 
 void CPlayMovie::SetMovieIndex(int index) {
-  x3c_movieIndex = index;
-  if (x3c_movieIndex != -1) {
-    x38_moviePlayer = x1c_movies[x3c_movieIndex].get();
+  mMovieIndex = index;
+  if (mMovieIndex != -1) {
+    mMoviePlayer = mMovies[mMovieIndex].get();
   } else {
-    x38_moviePlayer = nullptr;
+    mMoviePlayer = nullptr;
   }
 }
 
 CCredits::CCredits()
 : CIOWin(rstl::string_l("Credits"))
-, x14_state(0)
-, x18_creditsTable(gpSimplePool->GetObj(gpTweakGui->GetCreditsTable().data()))
+, mState(0)
+, mCreditsTable(gpSimplePool->GetObj(gpTweakGui->GetCreditsTable().data()))
 #if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
-, x20_creditsFont(gpSimplePool->GetObj(gpTweakGui->GetJapaneseCreditsFont().data()))
+, mCreditsFont(gpSimplePool->GetObj(gpTweakGui->GetJapaneseCreditsFont().data()))
 #endif
-, x48_scrollPosition(0.f)
-, x4c_totalScrollDistance(0.f)
-, x50_scrollSpeed(32.f)
-, x54_textFadeRemaining(gpTweakGui->GetCredits_x30c())
-, x58_videoFadeTime(0.f)
-, x5c_24_finished(false)
-, x5c_25_videoFaded(false)
-, x5c_26_textFaded(false)
-, x5c_27_fadingIn(true)
-, x5c_28_fadingOut(false) {
+, mScrollPosition(0.f)
+, mTotalScrollDistance(0.f)
+, mScrollSpeed(32.f)
+, mTextFadeRemaining(gpTweakGui->GetCredits_x30c())
+, mVideoFadeTime(0.f)
+, mFinished(false)
+, mVideoFaded(false)
+, mTextFaded(false)
+, mFadingIn(true)
+, mFadingOut(false) {
 #if VERSION == VERSION_GM8J_00
   CGraphics::SetIsBeginSceneClearFb(true);
 #endif
-  x18_creditsTable.Lock();
+  mCreditsTable.Lock();
 #if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
-  x20_creditsFont.Lock();
+  mCreditsFont.Lock();
 #endif
 }
 
@@ -715,19 +715,19 @@ CIOWin::EMessageReturn CCredits::OnMessage(const CArchitectureMessage& msg,
 }
 
 CIOWin::EMessageReturn CCredits::Update(float dt, CArchitectureQueue& queue) {
-  switch (x14_state) {
+  switch (mState) {
   case 0: {
-    if (!x18_creditsTable.IsLoaded()
+    if (!mCreditsTable.IsLoaded()
 #if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
-        || !x20_creditsFont.IsLoaded()
+        || !mCreditsFont.IsLoaded()
 #endif
     ) {
       return kMR_Exit;
     }
     int height = CGraphics::GetViewport().mHeight;
     int width = CGraphics::GetViewport().mWidth - 64;
-    if (x30_text.empty()) {
-      const CStringTable& table = **x18_creditsTable;
+    if (mText.empty()) {
+      const CStringTable& table = **mCreditsTable;
       for (int i = 0; i < table.GetStringCount(); ++i) {
         rstl::ncrc_ptr< CGuiTextSupport > text = rs_new CGuiTextSupport(
             gpResourceFactory->GetResourceIdByName(gpTweakGui->GetCreditsFont().data())->GetId(),
@@ -735,24 +735,24 @@ CIOWin::EMessageReturn CCredits::Update(float dt, CArchitectureQueue& queue) {
             width, 0,
 #endif
             CGuiTextProperties(true, true, kJustification_Center, kVerticalJustification_Top),
-            gpTweakGui->x300_creditsTextFontColor, gpTweakGui->x304_creditsTextBorderColor,
+            gpTweakGui->mCreditsTextFontColor, gpTweakGui->mCreditsTextBorderColor,
             CColor::White(),
 #if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
             width, 0,
 #endif
             gpSimplePool);
         text->SetText(rstl::wstring_l(table.GetString(i)));
-        x30_text.push_back(
+        mText.push_back(
             rstl::pair< rstl::ncrc_ptr< CGuiTextSupport >, CVector2i >(text, CVector2i()));
       }
     }
-    for (AUTO(it, x30_text.begin()); it != x30_text.end(); ++it) {
+    for (AUTO(it, mText.begin()); it != mText.end(); ++it) {
       if (!it->first->GetIsTextSupportFinishedLoading()) {
         return kMR_Exit;
       }
     }
     int totalHeight = 0;
-    for (AUTO(it, x30_text.begin()); it != x30_text.end(); ++it) {
+    for (AUTO(it, mText.begin()); it != mText.end(); ++it) {
       const rstl::pair< CVector2i, CVector2i >& bounds = it->first->GetBounds();
       const int textHeight = bounds.second.GetY() - bounds.first.GetY();
       it->second.SetY(textHeight);
@@ -763,81 +763,81 @@ CIOWin::EMessageReturn CCredits::Update(float dt, CArchitectureQueue& queue) {
     }
     const float halfHeight = height / 2.f;
 #if VERSION == VERSION_GM8J_00
-    x4c_totalScrollDistance = 0.825084984f * totalHeight + halfHeight;
+    mTotalScrollDistance = 0.825084984f * totalHeight + halfHeight;
 #else
-    x4c_totalScrollDistance = totalHeight + halfHeight;
+    mTotalScrollDistance = totalHeight + halfHeight;
 #endif
-    x50_scrollSpeed = x4c_totalScrollDistance /
+    mScrollSpeed = mTotalScrollDistance /
                       (gpTweakGui->GetCredits_x308() -
                        rstl::max_val(gpTweakGui->GetCredits_x310(), gpTweakGui->GetCredits_x30c()));
-    x14_state = 1;
+    mState = 1;
   }
   case 1: {
-    if (x28_moviePlayer.null()) {
-      x28_moviePlayer =
+    if (mMoviePlayer.null()) {
+      mMoviePlayer =
           rs_new CMoviePlayer(skMovieNames[CPlayMovie::kWM_CreditBG], 0.f, true, true);
     }
-    x14_state = 2;
+    mState = 2;
   }
   case 2: {
-    if (x2c_audioPlayer.null()) {
-      x2c_audioPlayer = rs_new CStaticAudioPlayer(rstl::string_l(skCreditsAudio), 0, 0x5d7c00);
+    if (mAudioPlayer.null()) {
+      mAudioPlayer = rs_new CStaticAudioPlayer(rstl::string_l(skCreditsAudio), 0, 0x5d7c00);
     }
-    if (!x2c_audioPlayer->IsReady()) {
+    if (!mAudioPlayer->IsReady()) {
       return kMR_Exit;
     }
-    SetStaticAudioPlayerVolume(x2c_audioPlayer, 1.1053f);
-    x14_state = 3;
+    SetStaticAudioPlayerVolume(mAudioPlayer, 1.1053f);
+    mState = 3;
   }
   case 3: {
-    if (x28_moviePlayer->PumpIndexLoad()) {
+    if (mMoviePlayer->PumpIndexLoad()) {
       break;
     }
-    x28_moviePlayer->Update(dt);
-    if (x5c_24_finished) {
-      x5c_28_fadingOut = true;
-      if (x5c_27_fadingIn) {
-        x5c_27_fadingIn = false;
-        x58_videoFadeTime = gpTweakGui->GetCredits_x310() - x58_videoFadeTime;
+    mMoviePlayer->Update(dt);
+    if (mFinished) {
+      mFadingOut = true;
+      if (mFadingIn) {
+        mFadingIn = false;
+        mVideoFadeTime = gpTweakGui->GetCredits_x310() - mVideoFadeTime;
       }
     }
-    if (x5c_27_fadingIn || x5c_28_fadingOut) {
-      x58_videoFadeTime = CMath::Clamp(0.f, x58_videoFadeTime + dt, gpTweakGui->GetCredits_x310());
-      if (x58_videoFadeTime == gpTweakGui->GetCredits_x310()) {
-        if (x5c_27_fadingIn) {
-          x5c_27_fadingIn = false;
-          x58_videoFadeTime = 0.f;
-        } else if (x5c_28_fadingOut) {
-          x5c_25_videoFaded = true;
+    if (mFadingIn || mFadingOut) {
+      mVideoFadeTime = CMath::Clamp(0.f, mVideoFadeTime + dt, gpTweakGui->GetCredits_x310());
+      if (mVideoFadeTime == gpTweakGui->GetCredits_x310()) {
+        if (mFadingIn) {
+          mFadingIn = false;
+          mVideoFadeTime = 0.f;
+        } else if (mFadingOut) {
+          mVideoFaded = true;
         }
       }
 
-      if (x58_videoFadeTime != 0.f && x5c_28_fadingOut) {
-        float volume = 1.f - x58_videoFadeTime / gpTweakGui->GetCredits_x310();
+      if (mVideoFadeTime != 0.f && mFadingOut) {
+        float volume = 1.f - mVideoFadeTime / gpTweakGui->GetCredits_x310();
         volume = CMath::Clamp(0.f, volume, 1.f);
-        SetStaticAudioPlayerVolume(x2c_audioPlayer, 1.1053f * volume);
+        SetStaticAudioPlayerVolume(mAudioPlayer, 1.1053f * volume);
       }
     }
-    x48_scrollPosition =
-        rstl::min_val(x4c_totalScrollDistance, (dt * x50_scrollSpeed) + x48_scrollPosition);
+    mScrollPosition =
+        rstl::min_val(mTotalScrollDistance, (dt * mScrollSpeed) + mScrollPosition);
 
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-    if (x48_scrollPosition >= x4c_totalScrollDistance || x5c_24_finished) {
+    if (mScrollPosition >= mTotalScrollDistance || mFinished) {
 #else
-    if (x48_scrollPosition == x4c_totalScrollDistance || x5c_24_finished) {
+    if (mScrollPosition == mTotalScrollDistance || mFinished) {
 #endif
-      x5c_24_finished = true;
-      x54_textFadeRemaining = rstl::max_val(0.f, x54_textFadeRemaining - dt);
-      const float alpha = x54_textFadeRemaining / gpTweakGui->GetCredits_x30c();
-      for (AUTO(it, x30_text.begin()); it != x30_text.end(); ++it) {
+      mFinished = true;
+      mTextFadeRemaining = rstl::max_val(0.f, mTextFadeRemaining - dt);
+      const float alpha = mTextFadeRemaining / gpTweakGui->GetCredits_x30c();
+      for (AUTO(it, mText.begin()); it != mText.end(); ++it) {
         it->first->SetGeometryColor(CColor::White().WithAlphaModulatedBy(alpha));
       }
-      if (x54_textFadeRemaining <= 0.f) {
-        x5c_26_textFaded = true;
+      if (mTextFadeRemaining <= 0.f) {
+        mTextFaded = true;
       }
     }
 
-    if (x5c_26_textFaded && x5c_25_videoFaded) {
+    if (mTextFaded && mVideoFaded) {
       QueueIOWin(queue, rs_new CPlayMovie(CPlayMovie::kWM_AfterCredits));
       return kMR_RemoveIOWinAndExit;
     }
@@ -854,20 +854,20 @@ CIOWin::EMessageReturn CCredits::ProcessUserInput(const CFinalInput& input) {
   return kMR_Exit;
 #else
   if (input.DA()) {
-    x48_scrollPosition = CMath::Clamp(0.f, x48_scrollPosition - ((x50_scrollSpeed * input.Time())),
-                                      x4c_totalScrollDistance);
+    mScrollPosition = CMath::Clamp(0.f, mScrollPosition - ((mScrollSpeed * input.Time())),
+                                      mTotalScrollDistance);
   } else {
     const float offset = input.ALAUp() - input.ALADown();
-    x48_scrollPosition =
-        CMath::Clamp(0.f, x48_scrollPosition - offset * (10.f * (x50_scrollSpeed * input.Time())),
-                     x4c_totalScrollDistance);
+    mScrollPosition =
+        CMath::Clamp(0.f, mScrollPosition - offset * (10.f * (mScrollSpeed * input.Time())),
+                     mTotalScrollDistance);
   }
   return kMR_Exit;
 #endif
 }
 
 void CCredits::Draw() const {
-  if (x14_state != 3) {
+  if (mState != 3) {
     return;
   }
   DrawVideo();
@@ -878,11 +878,11 @@ void CCredits::DrawText() const {
   float width, padding, top, bottom;
   const rstl::pair< CVector2f, CVector2f > region =
       gpRender->SetViewportOrtho(false, -4096.f, 4096.f);
-  top = x48_scrollPosition;
+  top = mScrollPosition;
   bottom = top - (region.second.GetY() - region.first.GetY());
   width = region.second.GetX();
   padding = 0.174915016f * (region.second.GetX() - region.first.GetX());
-  for (AUTO(it, x30_text.begin()); it != x30_text.end(); ++it) {
+  for (AUTO(it, mText.begin()); it != mText.end(); ++it) {
     const int offset = it->second.GetX();
     const int height = it->second.GetY();
 #if VERSION == VERSION_GM8J_00
@@ -890,7 +890,7 @@ void CCredits::DrawText() const {
     const int end = static_cast< int >(0.825084984f * height + scaledOffset);
     if (!(bottom > end) && !(top < scaledOffset)) {
       const int textWidth = it->first->GetTextBoundingWidth();
-      const float scrollOffset = x48_scrollPosition - offset;
+      const float scrollOffset = mScrollPosition - offset;
       CTransform4f transform = CTransform4f::Scale(0.825084984f, 1.f, 0.825084984f);
       const float x = 0.5f * (width - textWidth) + padding / 2.f;
       const float z = scrollOffset + 0.174915016f * it->second.GetX();
@@ -910,7 +910,7 @@ void CCredits::DrawText() const {
     const int end = static_cast< int >(static_cast< float >(height) + scaledOffset);
     if (!(bottom > end) && !(top < scaledOffset)) {
       const int textWidth = it->first->GetTextBoundingWidth();
-      const float scrollOffset = x48_scrollPosition - offset;
+      const float scrollOffset = mScrollPosition - offset;
       CTransform4f transform = CTransform4f::Scale(1.f, 1.f, 1.f);
       transform.SetTranslation(CVector3f(0.5f * (width - textWidth), 0.f, scrollOffset));
       DrawText(*it->first, transform);
@@ -921,11 +921,11 @@ void CCredits::DrawText() const {
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
       CTransform4f transform = CTransform4f::Scale(1.f, 1.f, 1.f);
       transform.SetTranslation(CVector3f(0.5f * (width - it->first->GetTextBoundingWidth()), 0.f,
-                                         x48_scrollPosition - it->second.GetX()));
+                                         mScrollPosition - it->second.GetX()));
       DrawText(*it->first, transform);
 #else
       DrawText(*it->first, CVector3f(0.5f * (width - it->first->GetTextBoundingWidth()), 0.f,
-                                     x48_scrollPosition - it->second.GetX()));
+                                     mScrollPosition - it->second.GetX()));
 #endif
     }
 #endif
@@ -936,10 +936,10 @@ void CCredits::DrawText() const {
 
 void CCredits::DrawVideo() const {
   /* Render movie */
-  if (x28_moviePlayer.get() && x28_moviePlayer->DrawVideo() &&
-      (x5c_27_fadingIn || x5c_28_fadingOut)) {
-    float alpha = x58_videoFadeTime / gpTweakGui->GetCredits_x310();
-    if (x5c_27_fadingIn) {
+  if (mMoviePlayer.get() && mMoviePlayer->DrawVideo() &&
+      (mFadingIn || mFadingOut)) {
+    float alpha = mVideoFadeTime / gpTweakGui->GetCredits_x310();
+    if (mFadingIn) {
       alpha = 1.f - alpha;
     }
 
@@ -951,7 +951,7 @@ void CCredits::DrawVideo() const {
 }
 CAutoSave::CAutoSave()
 : CIOWin(rstl::string_l("AutoSave"))
-, x14_saveGameScreen(rs_new CSaveGameScreen(kSC_InGame, gpGameState->GetCardSerial())) {
+, mSaveGameScreen(rs_new CSaveGameScreen(kSC_InGame, gpGameState->GetCardSerial())) {
   gpMain->RefreshGameState();
 }
 
@@ -964,14 +964,14 @@ CIOWin::EMessageReturn CAutoSave::OnMessage(const CArchitectureMessage& msg,
   }
   switch (msg.GetType()) {
   case kAM_TimerTick:
-    if (x14_saveGameScreen->Update(MakeMsg::GetParmTimerTick(msg).GetReal()) != 0) {
+    if (mSaveGameScreen->Update(MakeMsg::GetParmTimerTick(msg).GetReal()) != 0) {
       return kMR_RemoveIOWinAndExit;
     }
     break;
   case kAM_UserInput: {
     const CArchMsgParmUserInput parm = MakeMsg::GetParmUserInput(msg);
     const CFinalInput input = parm.GetUserInput();
-    x14_saveGameScreen->ProcessUserInput(input);
+    mSaveGameScreen->ProcessUserInput(input);
     break;
   }
   default:
@@ -980,6 +980,6 @@ CIOWin::EMessageReturn CAutoSave::OnMessage(const CArchitectureMessage& msg,
   return kMR_Exit;
 }
 
-void CAutoSave::Draw() const { x14_saveGameScreen->Draw(); }
+void CAutoSave::Draw() const { mSaveGameScreen->Draw(); }
 
 bool CAutoSave::GetIsContinueDraw() const { return false; }

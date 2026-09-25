@@ -18,9 +18,9 @@ public:
     SHintState();
     SHintState(EHintState state, float time);
 
-    EHintState x0_state;
-    float x4_time;
-    bool x8_dismissed;
+    EHintState mState;
+    float mTime;
+    bool mDismissed;
 
     bool CanContinue();
   };
@@ -43,15 +43,15 @@ public:
 
   const SHintState* GetCurrentDisplayedHint() const;
   int GetNextHintIdx();
-  const rstl::vector< SHintState >& GetHintStates() const { return x0_hintStates; }
+  const rstl::vector< SHintState >& GetHintStates() const { return mHintStates; }
 
 private:
   static uint GetBitCount(uint value);
 
-  rstl::vector< SHintState > x0_hintStates;
-  int x10_nextHintIdx;
+  rstl::vector< SHintState > mHintStates;
+  int mNextHintIdx;
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-  bool x14_palHintFlag;
+  bool mPalHintFlag;
 #endif
 };
 

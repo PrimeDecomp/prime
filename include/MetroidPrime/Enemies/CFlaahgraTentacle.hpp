@@ -55,13 +55,13 @@ private:
   void SaveBombSlotInfo(CStateManager& mgr);
 
   int x568_;
-  rstl::single_ptr< CCollisionActorManager > x56c_collisionManager;
+  rstl::single_ptr< CCollisionActorManager > mCollisionManager;
   float x570_;
   float x574_;
   float x578_;
-  TUniqueId x57c_tentacleTipAct;
-  CVector3f x580_forceVector;
-  TUniqueId x58c_triggerId;
+  TUniqueId mTentacleTipAct;
+  CVector3f mForceVector;
+  TUniqueId mTriggerId;
   bool x58e_24_ : 1;
 
   static const SSphereJointInfo skJointList[];

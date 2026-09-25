@@ -39,13 +39,13 @@ CMetroidModelInstance::CMetroidModelInstance(const void* header, const void* fir
                                              const void* colors, const void* texCoords,
                                              const void* packedTexCoords,
                                              const rstl::vector< void* >& surfaces)
-: x0_visorFlags(CBasics::SwapBytes(*reinterpret_cast< const uint* >(header)))
-, x4_worldXf(TransformFromData((uchar*)header + sizeof(uint)))
-, x34_worldAABB(BoundingBoxFromData((uchar*)header + sizeof(CTransform4f) + sizeof(uint)))
-, x4c_materialData(firstGeom)
-, x50_surfaces(surfaces)
-, x60_positions(positions)
-, x64_normals(normals)
-, x68_colors(colors)
-, x6c_texCoords(texCoords)
-, x70_packedTexCoords(packedTexCoords) {}
+: mVisorFlags(CBasics::SwapBytes(*reinterpret_cast< const uint* >(header)))
+, mWorldXf(TransformFromData((uchar*)header + sizeof(uint)))
+, mWorldAABB(BoundingBoxFromData((uchar*)header + sizeof(CTransform4f) + sizeof(uint)))
+, mMaterialData(firstGeom)
+, mSurfaces(surfaces)
+, mPositions(positions)
+, mNormals(normals)
+, mColors(colors)
+, mTexCoords(texCoords)
+, mPackedTexCoords(packedTexCoords) {}

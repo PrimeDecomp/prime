@@ -7,7 +7,7 @@
 class CCubeModel;
 class CCubeSurface {
 public:
-  CCubeSurface(void* ptr) { x0_rawdata = static_cast< uchar* >(ptr); }
+  CCubeSurface(void* ptr) { mRawdata = static_cast< uchar* >(ptr); }
   struct SSurfaceData {
     CVector3f mCenter;
     uint mMaterialIndex;
@@ -21,25 +21,25 @@ public:
 
   static const CVector3f skDefaultNormal;
   union {
-    uchar* x0_rawdata;
-    SSurfaceData* x0_data;
+    uchar* mRawdata;
+    SSurfaceData* mData;
   };
 
-  uint GetDisplayListSize() const { return x0_data->mDisplayListSizeAndNormalHint & 0x7fffffff; }
+  uint GetDisplayListSize() const { return mData->mDisplayListSizeAndNormalHint & 0x7fffffff; }
   const void* GetDisplayList() const {
-    return reinterpret_cast< const SSurfaceData* >(x0_rawdata + GetSurfaceHeaderSize());
+    return reinterpret_cast< const SSurfaceData* >(mRawdata + GetSurfaceHeaderSize());
   }
   uint GetSurfaceHeaderSize() const {
-    return (sizeof(SSurfaceData) + 7 + x0_data->mExtraSize) & ~31;
+    return (sizeof(SSurfaceData) + 7 + mData->mExtraSize) & ~31;
   }
-  const CVector3f& GetCenter() const { return x0_data->mCenter; }
-  const CUnitVector3f& GetNormalHint() const { return x0_data->mNormal; }
-  uint GetMaterialIndex() const { return x0_data->mMaterialIndex; }
+  const CVector3f& GetCenter() const { return mData->mCenter; }
+  const CUnitVector3f& GetNormalHint() const { return mData->mNormal; }
+  uint GetMaterialIndex() const { return mData->mMaterialIndex; }
 
   CAABox GetBounds() const;
-  CCubeSurface GetNextSurface() const { return CCubeSurface(x0_data->mNextSurface); }
+  CCubeSurface GetNextSurface() const { return CCubeSurface(mData->mNextSurface); }
 
-  bool IsValid() const { return x0_rawdata != nullptr; }
+  bool IsValid() const { return mRawdata != nullptr; }
 
 private:
 };

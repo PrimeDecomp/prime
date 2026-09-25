@@ -8,12 +8,12 @@
 CGuiSys* CGuiSys::spGuiSys = nullptr;
 
 CGuiSys::CGuiSys(IFactory* factory, CSimplePool* pool, EUsageMode mode)
-: x0_resFactory(factory), x4_resStore(pool), x8_mode(mode) {
-  AddFactories(x8_mode);
-  xc_textExecuteBuffer = rs_new CTextExecuteBuffer();
-  x10_textParser = rs_new CTextParser(*pool);
+: mResFactory(factory), mResStore(pool), mMode(mode) {
+  AddFactories(mMode);
+  mTextExecuteBuffer = rs_new CTextExecuteBuffer();
+  mTextParser = rs_new CTextParser(*pool);
 
-  CGuiTextSupport::Initialize(xc_textExecuteBuffer.get(), x10_textParser.get());
+  CGuiTextSupport::Initialize(mTextExecuteBuffer.get(), mTextParser.get());
 }
 
 CGuiSys::~CGuiSys() {}

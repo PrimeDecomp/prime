@@ -12,77 +12,77 @@
 struct CTweakPlayerRes : public ITweakObject, public TOneStatic< CTweakPlayerRes > {
 public:
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-  rstl::reserved_vector< CAssetId, 9 > x4_mapIcons;
+  rstl::reserved_vector< CAssetId, 9 > mMapIcons;
 #else
-  CAssetId x4_saveStationIcon;
-  CAssetId x8_missileStationIcon;
-  CAssetId xc_elevatorIcon;
-  CAssetId x10_minesBreakFirstTopIcon;
-  CAssetId x14_minesBreakFirstBottomIcon;
-  CAssetId x18_minesBreakSecondTopIcon;
-  CAssetId x1c_minesBreakSecondBottomIcon;
+  CAssetId mSaveStationIcon;
+  CAssetId mMissileStationIcon;
+  CAssetId mElevatorIcon;
+  CAssetId mMinesBreakFirstTopIcon;
+  CAssetId mMinesBreakFirstBottomIcon;
+  CAssetId mMinesBreakSecondTopIcon;
+  CAssetId mMinesBreakSecondBottomIcon;
 #endif
-  rstl::reserved_vector< CAssetId, 9 > x20_lStick;
-  rstl::reserved_vector< CAssetId, 9 > x48_cStick;
-  rstl::reserved_vector< CAssetId, 2 > x70_lTrigger;
-  rstl::reserved_vector< CAssetId, 2 > x7c_rTrigger;
-  rstl::reserved_vector< CAssetId, 2 > x88_startButton;
-  rstl::reserved_vector< CAssetId, 2 > x94_aButton;
-  rstl::reserved_vector< CAssetId, 2 > xa0_bButton;
-  rstl::reserved_vector< CAssetId, 2 > xac_xButton;
-  rstl::reserved_vector< CAssetId, 2 > xb8_yButton;
-  CAssetId xc4_ballTransitionsANCS;
-  CAssetId xc8_ballTransitions[5];
-  CAssetId xdc_cineGun[5];
-  float xf0_cinematicMoveOutofIntoPlayerDistance;
+  rstl::reserved_vector< CAssetId, 9 > mLStick;
+  rstl::reserved_vector< CAssetId, 9 > mCStick;
+  rstl::reserved_vector< CAssetId, 2 > mLTrigger;
+  rstl::reserved_vector< CAssetId, 2 > mRTrigger;
+  rstl::reserved_vector< CAssetId, 2 > mStartButton;
+  rstl::reserved_vector< CAssetId, 2 > mAButton;
+  rstl::reserved_vector< CAssetId, 2 > mBButton;
+  rstl::reserved_vector< CAssetId, 2 > mXButton;
+  rstl::reserved_vector< CAssetId, 2 > mYButton;
+  CAssetId mBallTransitionsANCS;
+  CAssetId mBallTransitions[5];
+  CAssetId mCineGun[5];
+  float mCinematicMoveOutofIntoPlayerDistance;
 
   CTweakPlayerRes(CInputStream& in);
 
   CAssetId GetSaveStationIcon() const {
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-    return x4_mapIcons[0];
+    return mMapIcons[0];
 #else
-    return x4_saveStationIcon;
+    return mSaveStationIcon;
 #endif
   }
 
   CAssetId GetMissileStationIcon() const {
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-    return x4_mapIcons[1];
+    return mMapIcons[1];
 #else
-    return x8_missileStationIcon;
+    return mMissileStationIcon;
 #endif
   }
 
   CAssetId GetElevatorIcon() const {
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-    return x4_mapIcons[2];
+    return mMapIcons[2];
 #else
-    return xc_elevatorIcon;
+    return mElevatorIcon;
 #endif
   }
 
   CAssetId GetMinesBreakFirstTopIcon() const {
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-    return x4_mapIcons[3];
+    return mMapIcons[3];
 #else
-    return x10_minesBreakFirstTopIcon;
+    return mMinesBreakFirstTopIcon;
 #endif
   }
 
   CAssetId GetMinesBreakFirstBottomIcon() const {
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-    return x4_mapIcons[4];
+    return mMapIcons[4];
 #else
-    return x14_minesBreakFirstBottomIcon;
+    return mMinesBreakFirstBottomIcon;
 #endif
   }
 
   float GetCinematicMoveOutofIntoPlayerDistance() const {
-    return xf0_cinematicMoveOutofIntoPlayerDistance;
+    return mCinematicMoveOutofIntoPlayerDistance;
   }
 
-  CAssetId GetBallTransitionANCSId() const { return xc4_ballTransitionsANCS; }
+  CAssetId GetBallTransitionANCSId() const { return mBallTransitionsANCS; }
 
   CAssetId GetBallTransitionBeamResId(CPlayerState::EBeamId id) const;
   CAssetId GetCinematicBeamResId(CPlayerState::EBeamId id) const;
