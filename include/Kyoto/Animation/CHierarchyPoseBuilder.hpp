@@ -52,7 +52,7 @@ public:
     CVector3f mOffset;
   };
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   void Insert(const CSegId& id, const CQuaternion& rot);
   void Insert(const CSegId& id, const CVector3f& off);
 #else

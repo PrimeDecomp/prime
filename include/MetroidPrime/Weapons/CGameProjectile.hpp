@@ -73,12 +73,12 @@ public:
   bool GetWeaponActive() const { return mActive; }
   void DeleteProjectileLight(CStateManager&);
 
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
   bool GetUnkPalFlag() const { return mUnkPalFlag; }
 #endif
 
   void SetUnkPalFlag(bool active) {
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
     mUnkPalFlag = active;
 #endif
   }
@@ -123,12 +123,12 @@ protected:
   bool mWaterUpdate : 1;
   bool mInWater : 1;
   bool mSendProjectileCollideMsg : 1;
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
   bool mUnkPalFlag : 1;
 #endif
 };
-CHECK_SIZEOF(CGameProjectile, (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0x310
-                               : VERSION >= VERSION_GM8P_00                             ? 0x2f8
+CHECK_SIZEOF(CGameProjectile, (VERSION >= VERSION_GM8P_00 ? 0x310
+                               : VERSION >= VERSION_GM8E_02                             ? 0x2f8
                                                                                         : 0x2e8))
 
 #endif // _CGAMEPROJECTILE

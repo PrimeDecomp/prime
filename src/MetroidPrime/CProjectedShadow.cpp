@@ -32,7 +32,7 @@ CProjectedShadow::CProjectedShadow(const int w, const int h, const uchar persist
 , mTranslation(CVector3f::Zero())
 , mZDistanceAdjust(0.f)
 , mOpacity(1.f)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mNextShadow(nullptr)
 #endif
 {
@@ -55,7 +55,7 @@ void CProjectedShadow::ExpandBoundsForTexture() {
   mBounds = CAABox(mBounds.GetMinPoint() - offset, mBounds.GetMaxPoint() + offset);
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 void CProjectedShadow::RenderShadowBuffer(CStateManager& mgr, const CModelData& modelData,
                                           const CTransform4f& xf, int flags,
                                           const CVector3f& translation, float scale,
@@ -100,7 +100,7 @@ void CProjectedShadow::RenderShadowBuffer(CStateManager& mgr, const CModelData& 
   const short height = mTexture.GetHeight();
   const int renderWidth = width * 2;
   const int renderHeight = height * 2;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   const CVector3f center = (mBounds.GetMinPoint() + mBounds.GetMaxPoint()) * 0.5f;
 #else
   const CVector3f center = mBounds.CenterPoint();
@@ -131,7 +131,7 @@ void CProjectedShadow::RenderShadowBuffer(CStateManager& mgr, const CModelData& 
   CGX::SetBlendMode(GX_BM_BLEND, GX_BL_ONE, GX_BL_ZERO, GX_LO_CLEAR);
   CGX::SetAlphaCompare(GX_ALWAYS, 0, GX_AOP_AND, GX_ALWAYS, 0);
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   for (int i = 0; i < count; ++i) {
     const CModelData& modelData = *models[i];
     const CTransform4f& xf = *transforms[i];

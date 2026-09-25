@@ -35,7 +35,7 @@ public:
   CColorElement* mPCOL;
   CVectorElement* mPOFS;
   CVectorElement* mOFST;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   bool mAPSO : 1;
   bool mF60H : 1;
   bool mSVBD : 1;
@@ -69,7 +69,7 @@ public:
   TSwooshGeneratorDesc mASW3;
   TParticleModel mOHEF;
   TCollisionResponseDesc mCOLR;
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   bool mEWTR;
   bool mLWTR;
   bool mSWTR;
@@ -79,6 +79,6 @@ public:
   CRealElement* mFOFF;
 };
 CHECK_SIZEOF(CWeaponDescription,
-             (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0xac : 0xb4))
+             (VERSION >= VERSION_GM8P_00 ? 0xac : 0xb4))
 
 #endif // _CWEAPONDESCRIPTION

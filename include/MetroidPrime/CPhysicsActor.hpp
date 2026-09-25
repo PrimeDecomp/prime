@@ -239,6 +239,6 @@ protected:
   uint mNumTicksPartialUpdate;
   uint x254_;
 };
-CHECK_SIZEOF(CPhysicsActor, (VERSION >= VERSION_GM8P_00 ? 0x268 : 0x258))
+CHECK_SIZEOF(CPhysicsActor, (VERSION >= VERSION_GM8E_02 ? 0x268 : 0x258))
 
 #endif // _CPHYSICSACTOR

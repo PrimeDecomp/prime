@@ -274,7 +274,7 @@ void CGunWeapon::UpdateGunFx(const bool shotSmoke, const float dt, const CStateM
 
 void CGunWeapon::UpdateMuzzleFx(const float dt, const CVector3f& scale, const CVector3f& pos,
                                 const bool emitting) {
-  if ((VERSION < VERSION_GM8P_00) || !mMuzzleGenerators[mMuzzleEffectIdx].null()) {
+  if ((VERSION < VERSION_GM8E_02) || !mMuzzleGenerators[mMuzzleEffectIdx].null()) {
     mMuzzleGenerators[mMuzzleEffectIdx]->SetGlobalTranslation(pos);
     mMuzzleGenerators[mMuzzleEffectIdx]->SetGlobalScale(scale);
     mMuzzleGenerators[mMuzzleEffectIdx]->SetParticleEmission(emitting);
@@ -291,7 +291,7 @@ CElementGen* CGunWeapon::GetChargeMuzzleFx() const {
 }
 
 void CGunWeapon::DrawMuzzleFx(const CStateManager& mgr) const {
-  if (((VERSION < VERSION_GM8P_00) || mLoaded) && !mMuzzleGenerators[mMuzzleEffectIdx].null()) {
+  if (((VERSION < VERSION_GM8E_02) || mLoaded) && !mMuzzleGenerators[mMuzzleEffectIdx].null()) {
     if (mBeamId != CPlayerState::kBI_Ice &&
         mgr.GetPlayerState()->GetActiveVisor(mgr) == CPlayerState::kPV_XRay) {
       CElementGen::SetSubtractBlend(true);
@@ -304,11 +304,11 @@ void CGunWeapon::DrawMuzzleFx(const CStateManager& mgr) const {
 }
 
 void CGunWeapon::ActivateCharge(bool enable, bool resetEffect) {
-  if ((VERSION < VERSION_GM8P_00) || (mLoaded && !mMuzzleGenerators[mMuzzleEffectIdx].null())) {
+  if ((VERSION < VERSION_GM8E_02) || (mLoaded && !mMuzzleGenerators[mMuzzleEffectIdx].null())) {
     mMuzzleGenerators[mMuzzleEffectIdx]->SetParticleEmission(false);
   }
   mMuzzleEffectIdx = !!enable;
-  if (((VERSION < VERSION_GM8P_00) || mLoaded) && (enable || resetEffect)) {
+  if (((VERSION < VERSION_GM8E_02) || mLoaded) && (enable || resetEffect)) {
     mMuzzleGenerators[mMuzzleEffectIdx] =
         rs_new CElementGen(mMuzzleEffects[mMuzzleEffectIdx]);
   }
@@ -432,13 +432,13 @@ void CGunWeapon::Fire(const bool underwater, const float dt,
 }
 
 void CGunWeapon::ReturnToDefault(CStateManager& mgr) {
-  if ((VERSION < VERSION_GM8P_00) || !mGunController.null()) {
+  if ((VERSION < VERSION_GM8E_02) || !mGunController.null()) {
     mGunController->ReturnToDefault(mgr, 0.f, false);
   }
 }
 
 bool CGunWeapon::ComboFireOver() const {
-  if ((VERSION < VERSION_GM8P_00) || !mGunController.null()) {
+  if ((VERSION < VERSION_GM8E_02) || !mGunController.null()) {
     return mGunController->IsComboOver();
   }
   return true;
@@ -536,7 +536,7 @@ void CGunWeapon::AllocResPools(CPlayerState::EBeamId beam) {
   }
 }
 
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
 inline
 #endif
 void CVelocityInfo::Clear() {

@@ -26,6 +26,6 @@ private:
   uint mPriority;
   float mLifeTime;
 };
-CHECK_SIZEOF(CGameLight, (VERSION >= VERSION_GM8P_00 ? 0x158 : 0x148))
+CHECK_SIZEOF(CGameLight, (VERSION >= VERSION_GM8E_02 ? 0x158 : 0x148))
 
 #endif // _CGAMELIGHT

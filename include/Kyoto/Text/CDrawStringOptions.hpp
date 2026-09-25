@@ -17,7 +17,7 @@ public:
 private:
   ETextDirection mDirection;
   rstl::reserved_vector< u32, 16 > mColors;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   int mExtraCharacterSpacing;
 #endif
 };

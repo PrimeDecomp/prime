@@ -81,6 +81,6 @@ private:
 };
 
 CHECK_SIZEOF(CTextExecuteBuffer,
-             (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0xe0 : 0xdc))
+             (VERSION >= VERSION_GM8P_00 ? 0xe0 : 0xdc))
 
 #endif // _CTEXTEXECUTEBUFFER

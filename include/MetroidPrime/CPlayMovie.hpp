@@ -60,7 +60,7 @@ private:
   float mResultsTime;
   float mPulseTime;
   float mPrintedCharacters;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   CColor mPulseStartColor;
   CColor mPulseEndColor;
 #endif
@@ -69,7 +69,7 @@ private:
   bool mResultsScreen : 1;
   bool mQuitScreenFlag : 1;
 };
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 CHECK_SIZEOF(CPlayMovie, 0x84)
 #else
 CHECK_SIZEOF(CPlayMovie, 0x7c)

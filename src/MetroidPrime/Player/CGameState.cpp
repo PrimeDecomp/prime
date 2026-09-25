@@ -29,7 +29,7 @@ uint CSystemState::GetBitCount(uint value) {
 
 CSystemState::CSystemState() : mNesState(static_cast< uchar >(0))
 , x68_(static_cast< uchar >(0))
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mLanguage(gpMain->GetLanguage())
 #endif
 , mAutoMapperKeyState(0)
@@ -46,7 +46,7 @@ CSystemState::CSystemState() : mNesState(static_cast< uchar >(0))
 
 CSystemState::CSystemState(CInputStream& in) : mNesState(static_cast< uchar >(0))
 , x68_(static_cast< uchar >(0))
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mLanguage(0)
 #endif
 , mAutoMapperKeyState(0)
@@ -74,7 +74,7 @@ CSystemState::CSystemState(CInputStream& in) : mNesState(static_cast< uchar >(0)
   mFusionBeat = in.ReadBits(1) != 0;
   mAllItemsCollected = in.ReadBits(1) != 0;
   mAutoMapperKeyState = in.ReadBits(2);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   mLanguage = in.ReadBits(GetBitCount(7));
 #endif
 
@@ -118,7 +118,7 @@ void CSystemState::PutTo(COutputStream& out) {
   out.WriteBits(mFusionBeat ? 1 : 0, 1);
   out.WriteBits(mAllItemsCollected ? 1 : 0, 1);
   out.WriteBits(mAutoMapperKeyState, 2);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   out.WriteBits(mLanguage, GetBitCount(7));
 #endif
   const rstl::vector< CMemoryCard::MemoryWorld >& worlds = gpMemoryCard->GetMemoryWorlds();

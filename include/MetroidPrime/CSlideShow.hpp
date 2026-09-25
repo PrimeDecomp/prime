@@ -31,7 +31,7 @@ public:
   static uint SlideShowGalleryFlags();
 
 private:
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   struct SGalleryData {
     int mGallery;
     rstl::vector< const SObjectTag* > mTextures;
@@ -55,7 +55,7 @@ private:
     CSlideShow* mParent;
     int mGallery;
     int mSlide;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     rstl::vector< STexture > mTextures;
     int mColumns;
     float mTextureWidth;
@@ -75,17 +75,17 @@ private:
     : mParent(nullptr)
     , mGallery(-1)
     , mSlide(-1)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     , mColumns(0)
 #endif
     , mReady(false)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     , mStopLoading(false)
 #endif
     , mVpOffset(0.f, 0.f)
     , mVpSize(0.f, 0.f)
     , mCanvasSize(0.f, 0.f)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     , mMulColor(CColor::White().WithAlphaOf(0.f)) {}
 #else
     , mMulColor(CColor::White()) {
@@ -93,7 +93,7 @@ private:
     }
 #endif
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     const bool IsLoaded() const;
 #else
     bool IsLoaded() const { return !mTexture.null() && mTexture->IsLoaded(); }
@@ -144,12 +144,12 @@ private:
   SSlideData mSlideA;
   SSlideData mSlideB;
   rstl::single_ptr< CGuiTextSupport > mControlsText;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   rstl::single_ptr< CGuiTextSupport > mGalleryNameText;
 #endif
   rstl::single_ptr< CGuiTextSupport > mSlideNumberText;
   rstl::single_ptr< CStaticAudioPlayer > mAudio;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   TToken< CStringTable > mGalleryNames;
   rstl::vector< rstl::wstring > mGalleryLabels;
 #else
@@ -177,6 +177,6 @@ private:
   bool mOutroFade : 1;
   bool mGalleryChanged : 1;
 };
-CHECK_SIZEOF(CSlideShow, (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0x16c : 0x138))
+CHECK_SIZEOF(CSlideShow, (VERSION >= VERSION_GM8P_00 ? 0x16c : 0x138))
 
 #endif // _CSLIDESHOW

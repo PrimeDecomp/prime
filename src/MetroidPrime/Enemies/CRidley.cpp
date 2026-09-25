@@ -25,7 +25,7 @@
 #include "rstl/math.hpp"
 #include <math.h>
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 const int CRidley::skNumProperties = 39;
 #else
 const int CRidley::skNumProperties = 47;
@@ -132,7 +132,7 @@ static const SStage2Attack skStage2Attacks[5][12] = {
     },
 };
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 static const SStage2Attack skStage3Attacks[4][7] = {
     {
         SStage2Attack(2, 100.f, -1),
@@ -186,7 +186,7 @@ struct STailJoint {
   const char* mTo;
   float mRadius;
 };
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 static const STailJoint skTailJoints[4] = {
     {"Tail_1", "Tail_3", 1.48f},
     {"Tail_3", "Tail_5", 1.48f},
@@ -205,7 +205,7 @@ struct SBodyJoint {
   const char* mName;
   float mRadius;
 };
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 static const SBodyJoint skBodyJoints[10] = {
     {"Skeleton_Root", 1.35f}, {"Spine_2", 1.35f},  {"breastPlate_LCTR", 1.f}, {"Head_1", 1.35f},
     {"L_wrist", 1.1f},        {"R_wrist", 1.1f},   {"L_ankle", 1.35f},        {"R_ankle", 1.35f},
@@ -219,7 +219,7 @@ static const SBodyJoint skBodyJoints[10] = {
 };
 #endif
 struct SStage2Settings {
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   uint x0_;
   uint x4_;
   float x8_;
@@ -235,7 +235,7 @@ struct SStage2Settings {
   uchar x23_;
 };
 static const SStage2Settings skStage2Settings[5] = {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     {1, 0, 0, 0, 0}, {2, 0, 0, 0, 0}, {2, 1, 0, 0, 0}, {2, 0, 0, 0, 0}, {2, 1, 0, 0, 0},
 #else
     {4, 6, 50.f, 50.f, 0.f, 33.f, 0.f, 1, 0, 0, 0, 0},
@@ -245,7 +245,7 @@ static const SStage2Settings skStage2Settings[5] = {
     {3, 5, 30.f, 30.f, 40.f, 50.f, 50.f, 2, 1, 0, 0, 0},
 #endif
 };
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
 static const float skStage3AttackWeights[6][6] = {
     {0.f, 20.f, 40.f, 0.f, 0.f, 40.f}, {0.f, 0.f, 70.f, 0.f, 0.f, 30.f},
     {0.f, 60.f, 0.f, 0.f, 0.f, 40.f},  {0.f, 40.f, 30.f, 0.f, 0.f, 30.f},
@@ -254,7 +254,7 @@ static const float skStage3AttackWeights[6][6] = {
 #endif
 
 CRidleyData::CRidleyData(CInputStream& in, int propCount)
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
 : x0_(in.ReadLong())
 , x4_(in.ReadLong())
 , x8_(in.ReadLong())
@@ -280,7 +280,7 @@ CRidleyData::CRidleyData(CInputStream& in, int propCount)
 , x64_(in)
 , xa8_(CSfxManager::TranslateSFXID(in.ReadLong()))
 , xac_(in.ReadLong())
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , x88_(in.ReadLong())
 #endif
 , xb0_(in)
@@ -302,7 +302,7 @@ CRidleyData::CRidleyData(CInputStream& in, int propCount)
 , x3f0_(in.ReadLong())
 , x3f4_(in.ReadFloat())
 , x3f8_(CSfxManager::TranslateSFXID(in.ReadLong()))
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , x3fc_(in)
 , mBounceDamage(propCount > 39 ? CDamageInfo(in) : x298_)
 #else
@@ -349,7 +349,7 @@ CRidley::CRidley(TUniqueId uid, const rstl::string& name, const CEntityInfo& inf
 , xa33_31_(false)
 , xa34_24_(false)
 , xa34_25_(false)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , xa34_27_(true)
 , xa34_29_(false)
 , mJumpCanBeInterrupted(false)
@@ -396,7 +396,7 @@ CRidley::CRidley(TUniqueId uid, const rstl::string& name, const CEntityInfo& inf
 , xc08_(0.f)
 , xc0c_(0.f)
 , xc10_(120.f)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mProjectileInfo(mData.xac_, mData.xb0_)
 , xc14_(mData.x88_, mData.xb0_)
 #else
@@ -410,7 +410,7 @@ CRidley::CRidley(TUniqueId uid, const rstl::string& name, const CEntityInfo& inf
 , xc7c_(0.f)
 , xc80_(0.f)
 , xc88_(4)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mMeleeAttack(2)
 #endif
 , xc8c_(GetContactDamage())
@@ -428,13 +428,13 @@ CRidley::CRidley(TUniqueId uid, const rstl::string& name, const CEntityInfo& inf
 , xd08_(0.f)
 , xd0c_()
 , xd10_(rs_new CProjectedShadow(128, 128, true))
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mPreviousBeamPos(CVector3f::Zero())
 #endif
 {
   SetDoTargetDistanceTest(false);
   xb68_.Token().Lock();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   mProjectileInfo.Token().Lock();
 #endif
   xc14_.Token().Lock();
@@ -472,7 +472,7 @@ void CRidley::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
     xcbc_ = 0.8f * xcb8_;
     break;
   case kSM_Reset:
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     xa34_25_ = true;
 #else
     xa34_26_ = true;
@@ -484,7 +484,7 @@ void CRidley::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
     // Fall through.
   case kSM_Activate: {
     mgr.SetBossParams(GetUniqueId(), xb1c_ + (xcb8_ + xb18_),
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
                       84);
 #else
                       90);
@@ -536,7 +536,7 @@ void CRidley::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
     if (CCollisionActor* actor = TCastToPtr< CCollisionActor >(mgr.ObjectById(uid))) {
       const float damage = 1000.f - actor->HealthInfo(mgr)->GetHP();
       actor->HealthInfo(mgr)->SetHP(1000.f);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       bool interruptAttack = false;
 #endif
       bool suppressKnockback = false;
@@ -591,7 +591,7 @@ void CRidley::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
         TakeDamage(CVector3f::Forward(), 1.f);
         xb20_ = skDamageHitTime;
         if (xa32_29_) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
           if (mJumpCanBeInterrupted && damage >= 40.f) {
             interruptAttack = true;
             if (const CEntity* entity = mgr.GetObjectById(actor->GetLastTouchedObject())) {
@@ -618,7 +618,7 @@ void CRidley::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
           if (xb14_ <= 0.f) {
             xa32_29_ = false;
             suppressKnockback = true;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
             interruptAttack = false;
 #endif
             mShotAt = true;
@@ -633,7 +633,7 @@ void CRidley::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
               suppressKnockback = true;
               xb18_ = 0.f;
               xcbc_ = 0.6667f * mData.x40_;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
               xcb0_ = 3;
 #endif
             } else if (xb18_ < xcbc_) {
@@ -659,7 +659,7 @@ void CRidley::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
         break;
       }
       HealthInfo(mgr)->SetHP(xb1c_ + (xb10_ + xb18_));
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       if (interruptAttack) {
         mBodyController->CommandMgr().DeliverCmd(CBCGenerateCmd(pas::kGType_Five, -1));
         mJumpCanBeInterrupted = false;
@@ -671,7 +671,7 @@ void CRidley::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
         const TUniqueId touchedId = actor->GetLastTouchedObject();
         if (const CGameProjectile* projectile =
                 TCastToConstPtr< CGameProjectile >(mgr.GetObjectById(touchedId))) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
           KnockBack(projectile->GetVelocity(), mgr, projectile->GetCurrentDamageInfo(),
                     projectile->GetCurrentDamageInfo().GetKnockBackPower(), true, false);
 #else
@@ -749,7 +749,7 @@ void CRidley::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUs
   case kUE_BeginAction:
     if (xa32_25_ && !xa31_29_) {
       ActivateBeam(mgr);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       mHasPreviousBeamPos = false;
 #endif
     }
@@ -787,7 +787,7 @@ void CRidley::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUs
   case kUE_Projectile:
     switch (mAiStage) {
     case 2:
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       if (mgr.CanCreateProjectile(GetUniqueId(), kWT_AI, 9)) {
 #else
       if (xc14_.Token().TryCache() && mgr.CanCreateProjectile(GetUniqueId(), kWT_AI, 9)) {
@@ -796,7 +796,7 @@ void CRidley::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUs
         const float angle = atan2f(mgr.Random()->Range(-1.f, 1.f), x);
         CTransform4f xf = GetLctrTransform(mBreastPlateSegId) *
                           CTransform4f::RotateX(CRelAngle::FromDegrees(-90.f));
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
         if (!xa34_27_) {
           xf = xf * CTransform4f::RotateY(CRelAngle(angle));
         }
@@ -807,13 +807,13 @@ void CRidley::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUs
         xf.SetTranslation(xf * offset);
         CEnergyProjectile* projectile = rs_new CEnergyProjectile(
             true,
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
             xa34_27_ ? xc14_.Token() : mProjectileInfo.Token(),
 #else
             xc14_.Token(),
 #endif
             kWT_AI, xf, kMT_Character,
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
             mProjectileInfo.GetDamage(),
 #else
             xc14_.GetDamage(),
@@ -826,7 +826,7 @@ void CRidley::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUs
           mgr.AddObject(projectile);
           projectile->SetCameraShake(mData.xcc_);
           projectile->SetMinHomingDistance(20.f);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
           xa34_27_ = false;
 #endif
         }
@@ -859,23 +859,23 @@ void CRidley::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUs
     } else if (mAiStage == 3) {
       xa31_24_ = false;
     }
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     handled = true;
 #endif
     break;
   case kUE_BreakLockOn:
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     if (IsAlive() && mCanBreakLockOn) {
 #else
     if (IsAlive()) {
 #endif
       RemoveMaterial(kMT_Target, kMT_Orbit, mgr);
       mgr.Player()->TryToBreakOrbit(GetUniqueId(), CPlayer::kOB_ActivateOrbitSource, mgr);
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
       handled = true;
 #endif
     }
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     handled = true;
 #endif
     break;
@@ -886,7 +886,7 @@ void CRidley::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUs
     break;
   case kUE_ScreenShake:
     mVerticalMovement = false;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     if (mgr.GetPlayer()->GetTranslation().GetZ() - xa84_.GetTranslation().GetZ() < 1.f &&
         (mgr.GetPlayer()->GetTranslation() - GetTranslation()).Magnitude() < mData.x388_) {
 #else
@@ -894,7 +894,7 @@ void CRidley::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUs
 #endif
       mgr.ApplyDamage(
           GetUniqueId(), mgr.GetPlayer()->GetUniqueId(), GetUniqueId(),
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
           mAiStage == 2 ? mData.x298_ : mData.mBounceDamage,
 #else
           mData.x298_,
@@ -931,7 +931,7 @@ void CRidley::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUs
       break;
     }
     break;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   case kUE_EventStart: {
     const float duration = mData.x3cc_;
     mIsMakingBigStrike = duration > 0.f;
@@ -1007,7 +1007,7 @@ void CRidley::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) {
 
 void CRidley::Render(const CStateManager& mgr) const {
   float damageDuration;
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   CColor damageColor = CColor::Black();
   const float damageTime0 = xb20_;
   if (damageTime0 > 0.f) {
@@ -1038,7 +1038,7 @@ void CRidley::Render(const CStateManager& mgr) const {
     const CTransform4f xf = GetLctrTransform(mBreastPlateSegId);
     const float damageTime0 = xb20_;
     if (damageTime0 > 0.f) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       CColor damageColor = CColor::Black();
       const float damageTime0 = xb20_;
       if (damageTime0 > 0.f) {
@@ -1093,7 +1093,7 @@ void CRidley::SetStage3ThroatVulnerability(CStateManager& mgr) {
       actor->SetDamageVulnerability(i == 3 ? skIceWeakness
                                            : CDamageVulnerability::ImmuneVulnerability());
       actor->HealthInfo(mgr)->SetHP(1000.f);
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
       actor->SetDrawShadow(true);
 #endif
     }
@@ -1110,7 +1110,7 @@ void CRidley::SetStage3BreastVulnerability(CStateManager& mgr) {
       actor->SetDamageVulnerability(i == 2 ? skDirectNormal
                                            : CDamageVulnerability::ImmuneVulnerability());
       actor->HealthInfo(mgr)->SetHP(1000.f);
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
       actor->SetDrawShadow(true);
 #endif
     }
@@ -1120,7 +1120,7 @@ void CRidley::SetStage3BreastVulnerability(CStateManager& mgr) {
 }
 
 void CRidley::SetStage3Immunity(CStateManager& mgr) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   if (mInFlinch) {
     return;
   }
@@ -1131,7 +1131,7 @@ void CRidley::SetStage3Immunity(CStateManager& mgr) {
     if (CCollisionActor* actor = TCastToPtr< CCollisionActor >(mgr.ObjectById(id))) {
       actor->SetDamageVulnerability(CDamageVulnerability::ImmuneVulnerability());
       actor->HealthInfo(mgr)->SetHP(1000.f);
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
       actor->SetDrawShadow(true);
 #endif
     }
@@ -1158,7 +1158,7 @@ void CRidley::SetupCollisionManagers(CStateManager& mgr) {
   uint i;
   for (i = 0; i < 4; ++i) {
     const STailJoint& joint = skTailJoints[i];
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     const float radius = joint.mRadius;
 #else
     const float radius = joint.mRadius * GetModelData()->ScaleCopy().GetZ();
@@ -1175,12 +1175,12 @@ void CRidley::SetupCollisionManagers(CStateManager& mgr) {
   joints.clear();
   for (i = 0; i < 10; ++i) {
     const SBodyJoint& joint = skBodyJoints[i];
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
     const float radius = joint.mRadius * GetModelData()->ScaleCopy().GetZ();
 #endif
     joints.push_back(CJointCollisionDescription::SphereCollision(
         animData.GetLocatorSegId(rstl::string_l(joint.mName)),
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
         joint.mRadius,
 #else
         radius,
@@ -1241,7 +1241,7 @@ void CRidley::ActivateBeam(CStateManager& mgr) {
   if (mPlasmaProjectile == kInvalidUniqueId) {
     CPlasmaProjectile* projectile = rs_new CPlasmaProjectile(
         xb68_.Token(), rstl::string_l(""), kWT_AI, mData.x64_, CTransform4f::Identity(),
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
         kMT_Player,
 #else
         kMT_Character,
@@ -1267,7 +1267,7 @@ void CRidley::ActivateBeam(CStateManager& mgr) {
   }
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 void CRidley::UpdateBeam(CStateManager& mgr, float dt) {
   if (CPlasmaProjectile* projectile =
           static_cast< CPlasmaProjectile* >(mgr.ObjectById(mPlasmaProjectile))) {
@@ -1449,7 +1449,7 @@ void CRidley::UpdateFlight(float dt) {
 void CRidley::Fly(const CVector3f& direction, float speed, float dt) {
   xaf8_ = (speed * (0.2f * speed)) * direction;
   xaec_ += dt * xaf8_;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   if (xaec_.IsMagnitudeSafe() && xaec_.Magnitude() > speed) {
 #else
   if (xaec_.Magnitude() > speed) {
@@ -1459,7 +1459,7 @@ void CRidley::Fly(const CVector3f& direction, float speed, float dt) {
 }
 
 void CRidley::FacePlayer(CStateManager& mgr, float dt) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   const CVector3f delta = mgr.GetPlayer()->GetTranslation() - GetTranslation();
   if (delta.IsMagnitudeSafe()) {
     mBodyController->FaceDirection(delta.AsNormalized(), dt);
@@ -1470,7 +1470,7 @@ void CRidley::FacePlayer(CStateManager& mgr, float dt) {
 #endif
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 void CRidley::PushPlayer(CStateManager& mgr) const {
   const CVector3f delta = mgr.GetPlayer()->GetTranslation() - GetTranslation();
   const CVector3f planarDelta(delta.ToVec2f(), 0.f);
@@ -1535,14 +1535,14 @@ void CRidley::Taunt(CStateManager& mgr, EStateMsg msg, float arg) {
 void CRidley::Generate(CStateManager& mgr, EStateMsg msg, float arg) {
   switch (msg) {
   case kStateMsg_Activate:
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     xa34_25_ = false;
 #else
     xa34_26_ = false;
 #endif
     SetTranslation(xa84_ * CVector3f(0.f, xabc_, xac0_ - xadc_));
     mBodyController->CommandMgr().DeliverCmd(CBodyStateCmd(kBSC_NextState));
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     xa32_31_ = false;
 #endif
     break;
@@ -1610,7 +1610,7 @@ void CRidley::TelegraphAttack(CStateManager& mgr, EStateMsg msg, float arg) {
   case kStateMsg_Update:
     TryCommand(mgr, pas::kAS_ProjectileAttack,
                static_cast< FTryCommandCallback >(&CRidley::TryProjectileAttack),
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
                xa34_29_ ? 1 : 0);
 #else
                0);
@@ -1622,7 +1622,7 @@ void CRidley::TelegraphAttack(CStateManager& mgr, EStateMsg msg, float arg) {
     SetStage3Immunity(mgr);
     xa32_25_ = false;
     RandomSlowDown();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     xa34_29_ = true;
 #endif
     break;
@@ -1640,7 +1640,7 @@ void CRidley::Flee(CStateManager& mgr, EStateMsg msg, float arg) {
     break;
   }
   case kStateMsg_Update: {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     CVector3f direction = mDestPos - GetTranslation();
     if (direction.IsMagnitudeSafe()) {
       direction.Normalize();
@@ -1703,7 +1703,7 @@ void CRidley::Lurk(CStateManager& mgr, EStateMsg msg, float arg) {
     const CVector3f right = CVector3f::Cross(forward, CVector3f::Up());
     SetTransform(CTransform4f::FromColumns(right, forward, CVector3f::Up(), GetTranslation()));
     xa33_27_ = false;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     xa34_25_ = false;
 #else
     xa34_26_ = false;
@@ -1711,7 +1711,7 @@ void CRidley::Lurk(CStateManager& mgr, EStateMsg msg, float arg) {
     break;
   }
   case kStateMsg_Update:
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     const CVector3f delta = mDestPos - GetTranslation();
     if (delta.IsMagnitudeSafe()) {
       Fly(delta.AsNormalized(), 50.f, arg);
@@ -1764,7 +1764,7 @@ void CRidley::LoopedAttack(CStateManager& mgr, EStateMsg msg, float arg) {
       xa33_24_ = false;
       xbc4_ = GetTranslation();
       xbd0_ = GetTransform().GetForward();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       mReflectedDestPos = GetTranslation();
 #endif
     } else {
@@ -1827,7 +1827,7 @@ void CRidley::LoopedAttack(CStateManager& mgr, EStateMsg msg, float arg) {
     if (!xa31_30_) {
       CVector3f direction = xbc4_ - GetTranslation();
       const float distance = direction.Magnitude();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       const float dot = CVector3f::Dot(direction, xbc4_ - mReflectedDestPos);
       if (distance > 2.f && dot > 0.f) {
 #else
@@ -1911,7 +1911,7 @@ void CRidley::Approach(CStateManager& mgr, EStateMsg msg, float arg) {
     break;
   }
   case kStateMsg_Update:
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     const CVector3f delta = mDestPos - GetTranslation();
     if (delta.IsMagnitudeSafe()) {
       Fly(delta.AsNormalized(), 50.f, arg);
@@ -2022,7 +2022,7 @@ void CRidley::JumpBack(CStateManager& mgr, EStateMsg msg, float arg) {
   }
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 void CRidley::TurnAround(CStateManager& mgr, EStateMsg msg, float arg) {
   switch (msg) {
   case kStateMsg_Activate:
@@ -2062,7 +2062,7 @@ void CRidley::Crouch(CStateManager& mgr, EStateMsg msg, float arg) {
     }
     break;
   case kStateMsg_Deactivate:
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     xa34_29_ = false;
 #endif
     break;
@@ -2075,7 +2075,7 @@ void CRidley::ProjectileAttack(CStateManager& mgr, EStateMsg msg, float arg) {
     mAnimState = kAS_Ready;
     --xcc4_;
     xa33_31_ = true;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     xa34_27_ = true;
 #endif
     break;
@@ -2100,7 +2100,7 @@ bool CRidley::CanJumpAttack() const {
   return ret;
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 void CRidley::ChooseStage3Attack(CStateManager& mgr) {
   const SStage2Attack& attack = skStage3Attacks[xcb0_][xcb4_];
   xb0c_ = mgr.Random()->Range(0.f, 100.f) <= attack.mProbability ? attack.mPrimary
@@ -2206,7 +2206,7 @@ void CRidley::FadeOut(CStateManager& mgr, EStateMsg msg, float arg) {
   case kStateMsg_Deactivate:
     mAnimState = kAS_NotReady;
     xcbc_ = 0.6667f * mData.x3c_;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     xcb0_ = 0;
     xcb4_ = 0;
 #endif
@@ -2222,7 +2222,7 @@ void CRidley::DoubleSnap(CStateManager& mgr, EStateMsg msg, float arg) {
   switch (msg) {
   case kStateMsg_Activate: {
     mAnimState = kAS_Ready;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     const float distance = (mgr.GetPlayer()->GetTranslation() - GetTranslation()).Magnitude();
     mMeleeAttack = distance < 0.66f * mMinAttackRange ? 2 : 7;
 #else
@@ -2236,7 +2236,7 @@ void CRidley::DoubleSnap(CStateManager& mgr, EStateMsg msg, float arg) {
   case kStateMsg_Update:
     TryCommand(mgr, pas::kAS_MeleeAttack,
                static_cast< FTryCommandCallback >(&CRidley::TryMeleeAttack),
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
                mMeleeAttack);
 #else
                2);
@@ -2247,7 +2247,7 @@ void CRidley::DoubleSnap(CStateManager& mgr, EStateMsg msg, float arg) {
     mIsMakingBigStrike = false;
     mDamageDur = 0.f;
     xc8c_ = GetContactDamage();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     for (int i = 8; i <= 9; ++i) {
       const TUniqueId id = mBodyCollision->GetCollisionDescFromIndex(i).GetCollisionActorId();
       if (CCollisionActor* actor = TCastToPtr< CCollisionActor >(mgr.ObjectById(id))) {
@@ -2274,7 +2274,7 @@ void CRidley::Jump(CStateManager& mgr, EStateMsg msg, float arg) {
     mDamageDur = duration;
     xc8c_ = mData.x390_;
     RandomSpeedUp(mgr);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     mJumpCanBeInterrupted = true;
     mCanBreakLockOn = true;
 #endif
@@ -2289,18 +2289,18 @@ void CRidley::Jump(CStateManager& mgr, EStateMsg msg, float arg) {
     break;
   case kStateMsg_Deactivate:
     AddMaterial(kMT_Orbit, kMT_Target, mgr);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     mCanBreakLockOn = false;
 #endif
     mIsMakingBigStrike = false;
     mDamageDur = 0.f;
     xc8c_ = GetContactDamage();
     mAnimState = kAS_NotReady;
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
     xa34_25_ = false;
 #endif
     RandomSlowDown();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     mJumpCanBeInterrupted = false;
 #endif
     break;
@@ -2312,7 +2312,7 @@ void CRidley::Flinch(CStateManager& mgr, EStateMsg msg, float arg) {
   case kStateMsg_Activate:
     SetStage3BreastVulnerability(mgr);
     mAnimState = kAS_Ready;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     mInFlinch = true;
 #endif
     break;
@@ -2322,12 +2322,12 @@ void CRidley::Flinch(CStateManager& mgr, EStateMsg msg, float arg) {
     break;
   case kStateMsg_Deactivate:
     mAnimState = kAS_NotReady;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     mInFlinch = false;
 #endif
     SetStage3Immunity(mgr);
     mShotAt = false;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     xcb4_ = 0;
     if (xcb0_ < 3) {
       ++xcb0_;
@@ -2456,7 +2456,7 @@ bool CRidley::ShouldAttack(CStateManager& mgr, float arg) {
     ret = xb04_ == 0;
     break;
   case 3:
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     ret = xb0c_ == 2 || xb0c_ == 7;
 #else
     ret = xb0c_ == 2;
@@ -2479,7 +2479,7 @@ bool CRidley::InRange(CStateManager& mgr, float arg) {
 bool CRidley::ShouldCrouch(CStateManager& mgr, float arg) { return xb04_ == 1; }
 
 bool CRidley::ShouldRetreat(CStateManager& mgr, float arg) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   return xa34_25_;
 #else
   return xa34_26_;
@@ -2509,7 +2509,7 @@ bool CRidley::TooClose(CStateManager& mgr, float arg) {
 }
 
 bool CRidley::ShouldMove(CStateManager& mgr, float arg) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   return xb0c_ == 5;
 #else
   if (xb0c_ == 5) {
@@ -2531,7 +2531,7 @@ bool CRidley::ShouldMove(CStateManager& mgr, float arg) {
 }
 
 bool CRidley::IsDizzy(CStateManager& mgr, float arg) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   return xb0c_ == 3;
 #else
   if (xb0c_ == 3) {
@@ -2555,7 +2555,7 @@ bool CRidley::Attacked(CStateManager& mgr, float arg) { return xa31_24_ && xa31_
 
 bool CRidley::HitSomething(CStateManager& mgr, float arg) { return xa32_27_ || mAiStage == 3; }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 bool CRidley::BounceFind(CStateManager& mgr, float arg) { return xb0c_ == 6; }
 
 void CRidley::Bounce(CStateManager& mgr, EStateMsg msg, float arg) {

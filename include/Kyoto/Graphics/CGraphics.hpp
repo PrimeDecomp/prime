@@ -275,7 +275,7 @@ public:
 
   static bool Startup(const COsContext& osContext, uint fifoSize, void* fifoBase);
   static GXTexRegion* TexRegionCallback(const GXTexObj* obj, GXTexMapID id);
-#if VERSION >= VERSION_GM8J_00
+#if (VERSION == VERSION_GM8E_02 || VERSION >= VERSION_GM8J_00)
   static void InitGraphicsFifo(GXFifoObj* obj, void* base, uint fifoSize);
 #endif
   static void InitGraphicsVariables();
@@ -345,7 +345,7 @@ public:
   static void VideoPostCallback(u32 retraceCount);
 
   static const CViewport& GetViewport() { return mViewport; }
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
   static float GetPixelAspectRatio() { return mPixelAspectRatio; }
 #endif
   static int GetViewportWidth() { return mViewport.mWidth; }
@@ -449,7 +449,7 @@ private:
   static GXTexRegionCallback mGXDefaultTexRegionCallback;
   static void* mpFifo;
   static GXFifoObj* mpFifoObj;
-#if VERSION >= VERSION_GM8J_00
+#if (VERSION == VERSION_GM8E_02 || VERSION >= VERSION_GM8J_00)
   static uint mFifoSize;
 #endif
   static uint mRenderTimings;
@@ -483,7 +483,7 @@ private:
   static ERglPrimitive mCurrentPrimitive;
   static float mDepthFar;
   static u32 mClearDepthValue; // = GX_MAX_Z24
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
   static float mPixelAspectRatio;
 #endif
   static bool mIsGXModelMatrixIdentity;

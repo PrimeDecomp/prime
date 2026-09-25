@@ -11,7 +11,7 @@
 
 struct CTweakPlayerRes : public ITweakObject, public TOneStatic< CTweakPlayerRes > {
 public:
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   rstl::reserved_vector< CAssetId, 9 > mMapIcons;
 #else
   CAssetId mSaveStationIcon;
@@ -39,7 +39,7 @@ public:
   CTweakPlayerRes(CInputStream& in);
 
   CAssetId GetSaveStationIcon() const {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     return mMapIcons[0];
 #else
     return mSaveStationIcon;
@@ -47,7 +47,7 @@ public:
   }
 
   CAssetId GetMissileStationIcon() const {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     return mMapIcons[1];
 #else
     return mMissileStationIcon;
@@ -55,7 +55,7 @@ public:
   }
 
   CAssetId GetElevatorIcon() const {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     return mMapIcons[2];
 #else
     return mElevatorIcon;
@@ -63,7 +63,7 @@ public:
   }
 
   CAssetId GetMinesBreakFirstTopIcon() const {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     return mMapIcons[3];
 #else
     return mMinesBreakFirstTopIcon;
@@ -71,7 +71,7 @@ public:
   }
 
   CAssetId GetMinesBreakFirstBottomIcon() const {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     return mMapIcons[4];
 #else
     return mMinesBreakFirstBottomIcon;
@@ -87,7 +87,7 @@ public:
   CAssetId GetBallTransitionBeamResId(CPlayerState::EBeamId id) const;
   CAssetId GetCinematicBeamResId(CPlayerState::EBeamId id) const;
 };
-CHECK_SIZEOF(CTweakPlayerRes, (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0x100 : 0xf4));
+CHECK_SIZEOF(CTweakPlayerRes, (VERSION >= VERSION_GM8P_00 ? 0x100 : 0xf4));
 
 extern CTweakPlayerRes* gpTweakPlayerRes;
 

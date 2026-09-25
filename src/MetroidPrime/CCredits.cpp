@@ -33,13 +33,13 @@
 #pragma inline_max_size(250)
 #endif
 
-#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_R3ME_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_R3ME_00
 static const char* const skJapaneseBodyFont = "FONT_DFSoGei-W5_18";
 #endif
 static const char* const skMovieNames[] = {"Video/wingame.thp",
                                            "Video/wingame_best.thp",
                                            "Video/wingame_best.thp",
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
                                            "",
 #else
                                            "Video/losegame.thp",
@@ -51,7 +51,7 @@ static const char* const skMovieNames[] = {"Video/wingame.thp",
 static const char* const skCompletionMovieNames[] = {
     "Video/win_bad_begin.thp",  "Video/win_bad_loop.thp",  "Video/win_bad_end.thp",
     "Video/win_good_begin.thp", "Video/win_good_loop.thp", "Video/win_good_end.thp"};
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 static const char* const skLoseGameMovieNames[] = {
     "Video/losegame.thp",         "Video/losegame_german.thp",  "Video/losegame_french.thp",
     "Video/losegame_spanish.thp", "Video/losegame_italian.thp", "",
@@ -62,7 +62,7 @@ static const char* const skCompletionAudio = "Audio/samusjak.rsf";
 #if VERSION == VERSION_GM8J_00
 static const CColor skPulseStartColor(1.f, 1.f, 0.392156869f, 1.f);
 static const CColor skPulseEndColor(0.588235319f, 0.588235319f, 0.f, 1.f);
-#elif VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#elif VERSION >= VERSION_GM8P_00
 static const CColor skPulseStartColor(1.f, 1.f, 1.f, 1.f);
 static const CColor skPulseEndColor(0.5f, 0.5f, 0.5f, 1.f);
 #endif
@@ -71,7 +71,7 @@ static const CVector3f skTextOffset0(0.208333001f, 0.f, 0.f);
 static const CVector3f skTextOffset1(-3.0277791f, 0.f, 1.91666698f);
 static const CVector3f skTextOffset2(2.38898611f, 0.f, 11.0136547f);
 static const CVector3f skTextOffset3(6.01348209f, 0.f, -3.6947031f);
-#elif VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#elif VERSION >= VERSION_GM8P_00
 static const CVector3f skTextOffset0 = CVector3f::Zero();
 static const CVector3f skTextOffset1 = CVector3f::Zero();
 static const CVector3f skTextOffset2 = CVector3f::Zero();
@@ -92,7 +92,7 @@ bool CMoviePlayer::DrawVideo() const {
   const int top = CGraphics::GetViewport().mTop;
   const int width = CGraphics::GetViewport().mWidth;
   const int height = CGraphics::GetViewport().mHeight;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   const int movieWidth = GetWidth();
   const int movieHeight = GetHeight();
 #else
@@ -105,7 +105,7 @@ bool CMoviePlayer::DrawVideo() const {
   const int xmax = left + width + xMargin;
   const int ymin = top - yMargin;
   const int ymax = top + height + yMargin;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   const_cast< CMoviePlayer* >(this)->DrawFrame(xmin, xmax, ymin, ymax);
 #else
   const CVector3f topLeft(xmin, 0.f, ymax);
@@ -126,14 +126,14 @@ static void SetStaticAudioPlayerVolume(const rstl::single_ptr< CStaticAudioPlaye
   }
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 void CCredits::DrawText(CGuiTextSupport& text, const CTransform4f& transform) {
 #else
 void CCredits::DrawText(CGuiTextSupport& text, const CVector3f& translation) {
 #endif
   CGraphics::SetCullMode(kCM_None);
   gpRender->SetViewportOrtho(false, -4096.f, 4096.f);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   gpRender->SetModelMatrix(transform);
 #else
   gpRender->SetModelMatrix(CTransform4f::Translate(translation));
@@ -153,7 +153,7 @@ static void QueueIOWin(CArchitectureQueue& queue, CIOWin* win) {
 
 static void QueueAutoSave(CArchitectureQueue& queue) { QueueIOWin(queue, rs_new CAutoSave()); }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 static const char* GetMovieName(int movie) {
   if (movie == CPlayMovie::kWM_LoseGame) {
     const int language = gpGameState->SystemState().GetLanguage();
@@ -175,7 +175,7 @@ CPlayMovie::CPlayMovie(EWhichMovie movie)
 , mResultsTime(0.f)
 , mPulseTime(gpTweakGui->GetCompletionScreenPulseTime())
 , mPrintedCharacters(0.f)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mPulseStartColor(skPulseStartColor)
 , mPulseEndColor(skPulseEndColor)
 #endif
@@ -198,7 +198,7 @@ CPlayMovie::CPlayMovie(EWhichMovie movie)
     mLargeFont.Lock();
     int start = 0;
     switch (mWhich) {
-#if VERSION == VERSION_GM8E_48 || (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02)
+#if VERSION == VERSION_GM8E_48 || (VERSION >= VERSION_GM8P_00)
     case kWM_WinGameBad:
       start = 0;
       break;
@@ -225,7 +225,7 @@ CPlayMovie::CPlayMovie(EWhichMovie movie)
           rs_new CMoviePlayer(skCompletionMovieNames[i], 0.05f, loop, false)));
     }
   } else {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     const char* movieName = GetMovieName(movie);
     mMovies.push_back(rstl::auto_ptr< CMoviePlayer >(
         rs_new CMoviePlayer(movieName, 0.f, false, movie == kWM_LoseGame)));
@@ -259,13 +259,13 @@ CIOWin::EMessageReturn CPlayMovie::OnMessage(const CArchitectureMessage& msg,
             gpTweakGui->GetCompletionScreenTitleFont().data());
         mTitleText = rs_new CGuiTextSupport(
             font->GetId(),
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
             width, height,
 #endif
             CGuiTextProperties(false, true, kJustification_Right, kVerticalJustification_Bottom),
             gpTweakGui->mCompletionTitleColor, gpTweakGui->mCompletionTitleOutlineColor,
             CColor::White(),
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
             width, height,
 #endif
             gpSimplePool);
@@ -279,18 +279,18 @@ CIOWin::EMessageReturn CPlayMovie::OnMessage(const CArchitectureMessage& msg,
 #endif
         mResultsText = rs_new CGuiTextSupport(
             font->GetId(),
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
             width, height,
 #endif
             CGuiTextProperties(false, true, kJustification_Right, kVerticalJustification_Top),
             gpTweakGui->mCompletionBodyColor, gpTweakGui->mCompletionBodyOutlineColor,
             CColor::White(),
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
             width, height,
 #endif
             gpSimplePool);
         mResultsText->SetTypeWriteEffectOptions(true, 1.f, 15.f);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
         const int percent = gpGameState->GetPlayerState()->CalculateItemCollectionPercentage();
 #else
         const int percent = gpGameState->GetPlayerState()->CalculateItemCollectionRate() * 100 /
@@ -314,17 +314,17 @@ CIOWin::EMessageReturn CPlayMovie::OnMessage(const CArchitectureMessage& msg,
 #endif
         mUnlockText = rs_new CGuiTextSupport(
             font->GetId(),
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
             width, height,
 #endif
             CGuiTextProperties(false, true, kJustification_Right, kVerticalJustification_Top),
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
             mPulseStartColor,
 #else
             gpTweakGui->mCompletionUnlockColor,
 #endif
             gpTweakGui->mCompletionUnlockOutlineColor, CColor::White(),
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
             width, height,
 #endif
             gpSimplePool);
@@ -338,13 +338,13 @@ CIOWin::EMessageReturn CPlayMovie::OnMessage(const CArchitectureMessage& msg,
         }
         mContinueText = rs_new CGuiTextSupport(
             font->GetId(),
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
             width, height,
 #endif
             CGuiTextProperties(false, true, kJustification_Center, kVerticalJustification_Bottom),
             gpTweakGui->mCompletionUnlockColor, gpTweakGui->mCompletionUnlockOutlineColor,
             CColor::White(),
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
             width, height,
 #endif
             gpSimplePool);
@@ -551,7 +551,7 @@ void CPlayMovie::DrawText() const {
   const int height = CGraphics::GetViewport().mHeight;
   const float y = 0.318f * height;
   if (!mTitleText.null()) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     CTransform4f transform = CTransform4f::Scale(1.f, 1.f, 1.f);
     transform.SetTranslation(CVector3f(-32.f, 0.f, height + y) + skTextOffset0);
     CCredits::DrawText(*mTitleText, transform);
@@ -561,7 +561,7 @@ void CPlayMovie::DrawText() const {
 #endif
   }
   if (!mResultsText.null()) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     CTransform4f transform = CTransform4f::Scale(1.f, 1.f, 1.f);
     transform.SetTranslation(CVector3f(-32.f, 0.f, y) + skTextOffset1);
     CCredits::DrawText(*mResultsText, transform);
@@ -573,7 +573,7 @@ void CPlayMovie::DrawText() const {
   if (!mUnlockText.null()) {
     const rstl::pair< CVector2i, CVector2i >& bounds = mResultsText->GetBounds();
     const int textHeight = bounds.second.GetY() - bounds.first.GetY() + 25;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     CTransform4f transform = CTransform4f::Scale(1.f, 1.f, 1.f);
     transform.SetTranslation(CVector3f(-32.f, 0.f, y - textHeight) + skTextOffset2);
     CCredits::DrawText(*mUnlockText, transform);
@@ -583,7 +583,7 @@ void CPlayMovie::DrawText() const {
 #endif
   }
   if (!mContinueText.null() && mResultsTime >= 2.f) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     CTransform4f transform = CTransform4f::Scale(1.f, 1.f, 1.f);
     transform.SetTranslation(CVector3f(0.f, 0.f, height + 32) + skTextOffset3);
     CCredits::DrawText(*mContinueText, transform);
@@ -626,7 +626,7 @@ void CPlayMovie::UpdateText(float dt) {
   }
   if (!mUnlockText.null()) {
     const float alpha = 0.5f * CMath::FastSinR(angle) + 0.5f;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     const CColor fontColor = CColor::Lerp(mPulseStartColor, mPulseEndColor, alpha);
 #else
     const CColor fontColor =
@@ -667,7 +667,7 @@ CCredits::CCredits()
 : CIOWin(rstl::string_l("Credits"))
 , mState(0)
 , mCreditsTable(gpSimplePool->GetObj(gpTweakGui->GetCreditsTable().data()))
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
 , mCreditsFont(gpSimplePool->GetObj(gpTweakGui->GetJapaneseCreditsFont().data()))
 #endif
 , mScrollPosition(0.f)
@@ -684,7 +684,7 @@ CCredits::CCredits()
   CGraphics::SetIsBeginSceneClearFb(true);
 #endif
   mCreditsTable.Lock();
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   mCreditsFont.Lock();
 #endif
 }
@@ -699,7 +699,7 @@ CIOWin::EMessageReturn CCredits::OnMessage(const CArchitectureMessage& msg,
   case kAM_UserInput: {
     const CArchMsgParmUserInput parm = MakeMsg::GetParmUserInput(msg);
     const CFinalInput input = parm.GetUserInput();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     return ProcessUserInput(input);
 #else
     if (input.ControllerNumber() == 0) {
@@ -718,7 +718,7 @@ CIOWin::EMessageReturn CCredits::Update(float dt, CArchitectureQueue& queue) {
   switch (mState) {
   case 0: {
     if (!mCreditsTable.IsLoaded()
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
         || !mCreditsFont.IsLoaded()
 #endif
     ) {
@@ -731,13 +731,13 @@ CIOWin::EMessageReturn CCredits::Update(float dt, CArchitectureQueue& queue) {
       for (int i = 0; i < table.GetStringCount(); ++i) {
         rstl::ncrc_ptr< CGuiTextSupport > text = rs_new CGuiTextSupport(
             gpResourceFactory->GetResourceIdByName(gpTweakGui->GetCreditsFont().data())->GetId(),
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
             width, 0,
 #endif
             CGuiTextProperties(true, true, kJustification_Center, kVerticalJustification_Top),
             gpTweakGui->mCreditsTextFontColor, gpTweakGui->mCreditsTextBorderColor,
             CColor::White(),
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
             width, 0,
 #endif
             gpSimplePool);
@@ -821,7 +821,7 @@ CIOWin::EMessageReturn CCredits::Update(float dt, CArchitectureQueue& queue) {
     mScrollPosition =
         rstl::min_val(mTotalScrollDistance, (dt * mScrollSpeed) + mScrollPosition);
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     if (mScrollPosition >= mTotalScrollDistance || mFinished) {
 #else
     if (mScrollPosition == mTotalScrollDistance || mFinished) {
@@ -850,7 +850,7 @@ CIOWin::EMessageReturn CCredits::Update(float dt, CArchitectureQueue& queue) {
 }
 
 CIOWin::EMessageReturn CCredits::ProcessUserInput(const CFinalInput& input) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   return kMR_Exit;
 #else
   if (input.DA()) {
@@ -918,7 +918,7 @@ void CCredits::DrawText() const {
 #else
     const int end = height + offset;
     if (!(bottom > end) && !(top < offset)) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       CTransform4f transform = CTransform4f::Scale(1.f, 1.f, 1.f);
       transform.SetTranslation(CVector3f(0.5f * (width - it->first->GetTextBoundingWidth()), 0.f,
                                          mScrollPosition - it->second.GetX()));

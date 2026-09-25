@@ -50,7 +50,7 @@ CSaveGameScreen::EUIType CSaveGameScreen::SelectUIType() const {
   }
 
   if (state == kS_Ready) {
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
     if (error == CMemoryCardDriver::kE_CardStillFull) {
       return kUIT_StillInsufficientSpace;
     }
@@ -71,7 +71,7 @@ CSaveGameScreen::EUIType CSaveGameScreen::SelectUIType() const {
   }
 
   if (error == CMemoryCardDriver::kE_CardFull) {
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
     if (state == kS_FileCreateTransactionalFailed) {
       return kUIT_InsufficientSpaceBadCheck;
     }
@@ -106,7 +106,7 @@ void CSaveGameScreen::SetUIText() {
   int opt3 = -1;
 
   switch (mUiType) {
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   case kUIT_BusyReading:
     msgB = 24;
     break;
@@ -147,7 +147,7 @@ void CSaveGameScreen::SetUIText() {
     opt1 = 18;
     opt2 = 19;
     break;
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   case kUIT_InsufficientSpaceBadCheck:
     msgB = mSaveCtx == kSC_InGame ? 10 : 9;
     opt0 = 17;
@@ -166,7 +166,7 @@ void CSaveGameScreen::SetUIText() {
     opt1 = 17;
     opt2 = 18;
     break;
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   case kUIT_StillInsufficientSpace:
     if (mSaveCtx == kSC_InGame) {
       msgB = 10;
@@ -488,7 +488,7 @@ void CSaveGameScreen::DoAdvance(CGuiTableGroup* caller) {
     }
     break;
 
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   case kUIT_InsufficientSpaceBadCheck:
 #endif
   case kUIT_InsufficientSpaceOKCheck:
@@ -530,7 +530,7 @@ void CSaveGameScreen::DoAdvance(CGuiTableGroup* caller) {
     }
     break;
 
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   case kUIT_StillInsufficientSpace:
     if (mSaveCtx == kSC_InGame) {
       if (userSel == 0) {

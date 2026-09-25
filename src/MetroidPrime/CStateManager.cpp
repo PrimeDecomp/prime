@@ -2329,7 +2329,7 @@ void CStateManager::DrawWorld() const {
     }
     ++mObjectDrawToken;
     mPlayer->MorphBall()->DrawBallShadow(const_cast< CStateManager& >(*this));
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     for (const CProjectedShadow* shadow = mProjectedShadow; shadow != nullptr;
          shadow = shadow->GetNextShadow()) {
       shadow->Render(*this);
@@ -3044,7 +3044,7 @@ float CStateManager::IntegrateVisorFog(float f) const {
   return f;
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 void CStateManager::SetProjectedShadow(CProjectedShadow* shadow) {
   shadow->SetNextShadow(mProjectedShadow);
   mProjectedShadow = shadow;

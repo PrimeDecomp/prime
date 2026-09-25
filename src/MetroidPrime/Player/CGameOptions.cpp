@@ -56,7 +56,7 @@ CGameOptions::CGameOptions()
 , mRumble(skDefaultRumble)
 , mSwapBeamsControls(skDefaultSwapBeamsControls)
 , mHintSystem(skDefaultHintSystem)
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
 , mPalExclusive(false)
 #endif
 {
@@ -79,7 +79,7 @@ CGameOptions::CGameOptions(CInputStream& in)
 , mRumble(skDefaultRumble)
 , mSwapBeamsControls(skDefaultSwapBeamsControls)
 , mHintSystem(skDefaultHintSystem)
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
 , mPalExclusive(false)
 #endif
 {
@@ -102,7 +102,7 @@ CGameOptions::CGameOptions(CInputStream& in)
   mInvertY = in.ReadPackedBool();
   mRumble = in.ReadPackedBool();
   mSwapBeamsControls = in.ReadPackedBool();
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
   mPalExclusive = in.ReadPackedBool();
 #endif
 
@@ -129,7 +129,7 @@ void CGameOptions::PutTo(COutputStream& out) {
   out.WriteBits(mInvertY != false, 1);
   out.WriteBits(mRumble != false, 1);
   out.WriteBits(mSwapBeamsControls != false, 1);
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
   out.WriteBits(mPalExclusive != false, 1);
 #endif
 }
@@ -149,7 +149,7 @@ void CGameOptions::ResetToDefaults() {
   mRumble = skDefaultRumble;
   mSwapBeamsControls = skDefaultSwapBeamsControls;
   mHintSystem = skDefaultHintSystem;
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
   mPalExclusive = false;
 #endif
   InitSoundMode();
@@ -164,7 +164,7 @@ void CGameOptions::EnsureOptions() {
   SetSfxVolume(mSfxVol, true);
   SetMusicVolume(mMusicVol, true);
   SetSurroundMode(CAudioSys::ESurroundModes(mSoundMode), true);
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
   SetHudAlpha(mHudAlpha);
 #endif
   SetHelmetAlpha(mHelmetAlpha);
@@ -173,7 +173,7 @@ void CGameOptions::EnsureOptions() {
   SetIsRumbleEnabled(mRumble);
   SetIsHintSystemEnabled(mHintSystem);
   ToggleControls(mSwapBeamsControls);
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
   fn_80200564(mPalExclusive);
 #endif
 }
@@ -251,7 +251,7 @@ void CGameOptions::SetHudAlpha(int hudAlpha) {
 
 const float CGameOptions::GetHudAlpha() const { return mHudAlpha * 0.003921569f; }
 
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
 
 void CGameOptions::SetHelmetAlpha(const int alpha) { mHelmetAlpha = alpha; }
 
@@ -274,7 +274,7 @@ void CGameOptions::SetHUDLag(const bool flag) { mHudLag = flag; }
 void CGameOptions::SetIsHintSystemEnabled(bool flag) { mHintSystem = flag; }
 
 void CGameOptions::fn_80200564(const bool flag) {
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
   mPalExclusive = flag;
 #endif
 }

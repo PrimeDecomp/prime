@@ -1100,7 +1100,7 @@ CTransform4f CMorphBall::CalculateSurfaceToWorld(const CVector3f& trackNormal,
     if (right.CanBeNormalized()) {
       right.Normalize();
       // TODO: wtf?
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       const CVector3f upNorm = CVector3f::Cross(right, forward).AsNormalized();
 #else
       const float rightY = right.GetY();

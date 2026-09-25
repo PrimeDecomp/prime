@@ -12,7 +12,7 @@
 #include <limits.h>
 #include <string.h>
 
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
 
 CTextRenderBuffer::CTextRenderBuffer(EMode mode)
 : mMode(mode)
@@ -76,7 +76,7 @@ void CTextRenderBuffer::AddFontChange(const TToken< CRasterFont >& font) {
   }
 }
 
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
 
 void CTextRenderBuffer::AddPaletteChange(const CGraphicsPalette& palette) {
   if (mMode == kM_BufferFill) {
@@ -143,7 +143,7 @@ void CTextRenderBuffer::AddImage(const CVector2i& offset, const CFontImageDef& i
   }
 }
 
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
 
 void CTextRenderBuffer::Render(const CColor& color, float time) const {
   mActiveFont = -1;

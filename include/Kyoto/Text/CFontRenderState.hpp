@@ -76,6 +76,6 @@ private:
 };
 
 CHECK_SIZEOF(CFontRenderState,
-             (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0x12c : 0x124))
+             (VERSION >= VERSION_GM8P_00 ? 0x12c : 0x124))
 
 #endif // _CFONTRENDERSTATE

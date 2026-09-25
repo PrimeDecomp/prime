@@ -91,8 +91,8 @@ private:
   bool mDrawOwnerFirst : 1;
   bool mActivePlayerPhazon : 1;
 };
-CHECK_SIZEOF(CPlasmaProjectile, (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0x578
-                                 : VERSION >= VERSION_GM8P_00                             ? 0x560
+CHECK_SIZEOF(CPlasmaProjectile, (VERSION >= VERSION_GM8P_00 ? 0x578
+                                 : VERSION >= VERSION_GM8E_02                             ? 0x560
                                                                                           : 0x550))
 
 #endif // _CPLASMAPROJECTILE

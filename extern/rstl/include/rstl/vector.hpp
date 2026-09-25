@@ -191,7 +191,7 @@ void vector< T, Alloc >::insert_into(iterator at, int n, In in) {
     int i = moveCount - 1;
     for (; i >= 0; --i) {
       construct(oldData + atIdx + n + i, data()[atIdx + i]);
-#if RSTL_VERSION >= RSTL_GM8P_00 && RSTL_VERSION != RSTL_GM8E_02
+#if RSTL_VERSION >= RSTL_GM8P_00
       T* const item = oldData + atIdx + i;
       destroy(item);
 #else
@@ -212,7 +212,7 @@ void vector< T, Alloc >::insert_into(iterator at, int n, In in) {
     mAllocator.allocate(newData, newCapacity);
     long atIdx = at - begin();
     // The const alias makes MWCC retain a separate allocation-base register on PAL.
-#if RSTL_VERSION >= RSTL_GM8P_00 && RSTL_VERSION != RSTL_GM8E_02
+#if RSTL_VERSION >= RSTL_GM8P_00
     T* const newItems = newData;
 #else
     T* newItems = newData;

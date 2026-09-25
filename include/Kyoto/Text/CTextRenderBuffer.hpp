@@ -38,7 +38,7 @@ public:
     schar mIndex;
   };
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   struct SFontPalette {
     int x0_;
     uint x4_;
@@ -83,22 +83,22 @@ private:
   mutable char mActivePalette;
   mutable char mQueuedFont;
   mutable char mQueuedPalette;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   mutable rstl::reserved_vector< SFontPalette, 64 > mPalettes;
 #else
   mutable rstl::reserved_vector< rstl::auto_ptr< CGraphicsPalette >, 64 > mPalettes;
 #endif
   mutable int mNextPalette;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   CVector2i xb58_;
   CVector2i xb60_;
   bool xb68_;
 #endif
 };
 
-CHECK_SIZEOF(CTextRenderBuffer, (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0xb6c : 0x258))
+CHECK_SIZEOF(CTextRenderBuffer, (VERSION >= VERSION_GM8P_00 ? 0xb6c : 0x258))
 NESTED_CHECK_SIZEOF(CTextRenderBuffer, Primitive, 0x10)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 NESTED_CHECK_SIZEOF(CTextRenderBuffer, SFontPalette, 0x2c)
 #endif
 

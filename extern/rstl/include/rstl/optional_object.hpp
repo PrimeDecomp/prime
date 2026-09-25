@@ -21,7 +21,7 @@ public:
     }
   }
   ~optional_object() {
-#if RSTL_VERSION >= RSTL_GM8P_00 && RSTL_VERSION != RSTL_GM8E_02
+#if RSTL_VERSION >= RSTL_GM8P_00
     if (m_valid) {
       rstl::destroy(get_ptr());
     }

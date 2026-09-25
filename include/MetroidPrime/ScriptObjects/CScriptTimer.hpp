@@ -4,7 +4,7 @@
 #include "MetroidPrime/CEntity.hpp"
 
 class CScriptTimer : public CEntity {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   uint mStartFrame;
 #endif
   float mTime;
@@ -30,6 +30,6 @@ class CScriptTimer : public CEntity {
     }
 };
 
-CHECK_SIZEOF(CScriptTimer, (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0x48 : 0x44))
+CHECK_SIZEOF(CScriptTimer, (VERSION >= VERSION_GM8P_00 ? 0x48 : 0x44))
 
 #endif // _CSCRIPTTIMER

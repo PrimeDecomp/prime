@@ -54,7 +54,7 @@ CGuiFrame* CGuiFrame::CreateFrame(uint id, CGuiSys& sys, CInputStream& in, CSimp
   int c = in.ReadLong();
   CGuiFrame* frame = rs_new CGuiFrame(id, sys, a, b, c, sp);
   CGuiFeeHelper::SetCurrentLoadingFrame(frame);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   frame->LoadWidgetsInGame(in, sp, version);
 #else
   frame->LoadWidgetsInGame(in, sp);
@@ -62,7 +62,7 @@ CGuiFrame* CGuiFrame::CreateFrame(uint id, CGuiSys& sys, CInputStream& in, CSimp
   return frame;
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 int CGuiFrame::LoadWidgetsInGame(CInputStream& in, CSimplePool* sp, uint version) {
 #else
 int CGuiFrame::LoadWidgetsInGame(CInputStream& in, CSimplePool* sp) {
@@ -72,7 +72,7 @@ int CGuiFrame::LoadWidgetsInGame(CInputStream& in, CSimplePool* sp) {
   mDb.Reserve(count);
   for (int i = 0; i < count; ++i) {
     FourCC type = in.ReadLong();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     CGuiWidget* widget = FGuiWidgetFactoryInGame(type, this, in, sp, version);
 #else
     CGuiWidget* widget = CGuiSys::CreateWidgetInGame(type, in, this, sp);
@@ -108,7 +108,7 @@ void CGuiFrame::Draw(const CGuiWidgetDrawParms& parms) const {
     }
   }
   CGraphics::SetCullMode(kCM_Front);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   CGraphics::SetDepthWriteMode(true, kE_LEqual, true);
 #endif
 }

@@ -42,7 +42,7 @@ void CAnimTreeBlend::SetBlendingWeight(float weight) { mBlendWeight = weight; }
 
 CAdvancementResults CAnimTreeBlend::VAdvanceView(const CCharAnimTime& time) {
   IncAdvancementDepth();
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
   CAdvancementResults resA = mA->AdvanceView(time);
   CAdvancementResults resB = mB->AdvanceView(time);
 #else
@@ -59,7 +59,7 @@ CAdvancementResults CAnimTreeBlend::VAdvanceView(const CCharAnimTime& time) {
       mCullSelector = 2;
   }
   CCharAnimTime remainder = rstl::max_val(resA.GetRemainder(), resB.GetRemainder());
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
   const CAdvancementDeltas& deltasA = resA.GetAdvancementDeltas();
   const CAdvancementDeltas& deltasB = resB.GetAdvancementDeltas();
 #endif

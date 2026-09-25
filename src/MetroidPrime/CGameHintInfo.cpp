@@ -60,13 +60,13 @@ CHintOptions::SHintState::SHintState(EHintState state, float time)
 bool CHintOptions::SHintState::CanContinue() { return mTime / CGameHintInfo::skHintTextTime < 1.f; }
 
 CHintOptions::CHintOptions() : mNextHintIdx(-1)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mPalHintFlag(false)
 #endif
 {}
 
 CHintOptions::CHintOptions(CInputStream& in) : mNextHintIdx(-1)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mPalHintFlag(false)
 #endif
 {
@@ -93,7 +93,7 @@ void CHintOptions::SetHintNextTime() {
   it->mTime = hint.GetTextTime() + 5.f;
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 void CHintOptions::EnsureHintNextTime() {
   if (mNextHintIdx != -1) {
     SHintState& state = mHintStates[mNextHintIdx];

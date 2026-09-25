@@ -65,6 +65,6 @@ protected:
   bool mAddBendingWeight : 1;
   bool mApplyBendingHack : 1;
 };
-CHECK_SIZEOF(CWallWalker, (VERSION >= VERSION_GM8P_00 ? 0x5e8 : 0x5D8))
+CHECK_SIZEOF(CWallWalker, (VERSION >= VERSION_GM8E_02 ? 0x5e8 : 0x5D8))
 
 #endif // _CWALLWALKER

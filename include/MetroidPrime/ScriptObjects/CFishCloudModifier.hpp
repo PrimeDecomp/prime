@@ -26,6 +26,6 @@ public:
   bool GetSwirl() const { return mSwirl; }
 };
 
-CHECK_SIZEOF(CFishCloudModifier, (VERSION >= VERSION_GM8P_00 ? 0x108 : 0xf8))
+CHECK_SIZEOF(CFishCloudModifier, (VERSION >= VERSION_GM8E_02 ? 0x108 : 0xf8))
 
 #endif // _CFISHCLOUDMODIFIER

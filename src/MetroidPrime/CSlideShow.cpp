@@ -127,12 +127,12 @@ CSlideShow::CSlideShow()
 , mIdleTimer(0.f)
 , mSlideNumberTimer(0.f)
 , mControlsText(nullptr)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mGalleryNameText(nullptr)
 #endif
 , mSlideNumberText(nullptr)
 , mAudio(nullptr)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mGalleryNames(gpSimplePool->GetObj(gpTweakSlideShow->GetGalleryNames().data()))
 #endif
 , mLStick(0)
@@ -159,7 +159,7 @@ CSlideShow::CSlideShow()
   const CColor& outlineColor = gpTweakSlideShow->GetOutlineColor();
   const SObjectTag* font =
       gpResourceFactory->GetResourceIdByName(gpTweakSlideShow->GetFont().data());
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   mControlsText = rs_new CGuiTextSupport(
       font->GetId(), width, height,
       CGuiTextProperties(false, true, kJustification_Center, kVerticalJustification_Bottom),
@@ -201,7 +201,7 @@ CSlideShow::CSlideShow()
     }
   }
   SetTexturesLocked(mButtonTextures, true);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   mGalleryNames.Lock();
 #endif
 }
@@ -231,7 +231,7 @@ uint CSlideShow::SlideShowGalleryFlags() {
 }
 
 void CSlideShow::BuildGalleryLists(uint flags) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   const int count = mGalleryTXTRDeps.size() - 1;
   mGalleries.reserve(count);
   AUTO(it, mGalleryTXTRDeps.begin());
@@ -360,7 +360,7 @@ CIOWin::EMessageReturn CSlideShow::OnMessage(const CArchitectureMessage& msg,
       if (!AreAllDepsLoaded(mGalleryTXTRDeps)) {
         break;
       }
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       mPhase = 2;
     case 2: {
       if (mGalleryBorder.null()) {
@@ -683,7 +683,7 @@ CIOWin::EMessageReturn CSlideShow::AdvanceSlide(bool forward) {
     if (mSlide < 0) {
       --mGallery;
       mGalleryChanged = true;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     } else if (mSlide >= mGalleries[mGallery].mSlides.size()) {
 #else
     } else if (mSlide >= mGalleries[mGallery].second.size()) {
@@ -693,7 +693,7 @@ CIOWin::EMessageReturn CSlideShow::AdvanceSlide(bool forward) {
     }
     if (mGallery < 0) {
       mGallery = mGalleries.size() - 1;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       mSlide = mGalleries[mGallery].mSlides.size() - 1;
 #else
       mSlide = mGalleries[mGallery].second.size() - 1;
@@ -704,7 +704,7 @@ CIOWin::EMessageReturn CSlideShow::AdvanceSlide(bool forward) {
     } else if (mGallery > gallery) {
       mSlide = 0;
     } else if (mGallery < gallery) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       mSlide = mGalleries[mGallery].mSlides.size() - 1;
 #else
       mSlide = mGalleries[mGallery].second.size() - 1;
@@ -715,7 +715,7 @@ CIOWin::EMessageReturn CSlideShow::AdvanceSlide(bool forward) {
 }
 
 void CSlideShow::LoadSlide() {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   if (mSlideB.mTextures.empty() &&
       (mSlideA.mGallery != mGallery || mSlideA.mSlide != mSlide)) {
     const SGalleryData& gallery = mGalleries[mGallery];
@@ -827,7 +827,7 @@ void CSlideShow::UpdateControlsText(const CFinalInput& input) {
     const float zoomOut = ControlMapper::GetAnalogInput(ControlMapper::kC_MapZoomOut, input);
     mRTrigger = zoomIn > 0.f ? 1 : 0;
     mLTrigger = zoomOut > 0.f ? 1 : 0;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     enum { kFirstControlString = 4 };
 #else
     enum { kFirstControlString = 0x37 };
@@ -835,7 +835,7 @@ void CSlideShow::UpdateControlsText(const CFinalInput& input) {
 #endif
     rstl::wstring text;
     text.reserve(256);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     const CStringTable& strings = **mGalleryNames;
 #endif
     text.append(CStringExtras::ConvertToUNICODE(
@@ -932,7 +932,7 @@ bool CSlideShow::AreAllDepsLoaded(const rstl::vector< TToken< CDependencyGroup >
 }
 
 void CSlideShow::DrawSlideNumber() const {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   if (!mSlideNumberText.null()) {
     const int height = CGraphics::GetViewportHeight();
     const float fadeTime = gpTweakSlideShow->GetSlideNumberFadeTime();
@@ -975,7 +975,7 @@ void CSlideShow::UpdateSlideNumber(float dt) {
   if (!mSlideNumberText.null() && !mGalleries.empty()) {
     int slide = mSlide;
     for (int i = 0; i < mGallery; ++i) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       slide += mGalleries[i].mSlides.size();
 #else
       slide += mGalleries[i].second.size();
@@ -1027,12 +1027,12 @@ void CSlideShow::DrawControlsBorder() const {
 
 CIOWin::EMessageReturn CSlideShow::SSlideData::ProcessUserInput(const CFinalInput& input) {
   if (IsReady()) {
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
     const CTexture* texture = **mTexture;
 #endif
     const int width = CGraphics::GetViewportWidth();
     const int height = CGraphics::GetViewportHeight();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     const float texWidth = mTextureWidth;
     const float texHeight = mTextureHeight;
 #else
@@ -1040,22 +1040,22 @@ CIOWin::EMessageReturn CSlideShow::SSlideData::ProcessUserInput(const CFinalInpu
     const float texHeight = texture->GetHeight();
 #endif
     const float aspect = float(width) / height;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     const float& textureSize = rstl::max_val(mTextureWidth, mTextureHeight);
 #endif
     const float zoomIn = ControlMapper::GetAnalogInput(ControlMapper::kC_MapZoomIn, input);
     const float zoomOut = ControlMapper::GetAnalogInput(ControlMapper::kC_MapZoomOut, input);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     const float zoom = textureSize * (zoomOut - zoomIn) / 1024.f;
 #endif
     const CVector2f oldSize = mVpSize;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     if (zoom != 0.f) {
 #else
     if (zoomOut - zoomIn != 0.f) {
 #endif
       CVector2f offset = mVpSize;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       const float delta = gpTweakSlideShow->GetZoomSpeed() * zoom;
 #else
       const float delta = gpTweakSlideShow->GetZoomSpeed() * (zoomOut - zoomIn);
@@ -1074,7 +1074,7 @@ CIOWin::EMessageReturn CSlideShow::SSlideData::ProcessUserInput(const CFinalInpu
     const float back = ControlMapper::GetAnalogInput(ControlMapper::kC_MapMoveBack, input);
     const float left = ControlMapper::GetAnalogInput(ControlMapper::kC_MapMoveLeft, input);
     const float right = ControlMapper::GetAnalogInput(ControlMapper::kC_MapMoveRight, input);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     const float speed = gpTweakSlideShow->GetPanSpeed() *
                         rstl::max_val(mTextureWidth, mTextureHeight) / 1024.f;
 #else
@@ -1113,7 +1113,7 @@ CIOWin::EMessageReturn CSlideShow::SSlideData::ProcessUserInput(const CFinalInpu
 
 void CSlideShow::SSlideData::InitializeViewport() {
   if (IsLoaded()) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     const float width = (**mTextures.front().mToken)->GetWidth();
     const float height = (**mTextures.front().mToken)->GetHeight();
     mTextureWidth = width * mColumns;
@@ -1129,20 +1129,20 @@ void CSlideShow::SSlideData::InitializeViewport() {
     mVpOffset = sZeroVector;
     if (texAspect != aspect) {
       if (texAspect > aspect) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
         mVpSize = CVector2f(mTextureWidth, mTextureWidth / aspect);
 #else
         mVpSize = CVector2f(width, width / aspect);
 #endif
       } else {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
         mVpSize = CVector2f(mTextureHeight * aspect, mTextureHeight);
 #else
         mVpSize = CVector2f(height * aspect, height);
 #endif
       }
     }
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     for (int i = 0; i < mTextures.size(); ++i) {
       const float x = width * (i % mColumns);
       const float y = height * (i / mColumns);
@@ -1155,7 +1155,7 @@ void CSlideShow::SSlideData::InitializeViewport() {
   }
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 const bool CSlideShow::SSlideData::IsLoaded() const {
   if (mTextures.empty()) {
     return false;
@@ -1191,7 +1191,7 @@ const bool CSlideShow::SSlideData::IsLoaded() const {
 #endif
 
 void CSlideShow::SSlideData::Draw() const {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   if (IsReady()) {
     const CVector2f leftBottom(mVpOffset.GetX(), mVpOffset.GetY() + mVpSize.GetY());
     const CVector2f rightTop(mVpOffset.GetX() + mVpSize.GetX(), mVpOffset.GetY());
@@ -1223,7 +1223,7 @@ void CSlideShow::SSlideData::Draw() const {
 void CSlideShow::SSlideData::Reset() {
   mGallery = -1;
   mSlide = -1;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   mTextures = rstl::vector< STexture >();
   mColumns = 0;
 #else

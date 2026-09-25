@@ -270,7 +270,7 @@ private:
   int mAddedToken;
   float mDamageMag;
   uchar mMaxVol;
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
   rstl::reserved_vector< TUniqueId, 4 > mFluidIds;
 #endif
   rstl::reserved_vector< CSfxHandle, 2 > mNonLoopingSfxHandles;
@@ -299,6 +299,6 @@ private:
   uint mDoTargetDistanceTest : 1;
   uint mTargetable : 1;
 };
-CHECK_SIZEOF(CActor, (VERSION >= VERSION_GM8P_00 ? 0xf8 : 0xe8))
+CHECK_SIZEOF(CActor, (VERSION >= VERSION_GM8E_02 ? 0xf8 : 0xe8))
 
 #endif // _CACTOR

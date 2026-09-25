@@ -248,6 +248,6 @@ private:
   bool mOnApproachPath : 1;
   bool mObjectSpaceCollision : 1;
 };
-CHECK_SIZEOF(CBabygoth, (VERSION >= VERSION_GM8P_00 ? 0xa60 : 0xa50))
+CHECK_SIZEOF(CBabygoth, (VERSION >= VERSION_GM8E_02 ? 0xa60 : 0xa50))
 
 #endif // _CBABYGOTH

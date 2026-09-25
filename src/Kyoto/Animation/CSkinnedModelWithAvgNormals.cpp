@@ -13,7 +13,7 @@ typedef rstl::pair< CVector3f, rstl::list< uint > > TPosToVertListPair;
 
 CSkinnedModelWithAvgNormals::CSkinnedModelWithAvgNormals(const CSkinnedModel& skinnedModel)
 : mSkinnedModel(skinnedModel), mAvgNormals(rs_new float[skinnedModel.GetNumPoints() * 12]) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   const uint vertexCount = skinnedModel.GetNumPoints();
 #else
   int vertexCount = skinnedModel.GetNumPoints();
@@ -47,7 +47,7 @@ CSkinnedModelWithAvgNormals::CSkinnedModelWithAvgNormals(const CSkinnedModel& sk
 
   const CVector3f* normals =
       reinterpret_cast< const CVector3f* >(skinnedModel.GetModel()->GetNormals());
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   CVector3f* avgNormals = reinterpret_cast< CVector3f* >(mAvgNormals.get());
   AUTO(mapCur, vertMap.begin());
   AUTO(mapEnd, vertMap.end());

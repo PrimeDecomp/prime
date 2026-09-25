@@ -135,7 +135,7 @@ public:
   void insert(const iterator& pos, InputIterator first, InputIterator last);
 
   void destroy() {
-#if RSTL_VERSION >= RSTL_GM8P_00 && RSTL_VERSION != RSTL_GM8E_02
+#if RSTL_VERSION >= RSTL_GM8P_00
     clear();
 #else
     iterator last = end();

@@ -19,7 +19,7 @@ class CProjectedShadow;
 
 class CRidleyData {
   friend class CRidley;
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   CAssetId x0_;
   CAssetId x4_;
   CAssetId x8_;
@@ -43,7 +43,7 @@ class CRidleyData {
   CBeamInfo x64_;
   ushort xa8_;
   CAssetId xac_;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   CAssetId x88_;
 #endif
   CDamageInfo xb0_;
@@ -66,7 +66,7 @@ class CRidleyData {
   float x3f4_;
   ushort x3f8_;
   CDamageInfo x3fc_;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   CDamageInfo mBounceDamage;
 #endif
 
@@ -75,7 +75,7 @@ public:
 };
 
 CHECK_SIZEOF(CRidleyData,
-             (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0x410 : 0x418))
+             (VERSION >= VERSION_GM8P_00 ? 0x410 : 0x418))
 
 class CRidley : public CPatterned {
 public:
@@ -139,7 +139,7 @@ public:
   bool AIStage(CStateManager& mgr, float arg) override;
   bool ShouldStrafe(CStateManager& mgr, float arg) override;
   bool IsDizzy(CStateManager& mgr, float arg) override;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   void TurnAround(CStateManager& mgr, EStateMsg msg, float arg) override;
   void Bounce(CStateManager& mgr, EStateMsg msg, float arg) override;
   bool BounceFind(CStateManager& mgr, float arg) override;
@@ -211,7 +211,7 @@ private:
   bool xa34_24_ : 1;
   bool xa34_25_ : 1;
   bool xa34_26_ : 1;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   bool xa34_27_ : 1;
   bool xa34_28_ : 1;
   bool xa34_29_ : 1;
@@ -262,7 +262,7 @@ private:
   float xc08_;
   float xc0c_;
   float xc10_;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   CProjectileInfo mProjectileInfo;
 #endif
   CProjectileInfo xc14_;
@@ -275,13 +275,13 @@ private:
   float xc80_;
   uint xc84_;
   uint xc88_;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   int mMeleeAttack;
 #endif
   CDamageInfo xc8c_;
   CSfxHandle xca8_;
   CSfxHandle xcac_;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   int xcb0_;
 #else
   uint xcb0_;
@@ -299,7 +299,7 @@ private:
   float xd08_;
   CSfxHandle xd0c_;
   rstl::single_ptr< CProjectedShadow > xd10_;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   CVector3f mPreviousBeamPos;
 #else
   uint xd14_;
@@ -314,6 +314,6 @@ private:
   static const rstl::string skRoot;
 };
 CHECK_SIZEOF(CRidley,
-             (VERSION < VERSION_GM8P_00 ? 0xd18 : (VERSION == VERSION_GM8E_02 ? 0xd28 : 0xd08)))
+             (VERSION < VERSION_GM8E_02 ? 0xd18 : (VERSION == VERSION_GM8E_02 ? 0xd28 : 0xd08)))
 
 #endif // _CRIDLEY

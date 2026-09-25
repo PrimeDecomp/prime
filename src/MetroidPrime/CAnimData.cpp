@@ -552,7 +552,7 @@ void CAnimData::RenderAuxiliary(const CFrustumPlanes& frustum) const {
   mParticleDB.AddToRendererClipped(frustum);
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 void CHierarchyPoseBuilder::Insert(const CSegId& id, const CQuaternion& rot) {
   mTreeMap[id].SetRotation(rot);
 }

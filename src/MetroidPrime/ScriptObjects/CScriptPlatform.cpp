@@ -281,7 +281,7 @@ void CScriptPlatform::PreThink(float dt, CStateManager& mgr) {
         mMoveDelay = 0.035f;
         MoveRiders(
             mgr, dt, GetActive(), mRiders, collidedRiders, newXf, oldXf, -mDragDelta,
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
             mRotDelta.BuildInverted());
 #else
             CQuaternion::ScalarVector(mRotDelta.GetScalar(),

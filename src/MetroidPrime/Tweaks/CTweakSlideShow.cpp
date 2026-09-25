@@ -38,7 +38,7 @@ CTweakSlideShow::CTweakSlideShow(CInputStream& in)
   x50_ = in.ReadFloat();
   x54_ = in.ReadFloat();
   x58_ = in.ReadFloat();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   mGalleryNames.assign(rstl::string(in));
 #endif
 }

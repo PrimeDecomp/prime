@@ -50,7 +50,7 @@ public:
   CGuiTextSupport(CAssetId fontId, const CGuiTextProperties& props, const CColor& fontCol,
                   const CColor& outlineCol, const CColor& geomCol, int extX, int extY,
                   CSimplePool* store);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   CGuiTextSupport(CAssetId fontId, int extX, int extY, const CGuiTextProperties& props,
                   const CColor& fontCol, const CColor& outlineCol, const CColor& geomCol,
                   CSimplePool* store);
@@ -122,7 +122,7 @@ private:
   CColor mOutlineColor;
   CColor mGeometryColor;
   bool mImageBaseline;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   int mExtraCharacterSpace;
   int mExtraLineSpace;
 #endif
@@ -135,7 +135,7 @@ private:
   float mChRate;
   CAssetId mFontId;
   mutable rstl::optional_object< CTextRenderBuffer > mRenderBuf;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   bool xbd8_;
 #endif
   mutable rstl::vector< CToken > mAssets;
@@ -147,6 +147,6 @@ private:
 };
 
 CHECK_SIZEOF(CGuiTextProperties, 0x10)
-CHECK_SIZEOF(CGuiTextSupport, (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0xc2c : 0x30c))
+CHECK_SIZEOF(CGuiTextSupport, (VERSION >= VERSION_GM8P_00 ? 0xc2c : 0x30c))
 
 #endif // _CGUITEXTSUPPORT

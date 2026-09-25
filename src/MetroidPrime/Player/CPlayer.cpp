@@ -452,7 +452,7 @@ CPlayer::CPlayer(TUniqueId uid, const CTransform4f& xf, const CAABox& aabb, CAss
   mAccelerationTable.push_back(80.f);
   mAccelerationTable.push_back(270.f);
   SetMaxVelocityAfterCollision(25.f);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   mPhazonCollisionIndex = 0;
   for (int i = 0; i < 7; ++i) {
     mPhazonCollisionDelay[i] = 0;

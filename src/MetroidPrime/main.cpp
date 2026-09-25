@@ -204,7 +204,7 @@ COsContext& CMain::OpenWindow() {
   return mOsContext;
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 int CMain::GetLanguage() {
   int language = mOsContext.GetLanguage();
   if (language == 5) {
@@ -347,7 +347,7 @@ void InitializeApplicationUI(CGuiSys&);
 
 void InfiniteLoopAlarm(OSAlarm* alarm, OSContext* context) {
   if (sInfiniteLoopTime >= 10.f) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     OSCancelAlarm(alarm);
     rs_debugger_printf("SKIP4INFINITE LOOP");
 #else
@@ -384,7 +384,7 @@ CGameArchitectureSupport::CGameArchitectureSupport(COsContext& osContext)
   ioWinManager.AddIOWin(rs_new CConsoleOutputWindow(8, 5.f, 0.75f), 100, 0);
   ioWinManager.AddIOWin(rs_new CAudioStateWin(), 100, -1);
   ioWinManager.AddIOWin(rs_new CErrorOutputWindow(CErrorOutputWindow::kF_Zero), 10000, 100000);
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   InitializeApplicationUI(mGuiSys);
 #endif
   CGuiSys::SetGlobalGuiSys(&mGuiSys);
@@ -551,7 +551,7 @@ void CGameGlobalObjects::AddPaksAndFactories() {
   CResFactory& factory = *gpResourceFactory;
   CGraphics::SetViewPointMatrix(CTransform4f::Identity());
   CGraphics::SetModelMatrix(CTransform4f::Identity());
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   if (CDvdFile::FileExists("Strings.pak")) {
     factory.GetResLoader().AddPakFileAsync(rstl::string_l("aram:Strings"), false, false);
   }
@@ -575,7 +575,7 @@ void CGameGlobalObjects::AddPaksAndFactories() {
     errorWindow.ShowMessage();
     CGraphics::EndScene();
 #if VERSION >= VERSION_GM8E_01
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     if (controller.get() != nullptr) {
       controller->Poll();
     }
@@ -740,7 +740,7 @@ int CMain::RsMain(int argc, const char* const* argv) {
   rstl::single_ptr< CGameGlobalObjects > gameGlobalObjects(
       rs_new CGameGlobalObjects(mOsContext, mMemorySys));
   mGameGlobalObjects = gameGlobalObjects.get();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   CMemoryCardDriver::LoadLanguageFromCard(0);
   CStringTable::SetLanguage(GetLanguage());
 #endif
@@ -785,7 +785,7 @@ int CMain::RsMain(int argc, const char* const* argv) {
       sProgressiveModePrompt = stream.ReadBits(1);
     }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     CDvdFile::FileExists("Strings.pak");
 #endif
     while (!mFinished) {
@@ -1003,7 +1003,7 @@ void CMain::ResetGameState() {
 
 void CMain::RegisterResourceTweaks() { mTweaks.RegisterResourceTweaks(); }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 void CMain::ReloadStringTables() {
   rstl::vector< SObjectTag > tags = gpSimplePool->GetReferencedTags();
   for (rstl::vector< SObjectTag >::const_iterator it = tags.begin(); it != tags.end(); ++it) {

@@ -43,6 +43,6 @@ public:
 };
 
 CHECK_SIZEOF(CSaveableState,
-             (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0x8c : 0x88))
+             (VERSION >= VERSION_GM8P_00 ? 0x8c : 0x88))
 
 #endif // _CSAVEABLESTATE

@@ -125,7 +125,7 @@ public:
                 const rstl::ncrc_ptr< CScriptLayerManager >&);
   ~CStateManager();
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   void SetProjectedShadow(CProjectedShadow* shadow);
 #else
   void SetProjectedShadow(CProjectedShadow* shadow) { mProjectedShadow = shadow; }

@@ -64,6 +64,6 @@ protected:
   float mPerspInterpStartFov;
   float mPerspInterpEndFov;
 };
-CHECK_SIZEOF(CGameCamera, (VERSION >= VERSION_GM8P_00 ? 0x198 : 0x188))
+CHECK_SIZEOF(CGameCamera, (VERSION >= VERSION_GM8E_02 ? 0x198 : 0x188))
 
 #endif // _CGAMECAMERA
