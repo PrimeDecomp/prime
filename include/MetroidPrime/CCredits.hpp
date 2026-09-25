@@ -18,6 +18,7 @@ class CMoviePlayer;
 class CStaticAudioPlayer;
 class CGuiTextSupport;
 class CVector3f;
+class CTransform4f;
 
 class CCredits : public CIOWin {
 public:
@@ -32,12 +33,18 @@ public:
   EMessageReturn Update(float, CArchitectureQueue& queue);
   EMessageReturn ProcessUserInput(const CFinalInput& input);
 
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  static void DrawText(CGuiTextSupport&, const CTransform4f& transform);
+#else
   static void DrawText(CGuiTextSupport&, const CVector3f& translation);
+#endif
 
 private:
   int x14_state;
   TToken< CStringTable > x18_creditsTable;
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
   TToken< CRasterFont > x20_creditsFont;
+#endif
   rstl::single_ptr< CMoviePlayer > x28_moviePlayer;
   rstl::single_ptr< CStaticAudioPlayer > x2c_audioPlayer;
   rstl::list< rstl::pair< rstl::ncrc_ptr< CGuiTextSupport >, CVector2i > > x30_text;
@@ -55,6 +62,10 @@ private:
   void DrawVideo() const;
   void DrawText() const;
 };
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+CHECK_SIZEOF(CCredits, 0x58)
+#else
 CHECK_SIZEOF(CCredits, 0x60)
+#endif
 
 #endif // _CCREDITS

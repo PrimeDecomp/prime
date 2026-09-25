@@ -2,6 +2,7 @@
 #define _CPLAYMOVIE
 
 #include "Kyoto/TToken.hpp"
+#include "Kyoto/Graphics/CColor.hpp"
 #include "MetroidPrime/CIOWin.hpp"
 #include "rstl/auto_ptr.hpp"
 #include "rstl/reserved_vector.hpp"
@@ -59,11 +60,19 @@ private:
   float x6c_resultsTime;
   float x70_pulseTime;
   float x74_printedCharacters;
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  CColor x78_pulseStartColor;
+  CColor x7c_pulseEndColor;
+#endif
   bool x78_24_finished : 1;
   bool x78_25_exit : 1;
   bool x78_26_resultsScreen : 1;
   bool x78_27_quitScreen : 1;
 };
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+CHECK_SIZEOF(CPlayMovie, 0x84)
+#else
 CHECK_SIZEOF(CPlayMovie, 0x7c)
+#endif
 
 #endif // _CPLAYMOVIE

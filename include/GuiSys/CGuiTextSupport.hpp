@@ -80,6 +80,7 @@ public:
   void SetImageBaseline(bool baseline);
   void SetTypeWriteEffectOptions(bool enable, float fadeTime, float rate);
   void SetGeometryColor(const CColor& col);
+  const CColor& GetGeometryColor() const { return x2c_geometryColor; }
   void SetOutlineColor(const CColor& col);
   void SetFontColor(const CColor& col);
   void Render() const;
