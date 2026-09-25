@@ -45,7 +45,7 @@ public:
   uchar* GetNESState() { return x0_nesState.data(); }
 
   bool GetAllItemsCollected() const { return xd0_29_allItemsCollected; }
-#if VERSION == VERSION_GM8P_00 || VERSION == VERSION_GM8J_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
   int GetLanguage() const { return x6c_language; }
 #endif
   void SetAllItemsCollected(bool);
@@ -60,7 +60,7 @@ private:
 
 #if VERSION == VERSION_GM8J_00
   enum { kNESStateSize = 1526 };
-#elif VERSION == VERSION_GM8P_00
+#elif VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
   enum { kNESStateSize = 18 };
 #else
   enum { kNESStateSize = 98 };
@@ -68,7 +68,7 @@ private:
   rstl::reserved_vector< uchar, kNESStateSize > x0_nesState;
   rstl::reserved_vector< uchar, 64 > x68_;
   rstl::vector< rstl::pair< CAssetId, TEditorId > > xac_cinematicStates;
-#if VERSION == VERSION_GM8P_00 || VERSION == VERSION_GM8J_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
   int x6c_language;
 #endif
   int xbc_autoMapperKeyState;
@@ -85,7 +85,7 @@ private:
 };
 #if VERSION == VERSION_GM8J_00
 CHECK_SIZEOF(CSystemState, 0x66c)
-#elif VERSION == VERSION_GM8P_00
+#elif VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
 CHECK_SIZEOF(CSystemState, 0x88)
 #else
 CHECK_SIZEOF(CSystemState, 0xd4)

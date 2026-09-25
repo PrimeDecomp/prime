@@ -33,13 +33,13 @@
 #pragma inline_max_size(250)
 #endif
 
-#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_R3IJ_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_R3ME_00 && VERSION != VERSION_GM8E_02
 static const char* const skJapaneseBodyFont = "FONT_DFSoGei-W5_18";
 #endif
 static const char* const skMovieNames[] = {"Video/wingame.thp",
                                            "Video/wingame_best.thp",
                                            "Video/wingame_best.thp",
-#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_R3IJ_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
                                            "",
 #else
                                            "Video/losegame.thp",
@@ -51,7 +51,7 @@ static const char* const skMovieNames[] = {"Video/wingame.thp",
 static const char* const skCompletionMovieNames[] = {
     "Video/win_bad_begin.thp",  "Video/win_bad_loop.thp",  "Video/win_bad_end.thp",
     "Video/win_good_begin.thp", "Video/win_good_loop.thp", "Video/win_good_end.thp"};
-#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_R3IJ_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
 static const char* const skLoseGameMovieNames[] = {
     "Video/losegame.thp",         "Video/losegame_german.thp",  "Video/losegame_french.thp",
     "Video/losegame_spanish.thp", "Video/losegame_italian.thp", "",
@@ -153,7 +153,7 @@ static void QueueIOWin(CArchitectureQueue& queue, CIOWin* win) {
 
 static void QueueAutoSave(CArchitectureQueue& queue) { QueueIOWin(queue, rs_new CAutoSave()); }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_R3IJ_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
 static const char* GetMovieName(int movie) {
   if (movie == CPlayMovie::kWM_LoseGame) {
     const int language = gpGameState->SystemState().GetLanguage();
@@ -225,7 +225,7 @@ CPlayMovie::CPlayMovie(EWhichMovie movie)
           rs_new CMoviePlayer(skCompletionMovieNames[i], 0.05f, loop, false)));
     }
   } else {
-#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_R3IJ_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
     const char* movieName = GetMovieName(movie);
     x1c_movies.push_back(rstl::auto_ptr< CMoviePlayer >(
         rs_new CMoviePlayer(movieName, 0.f, false, movie == kWM_LoseGame)));
