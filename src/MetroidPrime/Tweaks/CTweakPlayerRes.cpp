@@ -12,6 +12,14 @@ static inline CAssetId get_asset_id_from_name(const char* name) {
   return id;
 }
 
+static inline rstl::reserved_vector< CAssetId, 9 > read_map_icons(CInputStream& in) {
+  rstl::reserved_vector< CAssetId, 9 > ids;
+  for (int i = 0; i < 9; ++i) {
+    ids.push_back(get_asset_id_from_name(rstl::string(in).c_str()));
+  }
+  return ids;
+}
+
 template < int N >
 inline rstl::reserved_vector< CAssetId, N > read_asset_ids(CInputStream& in) {
   rstl::reserved_vector< CAssetId, N > ids;
@@ -22,6 +30,9 @@ inline rstl::reserved_vector< CAssetId, N > read_asset_ids(CInputStream& in) {
 }
 
 CTweakPlayerRes::CTweakPlayerRes(CInputStream& in)
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+: x4_mapIcons(read_map_icons(in))
+#else
 : x4_saveStationIcon(get_asset_id_from_name(rstl::string(in).c_str()))
 , x8_missileStationIcon(get_asset_id_from_name(rstl::string(in).c_str()))
 , xc_elevatorIcon(get_asset_id_from_name(rstl::string(in).c_str()))
@@ -29,6 +40,7 @@ CTweakPlayerRes::CTweakPlayerRes(CInputStream& in)
 , x14_minesBreakFirstBottomIcon(get_asset_id_from_name(rstl::string(in).c_str()))
 , x18_minesBreakSecondTopIcon(get_asset_id_from_name(rstl::string(in).c_str()))
 , x1c_minesBreakSecondBottomIcon(get_asset_id_from_name(rstl::string(in).c_str()))
+#endif
 , x20_lStick(read_asset_ids< 9 >(in))
 , x48_cStick(read_asset_ids< 9 >(in))
 , x70_lTrigger(read_asset_ids< 2 >(in))

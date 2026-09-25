@@ -211,15 +211,15 @@ CAutoMapper::CAutoMapper(const CStateManager& stateMgr)
   x3c_hintBeacon.Lock();
 
   x48_mapIcons.push_back(
-      gpSimplePool->GetObj(SObjectTag('TXTR', gpTweakPlayerRes->x4_saveStationIcon)));
+      gpSimplePool->GetObj(SObjectTag('TXTR', gpTweakPlayerRes->GetSaveStationIcon())));
   x48_mapIcons.push_back(
-      gpSimplePool->GetObj(SObjectTag('TXTR', gpTweakPlayerRes->x8_missileStationIcon)));
+      gpSimplePool->GetObj(SObjectTag('TXTR', gpTweakPlayerRes->GetMissileStationIcon())));
   x48_mapIcons.push_back(
-      gpSimplePool->GetObj(SObjectTag('TXTR', gpTweakPlayerRes->xc_elevatorIcon)));
+      gpSimplePool->GetObj(SObjectTag('TXTR', gpTweakPlayerRes->GetElevatorIcon())));
   x48_mapIcons.push_back(
-      gpSimplePool->GetObj(SObjectTag('TXTR', gpTweakPlayerRes->x10_minesBreakFirstTopIcon)));
+      gpSimplePool->GetObj(SObjectTag('TXTR', gpTweakPlayerRes->GetMinesBreakFirstTopIcon())));
   x48_mapIcons.push_back(
-      gpSimplePool->GetObj(SObjectTag('TXTR', gpTweakPlayerRes->x14_minesBreakFirstBottomIcon)));
+      gpSimplePool->GetObj(SObjectTag('TXTR', gpTweakPlayerRes->GetMinesBreakFirstBottomIcon())));
 
   for (CToken* it = x48_mapIcons.begin(); it != x48_mapIcons.end(); ++it) {
     it->Lock();

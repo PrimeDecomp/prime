@@ -28,11 +28,17 @@ class CTweakSlideShow : public ITweakObject, public TOneStatic< CTweakSlideShow 
   float x50_;
   float x54_;
   float x58_;
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  rstl::string x5c_galleryNames;
+#endif
 
 public:
   CTweakSlideShow(CInputStream&);
   ~CTweakSlideShow();
   const rstl::string& GetPakName() const { return x4_pakName; }
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  const rstl::string& GetGalleryNames() const { return x5c_galleryNames; }
+#endif
   const rstl::string& GetFont() const { return x14_fontAssetName; }
   const CColor& GetFontColor() const { return x24_fontColor; }
   const CColor& GetOutlineColor() const { return x28_outlineColor; }
