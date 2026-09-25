@@ -1634,8 +1634,7 @@ void CBallCamera::UpdateUsingColliders(float dt, CStateManager& mgr) {
     }
   }
 
-  camDelta = CVector3f(x294_dampedPos[kDX] - desiredPos[kDX], x294_dampedPos[kDY] - desiredPos[kDY],
-                       x294_dampedPos[kDZ] - desiredPos[kDZ]);
+  camDelta = x294_dampedPos - desiredPos;
   float dampDeltaMag = camDelta.Magnitude();
   if (camDelta.CanBeNormalized()) {
     camDelta.Normalize();

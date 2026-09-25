@@ -858,7 +858,8 @@ bool CActor::CanDrawStatic() const {
   if (!GetActive() || !HasModelData() || static_cast< char >(xb4_drawFlags.GetBlendMode()) > 4) {
     return false;
   }
-  if (GetModelData()->IsNull() || GetModelData()->HasAnimation()) {
+  const CModelData* modelData = GetModelData();
+  if (modelData->IsNull() || modelData->HasAnimation()) {
     return false;
   }
   return true;
