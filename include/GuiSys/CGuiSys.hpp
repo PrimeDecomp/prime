@@ -41,15 +41,15 @@ public:
 
   void AddFactories(EUsageMode mode);
 
-  bool GetIsUsedInGame() const { return x8_mode == kUM_Zero; }
-  EUsageMode GetUsageMode() const { return x8_mode; }
+  bool GetIsUsedInGame() const { return mMode == kUM_Zero; }
+  EUsageMode GetUsageMode() const { return mMode; }
 
 private:
-  IFactory* x0_resFactory;
-  CSimplePool* x4_resStore;
-  EUsageMode x8_mode;
-  rstl::single_ptr< CTextExecuteBuffer > xc_textExecuteBuffer;
-  rstl::single_ptr< CTextParser > x10_textParser;
+  IFactory* mResFactory;
+  CSimplePool* mResStore;
+  EUsageMode mMode;
+  rstl::single_ptr< CTextExecuteBuffer > mTextExecuteBuffer;
+  rstl::single_ptr< CTextParser > mTextParser;
   static CGuiSys* spGuiSys;
 };
 

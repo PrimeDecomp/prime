@@ -514,7 +514,7 @@ uint CAudioSys::S3dAddEmitterParaEx(const C3DEmitterParmData& params, ushort gro
 
   uint handle = mUnusedEmitterHandle;
   if (handle == -1) {
-    uint lowerHandle = S3dFindLowerPriorityHandle(params.x29_prio);
+    uint lowerHandle = S3dFindLowerPriorityHandle(params.mPrio);
     if (lowerHandle == -1) {
       return -1;
     }
@@ -524,25 +524,25 @@ uint CAudioSys::S3dAddEmitterParaEx(const C3DEmitterParmData& params, ushort gro
   CEmitterData& data = (*mpEmitterDB)[handle];
 
   SND_FVECTOR _pos;
-  _pos.x = params.x0_pos.GetX();
-  _pos.y = params.x0_pos.GetY();
-  _pos.z = params.x0_pos.GetZ();
+  _pos.x = params.mPos.GetX();
+  _pos.y = params.mPos.GetY();
+  _pos.z = params.mPos.GetZ();
   SND_FVECTOR _dir;
-  _dir.x = params.xc_dir.GetX();
-  _dir.y = params.xc_dir.GetY();
-  _dir.z = params.xc_dir.GetZ();
+  _dir.x = params.mDir.GetX();
+  _dir.y = params.mDir.GetY();
+  _dir.z = params.mDir.GetZ();
 
   const uchar scaledMaxVol =
-      (mVolumeScale * (params.x26_maxVol > 0x7f ? 0x7f : params.x26_maxVol)) / 0x7f;
+      (mVolumeScale * (params.mMaxVol > 0x7f ? 0x7f : params.mMaxVol)) / 0x7f;
   const char maxVol = scaledMaxVol;
   const uchar minVol =
-      (mVolumeScale * (params.x27_minVol > 0x7f ? 0x7f : params.x27_minVol)) / 0x7f;
-  sndAddEmitterParaEx(&data.x0_emitter, &_pos, &_dir, params.x18_maxDist, params.x1c_distComp,
-                      params.x20_flags, params.x24_sfxId, groupId, maxVol, minVol, nullptr,
+      (mVolumeScale * (params.mMinVol > 0x7f ? 0x7f : params.mMinVol)) / 0x7f;
+  sndAddEmitterParaEx(&data.mEmitter, &_pos, &_dir, params.mMaxDist, params.mDistComp,
+                      params.mFlags, params.mSfxId, groupId, maxVol, minVol, nullptr,
                       paraInfo);
-  data.x50_used = true;
-  data.x51_important = params.x28_important;
-  data.x52_prio = params.x29_prio;
+  data.mUsed = true;
+  data.mImportant = params.mImportant;
+  data.mPrio = params.mPrio;
   mUnusedEmitterHandle = S3dFindUnusedHandle();
   return handle;
 }
@@ -563,7 +563,7 @@ const bool CAudioSys::S3dUpdateEmitter(const uint handle, const CVector3f& pos,
   _dir.x = dir.GetX();
   _dir.y = dir.GetY();
   _dir.z = dir.GetZ();
-  return sndUpdateEmitter(&data.x0_emitter, &_pos, &_dir, maxVol, nullptr);
+  return sndUpdateEmitter(&data.mEmitter, &_pos, &_dir, maxVol, nullptr);
 }
 const bool CAudioSys::S3dRemoveEmitter(uint handle) {
   if (handle == -1) {
@@ -571,10 +571,10 @@ const bool CAudioSys::S3dRemoveEmitter(uint handle) {
   }
 
   CEmitterData& data = (*mpEmitterDB)[handle];
-  if (data.x50_used) {
-    data.x50_used = false;
+  if (data.mUsed) {
+    data.mUsed = false;
     mUnusedEmitterHandle = handle;
-    return sndRemoveEmitter(&data.x0_emitter);
+    return sndRemoveEmitter(&data.mEmitter);
   }
 
   return true;
@@ -583,12 +583,12 @@ const bool CAudioSys::S3dRemoveEmitter(uint handle) {
 void CAudioSys::S3dFlushAllEmitters() {
   rstl::vector< CEmitterData >::iterator iter = mpEmitterDB->begin();
   for (; iter != mpEmitterDB->end(); ++iter) {
-    if (!iter->x50_used) {
+    if (!iter->mUsed) {
       continue;
     }
 
-    iter->x50_used = false;
-    sndRemoveEmitter(&iter->x0_emitter);
+    iter->mUsed = false;
+    sndRemoveEmitter(&iter->mEmitter);
   }
   mUnusedEmitterHandle = 0;
 }
@@ -596,12 +596,12 @@ void CAudioSys::S3dFlushAllEmitters() {
 void CAudioSys::S3dFlushUnusedEmitters() {
   rstl::vector< CEmitterData >::iterator iter = mpEmitterDB->begin();
   for (; iter != mpEmitterDB->end(); ++iter) {
-    if (!iter->x50_used || sndCheckEmitter(&iter->x0_emitter) || iter->x51_important) {
+    if (!iter->mUsed || sndCheckEmitter(&iter->mEmitter) || iter->mImportant) {
       continue;
     }
 
-    iter->x50_used = false;
-    sndRemoveEmitter(&iter->x0_emitter);
+    iter->mUsed = false;
+    sndRemoveEmitter(&iter->mEmitter);
   }
 }
 
@@ -611,8 +611,8 @@ const bool CAudioSys::S3dCheckEmitter(const uint handle) {
   }
 
   CEmitterData& data = (*mpEmitterDB)[handle];
-  if (data.x50_used) {
-    return sndCheckEmitter(&data.x0_emitter);
+  if (data.mUsed) {
+    return sndCheckEmitter(&data.mEmitter);
   }
 
   return false;
@@ -624,8 +624,8 @@ uint CAudioSys::S3dEmitterVoiceID(const uint handle) {
   }
 
   CEmitterData& data = (*mpEmitterDB)[handle];
-  if (data.x50_used) {
-    return sndEmitterVoiceID(&data.x0_emitter);
+  if (data.mUsed) {
+    return sndEmitterVoiceID(&data.mEmitter);
   }
 
   return -1;
@@ -634,7 +634,7 @@ uint CAudioSys::S3dEmitterVoiceID(const uint handle) {
 uint CAudioSys::S3dFindUnusedHandle() {
   int i = 0;
   do {
-    if (!(*mpEmitterDB)[i].x50_used) {
+    if (!(*mpEmitterDB)[i].mUsed) {
       break;
     }
     ++i;
@@ -652,11 +652,11 @@ uint CAudioSys::S3dFindLowerPriorityHandle(const uint prio) {
   int i = 0;
   do {
     CEmitterData& data = (*mpEmitterDB)[i];
-    if (!data.x50_used) {
+    if (!data.mUsed) {
       break;
     }
 
-    if (data.x52_prio <= prio && !data.x51_important) {
+    if (data.mPrio <= prio && !data.mImportant) {
       S3dRemoveEmitter(i);
       break;
     }

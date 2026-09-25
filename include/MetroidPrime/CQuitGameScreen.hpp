@@ -39,15 +39,15 @@ public:
   void ProcessUserInput(const CFinalInput& input);
 
 private:
-  EQuitType x0_type;
-  TCachedToken< CGuiFrame > x4_frame;
-  CGuiFrame* x10_loadedFrame;
-  CGuiTableGroup* x14_tablegroup_quitgame;
-  EQuitAction x18_action;
+  EQuitType mType;
+  TCachedToken< CGuiFrame > mFrame;
+  CGuiFrame* mLoadedFrame;
+  CGuiTableGroup* mTablegroup_quitgame;
+  EQuitAction mAction;
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-  CGuiTextPane* x1c_textpane_title;
-  CGuiTextPane* x20_textpane_yes;
-  CGuiTextPane* x24_textpane_no;
+  CGuiTextPane* mTextpane_title;
+  CGuiTextPane* mTextpane_yes;
+  CGuiTextPane* mTextpane_no;
 #endif
 };
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02

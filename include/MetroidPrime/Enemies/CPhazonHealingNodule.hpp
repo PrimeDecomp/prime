@@ -53,15 +53,15 @@ public:
   void PhazeOut(CStateManager& mgr) override;
 
 private:
-  int x568_active;
-  bool x56c_emitting;
+  int mActive;
+  bool mEmitting;
   // 1 byte pad
-  TUniqueId x56e_connId;
-  TLockedToken< CElectricDescription > x570_electricDesc;
-  rstl::ncrc_ptr< CParticleElectric > x57c_particleElectric;
-  CHealthInfo x580_initialHealthInfo;
-  int x588_state;
-  rstl::string x58c_actorLctr;
+  TUniqueId mConnId;
+  TLockedToken< CElectricDescription > mElectricDesc;
+  rstl::ncrc_ptr< CParticleElectric > mParticleElectric;
+  CHealthInfo mInitialHealthInfo;
+  int mState;
+  rstl::string mActorLctr;
   uint x59c_;
 
   void UpdateParticleElectric(CStateManager& mgr);

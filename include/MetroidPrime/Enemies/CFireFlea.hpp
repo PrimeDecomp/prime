@@ -21,11 +21,11 @@ public:
     static const CColor skStartFadeColor;
     static CColor sCurrentFadeColor;
 
-    uint x34_startFadeTime;
-    uint x38_fadeDuration;
-    uint x3c_reverseFadeDuration;
-    uint x40_totalFadeDuration;
-    uint x44_currentTime;
+    uint mStartFadeTime;
+    uint mFadeDuration;
+    uint mReverseFadeDuration;
+    uint mTotalFadeDuration;
+    uint mCurrentTime;
   };
 
   CFireFlea(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
@@ -48,13 +48,13 @@ public:
 private:
   CVector3f AdjustMovementVec(CStateManager& mgr, const CVector3f& forward) const;
   bool MoveTooCloseToWater(CStateManager& mgr, const CVector3f& forward) const;
-  const bool HeardShot() const { return !(x570_nearList.size() <= 0); }
+  const bool HeardShot() const { return !(mNearList.size() <= 0); }
   float x568_;
   float x56c_;
-  TEntityList x570_nearList;
+  TEntityList mNearList;
   CVector3f xd74_;
-  CVector3f xd80_targetPos;
-  CPathFindSearch xd8c_pathFind;
+  CVector3f mTargetPos;
+  CPathFindSearch mPathFind;
 
   static int sLightIdx;
 };

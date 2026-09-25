@@ -6,17 +6,17 @@
 namespace rstl {
 class CRefData {
 public:
-  CRefData(const void* ptr) : x0_ptr(ptr), x4_refCount(1) {}
-  CRefData(const void* ptr, int refCount) : x0_ptr(ptr), x4_refCount(refCount) {}
+  CRefData(const void* ptr) : mPtr(ptr), mRefCount(1) {}
+  CRefData(const void* ptr, int refCount) : mPtr(ptr), mRefCount(refCount) {}
   ~CRefData() {}
 
-  void* GetPtr() const { return const_cast< void* >(x0_ptr); }
-  int GetRefCount() const { return x4_refCount; }
-  int AddRef() { return ++x4_refCount; }
-  int DelRef() { return --x4_refCount; }
+  void* GetPtr() const { return const_cast< void* >(mPtr); }
+  int GetRefCount() const { return mRefCount; }
+  int AddRef() { return ++mRefCount; }
+  int DelRef() { return --mRefCount; }
 
-  const void* x0_ptr;
-  int x4_refCount;
+  const void* mPtr;
+  int mRefCount;
 
   static CRefData sNull;
 };
@@ -24,46 +24,46 @@ public:
 template < typename T >
 class rc_ptr {
 public:
-  rc_ptr() : x0_refData(&CRefData::sNull) { x0_refData->AddRef(); }
-  rc_ptr(const T* ptr) : x0_refData(rs_new CRefData(ptr)) {}
-  rc_ptr(const rc_ptr& other) : x0_refData(other.x0_refData) { x0_refData->AddRef(); }
+  rc_ptr() : mRefData(&CRefData::sNull) { mRefData->AddRef(); }
+  rc_ptr(const T* ptr) : mRefData(rs_new CRefData(ptr)) {}
+  rc_ptr(const rc_ptr& other) : mRefData(other.mRefData) { mRefData->AddRef(); }
   ~rc_ptr() { ReleaseData(); }
   rc_ptr& operator=(const rc_ptr& other) {
-    if (x0_refData != other.x0_refData) {
+    if (mRefData != other.mRefData) {
       ReleaseData();
-      x0_refData = other.x0_refData;
-      x0_refData->AddRef();
+      mRefData = other.mRefData;
+      mRefData->AddRef();
     }
     return *this;
   }
-  T* GetPtr() const { return static_cast< T* >(x0_refData->GetPtr()); }
+  T* GetPtr() const { return static_cast< T* >(mRefData->GetPtr()); }
   bool IsNull() const { return GetPtr() == nullptr; }
   template < typename U >
   void Assign(const U* ptr) {
     const T* base = ptr;
     ReleaseData();
-    x0_refData = rs_new CRefData(base);
+    mRefData = rs_new CRefData(base);
   }
   void ReleaseData();
   void reset() {
     ReleaseData();
-    x0_refData = &CRefData::sNull;
-    x0_refData->AddRef();
+    mRefData = &CRefData::sNull;
+    mRefData->AddRef();
   }
   T* operator->() const { return GetPtr(); }
   T& operator*() const { return *GetPtr(); }
   operator bool() const { return GetPtr() != nullptr; }
 
 private:
-  CRefData* x0_refData;
+  CRefData* mRefData;
 };
 
 template < typename T >
 void rc_ptr< T >::ReleaseData() {
-  if (x0_refData->DelRef() <= 0) {
+  if (mRefData->DelRef() <= 0) {
     T* const ptr = GetPtr();
     delete ptr;
-    delete x0_refData;
+    delete mRefData;
   }
 }
 

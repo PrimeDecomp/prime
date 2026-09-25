@@ -30,7 +30,7 @@ public:
   void AddLineExtraSpace(int space);
   void AddJustification(EJustification just);
   void AddVerticalJustification(EVerticalJustification just);
-  void AddWordWrapping(const bool wrap) { x18_state.SetWordWrapping(wrap); }
+  void AddWordWrapping(const bool wrap) { mState.SetWordWrapping(wrap); }
   void AddPushState();
   void AddPopState();
   void AddImage(const CFontImageDef& image);
@@ -55,8 +55,8 @@ private:
                                                  InstList::const_iterator pageStart,
                                                  InstList::const_iterator pageEnd);
   InstList::iterator Add(const rstl::ncrc_ptr< CInstruction >& instruction) {
-    x0_instructions.push_back(instruction);
-    return rstl::advance_iterator(x0_instructions.begin(), -1);
+    mInstructions.push_back(instruction);
+    return rstl::advance_iterator(mInstructions.begin(), -1);
   }
   void AddStringFragment(const wchar_t* str, int len);
   int WrapOneLTR(const wchar_t* str, int len);
@@ -66,18 +66,18 @@ private:
   void TerminateLine();
   void TerminateLineLTR();
 
-  InstList x0_instructions;
-  CSaveableState x18_state;
-  CBlockInstruction* xa0_curBlock;
-  CLineInstruction* xa4_curLine;
-  InstList::iterator xa8_curWordIt;
-  int xac_curY;
-  int xb0_curX;
-  int xb4_curWordX;
-  int xb8_curWordY;
-  int xbc_spaceDistance;
-  bool xc0_imageBaseline;
-  rstl::list< CSaveableState > xc4_stateStack;
+  InstList mInstructions;
+  CSaveableState mState;
+  CBlockInstruction* mCurBlock;
+  CLineInstruction* mCurLine;
+  InstList::iterator mCurWordIt;
+  int mCurY;
+  int mCurX;
+  int mCurWordX;
+  int mCurWordY;
+  int mSpaceDistance;
+  bool mImageBaseline;
+  rstl::list< CSaveableState > mStateStack;
 };
 
 CHECK_SIZEOF(CTextExecuteBuffer,

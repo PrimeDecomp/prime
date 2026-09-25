@@ -22,8 +22,8 @@ public:
   ~CARAMToken();
   void PostConstruct(void* ptr, uint len, int unk);
   CARAMToken& operator=(const CARAMToken& other);
-  const EStatus GetStatus() const { return x0_status; }
-  int GetSize() const { return xc_dataLen; }
+  const EStatus GetStatus() const { return mStatus; }
+  int GetSize() const { return mDataLen; }
   bool LoadToMRAM();
   bool LoadToARAM();
   bool RefreshStatus();
@@ -39,13 +39,13 @@ public:
   void* GetMRAMSafe();
 
 private:
-  EStatus x0_status;
-  void* x4_mramPtr;
-  const void* x8_aramPtr;
-  int xc_dataLen;
-  uint x10_dmaHandle;
-  CARAMToken* x14_prev;
-  CARAMToken* x18_next;
+  EStatus mStatus;
+  void* mMramPtr;
+  const void* mAramPtr;
+  int mDataLen;
+  uint mDmaHandle;
+  CARAMToken* mPrev;
+  CARAMToken* mNext;
   bool x1c_24_ : 1;
 };
 

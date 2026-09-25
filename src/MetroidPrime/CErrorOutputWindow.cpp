@@ -17,21 +17,21 @@
 
 CErrorOutputWindow::CErrorOutputWindow(EFlag flag)
 : CIOWin(rstl::string_l("Error output window"))
-, x14_state(kS_Zero)
+, mState(kS_Zero)
 , x18_24_(false)
 , x18_25_(true)
 , x18_26_(true)
 , x18_27_(true)
 , x18_28_(flag == kF_Zero)
-, x1c_msg(nullptr) {}
+, mMsg(nullptr) {}
 
-bool CErrorOutputWindow::GetIsContinueDraw() const { return x14_state < kS_Two; }
+bool CErrorOutputWindow::GetIsContinueDraw() const { return mState < kS_Two; }
 
 CIOWin::EMessageReturn CErrorOutputWindow::OnMessage(const CArchitectureMessage& msg,
                                                      CArchitectureQueue&) {
   switch (msg.GetType()) {
   case kAM_UserInput:
-    if (x14_state != kS_Zero) {
+    if (mState != kS_Zero) {
       return kMR_Exit;
     }
     return kMR_Normal;
@@ -42,7 +42,7 @@ CIOWin::EMessageReturn CErrorOutputWindow::OnMessage(const CArchitectureMessage&
 
   case kAM_TimerTick:
   case kAM_FrameEnd:
-    return x14_state > kS_One ? kMR_Exit : kMR_Normal;
+    return mState > kS_One ? kMR_Exit : kMR_Normal;
   default:
     break;
   }
@@ -50,13 +50,13 @@ CIOWin::EMessageReturn CErrorOutputWindow::OnMessage(const CArchitectureMessage&
 }
 
 void CErrorOutputWindow::UpdateWindow() {
-  if (x14_state == 1) {
+  if (mState == 1) {
     SetState(kS_Two);
     return;
   }
   s32 driveStatus = DVDGetDriveStatus();
   const wchar_t* errMsg = nullptr;
-  bool flagThing = x14_state != kS_Zero;
+  bool flagThing = mState != kS_Zero;
   static s32 sLastDvdStatus = 0;
   if (driveStatus != sLastDvdStatus) {
     sLastDvdStatus = driveStatus;
@@ -88,24 +88,24 @@ void CErrorOutputWindow::UpdateWindow() {
   if (driveStatus != 2 && driveStatus != 1) {
     flagThing = errMsg != nullptr;
     if (errMsg != nullptr) {
-      if (x1c_msg != nullptr && errMsg != x1c_msg) {
+      if (mMsg != nullptr && errMsg != mMsg) {
         flag = true;
       }
-      x1c_msg = errMsg;
+      mMsg = errMsg;
     }
   }
   if (!flagThing) {
-    if (x14_state != kS_Zero) {
+    if (mState != kS_Zero) {
       if (x18_28_) {
         CGraphics::SetIsBeginSceneClearFb(x18_24_);
       }
       SetState(kS_Zero);
     }
-  } else if (x14_state != kS_Three) {
-    if (x14_state == kS_Zero) {
+  } else if (mState != kS_Three) {
+    if (mState == kS_Zero) {
       x18_24_ = CGraphics::IsBeginSceneClearFb();
     }
-    SetState(EState(x14_state + 1));
+    SetState(EState(mState + 1));
   } else {
     if (flag) {
       if (x18_28_) {
@@ -117,7 +117,7 @@ void CErrorOutputWindow::UpdateWindow() {
 }
 
 void CErrorOutputWindow::Draw() const {
-  switch (x14_state) {
+  switch (mState) {
   case 0:
     break;
 
@@ -135,7 +135,7 @@ void CErrorOutputWindow::Draw() const {
 }
 
 void CErrorOutputWindow::DrawError() const {
-  if (!x1c_msg) {
+  if (!mMsg) {
     return;
   }
 
@@ -145,7 +145,7 @@ void CErrorOutputWindow::DrawError() const {
   execBuffer.BeginBlock(0, 0, viewport.mWidth, viewport.mHeight, false, kTD_Horizontal,
                         kJustification_Center, kVerticalJustification_Center);
   execBuffer.AddFont(TToken< CRasterFont >(*gpDefaultFont));
-  execBuffer.AddString(rstl::wstring_l(x1c_msg));
+  execBuffer.AddString(rstl::wstring_l(mMsg));
   execBuffer.EndBlock();
 
   if (x18_28_) {
@@ -175,8 +175,8 @@ void CErrorOutputWindow::SetState(EState state) {
     }
   }
 
-  if (state != x14_state) {
-    if (x14_state == kS_Zero) {
+  if (state != mState) {
+    if (mState == kS_Zero) {
       if (gpRender != nullptr) {
         gpRender->SetRequestRGBA6(true);
       }
@@ -193,14 +193,14 @@ void CErrorOutputWindow::SetState(EState state) {
       CStreamAudioManager::SetSfxUnmute(x18_27_);
       CMoviePlayer::SetAudioEnabled(x18_25_);
     }
-    x14_state = state;
+    mState = state;
   }
 }
 
 void CErrorOutputWindow::Update() { UpdateWindow(); }
 
 void CErrorOutputWindow::ShowMessage() const {
-  if (!x1c_msg) {
+  if (!mMsg) {
     return;
   }
 

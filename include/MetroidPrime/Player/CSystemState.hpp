@@ -24,11 +24,11 @@ public:
   int GetLogScanCount() const;
   void SetFusionBeat(bool v);
   void SetHasFusion(bool v);
-  const bool GetFusionLinked() const { return xd0_24_fusionLinked; }
-  bool GetNormalModeBeat() const { return xd0_25_normalModeBeat; }
-  bool GetHardModeBeat() const { return xd0_26_hardModeBeat; }
-  const bool GetFusionBeat() const { return xd0_27_fusionBeat; }
-  bool GetHasFusion() const { return xd0_28_fusionSuitActive; }
+  const bool GetFusionLinked() const { return mFusionLinked; }
+  bool GetNormalModeBeat() const { return mNormalModeBeat; }
+  bool GetHardModeBeat() const { return mHardModeBeat; }
+  const bool GetFusionBeat() const { return mFusionBeat; }
+  bool GetHasFusion() const { return mFusionSuitActive; }
 
   bool GetCinematicState(rstl::pair< CAssetId, TEditorId > cineId) const;
   void SetCinematicState(rstl::pair< CAssetId, TEditorId > cineId, bool state);
@@ -37,7 +37,7 @@ public:
   void SetLanguage(int language);
 #endif
 
-  int GetAutoMapperKeyState() const { return xbc_autoMapperKeyState; }
+  int GetAutoMapperKeyState() const { return mAutoMapperKeyState; }
   void SetAutoMapperKeyState(int state);// { xbc_autoMapperKeyState = state; }
 
   bool GetShowPowerBombAmmoMessage() const;
@@ -46,11 +46,11 @@ public:
   bool GetShowFrozenBallMessage() const;
   bool GetShowFrozenFpsMessage() const;
 
-  uchar* GetNESState() { return x0_nesState.data(); }
+  uchar* GetNESState() { return mNesState.data(); }
 
-  bool GetAllItemsCollected() const { return xd0_29_allItemsCollected; }
+  bool GetAllItemsCollected() const { return mAllItemsCollected; }
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-  int GetLanguage() const { return x6c_language; }
+  int GetLanguage() const { return mLanguage; }
 #endif
   void SetAllItemsCollected(bool);
 
@@ -69,23 +69,23 @@ private:
 #else
   enum { kNESStateSize = 98 };
 #endif
-  rstl::reserved_vector< uchar, kNESStateSize > x0_nesState;
+  rstl::reserved_vector< uchar, kNESStateSize > mNesState;
   rstl::reserved_vector< uchar, 64 > x68_;
-  rstl::vector< rstl::pair< CAssetId, TEditorId > > xac_cinematicStates;
+  rstl::vector< rstl::pair< CAssetId, TEditorId > > mCinematicStates;
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-  int x6c_language;
+  int mLanguage;
 #endif
-  int xbc_autoMapperKeyState;
-  int xc0_frozenFpsCount;
-  int xc4_frozenBallCount;
-  int xc8_powerBombAmmoCount;
-  int xcc_logScanPercent;
-  bool xd0_24_fusionLinked : 1;
-  bool xd0_25_normalModeBeat : 1;
-  bool xd0_26_hardModeBeat : 1;
-  bool xd0_27_fusionBeat : 1;
-  bool xd0_28_fusionSuitActive : 1;
-  bool xd0_29_allItemsCollected : 1;
+  int mAutoMapperKeyState;
+  int mFrozenFpsCount;
+  int mFrozenBallCount;
+  int mPowerBombAmmoCount;
+  int mLogScanPercent;
+  bool mFusionLinked : 1;
+  bool mNormalModeBeat : 1;
+  bool mHardModeBeat : 1;
+  bool mFusionBeat : 1;
+  bool mFusionSuitActive : 1;
+  bool mAllItemsCollected : 1;
 };
 #if VERSION == VERSION_GM8J_00
 CHECK_SIZEOF(CSystemState, 0x66c)

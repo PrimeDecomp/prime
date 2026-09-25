@@ -31,8 +31,8 @@ public:
   FourCC GetWidgetTypeID() const override { return 'TXPN'; }
   virtual rstl::vector< CAssetId > GetFontAssets() const;
 
-  CGuiTextSupport& TextSupport() { return xd4_textSupport; }
-  const CGuiTextSupport& GetTextSupport() const { return xd4_textSupport; }
+  CGuiTextSupport& TextSupport() { return mTextSupport; }
+  const CGuiTextSupport& GetTextSupport() const { return mTextSupport; }
   void Update(float dt) override;
   bool GetIsFinishedLoadingWidgetSpecific() const override;
   void SetDimensions(const CVector2f& dim, bool initVBO) override;
@@ -43,9 +43,9 @@ private:
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
   static bool sDrawPaneRects;
 #endif
-  mutable CGuiTextSupport xd4_textSupport;
+  mutable CGuiTextSupport mTextSupport;
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-  bool xd00_drawShadow;
+  bool mDrawShadow;
 #endif
 };
 

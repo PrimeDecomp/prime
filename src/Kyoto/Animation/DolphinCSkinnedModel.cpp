@@ -19,11 +19,11 @@ CSkinnedModel::TPointGenFunc CSkinnedModel::sPointGen;
 void* CSkinnedModel::sPointGenData;
 
 struct SSkinnedAllocation {
-  SSkinnedAllocation(void* ptr, int w1, ushort w2) : x0_ptr(ptr), x4_unk1(w1), x8_unk2(w2) {}
+  SSkinnedAllocation(void* ptr, int w1, ushort w2) : mPtr(ptr), mUnk1(w1), mUnk2(w2) {}
 
-  void* x0_ptr;
-  int x4_unk1;
-  ushort x8_unk2;
+  void* mPtr;
+  int mUnk1;
+  ushort mUnk2;
 };
 
 namespace Skinning {
@@ -98,24 +98,24 @@ CSkinnedModel::CSkinnedModel(const TLockedToken< CModel >& model,
                              const TLockedToken< CSkinRules >& skinRules,
                              const TLockedToken< CCharLayoutInfo >& layoutInfo,
                              EDataOwnership ownership)
-: x4_model(model)
-, x10_skinRules(skinRules)
-, x1c_layoutInfo(layoutInfo)
-, x28_vertWorkspace()
-, x30_normalWorkspace()
-, x38_owned(ownership == kDO_Owned)
-, x39_disableWorkspaces(false) {
+: mModel(model)
+, mSkinRules(skinRules)
+, mLayoutInfo(layoutInfo)
+, mVertWorkspace()
+, mNormalWorkspace()
+, mOwned(ownership == kDO_Owned)
+, mDisableWorkspaces(false) {
   Construct();
 }
 
 CSkinnedModel::CSkinnedModel(const CSkinnedModel& other)
-: x4_model(other.x4_model)
-, x10_skinRules(other.x10_skinRules)
-, x1c_layoutInfo(other.x1c_layoutInfo)
-, x28_vertWorkspace()
-, x30_normalWorkspace()
-, x38_owned(other.x38_owned)
-, x39_disableWorkspaces(false) {
+: mModel(other.mModel)
+, mSkinRules(other.mSkinRules)
+, mLayoutInfo(other.mLayoutInfo)
+, mVertWorkspace()
+, mNormalWorkspace()
+, mOwned(other.mOwned)
+, mDisableWorkspaces(false) {
   Construct();
 }
 
@@ -123,45 +123,45 @@ CSkinnedModel::~CSkinnedModel() { Skinning::DelSkinnedRef(); }
 
 void CSkinnedModel::Construct() {
   Skinning::AddSkinnedRef();
-  if (!x38_owned) {
-    uint numPoints = x10_skinRules->GetNumPoints();
-    uint numNormals = x10_skinRules->GetNumNormals();
-    x28_vertWorkspace = rs_new float[numPoints * 12];
-    x30_normalWorkspace = rs_new float[numNormals * 12];
+  if (!mOwned) {
+    uint numPoints = mSkinRules->GetNumPoints();
+    uint numNormals = mSkinRules->GetNumNormals();
+    mVertWorkspace = rs_new float[numPoints * 12];
+    mNormalWorkspace = rs_new float[numNormals * 12];
   }
-  if (x10_skinRules->GetNumVirtualBones() == 1) {
-    x39_disableWorkspaces = true;
+  if (mSkinRules->GetNumVirtualBones() == 1) {
+    mDisableWorkspaces = true;
   }
 }
 
 void CSkinnedModel::Draw(const CModelFlags& flags) const {
-  if (x39_disableWorkspaces) {
+  if (mDisableWorkspaces) {
     CTransform4f saved(CGraphics::GetModelMatrix());
-    CGraphics::SetModelMatrix(saved * x10_skinRules->GetVirtualBones()[0].GetTransform());
-    x4_model->Draw(flags);
+    CGraphics::SetModelMatrix(saved * mSkinRules->GetVirtualBones()[0].GetTransform());
+    mModel->Draw(flags);
     CGraphics::SetModelMatrix(saved);
-  } else if (x28_vertWorkspace.null()) {
-    x4_model->Draw(flags);
+  } else if (mVertWorkspace.null()) {
+    mModel->Draw(flags);
   } else {
-    x4_model->Draw(x28_vertWorkspace.get(), x30_normalWorkspace.get(), flags);
+    mModel->Draw(mVertWorkspace.get(), mNormalWorkspace.get(), flags);
     PostDrawFunc();
   }
 }
 
 void CSkinnedModel::Draw(const TDrawFunc func, void* data) {
-  if (x39_disableWorkspaces) {
+  if (mDisableWorkspaces) {
     CTransform4f saved(CGraphics::GetModelMatrix());
-    CGraphics::SetModelMatrix(saved * x10_skinRules->GetVirtualBones()[0].GetTransform());
-    Draw(func, x4_model->GetPositions(), x4_model->GetNormals(), data);
+    CGraphics::SetModelMatrix(saved * mSkinRules->GetVirtualBones()[0].GetTransform());
+    Draw(func, mModel->GetPositions(), mModel->GetNormals(), data);
     CGraphics::SetModelMatrix(saved);
-  } else if (x28_vertWorkspace.null()) {
-    Draw(func, x4_model->GetPositions(), x4_model->GetNormals(), data);
+  } else if (mVertWorkspace.null()) {
+    Draw(func, mModel->GetPositions(), mModel->GetNormals(), data);
   } else {
-    func(x28_vertWorkspace.get(), x30_normalWorkspace.get(), data);
-    uint vertSize = (x10_skinRules->GetNumPoints() * 12 + 31) & ~31u;
-    DCFlushRangeNoSync(x28_vertWorkspace.get(), vertSize);
-    uint normSize = (x10_skinRules->GetNumNormals() * 12 + 31) & ~31u;
-    DCFlushRangeNoSync(x30_normalWorkspace.get(), normSize);
+    func(mVertWorkspace.get(), mNormalWorkspace.get(), data);
+    uint vertSize = (mSkinRules->GetNumPoints() * 12 + 31) & ~31u;
+    DCFlushRangeNoSync(mVertWorkspace.get(), vertSize);
+    uint normSize = (mSkinRules->GetNumNormals() * 12 + 31) & ~31u;
+    DCFlushRangeNoSync(mNormalWorkspace.get(), normSize);
     PPCSync();
     PostDrawFunc();
   }
@@ -169,7 +169,7 @@ void CSkinnedModel::Draw(const TDrawFunc func, void* data) {
 
 void CSkinnedModel::Draw(const float* positions, const float* normals,
                          const CModelFlags& flags) const {
-  x4_model->Draw(positions, normals, flags);
+  mModel->Draw(positions, normals, flags);
   PostDrawFunc();
 }
 
@@ -179,19 +179,19 @@ void CSkinnedModel::Calculate(const CPoseAsTransforms& pose,
   size_t alignedNormSize = 0;
   size_t alignedVertSize = 0;
   size_t totalSize = 0;
-  size_t vertSize = x10_skinRules->GetNumPoints() * sizeof(CVector3f);
-  size_t normSize = x10_skinRules->GetNumNormals() * sizeof(CVector3f);
+  size_t vertSize = mSkinRules->GetNumPoints() * sizeof(CVector3f);
+  size_t normSize = mSkinRules->GetNumNormals() * sizeof(CVector3f);
   float* verts;
 
   if (workVerts != nullptr) {
     verts = workVerts;
   } else {
-    if (x39_disableWorkspaces) {
-      x10_skinRules->BuildAccumulatedTransforms(pose, **x1c_layoutInfo);
+    if (mDisableWorkspaces) {
+      mSkinRules->BuildAccumulatedTransforms(pose, **mLayoutInfo);
       return;
     }
     AllocateStorage();
-    verts = x28_vertWorkspace.get();
+    verts = mVertWorkspace.get();
   }
 
   alignedNormSize = ((normSize + 31) & ~31u);
@@ -202,39 +202,39 @@ void CSkinnedModel::Calculate(const CPoseAsTransforms& pose,
   BOOL interruptState = OSDisableInterrupts();
   volatile void* pipe = GXRedirectWriteGatherPipe(verts);
 
-  x10_skinRules->InitLockedCacheState(**x4_model);
-  x10_skinRules->BuildAccumulatedTransforms(pose, **x1c_layoutInfo);
-  x10_skinRules->BuildPoints(pipe);
+  mSkinRules->InitLockedCacheState(**mModel);
+  mSkinRules->BuildAccumulatedTransforms(pose, **mLayoutInfo);
+  mSkinRules->BuildPoints(pipe);
 
-  int numWords = x10_skinRules->GetNumPoints() * 3;
+  int numWords = mSkinRules->GetNumPoints() * 3;
   int padWords = ((numWords + 7) & ~7) - numWords;
   for (int i = 0; i < padWords; i++) {
     *reinterpret_cast< volatile u32* >(pipe) = 0;
   }
 
-  x10_skinRules->BuildNormals(pipe);
+  mSkinRules->BuildNormals(pipe);
   GXRestoreWriteGatherPipe();
   OSRestoreInterrupts(interruptState);
 
   if (morphEffect.valid()) {
     (*morphEffect)
         .MorphVertices(reinterpret_cast< CVector3f* >(verts),
-                       reinterpret_cast< const CVector3f* >(averagedNormals), x10_skinRules, pose,
-                       x10_skinRules->GetNumPoints());
+                       reinterpret_cast< const CVector3f* >(averagedNormals), mSkinRules, pose,
+                       mSkinRules->GetNumPoints());
     DCFlushRange(verts, alignedVertSize);
   }
 
   if (sPointGen != nullptr) {
     const CVector3f* positions = reinterpret_cast< const CVector3f* >(verts);
-    sPointGen(sPointGenData, positions, positions + x10_skinRules->GetNumPoints(),
-              x10_skinRules->GetNumPoints());
+    sPointGen(sPointGenData, positions, positions + mSkinRules->GetNumPoints(),
+              mSkinRules->GetNumPoints());
     DCInvalidateRange(verts, totalSize);
   }
 }
 
 void CSkinnedModel::CalculateDefault() {
-  x28_vertWorkspace = rstl::auto_ptr< float >();
-  x30_normalWorkspace = rstl::auto_ptr< float >();
+  mVertWorkspace = rstl::auto_ptr< float >();
+  mNormalWorkspace = rstl::auto_ptr< float >();
 }
 
 void CSkinnedModel::TickAllocations() {
@@ -244,13 +244,13 @@ void CSkinnedModel::TickAllocations() {
   }
   while (Skinning::sAllocations.size() != 0) {
     SSkinnedAllocation& front = Skinning::sAllocations.front();
-    int tokenVal = static_cast< int >(front.x8_unk2);
+    int tokenVal = static_cast< int >(front.mUnk2);
     if (tokenVal > static_cast< int >(Skinning::skCurrentToken)) {
       tokenVal -= 0x10000;
     }
     if (syncVal < tokenVal)
       break;
-    Skinning::sSkinningBuffer->Free(front.x0_ptr, front.x4_unk1);
+    Skinning::sSkinningBuffer->Free(front.mPtr, front.mUnk1);
     Skinning::sAllocations.pop_front();
   }
 }
@@ -283,9 +283,9 @@ void* CSkinnedModel::EnsureAllocation(int size) {
 }
 
 void CSkinnedModel::AllocateStorage() {
-  if (x38_owned && (x28_vertWorkspace.null() || x30_normalWorkspace.null())) {
-    int vertexCount = x10_skinRules->GetNumPoints();
-    int normalCount = x10_skinRules->GetNumNormals();
+  if (mOwned && (mVertWorkspace.null() || mNormalWorkspace.null())) {
+    int vertexCount = mSkinRules->GetNumPoints();
+    int normalCount = mSkinRules->GetNumNormals();
     TickAllocations();
     int normSize = (normalCount * 12 + 31) & ~31;
     int vertSize = (vertexCount * 12 + 31) & ~31;
@@ -294,18 +294,18 @@ void CSkinnedModel::AllocateStorage() {
     if (ptr == Skinning::sStaticSkinningData) {
       GXInvalidateVtxCache();
     }
-    x28_vertWorkspace = rstl::auto_ptr< float >(static_cast< float* >(ptr));
-    x30_normalWorkspace =
+    mVertWorkspace = rstl::auto_ptr< float >(static_cast< float* >(ptr));
+    mNormalWorkspace =
         rstl::auto_ptr< float >(reinterpret_cast< float* >(static_cast< char* >(ptr) + vertSize));
-    x28_vertWorkspace.release();
-    x30_normalWorkspace.release();
+    mVertWorkspace.release();
+    mNormalWorkspace.release();
   }
 }
 
 void CSkinnedModel::PostDrawFunc() const {
-  if (x38_owned && !x28_vertWorkspace.null()) {
-    x28_vertWorkspace = rstl::auto_ptr< float >();
-    x30_normalWorkspace = rstl::auto_ptr< float >();
+  if (mOwned && !mVertWorkspace.null()) {
+    mVertWorkspace = rstl::auto_ptr< float >();
+    mNormalWorkspace = rstl::auto_ptr< float >();
     GXSetDrawSync(Skinning::skCurrentToken);
     ++Skinning::skCurrentToken;
   }
@@ -324,7 +324,7 @@ void CSkinnedModel::SetPointGeneratorFunc(void* data, void (*func)(void*, const 
 void CSkinnedModel::ClearPointGeneratorFunc() { sPointGen = nullptr; }
 
 float* CSkinnedModel::AllocateNewWorkspace(float** nrmOut) {
-  const CSkinRules* skinRules = *x10_skinRules;
+  const CSkinRules* skinRules = *mSkinRules;
   int normalCount = skinRules->GetNumNormals();
   int vertexCount = skinRules->GetNumPoints();
   int alignedNormSize = (normalCount * 12 + 31) & ~31;

@@ -33,36 +33,36 @@ public:
   // ShouldTryRender__11CGameCameraCFv
   void SkipFovInterpolation();
 
-  TUniqueId GetWatchedObject() const { return xe8_watchedObject; }
-  float GetFov() const { return x15c_currentFov; }
+  TUniqueId GetWatchedObject() const { return mWatchedObject; }
+  float GetFov() const { return mCurrentFov; }
   void SetFov(float fov) {
-    x15c_currentFov = fov;
-    x170_24_perspDirty = true;
+    mCurrentFov = fov;
+    mPerspDirty = true;
   }
-  float GetNearClipDistance() const { return x160_znear; }
-  float GetFarClipDistance() const { return x164_zfar; }
+  float GetNearClipDistance() const { return mZnear; }
+  float GetFarClipDistance() const { return mZfar; }
   void InterpolateFOV(float start, float fov, float time, float delayTime);
   void UpdatePerspective(float dt);
-  int GetControllerNumber() const { return x16c_controllerIdx; }
-  const bool DisablesInput() const { return x170_25_disablesInput; }
-  float GetAspectRatio() const { return x168_aspect; }
+  int GetControllerNumber() const { return mControllerIdx; }
+  const bool DisablesInput() const { return mDisablesInput; }
+  float GetAspectRatio() const { return mAspect; }
 
 protected:
-  TUniqueId xe8_watchedObject;
-  mutable CMatrix4f xec_perspectiveMatrix;
-  CTransform4f x12c_origXf;
-  float x15c_currentFov;
-  float x160_znear;
-  float x164_zfar;
-  float x168_aspect;
-  int x16c_controllerIdx;
-  mutable bool x170_24_perspDirty : 1;
-  bool x170_25_disablesInput : 1;
-  float x174_delayTime;
-  float x178_perspInterpRemTime;
-  float x17c_perspInterpDur;
-  float x180_perspInterpStartFov;
-  float x184_perspInterpEndFov;
+  TUniqueId mWatchedObject;
+  mutable CMatrix4f mPerspectiveMatrix;
+  CTransform4f mOrigXf;
+  float mCurrentFov;
+  float mZnear;
+  float mZfar;
+  float mAspect;
+  int mControllerIdx;
+  mutable bool mPerspDirty : 1;
+  bool mDisablesInput : 1;
+  float mDelayTime;
+  float mPerspInterpRemTime;
+  float mPerspInterpDur;
+  float mPerspInterpStartFov;
+  float mPerspInterpEndFov;
 };
 CHECK_SIZEOF(CGameCamera, (VERSION >= VERSION_GM8P_00 ? 0x198 : 0x188))
 
