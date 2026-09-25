@@ -33,6 +33,10 @@ public:
   bool GetCinematicState(rstl::pair< CAssetId, TEditorId > cineId) const;
   void SetCinematicState(rstl::pair< CAssetId, TEditorId > cineId, bool state);
 
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  void SetLanguage(int language);
+#endif
+
   int GetAutoMapperKeyState() const { return xbc_autoMapperKeyState; }
   void SetAutoMapperKeyState(int state);// { xbc_autoMapperKeyState = state; }
 

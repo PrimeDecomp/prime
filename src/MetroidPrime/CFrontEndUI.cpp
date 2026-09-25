@@ -37,7 +37,6 @@
 #include "MetroidPrime/CSlideShow.hpp"
 #include "MetroidPrime/CStateSetterFlow.hpp"
 #include "MetroidPrime/Decode.hpp"
-#include "MetroidPrime/DefaultWorld.hpp"
 #include "MetroidPrime/Player/CGameState.hpp"
 #include "MetroidPrime/SOptionsFrontEndFrame.hpp"
 #include "MetroidPrime/Tweaks/CTweakGame.hpp"
@@ -71,13 +70,26 @@ static const FEMovie FEMovies[] = {
     {"Video/06_fileselect_GBA.thp", false},
     {"Video/07_GBAloop.thp", true},
     {"Video/08_GBA_fileselect.thp", false},
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    {"Video/back.thp", false},
+#else
     {"Video/08_GBA_fileselect.thp", false},
+#endif
 };
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+static const char* const skPressStartTextures[] = {
+    "TXTR_PressStart", "TXTR_GerStart",   "TXTR_FreStart",   "TXTR_SpaStart",
+    "TXTR_ItaStart",   "TXTR_PressStart", "TXTR_PressStart",
+};
+#endif
+
 // TODO: set this to the default value and bake version string as a post-build step
 #if VERSION == VERSION_GM8E_00
 const char MetroidBuildInfo[] = BUILD_INFO_TAG "Build v1.088 10/29/2002 2:21:25\0PAD";
 #elif VERSION == VERSION_GM8E_01
 const char MetroidBuildInfo[] = BUILD_INFO_TAG "Build v1.093 11/5/2002 19:50:01\0PAD";
+#elif VERSION == VERSION_GM8P_00
+const char MetroidBuildInfo[] = BUILD_INFO_TAG "Build v1.110 2/4/2003 22:16:07\0_PAD";
 #else
 const char MetroidBuildInfo[] = BUILD_INFO;
 #endif
@@ -111,6 +123,12 @@ static const float AudioFadeTimeA[3] = {
     3.4100003f,
 };
 
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+static float AudioFadeTimeBack = AudioFadeTimeA[0];
+#endif
+
+#include "MetroidPrime/DefaultWorld.hpp"
+
 static const CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::EUIType NextLinkUI[10] = {
     CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::kUIT_ConnectSocket,
     CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::kUIT_PressStartAndSelect,
@@ -142,6 +160,22 @@ void CFrontEndUI::PlayAdvanceSfx() {
   CSfxManager::SfxStart(SFXui_x_start_00r);
 }
 
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+extern bool sIs50Hz;
+
+void CFrontEndUI::SetTitlePosition(CGuiFrame& frame) {
+  if (sIs50Hz) {
+    CGuiWidget* title = frame.FindWidget("textpane_title");
+    title->LocalTransform() = title->GetTransform() * CTransform4f::Translate(0.f, 0.f, -0.5f);
+    title->RecalculateTransforms();
+    CGuiWidget* titleB = frame.FindWidget("textpane_titleb");
+    titleB->LocalTransform() = titleB->GetTransform() * CTransform4f::Translate(0.f, 0.f, -0.5f);
+    titleB->RecalculateTransforms();
+  }
+}
+
+#endif
+
 void CFrontEndUI::SFrontEndFrame::FindAndSetPairText(CGuiFrame& frame, const char* name,
                                                      const wchar_t* str) {
   CGuiTextPane* w1 = static_cast< CGuiTextPane* >(frame.FindWidget(name));
@@ -171,19 +205,126 @@ void CFrontEndUI::SGuiTextPair::SetPairText(const rstl::wstring& str) {
   x4_textPaneB->TextSupport().SetText(str);
 }
 
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+CFrontEndUI::SLanguageSelectFrame::SLanguageSelectFrame()
+: x0_frame(gpSimplePool->GetObj("FRME_LanguageSelect"))
+, xc_strings(gpSimplePool->GetObj("STRG_LanguageSelect"))
+, x18_initialLanguage(gpGameState->SystemState().GetLanguage())
+, x1c_loadedFrame(*x0_frame)
+, x24_24_active(true)
+, x24_25_canDraw(true) {
+  x20_tablegroup_menu =
+      static_cast< CGuiTableGroup* >(x1c_loadedFrame->FindWidget("tablegroup_menu"));
+  x20_tablegroup_menu->SetUserSelection(gpGameState->SystemState().GetLanguage());
+  SetTableColors();
+  x20_tablegroup_menu->SetMenuSelectionChangeCallback(
+      TFunctor2FromMethod< SLanguageSelectFrame, CGuiTableGroup* const, const int >::Make(
+          *this, &SLanguageSelectFrame::DoSelectionChange));
+  x20_tablegroup_menu->SetMenuCancelCallback(
+      TFunctor1FromMethod< SLanguageSelectFrame, CGuiTableGroup* const >::Make(
+          *this, &SLanguageSelectFrame::DoCancel));
+}
+
+CFrontEndUI::SLanguageSelectFrame::~SLanguageSelectFrame() {}
+
+void CFrontEndUI::SLanguageSelectFrame::Update(float dt, CSaveGameScreen* saveUI) {
+  x24_25_canDraw = saveUI == nullptr || saveUI->GetUIType() == CSaveGameScreen::kUIT_SaveReady;
+  x1c_loadedFrame->Update(dt);
+  CGuiTextPane* title = static_cast< CGuiTextPane* >(x1c_loadedFrame->FindWidget("textpane_title"));
+  title->TextSupport().SetText(rstl::wstring(xc_strings->GetString(0)));
+
+  for (int i = 0; i < 5; ++i) {
+    char name[32];
+    sprintf(name, "%s%d", "textpane_choice", i);
+    CGuiTextPane* choice = static_cast< CGuiTextPane* >(x1c_loadedFrame->FindWidget(name));
+    choice->TextSupport().SetText(rstl::wstring(xc_strings->GetString(i + 1)));
+  }
+
+  CGuiTextPane* proceed =
+      static_cast< CGuiTextPane* >(x1c_loadedFrame->FindWidget("textpane_proceed"));
+  if (proceed != nullptr) {
+    proceed->TextSupport().SetText(rstl::wstring(gpStringTable->GetString(0x4c)));
+  }
+}
+
+bool CFrontEndUI::SLanguageSelectFrame::ProcessUserInput(const CFinalInput& input,
+                                                         CSaveGameScreen* saveUI) {
+  x24_24_active = true;
+  if (saveUI != nullptr) {
+    saveUI->ProcessUserInput(input);
+  }
+  if (x24_25_canDraw) {
+    x1c_loadedFrame->ProcessUserInput(input);
+  }
+  if (!x24_24_active && x18_initialLanguage != gpGameState->SystemState().GetLanguage() &&
+      saveUI != nullptr) {
+    saveUI->SaveNESState();
+  }
+  return x24_24_active;
+}
+
+void CFrontEndUI::SLanguageSelectFrame::Draw() const {
+  if (x24_25_canDraw) {
+    x1c_loadedFrame->Draw(CGuiWidgetDrawParms::sDefaultDrawParms);
+  }
+}
+
+void CFrontEndUI::SLanguageSelectFrame::DoSelectionChange(CGuiTableGroup* caller,
+                                                          int oldSelection) {
+  CSfxManager::SfxStart(SFXfnt_selection_change, 0x7f, 0x40, false, CSfxManager::kMedPriority,
+                        false, CSfxManager::kAllAreas);
+  SetTableColors();
+  const int language = x20_tablegroup_menu->GetUserSelection();
+  if (language != gpGameState->SystemState().GetLanguage()) {
+    gpGameState->SystemState().SetLanguage(language);
+    CStringTable::SetLanguage(language);
+    CMain::ReloadStringTables();
+  }
+}
+
+void CFrontEndUI::SLanguageSelectFrame::DoCancel(CGuiTableGroup* caller) {
+  CSfxManager::SfxStart(SFXfnt_back, 0x7f, 0x40, false, CSfxManager::kMedPriority, false,
+                        CSfxManager::kAllAreas);
+  x24_24_active = false;
+}
+
+void CFrontEndUI::SLanguageSelectFrame::SetTableColors() {
+  const CColor selected(static_cast< uchar >(0xff), static_cast< uchar >(0xff), static_cast< uchar >(0xff),
+                        static_cast< uchar >(0xff));
+  const CColor unselected(static_cast< uchar >(0xa0), static_cast< uchar >(0xa0), static_cast< uchar >(0xa0),
+                          static_cast< uchar >(0xc8));
+  x20_tablegroup_menu->SetColors(selected, unselected);
+}
+
+#endif
+
 CFrontEndUI::SNesEmulatorFrame::SNesEmulatorFrame()
 : x0_mode(kEM_Emulator)
 , x4_nesEmu(rs_new CNESEmulator())
 , x8_quitScreen(nullptr)
 , xc_textSupport(nullptr)
 , x10_remTime(8.f)
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+, x14_(0.f)
+#endif
 , x14_emulationSuspended(false)
 , x15_enableFiltering(true) {
   xc_textSupport = rs_new CGuiTextSupport(
       gpResourceFactory->GetResourceIdByName("FONT_Deface14B")->GetId(),
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+      0, 0,
+#endif
       CGuiTextProperties(false, true, kJustification_Left, kVerticalJustification_Center, nullptr),
-      CColor(0xFFFFFFFFu), CColor::Black(), CColor(0xFFFFFFFFu), 0, 0, gpSimplePool);
+      CColor(0xFFFFFFFFu), CColor::Black(), CColor(0xFFFFFFFFu),
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+      0, 0,
+#endif
+      gpSimplePool);
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  xc_textSupport->SetText(rstl::wstring(gpStringTable->GetString(0x61)));
+#else
   xc_textSupport->SetText(rstl::wstring_l(gpStringTable->GetString(0x67)));
+#endif
   xc_textSupport->SetExtentX(xc_textSupport->GetBounds().second.GetX());
   xc_textSupport->SetExtentY(xc_textSupport->GetBounds().second.GetY());
 }
@@ -466,6 +607,29 @@ CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::ProcessUserInput(const CFinalInpu
 }
 
 void CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::SetUIText(EUIType tp) {
+  enum EStringIndex {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    kSI_ConnectSocket = 0x3e,
+#else
+    kSI_ConnectSocket = 0x44,
+#endif
+    kSI_LinkFailed,
+    kSI_LinkComplete,
+    kSI_LinkCompleteUnsaved,
+    kSI_Linking,
+    kSI_InsertPak,
+    kSI_PressStartAndSelect,
+    kSI_BeginLink,
+    kSI_TurnOffGBA,
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    kSI_Cancel = 0x4c,
+#else
+    kSI_Cancel = 0x52,
+#endif
+    kSI_Continue,
+    kSI_Retry
+  };
+
   int instructions = -1;
   int yes = -1;
   int no = -1;
@@ -479,54 +643,54 @@ void CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::SetUIText(EUIType tp) {
 
   switch (tp) {
   case kUIT_InsertPak:
-    instructions = 0x49;
-    no = 0x52;
-    yes = 0x53;
+    instructions = kSI_InsertPak;
+    no = kSI_Cancel;
+    yes = kSI_Continue;
     pakoutVisible = true;
     circleGbaVisible = true;
     break;
   case kUIT_ConnectSocket:
-    instructions = 0x44;
-    no = 0x52;
-    yes = 0x53;
+    instructions = kSI_ConnectSocket;
+    no = kSI_Cancel;
+    yes = kSI_Continue;
     cableVisible = true;
     circleGcVisible = true;
     circleGbaVisible = true;
     break;
   case kUIT_PressStartAndSelect:
-    instructions = 0x4a;
-    no = 0x52;
-    yes = 0x53;
+    instructions = kSI_PressStartAndSelect;
+    no = kSI_Cancel;
+    yes = kSI_Continue;
     cableVisible = true;
     circleStartVisible = true;
     gbaScreenVisible = true;
     break;
   case kUIT_BeginLink:
-    instructions = 0x4b;
-    no = 0x52;
-    yes = 0x53;
+    instructions = kSI_BeginLink;
+    no = kSI_Cancel;
+    yes = kSI_Continue;
     cableVisible = true;
     gbaScreenVisible = true;
     break;
   case kUIT_TurnOffGBA:
-    instructions = 0x4c;
-    no = 0x52;
-    yes = 0x53;
+    instructions = kSI_TurnOffGBA;
+    no = kSI_Cancel;
+    yes = kSI_Continue;
     cableVisible = true;
     gbaScreenVisible = true;
     circleStartVisible = true;
     break;
   case kUIT_Linking:
     x4_gbaSupport->StartLink();
-    instructions = 0x48;
+    instructions = kSI_Linking;
     cableVisible = true;
     gbaScreenVisible = true;
     connectVisible = true;
     break;
   case kUIT_LinkFailed:
-    instructions = 0x45;
-    no = 0x52;
-    yes = 0x54;
+    instructions = kSI_LinkFailed;
+    no = kSI_Cancel;
+    yes = kSI_Retry;
     cableVisible = true;
     circleGcVisible = true;
     circleGbaVisible = true;
@@ -534,10 +698,10 @@ void CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::SetUIText(EUIType tp) {
     gbaScreenVisible = true;
     break;
   case kUIT_LinkCompleteOrLinking:
-    yes = 0x53;
+    yes = kSI_Continue;
     cableVisible = true;
     gbaScreenVisible = true;
-    instructions = x40_linkInProgress ? 0x46 : 0x47;
+    instructions = x40_linkInProgress ? int(kSI_LinkComplete) : int(kSI_LinkCompleteUnsaved);
     break;
   case kUIT_Complete:
   case kUIT_Cancelled:
@@ -547,6 +711,17 @@ void CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::SetUIText(EUIType tp) {
 
   rstl::wstring emptyStr = rstl::wstring_l(L"");
 
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  xc_textpane_instructions.SetPairText(
+      instructions == -1 ? emptyStr : rstl::wstring(gpStringTable->GetString(instructions)));
+
+  x18_textpane_no->TextSupport().SetText(
+      yes == -1 ? emptyStr : rstl::wstring(gpStringTable->GetString(yes)), false);
+
+  x14_textpane_yes->TextSupport().SetText(
+      no == -1 ? emptyStr : rstl::wstring(gpStringTable->GetString(no)), false);
+
+#else
   xc_textpane_instructions.SetPairText(
       instructions == -1 ? emptyStr : rstl::wstring_l(gpStringTable->GetString(instructions)));
 
@@ -555,6 +730,8 @@ void CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::SetUIText(EUIType tp) {
 
   x18_textpane_no->TextSupport().SetText(
       no == -1 ? emptyStr : rstl::wstring_l(gpStringTable->GetString(no)), false);
+
+#endif
 
   x1c_model_gc->SetVisibility(true, kTM_Children);
   x20_model_gba->SetVisibility(true, kTM_Children);
@@ -578,6 +755,9 @@ CIOWin::EMessageReturn CStateSetterFlow::OnMessage(const CArchitectureMessage& m
   switch (message.GetType()) {
   case kAM_TimerTick:
     gpMain->RefreshGameState();
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    gpGameState->HintOptions().EnsureHintNextTime();
+#endif
     return kMR_RemoveIOWinAndExit;
   default:
     return kMR_Exit;
@@ -590,6 +770,9 @@ CFrontEndUI::SFrontEndFrame::SFrontEndFrame(uint rnd)
 , x8_frme(gpSimplePool->GetObj("FRME_FrontEndPL"))
 , x14_loadedFrme(nullptr)
 , x18_tablegroup_mainmenu(nullptr)
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+, x1c_languagePair()
+#endif
 , x1c_gbaPair()
 , x24_cheatPair() {
   x8_frme.Lock();
@@ -616,6 +799,11 @@ void CFrontEndUI::SFrontEndFrame::FinishedLoading() {
   x18_tablegroup_mainmenu =
       static_cast< CGuiTableGroup* >(x14_loadedFrme->FindWidget("tablegroup_mainmenu"));
 
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  x1c_languagePair = SGuiTextPair(x14_loadedFrme, "textpane_lang");
+  x1c_gbaPair = SGuiTextPair(x14_loadedFrme, "textpane_gba");
+  x24_cheatPair = SGuiTextPair(x14_loadedFrme, "textpane_cheats");
+#else
   x1c_gbaPair = SGuiTextPair(x14_loadedFrme, "textpane_gba");
   x1c_gbaPair.SetPairText(gpStringTable->GetString(0x25));
 
@@ -632,6 +820,8 @@ void CFrontEndUI::SFrontEndFrame::FinishedLoading() {
     proceed->TextSupport().SetText(rstl::wstring_l(gpStringTable->GetString(0x55)));
   }
 
+#endif
+
   x18_tablegroup_mainmenu->SetMenuAdvanceCallback(
       TFunctor1FromMethod< SFrontEndFrame, CGuiTableGroup* const >::Make(
           *this, &SFrontEndFrame::DoAdvance));
@@ -643,10 +833,45 @@ void CFrontEndUI::SFrontEndFrame::FinishedLoading() {
           *this, &SFrontEndFrame::DoCancel));
 
   HandleActiveChange(x18_tablegroup_mainmenu);
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  SetStrings();
+#endif
 }
 
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+void CFrontEndUI::SFrontEndFrame::ReapplyStrings() { SetStrings(); }
+
+void CFrontEndUI::SFrontEndFrame::SetStrings() {
+  x1c_languagePair.SetPairText(gpStringTable->GetString(0x27));
+  x1c_gbaPair.SetPairText(gpStringTable->GetString(0x25));
+  x24_cheatPair.SetPairText(gpStringTable->GetString(0x5a));
+  FindAndSetPairText(*x14_loadedFrme, "textpane_start", gpStringTable->GetString(0x3d));
+  FindAndSetPairText(*x14_loadedFrme, "textpane_options", gpStringTable->GetString(0x58));
+  FindAndSetPairText(*x14_loadedFrme, "textpane_title", gpStringTable->GetString(0x5c));
+  SetTitlePosition(*x14_loadedFrme);
+
+  CGuiTextPane* proceed =
+      static_cast< CGuiTextPane* >(x14_loadedFrme->FindWidget("textpane_proceed"));
+  if (proceed != nullptr) {
+    proceed->TextSupport().SetText(rstl::wstring(gpStringTable->GetString(0x4c)));
+  }
+  CGuiTextPane* cancel =
+      static_cast< CGuiTextPane* >(x14_loadedFrme->FindWidget("textpane_cancel"));
+  if (cancel != nullptr) {
+    cancel->TextSupport().SetText(rstl::wstring(gpStringTable->GetString(0x4f)));
+  }
+}
+
+#endif
+
 void CFrontEndUI::SFrontEndFrame::Update(float dt) {
-  CGuiWidget* imageGallery = x18_tablegroup_mainmenu->GetWorkerWidget(3);
+  CGuiWidget* imageGallery = x18_tablegroup_mainmenu->GetWorkerWidget(
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+      4
+#else
+      3
+#endif
+  );
 
   if (CSlideShow::SlideShowGalleryFlags()) {
     imageGallery->SetIsSelectable(true);
@@ -681,14 +906,30 @@ void CFrontEndUI::SFrontEndFrame::DoAdvance(CGuiTableGroup* caller) {
                           CSfxManager::kMedPriority, false, CSfxManager::kAllAreas);
     x4_action = kEA_StartGame;
     break;
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
   case 1:
-    x4_action = kEA_FusionBonus;
+    PlayAdvanceSfx();
+    x4_action = kEA_Language;
     break;
   case 2:
+#else
+  case 1:
+#endif
+    x4_action = kEA_FusionBonus;
+    break;
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  case 3:
+#else
+  case 2:
+#endif
     PlayAdvanceSfx();
     x4_action = kEA_GameOptions;
     break;
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  case 4:
+#else
   case 3:
+#endif
     PlayAdvanceSfx();
     x4_action = kEA_SlideShow;
     break;
@@ -709,7 +950,11 @@ void CFrontEndUI::SFrontEndFrame::HandleActiveChange(CGuiTableGroup* caller) {
   caller->SetColors(selected, unselected);
 }
 
-void CFrontEndUI::SFrontEndFrame::DoCancel(CGuiTableGroup* caller) {}
+void CFrontEndUI::SFrontEndFrame::DoCancel(CGuiTableGroup* caller) {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  x4_action = kEA_ReturnToTitle;
+#endif
+}
 
 float CFrontEndUI::SFileSelectOption::ComputeRandom() {
   return rand() / static_cast< float >(RAND_MAX) * 30.f + 30.f;
@@ -766,6 +1011,9 @@ CFrontEndUI::SNewFileSelectFrame::SNewFileSelectFrame(CSaveGameScreen* saveUI, u
 , x20_tablegroup_fileselect(nullptr)
 , x24_model_erase(nullptr)
 , x28_textpane_erase()
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+, x30_textpane_language()
+#endif
 , x30_textpane_cheats()
 , x38_textpane_gba()
 , x40_tablegroup_popup(nullptr)
@@ -773,7 +1021,9 @@ CFrontEndUI::SNewFileSelectFrame::SNewFileSelectFrame(CSaveGameScreen* saveUI, u
 , x48_textpane_popupadvance()
 , x50_textpane_popupcancel()
 , x58_textpane_popupextra()
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
 , x60_textpane_cancel(nullptr)
+#endif
 , x64_fileSelections()
 , xf8_model_erase_position(CVector3f::Zero())
 , x104_rowPitch(0.f)
@@ -809,6 +1059,9 @@ void CFrontEndUI::SNewFileSelectFrame::FinishedLoading() {
 
   x28_textpane_erase = SGuiTextPair(x1c_loadedFrame, "textpane_erase");
   x38_textpane_gba = SGuiTextPair(x1c_loadedFrame, "textpane_gba");
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  x30_textpane_language = SGuiTextPair(x1c_loadedFrame, "textpane_lang");
+#endif
   x30_textpane_cheats = SGuiTextPair(x1c_loadedFrame, "textpane_cheats");
   x48_textpane_popupadvance = SGuiTextPair(x1c_loadedFrame, "textpane_popupadvance");
   x50_textpane_popupcancel = SGuiTextPair(x1c_loadedFrame, "textpane_popupcancel");
@@ -817,9 +1070,12 @@ void CFrontEndUI::SNewFileSelectFrame::FinishedLoading() {
   x40_tablegroup_popup =
       static_cast< CGuiTableGroup* >(x1c_loadedFrame->FindWidget("tablegroup_popup"));
   x44_model_dash7 = static_cast< CGuiModel* >(x1c_loadedFrame->FindWidget("model_dash7"));
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
   x60_textpane_cancel =
       static_cast< CGuiTextPane* >(x1c_loadedFrame->FindWidget("textpane_cancel"));
+#endif
 
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
   SFrontEndFrame::FindAndSetPairText(*x1c_loadedFrame, "textpane_title",
                                      gpStringTable->GetString(0x61));
 
@@ -828,6 +1084,8 @@ void CFrontEndUI::SNewFileSelectFrame::FinishedLoading() {
   if (proceed) {
     proceed->TextSupport().SetText(rstl::wstring_l(gpStringTable->GetString(0x55)));
   }
+
+#endif
 
   x40_tablegroup_popup->SetIsVisible(false);
   x40_tablegroup_popup->SetIsActive(false);
@@ -862,7 +1120,35 @@ void CFrontEndUI::SNewFileSelectFrame::FinishedLoading() {
   x104_rowPitch = (x64_fileSelections[1].x0_base->GetLocalPosition() -
                    x64_fileSelections[0].x0_base->GetLocalPosition())
                       .GetZ();
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  SetStrings();
+#endif
 }
+
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+void CFrontEndUI::SNewFileSelectFrame::SetStrings() {
+  SFrontEndFrame::FindAndSetPairText(*x1c_loadedFrame, "textpane_title",
+                                     gpStringTable->GetString(0x5b));
+  SetTitlePosition(*x1c_loadedFrame);
+
+  CGuiTextPane* proceed =
+      static_cast< CGuiTextPane* >(x1c_loadedFrame->FindWidget("textpane_proceed"));
+  if (proceed != nullptr) {
+    proceed->TextSupport().SetText(rstl::wstring(gpStringTable->GetString(0x4c)));
+  }
+  CGuiTextPane* cancel =
+      static_cast< CGuiTextPane* >(x1c_loadedFrame->FindWidget("textpane_cancel"));
+  if (cancel != nullptr) {
+    cancel->TextSupport().SetText(rstl::wstring(gpStringTable->GetString(0x4f)));
+  }
+}
+
+void CFrontEndUI::SNewFileSelectFrame::ReapplyStrings() {
+  SetStrings();
+  ClearFrameContents();
+}
+
+#endif
 
 uint CFrontEndUI::SNewFileSelectFrame::GetUserFileSelection() const {
   int sel = x20_tablegroup_fileselect->GetUserSelection();
@@ -870,7 +1156,7 @@ uint CFrontEndUI::SNewFileSelectFrame::GetUserFileSelection() const {
 }
 
 void CFrontEndUI::SNewFileSelectFrame::Update(float dt) {
-  bool saveReady = x4_saveUI->GetUIType() == 0x10;
+  bool saveReady = x4_saveUI->GetUIType() == CSaveGameScreen::kUIT_SaveReady;
   if (saveReady != x10c_saveReady) {
     if (saveReady) {
       ClearFrameContents();
@@ -980,9 +1266,18 @@ void CFrontEndUI::SNewFileSelectFrame::DoFileselectAdvance(CGuiTableGroup* calle
   } else if (userSel == 3) {
     PlayAdvanceSfx();
     EnterErase();
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  } else if (userSel == 4) {
+    PlayAdvanceSfx();
+    xc_action = kA_Language;
+  } else if (userSel == 5) {
+    xc_action = kA_FusionBonus;
+  } else if (userSel == 6) {
+#else
   } else if (userSel == 4) {
     xc_action = kA_FusionBonus;
   } else if (userSel == 5) {
+#endif
     xc_action = kA_SlideShow;
   }
 }
@@ -1028,7 +1323,11 @@ void CFrontEndUI::SNewFileSelectFrame::SetupFrameContents() {
 #else
         sprintf(buf, "  %02d%%", data->x18_itemPercent);
 #endif
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+        int strIdx = data->x20_hardMode ? 0x64 : 0x28;
+#else
         int strIdx = data->x20_hardMode ? 0x6a : 0x27;
+#endif
         str = rstl::wstring_l(gpStringTable->GetString(strIdx + i)) +
               CStringExtras::ConvertToUNICODE(rstl::string_l(buf));
       } else {
@@ -1043,14 +1342,43 @@ void CFrontEndUI::SNewFileSelectFrame::SetupFrameContents() {
         }
         str = rstl::wstring_l(worldName != nullptr ? worldName : L"??????");
       } else {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+        str = rstl::wstring(gpStringTable->GetString(0x34));
+#else
         str = rstl::wstring_l(gpStringTable->GetString(0x33));
+#endif
       }
       break;
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    case 2:
+      if (data != nullptr) {
+        str = rstl::wstring(gpStringTable->GetString(0x37));
+      } else {
+        str = rstl::wstring(gpStringTable->GetString(0x36));
+      }
+      break;
+    case 3:
+      if (data != nullptr) {
+#if NONMATCHING
+        snprintf(timeBuf, sizeof(timeBuf), "%02d:%02d",
+                 static_cast< int >(data->x0_playTime) / 3600,
+                 (static_cast< int >(data->x0_playTime) % 3600) / 60);
+#else
+        sprintf(timeBuf, "%02d:%02d", static_cast< int >(data->x0_playTime) / 3600,
+                (static_cast< int >(data->x0_playTime) % 3600) / 60);
+#endif
+        str = CStringExtras::ConvertToUNICODE(rstl::string_l(timeBuf));
+      } else {
+        str = rstl::wstring(gpStringTable->GetString(0x35));
+      }
+      break;
+#else
     case 2:
       if (data != nullptr) {
 #if NONMATCHING
-        snprintf(timeBuf, sizeof(timeBuf), "%02d:%02d", static_cast< int >(data->x0_playTime) / 3600,
-                (static_cast< int >(data->x0_playTime) % 3600) / 60);
+        snprintf(timeBuf, sizeof(timeBuf), "%02d:%02d",
+                 static_cast< int >(data->x0_playTime) / 3600,
+                 (static_cast< int >(data->x0_playTime) % 3600) / 60);
 #else
         sprintf(timeBuf, "%02d:%02d", static_cast< int >(data->x0_playTime) / 3600,
                 (static_cast< int >(data->x0_playTime) % 3600) / 60);
@@ -1067,6 +1395,7 @@ void CFrontEndUI::SNewFileSelectFrame::SetupFrameContents() {
         str = rstl::wstring_l(gpStringTable->GetString(0x35));
       }
       break;
+#endif
     }
 
     StartTextAnimating(pane0, str, option.x2c_chRate);
@@ -1091,6 +1420,26 @@ void CFrontEndUI::SNewFileSelectFrame::ClearFrameContents() {
     }
   }
 
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  StartTextAnimating(x28_textpane_erase.x0_textPane, rstl::wstring(gpStringTable->GetString(0x26)),
+                     60.f);
+  StartTextAnimating(x30_textpane_language.x0_textPane,
+                     rstl::wstring(gpStringTable->GetString(0x27)), 60.f);
+  StartTextAnimating(x38_textpane_gba.x0_textPane, rstl::wstring(gpStringTable->GetString(0x25)),
+                     60.f);
+  StartTextAnimating(x30_textpane_cheats.x0_textPane, rstl::wstring(gpStringTable->GetString(0x5a)),
+                     60.f);
+
+  StartTextAnimating(x28_textpane_erase.x4_textPaneB, rstl::wstring(gpStringTable->GetString(0x26)),
+                     60.f);
+  StartTextAnimating(x30_textpane_language.x4_textPaneB,
+                     rstl::wstring(gpStringTable->GetString(0x27)), 60.f);
+  StartTextAnimating(x38_textpane_gba.x4_textPaneB, rstl::wstring(gpStringTable->GetString(0x25)),
+                     60.f);
+  StartTextAnimating(x30_textpane_cheats.x4_textPaneB,
+                     rstl::wstring(gpStringTable->GetString(0x5a)), 60.f);
+
+#else
   StartTextAnimating(x28_textpane_erase.x0_textPane,
                      rstl::wstring_l(gpStringTable->GetString(0x26)), 60.f);
   StartTextAnimating(x38_textpane_gba.x0_textPane, rstl::wstring_l(gpStringTable->GetString(0x25)),
@@ -1105,6 +1454,8 @@ void CFrontEndUI::SNewFileSelectFrame::ClearFrameContents() {
   StartTextAnimating(x30_textpane_cheats.x4_textPaneB,
                      rstl::wstring_l(gpStringTable->GetString(0x60)), 60.f);
 
+#endif
+
   CGuiTextPane* erasePane = x28_textpane_erase.x0_textPane;
   if (hasSave) {
     erasePane->SetIsSelectable(true);
@@ -1115,8 +1466,13 @@ void CFrontEndUI::SNewFileSelectFrame::ClearFrameContents() {
   }
 
   x20_tablegroup_fileselect->SetUserSelection(0);
-  CGuiTextPane* cheats =
-      static_cast< CGuiTextPane* >(x20_tablegroup_fileselect->GetWorkerWidget(5));
+  CGuiTextPane* cheats = static_cast< CGuiTextPane* >(x20_tablegroup_fileselect->GetWorkerWidget(
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+      6
+#else
+      5
+#endif
+      ));
   if (CSlideShow::SlideShowGalleryFlags()) {
     cheats->SetIsSelectable(true);
     x30_textpane_cheats.x0_textPane->TextSupport().SetFontColor(CColor::White());
@@ -1143,6 +1499,11 @@ void CFrontEndUI::SNewFileSelectFrame::EnterErase() {
   CGuiTextSupport& cheatsTS = x30_textpane_cheats.x0_textPane->TextSupport();
   cheatsTS.SetFontColor(CColor::Grey().WithAlphaOf(0.5f));
 
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  x30_textpane_language.x0_textPane->SetIsSelectable(false);
+  x30_textpane_language.x0_textPane->TextSupport().SetFontColor(CColor::Grey().WithAlphaOf(0.5f));
+#endif
+
   for (int i = 2; i >= 0; --i) {
     if (x4_saveUI->GetGameData(i)) {
       x64_fileSelections[i].x0_base->SetIsSelectable(true);
@@ -1152,7 +1513,9 @@ void CFrontEndUI::SNewFileSelectFrame::EnterErase() {
     }
   }
 
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
   x60_textpane_cancel->TextSupport().SetText(rstl::wstring_l(gpStringTable->GetString(0x52)));
+#endif
   HandleActiveChange(x20_tablegroup_fileselect);
 }
 
@@ -1165,13 +1528,20 @@ void CFrontEndUI::SNewFileSelectFrame::ResetFrame() {
   x30_textpane_cheats.x0_textPane->SetIsSelectable(true);
   x30_textpane_cheats.x0_textPane->TextSupport().SetFontColor(CColor::White());
 
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  x30_textpane_language.x0_textPane->SetIsSelectable(true);
+  x30_textpane_language.x0_textPane->TextSupport().SetFontColor(CColor::White());
+#endif
+
   ClearFrameContents();
 
   for (int i = 2; i >= 0; --i) {
     x20_tablegroup_fileselect->GetWorkerWidget(i)->SetIsSelectable(true);
   }
 
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
   x60_textpane_cancel->TextSupport().SetText(rstl::wstring_l(L""));
+#endif
 }
 
 void CFrontEndUI::SNewFileSelectFrame::ActivateNewGamePopup() {
@@ -1195,19 +1565,32 @@ void CFrontEndUI::SNewFileSelectFrame::ActivateNewGamePopup() {
   PlayAdvanceSfx();
 
   if (gpGameState->SystemState().GetNormalModeBeat()) {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    x48_textpane_popupadvance.SetPairText(rstl::wstring(gpStringTable->GetString(0x60)));
+    x50_textpane_popupcancel.SetPairText(rstl::wstring(gpStringTable->GetString(0x58)));
+    x58_textpane_popupextra.SetPairText(rstl::wstring(gpStringTable->GetString(0x5f)));
+#else
     x48_textpane_popupadvance.SetPairText(rstl::wstring_l(gpStringTable->GetString(0x66)));
     x50_textpane_popupcancel.SetPairText(rstl::wstring_l(gpStringTable->GetString(0x5e)));
     x58_textpane_popupextra.SetPairText(rstl::wstring_l(gpStringTable->GetString(0x65)));
+#endif
 
     x40_tablegroup_popup->GetWorkerWidget(2)->SetIsSelectable(true);
     x40_tablegroup_popup->GetWorkerWidget(2)->SetVisibility(true, kTM_Children);
     x44_model_dash7->SetVisibility(true, kTM_Children);
   } else {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    x48_textpane_popupadvance.SetPairText(rstl::wstring(gpStringTable->GetString(0x3d)));
+    x50_textpane_popupcancel.SetPairText(rstl::wstring(gpStringTable->GetString(0x58)));
+#else
     x48_textpane_popupadvance.SetPairText(rstl::wstring_l(gpStringTable->GetString(0x43)));
     x50_textpane_popupcancel.SetPairText(rstl::wstring_l(gpStringTable->GetString(0x5e)));
+#endif
     x44_model_dash7->SetVisibility(false, kTM_Children);
   }
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
   x60_textpane_cancel->TextSupport().SetText(rstl::wstring_l(gpStringTable->GetString(0x52)));
+#endif
 }
 
 void CFrontEndUI::SNewFileSelectFrame::DeactivateNewGamePopup() {
@@ -1225,7 +1608,9 @@ void CFrontEndUI::SNewFileSelectFrame::DeactivateNewGamePopup() {
   CColor white(static_cast< uchar >(0xff), static_cast< uchar >(0xff), static_cast< uchar >(0xff),
                static_cast< uchar >(0xff));
   x64_fileSelections[x20_tablegroup_fileselect->GetUserSelection()].x0_base->SetColor(white);
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
   x60_textpane_cancel->TextSupport().SetText(rstl::wstring_l(L""));
+#endif
 }
 
 void CFrontEndUI::SNewFileSelectFrame::ActivateExistingGamePopup() {
@@ -1242,8 +1627,13 @@ void CFrontEndUI::SNewFileSelectFrame::ActivateExistingGamePopup() {
   x20_tablegroup_fileselect->SetIsActive(false);
   x8_subMenu = kSM_EraseGamePopup;
   HandleActiveChange(x40_tablegroup_popup);
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  x48_textpane_popupadvance.SetPairText(rstl::wstring(gpStringTable->GetString(0x59)));
+  x50_textpane_popupcancel.SetPairText(rstl::wstring(gpStringTable->GetString(0x26)));
+#else
   x48_textpane_popupadvance.SetPairText(rstl::wstring_l(gpStringTable->GetString(0x5f)));
   x50_textpane_popupcancel.SetPairText(rstl::wstring_l(gpStringTable->GetString(0x26)));
+#endif
   CColor col(static_cast< uchar >(0xff), static_cast< uchar >(0xff), static_cast< uchar >(0xff),
              static_cast< uchar >(0x00));
   x64_fileSelections[x20_tablegroup_fileselect->GetUserSelection()].x0_base->SetColor(col);
@@ -1278,7 +1668,15 @@ bool CFrontEndUI::SNewFileSelectFrame::IsTextDoneAnimating() {
 
   const CGuiTextSupport& ts3 = x38_textpane_gba.x0_textPane->GetTextSupport();
   curTime = ts3.GetCurTime();
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  if (curTime < ts3.GetTotalAnimationTime())
+    return false;
+  const CGuiTextSupport& language = x30_textpane_language.x0_textPane->GetTextSupport();
+  curTime = language.GetCurTime();
+  return !(curTime < language.GetTotalAnimationTime());
+#else
   return !(curTime < ts3.GetTotalAnimationTime());
+#endif
 }
 
 void CFrontEndUI::SNewFileSelectFrame::DoSelectionChange(CGuiTableGroup* caller, int oldSelection) {
@@ -1292,6 +1690,10 @@ void CFrontEndUI::SNewFileSelectFrame::DoFileselectCancel(CGuiTableGroup* caller
     CSfxManager::SfxStart(SFXfnt_back, 0x7f, 0x40, false, CSfxManager::kMedPriority, false,
                           CSfxManager::kAllAreas);
     ResetFrame();
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  } else {
+    xc_action = kA_ReturnToTitle;
+#endif
   }
 }
 
@@ -1372,7 +1774,7 @@ void CFrontEndUI::SFusionBonusFrame::Draw() {
 }
 
 void CFrontEndUI::SFusionBonusFrame::Update(float dt, CSaveGameScreen* saveUI) {
-  const bool doDraw = saveUI == nullptr || saveUI->GetUIType() == 0x10;
+  const bool doDraw = saveUI == nullptr || saveUI->GetUIType() == CSaveGameScreen::kUIT_SaveReady;
   if (doDraw != x38_lastDoDraw) {
     x38_lastDoDraw = doDraw;
     if (x38_lastDoDraw) {
@@ -1394,14 +1796,29 @@ void CFrontEndUI::SFusionBonusFrame::Update(float dt, CSaveGameScreen* saveUI) {
   bool showProceed = sel == 1 && showFusionSuit;
   x2c_tablegroup_fusionsuit->SetIsActive(showProceed);
   x2c_tablegroup_fusionsuit->SetIsVisible(showProceed);
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  x24_loadedFrame->FindWidget("textpane_cancel")->SetIsVisible(!showProceed);
+#else
   x24_loadedFrame->FindWidget("textpane_proceed")->SetIsVisible(!showProceed);
+#endif
 
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  const wchar_t* text1 = x3a_mpNotComplete ? gpStringTable->GetString(0x4a)
+                         : showFusionSuit  ? L""
+                                           : gpStringTable->GetString(0x48);
+  const wchar_t* text0 = x39_fusionNotComplete ? gpStringTable->GetString(0x49)
+                         : fusionBeat          ? L""
+                                               : gpStringTable->GetString(0x47);
+
+#else
   const wchar_t* text1 = x3a_mpNotComplete ? gpStringTable->GetString(0x50)
                          : showFusionSuit  ? L""
                                            : gpStringTable->GetString(0x4e);
   const wchar_t* text0 = x39_fusionNotComplete ? gpStringTable->GetString(0x4f)
                          : fusionBeat          ? L""
                                                : gpStringTable->GetString(0x4d);
+
+#endif
 
   x30_textpane_instructions.SetPairText(sel == 1 ? text1 : text0);
 }
@@ -1463,6 +1880,7 @@ void CFrontEndUI::SFusionBonusFrame::FinishedLoading() {
       static_cast< CGuiTableGroup* >(x24_loadedFrame->FindWidget("tablegroup_fusionsuit"));
   x30_textpane_instructions = SGuiTextPair(x24_loadedFrame, "textpane_instructions");
 
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
   SFrontEndFrame::FindAndSetPairText(*x24_loadedFrame, "textpane_nes",
                                      gpStringTable->GetString(0x42));
   SFrontEndFrame::FindAndSetPairText(*x24_loadedFrame, "textpane_fusionsuit",
@@ -1481,6 +1899,8 @@ void CFrontEndUI::SFusionBonusFrame::FinishedLoading() {
   CGuiTextPane* cancel =
       static_cast< CGuiTextPane* >(x24_loadedFrame->FindWidget("textpane_cancel"));
   cancel->TextSupport().SetText(rstl::wstring_l(gpStringTable->GetString(0x52)));
+
+#endif
 
   x2c_tablegroup_fusionsuit->SetIsActive(false);
   x2c_tablegroup_fusionsuit->SetIsVisible(false);
@@ -1502,7 +1922,36 @@ void CFrontEndUI::SFusionBonusFrame::FinishedLoading() {
   x2c_tablegroup_fusionsuit->SetMenuSelectionChangeCallback(
       TFunctor2FromMethod< SFusionBonusFrame, CGuiTableGroup* const, const int >::Make(
           *this, &SFusionBonusFrame::DoSelectionChange));
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  SetStrings();
+#endif
 }
+
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+void CFrontEndUI::SFusionBonusFrame::SetStrings() {
+  SFrontEndFrame::FindAndSetPairText(*x24_loadedFrame, "textpane_nes",
+                                     gpStringTable->GetString(0x3c));
+  SFrontEndFrame::FindAndSetPairText(*x24_loadedFrame, "textpane_fusionsuit",
+                                     gpStringTable->GetString(0x39));
+  SFrontEndFrame::FindAndSetPairText(*x24_loadedFrame, "textpane_fusionsuitno",
+                                     gpStringTable->GetString(0x3b));
+  SFrontEndFrame::FindAndSetPairText(*x24_loadedFrame, "textpane_fusionsuityes",
+                                     gpStringTable->GetString(0x3a));
+  SFrontEndFrame::FindAndSetPairText(*x24_loadedFrame, "textpane_title",
+                                     gpStringTable->GetString(0x5e));
+  SetTitlePosition(*x24_loadedFrame);
+
+  CGuiTextPane* proceed =
+      static_cast< CGuiTextPane* >(x24_loadedFrame->FindWidget("textpane_proceed"));
+  proceed->TextSupport().SetText(rstl::wstring(gpStringTable->GetString(0x4c)));
+  CGuiTextPane* cancel =
+      static_cast< CGuiTextPane* >(x24_loadedFrame->FindWidget("textpane_cancel"));
+  cancel->TextSupport().SetText(rstl::wstring(gpStringTable->GetString(0x4f)));
+}
+
+void CFrontEndUI::SFusionBonusFrame::ReapplyStrings() { SetStrings(); }
+
+#endif
 
 void CFrontEndUI::SFusionBonusFrame::ResetCompletionFlags() {
   x3a_mpNotComplete = false;
@@ -1592,7 +2041,12 @@ CFrontEndUI::CFrontEndUI()
 , x1c_rndB(rand() % 3)
 , x20_depsGroup(gpSimplePool->GetObj("FrontEnd_DGRP"))
 , x28_deps()
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+, x38_pressStart(
+      gpSimplePool->GetObj(skPressStartTextures[gpGameState->SystemState().GetLanguage()]))
+#else
 , x38_pressStart(gpSimplePool->GetObj("TXTR_PressStart"))
+#endif
 , x44_frontendAudioGrp(gpSimplePool->GetObj(kFrontEndAGSCName))
 , x50_curScreen(kS_OpenCredits)
 , x54_nextScreen(kS_OpenCredits)
@@ -1610,6 +2064,11 @@ CFrontEndUI::CFrontEndUI()
 , xd0_playerSkipToTitle(false)
 , xd1_moviesLoaded(false)
 , xd2_deferSlideShow(false)
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+, xd0_27_stringsReloading(false)
+, xd0_28_noCardFrame(false)
+, xd0_29_noSaveUI(false)
+#endif
 , xd4_audio1(nullptr)
 , xd8_audio2(nullptr)
 , xdc_saveUI(rs_new CSaveGameScreen(kSC_FrontEnd, gpGameState->GetCardSerial()))
@@ -1618,6 +2077,9 @@ CFrontEndUI::CFrontEndUI()
 , xe8_frontendNoCardFrme(nullptr)
 , xec_emuFrme(nullptr)
 , xf0_optionsFrme(nullptr)
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+, xf4_languageFrme(nullptr)
+#endif
 , xf4_curAudio(nullptr) {
   gpMain->ResetGameState();
   gpGameState->SetCurrentWorldId(skDefaultWorld.GetId());
@@ -1704,13 +2166,22 @@ bool CFrontEndUI::PumpLoad() {
 
 CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) {
   // Update save UI if active and past file select phase
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  if (!xd0_29_noSaveUI && x50_curScreen >= kS_FileSelect && x54_nextScreen >= kS_FileSelect) {
+#else
   if (xdc_saveUI.get() != nullptr && x50_curScreen >= kS_FileSelect) {
+#endif
     int saveResult = xdc_saveUI->Update(dt);
     if (saveResult == 1) {
       TransitionToFive();
     } else if (saveResult == 3 || saveResult == 2) {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+      xd0_28_noCardFrame = true;
+      xd0_29_noSaveUI = true;
+#else
       xe0_frontendCardFrme = nullptr;
       xdc_saveUI = nullptr;
+#endif
     }
   }
 
@@ -1786,10 +2257,44 @@ CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) 
   }
   case kP_DisplayFrontEnd:
   case kP_ToPlayGame:
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  {
+    bool reloading = false;
+    rstl::vector< SObjectTag > tags = gpSimplePool->GetReferencedTags();
+    for (rstl::vector< SObjectTag >::const_iterator it = tags.begin(); it != tags.end(); ++it) {
+      if (it->GetType() == 'STRG' && gpSimplePool->GetObj(*it).IsLoaded()) {
+        TLockedToken< CStringTable > table = gpSimplePool->GetObj(*it);
+        CStringTable& strings = **table;
+        strings.TryFinishReload();
+        if (strings.IsReloading()) {
+          reloading = true;
+          break;
+        }
+      }
+    }
+    if (reloading != xd0_27_stringsReloading) {
+      if (xd0_27_stringsReloading) {
+        printf("Reapplying strings.\n");
+        ReapplyStrings();
+      }
+      xd0_27_stringsReloading = reloading;
+    }
+  }
+#endif
     if (xec_emuFrme.get() != nullptr) {
-      if (xec_emuFrme->Update(dt, xdc_saveUI.get()) == 1) {
+      if (xec_emuFrme->Update(dt,
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+                              xd0_29_noSaveUI ? nullptr : xdc_saveUI.get()
+#else
+                              xdc_saveUI.get()
+#endif
+                                  ) == 1) {
         xec_emuFrme = nullptr;
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+        if (!xd0_29_noSaveUI) {
+#else
         if (xdc_saveUI.get() != nullptr) {
+#endif
           xdc_saveUI->SetInGame(false);
         }
         xf4_curAudio->StartMixOut();
@@ -1798,12 +2303,39 @@ CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) 
       if (xd2_deferSlideShow) {
         xd2_deferSlideShow = false;
         xf4_curAudio->StartMixOut();
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+        if (!xd0_29_noSaveUI) {
+#else
         if (xdc_saveUI.get() != nullptr) {
+#endif
           xdc_saveUI->ResetCardDriver();
         }
       }
 
       if (IsInScreenNotTransitioning(kS_FileSelect)) {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+        if (xf0_optionsFrme.get() != nullptr) {
+          const bool active =
+              xd0_29_noSaveUI || xdc_saveUI->GetUIType() == CSaveGameScreen::kUIT_SaveReady;
+          if (active) {
+            xf0_optionsFrme->Update(dt, xd0_29_noSaveUI ? nullptr : xdc_saveUI.get());
+          } else {
+            xf0_optionsFrme = nullptr;
+          }
+        } else if (xf4_languageFrme.get() != nullptr) {
+          const bool active =
+              xd0_29_noSaveUI || xdc_saveUI->GetUIType() == CSaveGameScreen::kUIT_SaveReady;
+          if (active) {
+            xf4_languageFrme->Update(dt, xd0_29_noSaveUI ? nullptr : xdc_saveUI.get());
+          } else {
+            xf4_languageFrme = nullptr;
+          }
+        } else if (xd0_28_noCardFrame) {
+          xe8_frontendNoCardFrme->Update(dt);
+        } else {
+          xe0_frontendCardFrme->Update(dt);
+        }
+#else
         if (xf0_optionsFrme.get() == nullptr) {
           if (xe0_frontendCardFrme.get() == nullptr) {
             xe8_frontendNoCardFrme->Update(dt);
@@ -1825,8 +2357,15 @@ CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) 
             xf0_optionsFrme = nullptr;
           }
         }
+#endif
       } else if (IsInScreenNotTransitioning(kS_FusionBonus)) {
-        xe4_fusionBonusFrme->Update(dt, xdc_saveUI.get());
+        xe4_fusionBonusFrme->Update(dt,
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+                                    xd0_29_noSaveUI ? nullptr : xdc_saveUI.get()
+#else
+                                    xdc_saveUI.get()
+#endif
+        );
       }
 
       // Check movie transition completion
@@ -1875,9 +2414,18 @@ CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) 
     }
 
     // Music volume fade
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    if ((x50_curScreen == kS_Title && x54_nextScreen == kS_FileSelect) ||
+        (x50_curScreen == kS_FileSelect && x54_nextScreen == kS_Title)) {
+#else
     if (x50_curScreen == kS_Title && x54_nextScreen == kS_FileSelect) {
+#endif
       if (xcc_curMoviePtr->CanDrawVideo()) {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+        float delay = x54_nextScreen == kS_Title ? AudioFadeTimeBack : AudioFadeTimeA[x18_rndA];
+#else
         float delay = AudioFadeTimeA[x18_rndA];
+#endif
         x68_musicVol =
             1.f - CMath::Clamp(0.f, (xcc_curMoviePtr->GetPlayedSeconds() - delay) / 2.5f, 1.f);
       }
@@ -1965,8 +2513,19 @@ void CFrontEndUI::ProcessUserInput(const CFinalInput& input, CArchitectureQueue&
   if (input.ControllerNumber() > 1)
     return;
 
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  if (xd0_27_stringsReloading)
+    return;
+#endif
+
   if (xec_emuFrme.get() != nullptr) {
-    xec_emuFrme->ProcessUserInput(input, xdc_saveUI.get());
+    xec_emuFrme->ProcessUserInput(input,
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+                                  xd0_29_noSaveUI ? nullptr : xdc_saveUI.get()
+#else
+                                  xdc_saveUI.get()
+#endif
+    );
     return;
   }
 
@@ -2007,55 +2566,106 @@ void CFrontEndUI::ProcessUserInput(const CFinalInput& input, CArchitectureQueue&
     } else {
       bool isFileSelect = x50_curScreen == kS_FileSelect && x54_nextScreen == kS_FileSelect;
       if (isFileSelect) {
-        if (xf0_optionsFrme.get() == nullptr) {
-          if (xe0_frontendCardFrme.get() == nullptr) {
-            SFrontEndFrame::EAction action = xe8_frontendNoCardFrme->ProcessUserInput(input);
-            if (action == SFrontEndFrame::kEA_FusionBonus) {
-              StartStateTransition(kS_FusionBonus);
-              return;
-            } else if (action == SFrontEndFrame::kEA_GameOptions) {
-              xf0_optionsFrme = rs_new SOptionsFrontEndFrame();
-              return;
-            } else if (action == SFrontEndFrame::kEA_StartGame) {
-              TransitionToFive();
-              return;
-            } else if (action == SFrontEndFrame::kEA_SlideShow) {
-              xd2_deferSlideShow = true;
-              StartSlideShow(queue);
-              return;
-            }
-          } else {
-            SNewFileSelectFrame::EAction action = xe0_frontendCardFrme->ProcessUserInput(input);
-            if (action == SNewFileSelectFrame::kA_FusionBonus) {
-              StartStateTransition(kS_FusionBonus);
-              return;
-            } else if (action == SNewFileSelectFrame::kA_GameOptions) {
-              xf0_optionsFrme = rs_new SOptionsFrontEndFrame();
-              return;
-            } else if (action == SNewFileSelectFrame::kA_SlideShow) {
-              xd2_deferSlideShow = true;
-              StartSlideShow(queue);
-              return;
-            }
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+        if (xf0_optionsFrme.get() != nullptr) {
+          if (!xf0_optionsFrme->ProcessUserInput(input,
+                                                 xd0_29_noSaveUI ? nullptr : xdc_saveUI.get())) {
+            xf0_optionsFrme = nullptr;
           }
+          return;
+        }
+#else
+        if (xf0_optionsFrme.get() == nullptr) {
+#endif
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+        if (xf4_languageFrme.get() != nullptr) {
+          if (!xf4_languageFrme->ProcessUserInput(input,
+                                                  xd0_29_noSaveUI ? nullptr : xdc_saveUI.get())) {
+            xf4_languageFrme = nullptr;
+          }
+          return;
+        }
+        if (xd0_28_noCardFrame) {
+#else
+          if (xe0_frontendCardFrme.get() == nullptr) {
+#endif
+          SFrontEndFrame::EAction action = xe8_frontendNoCardFrme->ProcessUserInput(input);
+          if (action == SFrontEndFrame::kEA_FusionBonus) {
+            StartStateTransition(kS_FusionBonus);
+            return;
+          } else if (action == SFrontEndFrame::kEA_GameOptions) {
+            xf0_optionsFrme = rs_new SOptionsFrontEndFrame();
+            return;
+          } else if (action == SFrontEndFrame::kEA_StartGame) {
+            TransitionToFive();
+            return;
+          } else if (action == SFrontEndFrame::kEA_SlideShow) {
+            xd2_deferSlideShow = true;
+            StartSlideShow(queue);
+            return;
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+          } else if (action == SFrontEndFrame::kEA_Language) {
+            xf4_languageFrme = rs_new SLanguageSelectFrame();
+            return;
+          } else if (action == SFrontEndFrame::kEA_ReturnToTitle) {
+            StartStateTransition(kS_Title);
+            return;
+#endif
+          }
+        } else {
+          SNewFileSelectFrame::EAction action = xe0_frontendCardFrme->ProcessUserInput(input);
+          if (action == SNewFileSelectFrame::kA_FusionBonus) {
+            StartStateTransition(kS_FusionBonus);
+            return;
+          } else if (action == SNewFileSelectFrame::kA_GameOptions) {
+            xf0_optionsFrme = rs_new SOptionsFrontEndFrame();
+            return;
+          } else if (action == SNewFileSelectFrame::kA_SlideShow) {
+            xd2_deferSlideShow = true;
+            StartSlideShow(queue);
+            return;
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+          } else if (action == SNewFileSelectFrame::kA_Language) {
+            xf4_languageFrme = rs_new SLanguageSelectFrame();
+            return;
+          } else if (action == SNewFileSelectFrame::kA_ReturnToTitle) {
+            StartStateTransition(kS_Title);
+            return;
+#endif
+          }
+        }
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
         } else {
           if (xf0_optionsFrme->ProcessUserInput(input, xdc_saveUI.get()))
             return;
           xf0_optionsFrme = nullptr;
           return;
         }
+#endif
       } else {
         bool isFusionBonus = x50_curScreen == kS_FusionBonus && x54_nextScreen == kS_FusionBonus;
         if (isFusionBonus) {
           SFusionBonusFrame::EAction action =
-              xe4_fusionBonusFrme->ProcessUserInput(input, xdc_saveUI.get());
+              xe4_fusionBonusFrme->ProcessUserInput(input,
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+                                                    xd0_29_noSaveUI ? nullptr : xdc_saveUI.get()
+#else
+                                                    xdc_saveUI.get()
+#endif
+              );
           if (action == SFusionBonusFrame::kFA_GoBack) {
             StartStateTransition(kS_FileSelect);
             return;
           } else if (action == SFusionBonusFrame::kFA_PlayNESMetroid) {
             xf4_curAudio->StopMixOut();
             xec_emuFrme = rs_new SNesEmulatorFrame();
-            if (xdc_saveUI.get() != nullptr) {
+            if (
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+                !xd0_29_noSaveUI
+#else
+                xdc_saveUI.get() != nullptr
+#endif
+            ) {
               xdc_saveUI->SetInGame(true);
             }
             return;
@@ -2071,8 +2681,17 @@ void CFrontEndUI::Draw() const {
     return;
 
   if (xec_emuFrme.get() != nullptr) {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    xec_emuFrme->Draw(xd0_29_noSaveUI ? nullptr : xdc_saveUI.get());
+#else
     xec_emuFrme->Draw(xdc_saveUI.get());
+#endif
   } else {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    if (xcc_curMoviePtr != nullptr) {
+      xcc_curMoviePtr->DrawVideo();
+    }
+#else
     gpRender->SetDepthReadWrite(false, false);
     gpRender->SetViewportOrtho(false, -4096.f, 4096.f);
 
@@ -2102,7 +2721,21 @@ void CFrontEndUI::Draw() const {
       xcc_curMoviePtr->DrawFrame(v1, v2, v3, v4);
     }
 
+#endif
+
     if (IsInScreenNotTransitioning(kS_FileSelect)) {
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+      if (xf0_optionsFrme.get() != nullptr) {
+        xf0_optionsFrme->Draw();
+      } else if (xf4_languageFrme.get() != nullptr) {
+        xf4_languageFrme->Draw();
+      } else if (!xd0_27_stringsReloading) {
+        if (xd0_28_noCardFrame)
+          xe8_frontendNoCardFrme->Draw();
+        else
+          xe0_frontendCardFrme->Draw();
+      }
+#else
       if (xf0_optionsFrme.get() == nullptr) {
         if (xe0_frontendCardFrme.get() == nullptr)
           xe8_frontendNoCardFrme->Draw();
@@ -2111,6 +2744,7 @@ void CFrontEndUI::Draw() const {
       } else {
         xf0_optionsFrme->Draw();
       }
+#endif
     } else if (IsInScreenNotTransitioning(kS_FusionBonus)) {
       xe4_fusionBonusFrme->Draw();
     }
@@ -2123,8 +2757,15 @@ void CFrontEndUI::Draw() const {
     CGraphics::SetTevOp(kTS_Stage1, CGraphics::kEnvPassthru);
     gpRender->SetBlendMode_AdditiveAlpha();
     gpRender->SetDepthReadWrite(false, false);
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    const int y = sIs50Hz ? 96 : 72;
+#endif
     const CColor& color = CColor::White().WithAlphaOf(x64_pressStartAlpha);
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    CGraphics::Render2D(*tex, 320 - width / 2, y - height / 2, width, height, color);
+#else
     CGraphics::Render2D(*tex, 320 - width / 2, 72 - height / 2, width, height, color);
+#endif
   }
 
   if (GetHasAttractMovies()) {
@@ -2151,7 +2792,11 @@ void CFrontEndUI::Draw() const {
     }
   }
 
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  if (!xd0_29_noSaveUI) {
+#else
   if (xdc_saveUI.get() != nullptr) {
+#endif
     CSaveGameScreen::EUIType uiType = xdc_saveUI->GetUIType();
     if ((CanShowSaveUI() && !CSaveGameScreen::IsHiddenFromFrontEnd(uiType)) ||
         IsInScreenNotTransitioning(kS_FileSelect) || IsInScreenNotTransitioning(kS_FusionBonus)) {
@@ -2173,6 +2818,9 @@ void CFrontEndUI::StartStateTransition(EScreen screen) {
     if (screen == kS_FileSelect) {
       SetCurrentMovie(kMM_StartFileSelectA);
       SetFadeBlackTimer(xcc_curMoviePtr->GetTotalSeconds());
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+      xd0_playerSkipToTitle = false;
+#endif
     }
     break;
   case kS_AttractMovie:
@@ -2186,13 +2834,30 @@ void CFrontEndUI::StartStateTransition(EScreen screen) {
       SetFadeBlackTimer(xcc_curMoviePtr->GetTotalSeconds());
       CSfxManager::SfxStart(SFXfnt_tofusion_L);
       CSfxManager::SfxStart(SFXfnt_tofusion_R);
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    } else if (screen == kS_Title) {
+      CSfxManager::SfxStart(0x458);
+      CSfxManager::SfxStart(0x459);
+      SetCurrentMovie(kMM_BackToTitle);
+      SetFadeBlackTimer(xcc_curMoviePtr->GetTotalSeconds());
+      if (xd0_29_noSaveUI) {
+        xd0_28_noCardFrame = false;
+        xd0_29_noSaveUI = false;
+      }
+      x38_pressStart =
+          gpSimplePool->GetObj(skPressStartTextures[gpGameState->SystemState().GetLanguage()]);
+      x38_pressStart.ForceCache();
+#endif
     }
     break;
   case kS_FusionBonus:
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
     if (screen == kS_ToPlayGame) {
       SetCurrentMovie(kMM_GBAFileSelectB);
       SetFadeBlackTimer(xcc_curMoviePtr->GetTotalSeconds());
-    } else if (screen == kS_FileSelect) {
+    } else
+#endif
+        if (screen == kS_FileSelect) {
       SetCurrentMovie(kMM_GBAFileSelectA);
       SetFadeBlackTimer(xcc_curMoviePtr->GetTotalSeconds());
       CSfxManager::SfxStart(SFXfnt_fromfusion_L);
@@ -2206,8 +2871,14 @@ void CFrontEndUI::StartStateTransition(EScreen screen) {
   switch (screen) {
   case kS_OpenCredits:
   case kS_Title:
-    SetCurrentMovie(kMM_FirstStart);
-    SetFadeBlackTimer(xcc_curMoviePtr->GetTotalSeconds());
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    if (x50_curScreen == kS_OpenCredits) {
+#endif
+      SetCurrentMovie(kMM_FirstStart);
+      SetFadeBlackTimer(xcc_curMoviePtr->GetTotalSeconds());
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    }
+#endif
     break;
   case kS_AttractMovie:
     StartAttractMovie();
@@ -2236,6 +2907,13 @@ void CFrontEndUI::CompleteStateTransition() {
   case kS_Title:
     SetCurrentMovie(kMM_StartLoop);
     SetFadeBlackTimer(30.f);
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+    if (oldScreen == kS_FileSelect) {
+      xf4_curAudio->StopMixOut();
+      xf4_curAudio = xd4_audio1.get();
+      xf4_curAudio->StartMixOut();
+    }
+#endif
     break;
 
   case kS_FileSelect:
@@ -2245,7 +2923,13 @@ void CFrontEndUI::CompleteStateTransition() {
       xf4_curAudio = xd8_audio2.get();
       xf4_curAudio->StartMixOut();
     }
-    if (xdc_saveUI.get() != nullptr) {
+    if (
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+        !xd0_29_noSaveUI
+#else
+          xdc_saveUI.get() != nullptr
+#endif
+    ) {
       xdc_saveUI->ResetCardDriver();
     }
     break;
@@ -2324,3 +3008,15 @@ void CFrontEndUI::StartSlideShow(CArchitectureQueue& queue) {
   queue.Push(MakeMsg::CreateCreateIOWin(kAMT_IOWinManager, kFrontEndUIMsgPriority,
                                         kFrontEndUIDrawPriority, rs_new CSlideShow()));
 }
+
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+void CFrontEndUI::ReapplyStrings() {
+  if (xe8_frontendNoCardFrme.get() != nullptr) {
+    xe8_frontendNoCardFrme->ReapplyStrings();
+  }
+  if (!xd0_28_noCardFrame) {
+    xe0_frontendCardFrme->ReapplyStrings();
+  }
+  xe4_fusionBonusFrme->ReapplyStrings();
+}
+#endif

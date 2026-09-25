@@ -34,9 +34,9 @@ CQuitGameScreen::CQuitGameScreen(EQuitType type)
 , x14_tablegroup_quitgame(nullptr)
 , x18_action(kQA_None)
 #if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
-, x1c_(0)
-, x20_(0)
-, x24_(0)
+, x1c_textpane_title(nullptr)
+, x20_textpane_yes(nullptr)
+, x24_textpane_no(nullptr)
 #endif
 {
   x4_frame.Lock();
@@ -59,7 +59,7 @@ void CQuitGameScreen::ProcessUserInput(const CFinalInput& input) {
 }
 
 void CQuitGameScreen::Draw()
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION != VERSION_GM8J_00
     const
 #endif
 {
@@ -109,12 +109,22 @@ void CQuitGameScreen::FinishedLoading() {
   x14_tablegroup_quitgame->SetMenuSelectionChangeCallback(
       TFunctor2FromMethod< CQuitGameScreen, CGuiTableGroup* const, const int >::Make(
           *this, &CQuitGameScreen::DoSelectionChange));
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+  x1c_textpane_title = static_cast< CGuiTextPane* >(x10_loadedFrame->FindWidget("textpane_title"));
+  x1c_textpane_title->TextSupport().SetText(
+      rstl::wstring_l(gpStringTable->GetString(skQuitTitles[x0_type])));
+  x20_textpane_yes = static_cast< CGuiTextPane* >(x10_loadedFrame->FindWidget("textpane_yes"));
+  x20_textpane_yes->TextSupport().SetText(rstl::wstring_l(gpStringTable->GetString(22)));
+  x24_textpane_no = static_cast< CGuiTextPane* >(x10_loadedFrame->FindWidget("textpane_no"));
+  x24_textpane_no->TextSupport().SetText(rstl::wstring_l(gpStringTable->GetString(23)));
+#else
   CGuiTextPane* title = static_cast< CGuiTextPane* >(x10_loadedFrame->FindWidget("textpane_title"));
   title->TextSupport().SetText(rstl::wstring_l(gpStringTable->GetString(skQuitTitles[x0_type])));
   CGuiTextPane* yes = static_cast< CGuiTextPane* >(x10_loadedFrame->FindWidget("textpane_yes"));
   yes->TextSupport().SetText(rstl::wstring_l(gpStringTable->GetString(22)));
   CGuiTextPane* no = static_cast< CGuiTextPane* >(x10_loadedFrame->FindWidget("textpane_no"));
   no->TextSupport().SetText(rstl::wstring_l(gpStringTable->GetString(23)));
+#endif
   const int defaults[] = {1, 0, 1, 1, 0};
   x14_tablegroup_quitgame->SetUserSelection(defaults[x0_type]);
   SetColors();

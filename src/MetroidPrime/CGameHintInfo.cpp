@@ -60,13 +60,13 @@ CHintOptions::SHintState::SHintState(EHintState state, float time)
 bool CHintOptions::SHintState::CanContinue() { return x4_time / CGameHintInfo::skHintTextTime < 1.f; }
 
 CHintOptions::CHintOptions() : x10_nextHintIdx(-1)
-#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_GM8J_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
 , x14_palHintFlag(false)
 #endif
 {}
 
 CHintOptions::CHintOptions(CInputStream& in) : x10_nextHintIdx(-1)
-#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_GM8J_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
 , x14_palHintFlag(false)
 #endif
 {
@@ -92,6 +92,17 @@ void CHintOptions::SetHintNextTime() {
   it += x10_nextHintIdx;
   it->x4_time = hint.GetTextTime() + 5.f;
 }
+
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+void CHintOptions::EnsureHintNextTime() {
+  if (x10_nextHintIdx != -1) {
+    SHintState& state = x0_hintStates[x10_nextHintIdx];
+    const CGameHintInfo::CGameHint& hint = gpMemoryCard->GetHints()[x10_nextHintIdx];
+    state.x4_time = rstl::max_val(state.x4_time, hint.GetTextTime() + 5.f);
+  }
+}
+
+#endif
 
 void CHintOptions::PutTo(COutputStream& out) const {
   for (AUTO(it, x0_hintStates.begin()); it != x0_hintStates.end(); ++it) {
