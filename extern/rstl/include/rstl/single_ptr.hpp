@@ -7,12 +7,12 @@
 namespace rstl {
 template < typename T >
 class single_ptr {
-  mutable T* x0_ptr;
+  T* x0_ptr;
 
 public:
   single_ptr() : x0_ptr(nullptr) {}
   single_ptr(T* ptr) : x0_ptr(ptr) {}
-  single_ptr(const single_ptr& other) : x0_ptr(other.x0_ptr) { other.x0_ptr = nullptr; }
+  single_ptr(single_ptr& other) : x0_ptr(other.x0_ptr) { other.x0_ptr = nullptr; }
   ~single_ptr() { delete x0_ptr; }
   single_ptr& operator=(single_ptr& other) {
     if (&other == this) {
@@ -32,9 +32,9 @@ public:
 
   T* get() const { return x0_ptr; }
   // const T* get() const { return x0_ptr; }
-  T* operator->() const { return x0_ptr; }
+  T* const operator->() const { return x0_ptr; }
   T& operator*() { return *x0_ptr; }
-  const T& operator*() const { return *x0_ptr; }
+  T& operator*() const { return *x0_ptr; }
 
   bool null() const { return x0_ptr == nullptr; }
   T* release() {

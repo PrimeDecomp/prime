@@ -203,11 +203,7 @@ CPatterned::CPatterned(const EPatternedAI character, const TUniqueId uid, const 
 
   SetRenderParticleDatabaseInside(false);
 
-  bool buildBodyController = false;
-  if (ModelData() && ModelData()->IsNotNull()) {
-    buildBodyController = true;
-  }
-  if (buildBodyController) {
+  if (HasModelData()) {
     x402_27_noXrayModel = !ModelData()->HasModel(CModelData::kWM_XRay);
     BuildBodyController(body);
   }
