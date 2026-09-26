@@ -157,6 +157,17 @@ parser.add_argument(
     help="how to handle warnings",
 )
 parser.add_argument(
+    "--dwarf",
+    action="store_true",
+    help="add DWARF debug info (-sym on) to every object, without -DDEBUG=1",
+)
+parser.add_argument(
+    "--link-all",
+    dest="link_all",
+    action="store_true",
+    help="link every object that has source, including NonMatching ones (implies --non-matching)",
+)
+parser.add_argument(
     "--no-progress",
     dest="progress",
     action="store_false",
@@ -180,7 +191,7 @@ config.objdiff_path = args.objdiff
 config.binutils_path = args.binutils
 config.compilers_path = args.compilers
 config.generate_map = args.map
-config.non_matching = args.non_matching
+config.non_matching = args.non_matching or args.link_all
 config.sjiswrap_path = args.sjiswrap
 config.ninja_path = args.ninja
 config.progress = args.progress
@@ -205,14 +216,14 @@ config.asflags = [
     "-mgekko",
     "--strip-local-absolute",
     "-I include",
-    f"-I build/{config.version}/include",
+    f"-I {config.out_path().as_posix()}/include",
     f"--defsym version={version_num}",
 ]
 config.ldflags = [
     "-fp hardware",
     "-nodefaults",
 ]
-if args.debug:
+if args.debug or args.dwarf:
     config.ldflags.append("-g")  # Or -gdwarf-2 for Wii linkers
 if args.map:
     config.ldflags.append("-mapunused")
@@ -250,7 +261,7 @@ cflags_base = [
     "-i include",
     "-i extern/sdk/include",
     "-i extern/sdk/libc",
-    f"-i build/{config.version}/include",
+    f"-i {config.out_path().as_posix()}/include",
     f"-DVERSION={version_num}",
     f"-DRSTL_VERSION={RSTL_VERSIONS[config.version]}",
     "-DPRIME1",
@@ -308,7 +319,7 @@ cflags_retro = [
     "-i extern/sdk/include",
     "-i extern/sdk/libc",
     "-i extern/zlib-1.1.3",
-    f"-i build/{config.version}/include",
+    f"-i {config.out_path().as_posix()}/include",
     f"-DVERSION={version_num}",
     f"-DRSTL_VERSION={RSTL_VERSIONS[config.version]}",
     "-DPRIME1",
@@ -3194,6 +3205,20 @@ if config.version == "GM8P01_00":
                 )
             )
         config.libs.append(Rel(module, objects))
+
+
+if args.dwarf:
+    # Per object, since not every object's cflags derive from cflags_base.
+    for lib in config.libs:
+        for obj in lib["objects"]:
+            obj.options["extra_cflags"] = [*obj.options["extra_cflags"], "-sym on"]
+
+if args.link_all:
+    for lib in config.libs:
+        for obj in lib["objects"]:
+            src_dir = obj.options["src_dir"] or lib.get("src_dir") or config.src_dir
+            if (Path(src_dir) / obj.options["source"]).exists():
+                obj.completed = True
 
 
 # Optional callback to adjust link order. This can be used to add, remove, or reorder objects.
