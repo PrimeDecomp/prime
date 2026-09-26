@@ -1,6 +1,7 @@
 #ifndef _RSTL_AUTO_PTR
 #define _RSTL_AUTO_PTR
 
+#include "rstl/RstlVersions.h"
 #include "types.h"
 
 namespace rstl {
@@ -21,6 +22,16 @@ public:
   auto_ptr(const auto_ptr& other) : mHas(other.mHas), mItem(other.mItem) {
     other.mHas = false;
   }
+#if RSTL_VERSION >= RSTL_R3IJ
+  template < typename U >
+  friend class auto_ptr;
+
+  template < typename U >
+  auto_ptr(const auto_ptr< U >& other) : mHas(other.mHas), mItem(other.mItem) {
+    other.mHas = false;
+  }
+#endif
+
   auto_ptr& operator=(const auto_ptr& other) {
     if (&other != this) {
       if (mHas) {
@@ -38,8 +49,16 @@ public:
   T* operator->() const { return mItem; }
   T& operator*() const { return *mItem; }
   T* release() const {
+#if RSTL_VERSION >= RSTL_R3IJ
+    if (mHas) {
+      mHas = false;
+      return mItem;
+    }
+    return nullptr;
+#else
     mHas = false;
     return mItem;
+#endif
   }
   bool null() const { return mItem == nullptr; }
   void reset() {
