@@ -1,9 +1,10 @@
 """Exports every struct, union and enum layout as gzipped JSON, one file per version.
 
-For each version, builds main.elf with `configure.py --dwarf --link-all` into a
-separate build directory, then runs `dtk dwarf types` on it. Every object with
-source is linked, so the export covers NonMatching units too. Member offsets come
-from the headers, so they're right even where the code isn't matching yet.
+For each version, builds main.elf with `configure.py --dwarf` into a separate
+build directory, then runs `dtk dwarf types` on it. Versions in LINK_ALL_VERSIONS
+also get `--link-all`, so the export covers NonMatching units too; the rest use
+`--non-matching` until they link that way. Member offsets come from the headers,
+so they're right even where the code isn't matching yet.
 Addresses in this ELF are NOT; take those from config/<version>/symbols.txt
 (see export_data_symbols.py).
 
@@ -27,6 +28,9 @@ from typing import List
 
 ROOT = Path(__file__).resolve().parent.parent
 GENERATED = ["build.ninja", "objdiff.json", "compile_commands.json"]
+# Versions whose NonMatching objects all compile and link.
+LINK_ALL_VERSIONS = {"GM8E01_00", "GM8E01_01"}
+LINK_NONMATCHING_VERSIONS = {"GM8P01_00"}
 GAMECUBE_VERSIONS = ["GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8J01_00", "GM8E01_02"]
 
 
@@ -47,14 +51,22 @@ def dtk_binary(build_dir: Path, configure_args: List[str]) -> Path:
 
 
 def export(version: str, build_dir: Path, out_dir: Path, configure_args: List[str]) -> None:
+    export_args = [
+        sys.executable, "configure.py",
+        "--version", version,
+        "--build-dir", str(build_dir),
+        "--dwarf", "--no-progress",
+    ]
+
+    if version in LINK_NONMATCHING_VERSIONS:
+        export_args.append("--non-matching")
+    if version in LINK_ALL_VERSIONS:
+        export_args.append("--link-all")
+
+    export_args.extend(configure_args)
+
     subprocess.run(
-        [
-            sys.executable, "configure.py",
-            "--version", version,
-            "--build-dir", str(build_dir),
-            "--dwarf", "--link-all", "--no-progress",
-            *configure_args,
-        ],
+        export_args,
         cwd=ROOT,
         check=True,
     )
