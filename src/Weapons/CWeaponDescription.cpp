@@ -13,23 +13,23 @@ CWeaponDescription::CWeaponDescription()
 , mPOFS(nullptr)
 , mOFST(nullptr)
 , mAPSO(false)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mF60H(false)
 , mSVBD(false)
 , mNDTT(false)
 #endif
 , mAP11(false)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mSPS1(false)
 #endif
 , mAP21(false)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mSPS2(false)
 #endif
 , mAS11(false)
 , mAS12(false)
 , mAS13(false)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mEWTR(true)
 , mLWTR(true)
 , mSWTR(true)

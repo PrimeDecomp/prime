@@ -26,6 +26,6 @@ private:
   TLockedToken< CGenDescription > mBeamDesc;
   rstl::single_ptr< CElementGen > mBeamParticle;
 };
-CHECK_SIZEOF(CDroneLaser, (VERSION >= VERSION_GM8P_00 ? 0x118 : 0x108))
+CHECK_SIZEOF(CDroneLaser, (VERSION >= VERSION_GM8E_02 ? 0x118 : 0x108))
 
 #endif // _CDRONELASER

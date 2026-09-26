@@ -33,7 +33,7 @@ public:
   EMessageReturn Update(float, CArchitectureQueue& queue);
   EMessageReturn ProcessUserInput(const CFinalInput& input);
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   static void DrawText(CGuiTextSupport&, const CTransform4f& transform);
 #else
   static void DrawText(CGuiTextSupport&, const CVector3f& translation);
@@ -42,7 +42,7 @@ public:
 private:
   int mState;
   TToken< CStringTable > mCreditsTable;
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   TToken< CRasterFont > mCreditsFont;
 #endif
   rstl::single_ptr< CMoviePlayer > mMoviePlayer;
@@ -62,7 +62,7 @@ private:
   void DrawVideo() const;
   void DrawText() const;
 };
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 CHECK_SIZEOF(CCredits, 0x58)
 #else
 CHECK_SIZEOF(CCredits, 0x60)

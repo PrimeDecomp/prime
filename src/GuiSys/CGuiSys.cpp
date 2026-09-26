@@ -18,7 +18,7 @@ CGuiSys::CGuiSys(IFactory* factory, CSimplePool* pool, EUsageMode mode)
 
 CGuiSys::~CGuiSys() {}
 
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
 CGuiWidget* CGuiSys::CreateWidgetInGame(FourCC type, CInputStream& in, CGuiFrame* parent, CSimplePool* sp) {
   return FGuiWidgetFactoryInGame(type, parent, in, sp);
 }

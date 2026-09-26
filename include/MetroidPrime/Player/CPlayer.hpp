@@ -714,7 +714,7 @@ private:
   float mEnvDmgCameraShakeTimer;
   float mPhazonDamageLag;
   float mThreatOverride;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   int mPhazonCollisionDelay[7];
   int mPhazonCollisionIndex;
 #endif
@@ -726,7 +726,7 @@ private:
 };
 NESTED_CHECK_SIZEOF(CPlayer, CPlayerStuckTracker, 0x2e0);
 CHECK_SIZEOF(CPlayer,
-             (VERSION < VERSION_GM8P_00 ? 0xa38 : (VERSION == VERSION_GM8E_02 ? 0xa48 : 0xa68)))
+             (VERSION < VERSION_GM8E_02 ? 0xa38 : (VERSION == VERSION_GM8E_02 ? 0xa48 : 0xa68)))
 
 extern const bool gkAutoAim;
 extern const bool gkAutoAimAtOrbitedObject;

@@ -285,7 +285,7 @@ bool CMVESwirl::GetValue(int frame, CVector3f& pVel, CVector3f& pPos) const {
   mFilterGain->GetValue(frame, c);
   mTangentialVelocity->GetValue(frame, d);
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   const CVector3f tangent = CVector3f::Cross(b, posToHelix) * d;
   pVel = (b * CVector3f::Dot(b, pVel) + tangent) * c + (1.f - c) * pVel;
 #else

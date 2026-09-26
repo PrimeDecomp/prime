@@ -28,7 +28,7 @@ public:
   };
 
   CStringTable(CInputStream& in);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   ~CStringTable();
 #endif
 
@@ -45,7 +45,7 @@ public:
 private:
   int mStringCount;
   rstl::single_ptr< uchar > mData;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   rstl::single_ptr< SReloadData > mReloadData;
 #endif
 #if TARGET_LITTLE_ENDIAN || WCHAR_MAX > 0xffff
@@ -53,7 +53,7 @@ private:
 #endif
 };
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 CHECK_SIZEOF(CStringTable, 0xc)
 #else
 CHECK_SIZEOF(CStringTable, 0x8)

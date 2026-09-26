@@ -24,7 +24,7 @@ const CFactoryFnReturn RGuiFrameFactoryInGame(const SObjectTag& tag, CInputStrea
   return frame;
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 CGuiWidget* FGuiWidgetFactoryInGame(FourCC type, CGuiFrame* frame, CInputStream& in,
                                     CSimplePool* sp, uint version) {
 #else
@@ -48,7 +48,7 @@ CGuiWidget* FGuiWidgetFactoryInGame(FourCC type, CGuiFrame* frame, CInputStream&
   case 'PANE':
     return CGuiPane::Create(frame, in, sp);
   case 'TXPN':
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     return CGuiTextPane::Create(frame, in, sp, version);
 #else
     return CGuiTextPane::Create(frame, in, sp);

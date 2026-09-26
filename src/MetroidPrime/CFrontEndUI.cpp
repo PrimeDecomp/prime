@@ -70,13 +70,13 @@ static const FEMovie FEMovies[] = {
     {"Video/06_fileselect_GBA.thp", false},
     {"Video/07_GBAloop.thp", true},
     {"Video/08_GBA_fileselect.thp", false},
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     {"Video/back.thp", false},
 #else
     {"Video/08_GBA_fileselect.thp", false},
 #endif
 };
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 static const char* const skPressStartTextures[] = {
     "TXTR_PressStart", "TXTR_GerStart",   "TXTR_FreStart",   "TXTR_SpaStart",
     "TXTR_ItaStart",   "TXTR_PressStart", "TXTR_PressStart",
@@ -123,7 +123,7 @@ static const float AudioFadeTimeA[3] = {
     3.4100003f,
 };
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 static float AudioFadeTimeBack = AudioFadeTimeA[0];
 #endif
 
@@ -160,7 +160,7 @@ void CFrontEndUI::PlayAdvanceSfx() {
   CSfxManager::SfxStart(SFXui_x_start_00r);
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 extern bool sIs50Hz;
 
 void CFrontEndUI::SetTitlePosition(CGuiFrame& frame) {
@@ -205,7 +205,7 @@ void CFrontEndUI::SGuiTextPair::SetPairText(const rstl::wstring& str) {
   mTextPaneB->TextSupport().SetText(str);
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 CFrontEndUI::SLanguageSelectFrame::SLanguageSelectFrame()
 : mFrame(gpSimplePool->GetObj("FRME_LanguageSelect"))
 , mStrings(gpSimplePool->GetObj("STRG_LanguageSelect"))
@@ -304,23 +304,23 @@ CFrontEndUI::SNesEmulatorFrame::SNesEmulatorFrame()
 , mQuitScreen(nullptr)
 , mTextSupport(nullptr)
 , mRemTime(8.f)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , x14_(0.f)
 #endif
 , mEmulationSuspended(false)
 , mEnableFiltering(true) {
   mTextSupport = rs_new CGuiTextSupport(
       gpResourceFactory->GetResourceIdByName("FONT_Deface14B")->GetId(),
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       0, 0,
 #endif
       CGuiTextProperties(false, true, kJustification_Left, kVerticalJustification_Center, nullptr),
       CColor(0xFFFFFFFFu), CColor::Black(), CColor(0xFFFFFFFFu),
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
       0, 0,
 #endif
       gpSimplePool);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   mTextSupport->SetText(rstl::wstring(gpStringTable->GetString(0x61)));
 #else
   mTextSupport->SetText(rstl::wstring_l(gpStringTable->GetString(0x67)));
@@ -608,7 +608,7 @@ CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::ProcessUserInput(const CFinalInpu
 
 void CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::SetUIText(EUIType tp) {
   enum EStringIndex {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     kSI_ConnectSocket = 0x3e,
 #else
     kSI_ConnectSocket = 0x44,
@@ -621,7 +621,7 @@ void CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::SetUIText(EUIType tp) {
     kSI_PressStartAndSelect,
     kSI_BeginLink,
     kSI_TurnOffGBA,
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     kSI_Cancel = 0x4c,
 #else
     kSI_Cancel = 0x52,
@@ -711,7 +711,7 @@ void CFrontEndUI::SFusionBonusFrame::SGBALinkFrame::SetUIText(EUIType tp) {
 
   rstl::wstring emptyStr = rstl::wstring_l(L"");
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   mTextpane_instructions.SetPairText(
       instructions == -1 ? emptyStr : rstl::wstring(gpStringTable->GetString(instructions)));
 
@@ -755,7 +755,7 @@ CIOWin::EMessageReturn CStateSetterFlow::OnMessage(const CArchitectureMessage& m
   switch (message.GetType()) {
   case kAM_TimerTick:
     gpMain->RefreshGameState();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     gpGameState->HintOptions().EnsureHintNextTime();
 #endif
     return kMR_RemoveIOWinAndExit;
@@ -770,7 +770,7 @@ CFrontEndUI::SFrontEndFrame::SFrontEndFrame(uint rnd)
 , mFrme(gpSimplePool->GetObj("FRME_FrontEndPL"))
 , mLoadedFrme(nullptr)
 , mTablegroup_mainmenu(nullptr)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mLanguagePair()
 #endif
 , mGbaPair()
@@ -799,7 +799,7 @@ void CFrontEndUI::SFrontEndFrame::FinishedLoading() {
   mTablegroup_mainmenu =
       static_cast< CGuiTableGroup* >(mLoadedFrme->FindWidget("tablegroup_mainmenu"));
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   mLanguagePair = SGuiTextPair(mLoadedFrme, "textpane_lang");
   mGbaPair = SGuiTextPair(mLoadedFrme, "textpane_gba");
   mCheatPair = SGuiTextPair(mLoadedFrme, "textpane_cheats");
@@ -833,12 +833,12 @@ void CFrontEndUI::SFrontEndFrame::FinishedLoading() {
           *this, &SFrontEndFrame::DoCancel));
 
   HandleActiveChange(mTablegroup_mainmenu);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   SetStrings();
 #endif
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 void CFrontEndUI::SFrontEndFrame::ReapplyStrings() { SetStrings(); }
 
 void CFrontEndUI::SFrontEndFrame::SetStrings() {
@@ -866,7 +866,7 @@ void CFrontEndUI::SFrontEndFrame::SetStrings() {
 
 void CFrontEndUI::SFrontEndFrame::Update(float dt) {
   CGuiWidget* imageGallery = mTablegroup_mainmenu->GetWorkerWidget(
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       4
 #else
       3
@@ -906,7 +906,7 @@ void CFrontEndUI::SFrontEndFrame::DoAdvance(CGuiTableGroup* caller) {
                           CSfxManager::kMedPriority, false, CSfxManager::kAllAreas);
     mAction = kEA_StartGame;
     break;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   case 1:
     PlayAdvanceSfx();
     mAction = kEA_Language;
@@ -917,7 +917,7 @@ void CFrontEndUI::SFrontEndFrame::DoAdvance(CGuiTableGroup* caller) {
 #endif
     mAction = kEA_FusionBonus;
     break;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   case 3:
 #else
   case 2:
@@ -925,7 +925,7 @@ void CFrontEndUI::SFrontEndFrame::DoAdvance(CGuiTableGroup* caller) {
     PlayAdvanceSfx();
     mAction = kEA_GameOptions;
     break;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   case 4:
 #else
   case 3:
@@ -951,7 +951,7 @@ void CFrontEndUI::SFrontEndFrame::HandleActiveChange(CGuiTableGroup* caller) {
 }
 
 void CFrontEndUI::SFrontEndFrame::DoCancel(CGuiTableGroup* caller) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   mAction = kEA_ReturnToTitle;
 #endif
 }
@@ -1011,7 +1011,7 @@ CFrontEndUI::SNewFileSelectFrame::SNewFileSelectFrame(CSaveGameScreen* saveUI, u
 , mTablegroup_fileselect(nullptr)
 , mModel_erase(nullptr)
 , mTextpane_erase()
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mTextpane_language()
 #endif
 , mTextpane_cheats()
@@ -1021,7 +1021,7 @@ CFrontEndUI::SNewFileSelectFrame::SNewFileSelectFrame(CSaveGameScreen* saveUI, u
 , mTextpane_popupadvance()
 , mTextpane_popupcancel()
 , mTextpane_popupextra()
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
 , mTextpane_cancel(nullptr)
 #endif
 , mFileSelections()
@@ -1059,7 +1059,7 @@ void CFrontEndUI::SNewFileSelectFrame::FinishedLoading() {
 
   mTextpane_erase = SGuiTextPair(mLoadedFrame, "textpane_erase");
   mTextpane_gba = SGuiTextPair(mLoadedFrame, "textpane_gba");
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   mTextpane_language = SGuiTextPair(mLoadedFrame, "textpane_lang");
 #endif
   mTextpane_cheats = SGuiTextPair(mLoadedFrame, "textpane_cheats");
@@ -1070,12 +1070,12 @@ void CFrontEndUI::SNewFileSelectFrame::FinishedLoading() {
   mTablegroup_popup =
       static_cast< CGuiTableGroup* >(mLoadedFrame->FindWidget("tablegroup_popup"));
   mModel_dash7 = static_cast< CGuiModel* >(mLoadedFrame->FindWidget("model_dash7"));
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   mTextpane_cancel =
       static_cast< CGuiTextPane* >(mLoadedFrame->FindWidget("textpane_cancel"));
 #endif
 
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   SFrontEndFrame::FindAndSetPairText(*mLoadedFrame, "textpane_title",
                                      gpStringTable->GetString(0x61));
 
@@ -1120,12 +1120,12 @@ void CFrontEndUI::SNewFileSelectFrame::FinishedLoading() {
   mRowPitch = (mFileSelections[1].mBase->GetLocalPosition() -
                    mFileSelections[0].mBase->GetLocalPosition())
                       .GetZ();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   SetStrings();
 #endif
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 void CFrontEndUI::SNewFileSelectFrame::SetStrings() {
   SFrontEndFrame::FindAndSetPairText(*mLoadedFrame, "textpane_title",
                                      gpStringTable->GetString(0x5b));
@@ -1266,7 +1266,7 @@ void CFrontEndUI::SNewFileSelectFrame::DoFileselectAdvance(CGuiTableGroup* calle
   } else if (userSel == 3) {
     PlayAdvanceSfx();
     EnterErase();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   } else if (userSel == 4) {
     PlayAdvanceSfx();
     mAction = kA_Language;
@@ -1323,7 +1323,7 @@ void CFrontEndUI::SNewFileSelectFrame::SetupFrameContents() {
 #else
         sprintf(buf, "  %02d%%", data->mItemPercent);
 #endif
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
         int strIdx = data->mHardMode ? 0x64 : 0x28;
 #else
         int strIdx = data->mHardMode ? 0x6a : 0x27;
@@ -1342,14 +1342,14 @@ void CFrontEndUI::SNewFileSelectFrame::SetupFrameContents() {
         }
         str = rstl::wstring_l(worldName != nullptr ? worldName : L"??????");
       } else {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
         str = rstl::wstring(gpStringTable->GetString(0x34));
 #else
         str = rstl::wstring_l(gpStringTable->GetString(0x33));
 #endif
       }
       break;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     case 2:
       if (data != nullptr) {
         str = rstl::wstring(gpStringTable->GetString(0x37));
@@ -1420,7 +1420,7 @@ void CFrontEndUI::SNewFileSelectFrame::ClearFrameContents() {
     }
   }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   StartTextAnimating(mTextpane_erase.mTextPane, rstl::wstring(gpStringTable->GetString(0x26)),
                      60.f);
   StartTextAnimating(mTextpane_language.mTextPane,
@@ -1467,7 +1467,7 @@ void CFrontEndUI::SNewFileSelectFrame::ClearFrameContents() {
 
   mTablegroup_fileselect->SetUserSelection(0);
   CGuiTextPane* cheats = static_cast< CGuiTextPane* >(mTablegroup_fileselect->GetWorkerWidget(
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       6
 #else
       5
@@ -1499,7 +1499,7 @@ void CFrontEndUI::SNewFileSelectFrame::EnterErase() {
   CGuiTextSupport& cheatsTS = mTextpane_cheats.mTextPane->TextSupport();
   cheatsTS.SetFontColor(CColor::Grey().WithAlphaOf(0.5f));
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   mTextpane_language.mTextPane->SetIsSelectable(false);
   mTextpane_language.mTextPane->TextSupport().SetFontColor(CColor::Grey().WithAlphaOf(0.5f));
 #endif
@@ -1513,7 +1513,7 @@ void CFrontEndUI::SNewFileSelectFrame::EnterErase() {
     }
   }
 
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   mTextpane_cancel->TextSupport().SetText(rstl::wstring_l(gpStringTable->GetString(0x52)));
 #endif
   HandleActiveChange(mTablegroup_fileselect);
@@ -1528,7 +1528,7 @@ void CFrontEndUI::SNewFileSelectFrame::ResetFrame() {
   mTextpane_cheats.mTextPane->SetIsSelectable(true);
   mTextpane_cheats.mTextPane->TextSupport().SetFontColor(CColor::White());
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   mTextpane_language.mTextPane->SetIsSelectable(true);
   mTextpane_language.mTextPane->TextSupport().SetFontColor(CColor::White());
 #endif
@@ -1539,7 +1539,7 @@ void CFrontEndUI::SNewFileSelectFrame::ResetFrame() {
     mTablegroup_fileselect->GetWorkerWidget(i)->SetIsSelectable(true);
   }
 
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   mTextpane_cancel->TextSupport().SetText(rstl::wstring_l(L""));
 #endif
 }
@@ -1565,7 +1565,7 @@ void CFrontEndUI::SNewFileSelectFrame::ActivateNewGamePopup() {
   PlayAdvanceSfx();
 
   if (gpGameState->SystemState().GetNormalModeBeat()) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     mTextpane_popupadvance.SetPairText(rstl::wstring(gpStringTable->GetString(0x60)));
     mTextpane_popupcancel.SetPairText(rstl::wstring(gpStringTable->GetString(0x58)));
     mTextpane_popupextra.SetPairText(rstl::wstring(gpStringTable->GetString(0x5f)));
@@ -1579,7 +1579,7 @@ void CFrontEndUI::SNewFileSelectFrame::ActivateNewGamePopup() {
     mTablegroup_popup->GetWorkerWidget(2)->SetVisibility(true, kTM_Children);
     mModel_dash7->SetVisibility(true, kTM_Children);
   } else {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     mTextpane_popupadvance.SetPairText(rstl::wstring(gpStringTable->GetString(0x3d)));
     mTextpane_popupcancel.SetPairText(rstl::wstring(gpStringTable->GetString(0x58)));
 #else
@@ -1588,7 +1588,7 @@ void CFrontEndUI::SNewFileSelectFrame::ActivateNewGamePopup() {
 #endif
     mModel_dash7->SetVisibility(false, kTM_Children);
   }
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   mTextpane_cancel->TextSupport().SetText(rstl::wstring_l(gpStringTable->GetString(0x52)));
 #endif
 }
@@ -1608,7 +1608,7 @@ void CFrontEndUI::SNewFileSelectFrame::DeactivateNewGamePopup() {
   CColor white(static_cast< uchar >(0xff), static_cast< uchar >(0xff), static_cast< uchar >(0xff),
                static_cast< uchar >(0xff));
   mFileSelections[mTablegroup_fileselect->GetUserSelection()].mBase->SetColor(white);
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   mTextpane_cancel->TextSupport().SetText(rstl::wstring_l(L""));
 #endif
 }
@@ -1627,7 +1627,7 @@ void CFrontEndUI::SNewFileSelectFrame::ActivateExistingGamePopup() {
   mTablegroup_fileselect->SetIsActive(false);
   mSubMenu = kSM_EraseGamePopup;
   HandleActiveChange(mTablegroup_popup);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   mTextpane_popupadvance.SetPairText(rstl::wstring(gpStringTable->GetString(0x59)));
   mTextpane_popupcancel.SetPairText(rstl::wstring(gpStringTable->GetString(0x26)));
 #else
@@ -1668,7 +1668,7 @@ bool CFrontEndUI::SNewFileSelectFrame::IsTextDoneAnimating() {
 
   const CGuiTextSupport& ts3 = mTextpane_gba.mTextPane->GetTextSupport();
   curTime = ts3.GetCurTime();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   if (curTime < ts3.GetTotalAnimationTime())
     return false;
   const CGuiTextSupport& language = mTextpane_language.mTextPane->GetTextSupport();
@@ -1690,7 +1690,7 @@ void CFrontEndUI::SNewFileSelectFrame::DoFileselectCancel(CGuiTableGroup* caller
     CSfxManager::SfxStart(SFXfnt_back, 0x7f, 0x40, false, CSfxManager::kMedPriority, false,
                           CSfxManager::kAllAreas);
     ResetFrame();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   } else {
     mAction = kA_ReturnToTitle;
 #endif
@@ -1796,13 +1796,13 @@ void CFrontEndUI::SFusionBonusFrame::Update(float dt, CSaveGameScreen* saveUI) {
   bool showProceed = sel == 1 && showFusionSuit;
   mTablegroup_fusionsuit->SetIsActive(showProceed);
   mTablegroup_fusionsuit->SetIsVisible(showProceed);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   mLoadedFrame->FindWidget("textpane_cancel")->SetIsVisible(!showProceed);
 #else
   mLoadedFrame->FindWidget("textpane_proceed")->SetIsVisible(!showProceed);
 #endif
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   const wchar_t* text1 = mMpNotComplete ? gpStringTable->GetString(0x4a)
                          : showFusionSuit  ? L""
                                            : gpStringTable->GetString(0x48);
@@ -1880,7 +1880,7 @@ void CFrontEndUI::SFusionBonusFrame::FinishedLoading() {
       static_cast< CGuiTableGroup* >(mLoadedFrame->FindWidget("tablegroup_fusionsuit"));
   mTextpane_instructions = SGuiTextPair(mLoadedFrame, "textpane_instructions");
 
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   SFrontEndFrame::FindAndSetPairText(*mLoadedFrame, "textpane_nes",
                                      gpStringTable->GetString(0x42));
   SFrontEndFrame::FindAndSetPairText(*mLoadedFrame, "textpane_fusionsuit",
@@ -1922,12 +1922,12 @@ void CFrontEndUI::SFusionBonusFrame::FinishedLoading() {
   mTablegroup_fusionsuit->SetMenuSelectionChangeCallback(
       TFunctor2FromMethod< SFusionBonusFrame, CGuiTableGroup* const, const int >::Make(
           *this, &SFusionBonusFrame::DoSelectionChange));
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   SetStrings();
 #endif
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 void CFrontEndUI::SFusionBonusFrame::SetStrings() {
   SFrontEndFrame::FindAndSetPairText(*mLoadedFrame, "textpane_nes",
                                      gpStringTable->GetString(0x3c));
@@ -2041,7 +2041,7 @@ CFrontEndUI::CFrontEndUI()
 , mRndB(rand() % 3)
 , mDepsGroup(gpSimplePool->GetObj("FrontEnd_DGRP"))
 , mDeps()
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mPressStart(
       gpSimplePool->GetObj(skPressStartTextures[gpGameState->SystemState().GetLanguage()]))
 #else
@@ -2064,7 +2064,7 @@ CFrontEndUI::CFrontEndUI()
 , mPlayerSkipToTitle(false)
 , mMoviesLoaded(false)
 , mDeferSlideShow(false)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mStringsReloading(false)
 , mNoCardFrame(false)
 , mNoSaveUI(false)
@@ -2077,7 +2077,7 @@ CFrontEndUI::CFrontEndUI()
 , mFrontendNoCardFrme(nullptr)
 , mEmuFrme(nullptr)
 , mOptionsFrme(nullptr)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mLanguageFrme(nullptr)
 #endif
 , mCurAudio(nullptr) {
@@ -2166,7 +2166,7 @@ bool CFrontEndUI::PumpLoad() {
 
 CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) {
   // Update save UI if active and past file select phase
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   if (!mNoSaveUI && mCurScreen >= kS_FileSelect && mNextScreen >= kS_FileSelect) {
 #else
   if (mSaveUI.get() != nullptr && mCurScreen >= kS_FileSelect) {
@@ -2175,7 +2175,7 @@ CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) 
     if (saveResult == 1) {
       TransitionToFive();
     } else if (saveResult == 3 || saveResult == 2) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       mNoCardFrame = true;
       mNoSaveUI = true;
 #else
@@ -2257,7 +2257,7 @@ CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) 
   }
   case kP_DisplayFrontEnd:
   case kP_ToPlayGame:
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   {
     bool reloading = false;
     rstl::vector< SObjectTag > tags = gpSimplePool->GetReferencedTags();
@@ -2283,14 +2283,14 @@ CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) 
 #endif
     if (mEmuFrme.get() != nullptr) {
       if (mEmuFrme->Update(dt,
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
                               mNoSaveUI ? nullptr : mSaveUI.get()
 #else
                               mSaveUI.get()
 #endif
                                   ) == 1) {
         mEmuFrme = nullptr;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
         if (!mNoSaveUI) {
 #else
         if (mSaveUI.get() != nullptr) {
@@ -2303,7 +2303,7 @@ CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) 
       if (mDeferSlideShow) {
         mDeferSlideShow = false;
         mCurAudio->StartMixOut();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
         if (!mNoSaveUI) {
 #else
         if (mSaveUI.get() != nullptr) {
@@ -2313,7 +2313,7 @@ CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) 
       }
 
       if (IsInScreenNotTransitioning(kS_FileSelect)) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
         if (mOptionsFrme.get() != nullptr) {
           const bool active =
               mNoSaveUI || mSaveUI->GetUIType() == CSaveGameScreen::kUIT_SaveReady;
@@ -2360,7 +2360,7 @@ CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) 
 #endif
       } else if (IsInScreenNotTransitioning(kS_FusionBonus)) {
         mFusionBonusFrme->Update(dt,
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
                                     mNoSaveUI ? nullptr : mSaveUI.get()
 #else
                                     mSaveUI.get()
@@ -2414,14 +2414,14 @@ CIOWin::EMessageReturn CFrontEndUI::Update(float dt, CArchitectureQueue& queue) 
     }
 
     // Music volume fade
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     if ((mCurScreen == kS_Title && mNextScreen == kS_FileSelect) ||
         (mCurScreen == kS_FileSelect && mNextScreen == kS_Title)) {
 #else
     if (mCurScreen == kS_Title && mNextScreen == kS_FileSelect) {
 #endif
       if (mCurMoviePtr->CanDrawVideo()) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
         float delay = mNextScreen == kS_Title ? AudioFadeTimeBack : AudioFadeTimeA[mRndA];
 #else
         float delay = AudioFadeTimeA[mRndA];
@@ -2513,14 +2513,14 @@ void CFrontEndUI::ProcessUserInput(const CFinalInput& input, CArchitectureQueue&
   if (input.ControllerNumber() > 1)
     return;
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   if (mStringsReloading)
     return;
 #endif
 
   if (mEmuFrme.get() != nullptr) {
     mEmuFrme->ProcessUserInput(input,
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
                                   mNoSaveUI ? nullptr : mSaveUI.get()
 #else
                                   mSaveUI.get()
@@ -2566,7 +2566,7 @@ void CFrontEndUI::ProcessUserInput(const CFinalInput& input, CArchitectureQueue&
     } else {
       bool isFileSelect = mCurScreen == kS_FileSelect && mNextScreen == kS_FileSelect;
       if (isFileSelect) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
         if (mOptionsFrme.get() != nullptr) {
           if (!mOptionsFrme->ProcessUserInput(input,
                                                  mNoSaveUI ? nullptr : mSaveUI.get())) {
@@ -2577,7 +2577,7 @@ void CFrontEndUI::ProcessUserInput(const CFinalInput& input, CArchitectureQueue&
 #else
         if (mOptionsFrme.get() == nullptr) {
 #endif
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
         if (mLanguageFrme.get() != nullptr) {
           if (!mLanguageFrme->ProcessUserInput(input,
                                                   mNoSaveUI ? nullptr : mSaveUI.get())) {
@@ -2603,7 +2603,7 @@ void CFrontEndUI::ProcessUserInput(const CFinalInput& input, CArchitectureQueue&
             mDeferSlideShow = true;
             StartSlideShow(queue);
             return;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
           } else if (action == SFrontEndFrame::kEA_Language) {
             mLanguageFrme = rs_new SLanguageSelectFrame();
             return;
@@ -2624,7 +2624,7 @@ void CFrontEndUI::ProcessUserInput(const CFinalInput& input, CArchitectureQueue&
             mDeferSlideShow = true;
             StartSlideShow(queue);
             return;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
           } else if (action == SNewFileSelectFrame::kA_Language) {
             mLanguageFrme = rs_new SLanguageSelectFrame();
             return;
@@ -2634,7 +2634,7 @@ void CFrontEndUI::ProcessUserInput(const CFinalInput& input, CArchitectureQueue&
 #endif
           }
         }
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
         } else {
           if (mOptionsFrme->ProcessUserInput(input, mSaveUI.get()))
             return;
@@ -2647,7 +2647,7 @@ void CFrontEndUI::ProcessUserInput(const CFinalInput& input, CArchitectureQueue&
         if (isFusionBonus) {
           SFusionBonusFrame::EAction action =
               mFusionBonusFrme->ProcessUserInput(input,
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
                                                     mNoSaveUI ? nullptr : mSaveUI.get()
 #else
                                                     mSaveUI.get()
@@ -2660,7 +2660,7 @@ void CFrontEndUI::ProcessUserInput(const CFinalInput& input, CArchitectureQueue&
             mCurAudio->StopMixOut();
             mEmuFrme = rs_new SNesEmulatorFrame();
             if (
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
                 !mNoSaveUI
 #else
                 mSaveUI.get() != nullptr
@@ -2681,13 +2681,13 @@ void CFrontEndUI::Draw() const {
     return;
 
   if (mEmuFrme.get() != nullptr) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     mEmuFrme->Draw(mNoSaveUI ? nullptr : mSaveUI.get());
 #else
     mEmuFrme->Draw(mSaveUI.get());
 #endif
   } else {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     if (mCurMoviePtr != nullptr) {
       mCurMoviePtr->DrawVideo();
     }
@@ -2724,7 +2724,7 @@ void CFrontEndUI::Draw() const {
 #endif
 
     if (IsInScreenNotTransitioning(kS_FileSelect)) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       if (mOptionsFrme.get() != nullptr) {
         mOptionsFrme->Draw();
       } else if (mLanguageFrme.get() != nullptr) {
@@ -2757,11 +2757,11 @@ void CFrontEndUI::Draw() const {
     CGraphics::SetTevOp(kTS_Stage1, CGraphics::kEnvPassthru);
     gpRender->SetBlendMode_AdditiveAlpha();
     gpRender->SetDepthReadWrite(false, false);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     const int y = sIs50Hz ? 96 : 72;
 #endif
     const CColor& color = CColor::White().WithAlphaOf(mPressStartAlpha);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     CGraphics::Render2D(*tex, 320 - width / 2, y - height / 2, width, height, color);
 #else
     CGraphics::Render2D(*tex, 320 - width / 2, 72 - height / 2, width, height, color);
@@ -2792,7 +2792,7 @@ void CFrontEndUI::Draw() const {
     }
   }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   if (!mNoSaveUI) {
 #else
   if (mSaveUI.get() != nullptr) {
@@ -2818,7 +2818,7 @@ void CFrontEndUI::StartStateTransition(EScreen screen) {
     if (screen == kS_FileSelect) {
       SetCurrentMovie(kMM_StartFileSelectA);
       SetFadeBlackTimer(mCurMoviePtr->GetTotalSeconds());
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       mPlayerSkipToTitle = false;
 #endif
     }
@@ -2834,7 +2834,7 @@ void CFrontEndUI::StartStateTransition(EScreen screen) {
       SetFadeBlackTimer(mCurMoviePtr->GetTotalSeconds());
       CSfxManager::SfxStart(SFXfnt_tofusion_L);
       CSfxManager::SfxStart(SFXfnt_tofusion_R);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     } else if (screen == kS_Title) {
       CSfxManager::SfxStart(0x458);
       CSfxManager::SfxStart(0x459);
@@ -2851,7 +2851,7 @@ void CFrontEndUI::StartStateTransition(EScreen screen) {
     }
     break;
   case kS_FusionBonus:
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
     if (screen == kS_ToPlayGame) {
       SetCurrentMovie(kMM_GBAFileSelectB);
       SetFadeBlackTimer(mCurMoviePtr->GetTotalSeconds());
@@ -2871,12 +2871,12 @@ void CFrontEndUI::StartStateTransition(EScreen screen) {
   switch (screen) {
   case kS_OpenCredits:
   case kS_Title:
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     if (mCurScreen == kS_OpenCredits) {
 #endif
       SetCurrentMovie(kMM_FirstStart);
       SetFadeBlackTimer(mCurMoviePtr->GetTotalSeconds());
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     }
 #endif
     break;
@@ -2907,7 +2907,7 @@ void CFrontEndUI::CompleteStateTransition() {
   case kS_Title:
     SetCurrentMovie(kMM_StartLoop);
     SetFadeBlackTimer(30.f);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     if (oldScreen == kS_FileSelect) {
       mCurAudio->StopMixOut();
       mCurAudio = mAudio1.get();
@@ -2924,7 +2924,7 @@ void CFrontEndUI::CompleteStateTransition() {
       mCurAudio->StartMixOut();
     }
     if (
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
         !mNoSaveUI
 #else
           mSaveUI.get() != nullptr
@@ -3009,7 +3009,7 @@ void CFrontEndUI::StartSlideShow(CArchitectureQueue& queue) {
                                         kFrontEndUIDrawPriority, rs_new CSlideShow()));
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 void CFrontEndUI::ReapplyStrings() {
   if (mFrontendNoCardFrme.get() != nullptr) {
     mFrontendNoCardFrme->ReapplyStrings();

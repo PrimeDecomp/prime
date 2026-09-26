@@ -171,7 +171,7 @@ bool CProjectileWeaponDataFactory::CreateWPSM(CWeaponDescription* desc, CInputSt
     case 'SWTR':
       desc->mSWTR = CParticleDataFactory::GetBool(in);
       break;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     case 'F60H':
       desc->mF60H = CParticleDataFactory::GetBool(in);
       break;

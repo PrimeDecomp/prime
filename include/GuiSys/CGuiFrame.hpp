@@ -17,7 +17,7 @@ public:
   CGuiFrame(uint id, CGuiSys& sys, int a, int b, int c, CSimplePool* sp);
   ~CGuiFrame();
   static CGuiFrame* CreateFrame(uint id, CGuiSys& sys, CInputStream& in, CSimplePool* sp);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   int LoadWidgetsInGame(CInputStream& in, CSimplePool* sp, uint version);
 #else
   int LoadWidgetsInGame(CInputStream& in, CSimplePool* sp);

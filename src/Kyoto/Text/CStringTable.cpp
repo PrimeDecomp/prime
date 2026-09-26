@@ -13,7 +13,7 @@
 #include <rstl/vector.hpp>
 
 static const wchar_t skInvalidString[] = L"Invalid";
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 static const FourCC skLanguages[] = {'ENGL', 'GERM', 'FREN', 'SPAN', 'ITAL', 'DUTC', 'JAPN'};
 static FourCC mCurrentLanguage = skLanguages[0];
 
@@ -25,7 +25,7 @@ static FourCC mCurrentLanguage = 'ENGL';
 CStringTable::CStringTable(CInputStream& in)
 : mStringCount(0)
 , mData(NULL)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mReloadData(nullptr)
 {
   Load(in);
@@ -122,7 +122,7 @@ const wchar_t* CStringTable::GetString(int idx) const {
 #endif
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 void CStringTable::Reload(CAssetId id, CResFactory& factory) {
   mReloadData = nullptr;
   mReloadData = rs_new SReloadData(id, factory);

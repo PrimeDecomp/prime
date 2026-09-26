@@ -33,7 +33,7 @@ CQuitGameScreen::CQuitGameScreen(EQuitType type)
 , mLoadedFrame(nullptr)
 , mTablegroup_quitgame(nullptr)
 , mAction(kQA_None)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mTextpane_title(nullptr)
 , mTextpane_yes(nullptr)
 , mTextpane_no(nullptr)
@@ -42,7 +42,7 @@ CQuitGameScreen::CQuitGameScreen(EQuitType type)
   mFrame.Lock();
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 CQuitGameScreen::~CQuitGameScreen() {}
 #endif
 
@@ -109,7 +109,7 @@ void CQuitGameScreen::FinishedLoading() {
   mTablegroup_quitgame->SetMenuSelectionChangeCallback(
       TFunctor2FromMethod< CQuitGameScreen, CGuiTableGroup* const, const int >::Make(
           *this, &CQuitGameScreen::DoSelectionChange));
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   mTextpane_title = static_cast< CGuiTextPane* >(mLoadedFrame->FindWidget("textpane_title"));
   mTextpane_title->TextSupport().SetText(
       rstl::wstring_l(gpStringTable->GetString(skQuitTitles[mType])));
@@ -295,7 +295,7 @@ void CGameOptions::TryRestoreDefaults(const CFinalInput& input, int category, in
     CGameOptions& options = gpGameState->GameOptions();
     switch (category) {
     case 0:
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
       options.SetHudAlpha(255);
 #else
       options.mHudAlpha = 255;
@@ -303,7 +303,7 @@ void CGameOptions::TryRestoreDefaults(const CFinalInput& input, int category, in
       options.SetHelmetAlpha(255);
       options.SetHUDLag(skDefaultHudLag);
       options.SetIsHintSystemEnabled(skDefaultHintSystem);
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
       options.fn_80200564(skDefaultPalFlag);
 #endif
       break;

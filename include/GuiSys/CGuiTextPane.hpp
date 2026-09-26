@@ -14,7 +14,7 @@ class CGuiTextProperties;
 
 class CGuiTextPane : public CGuiPane {
 public:
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   static CGuiWidget* Create(CGuiFrame* frame, CInputStream& in, CSimplePool* sp, uint version = 0);
   CGuiTextPane(const CGuiWidgetParms& parms, CSimplePool* sp, const float dimX, const float dimY,
               const CVector3f& vec, const CAssetId fontId, const CGuiTextProperties& props,
@@ -40,15 +40,15 @@ public:
   void Draw(const CGuiWidgetDrawParms& parms) const override;
 
 private:
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   static bool sDrawPaneRects;
 #endif
   mutable CGuiTextSupport mTextSupport;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   bool mDrawShadow;
 #endif
 };
 
-CHECK_SIZEOF(CGuiTextPane, (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0xd04 : 0x3e0))
+CHECK_SIZEOF(CGuiTextPane, (VERSION >= VERSION_GM8P_00 ? 0xd04 : 0x3e0))
 
 #endif // _CGUITEXTPANE

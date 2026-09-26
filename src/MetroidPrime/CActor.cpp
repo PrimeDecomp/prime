@@ -59,7 +59,7 @@ CActor::CActor(const TUniqueId uid, const bool active, const rstl::string& name,
 , mAddedToken(-1)
 , mDamageMag(params.GetThermalMag())
 , mMaxVol(CAudioSys::kMaxVolume)
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
 , mFluidIds(kInvalidUniqueId)
 #endif
 , mNonLoopingSfxHandles(CSfxHandle())
@@ -604,7 +604,7 @@ void CActor::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMana
     break;
   }
   case kSM_RemoveSplashInhabitant: {
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
     SetInFluid(false, uid);
 #else
     SetInFluid(false, kInvalidUniqueId);
@@ -693,7 +693,7 @@ void CActor::SetSoundEventPitchBend(int v) {
 CSfxHandle CActor::GetSfxHandle() const { return mLoopingSfxHandle; }
 
 void CActor::SetInFluid(bool in, TUniqueId uid) {
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
   if (in) {
     bool found = false;
     for (int i = 0; i < 4; ++i) {

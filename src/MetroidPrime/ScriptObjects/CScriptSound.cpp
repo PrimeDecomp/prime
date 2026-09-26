@@ -234,7 +234,7 @@ float CScriptSound::GetOccludedVolumeAmount(const CVector3f& pos, const CStateMa
   const CTransform4f camXf = mgr.GetCameraManager()->GetCurrentCameraTransform(mgr);
   const CVector3f soundToCam = camXf.GetTranslation() - pos;
   const float soundToCamMag = soundToCam.Magnitude();
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
   const CVector3f soundToCamNorm = soundToCam / soundToCamMag;
 #else
   const CVector3f soundToCamNorm = soundToCam * (1.f / soundToCamMag);
@@ -253,7 +253,7 @@ float CScriptSound::GetOccludedVolumeAmount(const CVector3f& pos, const CStateMa
       ++totalCount;
 
       const CVector3f rayDir = (soundToCamNorm + i * thirdEdge) + j * cross;
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
       const CRayCastResult result =
           mgr.RayStaticIntersection(pos, rayDir.AsNormalized(), soundToCamMag, kSolidFilter);
       if (result.IsInvalid()) {

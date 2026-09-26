@@ -232,7 +232,7 @@ public:
     }
     const T& operator*() const { return *mPtr; }
     const T* operator->() const {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       return &**this;
 #else
       return mPtr;

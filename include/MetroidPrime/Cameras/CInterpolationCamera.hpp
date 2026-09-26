@@ -39,6 +39,6 @@ private:
   bool mSinusoidal : 1;
   float mCloseInAngle;
 };
-CHECK_SIZEOF(CInterpolationCamera, (VERSION >= VERSION_GM8P_00 ? 0x1f0 : 0x1e0))
+CHECK_SIZEOF(CInterpolationCamera, (VERSION >= VERSION_GM8E_02 ? 0x1f0 : 0x1e0))
 
 #endif // _CINTERPOLATIONCAMERA

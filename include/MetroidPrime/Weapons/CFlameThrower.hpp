@@ -39,7 +39,7 @@ private:
   void SetFlameLightActive(bool active, CStateManager& mgr);
   float UpdateFlameState(float dt, CStateManager& mgr);
   CRayCastResult DoCollisionCheck(TUniqueId& idOut, const CAABox& bounds, CStateManager& mgr);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   void DoRadialFreeze(const CVector3f&, const CDamageInfo&, CStateManager& mgr);
   void ApplyFlameDamageToActor(TUniqueId id, CStateManager& mgr);
 #endif
@@ -67,8 +67,8 @@ private:
 
   static const CVector3f kLightOffset;
 };
-CHECK_SIZEOF(CFlameThrower, (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0x430
-                             : VERSION >= VERSION_GM8P_00                             ? 0x418
+CHECK_SIZEOF(CFlameThrower, (VERSION >= VERSION_GM8P_00 ? 0x430
+                             : VERSION >= VERSION_GM8E_02                             ? 0x418
                                                                                       : 0x408))
 
 #endif // _CFLAMETHROWER

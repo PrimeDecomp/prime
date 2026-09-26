@@ -959,7 +959,7 @@ void CPlayerGun::ProcessInput(const CFinalInput& input, CStateManager& mgr) {
   }
 
   if (mCoolingCharge || damageNotMorphed || IsWeaponStateSet(0x8)) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     if (IsWeaponStateSet(0x8)) {
       mFireButtonStates = 0;
     }
@@ -1378,7 +1378,7 @@ void CPlayerGun::Reset(CStateManager& mgr, bool b1) {
 
 void CPlayerGun::ResetCharge(CStateManager& mgr, bool resetBeam) {
   if (mChargePhase != kCP_NotCharging) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     mCurrentBeam->ActivateCharge(false, false);
     SetGunLightActive(false, mgr);
 #endif
@@ -2116,7 +2116,7 @@ void CPlayerGun::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CSt
   case kSM_Registered: {
     CreateGunLight(mgr);
     const CPlayerState::EBeamId currentBeam = playerState.GetCurrentBeam();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     LoadBeam(currentBeam, mgr);
 #else
     const CPlayerState::EBeamId beam = mCurrentBeamId[currentBeam];
@@ -2825,7 +2825,7 @@ void CPlayerGun::SetPhazonBeamFeedback(bool active) {
   }
 }
 
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
 void CPlayerGun::SetBeam(CPlayerState::EItemType item, CStateManager& mgr) {
   CPlayerState::EBeamId beam = CPlayerState::kBI_Power;
   switch (item) {

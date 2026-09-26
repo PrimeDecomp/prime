@@ -38,7 +38,7 @@ class CLight;
 class CStringTable;
 class CUnitVector3f;
 
-#if VERSION < VERSION_GM8P_00
+#if VERSION < VERSION_GM8E_02
 #define ACTUAL_IHudThreatInterface IHudThreatInterface
 class IHudThreatInterface;
 #else

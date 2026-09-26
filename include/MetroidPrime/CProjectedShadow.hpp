@@ -19,7 +19,7 @@ public:
   void RenderShadowBuffer(CStateManager&, const CModelData&, const CTransform4f&, int,
                           const CVector3f&, float, float);
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   void RenderShadowBuffer(CStateManager&, int, const CModelData* const*, const CTransform4f* const*,
                           int, const CVector3f&, float, float);
 
@@ -44,11 +44,11 @@ private:
   CVector3f mTranslation;
   float mZDistanceAdjust;
   float mOpacity;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   CProjectedShadow* mNextShadow;
 #endif
 };
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 CHECK_SIZEOF(CProjectedShadow, 0xa0)
 #else
 CHECK_SIZEOF(CProjectedShadow, 0x9c)

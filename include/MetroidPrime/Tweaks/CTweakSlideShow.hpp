@@ -28,7 +28,7 @@ class CTweakSlideShow : public ITweakObject, public TOneStatic< CTweakSlideShow 
   float x50_;
   float x54_;
   float x58_;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   rstl::string mGalleryNames;
 #endif
 
@@ -36,7 +36,7 @@ public:
   CTweakSlideShow(CInputStream&);
   ~CTweakSlideShow();
   const rstl::string& GetPakName() const { return mPakName; }
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   const rstl::string& GetGalleryNames() const { return mGalleryNames; }
 #endif
   const rstl::string& GetFont() const { return mFontAssetName; }

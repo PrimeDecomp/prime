@@ -73,7 +73,7 @@ public:
     kMM_FileSelectGBA,
     kMM_GBALoop,
     kMM_GBAFileSelectA,
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     kMM_BackToTitle
 #else
     kMM_GBAFileSelectB
@@ -112,7 +112,7 @@ public:
       kA_GameOptions,
       kA_FusionBonus,
       kA_SlideShow,
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       kA_Language,
       kA_ReturnToTitle,
 #endif
@@ -127,7 +127,7 @@ public:
     CGuiTableGroup* mTablegroup_fileselect;
     CGuiModel* mModel_erase;
     SGuiTextPair mTextpane_erase;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     SGuiTextPair mTextpane_language;
 #endif
     SGuiTextPair mTextpane_cheats;
@@ -137,7 +137,7 @@ public:
     SGuiTextPair mTextpane_popupadvance;
     SGuiTextPair mTextpane_popupcancel;
     SGuiTextPair mTextpane_popupextra;
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
     CGuiTextPane* mTextpane_cancel;
 #endif
     rstl::reserved_vector< SFileSelectOption, 3 > mFileSelections;
@@ -152,7 +152,7 @@ public:
     ~SNewFileSelectFrame();
     bool PumpLoad();
     void FinishedLoading();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     void SetStrings();
     void ReapplyStrings();
 #endif
@@ -245,7 +245,7 @@ public:
     EAction ProcessUserInput(const CFinalInput& input, CSaveGameScreen* saveUI);
     bool PumpLoad();
     void FinishedLoading();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     void SetStrings();
     void ReapplyStrings();
 #endif
@@ -263,7 +263,7 @@ public:
       kEA_FusionBonus,
       kEA_GameOptions,
       kEA_SlideShow
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
       ,
       kEA_Language,
       kEA_ReturnToTitle
@@ -275,7 +275,7 @@ public:
     TCachedToken< CGuiFrame > mFrme;
     CGuiFrame* mLoadedFrme;
     CGuiTableGroup* mTablegroup_mainmenu;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     SGuiTextPair mLanguagePair;
 #endif
     SGuiTextPair mGbaPair;
@@ -285,7 +285,7 @@ public:
     ~SFrontEndFrame();
     bool PumpLoad();
     void FinishedLoading();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     void SetStrings();
     void ReapplyStrings();
 #endif
@@ -308,7 +308,7 @@ public:
     rstl::single_ptr< CQuitGameScreen > mQuitScreen;
     rstl::single_ptr< CGuiTextSupport > mTextSupport;
     float mRemTime;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     float x14_;
 #endif
     bool mEmulationSuspended;
@@ -322,7 +322,7 @@ public:
     void Draw(CSaveGameScreen* saveUi) const;
   };
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   struct SLanguageSelectFrame {
     TLockedToken< CGuiFrame > mFrame;
     TLockedToken< CStringTable > mStrings;
@@ -344,13 +344,13 @@ public:
 
 #endif
   static void PlayAdvanceSfx();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   static void SetTitlePosition(CGuiFrame& frame);
 #endif
 
 private:
   void TransitionToFive();
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   void ReapplyStrings();
 #endif
   void UpdateMusicVol();
@@ -396,7 +396,7 @@ private:
   int mAttractCount;
   rstl::auto_ptr< CMoviePlayer > mAttractMovie;
   CMoviePlayer* mCurMoviePtr;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   bool mPlayerSkipToTitle : 1;
   bool mMoviesLoaded : 1;
   bool mDeferSlideShow : 1;
@@ -416,7 +416,7 @@ private:
   rstl::single_ptr< SFrontEndFrame > mFrontendNoCardFrme;
   rstl::single_ptr< SNesEmulatorFrame > mEmuFrme;
   rstl::single_ptr< SOptionsFrontEndFrame > mOptionsFrme;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   rstl::single_ptr< SLanguageSelectFrame > mLanguageFrme;
 #endif
   CStaticAudioPlayer* mCurAudio;
@@ -426,18 +426,18 @@ NESTED_CHECK_SIZEOF(CFrontEndUI, SMenuMovieData, 0x8)
 NESTED_CHECK_SIZEOF(CFrontEndUI, SGuiTextPair, 0x8)
 NESTED_CHECK_SIZEOF(CFrontEndUI, SFileSelectOption, 0x30)
 NESTED_CHECK_SIZEOF(CFrontEndUI, SNewFileSelectFrame,
-                    (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0x114 : 0x110))
+                    (VERSION >= VERSION_GM8P_00 ? 0x114 : 0x110))
 NESTED_CHECK_SIZEOF(CFrontEndUI::SFusionBonusFrame, SGBALinkFrame, 0x44)
 NESTED_CHECK_SIZEOF(CFrontEndUI, SFusionBonusFrame, 0x3c)
 NESTED_CHECK_SIZEOF(CFrontEndUI, SFrontEndFrame,
-                    (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0x34 : 0x2c))
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+                    (VERSION >= VERSION_GM8P_00 ? 0x34 : 0x2c))
+#if VERSION >= VERSION_GM8P_00
 NESTED_CHECK_SIZEOF(CFrontEndUI, SNesEmulatorFrame, 0x1c)
 #else
 NESTED_CHECK_SIZEOF(CFrontEndUI, SNesEmulatorFrame, 0x18)
 #endif
-CHECK_SIZEOF(CFrontEndUI, (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0xfc : 0xf8))
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+CHECK_SIZEOF(CFrontEndUI, (VERSION >= VERSION_GM8P_00 ? 0xfc : 0xf8))
+#if VERSION >= VERSION_GM8P_00
 NESTED_CHECK_SIZEOF(CFrontEndUI, SLanguageSelectFrame, 0x28)
 #endif
 

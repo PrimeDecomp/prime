@@ -6,7 +6,7 @@ CScriptTimer::CScriptTimer(const TUniqueId uid, const rstl::string& name, const 
                            const float startTime, const float maxRandDelay, const bool loop,
                            const bool autoStart, const bool active)
 : CEntity(uid, info, active, name)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mStartFrame(0)
 #endif
 , mTime(startTime)
@@ -25,7 +25,7 @@ void CScriptTimer::Reset(CStateManager& mgr) {
 
 void CScriptTimer::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
                                    CStateManager& stateMgr) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   if (GetActive()) {
     switch (msg) {
     case kSM_Start:
@@ -100,7 +100,7 @@ void CScriptTimer::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId objId,
 
 void CScriptTimer::ApplyTime(float dt, CStateManager& mgr) {
   if (mTime > 0.f && GetActive()) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     if (mStartFrame == mgr.GetInputFrameIdx()) {
       return;
     }

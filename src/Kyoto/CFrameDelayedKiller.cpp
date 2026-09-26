@@ -12,7 +12,7 @@
 static uint sCurList = 0;
 static rstl::list< void* > sFrameDelayedList[2];
 
-#if defined(__MWERKS__) && (VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02)
+#if defined(__MWERKS__) && (VERSION < VERSION_GM8P_00)
 #pragma force_active on
 CFrameDelayedKiller::Stats CFrameDelayedKiller::mUnusedStats = {0, 0, 0, 0, 0, 0};
 #pragma force_active reset

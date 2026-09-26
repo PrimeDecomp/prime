@@ -45,6 +45,6 @@ public:
   bool mRenderXray : 1;
   float mTime;
 };
-CHECK_SIZEOF(CExplosion, (VERSION >= VERSION_GM8P_00 ? 0x110 : 0x100))
+CHECK_SIZEOF(CExplosion, (VERSION >= VERSION_GM8E_02 ? 0x110 : 0x100))
 
 #endif // _CEXPLOSION

@@ -19,7 +19,7 @@
 #include "MetroidPrime/Tweaks/CTweakGame.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
 #include "MetroidPrime/Weapons/CWeapon.hpp"
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
 #include "MetroidPrime/Enemies/CEnergyBall.hpp"
 #endif
 
@@ -67,7 +67,7 @@ CCameraManager::CCameraManager(TUniqueId curCamera)
                            CVector3f(1.f, 0.f, 0.f), CVector3f(0.f, 0.f, 1.f), 50.f, 50.f, 1000.f,
                            1, CAudioSys::kMaxVolume);
   sAspectRatio =
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
       CGraphics::GetPixelAspectRatio() *
 #endif
       (static_cast< float >(CGraphics::GetViewport().mWidth) / CGraphics::GetViewport().mHeight);
@@ -362,7 +362,7 @@ void CCameraManager::EnterCinematic(CStateManager& mgr) {
           mgr.DeleteObjectRequest(weapon->GetUniqueId());
         }
       }
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
       else if (CEnergyBall* ball = TCastToPtr< CEnergyBall >(objList[idx])) {
         if (ball->GetActive()) {
           mgr.DeleteObjectRequest(ball->GetUniqueId());

@@ -94,7 +94,7 @@ public:
 private:
   TUniqueId mOwner;
 };
-CHECK_SIZEOF(CFlaahgraRenderer, (VERSION >= VERSION_GM8P_00 ? 0x100 : 0xf0))
+CHECK_SIZEOF(CFlaahgraRenderer, (VERSION >= VERSION_GM8E_02 ? 0x100 : 0xf0))
 
 class CFlaahgra : public CPatterned {
 public:
@@ -234,13 +234,13 @@ private:
   float x7d8_;
   CDamageInfo mHalfContactDamage;
   int x7f8_;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   int mProjectileAttackCount;
 #endif
   rstl::reserved_vector< TUniqueId, 6 > mSphereColliders;
   TUniqueId mHeadActor;
   float x810_;
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   float x814_;
 #endif
   float mCurHp;
@@ -261,7 +261,7 @@ private:
   bool mGetup : 1;
   bool mBigStrike : 1;
   bool x8e4_31_ : 1;
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   bool x8e5_24_ : 1;
 #endif
   bool x8e5_25_ : 1;
@@ -269,7 +269,7 @@ private:
   bool x8e5_27_ : 1;
   bool x8e5_28_ : 1;
   bool x8e5_29_ : 1;
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
   bool x8e5_30_ : 1;
 #endif
 
@@ -279,6 +279,6 @@ private:
   static const pas::ESeverity skpAttackTypeLookup[];
   static const int skpComboChain[];
 };
-CHECK_SIZEOF(CFlaahgra, (VERSION >= VERSION_GM8P_00 ? 0x8f8 : 0x8e8))
+CHECK_SIZEOF(CFlaahgra, (VERSION >= VERSION_GM8E_02 ? 0x8f8 : 0x8e8))
 
 #endif // _CFLAAHGRA

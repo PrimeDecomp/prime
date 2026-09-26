@@ -22,7 +22,7 @@ enum EQuitAction { kQA_None, kQA_Yes, kQA_No };
 class CQuitGameScreen {
 public:
   CQuitGameScreen(EQuitType type);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   ~CQuitGameScreen();
 #endif
 
@@ -44,13 +44,13 @@ private:
   CGuiFrame* mLoadedFrame;
   CGuiTableGroup* mTablegroup_quitgame;
   EQuitAction mAction;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   CGuiTextPane* mTextpane_title;
   CGuiTextPane* mTextpane_yes;
   CGuiTextPane* mTextpane_no;
 #endif
 };
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 CHECK_SIZEOF(CQuitGameScreen, 0x28)
 #else
 CHECK_SIZEOF(CQuitGameScreen, 0x1c)

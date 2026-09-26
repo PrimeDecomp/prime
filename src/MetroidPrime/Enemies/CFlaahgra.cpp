@@ -30,7 +30,7 @@
 
 #include <float.h>
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 #define FLAAHGRA_STAGE_DAMAGE_MULTIPLIER 1.f
 #else
 #define FLAAHGRA_STAGE_DAMAGE_MULTIPLIER 1.33f
@@ -70,8 +70,8 @@ public:
 private:
   bool mBigStrike;
 };
-CHECK_SIZEOF(CFlaahgraProjectile, (VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02 ? 0x408
-                                   : VERSION >= VERSION_GM8P_00 ? 0x3f0
+CHECK_SIZEOF(CFlaahgraProjectile, (VERSION >= VERSION_GM8P_00 ? 0x408
+                                   : VERSION >= VERSION_GM8E_02 ? 0x3f0
                                                                 : 0x3e0))
 
 rstl::optional_object< CAABox > CFlaahgra::GetTouchBounds() const {
@@ -162,12 +162,12 @@ CFlaahgra::CFlaahgra(TUniqueId uid, const rstl::string& name, const CEntityInfo&
 , x7d8_(0.f)
 , mHalfContactDamage(GetContactDamage())
 , x7f8_(0)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 , mProjectileAttackCount(0)
 #endif
 , mHeadActor(kInvalidUniqueId)
 , x810_(0.f)
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
 , x814_(0.f)
 #endif
 , mCurHp(0.f)
@@ -183,14 +183,14 @@ CFlaahgra::CFlaahgra(TUniqueId uid, const rstl::string& name, const CEntityInfo&
 , mGetup(false)
 , mBigStrike(false)
 , x8e4_31_(false)
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
 , x8e5_24_(false)
 #endif
 , x8e5_26_(false)
 , x8e5_27_(false)
 , x8e5_28_(false)
 , x8e5_29_(true)
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
 , x8e5_30_(false)
 #endif
 {
@@ -322,7 +322,7 @@ void CFlaahgra::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateM
                     CBCKnockBackCmd(-GetTransform().GetForward(), pas::kS_One));
               }
             }
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
             else {
               if (x8e5_30_) {
                 TakeDamage(CVector3f::Zero(), 0.f);
@@ -355,7 +355,7 @@ void CFlaahgra::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateM
     break;
   case kSM_Play:
     mHitSomethingTime = 3.f;
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
     x8e5_24_ = true;
 #endif
     break;
@@ -559,7 +559,7 @@ bool CFlaahgra::ShouldAttack(CStateManager& mgr, float arg) {
 
 bool CFlaahgra::ShouldSpecialAttack(CStateManager& mgr, float arg) {
   if (mStage >= 0 && mStage <= 3 && ShouldFire(mgr, arg) && mStage >= 2) {
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     return mProjectileAttackCount >= 2;
 #else
     return x8e5_24_;
@@ -736,11 +736,11 @@ void CFlaahgra::Faint(CStateManager& mgr, EStateMsg msg, float arg) {
   case kStateMsg_Activate:
     mState = 0;
     mFaintTime = 0.f;
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
     x8e5_24_ = false;
 #endif
     x7f8_ = 0;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     mProjectileAttackCount = 0;
 #endif
     SendScriptMsgs(kSS_Entered, mgr, kSM_None);
@@ -949,11 +949,11 @@ void CFlaahgra::SpecialAttack(CStateManager& mgr, EStateMsg msg, float arg) {
   switch (msg) {
   case kStateMsg_Activate:
     mState = 0;
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
     x8e5_24_ = false;
 #endif
     x7b4_ = 3;
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     mProjectileAttackCount = 0;
 #endif
     SendScriptMsgs(kSS_Attack, mgr, kSM_None);
@@ -1000,7 +1000,7 @@ void CFlaahgra::ProjectileAttack(CStateManager& mgr, EStateMsg msg, float arg) {
   case kStateMsg_Activate:
     mState = 0;
     SendScriptMsgs(kSS_Attack, mgr, kSM_None);
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
     ++mProjectileAttackCount;
 #endif
     break;
@@ -1063,7 +1063,7 @@ void CFlaahgra::Dizzy(CStateManager& mgr, EStateMsg msg, float arg) {
   switch (msg) {
   case kStateMsg_Activate:
     x7b8_ = 0.f;
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
     x814_ = 0.f;
     x8e5_30_ = false;
 #endif
@@ -1073,7 +1073,7 @@ void CFlaahgra::Dizzy(CStateManager& mgr, EStateMsg msg, float arg) {
     if (x7b8_ >=
         (mStage < 2 ? mData.GetDizzyDuration() : -1.5f + mData.GetDizzyDuration())) {
       mBodyController->CommandMgr().DeliverCmd(CBodyStateCmd(kBSC_ExitState));
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
       x8e5_30_ = true;
     } else {
       x814_ = 0.f;
@@ -1081,7 +1081,7 @@ void CFlaahgra::Dizzy(CStateManager& mgr, EStateMsg msg, float arg) {
     }
     break;
   case kStateMsg_Deactivate:
-#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8E_02
+#if VERSION < VERSION_GM8P_00
     x8e5_30_ = false;
     x810_ = x814_;
 #endif
@@ -1306,7 +1306,7 @@ void CFlaahgra::UpdateHealthInfo(CStateManager& mgr) {
       damage = CMath::Max(damage, mCurHp - actor->HealthInfo(mgr)->GetHP());
     }
   }
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
   if (x780_ == 3 && !IsDizzy(mgr, 0.f)) {
     x810_ += damage;
   } else {

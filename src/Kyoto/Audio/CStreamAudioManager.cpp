@@ -426,7 +426,7 @@ void CStreamAudioManager::fn_803653F8(float fadeTime) {
   mCurrentState = 4;
 }
 
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 void CStreamAudioManager::StopSfx() {
   for (int i = 0; i < 2; ++i) {
     SDSPStreamCacheEntry& qp = s_QueuedPlayers[i];

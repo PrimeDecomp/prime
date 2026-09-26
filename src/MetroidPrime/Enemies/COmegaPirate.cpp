@@ -1664,7 +1664,7 @@ COmegaPirate::CFlash::CFlash(TUniqueId uid, const CEntityInfo& info, const CVect
 , mDelay(delay)
 , mTime(0.f)
 , mSize(0.f) {
-  CHECK_SIZEOF(CFlash, (VERSION >= VERSION_GM8P_00 ? 0x110 : 0x100))
+  CHECK_SIZEOF(CFlash, (VERSION >= VERSION_GM8E_02 ? 0x110 : 0x100))
   mThermalSpot.Lock();
 }
 

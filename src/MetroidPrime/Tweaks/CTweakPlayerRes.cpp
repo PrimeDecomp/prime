@@ -30,7 +30,7 @@ inline rstl::reserved_vector< CAssetId, N > read_asset_ids(CInputStream& in) {
 }
 
 CTweakPlayerRes::CTweakPlayerRes(CInputStream& in)
-#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8E_02
+#if VERSION >= VERSION_GM8P_00
 : mMapIcons(read_map_icons(in))
 #else
 : mSaveStationIcon(get_asset_id_from_name(rstl::string(in).c_str()))
