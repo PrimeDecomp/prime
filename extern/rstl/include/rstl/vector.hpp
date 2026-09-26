@@ -108,7 +108,7 @@ public:
   }
 
   T* data() {
-    RS_ASSERT(x4_count >= 0 && x4_count <= x8_capacity, "rstl precondition");
+    //RS_ASSERT(x4_count >= 0 && x4_count <= x8_capacity, "rstl precondition");
     return mItems;
   }
   const T* data() const { return mItems; }

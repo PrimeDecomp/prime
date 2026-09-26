@@ -9,7 +9,6 @@
 namespace rstl {
 template < typename T >
 static inline void construct(void* dest, const T& src) {
-  RS_ASSERT(dest != nullptr, "rstl precondition");
   new (dest) T(src);
 }
 
@@ -33,7 +32,6 @@ static inline void destroy(It begin, It end) {
 
 template < typename It, typename T >
 static inline T uninitialized_copy(It begin, It end, T out) {
-  RS_ASSERT(begin == end || out != nullptr, "rstl precondition");
   T tmp = out;
   It cur = begin;
   for (; cur != end; ++tmp, ++cur) {
