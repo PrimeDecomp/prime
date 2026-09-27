@@ -38,6 +38,7 @@ public:
   reserved_vector(CInputStream& in);
 
   reserved_vector& operator=(const reserved_vector& other) {
+    RS_ASSERT(other.size() >= 0 && other.size() <= capacity(), "rstl precondition");
     if (this == &other) {
       return *this;
     }

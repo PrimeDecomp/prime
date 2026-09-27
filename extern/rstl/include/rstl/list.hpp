@@ -118,6 +118,7 @@ public:
   }
 
   node* do_insert_before(node* n, const T& val) {
+    RS_ASSERT(n != nullptr, "rstl precondition");
     node* const nn = create_node(n->mPrev, n, val);
     if (n == mStart) {
       mStart = nn;
