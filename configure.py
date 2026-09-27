@@ -629,9 +629,12 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Cameras/CGameCamera.cpp"),
             Object(NonMatching, "MetroidPrime/CGameArea.cpp"),
             Object(NonMatching, "MetroidPrime/HUD/CSamusHud.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "MetroidPrime/CAnimationDatabaseGame.cpp"),
             Object(
-                MatchingFor("GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01") or EquivalentFor("GM8P01_00"),
+                "MetroidPrime/CAnimationDatabaseGame.cpp",
+            ),
+            Object(
+                EquivalentFor("GM8P01_00"),
                 "MetroidPrime/CTransitionDatabaseGame.cpp",
                 extra_cflags=['-pragma "inline_max_size(126)"']
                 if version_num >= VERSIONS.index("GM8E01_02")
@@ -714,7 +717,7 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CScriptSound.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00") or EquivalentFor("GM8E01_02"),
                 "MetroidPrime/ScriptObjects/CScriptPlatform.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8E01_02"), "MetroidPrime/UserNames.cpp"),
@@ -976,7 +979,7 @@ config.libs = [
                 "MetroidPrime/Enemies/CChozoGhost.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_01") or EquivalentFor("GM8E01_02"),
                 "MetroidPrime/Enemies/CFireFlea.cpp",
             ),
             Object(
@@ -1272,7 +1275,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/CRagDoll.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01") or EquivalentFor("GM8P01_00"),
                 "MetroidPrime/Player/CGameOptions.cpp",
                 extra_cflags=['-pragma "inline_max_size(131)"']
                 if version_num >= VERSIONS.index("GM8E01_02")
@@ -1335,7 +1338,7 @@ config.libs = [
             ),
             Object(EquivalentFor("GM8E01_00"), "MetroidPrime/Enemies/CMagdolite.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01") or EquivalentFor("GM8P01_00"),
                 "MetroidPrime/Enemies/CTeamAiMgr.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CSnakeWeedSwarm.cpp"),
@@ -1473,7 +1476,8 @@ config.libs = [
                 "WorldFormat/CCollidableOBBTree.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "WorldFormat/CCollidableOBBTreeGroup.cpp"
+                MatchingFor("GM8E01_00", "GM8E01_01") or EquivalentFor("GM8P01_00"),
+                "WorldFormat/CCollidableOBBTreeGroup.cpp",
             ),
             Object(NonMatching, "WorldFormat/CPVSAreaSet.cpp"),
             Object(
@@ -1486,7 +1490,7 @@ config.libs = [
         "core",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00") or EquivalentFor("GM8E01_02"),
                 "Weapons/CProjectileWeapon.cpp",
                 ),
             Object(MatchingFor("GM8E01_00"), "Weapons/CProjectileWeaponDataFactory.cpp"),
@@ -1536,7 +1540,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "GuiSys/CGuiHeadWidget.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "GuiSys/CGuiLight.cpp"),
             Object(EquivalentFor("GM8E01_00"), "GuiSys/CGuiModel.cpp"),
-            Object(MatchingFor("GM8J01_00"), "GuiSys/CGuiObject.cpp"),
+            Object(EquivalentFor("GM8J01_00"), "GuiSys/CGuiObject.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "GuiSys/CGuiPane.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "GuiSys/CGuiSliderGroup.cpp"),
             Object(
@@ -1590,7 +1594,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Collision/InternalColliders.cpp"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01") or EquivalentFor("GM8P01_00"),
                 "Collision/CCollisionPrimitive.cpp",
             ),
             Object(
@@ -1651,7 +1655,7 @@ config.libs = [
                 "Kyoto/Animation/CAnimCharacterSet.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01") or EquivalentFor("GM8P01_00"),
                 "Kyoto/Animation/CAnimTreeLoopIn.cpp",
             ),
             Object(NonMatching, "Kyoto/Animation/CAnimTreeSequence.cpp"),
@@ -1727,9 +1731,12 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimPerSegmentData.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimPOIData.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimSource.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Kyoto/Animation/CAnimSourceReader.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01") or EquivalentFor("GM8P01_00"),
+                "Kyoto/Animation/CAnimSourceReader.cpp",
+            ),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01") or EquivalentFor("GM8P01_00"),
                 "Kyoto/Animation/CAnimSourceReaderBase.cpp",
             ),
             Object(
