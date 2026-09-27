@@ -542,18 +542,19 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/CArchMsgParmUserInput.cpp",
             ),
-            Object(EquivalentFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CFrontEndUI.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CFrontEndUI.cpp"),
             Object(
                 EquivalentFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
                 "MetroidPrime/CInputGenerator.cpp",
             ),
-            Object(EquivalentFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CMainFlow.cpp"),
-            Object(EquivalentFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CMFGame.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "MetroidPrime/CMainFlow.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CMFGame.cpp"),
             Object(
-                EquivalentFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02", "GM8J01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01")
+                or EquivalentFor("GM8E01_48", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CCredits.cpp",
             ),
-            Object(EquivalentFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CSplashScreen.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CSplashScreen.cpp"),
             Object(
                 EquivalentFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8E01_02"),
                 "MetroidPrime/CAnimData.cpp",
@@ -1350,7 +1351,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
                 "MetroidPrime/ScriptObjects/CScriptMemoryRelay.cpp",
             ),
-            Object(EquivalentFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CPauseScreenFrame.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CPauseScreenFrame.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Enemies/CAtomicAlpha.cpp"),
             Object(EquivalentFor("GM8E01_00"), "MetroidPrime/CLogBookScreen.cpp"),
             Object(
@@ -1857,7 +1858,7 @@ config.libs = [
                 "Kyoto/Text/CSaveableState.cpp",
             ),
             Object(
-                EquivalentFor("GM8E01_00", "GM8E01_01"),
+                MatchingFor("GM8E01_00", "GM8E01_01"),
                 "Kyoto/Text/CTextExecuteBuffer.cpp",
                 extra_cflags=["-inline", "level=4"] if config.version == "GM8P01_00" else [],
             ),
@@ -2119,7 +2120,7 @@ config.libs = [
                 "Kyoto/Animation/CCharAnimTime.cpp",
             ),
             Object(
-                EquivalentFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
                 "Kyoto/Animation/CSegIdList.cpp",
             ),
             Object(
