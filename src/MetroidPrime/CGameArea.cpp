@@ -61,8 +61,7 @@ int CGameArea::GetPreConstructedSize() const {
 
 int CGameArea::GetPostConstructedSize() const {
   int surfaceSize = 0;
-  for (rstl::vector< CMetroidModelInstance >::const_iterator it =
-           mPostConstructed->mInsts.begin();
+  for (rstl::vector< CMetroidModelInstance >::const_iterator it = mPostConstructed->mInsts.begin();
        it != mPostConstructed->mInsts.end(); ++it) {
     surfaceSize += it->GetSurfaces().size() * sizeof(void*);
   }
@@ -187,8 +186,8 @@ void CGameArea::VerifyTokenList(CStateManager& mgr) {
       for (int layer = mLayerDepOffsets.size() - 1; layer >= 0; --layer) {
         if (layers.IsLayerActive(mSelfIdx, layer)) {
           int start = mLayerDepOffsets[layer];
-          int end = layer + 1 < mLayerDepOffsets.size() ? mLayerDepOffsets[layer + 1]
-                                                           : mDeps2.size();
+          int end =
+              layer + 1 < mLayerDepOffsets.size() ? mLayerDepOffsets[layer + 1] : mDeps2.size();
           for (int i = start; i < end; ++i) {
             const rstl::pair< uint, uint >& dep = mDeps2[i];
             mTokens.push_back(gpSimplePool->GetObj(SObjectTag(dep.second, dep.first)));
@@ -263,8 +262,8 @@ void CGameArea::FillInStaticGeometry() {
         ++section;
       }
       mPostConstructed->mInsts.push_back(
-          CMetroidModelInstance(header, mPostConstructed->mFirstMatPtr, positions, normals,
-                                colors, texCoords, packedTexCoords, surfaces));
+          CMetroidModelInstance(header, mPostConstructed->mFirstMatPtr, positions, normals, colors,
+                                texCoords, packedTexCoords, surfaces));
       surfaces.clear();
     }
   }
@@ -275,7 +274,6 @@ static inline CVector3f SwapVectorBytes(CVector3f vec) {
   return CVector3f(CBasics::SwapBytes(vec.GetX()), CBasics::SwapBytes(vec.GetY()),
                    CBasics::SwapBytes(vec.GetZ()));
 }
-
 void CGameArea::PostConstructArea() {
   const int version = VerifyHeader();
   rstl::vector< rstl::pair< rstl::auto_ptr< char >, int > >::const_iterator section =
@@ -348,8 +346,7 @@ void CGameArea::PostConstructArea() {
     mPostConstructed->mGfxLightsA.reserve(count);
     for (int i = 0; i < count; ++i) {
       mPostConstructed->mLightsA.push_back(CWorldLight(stream));
-      mPostConstructed->mGfxLightsA.push_back(
-          mPostConstructed->mLightsA[i].GetAsCGraphicsLight());
+      mPostConstructed->mGfxLightsA.push_back(mPostConstructed->mLightsA[i].GetAsCGraphicsLight());
     }
     if (twoLayers) {
       const int countB = stream.Get< int >();
@@ -383,10 +380,9 @@ void CGameArea::PostConstructArea() {
         if (mPostConstructed->mPvsVersion == 2) {
           mPostConstructed->mPvsHasActors = stream.ReadBool();
           mPostConstructed->x1108_30_ = stream.ReadBool();
-          mPostConstructed->mPvs =
-              CPVSAreaSet::MakeAreaSet(buffer + stream.GetReadPosition(),
-                                       size - stream.GetReadPosition())
-                  .release();
+          mPostConstructed->mPvs = CPVSAreaSet::MakeAreaSet(buffer + stream.GetReadPosition(),
+                                                            size - stream.GetReadPosition())
+                                       .release();
         }
       }
     }
@@ -471,8 +467,7 @@ void CGameArea::PostConstructArea() {
     }
   } else {
     mPostConstructed->mLayerOffsets.reserve(1);
-    mPostConstructed->mLayerOffsets.push_back(
-        rstl::pair< int, int >(0, GetScriptingSize()));
+    mPostConstructed->mLayerOffsets.push_back(rstl::pair< int, int >(0, GetScriptingSize()));
   }
 }
 
@@ -502,12 +497,10 @@ void CGameArea::Validate(CStateManager& mgr) {
       mgr.World()->MoveAreaToChain3(mSelfIdx);
     }
     LoadScriptObjects(mgr);
-    if (mPostConstructed->mPvs.get() != nullptr &&
-        mPostConstructed->mPvsHasActors) {
+    if (mPostConstructed->mPvs.get() != nullptr && mPostConstructed->mPvsHasActors) {
       for (int i = 0; i < mPostConstructed->mPvs->GetNumActors(); ++i) {
         const CPostConstructed* post = mPostConstructed.get();
-        uint editorId =
-            post->mPvs->GetEntityIdByIndex(i) | (mSelfIdx.Value() << 16);
+        uint editorId = post->mPvs->GetEntityIdByIndex(i) | (mSelfIdx.Value() << 16);
         TUniqueId id = mgr.GetIdForScript(editorId);
         if (id != kInvalidUniqueId) {
           const CPVSAreaSet* pvs = mPostConstructed->mPvs.get();
@@ -789,8 +782,7 @@ bool CGameArea::TransferARAMTokensOver(EARAMTransfer mode) {
   }
   bool finished = true;
   int part = mPostConstructed->x10e8_;
-  for (AUTO(it, mPostConstructed->mTokens.begin());
-       it != mPostConstructed->mTokens.end(); ++it) {
+  for (AUTO(it, mPostConstructed->mTokens.begin()); it != mPostConstructed->mTokens.end(); ++it) {
     if (it->first.GetStatus() != CARAMToken::kS_One) {
       mPostConstructed->x1100_ -= it->first.GetSize();
     }
@@ -914,8 +906,7 @@ void CGameArea::PingOcclusionState() {
 }
 
 void CGameArea::OtherAreaOcclusionChanged() {
-  if (mPostConstructed->x10e0_ == 3 &&
-      mPostConstructed->mOcclusionState == kOS_Occluded) {
+  if (mPostConstructed->x10e0_ == 3 && mPostConstructed->mOcclusionState == kOS_Occluded) {
     bool unloaded = UnloadAllloadedTextures();
     bool transferred = TransferTokensToARAM();
     mPostConstructed->x1108_27_ = unloaded && transferred;

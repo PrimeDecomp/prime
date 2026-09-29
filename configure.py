@@ -2056,6 +2056,11 @@ config.libs = [
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
+                "rstl/CStringExtras.cpp",
+                src_dir="extern/rstl/src",
+            ),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01"),
                 "rstl/RstlExtras.cpp",
                 src_dir="extern/rstl/src",
             ),
