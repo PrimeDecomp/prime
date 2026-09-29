@@ -2101,6 +2101,11 @@ config.libs = [
             ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS),
+                "rstl/CStringExtras.cpp",
+                src_dir="extern/rstl/src",
+            ),
+            Object(
+                MatchingFor(*NTSC_GC_VERSIONS),
                 "rstl/RstlExtras.cpp",
                 src_dir="extern/rstl/src",
             ),
