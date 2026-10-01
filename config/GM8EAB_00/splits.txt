@@ -571,7 +571,7 @@ MetroidPrime/Weapons/GunController/CGSFidget.cpp:
 	.text       start:0x801BBC48 end:0x801BC0BC
 	.sdata2     start:0x80538C00 end:0x80538C08
 
-MetroidPrime/Weapons/CIceProjectile.cpp:
+MetroidPrime/Weapons/CIceAttackProjectile.cpp:
 	.text       start:0x801BC400 end:0x801BE410
 	.sdata      start:0x80534C80 end:0x80534C88
 

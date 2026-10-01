@@ -2250,7 +2250,7 @@ PutTo__Q24rstl54vector<Q24rstl10pair<Ui,f>,Q24rstl17rmemory_allocator>CFR13COutp
 __ct__12CPlayerStateFR12CInputStream = .text:0x8007EF50; // type:function size:0x144
 __ct__12CPlayerStateFv = .text:0x8007F094; // type:function size:0xCC
 PutTo__Q212CPlayerState8CPowerUpCFR13COutputStream = .text:0x8007F160; // type:function size:0x74
-fn_8007F1D4 = .text:0x8007F1D4; // type:function size:0x50
+__ct__Q212CPlayerState8CPowerUpFR12CInputStream = .text:0x8007F1D4; // type:function size:0x50
 __ct__Q212CPlayerState8CPowerUpFii = .text:0x8007F224; // type:function size:0xC
 fn_8007F230 = .text:0x8007F230; // type:function size:0x120
 fn_8007F350 = .text:0x8007F350; // type:function size:0xA4
