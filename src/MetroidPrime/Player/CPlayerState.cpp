@@ -69,8 +69,10 @@ CPlayerState::CPlayerState()
 , mCurrentSuit(kPS_Power)
 , mPowerups(CPowerUp(0, 0))
 , mScanTimes()
+#if VERSION > VERSION_GM8EAB_00
 , mScanCompletionRateFirst(0)
 , mScanCompletionRateSecond(0)
+#endif
 , mStaticIntf(5) {}
 
 CPlayerState::CPlayerState(CInputStream& stream)
@@ -87,9 +89,8 @@ CPlayerState::CPlayerState(CInputStream& stream)
 , mUnknown(3)
 , mPowerups(stream)
 , mScanTimes(stream)
-, mScanCompletionRateFirst(0)
-, mScanCompletionRateSecond(0)
 , mStaticIntf(5) 
+{}
 #else
 , mFiringComboBeam(false)
 , mFusion(false)
@@ -105,11 +106,6 @@ CPlayerState::CPlayerState(CInputStream& stream)
 , mScanCompletionRateFirst(0)
 , mScanCompletionRateSecond(0)
 , mStaticIntf(5) 
-#endif
-{
-
-#if VERSION == VERSION_GM8EAB_00
-#else
   mEnabledItems = uint(stream.ReadBits(32));
 
   const uint integralHP = uint(stream.ReadBits(32));
@@ -144,8 +140,8 @@ CPlayerState::CPlayerState(CInputStream& stream)
 
   mScanCompletionRateFirst = uint(stream.ReadBits(GetBitCount(0x100u)));
   mScanCompletionRateSecond = uint(stream.ReadBits(GetBitCount(0x100u)));
-#endif
 }
+#endif
 
 void CPlayerState::PutTo(COutputStream& stream) {
 #if VERSION == VERSION_GM8EAB_00
@@ -466,12 +462,12 @@ void CPlayerState::InitializeScanTimes() {
   if (mScanTimes.size())
     return;
 
-  const rstl::vector< CMemoryCard::ScanState >& scanStates = gpMemoryCard->GetScanStates();
-  mScanTimes.reserve(scanStates.size());
-  for (rstl::vector< CMemoryCard::ScanState >::const_iterator it = scanStates.begin();
-       it != scanStates.end(); ++it) {
-    mScanTimes.push_back(rstl::pair< CAssetId, float >(it->first, 0.f));
-  }
+  // const rstl::vector< CMemoryCard::ScanState >& scanStates = gpMemoryCard->GetScanStates();
+  // mScanTimes.reserve(scanStates.size());
+  // for (rstl::vector< CMemoryCard::ScanState >::const_iterator it = scanStates.begin();
+  //      it != scanStates.end(); ++it) {
+  //   mScanTimes.push_back(rstl::pair< CAssetId, float >(it->first, 0.f));
+  // }
 }
 
 const float CPlayerState::GetScanTime(const CAssetId res) const {
