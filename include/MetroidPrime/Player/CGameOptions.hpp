@@ -35,6 +35,19 @@ enum EGameOption {
 
 #if VERSION >= VERSION_R3IJ_00
 
+namespace rstl {
+template <>
+struct is_trivially_destructible< pair< CAssetId, CAssetId > > {
+  enum { value = true };
+};
+
+template <>
+inline void construct< pair< CAssetId, CAssetId > >(void* dest,
+                                                 const pair< CAssetId, CAssetId >& src) {
+  *static_cast< pair< CAssetId, CAssetId >* >(dest) = src;
+}
+} // namespace rstl
+
 class CGameOptions {
 public:
   CGameOptions();
