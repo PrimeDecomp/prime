@@ -47,7 +47,7 @@ struct reserved_vector_traits< uchar > {
 template <>
 struct reserved_vector_traits< float > {
   typedef float fill_type;
-  typedef const float& push_type;
+  typedef float push_type;
   enum { trivial_destructor = true };
   static void fill(float* dest, int count, float value) {
     for (int i = 0; i < count; ++i) {
