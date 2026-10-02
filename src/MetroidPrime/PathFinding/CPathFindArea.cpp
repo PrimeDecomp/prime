@@ -31,7 +31,7 @@ private:
   int mSize;
 };
 
-uint CPFAreaOctree::GetChildIndex(const CVector3f& point) const {
+inline uint CPFAreaOctree::GetChildIndex(const CVector3f& point) const {
   uint index = 0;
   if (point[kDX] > mCenter[kDX]) {
     index = 1;
@@ -45,14 +45,14 @@ uint CPFAreaOctree::GetChildIndex(const CVector3f& point) const {
   return index;
 }
 
-prereserved_vector< CPFRegion* >* CPFAreaOctree::GetRegionList(const CVector3f& point) {
+inline prereserved_vector< CPFRegion* >* CPFAreaOctree::GetRegionList(const CVector3f& point) {
   if (mIsLeaf) {
     return &mRegions;
   }
   return mChildren[GetChildIndex(point)]->GetRegionList(point);
 }
 
-void CPFAreaOctree::GetRegionListList(
+inline void CPFAreaOctree::GetRegionListList(
     rstl::reserved_vector< prereserved_vector< CPFRegion* >*, 32 >& lists, const CVector3f& point,
     float padding) {
   if (lists.size() >= lists.capacity()) {

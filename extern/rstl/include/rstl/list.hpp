@@ -113,12 +113,13 @@ public:
     node* n;
     mAllocator.allocate(n, 1);
     new (n) node(prev, next);
-    new (n->mItem) T(val);
+    new (n->get_value()) T(val);
     return n;
   }
 
   node* do_insert_before(node* n, const T& val) {
-    node* const nn = create_node(n->mPrev, n, val);
+    RS_ASSERT(n != nullptr, "rstl precondition");
+    node* const nn = create_node(n->get_prev(), n, val);
     if (n == mStart) {
       mStart = nn;
     }
