@@ -61,8 +61,12 @@ public:
     kIT_Spirit = 39,
     kIT_Newborn = 40,
 
+    #if VERSION == VERSION_GM8EAB_00
+    kIT_Max = 29
+    #else
     /* This must remain at the end of the list */
     kIT_Max
+    #endif
   };
 
   enum EPlayerVisor {
@@ -153,8 +157,16 @@ public:
   void InitializePowerUp(CPlayerState::EItemType type, int capacity);
   void SetPowerUp(CPlayerState::EItemType type, int capacity);
   static bool IsValidScan(CAssetId res);
-  void SetScanCompletionRateFirst(int rate) { mScanCompletionRateFirst = rate; }   // name?
-  void SetScanCompletionRateSecond(int rate) { mScanCompletionRateSecond = rate; } // name?
+  void SetScanCompletionRateFirst(int rate) { // name?
+  #if VERSION > VERSION_GM8EAB_00
+    mScanCompletionRateFirst = rate;
+  #endif
+  }
+  void SetScanCompletionRateSecond(int rate) {  // name?
+  #if VERSION > VERSION_GM8EAB_00
+    mScanCompletionRateSecond = rate;
+  #endif
+  }
 
   void InitializeScanTimes();
 
@@ -164,11 +176,19 @@ public:
   CStaticInterference& StaticInterference() { return mStaticIntf; }
   const CStaticInterference& GetStaticInterference() const { return mStaticIntf; }
 
+  #if VERSION == VERSION_GM8EAB_00
+  const rstl::reserved_vector< rstl::pair< CAssetId, float >, 512 >& GetScanTimes() const {
+    return mScanTimes;
+  }
+  const int GetLogScans() const { return 0; }
+  const int GetTotalLogScans() const { return 0; }
+  #else
   const rstl::vector< rstl::pair< CAssetId, float > >& GetScanTimes() const {
     return mScanTimes;
   }
   const int GetLogScans() const { return mScanCompletionRateFirst; }
   const int GetTotalLogScans() const { return mScanCompletionRateSecond; }
+  #endif
 
   CHealthInfo* HealthInfo() { return &mHealth; }
   const CHealthInfo& GetHealthInfo() const { return mHealth; }
@@ -179,6 +199,7 @@ private:
     int mCapacity;
     CPowerUp() : mAmount(0), mCapacity(0) {}
     CPowerUp(int amount, int capacity);
+    CPowerUp(CInputStream&);
 
     void Add(int amount) {
       int capacity = mCapacity;
@@ -194,6 +215,8 @@ private:
         mAmount = 0;
       }
     }
+
+    void PutTo(COutputStream& stream) const;
   };
 
   bool mAlive : 1;
@@ -206,12 +229,20 @@ private:
   EPlayerVisor mTransitioningVisor;
   float mVisorTransitionFactor;
   EPlayerSuit mCurrentSuit;
-  rstl::reserved_vector< CPowerUp, 41 > mPowerups;
+  #if VERSION == VERSION_GM8EAB_00
+  int mUnknown;
+  rstl::reserved_vector< CPowerUp, kIT_Max > mPowerups;
+  rstl::reserved_vector< rstl::pair< CAssetId, float >, 512 > mScanTimes;
+  #else
+  rstl::reserved_vector< CPowerUp, kIT_Max > mPowerups;
   rstl::vector< rstl::pair< CAssetId, float > > mScanTimes;
   int mScanCompletionRateFirst; // pair?
   int mScanCompletionRateSecond;
+  #endif
   CStaticInterference mStaticIntf;
 };
+#if VERSION != VERSION_GM8EAB_00
 CHECK_SIZEOF(CPlayerState, 0x198)
+#endif
 
 #endif // _CPLAYERSTATE
