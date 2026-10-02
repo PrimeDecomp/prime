@@ -581,22 +581,22 @@ config.libs = [
                 "MetroidPrime/CEntity.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "R3ME01_00"),
                 "MetroidPrime/CArchMsgParmInt32.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "R3ME01_00"),
                 "MetroidPrime/CArchMsgParmInt32Int32VoidPtr.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "R3ME01_00"),
                 "MetroidPrime/CArchMsgParmNull.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "R3ME01_00"),
                 "MetroidPrime/CArchMsgParmReal32.cpp",
             ),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "MetroidPrime/Decode.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "R3ME01_00"), "MetroidPrime/Decode.cpp"),
             Object(NonMatching, "MetroidPrime/CIOWinManager.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "MetroidPrime/CIOWin.cpp"),
             Object(
@@ -611,7 +611,7 @@ config.libs = [
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8E01_02"), "MetroidPrime/Clamp_int.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "R3ME01_00"),
                 "MetroidPrime/CArchMsgParmControllerStatus.cpp",
             ),
             Object(
@@ -1937,6 +1937,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
                 "Kyoto/Math/CloseEnough.cpp",
             ),
+            Object(NonMatching, "Kyoto/Math/CMayaSpline.cpp", extra_cflags=["-sdata2 4", "-fp_contract off"]),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Kyoto/Math/CMatrix3f.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
@@ -2161,8 +2162,18 @@ config.libs = [
                 "Kyoto/Animation/CSegIdList.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "R3ME01_00"),
                 "Kyoto/Input/CFinalInput.cpp",
+            ),
+            Object(NonMatching, "Kyoto/Input/CInputFilter.cpp", extra_cflags=["-sdata2 4", "-fp_contract off"]),
+            Object(MatchingFor("R3ME01_00"), "Kyoto/Input/IController.cpp", mw_version="Wii/1.0a", extra_cflags=["-sdata2 4", "-fp_contract off"]),
+            Object(NonMatching, "Kyoto/Input/CWiiInput.cpp", mw_version="Wii/1.0a", extra_cflags=["-sdata2 4", "-fp_contract off"]),
+            Object(MatchingFor("R3ME01_00"), "Kyoto/Input/CControllerData.cpp", mw_version="Wii/1.0a", extra_cflags=["-sdata2 4", "-fp_contract off"]),
+            Object(
+                NonMatching,
+                "Kyoto/Input/CWiiMotionProcessor.cpp",
+                mw_version="Wii/1.0a",
+                extra_cflags=["-sdata2 4", "-fp_contract off"],
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8J01_00"),

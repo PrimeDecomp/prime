@@ -1,6 +1,8 @@
 #ifndef _RSTL_FUNCTIONAL
 #define _RSTL_FUNCTIONAL
 
+#include "rstl/RstlVersions.h"
+
 namespace rstl {
 
 template < typename Arg, typename Result >
@@ -46,7 +48,14 @@ binder1st< Op > bind1st(const Op& op, const T& value) {
 }
 
 template < typename T >
+#if RSTL_VERSION >= RSTL_R3ME_00
+struct less {
+  typedef T first_argument_type;
+  typedef T second_argument_type;
+  typedef bool result_type;
+#else
 struct less : binary_function< T, T, bool > {
+#endif
   bool operator()(const T& a, const T& b) const { return a < b; }
 };
 

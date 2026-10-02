@@ -10,6 +10,27 @@ class CInputStream;
 class COutputStream;
 
 namespace rstl {
+#if RSTL_VERSION >= RSTL_R3ME_00
+// Scalar fill and destruction behavior recovered from Trilogy's input filters.
+template < typename T >
+struct reserved_vector_traits {
+  typedef const T& fill_type;
+  enum { trivial_destructor = false };
+  static void fill(T* dest, int count, const T& value) { uninitialized_fill_n(dest, count, value); }
+};
+
+template <>
+struct reserved_vector_traits< float > {
+  typedef float fill_type;
+  enum { trivial_destructor = true };
+  static void fill(float* dest, int count, float value) {
+    for (int i = 0; i < count; ++i) {
+      dest[i] = value;
+    }
+  }
+};
+#endif
+
 template < typename T, int N >
 class reserved_vector {
   int mCount;
@@ -28,10 +49,27 @@ public:
   inline const_iterator end() const { return const_iterator(data() + mCount); }
 
   reserved_vector() : mCount(0) {}
+#if RSTL_VERSION >= RSTL_R3ME_00
+  explicit reserved_vector(int count) : mCount(count) {
+    int i;
+    T* dest = data();
+    for (i = 0; i < count; ++i, ++dest) {
+      new (dest) T;
+    }
+  }
+  explicit reserved_vector(typename reserved_vector_traits< T >::fill_type value) : mCount(N) {
+    reserved_vector_traits< T >::fill(data(), N, value);
+  }
+  explicit reserved_vector(int count, typename reserved_vector_traits< T >::fill_type value)
+  : mCount(count) {
+    reserved_vector_traits< T >::fill(data(), count, value);
+  };
+#else
   explicit reserved_vector(const T& value) : mCount(N) { uninitialized_fill_n(data(), N, value); }
   explicit reserved_vector(int count, const T& value) : mCount(count) {
     uninitialized_fill_n(data(), count, value);
   };
+#endif
   reserved_vector(const reserved_vector& other) : mCount(other.mCount) {
     uninitialized_copy_n(other.data(), mCount, data());
   }
@@ -41,7 +79,14 @@ public:
     if (this == &other) {
       return *this;
     }
+#if RSTL_VERSION >= RSTL_R3ME_00
+    T* ptr = data();
+    for (int i = 0; i < mCount; ++i) {
+      destroy(&ptr[i]);
+    }
+#else
     clear();
+#endif
     uninitialized_copy(other.data(), other.data() + other.size(), data());
     mCount = other.mCount;
     return *this;
@@ -55,7 +100,18 @@ public:
     mCount = 0;
   }
 
-  ~reserved_vector() { clear(); }
+  ~reserved_vector() {
+#if RSTL_VERSION >= RSTL_R3ME_00
+    if (!reserved_vector_traits< T >::trivial_destructor) {
+      T* ptr = data();
+      for (int i = 0; i < mCount; ++i) {
+        destroy(&ptr[i]);
+      }
+    }
+#else
+    clear();
+#endif
+  }
 
   void push_back(const T& in) {
     construct(data() + mCount, in);
