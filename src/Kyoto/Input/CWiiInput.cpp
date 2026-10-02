@@ -53,28 +53,28 @@ int CWiiInput::FreeWpadMemory(void* memory) {
 }
 
 CWiiInput::CWiiInput()
-: x4_status(KPADStatus())
-, x218_controllerTypes(kDT_Disconnected)
-, x22c_input(CControllerData())
-, xa60_pointerRecenterMode(kPRM_Hold)
-, xa74_pointerReacquireFrames(4, 0)
-, xa88_motionProcessors(4)
-, xa9c_unknownInputData(SUnknownInputData())
-, xb24_wpadInfo(4)
-, xb88_wpadInfoBuf(4)
-, xbec_infoPollTimers(4)
-, xc00_motionIdleTimes(4)
-, xc14_buttonIdleTimes(4)
-, xc28_pendingConnectionEvents(kCE_None)
-, xc3c_pendingExtensionEvents(kEE_None)
-, xc50_pointerFilterX(4)
-, xc64_pointerFilterY(4)
-, xc78_motorEnabledFlags(0xf)
-, xc7c_pointerMinDistance(0.75f)
-, xc80_pointerMaxDistance(4.f)
-, xc84_pointerMinScale(1.3f)
-, xc88_pointerMaxScale(1.f)
-, xc8c_acceptAdditionalConnections(false) {
+: mStatus(KPADStatus())
+, mControllerTypes(kDT_Disconnected)
+, mInput(CControllerData())
+, mPointerRecenterMode(kPRM_Hold)
+, mPointerReacquireFrames(4, 0)
+, mMotionProcessors(4)
+, mUnknownInputData(SUnknownInputData())
+, mWpadInfo(4)
+, mWpadInfoBuf(4)
+, mInfoPollTimers(4)
+, mMotionIdleTimes(4)
+, mButtonIdleTimes(4)
+, mPendingConnectionEvents(kCE_None)
+, mPendingExtensionEvents(kEE_None)
+, mPointerFilterX(4)
+, mPointerFilterY(4)
+, mMotorEnabledFlags(0xf)
+, mPointerMinDistance(0.75f)
+, mPointerMaxDistance(4.f)
+, mPointerMinScale(1.3f)
+, mPointerMaxScale(1.f)
+, mAcceptAdditionalConnections(false) {
   sWiiInput = this;
   Initialize();
 }
@@ -91,18 +91,18 @@ void CWiiInput::Poll() {}
 
 uint CWiiInput::GetDeviceCount() const { return 4; }
 
-CControllerData& CWiiInput::GetInput(uint channel) { return x22c_input[channel]; }
+CControllerData& CWiiInput::GetInput(uint channel) { return mInput[channel]; }
 
 IController::EDeviceType CWiiInput::GetControllerType(int channel) const {
-  return x218_controllerTypes[channel];
+  return mControllerTypes[channel];
 }
 
 void CWiiInput::QueueConnectionEvent(int channel, EConnectionEvent event) {
-  xc28_pendingConnectionEvents[channel] = event;
+  mPendingConnectionEvents[channel] = event;
 }
 
 void CWiiInput::QueueExtensionEvent(int channel, EExtensionEvent event) {
-  xc3c_pendingExtensionEvents[channel] = event;
+  mPendingExtensionEvents[channel] = event;
 }
 
 void CWiiInput::ProcessConnectionEvents() {
@@ -110,10 +110,10 @@ void CWiiInput::ProcessConnectionEvents() {
   rstl::reserved_vector< EExtensionEvent, 4 > extensions(4);
   CInterruptGuard interrupts;
   for (int i = 0; i < 4; ++i) {
-    connections[i] = xc28_pendingConnectionEvents[i];
-    extensions[i] = xc3c_pendingExtensionEvents[i];
-    xc28_pendingConnectionEvents[i] = kCE_None;
-    xc3c_pendingExtensionEvents[i] = kEE_None;
+    connections[i] = mPendingConnectionEvents[i];
+    extensions[i] = mPendingExtensionEvents[i];
+    mPendingConnectionEvents[i] = kCE_None;
+    mPendingExtensionEvents[i] = kEE_None;
   }
   interrupts.Restore();
 
@@ -121,12 +121,12 @@ void CWiiInput::ProcessConnectionEvents() {
     switch (connections[i]) {
     case kCE_Connected:
       InitializeController(i);
-      if (i == 0 && !xc8c_acceptAdditionalConnections) {
+      if (i == 0 && !mAcceptAdditionalConnections) {
         WPADSetAcceptConnection(false);
       }
       break;
     case kCE_Disconnected:
-      if (i == 0 && !xc8c_acceptAdditionalConnections) {
+      if (i == 0 && !mAcceptAdditionalConnections) {
         WPADSetAcceptConnection(true);
       }
       break;
@@ -152,48 +152,48 @@ void CWiiInput::Update(float dt) {
   KPADUnifiedWpadStatus rawSamples[16];
   ProcessConnectionEvents();
   for (int channel = 0; channel < 1; ++channel) {
-    if (x22c_input[channel].DeviceIsPresent()) {
-      if (x218_controllerTypes[channel] != kDT_Unsupported) {
+    if (mInput[channel].DeviceIsPresent()) {
+      if (mControllerTypes[channel] != kDT_Unsupported) {
         CInterruptGuard interrupts;
         const int count = KPADRead(channel, samples, 16);
         if (count != 0 && samples[0].wpad_err == WPAD_ERR_OK) {
-          CBasics::CopyMemory(&x4_status[channel], samples, sizeof(KPADStatus));
-          xbec_infoPollTimers[channel] -= dt;
-          if (xbec_infoPollTimers[channel] < 0.f) {
-            xbec_infoPollTimers[channel] = 5.f;
-            WPADGetInfoAsync(channel, &xb88_wpadInfoBuf[channel], WpadInfoCallback);
+          CBasics::CopyMemory(&mStatus[channel], samples, sizeof(KPADStatus));
+          mInfoPollTimers[channel] -= dt;
+          if (mInfoPollTimers[channel] < 0.f) {
+            mInfoPollTimers[channel] = 5.f;
+            WPADGetInfoAsync(channel, &mWpadInfoBuf[channel], WpadInfoCallback);
           }
           UpdateIdleTimes(channel, dt);
-          if (!xa88_motionProcessors[channel].null()) {
+          if (!mMotionProcessors[channel].null()) {
             KPADGetUnifiedWpadStatus(channel, rawSamples, 16);
             interrupts.Restore();
             if (rawSamples[0].u.core.err == WPAD_ERR_OK &&
                 rawSamples[0].u.core.dev == WPAD_DEV_FS && uint(rawSamples[0].fmt - 3) <= 2) {
               for (int i = count - 1; i >= 0; --i) {
-                xa88_motionProcessors[channel]->Update(rawSamples[i].u.fs, samples[i], 0.005f);
+                mMotionProcessors[channel]->Update(rawSamples[i].u.fs, samples[i], 0.005f);
               }
-              x22c_input[channel].x20_motionMask = xa88_motionProcessors[channel]->GetMotionMask();
-              x22c_input[channel].x24_swingMask = xa88_motionProcessors[channel]->GetSwingMask();
+              mInput[channel].mMotionMask = mMotionProcessors[channel]->GetMotionMask();
+              mInput[channel].mSwingMask = mMotionProcessors[channel]->GetSwingMask();
             }
           }
           ProcessControllerInput(channel);
         }
       }
-      if (uint(x218_controllerTypes[channel] - kDT_Unsupported) <= 1) {
-        CBasics::ZeroMemory(&x4_status[channel], sizeof(KPADStatus));
-        x4_status[channel].dev_type = 0xff;
-        x4_status[channel].wpad_err = 0;
+      if (uint(mControllerTypes[channel] - kDT_Unsupported) <= 1) {
+        CBasics::ZeroMemory(&mStatus[channel], sizeof(KPADStatus));
+        mStatus[channel].dev_type = 0xff;
+        mStatus[channel].wpad_err = 0;
       }
     } else {
-      CBasics::ZeroMemory(&x4_status[channel], sizeof(KPADStatus));
-      x4_status[channel].dev_type = 0xff;
-      x4_status[channel].wpad_err = 0;
+      CBasics::ZeroMemory(&mStatus[channel], sizeof(KPADStatus));
+      mStatus[channel].dev_type = 0xff;
+      mStatus[channel].wpad_err = 0;
     }
   }
 }
 
 bool CWiiInput::IsPointerValid(int channel) const {
-  if (IsPointerDevicePresent(channel) && x4_status[channel].dpd_valid_fg > 0) {
+  if (IsPointerDevicePresent(channel) && mStatus[channel].dpd_valid_fg > 0) {
     return true;
   }
   return false;
@@ -205,10 +205,10 @@ bool CWiiInput::IsPointerDevicePresent(int channel) const {
     return false;
   }
 #endif
-  if (channel >= 4 || !x22c_input[channel].DeviceIsPresent()) {
+  if (channel >= 4 || !mInput[channel].DeviceIsPresent()) {
     return false;
   }
-  switch (x218_controllerTypes[channel]) {
+  switch (mControllerTypes[channel]) {
   case kDT_Wiimote:
   case kDT_Nunchuk:
   case kDT_Classic:
@@ -220,154 +220,154 @@ bool CWiiInput::IsPointerDevicePresent(int channel) const {
 
 CControllerData::EPointerState CWiiInput::GetPointerState(int channel) const {
   if (IsPointerDevicePresent(channel)) {
-    return x22c_input[channel].GetPointerState();
+    return mInput[channel].GetPointerState();
   }
   return CControllerData::kPS_RecentlyLost;
 }
 
 uint CWiiInput::GetPointerValidFrameCount(int channel) const {
-  return x22c_input[channel].GetPointerValidFrameCount();
+  return mInput[channel].GetPointerValidFrameCount();
 }
 
 uint CWiiInput::GetPointerInvalidFrameCount(int channel) const {
-  return x22c_input[channel].GetPointerInvalidFrameCount();
+  return mInput[channel].GetPointerInvalidFrameCount();
 }
 
 CVector2f CWiiInput::GetPointerPosition(int channel) const {
-  return x22c_input[channel].GetPointerPosition();
+  return mInput[channel].GetPointerPosition();
 }
 
 void CWiiInput::ApplyPointerDistanceScale(int channel) {
-  const float distance = (x22c_input[channel].x1c_pointerDistance - xc7c_pointerMinDistance) /
-                         (xc80_pointerMaxDistance - xc7c_pointerMinDistance);
-  const float scale = xc84_pointerMinScale + (xc88_pointerMaxScale - xc84_pointerMinScale) *
+  const float distance = (mInput[channel].mPointerDistance - mPointerMinDistance) /
+                         (mPointerMaxDistance - mPointerMinDistance);
+  const float scale = mPointerMinScale + (mPointerMaxScale - mPointerMinScale) *
                                                  CMath::FastMin(CMath::FastMax(0.f, distance), 1.f);
-  x4_status[channel].pos.x =
-      CMath::FastMin(CMath::FastMax(-1.f, x4_status[channel].pos.x * scale), 1.f);
+  mStatus[channel].pos.x =
+      CMath::FastMin(CMath::FastMax(-1.f, mStatus[channel].pos.x * scale), 1.f);
 }
 
 void CWiiInput::UpdatePointerState(int channel) {
   const bool valid = IsPointerValid(channel);
-  CControllerData& input = x22c_input[channel];
+  CControllerData& input = mInput[channel];
   if (valid) {
-    ++input.xc_pointerValidFrameCount;
-    input.x10_pointerInvalidFrameCount = 0;
+    ++input.mPointerValidFrameCount;
+    input.mPointerInvalidFrameCount = 0;
   } else {
-    ++input.x10_pointerInvalidFrameCount;
-    input.xc_pointerValidFrameCount = 0;
+    ++input.mPointerInvalidFrameCount;
+    input.mPointerValidFrameCount = 0;
   }
 
-  if (input.x8_pointerState == CControllerData::kPS_Tracking) {
+  if (input.mPointerState == CControllerData::kPS_Tracking) {
     if (valid) {
-      input.x14_pointerPosition[0] = xc50_pointerFilterX[channel]->Filter(x4_status[channel].pos.x);
-      input.x14_pointerPosition[1] = xc64_pointerFilterY[channel]->Filter(x4_status[channel].pos.y);
-      x4_status[channel].pos.x = input.x14_pointerPosition.GetX();
-      x4_status[channel].pos.y = input.x14_pointerPosition.GetY();
+      input.mPointerPosition[0] = mPointerFilterX[channel]->Filter(mStatus[channel].pos.x);
+      input.mPointerPosition[1] = mPointerFilterY[channel]->Filter(mStatus[channel].pos.y);
+      mStatus[channel].pos.x = input.mPointerPosition.GetX();
+      mStatus[channel].pos.y = input.mPointerPosition.GetY();
     } else {
-      input.x8_pointerState = CControllerData::kPS_RecentlyLost;
-      x4_status[channel].pos.x = input.x14_pointerPosition.GetX();
-      x4_status[channel].pos.y = input.x14_pointerPosition.GetY();
+      input.mPointerState = CControllerData::kPS_RecentlyLost;
+      mStatus[channel].pos.x = input.mPointerPosition.GetX();
+      mStatus[channel].pos.y = input.mPointerPosition.GetY();
     }
-  } else if (input.x8_pointerState == CControllerData::kPS_RecentlyLost) {
+  } else if (input.mPointerState == CControllerData::kPS_RecentlyLost) {
     if (valid) {
-      if (input.xc_pointerValidFrameCount >= 3) {
-        input.x8_pointerState = CControllerData::kPS_Reacquiring;
-        input.xc_pointerValidFrameCount = 0;
-        xa74_pointerReacquireFrames[channel] = 0;
+      if (input.mPointerValidFrameCount >= 3) {
+        input.mPointerState = CControllerData::kPS_Reacquiring;
+        input.mPointerValidFrameCount = 0;
+        mPointerReacquireFrames[channel] = 0;
       }
-    } else if (input.x10_pointerInvalidFrameCount >= 120) {
-      input.x8_pointerState = CControllerData::kPS_Lost;
+    } else if (input.mPointerInvalidFrameCount >= 120) {
+      input.mPointerState = CControllerData::kPS_Lost;
     }
-    x4_status[channel].pos.x = input.x14_pointerPosition.GetX();
-    x4_status[channel].pos.y = input.x14_pointerPosition.GetY();
-  } else if (input.x8_pointerState == CControllerData::kPS_Lost) {
+    mStatus[channel].pos.x = input.mPointerPosition.GetX();
+    mStatus[channel].pos.y = input.mPointerPosition.GetY();
+  } else if (input.mPointerState == CControllerData::kPS_Lost) {
     bool recenter = true;
-    if (valid && input.xc_pointerValidFrameCount > 3) {
-      input.x8_pointerState = CControllerData::kPS_Reacquiring;
-      input.xc_pointerValidFrameCount = 0;
+    if (valid && input.mPointerValidFrameCount > 3) {
+      input.mPointerState = CControllerData::kPS_Reacquiring;
+      input.mPointerValidFrameCount = 0;
       recenter = false;
     }
     if (recenter) {
-      if (xa60_pointerRecenterMode[channel] == kPRM_Both) {
-        if (input.x14_pointerPosition.IsMagnitudeSafe()) {
-          const float magnitude = input.x14_pointerPosition.Magnitude() * 0.95f;
-          input.x14_pointerPosition = input.x14_pointerPosition.AsNormalized() * magnitude;
+      if (mPointerRecenterMode[channel] == kPRM_Both) {
+        if (input.mPointerPosition.IsMagnitudeSafe()) {
+          const float magnitude = input.mPointerPosition.Magnitude() * 0.95f;
+          input.mPointerPosition = input.mPointerPosition.AsNormalized() * magnitude;
         }
-      } else if (xa60_pointerRecenterMode[channel] == kPRM_X) {
-        input.x14_pointerPosition[0] *= 0.95f;
-      } else if (xa60_pointerRecenterMode[channel] == kPRM_Y) {
-        input.x14_pointerPosition[1] *= 0.95f;
+      } else if (mPointerRecenterMode[channel] == kPRM_X) {
+        input.mPointerPosition[0] *= 0.95f;
+      } else if (mPointerRecenterMode[channel] == kPRM_Y) {
+        input.mPointerPosition[1] *= 0.95f;
       }
     }
-    x4_status[channel].pos.x = input.x14_pointerPosition.GetX();
-    x4_status[channel].pos.y = input.x14_pointerPosition.GetY();
-  } else if (input.x8_pointerState == CControllerData::kPS_Reacquiring) {
+    mStatus[channel].pos.x = input.mPointerPosition.GetX();
+    mStatus[channel].pos.y = input.mPointerPosition.GetY();
+  } else if (input.mPointerState == CControllerData::kPS_Reacquiring) {
     if (valid) {
-      if (++xa74_pointerReacquireFrames[channel] >= 10) {
-        input.x8_pointerState = CControllerData::kPS_Tracking;
+      if (++mPointerReacquireFrames[channel] >= 10) {
+        input.mPointerState = CControllerData::kPS_Tracking;
       }
-      x4_status[channel].pos.x = xc50_pointerFilterX[channel]->Filter(x4_status[channel].pos.x);
-      x4_status[channel].pos.y = xc64_pointerFilterY[channel]->Filter(x4_status[channel].pos.y);
+      mStatus[channel].pos.x = mPointerFilterX[channel]->Filter(mStatus[channel].pos.x);
+      mStatus[channel].pos.y = mPointerFilterY[channel]->Filter(mStatus[channel].pos.y);
       const float blend =
-          CMath::FastMin(CMath::FastMax(0.f, xa74_pointerReacquireFrames[channel] / 10.f), 1.f);
-      input.x14_pointerPosition[0] =
-          (1.f - blend) * input.x14_pointerPosition.GetX() + blend * x4_status[channel].pos.x;
-      input.x14_pointerPosition[1] =
-          (1.f - blend) * input.x14_pointerPosition.GetY() + blend * x4_status[channel].pos.y;
+          CMath::FastMin(CMath::FastMax(0.f, mPointerReacquireFrames[channel] / 10.f), 1.f);
+      input.mPointerPosition[0] =
+          (1.f - blend) * input.mPointerPosition.GetX() + blend * mStatus[channel].pos.x;
+      input.mPointerPosition[1] =
+          (1.f - blend) * input.mPointerPosition.GetY() + blend * mStatus[channel].pos.y;
     } else {
-      input.x8_pointerState = CControllerData::kPS_Lost;
+      input.mPointerState = CControllerData::kPS_Lost;
     }
   }
 }
 
 void CWiiInput::ProcessControllerInput(int channel) {
-  if (IsPointerDevicePresent(channel) && x4_status[channel].wpad_err == WPAD_ERR_OK) {
+  if (IsPointerDevicePresent(channel) && mStatus[channel].wpad_err == WPAD_ERR_OK) {
     if (IsPointerValid(channel)) {
-      x22c_input[channel].x1c_pointerDistance = x4_status[channel].dist;
+      mInput[channel].mPointerDistance = mStatus[channel].dist;
       ApplyPointerDistanceScale(channel);
     }
     UpdatePointerState(channel);
   }
-  if (!x22c_input[channel].DeviceIsPresent()) {
+  if (!mInput[channel].DeviceIsPresent()) {
     return;
   }
   ClearButtonEvents(channel);
-  CControllerData& input = x22c_input[channel];
-  switch (x218_controllerTypes[channel]) {
+  CControllerData& input = mInput[channel];
+  switch (mControllerTypes[channel]) {
   case kDT_Nunchuk:
-    if (x4_status[channel].wpad_err == WPAD_ERR_OK) {
-      UpdateAnalogInput(0.7f, channel, 0, input.xe4_buttons[20], input.xe4_buttons[19]);
-      UpdateAnalogInput(0.7f, channel, 1, input.xe4_buttons[16], input.xe4_buttons[13]);
-      UpdateAnalogInput(0.7f, channel, 2, input.xe4_buttons[14], input.xe4_buttons[18]);
-      UpdateAnalogInput(0.7f, channel, 3, input.xe4_buttons[17], input.xe4_buttons[15]);
-      UpdateAnalogInput(0.5f, channel, 4, input.xe4_buttons[23], input.xe4_buttons[24]);
-      UpdateAnalogInput(0.5f, channel, 5, input.xe4_buttons[25], input.xe4_buttons[26]);
+    if (mStatus[channel].wpad_err == WPAD_ERR_OK) {
+      UpdateAnalogInput(0.7f, channel, 0, input.mButtons[20], input.mButtons[19]);
+      UpdateAnalogInput(0.7f, channel, 1, input.mButtons[16], input.mButtons[13]);
+      UpdateAnalogInput(0.7f, channel, 2, input.mButtons[14], input.mButtons[18]);
+      UpdateAnalogInput(0.7f, channel, 3, input.mButtons[17], input.mButtons[15]);
+      UpdateAnalogInput(0.5f, channel, 4, input.mButtons[23], input.mButtons[24]);
+      UpdateAnalogInput(0.5f, channel, 5, input.mButtons[25], input.mButtons[26]);
       UpdateContinuousAngleAxis(channel, 0);
       UpdateContinuousAngleAxis(channel, 1);
     }
   case kDT_Classic:
   case kDT_Wiimote:
-    if (x4_status[channel].wpad_err == WPAD_ERR_OK) {
-      UpdateAnalogInput(0.7f, channel, 6, input.xe4_buttons[30], input.xe4_buttons[29]);
-      UpdateAnalogInput(0.7f, channel, 7, input.xe4_buttons[27], input.xe4_buttons[28]);
-      UpdateAnalogInput(0.5f, channel, 8, input.xe4_buttons[31], input.xe4_buttons[32]);
-      UpdateAnalogInput(0.5f, channel, 9, input.xe4_buttons[33], input.xe4_buttons[34]);
+    if (mStatus[channel].wpad_err == WPAD_ERR_OK) {
+      UpdateAnalogInput(0.7f, channel, 6, input.mButtons[30], input.mButtons[29]);
+      UpdateAnalogInput(0.7f, channel, 7, input.mButtons[27], input.mButtons[28]);
+      UpdateAnalogInput(0.5f, channel, 8, input.mButtons[31], input.mButtons[32]);
+      UpdateAnalogInput(0.5f, channel, 9, input.mButtons[33], input.mButtons[34]);
       UpdateContinuousAngleAxis(channel, 2);
       UpdateContinuousAngleAxis(channel, 3);
-      if (!xa88_motionProcessors[channel].null()) {
-        input.SetSwingMask(0, xa88_motionProcessors[channel]->GetSwingMask(0));
-        input.SetSwingMask(1, xa88_motionProcessors[channel]->GetSwingMask(1));
+      if (!mMotionProcessors[channel].null()) {
+        input.SetSwingMask(0, mMotionProcessors[channel]->GetSwingMask(0));
+        input.SetSwingMask(1, mMotionProcessors[channel]->GetSwingMask(1));
       }
     }
     break;
   }
-  if (x218_controllerTypes[channel] == kDT_Unsupported) {
-    CBasics::ZeroMemory(&x4_status[channel], sizeof(KPADStatus));
-    x4_status[channel].dev_type = 0xff;
+  if (mControllerTypes[channel] == kDT_Unsupported) {
+    CBasics::ZeroMemory(&mStatus[channel], sizeof(KPADStatus));
+    mStatus[channel].dev_type = 0xff;
     for (int i = 0; i < 64; ++i) {
-      input.xe4_buttons[i].SetIsPressed(false);
-      input.xe4_buttons[i].SetPressEvent(false);
-      input.xe4_buttons[i].SetReleaseEvent(false);
+      input.mButtons[i].SetIsPressed(false);
+      input.mButtons[i].SetPressEvent(false);
+      input.mButtons[i].SetReleaseEvent(false);
     }
   } else {
     UpdateDigitalInput(channel);
@@ -377,17 +377,17 @@ void CWiiInput::ProcessControllerInput(int channel) {
 void CWiiInput::UpdateAnalogInput(float threshold, int channel, int axis,
                                   CControllerButton& negativeButton,
                                   CControllerButton& positiveButton) {
-  CControllerData& input = x22c_input[channel];
+  CControllerData& input = mInput[channel];
   if (!input.DeviceIsPresent()) {
     return;
   }
   float value = 0.f;
-  const float previous = input.x28_axes[axis].GetAbsoluteValue();
-  switch (x218_controllerTypes[channel]) {
+  const float previous = input.mAxes[axis].GetAbsoluteValue();
+  switch (mControllerTypes[channel]) {
   case kDT_Nunchuk:
     if (axis == 0) {
-      CVector2f stick(x4_status[channel].ex_status.fs.stick.x,
-                      x4_status[channel].ex_status.fs.stick.y);
+      CVector2f stick(mStatus[channel].ex_status.fs.stick.x,
+                      mStatus[channel].ex_status.fs.stick.y);
       if (stick.IsMagnitudeSafe()) {
         const float magnitude =
             CMath::FastMin(CMath::FastMax(0.f, stick.Magnitude() / 0.707f), 1.f);
@@ -395,8 +395,8 @@ void CWiiInput::UpdateAnalogInput(float threshold, int channel, int axis,
       }
       value = stick.GetX();
     } else if (axis == 1) {
-      CVector2f stick(x4_status[channel].ex_status.fs.stick.x,
-                      x4_status[channel].ex_status.fs.stick.y);
+      CVector2f stick(mStatus[channel].ex_status.fs.stick.x,
+                      mStatus[channel].ex_status.fs.stick.y);
       if (stick.IsMagnitudeSafe()) {
         const float magnitude =
             CMath::FastMin(CMath::FastMax(0.f, stick.Magnitude() / 0.707f), 1.f);
@@ -404,50 +404,50 @@ void CWiiInput::UpdateAnalogInput(float threshold, int channel, int axis,
       }
       value = stick.GetY();
     } else if (axis == 2) {
-      const CVector2f stick(x4_status[channel].ex_status.fs.stick.x,
-                            x4_status[channel].ex_status.fs.stick.y);
+      const CVector2f stick(mStatus[channel].ex_status.fs.stick.x,
+                            mStatus[channel].ex_status.fs.stick.y);
       if (stick.IsMagnitudeSafe()) {
         value = CVector2f::Dot(stick, CVector2f(1.f, -1.f).AsNormalized()) / 1.4142135f / 0.707f;
         value = CMath::FastMin(CMath::FastMax(0.f, value), 1.f);
       }
     } else if (axis == 3) {
-      const CVector2f stick(x4_status[channel].ex_status.fs.stick.x,
-                            x4_status[channel].ex_status.fs.stick.y);
+      const CVector2f stick(mStatus[channel].ex_status.fs.stick.x,
+                            mStatus[channel].ex_status.fs.stick.y);
       if (stick.IsMagnitudeSafe()) {
         value = CVector2f::Dot(stick, CVector2f(1.f, 1.f).AsNormalized()) / 1.4142135f / 0.707f;
         value = CMath::FastMin(CMath::FastMax(0.f, value), 1.f);
       }
     } else if (axis == 4) {
-      if (!xa88_motionProcessors[channel].null()) {
+      if (!mMotionProcessors[channel].null()) {
         value =
-            xa88_motionProcessors[channel]->GetNunchukTracker().GetWrappedRoll() / (M_PIF / 2.f);
+            mMotionProcessors[channel]->GetNunchukTracker().GetWrappedRoll() / (M_PIF / 2.f);
         value = CMath::FastMin(CMath::FastMax(-2.f, value), 2.f);
       }
-    } else if (axis == 5 && !xa88_motionProcessors[channel].null()) {
-      value = xa88_motionProcessors[channel]->GetNunchukTracker().GetWrappedPitch() / (M_PIF / 2.f);
+    } else if (axis == 5 && !mMotionProcessors[channel].null()) {
+      value = mMotionProcessors[channel]->GetNunchukTracker().GetWrappedPitch() / (M_PIF / 2.f);
       value = CMath::FastMin(CMath::FastMax(-2.f, value), 2.f);
     }
   case kDT_Classic:
   case kDT_Wiimote:
     if (axis == 6) {
-      value = x4_status[channel].pos.x;
+      value = mStatus[channel].pos.x;
     } else if (axis == 7) {
-      value = x4_status[channel].pos.y;
+      value = mStatus[channel].pos.y;
     } else if (axis == 8) {
-      if (!xa88_motionProcessors[channel].null()) {
+      if (!mMotionProcessors[channel].null()) {
         value =
-            xa88_motionProcessors[channel]->GetWiimoteTracker().GetWrappedRoll() / (M_PIF / 2.f);
+            mMotionProcessors[channel]->GetWiimoteTracker().GetWrappedRoll() / (M_PIF / 2.f);
         value = CMath::FastMin(CMath::FastMax(-2.f, value), 2.f);
       }
-    } else if (axis == 9 && !xa88_motionProcessors[channel].null()) {
-      value = xa88_motionProcessors[channel]->GetWiimoteTracker().GetWrappedPitch() / (M_PIF / 2.f);
+    } else if (axis == 9 && !mMotionProcessors[channel].null()) {
+      value = mMotionProcessors[channel]->GetWiimoteTracker().GetWrappedPitch() / (M_PIF / 2.f);
       value = CMath::FastMin(CMath::FastMax(-2.f, value), 2.f);
     }
     break;
   }
 
-  input.x28_axes[axis].SetRelativeValue(value - input.x28_axes[axis].GetAbsoluteValue());
-  input.x28_axes[axis].SetAbsoluteValue(value);
+  input.mAxes[axis].SetRelativeValue(value - input.mAxes[axis].GetAbsoluteValue());
+  input.mAxes[axis].SetAbsoluteValue(value);
   const bool wasNegative = negativeButton.GetIsPressed();
   bool negative = wasNegative;
   if (!negative) {
@@ -482,23 +482,23 @@ void CWiiInput::UpdateAnalogInput(float threshold, int channel, int axis,
 }
 
 void CWiiInput::UpdateContinuousAngleAxis(int channel, int axis) {
-  CControllerData& input = x22c_input[channel];
+  CControllerData& input = mInput[channel];
   if (!input.DeviceIsPresent()) {
     return;
   }
-  CControllerAxis& data = input.xac_continuousAngleAxes[axis];
+  CControllerAxis& data = input.mContinuousAngleAxes[axis];
   float value = 0.f;
-  switch (x218_controllerTypes[channel]) {
+  switch (mControllerTypes[channel]) {
   case kDT_Nunchuk:
     switch (axis) {
     case 0:
-      if (!xa88_motionProcessors[channel].null()) {
-        value = xa88_motionProcessors[channel]->GetNunchukTracker().GetContinuousRoll();
+      if (!mMotionProcessors[channel].null()) {
+        value = mMotionProcessors[channel]->GetNunchukTracker().GetContinuousRoll();
       }
       break;
     case 1:
-      if (!xa88_motionProcessors[channel].null()) {
-        value = xa88_motionProcessors[channel]->GetNunchukTracker().GetContinuousPitch();
+      if (!mMotionProcessors[channel].null()) {
+        value = mMotionProcessors[channel]->GetNunchukTracker().GetContinuousPitch();
       }
       break;
     }
@@ -506,13 +506,13 @@ void CWiiInput::UpdateContinuousAngleAxis(int channel, int axis) {
   case kDT_Wiimote:
     switch (axis) {
     case 2:
-      if (!xa88_motionProcessors[channel].null()) {
-        value = xa88_motionProcessors[channel]->GetWiimoteTracker().GetContinuousRoll();
+      if (!mMotionProcessors[channel].null()) {
+        value = mMotionProcessors[channel]->GetWiimoteTracker().GetContinuousRoll();
       }
       break;
     case 3:
-      if (!xa88_motionProcessors[channel].null()) {
-        value = xa88_motionProcessors[channel]->GetWiimoteTracker().GetContinuousPitch();
+      if (!mMotionProcessors[channel].null()) {
+        value = mMotionProcessors[channel]->GetWiimoteTracker().GetContinuousPitch();
       }
       break;
     }
@@ -523,37 +523,37 @@ void CWiiInput::UpdateContinuousAngleAxis(int channel, int axis) {
 }
 
 void CWiiInput::ClearButtonEvents(int channel) {
-  CControllerData& input = x22c_input[channel];
+  CControllerData& input = mInput[channel];
   if (!input.DeviceIsPresent()) {
     return;
   }
   for (int i = 0; i < 64; ++i) {
     if (sButtonMasks[i] != 0) {
-      input.xe4_buttons[i].SetPressEvent(false);
-      input.xe4_buttons[i].SetReleaseEvent(false);
+      input.mButtons[i].SetPressEvent(false);
+      input.mButtons[i].SetReleaseEvent(false);
     }
   }
   for (int i = 0; i < 16; ++i) {
     if (sMotionButtonMasks[i] != 0) {
-      input.x1a8_motionButtons[i].SetPressEvent(false);
-      input.x1a8_motionButtons[i].SetReleaseEvent(false);
+      input.mMotionButtons[i].SetPressEvent(false);
+      input.mMotionButtons[i].SetReleaseEvent(false);
     }
   }
   for (int i = 0; i < 12; ++i) {
     if (sSwingButtonMasks[i] != 0) {
-      input.x1dc_swingButtons[i].SetPressEvent(false);
-      input.x1dc_swingButtons[i].SetReleaseEvent(false);
+      input.mSwingButtons[i].SetPressEvent(false);
+      input.mSwingButtons[i].SetReleaseEvent(false);
     }
   }
 }
 
 void CWiiInput::UpdateDigitalInput(int channel) {
-  if (x22c_input[channel].DeviceIsPresent()) {
-    if (int(x218_controllerTypes[channel]) >= 0 && int(x218_controllerTypes[channel]) < 3) {
-      const uint held = x4_status[channel].hold;
+  if (mInput[channel].DeviceIsPresent()) {
+    if (int(mControllerTypes[channel]) >= 0 && int(mControllerTypes[channel]) < 3) {
+      const uint held = mStatus[channel].hold;
       for (int i = 1; i < 35; ++i) {
         if (sButtonMasks[i] != 0) {
-          UpdateButton(held, x22c_input[channel].xe4_buttons[i], sButtonMasks[i]);
+          UpdateButton(held, mInput[channel].mButtons[i], sButtonMasks[i]);
         }
       }
     }
@@ -572,11 +572,11 @@ void CWiiInput::UpdateButton(uint heldMask, CControllerButton& button, uint mask
 }
 
 void CWiiInput::UpdateMotionButton(int channel, CControllerButton& button, uint mask) {
-  if (!x22c_input[channel].DeviceIsPresent()) {
+  if (!mInput[channel].DeviceIsPresent()) {
     return;
   }
   const int wasPressed = button.GetIsPressed();
-  const bool pressed = (x22c_input[channel].x20_motionMask & mask) != 0;
+  const bool pressed = (mInput[channel].mMotionMask & mask) != 0;
   button.SetIsPressed(pressed);
   const int changed = pressed ^ wasPressed;
   button.SetPressEvent(pressed & changed);
@@ -584,22 +584,22 @@ void CWiiInput::UpdateMotionButton(int channel, CControllerButton& button, uint 
 }
 
 void CWiiInput::UpdateMotionButtons(int channel) {
-  CControllerData& input = x22c_input[channel];
+  CControllerData& input = mInput[channel];
   if (input.DeviceIsPresent()) {
     for (int i = 0; i < 16; ++i) {
       if (sMotionButtonMasks[i] != 0) {
-        UpdateMotionButton(channel, input.x1a8_motionButtons[i], sMotionButtonMasks[i]);
+        UpdateMotionButton(channel, input.mMotionButtons[i], sMotionButtonMasks[i]);
       }
     }
   }
 }
 
 void CWiiInput::UpdateSwingButton(int channel, CControllerButton& button, uint mask) {
-  if (!x22c_input[channel].DeviceIsPresent()) {
+  if (!mInput[channel].DeviceIsPresent()) {
     return;
   }
   const int wasPressed = button.GetIsPressed();
-  const bool pressed = (x22c_input[channel].x24_swingMask & mask) != 0;
+  const bool pressed = (mInput[channel].mSwingMask & mask) != 0;
   button.SetIsPressed(pressed);
   const int changed = pressed ^ wasPressed;
   button.SetPressEvent(pressed & changed);
@@ -607,11 +607,11 @@ void CWiiInput::UpdateSwingButton(int channel, CControllerButton& button, uint m
 }
 
 void CWiiInput::UpdateSwingButtons(int channel) {
-  CControllerData& input = x22c_input[channel];
+  CControllerData& input = mInput[channel];
   if (input.DeviceIsPresent()) {
     for (int i = 0; i < 12; ++i) {
       if (sSwingButtonMasks[i] != 0) {
-        UpdateSwingButton(channel, input.x1dc_swingButtons[i], sSwingButtonMasks[i]);
+        UpdateSwingButton(channel, input.mSwingButtons[i], sSwingButtonMasks[i]);
       }
     }
   }
@@ -623,9 +623,9 @@ void CWiiInput::SetMotorState(int channel, EMotorState state) {
     return;
   }
 #endif
-  if (x22c_input[channel].DeviceIsPresent()) {
-    x22c_input[channel].x4_motorState = state;
-    if (!IsControllerIdle(channel) && channel < 4 && (xc78_motorEnabledFlags & (1 << channel))) {
+  if (mInput[channel].DeviceIsPresent()) {
+    mInput[channel].mMotorState = state;
+    if (!IsControllerIdle(channel) && channel < 4 && (mMotorEnabledFlags & (1 << channel))) {
       switch (state) {
       case kMS_Rumble:
         WPADControlMotor(channel, WPAD_MOTOR_RUMBLE);
@@ -649,10 +649,10 @@ void CWiiInput::SetMotorEnabled(int channel, bool enabled) {
   }
   const uint bit = 1 << channel;
   const uint value = uint(enabled) << channel;
-  if (value == (xc78_motorEnabledFlags & bit)) {
+  if (value == (mMotorEnabledFlags & bit)) {
     return;
   }
-  xc78_motorEnabledFlags = (xc78_motorEnabledFlags & ~bit) | value;
+  mMotorEnabledFlags = (mMotorEnabledFlags & ~bit) | value;
   if (!enabled) {
     WPADControlMotor(channel, 0);
   }
@@ -666,7 +666,7 @@ bool CWiiInput::HasMotionActivity(uint channel) const {
 #endif
     return false;
   }
-  const KPADStatus& status = x4_status[channel];
+  const KPADStatus& status = mStatus[channel];
   if (status.dev_type > WPAD_DEV_FS) {
     return false;
   }
@@ -683,7 +683,7 @@ float CWiiInput::GetMotionIdleTime(uint channel) const {
 #else
   if (channel <= 4) {
 #endif
-    return xc00_motionIdleTimes[channel];
+    return mMotionIdleTimes[channel];
   }
   return 0.f;
 }
@@ -696,7 +696,7 @@ bool CWiiInput::HasButtonActivity(uint channel) const {
 #endif
     return false;
   }
-  const KPADStatus& status = x4_status[channel];
+  const KPADStatus& status = mStatus[channel];
   if (status.dev_type > WPAD_DEV_FS) {
     return false;
   }
@@ -718,7 +718,7 @@ float CWiiInput::GetButtonIdleTime(uint channel) const {
 #else
   if (channel <= 4) {
 #endif
-    return xc14_buttonIdleTimes[channel];
+    return mButtonIdleTimes[channel];
   }
   return 0.f;
 }
@@ -733,18 +733,18 @@ void CWiiInput::UpdateIdleTimes(uint channel, float dt) {
 #endif
     return;
   }
-  if (x4_status[channel].dev_type <= WPAD_DEV_FS) {
+  if (mStatus[channel].dev_type <= WPAD_DEV_FS) {
     if (HasMotionActivity(channel)) {
-      xc00_motionIdleTimes[channel] = 0.f;
+      mMotionIdleTimes[channel] = 0.f;
     } else {
-      xc00_motionIdleTimes[channel] += dt;
+      mMotionIdleTimes[channel] += dt;
     }
     if (HasButtonActivity(channel)) {
-      xc14_buttonIdleTimes[channel] = 0.f;
+      mButtonIdleTimes[channel] = 0.f;
     } else {
-      const float previous = xc14_buttonIdleTimes[channel];
-      xc14_buttonIdleTimes[channel] += dt;
-      if (previous < 60.f && xc14_buttonIdleTimes[channel] >= 60.f) {
+      const float previous = mButtonIdleTimes[channel];
+      mButtonIdleTimes[channel] += dt;
+      if (previous < 60.f && mButtonIdleTimes[channel] >= 60.f) {
         WPADControlMotor(channel, 0);
       }
     }
@@ -753,14 +753,14 @@ void CWiiInput::UpdateIdleTimes(uint channel, float dt) {
 
 bool CWiiInput::Initialize() {
   for (int i = 0; i < 4; ++i) {
-    x22c_input[i].x0_connected = false;
-    x22c_input[i].x14_pointerPosition = CVector2f::Zero();
-    x22c_input[i].x4_motorState = kMS_StopHard;
-    x22c_input[i].x8_pointerState = CControllerData::kPS_Tracking;
+    mInput[i].mConnected = false;
+    mInput[i].mPointerPosition = CVector2f::Zero();
+    mInput[i].mMotorState = kMS_StopHard;
+    mInput[i].mPointerState = CControllerData::kPS_Tracking;
   }
   for (int i = 0; i < 4; ++i) {
-    xc50_pointerFilterX[i] = rs_new CAdaptiveInputFilter(2, 3, 0, 0.1f);
-    xc64_pointerFilterY[i] = rs_new CAdaptiveInputFilter(2, 3, 0, 0.1f);
+    mPointerFilterX[i] = rs_new CAdaptiveInputFilter(2, 3, 0, 0.1f);
+    mPointerFilterY[i] = rs_new CAdaptiveInputFilter(2, 3, 0, 0.1f);
   }
 
   VIWaitForRetrace();
@@ -777,9 +777,9 @@ bool CWiiInput::Initialize() {
     KPADSetDistParam(i, 0.05f, 1.f);
     KPADDisableAimingMode(i);
     WPADSetConnectCallback(i, WpadConnectCallback);
-    xbec_infoPollTimers[i] = 1.f;
-    xc00_motionIdleTimes[i] = 0.f;
-    xc14_buttonIdleTimes[i] = 0.f;
+    mInfoPollTimers[i] = 1.f;
+    mMotionIdleTimes[i] = 0.f;
+    mButtonIdleTimes[i] = 0.f;
   }
   return true;
 }
@@ -792,16 +792,16 @@ void CWiiInput::InitializeController(uint channel) {
 #endif
     return;
   }
-  if (int(x218_controllerTypes[channel]) >= 0 && int(x218_controllerTypes[channel]) < 3) {
-    if (xa88_motionProcessors[channel].null()) {
+  if (int(mControllerTypes[channel]) >= 0 && int(mControllerTypes[channel]) < 3) {
+    if (mMotionProcessors[channel].null()) {
       rstl::single_ptr< CWiiMotionProcessor > processor(rs_new CWiiMotionProcessor(channel, 0));
-      xa88_motionProcessors[channel] = processor;
+      mMotionProcessors[channel] = processor;
     }
-    if (!xa88_motionProcessors[channel].null()) {
-      xa88_motionProcessors[channel]->ConfigureFiltersAndCalibration(channel);
+    if (!mMotionProcessors[channel].null()) {
+      mMotionProcessors[channel]->ConfigureFiltersAndCalibration(channel);
     }
-    x22c_input[channel] = CControllerData();
-    x22c_input[channel].x0_connected = true;
+    mInput[channel] = CControllerData();
+    mInput[channel].mConnected = true;
   }
 }
 
@@ -813,19 +813,19 @@ void CWiiInput::SetPointerRecenterMode(uint channel, EPointerRecenterMode mode) 
 #endif
     return;
   }
-  xa60_pointerRecenterMode[channel] = mode;
+  mPointerRecenterMode[channel] = mode;
 }
 
 void CWiiInput::SetControllerType(int channel, EDeviceType type) {
-  x218_controllerTypes[channel] = type;
-  x22c_input[channel].x0_connected = type != kDT_Disconnected;
+  mControllerTypes[channel] = type;
+  mInput[channel].mConnected = type != kDT_Disconnected;
 }
 
-WPADInfo CWiiInput::GetWpadInfo(int channel) const { return xb24_wpadInfo[channel]; }
+WPADInfo CWiiInput::GetWpadInfo(int channel) const { return mWpadInfo[channel]; }
 
-const KPADStatus& CWiiInput::GetKpadStatus(int channel) const { return x4_status[channel]; }
+const KPADStatus& CWiiInput::GetKpadStatus(int channel) const { return mStatus[channel]; }
 
-void CWiiInput::CopyWpadInfo(int channel) { xb24_wpadInfo[channel] = xb88_wpadInfoBuf[channel]; }
+void CWiiInput::CopyWpadInfo(int channel) { mWpadInfo[channel] = mWpadInfoBuf[channel]; }
 
 void CWiiInput::WpadInfoCallback(s32 channel, s32 result) {
   if (sWiiInput != nullptr && result == 0) {
@@ -894,13 +894,13 @@ void CWiiInput::WpadExtensionCallback(s32 channel, s32 extension) {
 }
 
 void CWiiInput::SetAcceptAdditionalConnections(bool accept) {
-  if (accept == xc8c_acceptAdditionalConnections) {
+  if (accept == mAcceptAdditionalConnections) {
     return;
   }
-  xc8c_acceptAdditionalConnections = accept;
-  if (!xc8c_acceptAdditionalConnections && x22c_input[0].DeviceIsPresent()) {
+  mAcceptAdditionalConnections = accept;
+  if (!mAcceptAdditionalConnections && mInput[0].DeviceIsPresent()) {
     WPADSetAcceptConnection(false);
   }
 }
 
-void CWiiInput::SetInput(const CControllerData& input, int channel) { x22c_input[channel] = input; }
+void CWiiInput::SetInput(const CControllerData& input, int channel) { mInput[channel] = input; }

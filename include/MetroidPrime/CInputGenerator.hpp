@@ -22,10 +22,10 @@ public:
   IController* GetController() const { return gpController; }
 
 private:
-  COsContext* x0_context;
-  bool x4_connectedControllers[4];
-  float x8_leftDivisor;
-  float xc_rightDivisor;
+  COsContext* mContext;
+  bool mConnectedControllers[4];
+  float mLeftDivisor;
+  float mRightDivisor;
 };
 CHECK_SIZEOF(CInputGenerator, 0x10)
 #else

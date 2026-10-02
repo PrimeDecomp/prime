@@ -8,13 +8,13 @@
 // Names inferred from the Trilogy input implementation.
 class CInputQuantizer {
 public:
-  explicit CInputQuantizer(float step) : x0_step(step), x4_increasing(true), x8_bucket(0) {}
+  explicit CInputQuantizer(float step) : mStep(step), mIncreasing(true), mBucket(0) {}
   float Quantize(float value);
 
 private:
-  float x0_step;
-  bool x4_increasing;
-  int x8_bucket;
+  float mStep;
+  bool mIncreasing;
+  int mBucket;
 };
 CHECK_SIZEOF(CInputQuantizer, 0xc)
 
@@ -29,10 +29,10 @@ public:
 protected:
   float UpdateDeviation(float value);
 
-  rstl::reserved_vector< float, 10 > x4_samples;
-  int x30_profile;
-  uint x34_quantizationMode;
-  CInputQuantizer x38_quantizer;
+  rstl::reserved_vector< float, 10 > mSamples;
+  int mProfile;
+  uint mQuantizationMode;
+  CInputQuantizer mQuantizer;
 };
 CHECK_SIZEOF(CScalarInputFilter, 0x44)
 
@@ -52,11 +52,11 @@ private:
   float FilterAdaptiveSlow(float value);
   float FilterAdaptiveFast(float value);
 
-  int x44_algorithm;
-  rstl::reserved_vector< float, 10 > x48_inputs;
-  rstl::reserved_vector< float, 10 > x74_outputs;
-  rstl::reserved_vector< float, 2 > xa0_feedforward;
-  rstl::reserved_vector< float, 2 > xac_feedback;
+  int mAlgorithm;
+  rstl::reserved_vector< float, 10 > mInputs;
+  rstl::reserved_vector< float, 10 > mOutputs;
+  rstl::reserved_vector< float, 2 > mFeedforward;
+  rstl::reserved_vector< float, 2 > mFeedback;
 };
 CHECK_SIZEOF(CAdaptiveInputFilter, 0xb8)
 

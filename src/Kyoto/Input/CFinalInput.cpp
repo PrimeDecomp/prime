@@ -3,16 +3,16 @@
 #if VERSION >= VERSION_R3IJ_00
 
 CFinalInput::CFinalInput(int channel, float dt, const CControllerData& data, uint inputType)
-: x0_dt(dt), x4_controllerIdx(channel), x8_inputType(inputType), xc_controllerData(data) {}
+: mDt(dt), mControllerIdx(channel), mInputType(inputType), mControllerData(data) {}
 
 CFinalInput::CFinalInput()
-: x0_dt(0.0166667f), x4_controllerIdx(0), x8_inputType(4), xc_controllerData() {}
+: mDt(0.0166667f), mControllerIdx(0), mInputType(4), mControllerData() {}
 
 CFinalInput CFinalInput::NoInput(int channel, float dt) {
   return CFinalInput(channel, dt, CControllerData(), 4);
 }
 
-bool CFinalInput::GetKnownDeviceIsPresent() const { return x8_inputType <= 2; }
+bool CFinalInput::GetKnownDeviceIsPresent() const { return mInputType <= 2; }
 
 bool CFinalInput::CheckValidControl(int control) const {
 #if NONMATCHING
@@ -20,7 +20,7 @@ bool CFinalInput::CheckValidControl(int control) const {
     return false;
   }
 #endif
-  switch (x8_inputType) {
+  switch (mInputType) {
   case 0:
     if ((control >= kPC_Home && control <= kPC_AnyDPad) ||
         (control >= kPC_PointerUp && control <= kPC_WiimotePitchPositive)) {
@@ -65,85 +65,85 @@ float CFinalInput::GetAnalog(int control) const {
   case kPC_DPadLeft:
   case kPC_NunchukZ:
   case kPC_NunchukC:
-    return xc_controllerData.GetButton(control).GetIsPressed() ? 1.f : 0.f;
+    return mControllerData.GetButton(control).GetIsPressed() ? 1.f : 0.f;
   case kPC_StickLeft: {
-    const float value = xc_controllerData.GetAxis(0).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(0).GetAbsoluteValue();
     return value < 0.f ? -value : 0.f;
   }
   case kPC_StickRight: {
-    const float value = xc_controllerData.GetAxis(0).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(0).GetAbsoluteValue();
     return value > 0.f ? value : 0.f;
   }
   case kPC_StickDown: {
-    const float value = xc_controllerData.GetAxis(1).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(1).GetAbsoluteValue();
     return value < 0.f ? -value : 0.f;
   }
   case kPC_StickDiagonal3Negative: {
-    const float value = xc_controllerData.GetAxis(3).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(3).GetAbsoluteValue();
     return value < 0.f ? -value : 0.f;
   }
   case kPC_StickDiagonal2Positive: {
-    const float value = xc_controllerData.GetAxis(2).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(2).GetAbsoluteValue();
     return value > 0.f ? -value : 0.f;
   }
   case kPC_StickUp: {
-    const float value = xc_controllerData.GetAxis(1).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(1).GetAbsoluteValue();
     return value > 0.f ? value : 0.f;
   }
   case kPC_StickDiagonal2Negative: {
-    const float value = xc_controllerData.GetAxis(2).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(2).GetAbsoluteValue();
     return value < 0.f ? value : 0.f;
   }
   case kPC_StickDiagonal3Positive: {
-    const float value = xc_controllerData.GetAxis(3).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(3).GetAbsoluteValue();
     return value > 0.f ? value : 0.f;
   }
   case kPC_NunchukRollNegative: {
-    const float value = xc_controllerData.GetAxis(4).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(4).GetAbsoluteValue();
     return value < 0.f ? -value : 0.f;
   }
   case kPC_NunchukRollPositive: {
-    const float value = xc_controllerData.GetAxis(4).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(4).GetAbsoluteValue();
     return value > 0.f ? value : 0.f;
   }
   case kPC_NunchukPitchNegative: {
-    const float value = xc_controllerData.GetAxis(5).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(5).GetAbsoluteValue();
     return value < 0.f ? -value : 0.f;
   }
   case kPC_NunchukPitchPositive: {
-    const float value = xc_controllerData.GetAxis(5).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(5).GetAbsoluteValue();
     return value > 0.f ? value : 0.f;
   }
   case kPC_PointerLeft: {
-    const float value = xc_controllerData.GetAxis(6).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(6).GetAbsoluteValue();
     return value < 0.f ? -value : 0.f;
   }
   case kPC_PointerRight: {
-    const float value = xc_controllerData.GetAxis(6).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(6).GetAbsoluteValue();
     return value > 0.f ? value : 0.f;
   }
   case kPC_PointerDown: {
-    const float value = xc_controllerData.GetAxis(7).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(7).GetAbsoluteValue();
     return value > 0.f ? value : 0.f;
   }
   case kPC_PointerUp: {
-    const float value = xc_controllerData.GetAxis(7).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(7).GetAbsoluteValue();
     return value < 0.f ? -value : 0.f;
   }
   case kPC_WiimoteRollNegative: {
-    const float value = xc_controllerData.GetAxis(8).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(8).GetAbsoluteValue();
     return value < 0.f ? -value : 0.f;
   }
   case kPC_WiimoteRollPositive: {
-    const float value = xc_controllerData.GetAxis(8).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(8).GetAbsoluteValue();
     return value > 0.f ? value : 0.f;
   }
   case kPC_WiimotePitchNegative: {
-    const float value = xc_controllerData.GetAxis(9).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(9).GetAbsoluteValue();
     return value < 0.f ? -value : 0.f;
   }
   case kPC_WiimotePitchPositive: {
-    const float value = xc_controllerData.GetAxis(9).GetAbsoluteValue();
+    const float value = mControllerData.GetAxis(9).GetAbsoluteValue();
     return value > 0.f ? value : 0.f;
   }
   default:
@@ -160,7 +160,7 @@ float CFinalInput::GetMotionAnalog(int control) const {
   if (!GetKnownDeviceIsPresent()) {
     return 0.f;
   }
-  return xc_controllerData.GetMotionButton(control).GetIsPressed() ? 1.f : 0.f;
+  return mControllerData.GetMotionButton(control).GetIsPressed() ? 1.f : 0.f;
 }
 
 float CFinalInput::GetSwingAnalog(int control) const {
@@ -172,7 +172,7 @@ float CFinalInput::GetSwingAnalog(int control) const {
   if (!GetKnownDeviceIsPresent()) {
     return 0.f;
   }
-  return xc_controllerData.GetSwingButton(control).GetIsPressed() ? 1.f : 0.f;
+  return mControllerData.GetSwingButton(control).GetIsPressed() ? 1.f : 0.f;
 }
 
 bool CFinalInput::GetDigital(int control) const {
@@ -182,7 +182,7 @@ bool CFinalInput::GetDigital(int control) const {
   if (!GetKnownDeviceIsPresent()) {
     return false;
   }
-  return xc_controllerData.GetButton(control).GetIsPressed();
+  return mControllerData.GetButton(control).GetIsPressed();
 }
 
 bool CFinalInput::GetMotionDigital(int control) const {
@@ -191,7 +191,7 @@ bool CFinalInput::GetMotionDigital(int control) const {
     return false;
   }
 #endif
-  return xc_controllerData.GetMotionButton(control).GetIsPressed();
+  return mControllerData.GetMotionButton(control).GetIsPressed();
 }
 
 bool CFinalInput::GetSwingDigital(int control) const {
@@ -203,7 +203,7 @@ bool CFinalInput::GetSwingDigital(int control) const {
   if (!GetKnownDeviceIsPresent()) {
     return false;
   }
-  return xc_controllerData.GetSwingButton(control).GetIsPressed();
+  return mControllerData.GetSwingButton(control).GetIsPressed();
 }
 
 bool CFinalInput::GetPressed(int control) const {
@@ -213,7 +213,7 @@ bool CFinalInput::GetPressed(int control) const {
   if (!GetKnownDeviceIsPresent()) {
     return false;
   }
-  return xc_controllerData.GetButton(control).GetPressEvent();
+  return mControllerData.GetButton(control).GetPressEvent();
 }
 
 bool CFinalInput::GetMotionPressed(int control) const {
@@ -225,7 +225,7 @@ bool CFinalInput::GetMotionPressed(int control) const {
   if (!GetKnownDeviceIsPresent()) {
     return false;
   }
-  return xc_controllerData.GetMotionButton(control).GetPressEvent();
+  return mControllerData.GetMotionButton(control).GetPressEvent();
 }
 
 bool CFinalInput::GetSwingPressed(int control) const {
@@ -237,7 +237,7 @@ bool CFinalInput::GetSwingPressed(int control) const {
   if (!GetKnownDeviceIsPresent()) {
     return false;
   }
-  return xc_controllerData.GetSwingButton(control).GetPressEvent();
+  return mControllerData.GetSwingButton(control).GetPressEvent();
 }
 
 bool CFinalInput::GetReleased(int control) const {
@@ -247,7 +247,7 @@ bool CFinalInput::GetReleased(int control) const {
   if (!GetKnownDeviceIsPresent()) {
     return false;
   }
-  return xc_controllerData.GetButton(control).GetReleaseEvent();
+  return mControllerData.GetButton(control).GetReleaseEvent();
 }
 
 bool CFinalInput::GetMotionReleased(int control) const {
@@ -259,7 +259,7 @@ bool CFinalInput::GetMotionReleased(int control) const {
   if (!GetKnownDeviceIsPresent()) {
     return false;
   }
-  return xc_controllerData.GetMotionButton(control).GetReleaseEvent();
+  return mControllerData.GetMotionButton(control).GetReleaseEvent();
 }
 
 bool CFinalInput::GetSwingReleased(int control) const {
@@ -271,15 +271,15 @@ bool CFinalInput::GetSwingReleased(int control) const {
   if (!GetKnownDeviceIsPresent()) {
     return false;
   }
-  return xc_controllerData.GetSwingButton(control).GetReleaseEvent();
+  return mControllerData.GetSwingButton(control).GetReleaseEvent();
 }
 
 CVector2f CFinalInput::GetPointerPosition() const {
   if (!GetKnownDeviceIsPresent()) {
     return CVector2f::Zero();
   }
-  return CVector2f(xc_controllerData.GetAxis(6).GetAbsoluteValue(),
-                   xc_controllerData.GetAxis(7).GetAbsoluteValue());
+  return CVector2f(mControllerData.GetAxis(6).GetAbsoluteValue(),
+                   mControllerData.GetAxis(7).GetAbsoluteValue());
 }
 
 #else

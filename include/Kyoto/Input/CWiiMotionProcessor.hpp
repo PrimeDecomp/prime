@@ -17,43 +17,43 @@ CHECK_SIZEOF(WPADFSStatus, 0x32)
 class CBiquadFilter {
 public:
   CBiquadFilter()
-  : x0_previousInput(0.f)
-  , x4_olderInput(0.f)
-  , x8_previousOutput(0.f)
-  , xc_olderOutput(0.f)
-  , x10_initialized(false) {}
+  : mPreviousInput(0.f)
+  , mOlderInput(0.f)
+  , mPreviousOutput(0.f)
+  , mOlderOutput(0.f)
+  , mInitialized(false) {}
 
   float Filter(float value, float b0, float b1, float b2, float a1, float a2);
 
 private:
   float ProcessSample(float value, float b0, float b1, float b2, float a1, float a2);
 
-  float x0_previousInput;
-  float x4_olderInput;
-  float x8_previousOutput;
-  float xc_olderOutput;
-  bool x10_initialized;
+  float mPreviousInput;
+  float mOlderInput;
+  float mPreviousOutput;
+  float mOlderOutput;
+  bool mInitialized;
 };
 CHECK_SIZEOF(CBiquadFilter, 0x14)
 
 class CVectorBiquadFilter {
 public:
-  CVectorBiquadFilter() : x64_filteredVector(CVector3f::Zero()), x70_filteredMagnitude(0.f) {}
+  CVectorBiquadFilter() : mFilteredVector(CVector3f::Zero()), mFilteredMagnitude(0.f) {}
 
   void Update(const CVector3f& value, float magnitude);
   void SetCoefficients(float b0, float b1, float b2, float a1, float a2);
-  const CVector3f& GetFilteredVector() const { return x64_filteredVector; }
-  float GetFilteredMagnitude() const { return x70_filteredMagnitude; }
+  const CVector3f& GetFilteredVector() const { return mFilteredVector; }
+  float GetFilteredMagnitude() const { return mFilteredMagnitude; }
 
 private:
-  CBiquadFilter x0_xFilter;
-  CBiquadFilter x14_yFilter;
-  CBiquadFilter x28_zFilter;
-  CBiquadFilter x3c_magnitudeFilter;
-  float x50_feedforward[3];
-  float x5c_feedback[2];
-  CVector3f x64_filteredVector;
-  float x70_filteredMagnitude;
+  CBiquadFilter mXFilter;
+  CBiquadFilter mYFilter;
+  CBiquadFilter mZFilter;
+  CBiquadFilter mMagnitudeFilter;
+  float mFeedforward[3];
+  float mFeedback[2];
+  CVector3f mFilteredVector;
+  float mFilteredMagnitude;
 };
 CHECK_SIZEOF(CVectorBiquadFilter, 0x74)
 
@@ -61,42 +61,42 @@ class CMotionSampleHistory {
 public:
   CMotionSampleHistory();
   void AddSample(const CVector3f& acceleration, const CVector3f& gravityUnits, float deadzone);
-  int GetSampleCount() const { return x4_samples.size(); }
-  const CVector3f& GetSample(uint index) const { return x4_samples[index]; }
-  uint GetWriteIndex() const { return x0_writeIndex; }
+  int GetSampleCount() const { return mSamples.size(); }
+  const CVector3f& GetSample(uint index) const { return mSamples[index]; }
+  uint GetWriteIndex() const { return mWriteIndex; }
 
 private:
-  uint x0_writeIndex;
-  rstl::reserved_vector< CVector3f, 30 > x4_samples;
+  uint mWriteIndex;
+  rstl::reserved_vector< CVector3f, 30 > mSamples;
 };
 CHECK_SIZEOF(CMotionSampleHistory, 0x170)
 
 class CMotionGesture {
 public:
   CMotionGesture(int axis, int negativeDirection, float startThreshold, float releaseThreshold)
-  : x0_startThreshold(startThreshold)
-  , x4_releaseThreshold(releaseThreshold)
-  , x8_completedImpulse(0.f)
-  , xc_currentImpulse(0.f)
-  , x10_axis(axis)
-  , x14_negativeDirection(negativeDirection)
-  , x18_24_active(false)
-  , x18_25_completed(false) {}
+  : mStartThreshold(startThreshold)
+  , mReleaseThreshold(releaseThreshold)
+  , mCompletedImpulse(0.f)
+  , mCurrentImpulse(0.f)
+  , mAxis(axis)
+  , mNegativeDirection(negativeDirection)
+  , mActive(false)
+  , mCompleted(false) {}
 
   void Reset();
   void Update(const CVector3f& acceleration, float dt);
-  bool IsCompleted() const { return x18_25_completed; }
-  float GetCompletedImpulse() const { return x8_completedImpulse; }
+  bool IsCompleted() const { return mCompleted; }
+  float GetCompletedImpulse() const { return mCompletedImpulse; }
 
 private:
-  float x0_startThreshold;
-  float x4_releaseThreshold;
-  float x8_completedImpulse;
-  float xc_currentImpulse;
-  int x10_axis;
-  int x14_negativeDirection;
-  bool x18_24_active : 1;
-  bool x18_25_completed : 1;
+  float mStartThreshold;
+  float mReleaseThreshold;
+  float mCompletedImpulse;
+  float mCurrentImpulse;
+  int mAxis;
+  int mNegativeDirection;
+  bool mActive : 1;
+  bool mCompleted : 1;
 };
 CHECK_SIZEOF(CMotionGesture, 0x1c)
 
@@ -107,45 +107,45 @@ public:
   void Reset();
   void Update(const WPADFSStatus& status, const CVector3f& gravityUnits, float dt);
   float Filter(int filter, float value);
-  CMotionGesture& PositiveZ() { return x6c_positiveZ; }
-  CMotionGesture& NegativeZ() { return x88_negativeZ; }
-  CMotionGesture& NegativeX() { return xa4_negativeX; }
-  CMotionGesture& PositiveX() { return xc0_positiveX; }
+  CMotionGesture& PositiveZ() { return mPositiveZ; }
+  CMotionGesture& NegativeZ() { return mNegativeZ; }
+  CMotionGesture& NegativeX() { return mNegativeX; }
+  CMotionGesture& PositiveX() { return mPositiveX; }
   uint GetSwingMask() const;
-  float GetMotionIntegral() const { return x28_motionIntegral; }
-  float GetWrappedRoll() const { return x3c_wrappedRoll; }
-  float GetWrappedPitch() const { return x50_wrappedPitch; }
-  float GetContinuousRoll() const { return x40_continuousRoll; }
-  float GetContinuousPitch() const { return x54_continuousPitch; }
+  float GetMotionIntegral() const { return mMotionIntegral; }
+  float GetWrappedRoll() const { return mWrappedRoll; }
+  float GetWrappedPitch() const { return mWrappedPitch; }
+  float GetContinuousRoll() const { return mContinuousRoll; }
+  float GetContinuousPitch() const { return mContinuousPitch; }
 
 private:
-  int x0_device;
-  int x4_channel;
-  float x8_motionMagnitude;
-  CVector3f xc_normalizedAcceleration;
-  CVector3f x18_filteredAcceleration;
-  float x24_motionThreshold;
-  float x28_motionIntegral;
-  CVector3f x2c_positiveAxisIntegrals;
-  float x38_roll;
-  float x3c_wrappedRoll;
-  float x40_continuousRoll;
-  float x44_previousRoll;
-  float x48_rollWrapOffset;
-  float x4c_pitch;
-  float x50_wrappedPitch;
-  float x54_continuousPitch;
-  float x58_previousPitch;
-  float x5c_pitchWrapOffset;
-  int x60_orientationMode;
-  int x64_mode;
-  int x68_fullAngleMode;
-  CMotionGesture x6c_positiveZ;
-  CMotionGesture x88_negativeZ;
-  CMotionGesture xa4_negativeX;
-  CMotionGesture xc0_positiveX;
-  CMotionSampleHistory xdc_history;
-  rstl::reserved_vector< CAdaptiveInputFilter, 10 > x24c_filters;
+  int mDevice;
+  int mChannel;
+  float mMotionMagnitude;
+  CVector3f mNormalizedAcceleration;
+  CVector3f mFilteredAcceleration;
+  float mMotionThreshold;
+  float mMotionIntegral;
+  CVector3f mPositiveAxisIntegrals;
+  float mRoll;
+  float mWrappedRoll;
+  float mContinuousRoll;
+  float mPreviousRoll;
+  float mRollWrapOffset;
+  float mPitch;
+  float mWrappedPitch;
+  float mContinuousPitch;
+  float mPreviousPitch;
+  float mPitchWrapOffset;
+  int mOrientationMode;
+  int mMode;
+  int mFullAngleMode;
+  CMotionGesture mPositiveZ;
+  CMotionGesture mNegativeZ;
+  CMotionGesture mNegativeX;
+  CMotionGesture mPositiveX;
+  CMotionSampleHistory mHistory;
+  rstl::reserved_vector< CAdaptiveInputFilter, 10 > mFilters;
 };
 CHECK_SIZEOF(CMotionDeviceTracker, 0x980)
 
@@ -155,48 +155,48 @@ class CWiiMotionProcessor {
 public:
   struct SDeviceSample {
     SDeviceSample()
-    : x0_acceleration(CVector3f::Zero())
-    , xc_lowPassAcceleration(CVector3f::Zero())
-    , x18_lowPassMagnitude(0.f)
-    , x1c_highPassAcceleration(CVector3f::Zero())
-    , x28_highPassMagnitude(0.f)
-    , x2c_basisZ(CVector3f::Zero())
-    , x38_basis(CMatrix3f::Identity()) {}
+    : mAcceleration(CVector3f::Zero())
+    , mLowPassAcceleration(CVector3f::Zero())
+    , mLowPassMagnitude(0.f)
+    , mHighPassAcceleration(CVector3f::Zero())
+    , mHighPassMagnitude(0.f)
+    , mBasisZ(CVector3f::Zero())
+    , mBasis(CMatrix3f::Identity()) {}
 
     SDeviceSample& operator+=(const SDeviceSample& other) {
-      x0_acceleration += other.x0_acceleration;
-      xc_lowPassAcceleration += other.xc_lowPassAcceleration;
-      x18_lowPassMagnitude += other.x18_lowPassMagnitude;
-      x1c_highPassAcceleration += other.x1c_highPassAcceleration;
-      x28_highPassMagnitude += other.x28_highPassMagnitude;
-      x2c_basisZ += other.x2c_basisZ;
+      mAcceleration += other.mAcceleration;
+      mLowPassAcceleration += other.mLowPassAcceleration;
+      mLowPassMagnitude += other.mLowPassMagnitude;
+      mHighPassAcceleration += other.mHighPassAcceleration;
+      mHighPassMagnitude += other.mHighPassMagnitude;
+      mBasisZ += other.mBasisZ;
       return *this;
     }
 
     SDeviceSample& operator*=(float scale) {
-      x0_acceleration *= scale;
-      xc_lowPassAcceleration *= scale;
-      x18_lowPassMagnitude *= scale;
-      x1c_highPassAcceleration *= scale;
-      x28_highPassMagnitude *= scale;
-      x2c_basisZ *= scale;
+      mAcceleration *= scale;
+      mLowPassAcceleration *= scale;
+      mLowPassMagnitude *= scale;
+      mHighPassAcceleration *= scale;
+      mHighPassMagnitude *= scale;
+      mBasisZ *= scale;
       return *this;
     }
 
-    CVector3f x0_acceleration;
-    CVector3f xc_lowPassAcceleration;
-    float x18_lowPassMagnitude;
-    CVector3f x1c_highPassAcceleration;
-    float x28_highPassMagnitude;
-    CVector3f x2c_basisZ;
-    CMatrix3f x38_basis;
+    CVector3f mAcceleration;
+    CVector3f mLowPassAcceleration;
+    float mLowPassMagnitude;
+    CVector3f mHighPassAcceleration;
+    float mHighPassMagnitude;
+    CVector3f mBasisZ;
+    CMatrix3f mBasis;
   };
 
   struct SPairedSample {
     void Update(CWiiMotionProcessor& processor, const WPADFSStatus& status);
 
-    SDeviceSample x0_wiimote;
-    SDeviceSample x5c_nunchuk;
+    SDeviceSample mWiimote;
+    SDeviceSample mNunchuk;
 
   private:
     void UpdateDeviceSample(CVectorBiquadFilter& lowPass, CVectorBiquadFilter& highPass,
@@ -204,11 +204,11 @@ public:
   };
 
   struct SMotionPulseState {
-    SMotionPulseState() : x0_impulseTime(0.f), x4_shakeTime(0.f), x8_shakeMask(0) {}
+    SMotionPulseState() : mImpulseTime(0.f), mShakeTime(0.f), mShakeMask(0) {}
 
-    float x0_impulseTime;
-    float x4_shakeTime;
-    uint x8_shakeMask;
+    float mImpulseTime;
+    float mShakeTime;
+    uint mShakeMask;
   };
 
   CWiiMotionProcessor(int channel, int unused);
@@ -221,10 +221,10 @@ public:
   void ConfigureFiltersAndCalibration(int channel);
   uint GetSwingMask(int device) const;
   uint GetMotionIntegralMask(const CMotionDeviceTracker& tracker, int device, float dt) const;
-  const CMotionDeviceTracker& GetWiimoteTracker() const { return xdb20_wiimote; }
-  const CMotionDeviceTracker& GetNunchukTracker() const { return xe4a0_nunchuk; }
-  uint GetMotionMask() const { return xeefc_motionMask; }
-  uint GetSwingMask() const { return xef00_swingMask; }
+  const CMotionDeviceTracker& GetWiimoteTracker() const { return mWiimote; }
+  const CMotionDeviceTracker& GetNunchukTracker() const { return mNunchuk; }
+  uint GetMotionMask() const { return mMotionMask; }
+  uint GetSwingMask() const { return mSwingMask; }
   static CVector3f GetAcceleration(const WPADFSStatus& status, int device);
   static CVector3f ApplyAccelerationDeadzone(const CVector3f& acceleration,
                                              const CVector3f& gravityUnits, float deadzone);
@@ -234,27 +234,27 @@ public:
 private:
   friend struct SPairedSample;
 
-  rstl::reserved_vector< SPairedSample, 301 > x0_history;
-  int xd85c_previousIndex;
-  int xd860_writeIndex;
-  WPADFSStatus xd864_status;
-  SPairedSample xd898_latestSample;
-  CVectorBiquadFilter xd950_wiimoteLowPass;
-  CVectorBiquadFilter xd9c4_wiimoteHighPass;
-  CVectorBiquadFilter xda38_nunchukLowPass;
-  CVectorBiquadFilter xdaac_nunchukHighPass;
-  CMotionDeviceTracker xdb20_wiimote;
-  CMotionDeviceTracker xe4a0_nunchuk;
-  SPairedSample xee20_averageSample;
-  float xeed8_sampleWeight;
-  bool xeedc_flag;
+  rstl::reserved_vector< SPairedSample, 301 > mHistory;
+  int mPreviousIndex;
+  int mWriteIndex;
+  WPADFSStatus mStatus;
+  SPairedSample mLatestSample;
+  CVectorBiquadFilter mWiimoteLowPass;
+  CVectorBiquadFilter mWiimoteHighPass;
+  CVectorBiquadFilter mNunchukLowPass;
+  CVectorBiquadFilter mNunchukHighPass;
+  CMotionDeviceTracker mWiimote;
+  CMotionDeviceTracker mNunchuk;
+  SPairedSample mAverageSample;
+  float mSampleWeight;
+  bool mFlag;
   float xeee0_;
-  SMotionPulseState xeee4_wiimotePulses;
-  SMotionPulseState xeef0_nunchukPulses;
-  uint xeefc_motionMask;
-  uint xef00_swingMask;
-  CVector3f xef04_wiimoteGravityUnits;
-  CVector3f xef10_nunchukGravityUnits;
+  SMotionPulseState mWiimotePulses;
+  SMotionPulseState mNunchukPulses;
+  uint mMotionMask;
+  uint mSwingMask;
+  CVector3f mWiimoteGravityUnits;
+  CVector3f mNunchukGravityUnits;
 };
 CHECK_SIZEOF(CWiiMotionProcessor, 0xef1c)
 NESTED_CHECK_SIZEOF(CWiiMotionProcessor, SDeviceSample, 0x5c)

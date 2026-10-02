@@ -7,14 +7,14 @@
 
 #if VERSION >= VERSION_R3IJ_00
 CInputGenerator::CInputGenerator(COsContext* context, float leftDivisor, float rightDivisor)
-: x0_context(context), x8_leftDivisor(leftDivisor), xc_rightDivisor(rightDivisor) {
+: mContext(context), mLeftDivisor(leftDivisor), mRightDivisor(rightDivisor) {
   for (uint i = 0; i < 4; ++i) {
-    x4_connectedControllers[i] = false;
+    mConnectedControllers[i] = false;
   }
 }
 
 bool CInputGenerator::Update(float dt, CArchitectureQueue& queue) {
-  if (!x0_context->Update()) {
+  if (!mContext->Update()) {
     return false;
   }
 
@@ -30,10 +30,10 @@ bool CInputGenerator::Update(float dt, CArchitectureQueue& queue) {
       }
 
       const bool connected = data.DeviceIsPresent();
-      if (x4_connectedControllers[i] != connected) {
+      if (mConnectedControllers[i] != connected) {
         const CArchitectureMessage msg = MakeMsg::CreateControllerStatus(kAMT_Game, i, connected);
         queue.Push(msg);
-        x4_connectedControllers[i] = connected;
+        mConnectedControllers[i] = connected;
       }
     }
   }

@@ -23,52 +23,52 @@ public:
   CControllerData();
   void SetSwingMask(int device, uint mask);
 
-  bool DeviceIsPresent() const { return x0_connected; }
+  bool DeviceIsPresent() const { return mConnected; }
 
-  bool GetForceInputEvent() const { return x1_forceInputEvent; }
+  bool GetForceInputEvent() const { return mForceInputEvent; }
 
-  EPointerState GetPointerState() const { return static_cast< EPointerState >(x8_pointerState); }
+  EPointerState GetPointerState() const { return static_cast< EPointerState >(mPointerState); }
 
-  uint GetPointerValidFrameCount() const { return xc_pointerValidFrameCount; }
+  uint GetPointerValidFrameCount() const { return mPointerValidFrameCount; }
 
-  uint GetPointerInvalidFrameCount() const { return x10_pointerInvalidFrameCount; }
+  uint GetPointerInvalidFrameCount() const { return mPointerInvalidFrameCount; }
 
-  const CVector2f& GetPointerPosition() const { return x14_pointerPosition; }
+  const CVector2f& GetPointerPosition() const { return mPointerPosition; }
 
-  const CControllerAxis& GetAxis(int axis) const { return x28_axes[axis]; }
+  const CControllerAxis& GetAxis(int axis) const { return mAxes[axis]; }
 
   const CControllerAxis& GetContinuousAngleAxis(int axis) const {
-    return xac_continuousAngleAxes[axis];
+    return mContinuousAngleAxes[axis];
   }
 
-  const CControllerButton& GetButton(int button) const { return xe4_buttons[button]; }
+  const CControllerButton& GetButton(int button) const { return mButtons[button]; }
 
-  const CControllerButton& GetMotionButton(int button) const { return x1a8_motionButtons[button]; }
+  const CControllerButton& GetMotionButton(int button) const { return mMotionButtons[button]; }
 
-  const CControllerButton& GetSwingButton(int button) const { return x1dc_swingButtons[button]; }
+  const CControllerButton& GetSwingButton(int button) const { return mSwingButtons[button]; }
 
 private:
   friend class CWiiInput;
   friend class CFinalInput;
 
-  bool x0_connected;
-  bool x1_forceInputEvent;
-  EMotorState x4_motorState;
-  short x8_pointerState;
-  uint xc_pointerValidFrameCount;
-  uint x10_pointerInvalidFrameCount;
-  CVector2f x14_pointerPosition;
-  float x1c_pointerDistance;
-  uint x20_motionMask;
-  uint x24_swingMask;
-  rstl::reserved_vector< CControllerAxis, 16 > x28_axes;
-  rstl::reserved_vector< CControllerAxis, 4 > xac_continuousAngleAxes;
-  rstl::reserved_vector< CControllerAxis, 2 > xd0_reservedAxes;
-  rstl::reserved_vector< CControllerButton, 64 > xe4_buttons;
-  rstl::reserved_vector< CControllerButton, 16 > x1a8_motionButtons;
-  rstl::reserved_vector< CControllerButton, 12 > x1dc_swingButtons;
-  uint x204_wiimoteSwingMask;
-  uint x208_nunchukSwingMask;
+  bool mConnected;
+  bool mForceInputEvent;
+  EMotorState mMotorState;
+  short mPointerState;
+  uint mPointerValidFrameCount;
+  uint mPointerInvalidFrameCount;
+  CVector2f mPointerPosition;
+  float mPointerDistance;
+  uint mMotionMask;
+  uint mSwingMask;
+  rstl::reserved_vector< CControllerAxis, 16 > mAxes;
+  rstl::reserved_vector< CControllerAxis, 4 > mContinuousAngleAxes;
+  rstl::reserved_vector< CControllerAxis, 2 > mReservedAxes;
+  rstl::reserved_vector< CControllerButton, 64 > mButtons;
+  rstl::reserved_vector< CControllerButton, 16 > mMotionButtons;
+  rstl::reserved_vector< CControllerButton, 12 > mSwingButtons;
+  uint mWiimoteSwingMask;
+  uint mNunchukSwingMask;
 };
 CHECK_SIZEOF(CControllerData, 0x20c)
 

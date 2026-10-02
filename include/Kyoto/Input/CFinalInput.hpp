@@ -87,11 +87,11 @@ public:
 
   static CFinalInput NoInput(int channel, float dt);
 
-  float Time() const { return x0_dt; }
-  void SetTime(float dt) { x0_dt = dt; }
-  int ControllerNumber() const { return x4_controllerIdx; }
-  uint GetInputType() const { return x8_inputType; }
-  const CControllerData& GetControllerData() const { return xc_controllerData; }
+  float Time() const { return mDt; }
+  void SetTime(float dt) { mDt = dt; }
+  int ControllerNumber() const { return mControllerIdx; }
+  uint GetInputType() const { return mInputType; }
+  const CControllerData& GetControllerData() const { return mControllerData; }
 
   bool GetKnownDeviceIsPresent() const;
   bool CheckValidControl(int control) const;
@@ -110,10 +110,10 @@ public:
   CVector2f GetPointerPosition() const;
 
 private:
-  float x0_dt;
-  int x4_controllerIdx;
-  uint x8_inputType;
-  CControllerData xc_controllerData;
+  float mDt;
+  int mControllerIdx;
+  uint mInputType;
+  CControllerData mControllerData;
 };
 CHECK_SIZEOF(CFinalInput, 0x218)
 

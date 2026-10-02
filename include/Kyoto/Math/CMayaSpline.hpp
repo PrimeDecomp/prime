@@ -25,10 +25,10 @@ public:
                   ETangentType outTangentType, const CAbsAngle& inAngle = CAbsAngle::FromRadians(0.f),
                   const CAbsAngle& outAngle = CAbsAngle::FromRadians(0.f));
 
-  float GetTime() const { return x0_time; }
-  float GetAmplitude() const { return x4_amplitude; }
-  ETangentType GetInTangentType() const { return static_cast< ETangentType >(x8_inTangentType); }
-  ETangentType GetOutTangentType() const { return static_cast< ETangentType >(x9_outTangentType); }
+  float GetTime() const { return mTime; }
+  float GetAmplitude() const { return mAmplitude; }
+  ETangentType GetInTangentType() const { return static_cast< ETangentType >(mInTangentType); }
+  ETangentType GetOutTangentType() const { return static_cast< ETangentType >(mOutTangentType); }
   void GetTangents(const CMayaSplineKnot* previous, const CMayaSplineKnot* next,
                    CVector2f& tangentA, CVector2f& tangentB) const;
   bool operator<(const CMayaSplineKnot& other) const { return GetTime() < other.GetTime(); }
@@ -36,13 +36,13 @@ public:
 private:
   void CalculateTangents(const CMayaSplineKnot* previous, const CMayaSplineKnot* next) const;
 
-  float x0_time;
-  float x4_amplitude;
-  mutable uint x8_inTangentType : 8;
-  mutable uint x9_outTangentType : 8;
-  mutable uint xa_dirty : 1;
-  mutable CVector2f xc_cachedTangentA;
-  mutable CVector2f x14_cachedTangentB;
+  float mTime;
+  float mAmplitude;
+  mutable uint mInTangentType : 8;
+  mutable uint mOutTangentType : 8;
+  mutable uint mDirty : 1;
+  mutable CVector2f mCachedTangentA;
+  mutable CVector2f mCachedTangentB;
 };
 CHECK_SIZEOF(CMayaSplineKnot, 0x1c)
 
@@ -72,10 +72,10 @@ public:
   void operator=(const CMayaSpline& other);
 
   float EvaluateAt(float time) const;
-  uint GetKnotCount() const { return x8_knots.size(); }
-  const rstl::vector< CMayaSplineKnot >& GetKnots() const { return x8_knots; }
-  float GetMinTime() const { return x8_knots.front().GetTime(); }
-  float GetMaxTime() const { return x8_knots.back().GetTime(); }
+  uint GetKnotCount() const { return mKnots.size(); }
+  const rstl::vector< CMayaSplineKnot >& GetKnots() const { return mKnots; }
+  float GetMinTime() const { return mKnots.front().GetTime(); }
+  float GetMaxTime() const { return mKnots.back().GetTime(); }
   float GetDuration() const { return GetMaxTime() - GetMinTime(); }
 
   static CMayaSpline BuildLinearSpline(float timeA, float amplitudeA, float timeB,
@@ -94,23 +94,23 @@ private:
   void CalculateHermiteCoefficients(const rstl::reserved_vector< CVector2f, 4 >& points,
                                      float* coefficients) const;
 
-  EInfinityType x0_preInfinity;
-  EInfinityType x4_postInfinity;
-  rstl::vector< CMayaSplineKnot > x8_knots;
-  EClampMode x14_clampMode;
-  float x18_minAmplitude;
-  float x1c_maxAmplitude;
+  EInfinityType mPreInfinity;
+  EInfinityType mPostInfinity;
+  rstl::vector< CMayaSplineKnot > mKnots;
+  EClampMode mClampMode;
+  float mMinAmplitude;
+  float mMaxAmplitude;
   struct SCache {
     SCache()
-    : x0_knotIndex(-1), x4_segmentIndex(-1), x8_step(false), xc_minTime(0.f) {}
+    : mKnotIndex(-1), mSegmentIndex(-1), mStep(false), mMinTime(0.f) {}
 
-    int x0_knotIndex;
-    int x4_segmentIndex;
-    bool x8_step : 1;
-    float xc_minTime;
-    float x10_hermiteCoefficients[4];
+    int mKnotIndex;
+    int mSegmentIndex;
+    bool mStep : 1;
+    float mMinTime;
+    float mHermiteCoefficients[4];
   };
-  mutable SCache x20_cache;
+  mutable SCache mCache;
 };
 CHECK_SIZEOF(CMayaSpline, 0x40)
 

@@ -49,12 +49,12 @@ private:
 
   // Only construction and copying are observed for this 0x21-byte record.
   struct SUnknownInputData {
-    uchar x0_data[32];
-    bool x20_24_flag1 : 1;
-    bool x20_25_flag2 : 1;
-    bool x20_26_flag3 : 1;
+    uchar mData[32];
+    bool mFlag1 : 1;
+    bool mFlag2 : 1;
+    bool mFlag3 : 1;
 
-    SUnknownInputData() : x20_24_flag1(false), x20_25_flag2(false), x20_26_flag3(false) {}
+    SUnknownInputData() : mFlag1(false), mFlag2(false), mFlag3(false) {}
   };
 
   static void* AllocateWpadMemory(u32 size);
@@ -84,28 +84,28 @@ private:
   void SetControllerType(int channel, EDeviceType type);
   void CopyWpadInfo(int channel);
 
-  rstl::reserved_vector< KPADStatus, 4 > x4_status;
-  rstl::reserved_vector< EDeviceType, 4 > x218_controllerTypes;
-  rstl::reserved_vector< CControllerData, 4 > x22c_input;
-  rstl::reserved_vector< EPointerRecenterMode, 4 > xa60_pointerRecenterMode;
-  rstl::reserved_vector< int, 4 > xa74_pointerReacquireFrames;
-  rstl::reserved_vector< rstl::single_ptr< CWiiMotionProcessor >, 4 > xa88_motionProcessors;
-  rstl::reserved_vector< SUnknownInputData, 4 > xa9c_unknownInputData;
-  rstl::reserved_vector< WPADInfo, 4 > xb24_wpadInfo;
-  rstl::reserved_vector< WPADInfo, 4 > xb88_wpadInfoBuf;
-  rstl::reserved_vector< float, 4 > xbec_infoPollTimers;
-  rstl::reserved_vector< float, 4 > xc00_motionIdleTimes;
-  rstl::reserved_vector< float, 4 > xc14_buttonIdleTimes;
-  rstl::reserved_vector< EConnectionEvent, 4 > xc28_pendingConnectionEvents;
-  rstl::reserved_vector< EExtensionEvent, 4 > xc3c_pendingExtensionEvents;
-  rstl::reserved_vector< rstl::single_ptr< CScalarInputFilter >, 4 > xc50_pointerFilterX;
-  rstl::reserved_vector< rstl::single_ptr< CScalarInputFilter >, 4 > xc64_pointerFilterY;
-  uint xc78_motorEnabledFlags : 4;
-  float xc7c_pointerMinDistance;
-  float xc80_pointerMaxDistance;
-  float xc84_pointerMinScale;
-  float xc88_pointerMaxScale;
-  bool xc8c_acceptAdditionalConnections;
+  rstl::reserved_vector< KPADStatus, 4 > mStatus;
+  rstl::reserved_vector< EDeviceType, 4 > mControllerTypes;
+  rstl::reserved_vector< CControllerData, 4 > mInput;
+  rstl::reserved_vector< EPointerRecenterMode, 4 > mPointerRecenterMode;
+  rstl::reserved_vector< int, 4 > mPointerReacquireFrames;
+  rstl::reserved_vector< rstl::single_ptr< CWiiMotionProcessor >, 4 > mMotionProcessors;
+  rstl::reserved_vector< SUnknownInputData, 4 > mUnknownInputData;
+  rstl::reserved_vector< WPADInfo, 4 > mWpadInfo;
+  rstl::reserved_vector< WPADInfo, 4 > mWpadInfoBuf;
+  rstl::reserved_vector< float, 4 > mInfoPollTimers;
+  rstl::reserved_vector< float, 4 > mMotionIdleTimes;
+  rstl::reserved_vector< float, 4 > mButtonIdleTimes;
+  rstl::reserved_vector< EConnectionEvent, 4 > mPendingConnectionEvents;
+  rstl::reserved_vector< EExtensionEvent, 4 > mPendingExtensionEvents;
+  rstl::reserved_vector< rstl::single_ptr< CScalarInputFilter >, 4 > mPointerFilterX;
+  rstl::reserved_vector< rstl::single_ptr< CScalarInputFilter >, 4 > mPointerFilterY;
+  uint mMotorEnabledFlags : 4;
+  float mPointerMinDistance;
+  float mPointerMaxDistance;
+  float mPointerMinScale;
+  float mPointerMaxScale;
+  bool mAcceptAdditionalConnections;
 };
 CHECK_SIZEOF(CWiiInput, 0xc90)
 
