@@ -90,8 +90,15 @@ void sort(It first, It last, Cmp cmp) {
     return;
   }
 
+#if RSTL_VERSION >= RSTL_R3ME_00
+  It mid = first;
+  mid = mid + count / 2;
+  It end = last;
+  --end;
+#else
   It mid = first + count / 2;
   It end = last - 1;
+#endif
   __sort3(*first, *mid, *end, cmp);
 
   typename iterator_traits< It >::value_type pivot = *mid;
