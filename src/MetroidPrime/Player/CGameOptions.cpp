@@ -74,8 +74,8 @@ void CGameOptions::SetScreenBrightness(int value, bool apply) {
 }
 
 const float CGameOptions::TuneScreenBrightness() {
-  float brightness = gpTrilogyState->GetOptions().mScreenBrightness - 50;
-  return brightness / 50.f * 0.375f + 1.f;
+  float brightness = (gpTrilogyState->GetOptions().mScreenBrightness - 50) / 50.f;
+  return brightness * 0.375f + 1.f;
 }
 
 void CGameOptions::SetScreenPositionX(int value, bool apply) {
