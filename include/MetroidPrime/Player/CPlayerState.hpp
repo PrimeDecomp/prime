@@ -217,7 +217,7 @@ private:
   EBeamId mCurrentBeam;
   CHealthInfo mHealth;
 #if VERSION >= VERSION_R3IJ_00
-  float x14_healthSnapshot;
+  float mHealthSnapshot;
 #endif
   EPlayerVisor mCurrentVisor;
   EPlayerVisor mTransitioningVisor;

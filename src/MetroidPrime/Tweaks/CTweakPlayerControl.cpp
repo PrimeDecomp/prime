@@ -725,10 +725,10 @@ const CMayaSplineKnot skControlResponseKnotsPreset2[128] = {
 
 CTweakPlayerControl::SControlAnnulus::SControlAnnulus(float centerX, float centerY,
                                                       float innerRadius, float outerRadius)
-: x0_centerX(centerX)
-, x4_centerY(centerY)
-, x8_innerRadius(innerRadius)
-, xc_outerRadius(outerRadius) {}
+: mCenterX(centerX)
+, mCenterY(centerY)
+, mInnerRadius(innerRadius)
+, mOuterRadius(outerRadius) {}
 
 CTweakPlayerControl::SControlAnnulus::SControlAnnulus() {}
 
@@ -741,12 +741,12 @@ CTweakPlayerControl::SControlRectangle::~SControlRectangle() {}
 CTweakPlayerControl::SControlSector::SControlSector(float centerX, float centerY, float innerRadius,
                                                     float outerRadius, float centerAngleDegrees,
                                                     float sweepDegrees)
-: x0_centerX(centerX)
-, x4_centerY(centerY)
-, x8_innerRadius(innerRadius)
-, xc_outerRadius(outerRadius)
-, x10_centerAngleDegrees(centerAngleDegrees)
-, x14_sweepDegrees(sweepDegrees) {}
+: mCenterX(centerX)
+, mCenterY(centerY)
+, mInnerRadius(innerRadius)
+, mOuterRadius(outerRadius)
+, mCenterAngleDegrees(centerAngleDegrees)
+, mSweepDegrees(sweepDegrees) {}
 
 CTweakPlayerControl::SControlSector::SControlSector() {}
 
@@ -754,7 +754,7 @@ CTweakPlayerControl::SControlSector::~SControlSector() {}
 
 CTweakPlayerControl::SPhysicalControl::SPhysicalControl(CFinalInput::EPhysicalControl control,
                                                         const CMayaSpline& response)
-: x0_control(control), x4_response(response) {}
+: mControl(control), mResponse(response) {}
 
 CTweakPlayerControl::SPhysicalControl::SPhysicalControl() {}
 
@@ -764,7 +764,7 @@ CTweakPlayerControl::SVirtualMenu::SVirtualMenu(EVirtualMenuShape shape,
                                                 const SControlAnnulus& annulus,
                                                 const SControlRectangle& rectangle,
                                                 const SControlSector& sector)
-: x0_shape(shape), x4_annulus(annulus), x14_rectangle(rectangle), x24_sector(sector) {}
+: mShape(shape), mAnnulus(annulus), mRectangle(rectangle), mSector(sector) {}
 
 CTweakPlayerControl::SVirtualMenu::SVirtualMenu() {}
 
@@ -773,66 +773,66 @@ CTweakPlayerControl::SVirtualMenu::~SVirtualMenu() {}
 CTweakPlayerControl::SCommandDescription::SCommandDescription(CControlMapper::ECommands command,
                                                               EControlType type,
                                                               const SPhysicalControl& physical)
-: x0_command(command), x4_type(type), x8_primary(physical) {}
+: mCommand(command), mType(type), mPrimary(physical) {}
 
 CTweakPlayerControl::SCommandDescription::SCommandDescription(CControlMapper::ECommands command,
                                                               EControlType type,
                                                               CFinalInput::EMotionControl motion)
-: x0_command(command), x4_type(type), x94_primaryMotion(motion) {}
+: mCommand(command), mType(type), mPrimaryMotion(motion) {}
 
 CTweakPlayerControl::SCommandDescription::SCommandDescription(CControlMapper::ECommands command,
                                                               EControlType type,
                                                               const SPhysicalControl& primary,
                                                               EControlBoolean operation,
                                                               const SPhysicalControl& secondary)
-: x0_command(command)
-, x4_type(type)
-, x8_primary(primary)
-, x4c_physicalBoolean(operation)
-, x50_secondary(secondary) {}
+: mCommand(command)
+, mType(type)
+, mPrimary(primary)
+, mPhysicalBoolean(operation)
+, mSecondary(secondary) {}
 
 CTweakPlayerControl::SCommandDescription::SCommandDescription(CControlMapper::ECommands command,
                                                               EControlType type,
                                                               const SVirtualMenu& menu)
-: x0_command(command), x4_type(type), xa4_virtualMenu(menu) {}
+: mCommand(command), mType(type), mVirtualMenu(menu) {}
 
 CTweakPlayerControl::SCommandDescription::~SCommandDescription() {}
 
 CControlMapper::SCommandMapping
 CTweakPlayerControl::GetMappingFromDescription(const SCommandDescription& description) const {
-  switch (description.x4_type) {
+  switch (description.mType) {
   case kCT_Physical: {
-    return CControlMapper::SCommandMapping(description.x4_type, description.x8_primary.x0_control,
+    return CControlMapper::SCommandMapping(description.mType, description.mPrimary.mControl,
                                            0);
   }
   case kCT_Virtual: {
-    return CControlMapper::SCommandMapping(description.x4_type, description.x94_primaryMotion, 0);
+    return CControlMapper::SCommandMapping(description.mType, description.mPrimaryMotion, 0);
   }
   case kCT_PhysicalCombination: {
-    return CControlMapper::SCommandMapping(description.x4_type, description.x8_primary.x0_control,
-                                           description.x50_secondary.x0_control);
+    return CControlMapper::SCommandMapping(description.mType, description.mPrimary.mControl,
+                                           description.mSecondary.mControl);
   }
   case kCT_VirtualCombination: {
-    return CControlMapper::SCommandMapping(description.x4_type, description.x94_primaryMotion,
-                                           description.x9c_secondaryMotion);
+    return CControlMapper::SCommandMapping(description.mType, description.mPrimaryMotion,
+                                           description.mSecondaryMotion);
   }
   case kCT_Virtual2: {
-    return CControlMapper::SCommandMapping(description.x4_type, description.xa0_swing,
-                                           description.xa0_swing);
+    return CControlMapper::SCommandMapping(description.mType, description.mSwing,
+                                           description.mSwing);
   }
   case kCT_VirtualMenu: {
-    return CControlMapper::SCommandMapping(description.x4_type,
-                                           description.xa4_virtualMenu.x0_shape,
-                                           description.xa4_virtualMenu.x0_shape);
+    return CControlMapper::SCommandMapping(description.mType,
+                                           description.mVirtualMenu.mShape,
+                                           description.mVirtualMenu.mShape);
   }
   default:
-    return CControlMapper::SCommandMapping(description.x4_type, 0, 0);
+    return CControlMapper::SCommandMapping(description.mType, 0, 0);
   }
 }
 
 const CTweakPlayerControl::SCommandDescription&
 CTweakPlayerControl::GetCommandDescription(CControlMapper::ECommands command) const {
-  return x40c_commands[command];
+  return mCommands[command];
 }
 
 CControlMapper::SCommandMapping
@@ -841,7 +841,7 @@ CTweakPlayerControl::GetCommandMapping(CControlMapper::ECommands command) const 
 }
 
 CTweakPlayerControl::CTweakPlayerControl(uint controlPreset)
-: x4_responseCurves(16), x408_controlPreset(controlPreset) {
+: mResponseCurves(16), mControlPreset(controlPreset) {
   InitializeControls();
 }
 
@@ -1070,7 +1070,7 @@ void CTweakPlayerControl::InitializeControls() {
   };
 
   const CMayaSplineKnot* knots = skControlResponseKnotsPreset1;
-  switch (x408_controlPreset) {
+  switch (mControlPreset) {
   case 0:
     knots = skControlResponseKnotsPreset0;
     break;
@@ -1090,35 +1090,35 @@ void CTweakPlayerControl::InitializeControls() {
       }
       ++count;
     }
-    x4_responseCurves[i] = CMayaSpline::BuildSpline(&knots[i * 8], count, CMayaSpline::kCM_None,
+    mResponseCurves[i] = CMayaSpline::BuildSpline(&knots[i * 8], count, CMayaSpline::kCM_None,
                                                     CMayaSpline::kIT_Constant,
                                                     CMayaSpline::kIT_Constant, -FLT_MAX, FLT_MAX);
   }
 
   for (int i = 0; i < 91; ++i) {
-    x40c_commands.push_back(skDefaultCommands[i]);
+    mCommands.push_back(skDefaultCommands[i]);
   }
-  x40c_commands[CControlMapper::kC_TurnLeft].x8_primary.x4_response = GetTurnLeftResponse();
-  x40c_commands[CControlMapper::kC_TurnRight].x8_primary.x4_response = GetTurnRightResponse();
+  mCommands[CControlMapper::kC_TurnLeft].mPrimary.mResponse = GetTurnLeftResponse();
+  mCommands[CControlMapper::kC_TurnRight].mPrimary.mResponse = GetTurnRightResponse();
 }
 
-const CMayaSpline& CTweakPlayerControl::GetTurnLeftResponse() const { return x4_responseCurves[0]; }
+const CMayaSpline& CTweakPlayerControl::GetTurnLeftResponse() const { return mResponseCurves[0]; }
 
 const CMayaSpline& CTweakPlayerControl::GetTurnRightResponse() const {
-  return x4_responseCurves[1];
+  return mResponseCurves[1];
 }
 
 CTweakPlayerControl::SCommandDescription::SCommandDescription(const SCommandDescription& other)
-: x0_command(other.x0_command)
-, x4_type(other.x4_type)
-, x8_primary(other.x8_primary)
-, x4c_physicalBoolean(other.x4c_physicalBoolean)
-, x50_secondary(other.x50_secondary)
-, x94_primaryMotion(other.x94_primaryMotion)
-, x98_virtualBoolean(other.x98_virtualBoolean)
-, x9c_secondaryMotion(other.x9c_secondaryMotion)
-, xa0_swing(other.xa0_swing)
-, xa4_virtualMenu(other.xa4_virtualMenu) {}
+: mCommand(other.mCommand)
+, mType(other.mType)
+, mPrimary(other.mPrimary)
+, mPhysicalBoolean(other.mPhysicalBoolean)
+, mSecondary(other.mSecondary)
+, mPrimaryMotion(other.mPrimaryMotion)
+, mVirtualBoolean(other.mVirtualBoolean)
+, mSecondaryMotion(other.mSecondaryMotion)
+, mSwing(other.mSwing)
+, mVirtualMenu(other.mVirtualMenu) {}
 
 CTweakPlayerControl::~CTweakPlayerControl() {}
 

@@ -35,26 +35,26 @@ public:
   bool ShowOffScreen(const CStateManager& mgr) const;
 
 private:
-  CVector2f x0_cursor2D;
-  CVector3f x8_cursorOnPlane;
-  CRayCastResult x18_raycastResult;
-  CVector3f x48_lastValidPointerPlane;
-  CVector3f x54_cursorOrbitPosition;
-  CVector3f x60_cursorVelocity;
-  float x6c_cursorVelocityMagnitude;
-  CVector2f x70_cursorVelocity2D;
-  float x78_cursorVelocity2DMagnitude;
-  CVector3f x7c_cursorInWorld;
-  TUniqueId x88_cursorObjectId;
-  uint x8c_cursorObjectCount;
-  float x90_cursorLockTimer;
-  float x94_cursorAlpha;
-  bool x98_24_cursorValid : 1;
-  bool x98_25_reservedFlag : 1;
-  CRelAngle x9c_nunchukPitch;
-  float xa0_cursorFade;
-  int xa4_hideForCSICount;
-  uint xa8_reservedValue;
+  CVector2f mCursor2D;
+  CVector3f mCursorOnPlane;
+  CRayCastResult mRaycastResult;
+  CVector3f mLastValidPointerPlane;
+  CVector3f mCursorOrbitPosition;
+  CVector3f mCursorVelocity;
+  float mCursorVelocityMagnitude;
+  CVector2f mCursorVelocity2D;
+  float mCursorVelocity2DMagnitude;
+  CVector3f mCursorInWorld;
+  TUniqueId mCursorObjectId;
+  uint mCursorObjectCount;
+  float mCursorLockTimer;
+  float mCursorAlpha;
+  bool mCursorValid : 1;
+  bool mReservedFlag : 1;
+  CRelAngle mNunchukPitch;
+  float mCursorFade;
+  int mHideForCSICount;
+  uint mReservedValue;
 };
 CHECK_SIZEOF(CAimingCursor, 0xb0)
 

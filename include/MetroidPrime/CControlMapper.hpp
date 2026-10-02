@@ -115,18 +115,18 @@ public:
   // Mapping record names are inferred from the override and preset consumers.
   struct SCommandMapping {
     SCommandMapping(int type, int primary, int secondary)
-    : x0_controlType(type), x4_primaryControl(primary), x8_secondaryControl(secondary) {}
+    : mControlType(type), mPrimaryControl(primary), mSecondaryControl(secondary) {}
 
-    int x0_controlType;
-    int x4_primaryControl;
-    int x8_secondaryControl;
+    int mControlType;
+    int mPrimaryControl;
+    int mSecondaryControl;
   };
   struct SCommandOverride {
     SCommandOverride(ECommands command, const SCommandMapping& mapping)
-    : x0_command(command), x4_mapping(mapping) {}
+    : mCommand(command), mMapping(mapping) {}
 
-    ECommands x0_command;
-    SCommandMapping x4_mapping;
+    ECommands mCommand;
+    SCommandMapping mMapping;
   };
 
   static const float skDefaultTapHoldThreshold;
@@ -144,7 +144,7 @@ public:
       return 0.f;
     }
 #endif
-    return x198_digitalTime[command];
+    return mDigitalTime[command];
   }
   float GetReleaseTime(ECommands command) const {
 #if NONMATCHING
@@ -152,9 +152,9 @@ public:
       return 0.f;
     }
 #endif
-    return x308_releaseTime[command];
+    return mReleaseTime[command];
   }
-  int GetSelectorActive() const { return x184_selectorActive; }
+  int GetSelectorActive() const { return mSelectorActive; }
   float GetSelectorFade() const;
   bool GetSelectorReleaseInput(ECommands command, const CFinalInput& input,
                                const CStateManager& mgr, const CPlayer& player) const;
@@ -180,16 +180,16 @@ private:
   static bool IsSplineControl(int control);
   bool TestVirtualMenu(ECommands command, const CVector2f& pointer) const;
 
-  rstl::reserved_vector< bool, 91 > x0_commandEnabled;
-  rstl::reserved_vector< bool, 91 > x60_commandOverridden;
-  rstl::reserved_vector< SCommandOverride, 12 > xc0_commandOverrides;
-  int x184_selectorActive;
-  float x188_selectorFadeTime;
-  ECommands x18c_activeSelectorCommand;
-  ECommands x190_releasedSelectorCommand;
-  float x194_tapHoldThreshold;
-  rstl::reserved_vector< float, 91 > x198_digitalTime;
-  rstl::reserved_vector< float, 91 > x308_releaseTime;
+  rstl::reserved_vector< bool, 91 > mCommandEnabled;
+  rstl::reserved_vector< bool, 91 > mCommandOverridden;
+  rstl::reserved_vector< SCommandOverride, 12 > mCommandOverrides;
+  int mSelectorActive;
+  float mSelectorFadeTime;
+  ECommands mActiveSelectorCommand;
+  ECommands mReleasedSelectorCommand;
+  float mTapHoldThreshold;
+  rstl::reserved_vector< float, 91 > mDigitalTime;
+  rstl::reserved_vector< float, 91 > mReleaseTime;
 };
 CHECK_SIZEOF(CControlMapper, 0x478)
 

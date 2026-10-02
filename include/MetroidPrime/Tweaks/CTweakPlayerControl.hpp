@@ -29,47 +29,47 @@ public:
     SControlAnnulus();
     SControlAnnulus(float centerX, float centerY, float innerRadius, float outerRadius);
     ~SControlAnnulus();
-    float x0_centerX;
-    float x4_centerY;
-    float x8_innerRadius;
-    float xc_outerRadius;
+    float mCenterX;
+    float mCenterY;
+    float mInnerRadius;
+    float mOuterRadius;
   };
   struct SControlRectangle {
     SControlRectangle();
     ~SControlRectangle();
-    float x0_centerX;
-    float x4_centerY;
-    float x8_width;
-    float xc_height;
+    float mCenterX;
+    float mCenterY;
+    float mWidth;
+    float mHeight;
   };
   struct SControlSector {
     SControlSector();
     SControlSector(float centerX, float centerY, float innerRadius, float outerRadius,
                    float centerAngleDegrees, float sweepDegrees);
     ~SControlSector();
-    float x0_centerX;
-    float x4_centerY;
-    float x8_innerRadius;
-    float xc_outerRadius;
-    float x10_centerAngleDegrees;
-    float x14_sweepDegrees;
+    float mCenterX;
+    float mCenterY;
+    float mInnerRadius;
+    float mOuterRadius;
+    float mCenterAngleDegrees;
+    float mSweepDegrees;
   };
   struct SPhysicalControl {
     SPhysicalControl();
     SPhysicalControl(CFinalInput::EPhysicalControl control, const CMayaSpline& response);
     ~SPhysicalControl();
-    CFinalInput::EPhysicalControl x0_control;
-    CMayaSpline x4_response;
+    CFinalInput::EPhysicalControl mControl;
+    CMayaSpline mResponse;
   };
   struct SVirtualMenu {
     SVirtualMenu();
     SVirtualMenu(EVirtualMenuShape shape, const SControlAnnulus& annulus,
                  const SControlRectangle& rectangle, const SControlSector& sector);
     ~SVirtualMenu();
-    EVirtualMenuShape x0_shape;
-    SControlAnnulus x4_annulus;
-    SControlRectangle x14_rectangle;
-    SControlSector x24_sector;
+    EVirtualMenuShape mShape;
+    SControlAnnulus mAnnulus;
+    SControlRectangle mRectangle;
+    SControlSector mSector;
   };
   struct SCommandDescription {
     SCommandDescription(const SCommandDescription& other);
@@ -83,16 +83,16 @@ public:
     SCommandDescription(CControlMapper::ECommands command, EControlType type,
                         const SVirtualMenu& menu);
     ~SCommandDescription();
-    CControlMapper::ECommands x0_command;
-    EControlType x4_type;
-    SPhysicalControl x8_primary;
-    EControlBoolean x4c_physicalBoolean;
-    SPhysicalControl x50_secondary;
-    CFinalInput::EMotionControl x94_primaryMotion;
-    EControlBoolean x98_virtualBoolean;
-    CFinalInput::EMotionControl x9c_secondaryMotion;
-    CFinalInput::ESwingControl xa0_swing;
-    SVirtualMenu xa4_virtualMenu;
+    CControlMapper::ECommands mCommand;
+    EControlType mType;
+    SPhysicalControl mPrimary;
+    EControlBoolean mPhysicalBoolean;
+    SPhysicalControl mSecondary;
+    CFinalInput::EMotionControl mPrimaryMotion;
+    EControlBoolean mVirtualBoolean;
+    CFinalInput::EMotionControl mSecondaryMotion;
+    CFinalInput::ESwingControl mSwing;
+    SVirtualMenu mVirtualMenu;
   };
 
   explicit CTweakPlayerControl(uint controlPreset);
@@ -101,23 +101,23 @@ public:
   CControlMapper::SCommandMapping GetCommandMapping(CControlMapper::ECommands command) const;
   const CMayaSpline& GetTurnLeftResponse() const;
   const CMayaSpline& GetTurnRightResponse() const;
-  const CMayaSpline& GetCursorUpResponse() const { return x4_responseCurves[4]; }
-  const CMayaSpline& GetCursorDownResponse() const { return x4_responseCurves[5]; }
-  const CMayaSpline& GetCursorRightResponse() const { return x4_responseCurves[6]; }
-  const CMayaSpline& GetCursorLeftResponse() const { return x4_responseCurves[7]; }
-  const CMayaSpline& GetHeldCursorUpResponse() const { return x4_responseCurves[8]; }
-  const CMayaSpline& GetHeldCursorDownResponse() const { return x4_responseCurves[9]; }
-  const CMayaSpline& GetBallCursorHorizontalResponse() const { return x4_responseCurves[10]; }
-  const CMayaSpline& GetBallCursorVerticalResponse() const { return x4_responseCurves[11]; }
+  const CMayaSpline& GetCursorUpResponse() const { return mResponseCurves[4]; }
+  const CMayaSpline& GetCursorDownResponse() const { return mResponseCurves[5]; }
+  const CMayaSpline& GetCursorRightResponse() const { return mResponseCurves[6]; }
+  const CMayaSpline& GetCursorLeftResponse() const { return mResponseCurves[7]; }
+  const CMayaSpline& GetHeldCursorUpResponse() const { return mResponseCurves[8]; }
+  const CMayaSpline& GetHeldCursorDownResponse() const { return mResponseCurves[9]; }
+  const CMayaSpline& GetBallCursorHorizontalResponse() const { return mResponseCurves[10]; }
+  const CMayaSpline& GetBallCursorVerticalResponse() const { return mResponseCurves[11]; }
 
 private:
   CControlMapper::SCommandMapping
   GetMappingFromDescription(const SCommandDescription& description) const;
   void InitializeControls();
 
-  rstl::reserved_vector< CMayaSpline, 16 > x4_responseCurves;
-  uint x408_controlPreset;
-  rstl::reserved_vector< SCommandDescription, 91 > x40c_commands;
+  rstl::reserved_vector< CMayaSpline, 16 > mResponseCurves;
+  uint mControlPreset;
+  rstl::reserved_vector< SCommandDescription, 91 > mCommands;
 };
 CHECK_SIZEOF(CTweakPlayerControl, 0x53b0)
 

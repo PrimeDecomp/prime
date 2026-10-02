@@ -16,15 +16,15 @@
 const float CControlMapper::skDefaultTapHoldThreshold = 0.175f;
 
 CControlMapper::CControlMapper(float tapHoldThreshold)
-: x0_commandEnabled(true)
-, x60_commandOverridden(false)
-, x184_selectorActive(0)
-, x188_selectorFadeTime(0.f)
-, x18c_activeSelectorCommand(kC_None)
-, x190_releasedSelectorCommand(kC_None)
-, x194_tapHoldThreshold(tapHoldThreshold)
-, x198_digitalTime(91)
-, x308_releaseTime(91) {
+: mCommandEnabled(true)
+, mCommandOverridden(false)
+, mSelectorActive(0)
+, mSelectorFadeTime(0.f)
+, mActiveSelectorCommand(kC_None)
+, mReleasedSelectorCommand(kC_None)
+, mTapHoldThreshold(tapHoldThreshold)
+, mDigitalTime(91)
+, mReleaseTime(91) {
   Reset();
 }
 
@@ -32,13 +32,13 @@ void CControlMapper::UpdateCommandTimes(const CFinalInput& input) {
   for (int i = 0; i < kC_MAX; ++i) {
     ECommands command = static_cast< ECommands >(i);
     if (GetPressInput(command, input, kFT_Unfiltered)) {
-      x198_digitalTime[i] = 0.f;
-      x308_releaseTime[i] = 0.f;
+      mDigitalTime[i] = 0.f;
+      mReleaseTime[i] = 0.f;
     } else if (GetDigitalInput(command, input, kFT_Unfiltered)) {
-      x198_digitalTime[i] += input.Time();
-      x308_releaseTime[i] += input.Time();
+      mDigitalTime[i] += input.Time();
+      mReleaseTime[i] += input.Time();
     } else if (GetReleaseInput(command, input, kFT_Unfiltered)) {
-      x198_digitalTime[i] = 0.f;
+      mDigitalTime[i] = 0.f;
     }
   }
 }
@@ -51,26 +51,26 @@ bool CControlMapper::CanOpenSelector(const CStateManager& mgr, const CPlayer& pl
 
 void CControlMapper::UpdateSelector(ECommands command, const CFinalInput& input,
                                     const CStateManager& mgr, const CPlayer& player) {
-  if (x184_selectorActive != 0 && command == x18c_activeSelectorCommand &&
+  if (mSelectorActive != 0 && command == mActiveSelectorCommand &&
       !CanOpenSelector(mgr, player, command)) {
     ResetSelector();
-    x188_selectorFadeTime = 0.5f;
-  } else if (x18c_activeSelectorCommand == kC_None || x18c_activeSelectorCommand == command) {
-    switch (x184_selectorActive) {
+    mSelectorFadeTime = 0.5f;
+  } else if (mActiveSelectorCommand == kC_None || mActiveSelectorCommand == command) {
+    switch (mSelectorActive) {
     case 1:
       if (!GetDigitalInput(command, input, kFT_Filtered)) {
-        x184_selectorActive = 0;
-        x188_selectorFadeTime = 0.5f;
-        x190_releasedSelectorCommand = x18c_activeSelectorCommand;
-        x18c_activeSelectorCommand = kC_None;
+        mSelectorActive = 0;
+        mSelectorFadeTime = 0.5f;
+        mReleasedSelectorCommand = mActiveSelectorCommand;
+        mActiveSelectorCommand = kC_None;
       }
       break;
     case 0:
       if (GetDigitalInput(command, input, kFT_Filtered) &&
-          x198_digitalTime[command] > x194_tapHoldThreshold &&
+          mDigitalTime[command] > mTapHoldThreshold &&
           CanOpenSelector(mgr, player, command)) {
-        x184_selectorActive = 1;
-        x18c_activeSelectorCommand = command;
+        mSelectorActive = 1;
+        mActiveSelectorCommand = command;
       }
       break;
     }
@@ -79,8 +79,8 @@ void CControlMapper::UpdateSelector(ECommands command, const CFinalInput& input,
 
 float CControlMapper::GetSelectorFade() const {
   float result = 0.f;
-  if (x188_selectorFadeTime > 0.f) {
-    result = CMath::FastMin(CMath::FastMax(0.f, x188_selectorFadeTime / 0.5f), 1.f);
+  if (mSelectorFadeTime > 0.f) {
+    result = CMath::FastMin(CMath::FastMax(0.f, mSelectorFadeTime / 0.5f), 1.f);
   }
   return result;
 }
@@ -94,7 +94,7 @@ bool CControlMapper::GetSelectorReleaseInput(ECommands command, const CFinalInpu
   }
 #endif
   if (CanOpenSelector(mgr, player, command)) {
-    return command == x190_releasedSelectorCommand;
+    return command == mReleasedSelectorCommand;
   }
   return false;
 }
@@ -115,13 +115,13 @@ void CControlMapper::Update(const CFinalInput& input, const CStateManager& mgr,
                             const CPlayer& player) {
   UpdateCommandSwaps();
   UpdateCommandTimes(input);
-  if (x188_selectorFadeTime > 0.f) {
-    x188_selectorFadeTime -= input.Time();
-    if (x188_selectorFadeTime <= 0.f) {
+  if (mSelectorFadeTime > 0.f) {
+    mSelectorFadeTime -= input.Time();
+    if (mSelectorFadeTime <= 0.f) {
       ResetSelector();
     }
   }
-  x190_releasedSelectorCommand = kC_None;
+  mReleasedSelectorCommand = kC_None;
   UpdateSelector(kC_VisorMenu, input, mgr, player);
   UpdateSelector(kC_BeamMenu, input, mgr, player);
 }
@@ -140,50 +140,50 @@ float CControlMapper::GetAnalogInput(ECommands command, const CFinalInput& input
 #endif
   float result = 0.f;
   SCommandMapping mapping = GetCommandMapping(command);
-  if (filter == kFT_Unfiltered || (filter == kFT_Filtered && x0_commandEnabled[command])) {
+  if (filter == kFT_Unfiltered || (filter == kFT_Filtered && mCommandEnabled[command])) {
     const CTweakPlayerControl::SCommandDescription& desc =
         gpTweakPlayerControlCurrent->GetCommandDescription(command);
-    switch (desc.x4_type) {
+    switch (desc.mType) {
     case CTweakPlayerControl::kCT_Physical: {
-      result = input.GetAnalog(mapping.x4_primaryControl);
-      if (IsSplineControl(mapping.x4_primaryControl)) {
-        result = desc.x8_primary.x4_response.EvaluateAt(result);
+      result = input.GetAnalog(mapping.mPrimaryControl);
+      if (IsSplineControl(mapping.mPrimaryControl)) {
+        result = desc.mPrimary.mResponse.EvaluateAt(result);
       }
       break;
     }
     case CTweakPlayerControl::kCT_PhysicalCombination: {
-      result = input.GetAnalog(mapping.x4_primaryControl);
-      switch (desc.x4c_physicalBoolean) {
+      result = input.GetAnalog(mapping.mPrimaryControl);
+      switch (desc.mPhysicalBoolean) {
       case CTweakPlayerControl::kCB_And: {
-        if (!input.GetDigital(mapping.x8_secondaryControl)) {
+        if (!input.GetDigital(mapping.mSecondaryControl)) {
           result = 0.f;
-        } else if (IsSplineControl(mapping.x4_primaryControl) &&
-                   input.CheckValidControl(mapping.x4_primaryControl)) {
-          result = desc.x8_primary.x4_response.EvaluateAt(result);
+        } else if (IsSplineControl(mapping.mPrimaryControl) &&
+                   input.CheckValidControl(mapping.mPrimaryControl)) {
+          result = desc.mPrimary.mResponse.EvaluateAt(result);
         }
         break;
       }
       case CTweakPlayerControl::kCB_Or: {
-        const CMayaSpline* response = &desc.x8_primary.x4_response;
+        const CMayaSpline* response = &desc.mPrimary.mResponse;
         if (close_enough(result, 0.f, 0.05f) ||
-            !input.CheckValidControl(mapping.x4_primaryControl)) {
-          result = input.GetAnalog(mapping.x8_secondaryControl);
-          response = &desc.x50_secondary.x4_response;
+            !input.CheckValidControl(mapping.mPrimaryControl)) {
+          result = input.GetAnalog(mapping.mSecondaryControl);
+          response = &desc.mSecondary.mResponse;
         }
-        if ((IsSplineControl(mapping.x4_primaryControl) &&
-             input.CheckValidControl(mapping.x4_primaryControl)) ||
-            (IsSplineControl(mapping.x8_secondaryControl) &&
-             input.CheckValidControl(mapping.x8_secondaryControl))) {
+        if ((IsSplineControl(mapping.mPrimaryControl) &&
+             input.CheckValidControl(mapping.mPrimaryControl)) ||
+            (IsSplineControl(mapping.mSecondaryControl) &&
+             input.CheckValidControl(mapping.mSecondaryControl))) {
           result = response->EvaluateAt(result);
         }
         break;
       }
       case CTweakPlayerControl::kCB_AndNot: {
-        if (input.GetDigital(mapping.x8_secondaryControl)) {
+        if (input.GetDigital(mapping.mSecondaryControl)) {
           result = 0.f;
-        } else if (IsSplineControl(mapping.x4_primaryControl) &&
-                   input.CheckValidControl(mapping.x4_primaryControl)) {
-          result = desc.x8_primary.x4_response.EvaluateAt(result);
+        } else if (IsSplineControl(mapping.mPrimaryControl) &&
+                   input.CheckValidControl(mapping.mPrimaryControl)) {
+          result = desc.mPrimary.mResponse.EvaluateAt(result);
         }
         break;
       }
@@ -191,25 +191,25 @@ float CControlMapper::GetAnalogInput(ECommands command, const CFinalInput& input
       break;
     }
     case CTweakPlayerControl::kCT_Virtual: {
-      result = input.GetMotionAnalog(mapping.x4_primaryControl);
+      result = input.GetMotionAnalog(mapping.mPrimaryControl);
       break;
     }
     case CTweakPlayerControl::kCT_VirtualCombination: {
-      result = input.GetMotionAnalog(mapping.x4_primaryControl);
-      switch (desc.x98_virtualBoolean) {
+      result = input.GetMotionAnalog(mapping.mPrimaryControl);
+      switch (desc.mVirtualBoolean) {
       case CTweakPlayerControl::kCB_And: {
-        result += input.GetMotionAnalog(mapping.x8_secondaryControl);
+        result += input.GetMotionAnalog(mapping.mSecondaryControl);
         break;
       }
       case CTweakPlayerControl::kCB_Or: {
         if (close_enough(result, 0.f, 0.05f) ||
-            !input.CheckValidControl(mapping.x4_primaryControl)) {
-          result = input.GetMotionAnalog(mapping.x8_secondaryControl);
+            !input.CheckValidControl(mapping.mPrimaryControl)) {
+          result = input.GetMotionAnalog(mapping.mSecondaryControl);
         }
         break;
       }
       case CTweakPlayerControl::kCB_AndNot: {
-        if (input.GetMotionDigital(mapping.x8_secondaryControl)) {
+        if (input.GetMotionDigital(mapping.mSecondaryControl)) {
           result = 0.f;
         }
         break;
@@ -218,7 +218,7 @@ float CControlMapper::GetAnalogInput(ECommands command, const CFinalInput& input
       break;
     }
     case CTweakPlayerControl::kCT_Virtual2: {
-      result = input.GetSwingAnalog(mapping.x4_primaryControl);
+      result = input.GetSwingAnalog(mapping.mPrimaryControl);
       break;
     }
     }
@@ -238,50 +238,50 @@ bool CControlMapper::TestVirtualMenu(ECommands command, const CVector2f& pointer
   position[1] = halfHeight - position[1];
   const CTweakPlayerControl::SCommandDescription& desc =
       gpTweakPlayerControlCurrent->GetCommandDescription(command);
-  if (desc.x4_type != CTweakPlayerControl::kCT_VirtualMenu) {
+  if (desc.mType != CTweakPlayerControl::kCT_VirtualMenu) {
     return false;
   }
 
   bool result = false;
-  switch (desc.xa4_virtualMenu.x0_shape) {
+  switch (desc.mVirtualMenu.mShape) {
   case CTweakPlayerControl::kVMS_Annulus: {
-    CVector2f offset = position - CVector2f(desc.xa4_virtualMenu.x4_annulus.x0_centerX,
-                                            desc.xa4_virtualMenu.x4_annulus.x4_centerY);
+    CVector2f offset = position - CVector2f(desc.mVirtualMenu.mAnnulus.mCenterX,
+                                            desc.mVirtualMenu.mAnnulus.mCenterY);
     float distanceSquared = offset.MagSquared();
-    if (distanceSquared <= desc.xa4_virtualMenu.x4_annulus.xc_outerRadius *
-                               desc.xa4_virtualMenu.x4_annulus.xc_outerRadius &&
-        distanceSquared >= desc.xa4_virtualMenu.x4_annulus.x8_innerRadius *
-                               desc.xa4_virtualMenu.x4_annulus.x8_innerRadius) {
+    if (distanceSquared <= desc.mVirtualMenu.mAnnulus.mOuterRadius *
+                               desc.mVirtualMenu.mAnnulus.mOuterRadius &&
+        distanceSquared >= desc.mVirtualMenu.mAnnulus.mInnerRadius *
+                               desc.mVirtualMenu.mAnnulus.mInnerRadius) {
       result = true;
     }
     break;
   }
   case CTweakPlayerControl::kVMS_Rectangle: {
     float half = 0.5f;
-    float halfWidth = half * desc.xa4_virtualMenu.x14_rectangle.x8_width;
-    if (position.GetX() <= desc.xa4_virtualMenu.x14_rectangle.x0_centerX + halfWidth &&
-        position.GetX() > desc.xa4_virtualMenu.x14_rectangle.x0_centerX - halfWidth) {
-      float halfHeight = half * desc.xa4_virtualMenu.x14_rectangle.xc_height;
-      if (position.GetY() <= desc.xa4_virtualMenu.x14_rectangle.x4_centerY + halfHeight &&
-          position.GetY() > desc.xa4_virtualMenu.x14_rectangle.x4_centerY - halfHeight) {
+    float halfWidth = half * desc.mVirtualMenu.mRectangle.mWidth;
+    if (position.GetX() <= desc.mVirtualMenu.mRectangle.mCenterX + halfWidth &&
+        position.GetX() > desc.mVirtualMenu.mRectangle.mCenterX - halfWidth) {
+      float halfHeight = half * desc.mVirtualMenu.mRectangle.mHeight;
+      if (position.GetY() <= desc.mVirtualMenu.mRectangle.mCenterY + halfHeight &&
+          position.GetY() > desc.mVirtualMenu.mRectangle.mCenterY - halfHeight) {
         result = true;
       }
     }
     break;
   }
   case CTweakPlayerControl::kVMS_Sector: {
-    CVector2f offset = position - CVector2f(desc.xa4_virtualMenu.x24_sector.x0_centerX,
-                                            desc.xa4_virtualMenu.x24_sector.x4_centerY);
+    CVector2f offset = position - CVector2f(desc.mVirtualMenu.mSector.mCenterX,
+                                            desc.mVirtualMenu.mSector.mCenterY);
     float distanceSquared = offset.MagSquared();
-    if (distanceSquared <= desc.xa4_virtualMenu.x24_sector.xc_outerRadius *
-                               desc.xa4_virtualMenu.x24_sector.xc_outerRadius &&
-        distanceSquared >= desc.xa4_virtualMenu.x24_sector.x8_innerRadius *
-                               desc.xa4_virtualMenu.x24_sector.x8_innerRadius) {
+    if (distanceSquared <= desc.mVirtualMenu.mSector.mOuterRadius *
+                               desc.mVirtualMenu.mSector.mOuterRadius &&
+        distanceSquared >= desc.mVirtualMenu.mSector.mInnerRadius *
+                               desc.mVirtualMenu.mSector.mInnerRadius) {
       CVector2f direction(
-          sinf((M_PIF / 180.f) * desc.xa4_virtualMenu.x24_sector.x10_centerAngleDegrees),
-          cosf((M_PIF / 180.f) * desc.xa4_virtualMenu.x24_sector.x10_centerAngleDegrees));
+          sinf((M_PIF / 180.f) * desc.mVirtualMenu.mSector.mCenterAngleDegrees),
+          cosf((M_PIF / 180.f) * desc.mVirtualMenu.mSector.mCenterAngleDegrees));
       if (acosf(CVector2f::Dot(direction.AsNormalized(), offset.AsNormalized())) <
-          0.5f * ((M_PIF / 180.f) * desc.xa4_virtualMenu.x24_sector.x14_sweepDegrees)) {
+          0.5f * ((M_PIF / 180.f) * desc.mVirtualMenu.mSector.mSweepDegrees)) {
         result = true;
       }
     }
@@ -299,60 +299,60 @@ bool CControlMapper::GetDigitalInput(ECommands command, const CFinalInput& input
 #endif
   bool result = false;
   SCommandMapping mapping = GetCommandMapping(command);
-  if (filter == kFT_Unfiltered || (filter == kFT_Filtered && x0_commandEnabled[command])) {
+  if (filter == kFT_Unfiltered || (filter == kFT_Filtered && mCommandEnabled[command])) {
     const CTweakPlayerControl::SCommandDescription& desc =
         gpTweakPlayerControlCurrent->GetCommandDescription(command);
-    switch (desc.x4_type) {
+    switch (desc.mType) {
     case CTweakPlayerControl::kCT_Physical: {
-      result = input.GetDigital(mapping.x4_primaryControl);
+      result = input.GetDigital(mapping.mPrimaryControl);
       break;
     }
     case CTweakPlayerControl::kCT_PhysicalCombination: {
-      switch (desc.x4c_physicalBoolean) {
+      switch (desc.mPhysicalBoolean) {
       case CTweakPlayerControl::kCB_And: {
-        result = input.GetDigital(mapping.x4_primaryControl) &&
-                 input.GetDigital(mapping.x8_secondaryControl);
+        result = input.GetDigital(mapping.mPrimaryControl) &&
+                 input.GetDigital(mapping.mSecondaryControl);
         break;
       }
       case CTweakPlayerControl::kCB_Or: {
-        result = input.GetDigital(mapping.x4_primaryControl) ||
-                 input.GetDigital(mapping.x8_secondaryControl);
+        result = input.GetDigital(mapping.mPrimaryControl) ||
+                 input.GetDigital(mapping.mSecondaryControl);
         break;
       }
       case CTweakPlayerControl::kCB_AndNot: {
-        result = input.GetDigital(mapping.x4_primaryControl) &&
-                 !input.GetDigital(mapping.x8_secondaryControl);
+        result = input.GetDigital(mapping.mPrimaryControl) &&
+                 !input.GetDigital(mapping.mSecondaryControl);
         break;
       }
       }
       break;
     }
     case CTweakPlayerControl::kCT_Virtual: {
-      result = input.GetMotionDigital(mapping.x4_primaryControl);
+      result = input.GetMotionDigital(mapping.mPrimaryControl);
       break;
     }
     case CTweakPlayerControl::kCT_VirtualCombination: {
-      switch (desc.x98_virtualBoolean) {
+      switch (desc.mVirtualBoolean) {
       case CTweakPlayerControl::kCB_And: {
-        result = input.GetMotionDigital(mapping.x4_primaryControl) &&
-                 input.GetMotionDigital(mapping.x8_secondaryControl);
+        result = input.GetMotionDigital(mapping.mPrimaryControl) &&
+                 input.GetMotionDigital(mapping.mSecondaryControl);
         break;
       }
       case CTweakPlayerControl::kCB_Or: {
-        result = input.GetMotionDigital(mapping.x4_primaryControl) ||
-                 input.GetMotionDigital(mapping.x8_secondaryControl);
+        result = input.GetMotionDigital(mapping.mPrimaryControl) ||
+                 input.GetMotionDigital(mapping.mSecondaryControl);
         break;
       }
       case CTweakPlayerControl::kCB_AndNot: {
-        result = input.GetMotionDigital(mapping.x4_primaryControl) &&
-                 !input.GetMotionDigital(mapping.x8_secondaryControl);
+        result = input.GetMotionDigital(mapping.mPrimaryControl) &&
+                 !input.GetMotionDigital(mapping.mSecondaryControl);
         break;
       }
       }
       break;
     }
     case CTweakPlayerControl::kCT_Virtual2: {
-      result = input.GetSwingDigital(mapping.x4_primaryControl);
+      result = input.GetSwingDigital(mapping.mPrimaryControl);
       break;
     }
     case CTweakPlayerControl::kCT_VirtualMenu: {
@@ -373,60 +373,60 @@ bool CControlMapper::GetPressInput(ECommands command, const CFinalInput& input,
 #endif
   bool result = false;
   SCommandMapping mapping = GetCommandMapping(command);
-  if (filter == kFT_Unfiltered || (filter == kFT_Filtered && x0_commandEnabled[command])) {
+  if (filter == kFT_Unfiltered || (filter == kFT_Filtered && mCommandEnabled[command])) {
     const CTweakPlayerControl::SCommandDescription& desc =
         gpTweakPlayerControlCurrent->GetCommandDescription(command);
-    switch (desc.x4_type) {
+    switch (desc.mType) {
     case CTweakPlayerControl::kCT_Physical: {
-      result = input.GetPressed(mapping.x4_primaryControl);
+      result = input.GetPressed(mapping.mPrimaryControl);
       break;
     }
     case CTweakPlayerControl::kCT_PhysicalCombination: {
-      switch (desc.x4c_physicalBoolean) {
+      switch (desc.mPhysicalBoolean) {
       case CTweakPlayerControl::kCB_And: {
-        result = input.GetPressed(mapping.x4_primaryControl) &&
-                 input.GetPressed(mapping.x8_secondaryControl);
+        result = input.GetPressed(mapping.mPrimaryControl) &&
+                 input.GetPressed(mapping.mSecondaryControl);
         break;
       }
       case CTweakPlayerControl::kCB_Or: {
-        result = input.GetPressed(mapping.x4_primaryControl) ||
-                 input.GetPressed(mapping.x8_secondaryControl);
+        result = input.GetPressed(mapping.mPrimaryControl) ||
+                 input.GetPressed(mapping.mSecondaryControl);
         break;
       }
       case CTweakPlayerControl::kCB_AndNot: {
-        result = input.GetPressed(mapping.x4_primaryControl) &&
-                 !input.GetPressed(mapping.x8_secondaryControl);
+        result = input.GetPressed(mapping.mPrimaryControl) &&
+                 !input.GetPressed(mapping.mSecondaryControl);
         break;
       }
       }
       break;
     }
     case CTweakPlayerControl::kCT_Virtual: {
-      result = input.GetMotionPressed(mapping.x4_primaryControl);
+      result = input.GetMotionPressed(mapping.mPrimaryControl);
       break;
     }
     case CTweakPlayerControl::kCT_VirtualCombination: {
-      switch (desc.x98_virtualBoolean) {
+      switch (desc.mVirtualBoolean) {
       case CTweakPlayerControl::kCB_And: {
-        result = input.GetMotionPressed(mapping.x4_primaryControl) &&
-                 input.GetMotionPressed(mapping.x8_secondaryControl);
+        result = input.GetMotionPressed(mapping.mPrimaryControl) &&
+                 input.GetMotionPressed(mapping.mSecondaryControl);
         break;
       }
       case CTweakPlayerControl::kCB_Or: {
-        result = input.GetMotionPressed(mapping.x4_primaryControl) ||
-                 input.GetMotionPressed(mapping.x8_secondaryControl);
+        result = input.GetMotionPressed(mapping.mPrimaryControl) ||
+                 input.GetMotionPressed(mapping.mSecondaryControl);
         break;
       }
       case CTweakPlayerControl::kCB_AndNot: {
-        result = input.GetMotionPressed(mapping.x4_primaryControl) &&
-                 !input.GetMotionPressed(mapping.x8_secondaryControl);
+        result = input.GetMotionPressed(mapping.mPrimaryControl) &&
+                 !input.GetMotionPressed(mapping.mSecondaryControl);
         break;
       }
       }
       break;
     }
     case CTweakPlayerControl::kCT_Virtual2: {
-      result = input.GetSwingPressed(mapping.x4_primaryControl);
+      result = input.GetSwingPressed(mapping.mPrimaryControl);
       break;
     }
     case CTweakPlayerControl::kCT_VirtualMenu: {
@@ -447,60 +447,60 @@ bool CControlMapper::GetReleaseInput(ECommands command, const CFinalInput& input
 #endif
   bool result = false;
   SCommandMapping mapping = GetCommandMapping(command);
-  if (filter == kFT_Unfiltered || (filter == kFT_Filtered && x0_commandEnabled[command])) {
+  if (filter == kFT_Unfiltered || (filter == kFT_Filtered && mCommandEnabled[command])) {
     const CTweakPlayerControl::SCommandDescription& desc =
         gpTweakPlayerControlCurrent->GetCommandDescription(command);
-    switch (desc.x4_type) {
+    switch (desc.mType) {
     case CTweakPlayerControl::kCT_Physical: {
-      result = input.GetReleased(mapping.x4_primaryControl);
+      result = input.GetReleased(mapping.mPrimaryControl);
       break;
     }
     case CTweakPlayerControl::kCT_PhysicalCombination: {
-      switch (desc.x4c_physicalBoolean) {
+      switch (desc.mPhysicalBoolean) {
       case CTweakPlayerControl::kCB_And: {
-        result = input.GetReleased(mapping.x4_primaryControl) &&
-                 input.GetReleased(mapping.x8_secondaryControl);
+        result = input.GetReleased(mapping.mPrimaryControl) &&
+                 input.GetReleased(mapping.mSecondaryControl);
         break;
       }
       case CTweakPlayerControl::kCB_Or: {
-        result = input.GetReleased(mapping.x4_primaryControl) ||
-                 input.GetReleased(mapping.x8_secondaryControl);
+        result = input.GetReleased(mapping.mPrimaryControl) ||
+                 input.GetReleased(mapping.mSecondaryControl);
         break;
       }
       case CTweakPlayerControl::kCB_AndNot: {
-        result = input.GetReleased(mapping.x4_primaryControl) &&
-                 !input.GetReleased(mapping.x8_secondaryControl);
+        result = input.GetReleased(mapping.mPrimaryControl) &&
+                 !input.GetReleased(mapping.mSecondaryControl);
         break;
       }
       }
       break;
     }
     case CTweakPlayerControl::kCT_Virtual: {
-      result = input.GetMotionReleased(mapping.x4_primaryControl);
+      result = input.GetMotionReleased(mapping.mPrimaryControl);
       break;
     }
     case CTweakPlayerControl::kCT_VirtualCombination: {
-      switch (desc.x98_virtualBoolean) {
+      switch (desc.mVirtualBoolean) {
       case CTweakPlayerControl::kCB_And: {
-        result = input.GetMotionReleased(mapping.x4_primaryControl) &&
-                 input.GetMotionReleased(mapping.x8_secondaryControl);
+        result = input.GetMotionReleased(mapping.mPrimaryControl) &&
+                 input.GetMotionReleased(mapping.mSecondaryControl);
         break;
       }
       case CTweakPlayerControl::kCB_Or: {
-        result = input.GetMotionReleased(mapping.x4_primaryControl) ||
-                 input.GetMotionReleased(mapping.x8_secondaryControl);
+        result = input.GetMotionReleased(mapping.mPrimaryControl) ||
+                 input.GetMotionReleased(mapping.mSecondaryControl);
         break;
       }
       case CTweakPlayerControl::kCB_AndNot: {
-        result = input.GetMotionReleased(mapping.x4_primaryControl) &&
-                 !input.GetMotionReleased(mapping.x8_secondaryControl);
+        result = input.GetMotionReleased(mapping.mPrimaryControl) &&
+                 !input.GetMotionReleased(mapping.mSecondaryControl);
         break;
       }
       }
       break;
     }
     case CTweakPlayerControl::kCT_Virtual2: {
-      result = input.GetSwingReleased(mapping.x4_primaryControl);
+      result = input.GetSwingReleased(mapping.mPrimaryControl);
       break;
     }
     }
@@ -511,13 +511,13 @@ bool CControlMapper::GetReleaseInput(ECommands command, const CFinalInput& input
 bool CControlMapper::GetTapInput(ECommands command, const CFinalInput& input,
                                  EFilterType filter) const {
   return GetReleaseInput(command, input, filter) &&
-         x308_releaseTime[command] <= x194_tapHoldThreshold && x308_releaseTime[command] > 0.f;
+         mReleaseTime[command] <= mTapHoldThreshold && mReleaseTime[command] > 0.f;
 }
 
 void CControlMapper::ResetCommandFilters() {
-  x0_commandEnabled.clear();
+  mCommandEnabled.clear();
   for (int i = 0; i < kC_MAX; ++i) {
-    x0_commandEnabled.push_back(true);
+    mCommandEnabled.push_back(true);
   }
 }
 
@@ -527,7 +527,7 @@ void CControlMapper::SetCommandEnabled(ECommands command, bool enabled) {
     return;
   }
 #endif
-  x0_commandEnabled[command] = enabled;
+  mCommandEnabled[command] = enabled;
 }
 
 void CControlMapper::SetCommandMapping(ECommands command, const SCommandMapping& mapping) {
@@ -536,31 +536,31 @@ void CControlMapper::SetCommandMapping(ECommands command, const SCommandMapping&
     return;
   }
 #endif
-  if (!x60_commandOverridden.empty()) {
-    if (x60_commandOverridden[command]) {
+  if (!mCommandOverridden.empty()) {
+    if (mCommandOverridden[command]) {
       for (rstl::reserved_vector< SCommandOverride, 12 >::iterator it =
-               xc0_commandOverrides.begin();
-           it != xc0_commandOverrides.end(); ++it) {
-        if (it->x0_command == command) {
-          it->x4_mapping = mapping;
+               mCommandOverrides.begin();
+           it != mCommandOverrides.end(); ++it) {
+        if (it->mCommand == command) {
+          it->mMapping = mapping;
         }
       }
     } else {
-      if (xc0_commandOverrides.size() != xc0_commandOverrides.capacity()) {
-        x60_commandOverridden[command] = true;
-        xc0_commandOverrides.push_back(SCommandOverride(command, mapping));
+      if (mCommandOverrides.size() != mCommandOverrides.capacity()) {
+        mCommandOverridden[command] = true;
+        mCommandOverrides.push_back(SCommandOverride(command, mapping));
       }
     }
   }
 }
 
 void CControlMapper::RestoreCommandMapping(ECommands command) {
-  if (!x60_commandOverridden.empty() && IsCommandRemapped(command)) {
-    x60_commandOverridden[command] = false;
-    for (rstl::reserved_vector< SCommandOverride, 12 >::iterator it = xc0_commandOverrides.begin();
-         it != xc0_commandOverrides.end(); ++it) {
-      if (it->x0_command == command) {
-        xc0_commandOverrides.erase(it);
+  if (!mCommandOverridden.empty() && IsCommandRemapped(command)) {
+    mCommandOverridden[command] = false;
+    for (rstl::reserved_vector< SCommandOverride, 12 >::iterator it = mCommandOverrides.begin();
+         it != mCommandOverrides.end(); ++it) {
+      if (it->mCommand == command) {
+        mCommandOverrides.erase(it);
         return;
       }
     }
@@ -573,7 +573,7 @@ bool CControlMapper::IsCommandRemapped(ECommands command) const {
     return false;
   }
 #endif
-  return command < x60_commandOverridden.size() && x60_commandOverridden[command];
+  return command < mCommandOverridden.size() && mCommandOverridden[command];
 }
 
 CControlMapper::SCommandMapping CControlMapper::GetCommandMapping(ECommands command) const {
@@ -582,13 +582,13 @@ CControlMapper::SCommandMapping CControlMapper::GetCommandMapping(ECommands comm
     return SCommandMapping(CTweakPlayerControl::kCT_None, 0, 0);
   }
 #endif
-  if (!x60_commandOverridden.empty() && command < x60_commandOverridden.size() &&
-      x60_commandOverridden[command]) {
+  if (!mCommandOverridden.empty() && command < mCommandOverridden.size() &&
+      mCommandOverridden[command]) {
     for (rstl::reserved_vector< SCommandOverride, 12 >::const_iterator it =
-             xc0_commandOverrides.begin();
-         it != xc0_commandOverrides.end(); ++it) {
-      if (it->x0_command == command) {
-        return it->x4_mapping;
+             mCommandOverrides.begin();
+         it != mCommandOverrides.end(); ++it) {
+      if (it->mCommand == command) {
+        return it->mMapping;
       }
     }
   }
@@ -597,17 +597,17 @@ CControlMapper::SCommandMapping CControlMapper::GetCommandMapping(ECommands comm
 }
 
 void CControlMapper::ResetCommandMappings() {
-  x60_commandOverridden.clear();
+  mCommandOverridden.clear();
   for (int i = 0; i < kC_MAX; ++i) {
-    x60_commandOverridden.push_back(false);
+    mCommandOverridden.push_back(false);
   }
-  xc0_commandOverrides.clear();
+  mCommandOverrides.clear();
 }
 
 void CControlMapper::ResetCommandTimes() {
   for (int i = 0; i < kC_MAX; ++i) {
-    x198_digitalTime[i] = 0.f;
-    x308_releaseTime[i] = 0.f;
+    mDigitalTime[i] = 0.f;
+    mReleaseTime[i] = 0.f;
   }
 }
 
@@ -617,9 +617,9 @@ void CControlMapper::ResetInputState() {
 }
 
 void CControlMapper::ResetSelector() {
-  x184_selectorActive = 0;
-  x188_selectorFadeTime = 0.f;
-  x18c_activeSelectorCommand = kC_None;
+  mSelectorActive = 0;
+  mSelectorFadeTime = 0.f;
+  mActiveSelectorCommand = kC_None;
 }
 
 void CControlMapper::Reset() {

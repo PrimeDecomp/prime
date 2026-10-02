@@ -18,32 +18,32 @@
 #include "MetroidPrime/Tweaks/CTweaks.hpp"
 
 CAimingCursor::CAimingCursor(bool reservedFlag, uint reservedValue)
-: x0_cursor2D(CVector2f::Zero())
-, x8_cursorOnPlane(CVector3f::Zero())
-, x18_raycastResult()
-, x48_lastValidPointerPlane(CVector3f::Zero())
-, x54_cursorOrbitPosition(CVector3f::Zero())
-, x60_cursorVelocity(CVector3f::Zero())
-, x6c_cursorVelocityMagnitude(0.f)
-, x70_cursorVelocity2D(CVector2f::Zero())
-, x78_cursorVelocity2DMagnitude(0.f)
-, x7c_cursorInWorld(CVector3f::Zero())
-, x88_cursorObjectId(kInvalidUniqueId)
-, x8c_cursorObjectCount(0)
-, x90_cursorLockTimer(0.f)
-, x94_cursorAlpha(1.f)
-, x98_24_cursorValid(false)
-, x98_25_reservedFlag(reservedFlag)
-, x9c_nunchukPitch(CRelAngle::FromRadians(0.f))
-, xa0_cursorFade(0.f)
-, xa4_hideForCSICount(0)
-, xa8_reservedValue(reservedValue) {}
+: mCursor2D(CVector2f::Zero())
+, mCursorOnPlane(CVector3f::Zero())
+, mRaycastResult()
+, mLastValidPointerPlane(CVector3f::Zero())
+, mCursorOrbitPosition(CVector3f::Zero())
+, mCursorVelocity(CVector3f::Zero())
+, mCursorVelocityMagnitude(0.f)
+, mCursorVelocity2D(CVector2f::Zero())
+, mCursorVelocity2DMagnitude(0.f)
+, mCursorInWorld(CVector3f::Zero())
+, mCursorObjectId(kInvalidUniqueId)
+, mCursorObjectCount(0)
+, mCursorLockTimer(0.f)
+, mCursorAlpha(1.f)
+, mCursorValid(false)
+, mReservedFlag(reservedFlag)
+, mNunchukPitch(CRelAngle::FromRadians(0.f))
+, mCursorFade(0.f)
+, mHideForCSICount(0)
+, mReservedValue(reservedValue) {}
 
 CVector3f CAimingCursor::GetCursorOrbitPosition(const CStateManager& mgr) const {
-  if (const CActor* actor = TCastToConstPtr< CActor >(mgr.GetObjectById(x88_cursorObjectId))) {
+  if (const CActor* actor = TCastToConstPtr< CActor >(mgr.GetObjectById(mCursorObjectId))) {
     return actor->GetAimPosition(mgr, 0.f);
   }
-  return x54_cursorOrbitPosition;
+  return mCursorOrbitPosition;
 }
 
 void CAimingCursor::UpdateAlpha(const CFinalInput& input, float dt, const CStateManager& mgr) {
@@ -79,15 +79,15 @@ void CAimingCursor::UpdateAlpha(const CFinalInput& input, float dt, const CState
   }
 
   if (mgr.GetDeferredStateTransition() != kSMT_InGame) {
-    xa0_cursorFade = 1.f;
+    mCursorFade = 1.f;
     alpha = 0.f;
   }
-  alpha *= 1.f - CMath::FastMin(CMath::FastMax(0.f, xa0_cursorFade), 1.f);
-  x94_cursorAlpha = alpha;
+  alpha *= 1.f - CMath::FastMin(CMath::FastMax(0.f, mCursorFade), 1.f);
+  mCursorAlpha = alpha;
 }
 
 void CAimingCursor::UpdateValidity(const CFinalInput& input, float dt, const CStateManager& mgr) {
-  x98_24_cursorValid = input.GetInputType() <= 2
+  mCursorValid = input.GetInputType() <= 2
                            ? input.GetControllerData().GetPointerValidFrameCount() > 10
                            : false;
 }
@@ -104,15 +104,15 @@ bool CAimingCursor::CheckZeroCursorPosition(const CStateManager& mgr) const {
 }
 
 void CAimingCursor::Update(const CFinalInput& input, float dt, CStateManager& mgr) {
-  const CVector3f previousPosition = x54_cursorOrbitPosition;
-  const CVector2f previousCursor = x0_cursor2D;
+  const CVector3f previousPosition = mCursorOrbitPosition;
+  const CVector2f previousCursor = mCursor2D;
   const CVector2f& pointer = input.GetControllerData().GetPointerPosition();
   CVector3f cursor;
   cursor.SetX(pointer.GetX());
   cursor.SetZ(-pointer.GetY());
   cursor.SetY(1.25f);
   if (input.GetControllerData().GetPointerState() == CControllerData::kPS_Tracking) {
-    x48_lastValidPointerPlane = cursor;
+    mLastValidPointerPlane = cursor;
   }
 
   const CPlayer& player = *mgr.GetPlayer();
@@ -186,33 +186,33 @@ void CAimingCursor::Update(const CFinalInput& input, float dt, CStateManager& mg
     cursor.SetZ(0.f);
   }
 
-  if (x90_cursorLockTimer > 0.f) {
-    x90_cursorLockTimer += dt;
-    if (x90_cursorLockTimer < 0.5f) {
+  if (mCursorLockTimer > 0.f) {
+    mCursorLockTimer += dt;
+    if (mCursorLockTimer < 0.5f) {
       const float scale =
-          CMath::FastMin(CMath::FastMax(0.f, (0.2f - x90_cursorLockTimer) / 0.2f), 1.f);
+          CMath::FastMin(CMath::FastMax(0.f, (0.2f - mCursorLockTimer) / 0.2f), 1.f);
       cursor.SetX(cursor.GetX() * scale);
       cursor.SetZ(cursor.GetZ() * scale);
-    } else if (x90_cursorLockTimer < 0.6f) {
+    } else if (mCursorLockTimer < 0.6f) {
       const float scale =
-          CMath::FastMin(CMath::FastMax(0.f, (x90_cursorLockTimer - 0.5f) / (0.6f - 0.5f)), 1.f);
+          CMath::FastMin(CMath::FastMax(0.f, (mCursorLockTimer - 0.5f) / (0.6f - 0.5f)), 1.f);
       cursor.SetX(cursor.GetX() * scale);
       cursor.SetZ(cursor.GetZ() * scale);
     } else {
-      x90_cursorLockTimer = 0.f;
+      mCursorLockTimer = 0.f;
     }
   }
-  if (x8c_cursorObjectCount != 0 && x8c_cursorObjectCount < 60) {
-    cursor *= 1.f - CMath::FastMin(CMath::FastMax(0.f, x8c_cursorObjectCount / 60.f), 1.f);
+  if (mCursorObjectCount != 0 && mCursorObjectCount < 60) {
+    cursor *= 1.f - CMath::FastMin(CMath::FastMax(0.f, mCursorObjectCount / 60.f), 1.f);
   }
-  x0_cursor2D[0] = cursor.GetX();
-  x0_cursor2D[1] = cursor.GetZ();
+  mCursor2D[0] = cursor.GetX();
+  mCursor2D[1] = cursor.GetZ();
 
   const CTransform4f cameraTransform = mgr.GetCameraManager()->GetCurrentCamera(mgr).GetTransform();
   const CQuaternion cameraRotation =
       CQuaternion::FromMatrix(mgr.GetCameraManager()->GetCurrentCamera(mgr).GetTransform());
-  x8_cursorOnPlane = cameraTransform.GetTranslation() + cameraRotation.Transform(cursor);
-  const CVector3f rayPoint = x8_cursorOnPlane;
+  mCursorOnPlane = cameraTransform.GetTranslation() + cameraRotation.Transform(cursor);
+  const CVector3f rayPoint = mCursorOnPlane;
 
   static const CMaterialList include(kMT_Solid, kMT_Character, kMT_NonSolidDamageable);
   static const CMaterialList exclude(kMT_ProjectilePassthrough, kMT_Player);
@@ -225,67 +225,67 @@ void CAimingCursor::Update(const CFinalInput& input, float dt, CStateManager& mg
   const CRayCastResult result = CGameCollision::RayWorldIntersection(
       mgr, objectId, cameraTransform.GetTranslation(), direction, 100.f, filter, nearList);
   if (result.IsValid()) {
-    x7c_cursorInWorld = result.GetPoint();
-    x18_raycastResult = result;
-    x88_cursorObjectId = objectId;
-    x54_cursorOrbitPosition = result.GetPoint();
+    mCursorInWorld = result.GetPoint();
+    mRaycastResult = result;
+    mCursorObjectId = objectId;
+    mCursorOrbitPosition = result.GetPoint();
     if (result.GetTime() < 0.25f) {
-      x7c_cursorInWorld = cameraTransform.GetTranslation() + 0.25f * direction;
+      mCursorInWorld = cameraTransform.GetTranslation() + 0.25f * direction;
     }
   } else {
-    x88_cursorObjectId = objectId;
-    x7c_cursorInWorld = cameraTransform.GetTranslation() + 100.f * direction;
-    x54_cursorOrbitPosition = x7c_cursorInWorld;
-    x18_raycastResult = result;
+    mCursorObjectId = objectId;
+    mCursorInWorld = cameraTransform.GetTranslation() + 100.f * direction;
+    mCursorOrbitPosition = mCursorInWorld;
+    mRaycastResult = result;
   }
 
   if (!close_enough(dt, 0.f)) {
-    const CVector3f delta = x7c_cursorInWorld - previousPosition;
+    const CVector3f delta = mCursorInWorld - previousPosition;
     if (delta.IsMagnitudeSafe()) {
-      x60_cursorVelocity = delta / dt;
-      x6c_cursorVelocityMagnitude = x60_cursorVelocity.Magnitude();
+      mCursorVelocity = delta / dt;
+      mCursorVelocityMagnitude = mCursorVelocity.Magnitude();
     } else {
-      x60_cursorVelocity = CVector3f::Zero();
-      x6c_cursorVelocityMagnitude = 0.f;
+      mCursorVelocity = CVector3f::Zero();
+      mCursorVelocityMagnitude = 0.f;
     }
-    const CVector2f delta2D = x0_cursor2D - previousCursor;
+    const CVector2f delta2D = mCursor2D - previousCursor;
     if (delta2D.IsMagnitudeSafe()) {
-      x70_cursorVelocity2D = delta2D / dt;
-      x78_cursorVelocity2DMagnitude = x70_cursorVelocity2D.Magnitude();
+      mCursorVelocity2D = delta2D / dt;
+      mCursorVelocity2DMagnitude = mCursorVelocity2D.Magnitude();
     } else {
-      x70_cursorVelocity2D = CVector2f::Zero();
-      x78_cursorVelocity2DMagnitude = 0.f;
+      mCursorVelocity2D = CVector2f::Zero();
+      mCursorVelocity2DMagnitude = 0.f;
     }
   }
-  x9c_nunchukPitch = CRelAngle::FromRadians(
+  mNunchukPitch = CRelAngle::FromRadians(
       input.GetControllerData().GetContinuousAngleAxis(2).GetAbsoluteValue());
-  if (xa4_hideForCSICount > 0) {
-    xa0_cursorFade += dt;
+  if (mHideForCSICount > 0) {
+    mCursorFade += dt;
   } else if (mgr.GetDeferredStateTransition() == kSMT_InGame) {
-    xa0_cursorFade -= dt;
+    mCursorFade -= dt;
   }
-  xa0_cursorFade = CMath::FastMin(CMath::FastMax(0.f, xa0_cursorFade), 1.f);
+  mCursorFade = CMath::FastMin(CMath::FastMax(0.f, mCursorFade), 1.f);
   UpdateAlpha(input, dt, mgr);
   UpdateValidity(input, dt, mgr);
 }
 
-CVector2f CAimingCursor::GetCursor2D() const { return x0_cursor2D; }
+CVector2f CAimingCursor::GetCursor2D() const { return mCursor2D; }
 
-CVector3f CAimingCursor::GetCursorOnPlane() const { return x8_cursorOnPlane; }
+CVector3f CAimingCursor::GetCursorOnPlane() const { return mCursorOnPlane; }
 
-CVector3f CAimingCursor::GetCursorInWorld() const { return x7c_cursorInWorld; }
+CVector3f CAimingCursor::GetCursorInWorld() const { return mCursorInWorld; }
 
-TUniqueId CAimingCursor::GetCursorObjectId() const { return x88_cursorObjectId; }
+TUniqueId CAimingCursor::GetCursorObjectId() const { return mCursorObjectId; }
 
-uint CAimingCursor::GetCursorObjectCount() const { return x8c_cursorObjectCount; }
+uint CAimingCursor::GetCursorObjectCount() const { return mCursorObjectCount; }
 
-bool CAimingCursor::GetCursorValid() const { return x98_24_cursorValid; }
+bool CAimingCursor::GetCursorValid() const { return mCursorValid; }
 
-float CAimingCursor::GetCursorAlpha() const { return x94_cursorAlpha; }
+float CAimingCursor::GetCursorAlpha() const { return mCursorAlpha; }
 
-CRayCastResult CAimingCursor::GetRaycastResult() const { return x18_raycastResult; }
+CRayCastResult CAimingCursor::GetRaycastResult() const { return mRaycastResult; }
 
-bool CAimingCursor::IsHiddenForCSI() const { return xa4_hideForCSICount > 0; }
+bool CAimingCursor::IsHiddenForCSI() const { return mHideForCSICount > 0; }
 
 float CAimingCursor::GetCursorPlaneDistance() { return 1.25f; }
 
