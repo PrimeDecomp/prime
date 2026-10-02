@@ -59,6 +59,16 @@ struct less : binary_function< T, T, bool > {
   bool operator()(const T& a, const T& b) const { return a < b; }
 };
 
+#if RSTL_VERSION >= RSTL_R3ME_00
+template <>
+struct less< unsigned int > {
+  typedef unsigned int first_argument_type;
+  typedef unsigned int second_argument_type;
+  typedef bool result_type;
+  bool operator()(unsigned int a, unsigned int b) const { return a < b; }
+};
+#endif
+
 } // namespace rstl
 
 #endif // _RSTL_FUNCTIONAL
