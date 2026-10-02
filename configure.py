@@ -519,7 +519,6 @@ config.libs = [
             Object(
                 NonMatching,
                 "MetroidPrime/CAimingCursor.cpp",
-                extra_cflags=["-sdata2 4", "-fp_contract off"],
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8J01_00"), "MetroidPrime/CControlMapper.cpp"
@@ -643,8 +642,6 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
                 "MetroidPrime/Tweaks/CTweakPlayerControl.cpp",
-                extra_cflags=["-sdata2 4", "-fp_contract off"]
-                if version_num >= VERSIONS.index("R3IJ01_00") else [],
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
