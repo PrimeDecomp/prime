@@ -20,6 +20,18 @@ struct reserved_vector_traits {
 };
 
 template <>
+struct reserved_vector_traits< uchar > {
+  typedef uchar fill_type;
+  typedef const uchar& push_type;
+  enum { trivial_destructor = true };
+  static void fill(uchar* dest, int count, uchar value) {
+    for (int i = 0; i < count; ++i, ++dest) {
+      *dest = value;
+    }
+  }
+};
+
+template <>
 struct reserved_vector_traits< float > {
   typedef float fill_type;
   enum { trivial_destructor = true };
