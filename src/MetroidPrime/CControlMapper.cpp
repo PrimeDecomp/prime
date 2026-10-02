@@ -1,5 +1,657 @@
 #include "MetroidPrime/CControlMapper.hpp"
 
+#if VERSION >= VERSION_R3IJ_00
+
+#include "MetroidPrime/CStateManager.hpp"
+#include "MetroidPrime/Cameras/CCameraManager.hpp"
+#include "MetroidPrime/Player/CGameOptions.hpp"
+#include "MetroidPrime/Player/CGameState.hpp"
+#include "MetroidPrime/Player/CPlayer.hpp"
+#include "MetroidPrime/Tweaks/CTweakPlayerControl.hpp"
+#include "MetroidPrime/Tweaks/CTweaks.hpp"
+
+#include "Kyoto/Math/CMath.hpp"
+#include "Kyoto/Math/CloseEnough.hpp"
+
+const float CControlMapper::skDefaultTapHoldThreshold = 0.175f;
+
+CControlMapper::CControlMapper(float tapHoldThreshold)
+: x0_commandEnabled(true)
+, x60_commandOverridden(false)
+, x184_selectorActive(0)
+, x188_selectorFadeTime(0.f)
+, x18c_activeSelectorCommand(kC_None)
+, x190_releasedSelectorCommand(kC_None)
+, x194_tapHoldThreshold(tapHoldThreshold)
+, x198_digitalTime(91)
+, x308_releaseTime(91) {
+  Reset();
+}
+
+void CControlMapper::UpdateCommandTimes(const CFinalInput& input) {
+  for (int i = 0; i < kC_MAX; ++i) {
+    ECommands command = static_cast< ECommands >(i);
+    if (GetPressInput(command, input, kFT_Unfiltered)) {
+      x198_digitalTime[i] = 0.f;
+      x308_releaseTime[i] = 0.f;
+    } else if (GetDigitalInput(command, input, kFT_Unfiltered)) {
+      x198_digitalTime[i] += input.Time();
+      x308_releaseTime[i] += input.Time();
+    } else if (GetReleaseInput(command, input, kFT_Unfiltered)) {
+      x198_digitalTime[i] = 0.f;
+    }
+  }
+}
+
+bool CControlMapper::CanOpenSelector(const CStateManager& mgr, const CPlayer& player,
+                                     ECommands command) const {
+  return mgr.GetGameState() == CStateManager::kGS_Running &&
+         mgr.GetCameraManager()->IsInFPCamera() && player.CanOpenSelector(mgr, command);
+}
+
+void CControlMapper::UpdateSelector(ECommands command, const CFinalInput& input,
+                                    const CStateManager& mgr, const CPlayer& player) {
+  if (x184_selectorActive != 0 && command == x18c_activeSelectorCommand &&
+      !CanOpenSelector(mgr, player, command)) {
+    ResetSelector();
+    x188_selectorFadeTime = 0.5f;
+  } else if (x18c_activeSelectorCommand == kC_None || x18c_activeSelectorCommand == command) {
+    switch (x184_selectorActive) {
+    case 1:
+      if (!GetDigitalInput(command, input, kFT_Filtered)) {
+        x184_selectorActive = 0;
+        x188_selectorFadeTime = 0.5f;
+        x190_releasedSelectorCommand = x18c_activeSelectorCommand;
+        x18c_activeSelectorCommand = kC_None;
+      }
+      break;
+    case 0:
+      if (GetDigitalInput(command, input, kFT_Filtered) &&
+          x198_digitalTime[command] > x194_tapHoldThreshold &&
+          CanOpenSelector(mgr, player, command)) {
+        x184_selectorActive = 1;
+        x18c_activeSelectorCommand = command;
+      }
+      break;
+    }
+  }
+}
+
+float CControlMapper::GetSelectorFade() const {
+  float result = 0.f;
+  if (x188_selectorFadeTime > 0.f) {
+    result = CMath::FastMin(CMath::FastMax(0.f, x188_selectorFadeTime / 0.5f), 1.f);
+  }
+  return result;
+}
+
+bool CControlMapper::GetSelectorReleaseInput(ECommands command, const CFinalInput& input,
+                                             const CStateManager& mgr,
+                                             const CPlayer& player) const {
+#if NONMATCHING
+  if (command < 0 || command >= kC_MAX) {
+    return false;
+  }
+#endif
+  if (CanOpenSelector(mgr, player, command)) {
+    return command == x190_releasedSelectorCommand;
+  }
+  return false;
+}
+
+void CControlMapper::UpdateCommandSwaps() {
+  bool swapped = IsCommandRemapped(kC_BeamMenu);
+  if (swapped != gpGameState->GameOptions().GetIsSwitchVisorBeamControls()) {
+    SwapCommands(kC_BeamMenu, kC_VisorMenu, !swapped);
+  }
+  swapped = IsCommandRemapped(kC_JumpOrBoost);
+  if (swapped != gpGameState->GameOptions().GetIsFireAndJumpSwapped()) {
+    SwapCommands(kC_JumpOrBoost, kC_FireOrBomb, !swapped);
+    SetCommandMapping(kC_Command16, GetCommandMapping(kC_FireOrBomb));
+  }
+}
+
+void CControlMapper::Update(const CFinalInput& input, const CStateManager& mgr,
+                            const CPlayer& player) {
+  UpdateCommandSwaps();
+  UpdateCommandTimes(input);
+  if (x188_selectorFadeTime > 0.f) {
+    x188_selectorFadeTime -= input.Time();
+    if (x188_selectorFadeTime <= 0.f) {
+      ResetSelector();
+    }
+  }
+  x190_releasedSelectorCommand = kC_None;
+  UpdateSelector(kC_VisorMenu, input, mgr, player);
+  UpdateSelector(kC_BeamMenu, input, mgr, player);
+}
+
+bool CControlMapper::IsSplineControl(int control) {
+  return static_cast< uint >(control - CFinalInput::kPC_NunchukRollNegative) <=
+         CFinalInput::kPC_WiimotePitchPositive - CFinalInput::kPC_NunchukRollNegative;
+}
+
+float CControlMapper::GetAnalogInput(ECommands command, const CFinalInput& input,
+                                     EFilterType filter) const {
+#if NONMATCHING
+  if (command < 0 || command >= kC_MAX) {
+    return 0.f;
+  }
+#endif
+  float result = 0.f;
+  SCommandMapping mapping = GetCommandMapping(command);
+  if (filter == kFT_Unfiltered || (filter == kFT_Filtered && x0_commandEnabled[command])) {
+    const CTweakPlayerControl::SCommandDescription& desc =
+        gpTweakPlayerControlCurrent->GetCommandDescription(command);
+    switch (desc.x4_type) {
+    case CTweakPlayerControl::kCT_Physical: {
+      result = input.GetAnalog(mapping.x4_primaryControl);
+      if (IsSplineControl(mapping.x4_primaryControl)) {
+        result = desc.x8_primary.x4_response.EvaluateAt(result);
+      }
+      break;
+    }
+    case CTweakPlayerControl::kCT_PhysicalCombination: {
+      result = input.GetAnalog(mapping.x4_primaryControl);
+      switch (desc.x4c_physicalBoolean) {
+      case CTweakPlayerControl::kCB_And: {
+        if (!input.GetDigital(mapping.x8_secondaryControl)) {
+          result = 0.f;
+        } else if (IsSplineControl(mapping.x4_primaryControl) &&
+                   input.CheckValidControl(mapping.x4_primaryControl)) {
+          result = desc.x8_primary.x4_response.EvaluateAt(result);
+        }
+        break;
+      }
+      case CTweakPlayerControl::kCB_Or: {
+        const CMayaSpline* response = &desc.x8_primary.x4_response;
+        if (close_enough(result, 0.f, 0.05f) ||
+            !input.CheckValidControl(mapping.x4_primaryControl)) {
+          result = input.GetAnalog(mapping.x8_secondaryControl);
+          response = &desc.x50_secondary.x4_response;
+        }
+        if ((IsSplineControl(mapping.x4_primaryControl) &&
+             input.CheckValidControl(mapping.x4_primaryControl)) ||
+            (IsSplineControl(mapping.x8_secondaryControl) &&
+             input.CheckValidControl(mapping.x8_secondaryControl))) {
+          result = response->EvaluateAt(result);
+        }
+        break;
+      }
+      case CTweakPlayerControl::kCB_AndNot: {
+        if (input.GetDigital(mapping.x8_secondaryControl)) {
+          result = 0.f;
+        } else if (IsSplineControl(mapping.x4_primaryControl) &&
+                   input.CheckValidControl(mapping.x4_primaryControl)) {
+          result = desc.x8_primary.x4_response.EvaluateAt(result);
+        }
+        break;
+      }
+      }
+      break;
+    }
+    case CTweakPlayerControl::kCT_Virtual: {
+      result = input.GetMotionAnalog(mapping.x4_primaryControl);
+      break;
+    }
+    case CTweakPlayerControl::kCT_VirtualCombination: {
+      result = input.GetMotionAnalog(mapping.x4_primaryControl);
+      switch (desc.x98_virtualBoolean) {
+      case CTweakPlayerControl::kCB_And: {
+        result += input.GetMotionAnalog(mapping.x8_secondaryControl);
+        break;
+      }
+      case CTweakPlayerControl::kCB_Or: {
+        if (close_enough(result, 0.f, 0.05f) ||
+            !input.CheckValidControl(mapping.x4_primaryControl)) {
+          result = input.GetMotionAnalog(mapping.x8_secondaryControl);
+        }
+        break;
+      }
+      case CTweakPlayerControl::kCB_AndNot: {
+        if (input.GetMotionDigital(mapping.x8_secondaryControl)) {
+          result = 0.f;
+        }
+        break;
+      }
+      }
+      break;
+    }
+    case CTweakPlayerControl::kCT_Virtual2: {
+      result = input.GetSwingAnalog(mapping.x4_primaryControl);
+      break;
+    }
+    }
+  }
+  return result;
+}
+
+bool CControlMapper::TestVirtualMenu(ECommands command, const CVector2f& pointer) const {
+  float limit = 1.f;
+  CVector2f position(CMath::FastMin(CMath::FastMax(-limit, pointer.GetX()), limit),
+                     CMath::FastMin(CMath::FastMax(-limit, pointer.GetY()), limit));
+  float halfWidth = 320.f;
+  float halfHeight = 224.f;
+  position[0] *= halfWidth;
+  position[1] *= halfHeight;
+  position[0] = halfWidth + position[0];
+  position[1] = halfHeight - position[1];
+  const CTweakPlayerControl::SCommandDescription& desc =
+      gpTweakPlayerControlCurrent->GetCommandDescription(command);
+  if (desc.x4_type != CTweakPlayerControl::kCT_VirtualMenu) {
+    return false;
+  }
+
+  bool result = false;
+  switch (desc.xa4_virtualMenu.x0_shape) {
+  case CTweakPlayerControl::kVMS_Annulus: {
+    CVector2f offset = position - CVector2f(desc.xa4_virtualMenu.x4_annulus.x0_centerX,
+                                            desc.xa4_virtualMenu.x4_annulus.x4_centerY);
+    float distanceSquared = offset.MagSquared();
+    if (distanceSquared <= desc.xa4_virtualMenu.x4_annulus.xc_outerRadius *
+                               desc.xa4_virtualMenu.x4_annulus.xc_outerRadius &&
+        distanceSquared >= desc.xa4_virtualMenu.x4_annulus.x8_innerRadius *
+                               desc.xa4_virtualMenu.x4_annulus.x8_innerRadius) {
+      result = true;
+    }
+    break;
+  }
+  case CTweakPlayerControl::kVMS_Rectangle: {
+    float half = 0.5f;
+    float halfWidth = half * desc.xa4_virtualMenu.x14_rectangle.x8_width;
+    if (position.GetX() <= desc.xa4_virtualMenu.x14_rectangle.x0_centerX + halfWidth &&
+        position.GetX() > desc.xa4_virtualMenu.x14_rectangle.x0_centerX - halfWidth) {
+      float halfHeight = half * desc.xa4_virtualMenu.x14_rectangle.xc_height;
+      if (position.GetY() <= desc.xa4_virtualMenu.x14_rectangle.x4_centerY + halfHeight &&
+          position.GetY() > desc.xa4_virtualMenu.x14_rectangle.x4_centerY - halfHeight) {
+        result = true;
+      }
+    }
+    break;
+  }
+  case CTweakPlayerControl::kVMS_Sector: {
+    CVector2f offset = position - CVector2f(desc.xa4_virtualMenu.x24_sector.x0_centerX,
+                                            desc.xa4_virtualMenu.x24_sector.x4_centerY);
+    float distanceSquared = offset.MagSquared();
+    if (distanceSquared <= desc.xa4_virtualMenu.x24_sector.xc_outerRadius *
+                               desc.xa4_virtualMenu.x24_sector.xc_outerRadius &&
+        distanceSquared >= desc.xa4_virtualMenu.x24_sector.x8_innerRadius *
+                               desc.xa4_virtualMenu.x24_sector.x8_innerRadius) {
+      CVector2f direction(
+          sinf((M_PIF / 180.f) * desc.xa4_virtualMenu.x24_sector.x10_centerAngleDegrees),
+          cosf((M_PIF / 180.f) * desc.xa4_virtualMenu.x24_sector.x10_centerAngleDegrees));
+      if (acosf(CVector2f::Dot(direction.AsNormalized(), offset.AsNormalized())) <
+          0.5f * ((M_PIF / 180.f) * desc.xa4_virtualMenu.x24_sector.x14_sweepDegrees)) {
+        result = true;
+      }
+    }
+  } break;
+  }
+  return result;
+}
+
+bool CControlMapper::GetDigitalInput(ECommands command, const CFinalInput& input,
+                                     EFilterType filter) const {
+#if NONMATCHING
+  if (command < 0 || command >= kC_MAX) {
+    return false;
+  }
+#endif
+  bool result = false;
+  SCommandMapping mapping = GetCommandMapping(command);
+  if (filter == kFT_Unfiltered || (filter == kFT_Filtered && x0_commandEnabled[command])) {
+    const CTweakPlayerControl::SCommandDescription& desc =
+        gpTweakPlayerControlCurrent->GetCommandDescription(command);
+    switch (desc.x4_type) {
+    case CTweakPlayerControl::kCT_Physical: {
+      result = input.GetDigital(mapping.x4_primaryControl);
+      break;
+    }
+    case CTweakPlayerControl::kCT_PhysicalCombination: {
+      switch (desc.x4c_physicalBoolean) {
+      case CTweakPlayerControl::kCB_And: {
+        result = input.GetDigital(mapping.x4_primaryControl) &&
+                 input.GetDigital(mapping.x8_secondaryControl);
+        break;
+      }
+      case CTweakPlayerControl::kCB_Or: {
+        result = input.GetDigital(mapping.x4_primaryControl) ||
+                 input.GetDigital(mapping.x8_secondaryControl);
+        break;
+      }
+      case CTweakPlayerControl::kCB_AndNot: {
+        result = input.GetDigital(mapping.x4_primaryControl) &&
+                 !input.GetDigital(mapping.x8_secondaryControl);
+        break;
+      }
+      }
+      break;
+    }
+    case CTweakPlayerControl::kCT_Virtual: {
+      result = input.GetMotionDigital(mapping.x4_primaryControl);
+      break;
+    }
+    case CTweakPlayerControl::kCT_VirtualCombination: {
+      switch (desc.x98_virtualBoolean) {
+      case CTweakPlayerControl::kCB_And: {
+        result = input.GetMotionDigital(mapping.x4_primaryControl) &&
+                 input.GetMotionDigital(mapping.x8_secondaryControl);
+        break;
+      }
+      case CTweakPlayerControl::kCB_Or: {
+        result = input.GetMotionDigital(mapping.x4_primaryControl) ||
+                 input.GetMotionDigital(mapping.x8_secondaryControl);
+        break;
+      }
+      case CTweakPlayerControl::kCB_AndNot: {
+        result = input.GetMotionDigital(mapping.x4_primaryControl) &&
+                 !input.GetMotionDigital(mapping.x8_secondaryControl);
+        break;
+      }
+      }
+      break;
+    }
+    case CTweakPlayerControl::kCT_Virtual2: {
+      result = input.GetSwingDigital(mapping.x4_primaryControl);
+      break;
+    }
+    case CTweakPlayerControl::kCT_VirtualMenu: {
+      result = TestVirtualMenu(command, input.GetPointerPosition());
+      break;
+    }
+    }
+  }
+  return result;
+}
+
+bool CControlMapper::GetPressInput(ECommands command, const CFinalInput& input,
+                                   EFilterType filter) const {
+#if NONMATCHING
+  if (command < 0 || command >= kC_MAX) {
+    return false;
+  }
+#endif
+  bool result = false;
+  SCommandMapping mapping = GetCommandMapping(command);
+  if (filter == kFT_Unfiltered || (filter == kFT_Filtered && x0_commandEnabled[command])) {
+    const CTweakPlayerControl::SCommandDescription& desc =
+        gpTweakPlayerControlCurrent->GetCommandDescription(command);
+    switch (desc.x4_type) {
+    case CTweakPlayerControl::kCT_Physical: {
+      result = input.GetPressed(mapping.x4_primaryControl);
+      break;
+    }
+    case CTweakPlayerControl::kCT_PhysicalCombination: {
+      switch (desc.x4c_physicalBoolean) {
+      case CTweakPlayerControl::kCB_And: {
+        result = input.GetPressed(mapping.x4_primaryControl) &&
+                 input.GetPressed(mapping.x8_secondaryControl);
+        break;
+      }
+      case CTweakPlayerControl::kCB_Or: {
+        result = input.GetPressed(mapping.x4_primaryControl) ||
+                 input.GetPressed(mapping.x8_secondaryControl);
+        break;
+      }
+      case CTweakPlayerControl::kCB_AndNot: {
+        result = input.GetPressed(mapping.x4_primaryControl) &&
+                 !input.GetPressed(mapping.x8_secondaryControl);
+        break;
+      }
+      }
+      break;
+    }
+    case CTweakPlayerControl::kCT_Virtual: {
+      result = input.GetMotionPressed(mapping.x4_primaryControl);
+      break;
+    }
+    case CTweakPlayerControl::kCT_VirtualCombination: {
+      switch (desc.x98_virtualBoolean) {
+      case CTweakPlayerControl::kCB_And: {
+        result = input.GetMotionPressed(mapping.x4_primaryControl) &&
+                 input.GetMotionPressed(mapping.x8_secondaryControl);
+        break;
+      }
+      case CTweakPlayerControl::kCB_Or: {
+        result = input.GetMotionPressed(mapping.x4_primaryControl) ||
+                 input.GetMotionPressed(mapping.x8_secondaryControl);
+        break;
+      }
+      case CTweakPlayerControl::kCB_AndNot: {
+        result = input.GetMotionPressed(mapping.x4_primaryControl) &&
+                 !input.GetMotionPressed(mapping.x8_secondaryControl);
+        break;
+      }
+      }
+      break;
+    }
+    case CTweakPlayerControl::kCT_Virtual2: {
+      result = input.GetSwingPressed(mapping.x4_primaryControl);
+      break;
+    }
+    case CTweakPlayerControl::kCT_VirtualMenu: {
+      result = TestVirtualMenu(command, input.GetPointerPosition());
+      break;
+    }
+    }
+  }
+  return result;
+}
+
+bool CControlMapper::GetReleaseInput(ECommands command, const CFinalInput& input,
+                                     EFilterType filter) const {
+#if NONMATCHING
+  if (command < 0 || command >= kC_MAX) {
+    return false;
+  }
+#endif
+  bool result = false;
+  SCommandMapping mapping = GetCommandMapping(command);
+  if (filter == kFT_Unfiltered || (filter == kFT_Filtered && x0_commandEnabled[command])) {
+    const CTweakPlayerControl::SCommandDescription& desc =
+        gpTweakPlayerControlCurrent->GetCommandDescription(command);
+    switch (desc.x4_type) {
+    case CTweakPlayerControl::kCT_Physical: {
+      result = input.GetReleased(mapping.x4_primaryControl);
+      break;
+    }
+    case CTweakPlayerControl::kCT_PhysicalCombination: {
+      switch (desc.x4c_physicalBoolean) {
+      case CTweakPlayerControl::kCB_And: {
+        result = input.GetReleased(mapping.x4_primaryControl) &&
+                 input.GetReleased(mapping.x8_secondaryControl);
+        break;
+      }
+      case CTweakPlayerControl::kCB_Or: {
+        result = input.GetReleased(mapping.x4_primaryControl) ||
+                 input.GetReleased(mapping.x8_secondaryControl);
+        break;
+      }
+      case CTweakPlayerControl::kCB_AndNot: {
+        result = input.GetReleased(mapping.x4_primaryControl) &&
+                 !input.GetReleased(mapping.x8_secondaryControl);
+        break;
+      }
+      }
+      break;
+    }
+    case CTweakPlayerControl::kCT_Virtual: {
+      result = input.GetMotionReleased(mapping.x4_primaryControl);
+      break;
+    }
+    case CTweakPlayerControl::kCT_VirtualCombination: {
+      switch (desc.x98_virtualBoolean) {
+      case CTweakPlayerControl::kCB_And: {
+        result = input.GetMotionReleased(mapping.x4_primaryControl) &&
+                 input.GetMotionReleased(mapping.x8_secondaryControl);
+        break;
+      }
+      case CTweakPlayerControl::kCB_Or: {
+        result = input.GetMotionReleased(mapping.x4_primaryControl) ||
+                 input.GetMotionReleased(mapping.x8_secondaryControl);
+        break;
+      }
+      case CTweakPlayerControl::kCB_AndNot: {
+        result = input.GetMotionReleased(mapping.x4_primaryControl) &&
+                 !input.GetMotionReleased(mapping.x8_secondaryControl);
+        break;
+      }
+      }
+      break;
+    }
+    case CTweakPlayerControl::kCT_Virtual2: {
+      result = input.GetSwingReleased(mapping.x4_primaryControl);
+      break;
+    }
+    }
+  }
+  return result;
+}
+
+bool CControlMapper::GetTapInput(ECommands command, const CFinalInput& input,
+                                 EFilterType filter) const {
+  return GetReleaseInput(command, input, filter) &&
+         x308_releaseTime[command] <= x194_tapHoldThreshold && x308_releaseTime[command] > 0.f;
+}
+
+void CControlMapper::ResetCommandFilters() {
+  x0_commandEnabled.clear();
+  for (int i = 0; i < kC_MAX; ++i) {
+    x0_commandEnabled.push_back(true);
+  }
+}
+
+void CControlMapper::SetCommandEnabled(ECommands command, bool enabled) {
+#if NONMATCHING
+  if (command < 0 || command >= kC_MAX) {
+    return;
+  }
+#endif
+  x0_commandEnabled[command] = enabled;
+}
+
+void CControlMapper::SetCommandMapping(ECommands command, const SCommandMapping& mapping) {
+#if NONMATCHING
+  if (command < 0 || command >= kC_MAX) {
+    return;
+  }
+#endif
+  if (!x60_commandOverridden.empty()) {
+    if (x60_commandOverridden[command]) {
+      for (rstl::reserved_vector< SCommandOverride, 12 >::iterator it =
+               xc0_commandOverrides.begin();
+           it != xc0_commandOverrides.end(); ++it) {
+        if (it->x0_command == command) {
+          it->x4_mapping = mapping;
+        }
+      }
+    } else {
+      if (xc0_commandOverrides.size() != xc0_commandOverrides.capacity()) {
+        x60_commandOverridden[command] = true;
+        xc0_commandOverrides.push_back(SCommandOverride(command, mapping));
+      }
+    }
+  }
+}
+
+void CControlMapper::RestoreCommandMapping(ECommands command) {
+  if (!x60_commandOverridden.empty() && IsCommandRemapped(command)) {
+    x60_commandOverridden[command] = false;
+    for (rstl::reserved_vector< SCommandOverride, 12 >::iterator it = xc0_commandOverrides.begin();
+         it != xc0_commandOverrides.end(); ++it) {
+      if (it->x0_command == command) {
+        xc0_commandOverrides.erase(it);
+        return;
+      }
+    }
+  }
+}
+
+bool CControlMapper::IsCommandRemapped(ECommands command) const {
+#if NONMATCHING
+  if (command < 0 || command >= kC_MAX) {
+    return false;
+  }
+#endif
+  return command < x60_commandOverridden.size() && x60_commandOverridden[command];
+}
+
+CControlMapper::SCommandMapping CControlMapper::GetCommandMapping(ECommands command) const {
+#if NONMATCHING
+  if (command < 0 || command >= kC_MAX) {
+    return SCommandMapping(CTweakPlayerControl::kCT_None, 0, 0);
+  }
+#endif
+  if (!x60_commandOverridden.empty() && command < x60_commandOverridden.size() &&
+      x60_commandOverridden[command]) {
+    for (rstl::reserved_vector< SCommandOverride, 12 >::const_iterator it =
+             xc0_commandOverrides.begin();
+         it != xc0_commandOverrides.end(); ++it) {
+      if (it->x0_command == command) {
+        return it->x4_mapping;
+      }
+    }
+  }
+  SCommandMapping mapping = gpTweakPlayerControlCurrent->GetCommandMapping(command);
+  return mapping;
+}
+
+void CControlMapper::ResetCommandMappings() {
+  x60_commandOverridden.clear();
+  for (int i = 0; i < kC_MAX; ++i) {
+    x60_commandOverridden.push_back(false);
+  }
+  xc0_commandOverrides.clear();
+}
+
+void CControlMapper::ResetCommandTimes() {
+  for (int i = 0; i < kC_MAX; ++i) {
+    x198_digitalTime[i] = 0.f;
+    x308_releaseTime[i] = 0.f;
+  }
+}
+
+void CControlMapper::ResetInputState() {
+  ResetCommandTimes();
+  ResetSelector();
+}
+
+void CControlMapper::ResetSelector() {
+  x184_selectorActive = 0;
+  x188_selectorFadeTime = 0.f;
+  x18c_activeSelectorCommand = kC_None;
+}
+
+void CControlMapper::Reset() {
+  ResetCommandFilters();
+  ResetCommandMappings();
+  ResetInputState();
+}
+
+void CControlMapper::SwapCommands(ECommands commandA, ECommands commandB, bool swap) {
+#if NONMATCHING
+  if (commandA < 0 || commandB < 0) {
+    return;
+  }
+#endif
+  if (commandA >= kC_MAX || commandB >= kC_MAX || commandA == commandB) {
+    return;
+  }
+  if (swap) {
+    if (!IsCommandRemapped(commandA)) {
+      SCommandMapping mappingA = GetCommandMapping(commandA);
+      SCommandMapping mappingB = GetCommandMapping(commandB);
+      SetCommandMapping(commandA, mappingB);
+      SetCommandMapping(commandB, mappingA);
+    }
+  } else {
+    RestoreCommandMapping(commandA);
+    RestoreCommandMapping(commandB);
+  }
+}
+
+#else
+
 #include "MetroidPrime/Tweaks/CTweaks.hpp"
 
 #include "MetroidPrime/Tweaks/CTweakPlayerControl.hpp"
@@ -302,3 +954,5 @@ void ControlMapper::ResetCommandFilters() {
 void ControlMapper::SetCommandFiltered(ECommands cmd, bool filtered) {
   gCommandFilterFlag[cmd] = filtered;
 }
+
+#endif
