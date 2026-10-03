@@ -9,6 +9,7 @@
 #include "MetroidPrime/Player/CFidget.hpp"
 #include "MetroidPrime/Player/CPlayerCameraBob.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
+#include "MetroidPrime/Weapons/GunController/CGunMotion.hpp"
 #include "MetroidPrime/Weapons/WeaponCommon.hpp"
 
 #include "Kyoto/Audio/CSfxHandle.hpp"
@@ -224,6 +225,13 @@ public:
   CGrappleArm& GrappleArm() { return *mGrappleArm.get(); }
   CGrappleArm& GetGrappleArm() const { return *mGrappleArm.get(); }
   bool IsFidgeting() const { return mNotFidgeting; }
+  bool IsMorphing() const {
+    return mMorph.GetGunState() != CGunMorph::kGS_OutWipeDone || IsWeaponStateSet(0x8);
+  }
+  bool IsInDamageReaction() const {
+    const bool struck = mDamageTimer > 0.f || mGunMotion->GunController().GetGunState() == kGS_Strike;
+    return struck || mGunMotion->GunController().GetGunState() == kGS_BigStrike;
+  }
 
   void SetActorAttached(bool attached) { mActorAttached = attached; } // name?
 
