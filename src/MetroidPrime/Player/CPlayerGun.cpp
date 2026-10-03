@@ -25,6 +25,8 @@ static const SBeamToItemMapping skBeamToItemMapping[] = {
     {CControlMapper::kC_PlasmaBeam, CPlayerState::kIT_PlasmaBeam, CPlayerState::kBI_Plasma},
 };
 
+void CPlayerGun::SetTransform(const CTransform4f& xf) { mXf = xf; }
+
 void CPlayerGun::ProcessInput(const CFinalInput& input, CStateManager& mgr) {
   const CPlayer& player = *mgr.GetPlayer();
   CPlayerState* playerState = mgr.GetPlayerState();
