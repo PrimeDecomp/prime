@@ -5,6 +5,9 @@
 #include "Kyoto/Input/CFinalInput.hpp"
 #include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"
+#include "MetroidPrime/CStateManager.hpp"
+#include "MetroidPrime/CWorld.hpp"
+#include "MetroidPrime/Player/CGameState.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayerControl.hpp"
 #include "MetroidPrime/Tweaks/CTweaks.hpp"
@@ -18,7 +21,8 @@ CVector3f CPlayer::GetDampedClampedVelocityWR(float dt) const {
   CVector3f localVelocity = GetTransform().TransposeRotate(GetVelocityWR());
   const float maxSpeed = gpTweakPlayer->GetPlayerTranslationMaxSpeed(GetSurfaceRestraint());
   if (mOrbitState == kOS_NoOrbit && !CheckPostGrapple()) {
-    float friction = 60.f * (dt * gpTweakPlayer->GetPlayerTranslationFriction(GetSurfaceRestraint()));
+    float friction =
+        60.f * (dt * gpTweakPlayer->GetPlayerTranslationFriction(GetSurfaceRestraint()));
     if (GetSurfaceRestraint() == kSR_Air) {
       friction = 3.5f;
       friction *= localVelocity.DropZ().Magnitude() / GetMass();
@@ -43,6 +47,29 @@ CVector3f CPlayer::GetDampedClampedVelocityWR(float dt) const {
   return GetTransform().Rotate(localVelocity);
 }
 
+float CPlayer::GetGravity() const {
+  const bool noGravitySuit =
+      !gpGameState->GetPlayerState()->HasPowerUp(CPlayerState::kIT_GravitySuit);
+  if (noGravitySuit && CheckSubmerged()) {
+    return gpTweakPlayer->GetFluidGravAccel();
+  }
+  if (mSidewaysDashing) {
+    return -100.f;
+  }
+  return gpTweakPlayer->GetNormalGravAccel();
+}
+
+static void NormalizeMovementInput(float& forwardInput, float& strafeInput) {
+  const CVector2f input(forwardInput, strafeInput);
+  if (input.IsMagnitudeSafe()) {
+    const float magnitude = input.Magnitude();
+    if (magnitude > 1.f) {
+      forwardInput /= magnitude;
+      strafeInput /= magnitude;
+    }
+  }
+}
+
 CVector2f CPlayer::Compute2DMovementForce(float forwardInput, float strafeInput, float dt) const {
   const CVector2f input(strafeInput, forwardInput);
   CVector2f force = CVector2f::Zero();
@@ -59,7 +86,8 @@ CVector2f CPlayer::Compute2DMovementForce(float forwardInput, float strafeInput,
 
 float CPlayer::ComputeMovementForce(int axis, float input, float velocity, float dt) const {
   float maxSpeed = gpTweakPlayer->GetPlayerTranslationMaxSpeed(GetSurfaceRestraint());
-  const float friction = 60.f * (dt * gpTweakPlayer->GetPlayerTranslationFriction(GetSurfaceRestraint()));
+  const float friction =
+      60.f * (dt * gpTweakPlayer->GetPlayerTranslationFriction(GetSurfaceRestraint()));
   float acceleration = gpTweakPlayer->GetMaxTranslationalAcceleration(GetSurfaceRestraint());
   if (axis == 0 && mSidewaysDashing) {
     const float dashScale =
@@ -71,8 +99,9 @@ float CPlayer::ComputeMovementForce(int axis, float input, float velocity, float
     acceleration = 3.f * acceleration;
   }
 
-  const float minSpeed = (maxSpeed * friction * GetMass()) /
-                         (dt * gpTweakPlayer->GetMaxTranslationalAcceleration(GetSurfaceRestraint()));
+  const float minSpeed =
+      (maxSpeed * friction * GetMass()) /
+      (dt * gpTweakPlayer->GetMaxTranslationalAcceleration(GetSurfaceRestraint()));
   float force = 0.f;
   if (!close_enough(0.f, input)) {
     const float targetSpeed = input * (maxSpeed - minSpeed) + (input > 0.f ? minSpeed : -minSpeed);
@@ -82,11 +111,106 @@ float CPlayer::ComputeMovementForce(int axis, float input, float velocity, float
   return force;
 }
 
+void CPlayer::ComputeMovement(const CFinalInput& input, CStateManager& mgr, float dt) {
+  const float jumpInput = JumpInput(dt, input, mgr);
+  float turnInput = TurnInput(input);
+  if (gpGameState->GameOptions().GetControlPreset() == 0) {
+    if (close_enough(turnInput, 0.f)) {
+      mContinuousTurnTime = 0.f;
+    } else {
+      mContinuousTurnTime += input.Time();
+    }
+    turnInput *= CMath::FastMin(CMath::FastMax(0.f, mContinuousTurnTime / 0.5f), 1.f);
+  }
+  float forwardInput = ForwardInput(input, turnInput);
+  float strafeInput = StrafeInput(input);
+  NormalizeMovementInput(forwardInput, strafeInput);
+  mAccelerationChangeActive = mAccelerationChangeTimer > 0.f;
+  SetVelocityWR(GetDampedClampedVelocityWR(dt));
+  const float turnSpeedMultiplier = gpTweakPlayer->GetFreeLookTurnSpeedMultiplier();
+  if (mOrbitState == kOS_NoOrbit) {
+    if (close_enough(turnInput, 0.f)) {
+      const float friction =
+          60.f * (dt * gpTweakPlayer->GetPlayerRotationFriction(GetSurfaceRestraint()));
+      SetAngularVelocityOR(
+          CAxisAngle(CVector3f(0.f, 0.f, friction * GetAngularVelocityOR().GetVector().GetZ())));
+    }
+    if (GetAngularVelocityOR().GetVector().GetZ() >
+        turnSpeedMultiplier * gpTweakPlayer->GetPlayerRotationMaxSpeed(GetSurfaceRestraint())) {
+      SetAngularVelocityOR(CAxisAngle(CVector3f(
+          0.f, 0.f,
+          turnSpeedMultiplier * gpTweakPlayer->GetPlayerRotationMaxSpeed(GetSurfaceRestraint()))));
+    } else if (-GetAngularVelocityOR().GetVector().GetZ() >
+               turnSpeedMultiplier *
+                   gpTweakPlayer->GetPlayerRotationMaxSpeed(GetSurfaceRestraint())) {
+      SetAngularVelocityOR(CAxisAngle(CVector3f(
+          0.f, 0.f,
+          turnSpeedMultiplier * -gpTweakPlayer->GetPlayerRotationMaxSpeed(GetSurfaceRestraint()))));
+    }
+  }
+  const float desiredAngularVelocity =
+      turnSpeedMultiplier *
+      (turnInput * gpTweakPlayer->GetPlayerRotationMaxSpeed(GetSurfaceRestraint()));
+  const float angularVelocityDelta =
+      desiredAngularVelocity - GetAngularVelocityOR().GetVector().GetZ();
+  const float turnFraction = CMath::FastMin(
+      CMath::FastMax(0.f, CMath::AbsF(angularVelocityDelta) /
+                              (turnSpeedMultiplier *
+                               gpTweakPlayer->GetPlayerRotationMaxSpeed(GetSurfaceRestraint()))),
+      1.f);
+  if (angularVelocityDelta < 0.f) {
+    turnInput = turnFraction * -gpTweakPlayer->GetMaxRotationalAcceleration(GetSurfaceRestraint());
+  } else {
+    turnInput = turnFraction * gpTweakPlayer->GetMaxRotationalAcceleration(GetSurfaceRestraint());
+  }
+  const CVector2f movementForce = Compute2DMovementForce(forwardInput, strafeInput, dt);
+  const CVector3f forwardForce(0.f, movementForce.GetY(), 0.f);
+  const CVector3f jumpForce(0.f, 0.f, jumpInput);
+  const CVector3f strafeForce(movementForce.GetX(), 0.f, 0.f);
+  if (mOrbitState == kOS_NoOrbit) {
+    const CVector3f force = forwardForce + jumpForce + strafeForce;
+    ApplyForceOR(force, CAxisAngle::Identity());
+    if (turnInput != 0.f) {
+      ApplyForceOR(CVector3f::Zero(),
+                   CAxisAngle(CUnitVector3f(0.f, 0.f, 1.f, CUnitVector3f::kN_Yes), turnInput));
+    }
+    if (mSidewaysDashing) {
+      mDoneSidewaysDashing = true;
+    }
+    mSidewaysDashing = false;
+    mStrafeInputAtDash = 0.f;
+    mDashTimer = 0.f;
+  } else {
+    if (mOrbitState >= kOS_OrbitObject && mOrbitState <= kOS_ForcedOrbitObject) {
+      bool canDash = true;
+      if (CheckPostGrapple()) {
+        canDash = false;
+      }
+      if (canDash) {
+        ComputeDash(input, dt, mgr);
+      }
+    }
+    const CVector3f force = jumpForce;
+    ApplyForceOR(force, CAxisAngle::Identity());
+  }
+  if (GetVelocityWR().Magnitude() > 0.1f && mMoveSpeed < 0.1f) {
+    mCurAcceleration = 0;
+  }
+  mHitWall = false;
+  if (mAccelerationChangeTimer > 0.f) {
+    mCurAcceleration = 0;
+  } else {
+    ++mCurAcceleration;
+  }
+  mAccelerationChangeTimer -= dt;
+  mAccelerationChangeTimer = 0.f < mAccelerationChangeTimer ? mAccelerationChangeTimer : 0.f;
+}
+
 float CPlayer::ForwardInput(const CFinalInput& input, float turnInput) const {
   float forward = mControlMapper.GetAnalogInput(CControlMapper::kC_Forward, input,
-                                               CControlMapper::kFT_Filtered);
-  float backward = mControlMapper.GetAnalogInput(CControlMapper::kC_Backward, input,
                                                 CControlMapper::kFT_Filtered);
+  float backward = mControlMapper.GetAnalogInput(CControlMapper::kC_Backward, input,
+                                                 CControlMapper::kFT_Filtered);
   if (mMorphBallState != kMS_Unmorphed || CheckPostGrapple()) {
     backward = 0.f;
   }
@@ -134,9 +258,9 @@ float CPlayer::StrafeInput(const CFinalInput& input) const {
     return 0.f;
   }
   const float left = mControlMapper.GetAnalogInput(CControlMapper::kC_StrafeLeft, input,
-                                                CControlMapper::kFT_Filtered);
+                                                   CControlMapper::kFT_Filtered);
   const float right = mControlMapper.GetAnalogInput(CControlMapper::kC_StrafeRight, input,
-                                                 CControlMapper::kFT_Filtered);
+                                                    CControlMapper::kFT_Filtered);
   float strafe = right - left;
   if (mOrbitState == kOS_NoOrbit) {
     const float blend = mOrbitModeBlend;
@@ -150,9 +274,9 @@ float CPlayer::TurnInput(const CFinalInput& input) const {
     return 0.f;
   }
   const float left = mControlMapper.GetAnalogInput(CControlMapper::kC_TurnLeft, input,
-                                                CControlMapper::kFT_Filtered);
+                                                   CControlMapper::kFT_Filtered);
   const float right = mControlMapper.GetAnalogInput(CControlMapper::kC_TurnRight, input,
-                                                 CControlMapper::kFT_Filtered);
+                                                    CControlMapper::kFT_Filtered);
   float turn = left - right;
   if (mOrbitState == kOS_OrbitObject || mOrbitState == kOS_Grapple) {
     return 0.f;
@@ -166,7 +290,8 @@ float CPlayer::TurnInput(const CFinalInput& input) const {
   }
 
   const float& maxInput = 1.f;
-  turn *= CMath::FastMin(CMath::FastMax(-maxInput, 1.f - mControlMapper.GetSelectorFade()), maxInput);
+  turn *=
+      CMath::FastMin(CMath::FastMax(-maxInput, 1.f - mControlMapper.GetSelectorFade()), maxInput);
   if (!mPointerAimHeld) {
     const float pitch = GetFreeLookAngleX().AsDegrees();
     if (pitch > 0.f) {
@@ -176,7 +301,8 @@ float CPlayer::TurnInput(const CFinalInput& input) const {
     }
   }
   if (input.GetControllerData().GetPointerState() == CControllerData::kPS_Lost) {
-    const float lostFrames = static_cast< int >(input.GetControllerData().GetPointerInvalidFrameCount());
+    const float lostFrames =
+        static_cast< int >(input.GetControllerData().GetPointerInvalidFrameCount());
     const float& fade = lostFrames / 120.f;
     const float& zero = 0.f;
     const float& one = 1.f;
@@ -184,6 +310,157 @@ float CPlayer::TurnInput(const CFinalInput& input) const {
   }
   turn *= GetTurnInputWarmupScale();
   return turn;
+}
+
+void CPlayer::InitializeJumpBlockLocations() {
+  mJumpBlockLocations.insert(
+      rstl::pair< u64, CVector3f >(0x39F2DE2800000012ULL, CVector3f(-114.8f, 619.9f, 3.4f)));
+  mJumpBlockLocations.insert(
+      rstl::pair< u64, CVector3f >(0x3EF8237C00000014ULL, CVector3f(339.6f, -862.6f, 43.f)));
+  mJumpBlockLocations.insert(
+      rstl::pair< u64, CVector3f >(0x83F6FF6F0000003AULL, CVector3f(760.9f, -298.6f, 75.1f)));
+  mJumpBlockLocations.insert(
+      rstl::pair< u64, CVector3f >(0x83F6FF6F0000003AULL, CVector3f(785.6f, -285.6f, 75.1f)));
+  mJumpBlockLocations.insert(
+      rstl::pair< u64, CVector3f >(0x83F6FF6F0000003AULL, CVector3f(785.4f, -311.6f, 75.f)));
+  mJumpBlockLocations.insert(
+      rstl::pair< u64, CVector3f >(0xA8BE629100000009ULL, CVector3f(-30.5f, -327.f, 31.6f)));
+  mJumpBlockLocations.insert(
+      rstl::pair< u64, CVector3f >(0x83F6FF6F00000035ULL, CVector3f(775.8f, -89.7f, 65.f)));
+}
+
+bool CPlayer::IsJumpBlocked(CStateManager& mgr, const CFinalInput& input) const {
+  if (mMovementState != NPlayer::kMS_ApplyJump && mMovementState != NPlayer::kMS_Jump &&
+      mControlMapper.GetPressInput(CControlMapper::kC_JumpOrBoost, input,
+                                   CControlMapper::kFT_Filtered)) {
+    const u64 location =
+        (static_cast< u64 >(mgr.GetWorld()->GetWorldAssetId()) << 32) | GetCurrentAreaId().Value();
+    if (mJumpBlockLocations.count(location) > 0) {
+      typedef rstl::multimap< u64, CVector3f >::const_iterator Iterator;
+      const rstl::pair< Iterator, Iterator > range = mJumpBlockLocations.equal_range(location);
+      for (Iterator it = range.first; it != range.second; ++it) {
+        if ((GetTranslation() - it->second).MagSquared() < 3.16f * 3.16f) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+float CPlayer::JumpInput(float dt, const CFinalInput& input, CStateManager& mgr) {
+  if (IsMorphBallTransitioning() || IsJumpBlocked(mgr, input)) {
+    return GetGravity() * GetMass();
+  }
+  float jumpFactor = 1.f;
+  if (!mgr.GetPlayerState()->HasPowerUp(CPlayerState::kIT_GravitySuit)) {
+    switch (GetSurfaceRestraint()) {
+    case kSR_Water:
+      jumpFactor = gpTweakPlayer->GetWaterJumpFactor();
+      break;
+    case kSR_Lava:
+      jumpFactor = gpTweakPlayer->GetLavaJumpFactor();
+      break;
+    case kSR_Phazon:
+      jumpFactor = gpTweakPlayer->GetPhazonJumpFactor();
+      break;
+    default:
+      break;
+    }
+  }
+  const float verticalJumpAccel = gpTweakPlayer->GetVerticalJumpAccel();
+  const float horizontalJumpAccel = gpTweakPlayer->GetHorizontalJumpAccel();
+  float doubleJumpImpulse = gpTweakPlayer->GetDoubleJumpImpulse();
+  float verticalDoubleJumpAccel = gpTweakPlayer->GetVerticalDoubleJumpAccel();
+  float horizontalDoubleJumpAccel = gpTweakPlayer->GetHorizontalDoubleJumpAccel();
+  if (mSidewaysDashing) {
+    doubleJumpImpulse = gpTweakPlayer->GetSidewaysDoubleJumpImpulse();
+    verticalDoubleJumpAccel = gpTweakPlayer->GetSidewaysVerticalDoubleJumpAccel();
+    horizontalDoubleJumpAccel = gpTweakPlayer->GetSidewaysHorizontalDoubleJumpAccel();
+  }
+  const bool submerged = mDistanceUnderWater >= 0.8f * GetEyeHeight();
+  if (submerged) {
+    doubleJumpImpulse *= jumpFactor;
+  }
+  if (mMovementState == NPlayer::kMS_ApplyJump) {
+    if (gpTweakPlayer->GetMaxDoubleJumpWindow() - gpTweakPlayer->GetMinDoubleJumpWindow() >=
+            mSjTimer &&
+        0.f < mSjTimer &&
+        mControlMapper.GetPressInput(CControlMapper::kC_JumpOrBoost, input,
+                                     CControlMapper::kFT_Filtered)) {
+      SetMoveState(NPlayer::kMS_Jump, mgr);
+      mDashTimer = 0.f;
+      mStrafeInputAtDash = StrafeInput(input);
+      const CVector3f impulse(0.f, 0.f, (doubleJumpImpulse - GetVelocityWR().GetZ()) * GetMass());
+      ApplyImpulseOR(impulse, CAxisAngle::Identity());
+      float forward = mControlMapper.GetAnalogInput(CControlMapper::kC_Forward, input,
+                                                    CControlMapper::kFT_Filtered);
+      const float backward = mControlMapper.GetAnalogInput(CControlMapper::kC_Backward, input,
+                                                           CControlMapper::kFT_Filtered);
+      if (forward < backward) {
+        forward = mControlMapper.GetAnalogInput(CControlMapper::kC_Backward, input,
+                                                CControlMapper::kFT_Filtered);
+      }
+      return jumpFactor * ((verticalDoubleJumpAccel -
+                            forward * (verticalDoubleJumpAccel - horizontalDoubleJumpAccel)) *
+                           GetMass());
+    }
+    return GetGravity() * GetMass();
+  }
+  if (mControlMapper.GetDigitalInput(CControlMapper::kC_JumpOrBoost, input,
+                                     CControlMapper::kFT_Filtered) ||
+      (mMovementState == NPlayer::kMS_Jump && mMinJumpTimeout <= mStartingJumpTimeout)) {
+    if (mMovementState != NPlayer::kMS_Jump) {
+      if (mControlMapper.GetPressInput(CControlMapper::kC_JumpOrBoost, input,
+                                       CControlMapper::kFT_Filtered)) {
+        SetMoveState(NPlayer::kMS_Jump, mgr);
+        return jumpFactor * (verticalJumpAccel * GetMass());
+      }
+      return 0.f;
+    }
+    float forward = mControlMapper.GetAnalogInput(CControlMapper::kC_Forward, input,
+                                                  CControlMapper::kFT_Filtered);
+    const float backward = mControlMapper.GetAnalogInput(CControlMapper::kC_Backward, input,
+                                                         CControlMapper::kFT_Filtered);
+    if (forward < backward) {
+      forward = mControlMapper.GetAnalogInput(CControlMapper::kC_Backward, input,
+                                              CControlMapper::kFT_Filtered);
+    }
+    const float mass = GetMass();
+    float jumpForce =
+        jumpFactor *
+        ((verticalJumpAccel - forward * (verticalJumpAccel - horizontalJumpAccel)) * mass);
+    if (mStartingJumpTimeout < dt) {
+      const float jumpFraction = mStartingJumpTimeout / dt;
+      return jumpFraction * jumpForce + (1.f - jumpFraction) * GetGravity() * mass;
+    }
+    return jumpForce;
+  }
+  if (mMovementState == NPlayer::kMS_Jump) {
+    SetMoveState(NPlayer::kMS_ApplyJump, mgr);
+  }
+  return 0.f;
+}
+
+bool CPlayer::CheckSubmerged() const {
+  if (!IsInFluid()) {
+    return false;
+  }
+  const float ballHeight = 2.f * gpTweakPlayer->GetPlayerBallHalfExtent();
+  const float eyeHeight = 0.5f * GetEyeHeight();
+  float height = eyeHeight;
+  if (mMorphBallState == kMS_Morphed) {
+    height = ballHeight;
+  }
+  return mDistanceUnderWater >= height;
+}
+
+float CPlayer::GetUnbiasedEyeHeight() const {
+  return mFpBounds.GetPointD().GetZ() - gpTweakPlayer->GetEyeOffset();
+}
+
+float CPlayer::GetEyeHeight() const {
+  return mEyeZBias + (mFpBounds.GetPointD().GetZ() - gpTweakPlayer->GetEyeOffset());
 }
 
 #else
