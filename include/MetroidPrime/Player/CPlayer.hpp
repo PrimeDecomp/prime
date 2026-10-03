@@ -40,14 +40,21 @@ class CPlayer : public CPhysicsActor, public TOneStatic< CPlayer > {
   friend class CMorphBall;
 
   struct CVisorSteam {
-    float mCurTargetAlpha;
-    float mCurAlphaInDur;
-    float mCurAlphaOutDur;
-    CAssetId mTex;
-    float mNextTargetAlpha;
-    float mNextAlphaInDur;
-    float mNextAlphaOutDur;
-    CAssetId mTxtr;
+    struct SParameters {
+      float mTargetAlpha;
+      float mAlphaInDur;
+      float mAlphaOutDur;
+      CAssetId mTexture;
+
+      SParameters(float targetAlpha, float alphaInDur, float alphaOutDur, CAssetId texture)
+      : mTargetAlpha(targetAlpha)
+      , mAlphaInDur(alphaInDur)
+      , mAlphaOutDur(alphaOutDur)
+      , mTexture(texture) {}
+    };
+
+    SParameters mCurrent;
+    SParameters mNext;
     float mAlpha;
     float mDelayTimer;
     bool mAffectsThermal;
@@ -55,11 +62,7 @@ class CPlayer : public CPhysicsActor, public TOneStatic< CPlayer > {
   public:
     CVisorSteam();
     CVisorSteam(float targetAlpha, float alphaInDur, float alphaOutDur, CAssetId tex);
-    // : x0_curTargetAlpha(targetAlpha)
-    // , x4_curAlphaInDur(alphaInDur)
-    // , x8_curAlphaOutDur(alphaOutDur)
-    // , xc_tex(tex) {}
-    CAssetId GetTextureId() const { return mTex; }
+    CAssetId GetTextureId() const { return mCurrent.mTexture; }
     void SetSteam(float targetAlpha, float alphaInDur, float alphaOutDur, CAssetId txtr,
                   bool affectsThermal);
     void Update(float dt);

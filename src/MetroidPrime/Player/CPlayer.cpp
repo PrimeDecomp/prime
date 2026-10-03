@@ -2,7 +2,10 @@
 
 #if VERSION >= VERSION_R3IJ_00
 
+#include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/CSimplePool.hpp"
+#include "MetroidPrime/HUD/CSamusHud.hpp"
+#include "MetroidPrime/SFX/IceCrack.h"
 #include "MetroidPrime/CGameCollision.hpp"
 #include "MetroidPrime/Player/CMorphBall.hpp"
 #include "MetroidPrime/Player/CGrappleArm.hpp"
@@ -589,45 +592,6 @@ void CPlayer::SetAimTargetId(const TUniqueId target) {
     mAimTargetAverage.clear();
   }
   mAimTarget = target;
-}
-
-void CPlayer::CVisorSteam::Update(float dt) {
-  if (mTxtr != kInvalidAssetId) {
-    mCurTargetAlpha = mNextTargetAlpha;
-    mCurAlphaInDur = mNextAlphaInDur;
-    mCurAlphaOutDur = mNextAlphaOutDur;
-    mTex = mTxtr;
-  } else {
-    mCurTargetAlpha = 0.f;
-  }
-
-  mTxtr = kInvalidAssetId;
-  if (close_enough(mAlpha, mCurTargetAlpha) && close_enough(mAlpha, 0.f)) {
-    return;
-  }
-
-  if (mAlpha > mCurTargetAlpha) {
-    if (mDelayTimer <= 0.f) {
-      mAlpha -= dt / mCurAlphaOutDur;
-      if (mAlpha < mCurTargetAlpha) {
-        mAlpha = mCurTargetAlpha;
-      }
-    } else {
-      mDelayTimer -= dt;
-      if (mDelayTimer < 0.f) {
-        mDelayTimer = 0.f;
-      }
-    }
-    return;
-  }
-
-  if (gpSimplePool->GetObj(SObjectTag('TXTR', mTex)).IsLoaded()) {
-    mAlpha += dt / mCurAlphaInDur;
-    if (mAlpha > mCurTargetAlpha) {
-      mAlpha = mCurTargetAlpha;
-    }
-    mDelayTimer = 0.1f;
-  }
 }
 
 void CPlayer::UpdateVisorState(const CFinalInput& input, float dt, CStateManager& mgr) {
@@ -1941,40 +1905,33 @@ void CPlayer::UpdateFootstepSounds(const CFinalInput& input, CStateManager& mgr,
   }
 }
 
+#endif
+
 CPlayer::CVisorSteam::CVisorSteam(float targetAlpha, float alphaInDur, float alphaOutDur,
                                   CAssetId tex)
-: mCurTargetAlpha(targetAlpha)
-, mCurAlphaInDur(alphaInDur)
-, mCurAlphaOutDur(alphaOutDur)
-, mTex(tex)
-, mNextTargetAlpha(0.f)
-, mNextAlphaInDur(0.f)
-, mNextAlphaOutDur(0.f)
-, mTxtr(kInvalidAssetId)
+: mCurrent(targetAlpha, alphaInDur, alphaOutDur, tex)
+, mNext(0.f, 0.f, 0.f, kInvalidAssetId)
 , mAlpha(0.f)
 , mDelayTimer(0.f)
 , mAffectsThermal(false) {}
 
 void CPlayer::CVisorSteam::Update(float dt) {
-  if (mTxtr != kInvalidAssetId) {
-    mCurTargetAlpha = mNextTargetAlpha;
-    mCurAlphaInDur = mNextAlphaInDur;
-    mCurAlphaOutDur = mNextAlphaOutDur;
-    mTex = mTxtr;
+  if (mNext.mTexture != kInvalidAssetId) {
+    mCurrent = mNext;
   } else {
-    mCurTargetAlpha = 0.f;
+    mCurrent.mTargetAlpha = 0.f;
   }
 
-  mTxtr = kInvalidAssetId;
-  if (close_enough(mAlpha, mCurTargetAlpha) && close_enough(mAlpha, 0.f)) {
+  mNext.mTexture = kInvalidAssetId;
+  if (close_enough(mAlpha, mCurrent.mTargetAlpha) && close_enough(mAlpha, 0.f)) {
     return;
   }
 
-  if (mAlpha > mCurTargetAlpha) {
+  if (mAlpha > mCurrent.mTargetAlpha) {
     if (mDelayTimer <= 0.f) {
-      mAlpha -= dt / mCurAlphaOutDur;
-      if (mAlpha < mCurTargetAlpha) {
-        mAlpha = mCurTargetAlpha;
+      mAlpha -= dt / mCurrent.mAlphaOutDur;
+      if (mAlpha < mCurrent.mTargetAlpha) {
+        mAlpha = mCurrent.mTargetAlpha;
       }
     } else {
       mDelayTimer -= dt;
@@ -1985,25 +1942,19 @@ void CPlayer::CVisorSteam::Update(float dt) {
     return;
   }
 
-  if (!gpSimplePool->GetObj(SObjectTag('TXTR', mTex)).IsLoaded()) {
-    return;
+  if (gpSimplePool->GetObj(SObjectTag('TXTR', mCurrent.mTexture)).IsLoaded()) {
+    mAlpha += dt / mCurrent.mAlphaInDur;
+    if (mAlpha > mCurrent.mTargetAlpha) {
+      mAlpha = mCurrent.mTargetAlpha;
+    }
+    mDelayTimer = 0.1f;
   }
-
-  mAlpha += dt / mCurAlphaInDur;
-  if (mAlpha > mCurTargetAlpha) {
-    mAlpha = mCurTargetAlpha;
-  }
-
-  mDelayTimer = 0.1f;
 }
 
 void CPlayer::CVisorSteam::SetSteam(float targetAlpha, float alphaInDur, float alphaOutDur,
                                     CAssetId txtr, bool affectsThermal) {
-  if (mTxtr == kInvalidAssetId || targetAlpha > mNextTargetAlpha) {
-    mNextTargetAlpha = targetAlpha;
-    mNextAlphaInDur = alphaInDur;
-    mNextAlphaOutDur = alphaOutDur;
-    mTxtr = txtr;
+  if (mNext.mTexture == kInvalidAssetId || targetAlpha > mNext.mTargetAlpha) {
+    mNext = SParameters(targetAlpha, alphaInDur, alphaOutDur, txtr);
   }
   mAffectsThermal = affectsThermal;
 }
@@ -2012,6 +1963,8 @@ void CPlayer::SetVisorSteam(float targetAlpha, float alphaInDur, float alphaOutD
                             bool affectsThermal) {
   mVisorSteam.SetSteam(targetAlpha, alphaInDur, alphaOutDur, txtr, affectsThermal);
 }
+
+#if VERSION < VERSION_R3IJ_00
 
 const CScriptWater* CPlayer::GetVisorRunoffEffect(const CStateManager& mgr) const {
   const CScriptWater* water = nullptr;
@@ -2635,6 +2588,8 @@ void CPlayer::BreakFrozenState(CStateManager& stateMgr) {
   SetVisorSteam(0.f, 0.3f / 0.7f, 1.f / 14.f, mSteamTextureId, false);
 }
 
+#endif
+
 void CPlayer::UpdateFrozenState(const CFinalInput& input, CStateManager& mgr) {
   mFrozenTimeout -= input.Time();
   if (mFrozenTimeout > 0.f) {
@@ -2650,14 +2605,19 @@ void CPlayer::UpdateFrozenState(const CFinalInput& input, CStateManager& mgr) {
   }
   mVisorSteam.Update(input.Time());
 
-  switch (mMorphBallState) {
+  switch (GetMorphballTransitionState()) {
   case kMS_Morphed:
     mGun->ProcessInput(input, mgr);
     break;
   case kMS_Unmorphed:
   case kMS_Morphing:
   case kMS_Unmorphing:
+#if VERSION >= VERSION_R3IJ_00
+    if (mControlMapper.GetPressInput(CControlMapper::kC_JumpOrBoost, input,
+                                   CControlMapper::kFT_Filtered)) {
+#else
     if (ControlMapper::GetPressInput(ControlMapper::kC_JumpOrBoost, input)) {
+#endif
       if (mIceBreakJumps != 0) {
         /* Subsequent Breaks */
         DoSfxEffects(CSfxManager::SfxStart(SFXtha_b_samcrack_00));
@@ -2675,6 +2635,8 @@ void CPlayer::UpdateFrozenState(const CFinalInput& input, CStateManager& mgr) {
     break;
   }
 }
+
+#if VERSION < VERSION_R3IJ_00
 
 void CPlayer::EndLandingControlFreeze() {
   mControlsFrozen = false;
@@ -3908,6 +3870,8 @@ void CPlayer::UpdatePhazonDamage(float dt, CStateManager& mgr) {
   mThreatOverride = rstl::min_val(mPhazonDamageLag / 0.2f, 1.f);
 }
 
+#endif
+
 void CPlayer::DoSfxEffects(CSfxHandle sfx) {
   if (!CheckSubmerged()) {
     return;
@@ -3915,6 +3879,8 @@ void CPlayer::DoSfxEffects(CSfxHandle sfx) {
 
   CSfxManager::PitchBend(sfx, 0);
 }
+
+#if VERSION < VERSION_R3IJ_00
 
 void CPlayer::SetPlayerHitWallDuringMove() {
   mHitWall = true;
