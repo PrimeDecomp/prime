@@ -9,6 +9,7 @@ class CVector2f {
   static const CVector2f skZeroVector;
 
 public:
+  CVector2f() {}
   CVector2f(float x, float y);
   CVector2f(CInputStream& in) : mX(in.Get< float >()), mY(in.Get< float >()) {}
 
