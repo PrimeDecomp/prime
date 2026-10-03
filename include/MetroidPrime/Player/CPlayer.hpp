@@ -72,6 +72,7 @@ public:
   bool CanOpenSelector(const CStateManager& mgr, CControlMapper::ECommands command) const;
   const CFinalInput& GetLastInput() const { return mLastInput; }
   const CControlMapper& GetControlMapper() const { return mControlMapper; }
+  const CAimingCursor& GetAimingCursor() const { return mAimingCursor; }
   bool GetPointerAimHeld() const { return mPointerAimHeld; }
   void SetBallJump(bool enabled);
   float GetTurnInputWarmupScale() const;
