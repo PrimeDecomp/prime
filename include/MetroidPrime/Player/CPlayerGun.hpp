@@ -220,7 +220,11 @@ public:
     return mChargePhase == kCP_NotCharging && int(mComboAmmoIdx) != 1;
   }
   bool IsCharging() const { return mCharging; }
+#if VERSION >= VERSION_R3IJ_00
+  void SetTransform(const CTransform4f& xf);
+#else
   void SetTransform(CTransform4f xf) { mXf = xf; }
+#endif
   CTransform4f GetGunMotionTransform() const { return mGunWorldXf; }
   CGrappleArm& GrappleArm() { return *mGrappleArm.get(); }
   CGrappleArm& GetGrappleArm() const { return *mGrappleArm.get(); }
