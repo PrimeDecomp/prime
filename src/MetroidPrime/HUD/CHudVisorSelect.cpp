@@ -83,14 +83,15 @@ void CHudVisorSelect::InitializeSelection(const CStateManager& mgr) {
 }
 
 bool CHudVisorSelect::HasSelectionChanged(const CStateManager& mgr) const {
+  const CPlayer* const player = mgr.GetPlayer();
   CPlayerState& state = *mgr.GetPlayerState();
-  const CPlayer& player = *mgr.GetPlayer();
   CPlayerState::EPlayerVisor visors[] = {CPlayerState::kPV_Combat, CPlayerState::kPV_Scan,
                                          CPlayerState::kPV_Thermal, CPlayerState::kPV_XRay};
   for (uint i = 0; i < 4; ++i) {
-    if (player.GetControlMapper().GetDigitalInput(skCommands[i], player.GetLastInput(),
-                                                  CControlMapper::kFT_Unfiltered)) {
-      return visors[i] != state.GetCurrentVisor() && state.HasVisor(visors[i]);
+    if (player->GetControlMapper().GetDigitalInput(skCommands[i], player->GetLastInput(),
+                                                   CControlMapper::kFT_Unfiltered)) {
+      const CPlayerState::EPlayerVisor& visor = visors[i];
+      return visor != state.GetCurrentVisor() && state.HasVisor(visors[i]);
     }
   }
   return false;
@@ -173,9 +174,10 @@ void CHudVisorSelect::Update(float dt, const CStateManager& mgr) {
   if (!active && mSelectionChanged) {
     flash = (1.f + CMath::FastCosR(1.5f * (2.f * (M_PIF * mSelectionFade)))) / 2.f;
   }
+  const CColor& white = CColor(CColor::White());
   for (int i = 0; i < mHighlights.size(); ++i) {
     if (mHighlights[i] != nullptr) {
-      mHighlights[i]->SetColor(CColor::White().WithAlphaOf(flash * mHighlightAlpha[i]));
+      mHighlights[i]->SetColor(white.WithAlphaOf(flash * mHighlightAlpha[i]));
     }
   }
 }
