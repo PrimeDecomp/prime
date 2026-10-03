@@ -428,7 +428,7 @@ public:
   void DoThink(float dt, CStateManager& mgr);    // name?
   void DoPreThink(float dt, CStateManager& mgr); // name?
   void SetPlayerHitWallDuringMove();
-  void DoPostCameraStuff(float dt, CStateManager& mgr); // name?
+  void DoPostCameraStuff(float dt, CStateManager& mgr);
   float UpdateCameraBob(float dt, CStateManager& mgr);
   const CPlayerCameraBob* GetCameraBobObject() const { return mCameraBob.get(); }
   CPlayerCameraBob* CameraBobObject() { return mCameraBob.get(); }
@@ -456,6 +456,7 @@ public:
   void OrbitCarcass(CStateManager& mgr);
   void UpdateOrbitTarget(CStateManager& mgr);
   void UpdateOrbitOrientation(CStateManager& mgr);
+  void UpdateOrbitOrientation(CStateManager& mgr, float dt);
 
   CPlayerGun* PlayerGun() { return mGun.get(); }
   const CPlayerGun* GetPlayerGun() const { return mGun.get(); }
