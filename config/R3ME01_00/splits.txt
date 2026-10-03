@@ -80,6 +80,18 @@ MetroidPrime/Player/CPlayer.cpp:
 	.ctors      start:0x8046D408 end:0x8046D40C
 	.sdata2     start:0x805C5A68 end:0x805C5BB8
 
+MetroidPrime/Player/CPlayerDynamics.cpp:
+	.text       start:0x80192C50 end:0x8019A67C
+	.ctors      start:0x8046D414 end:0x8046D418
+	.rodata     start:0x80474AE0 end:0x80474B60
+	.sdata2     start:0x805C5CD8 end:0x805C5DE8
+
+MetroidPrime/Player/CPlayerOrbit.cpp:
+	.text       start:0x8019A67C end:0x801A03A0
+	.ctors      start:0x8046D418 end:0x8046D41C
+	.rodata     start:0x80474B60 end:0x80474B80
+	.sdata2     start:0x805C5DE8 end:0x805C5E48
+
 MetroidPrime/Player/CTrilogyOptions.cpp:
 	.text       start:0x8024A110 end:0x8024A8D0
 	.sdata      start:0x805C1AB8 end:0x805C1AC0

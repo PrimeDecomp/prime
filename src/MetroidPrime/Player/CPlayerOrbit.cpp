@@ -1,5 +1,38 @@
 #include "MetroidPrime/Player/CPlayer.hpp"
 
+#if VERSION >= VERSION_R3IJ_00
+
+#include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
+#include "Kyoto/Math/CMath.hpp"
+
+void CPlayer::UpdateOrbitModeTimer(float dt) {
+  if (mOrbitState == kOS_NoOrbit) {
+    if (mOrbitModeTimer > 0.f) {
+      mOrbitModeTimer -= dt;
+    } else {
+      mOrbitModeTimer = 0.f;
+    }
+  } else {
+    mOrbitModeTimer += dt;
+    if (mOrbitModeTimer > gpTweakPlayer->GetOrbitModeTimer()) {
+      mOrbitModeTimer = gpTweakPlayer->GetOrbitModeTimer();
+    }
+  }
+  const float& blend = mOrbitModeTimer / gpTweakPlayer->GetOrbitModeTimer();
+  const float& zero = 0.f;
+  const float& one = 1.f;
+  mOrbitModeBlend = CMath::FastMin(CMath::FastMax(zero, blend), one);
+}
+
+bool CPlayer::CheckPostGrapple() const {
+  if (mMovementState != NPlayer::kMS_OnGround && mGrappleJumpTimeout > 0.f) {
+    return true;
+  }
+  return false;
+}
+
+#else
+
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CControlMapper.hpp"
 #include "MetroidPrime/CGameArea.hpp"
@@ -1730,3 +1763,5 @@ void CPlayer::UpdateGrappleArmTransform(const CVector3f& offset, CStateManager& 
     }
   }
 }
+
+#endif

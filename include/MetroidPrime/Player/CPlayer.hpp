@@ -487,7 +487,7 @@ public:
   bool IsLookButtonHeld() const { return mLookButtonHeld; }
 #if VERSION >= VERSION_R3IJ_00
   float GetFreeLookAngleZ() const { return mFreeLookYawAngle.AsRadians(); }
-  float GetFreeLookAngleX() const { return mFreeLookPitchAngle.AsRadians(); }
+  CRelAngle GetFreeLookAngleX() const { return mFreeLookPitchAngle; }
 #else
   float GetFreeLookAngleZ() const { return mFreeLookYawAngle; }
   float GetFreeLookAngleX() const { return mFreeLookPitchAngle; }
@@ -522,7 +522,13 @@ public:
   void SetVisorSteam(float targetAlpha, float alphaInDur, float alphaOutDir, CAssetId txtr,
                      bool affectsThermal);
 
+#if VERSION >= VERSION_R3IJ_00
+  CVector3f GetDampedClampedVelocityWR(float dt) const;
+  CVector2f Compute2DMovementForce(float forwardInput, float strafeInput, float dt) const;
+  float ComputeMovementForce(int axis, float input, float velocity, float dt) const;
+#else
   CVector3f GetDampedClampedVelocityWR() const;
+#endif
   float GetAverageSpeed() const;
   float GetAcceleration() const;
   float GetGravity() const;
