@@ -1,5 +1,193 @@
 #include "MetroidPrime/Player/CPlayer.hpp"
 
+#if VERSION >= VERSION_R3IJ_00
+
+#include "Kyoto/Input/CInputFilter.hpp"
+#include "MetroidPrime/CStateManager.hpp"
+#include "MetroidPrime/Cameras/CCameraManager.hpp"
+#include "MetroidPrime/Player/CGameState.hpp"
+#include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
+#include "MetroidPrime/Tweaks/CTweakPlayerControl.hpp"
+#include "MetroidPrime/Tweaks/CTweaks.hpp"
+
+bool CPlayer::IsMorphBallTransitioning() const {
+  switch (mMorphBallState) {
+  case kMS_Morphing:
+  case kMS_Unmorphing:
+    return true;
+  default:
+    return false;
+  }
+}
+
+void CPlayer::UpdateCrosshairsState(const CFinalInput& input) {
+  mShowCrosshairs = mControlMapper.GetDigitalInput(CControlMapper::kC_ShowCrosshairs, input,
+                                                   CControlMapper::kFT_Filtered);
+}
+
+void CPlayer::UpdateFreeLookState(const CFinalInput& input, float dt, CStateManager& mgr) {
+  if (mOrbitState == kOS_ForcedOrbitObject || IsMorphBallTransitioning() ||
+      mMorphBallState != kMS_Unmorphed || mGrappleState != kGS_None) {
+    mInFreeLook = false;
+    mLookButtonHeld = false;
+    mLookAnalogHeld = false;
+    mHorizFreeLookAngleVel = CRelAngle::FromRadians(0.f);
+    mVertFreeLookAngleVel = CRelAngle::FromRadians(0.f);
+    mShowCrosshairs = false;
+    return;
+  }
+
+  if (mControlMapper.GetAnalogInput(CControlMapper::kC_LookLeft, input,
+                                    CControlMapper::kFT_Filtered) >= 0.1f ||
+      mControlMapper.GetAnalogInput(CControlMapper::kC_LookRight, input,
+                                    CControlMapper::kFT_Filtered) >= 0.1f ||
+      mControlMapper.GetAnalogInput(CControlMapper::kC_LookDown, input,
+                                    CControlMapper::kFT_Filtered) >= 0.1f ||
+      mControlMapper.GetAnalogInput(CControlMapper::kC_LookUp, input,
+                                    CControlMapper::kFT_Filtered) >= 0.1f) {
+    mLookAnalogHeld = true;
+  } else {
+    mLookAnalogHeld = false;
+  }
+  mLookButtonHeld = false;
+  mInFreeLook = true;
+  UpdateCrosshairsState(input);
+}
+
+bool CPlayer::GetFrozenState() const { return mFrozenTimeout > 0.f; }
+
+void CPlayer::UpdateFreeLook(float dt, CStateManager& mgr) {
+  if (mPointerAimHeld && mOrbitState != kOS_Grapple) {
+    return;
+  }
+  if (GetFrozenState() || mgr.GetCameraManager()->IsInCinematicCamera()) {
+    return;
+  }
+
+  const float& maxPitchScale = 1.f;
+  const CRelAngle pitchDelta = mVertFreeLookAngleVel - mFreeLookPitchAngle;
+  const float pitchDamp = CMath::FastMin(
+      CMath::FastMax(0.f, fabsf(pitchDelta.AsRadians() / 0.5235988f)), maxPitchScale);
+  const float pitchScale = CMath::FastMin(
+      CMath::FastMax(0.f, 0.5f * (1.f + sinf(1.5f * M_PIF + M_PIF * pitchDamp))), maxPitchScale);
+  const CRelAngle lookSpeed = CRelAngle::FromRadians(1.25f * gpTweakPlayer->GetFreeLookSpeed());
+  const CRelAngle targetRate = lookSpeed * pitchScale;
+  CRelAngle acceleration = CRelAngle::FromDegrees(400.f);
+  const float accelerationScale =
+      CMath::FastMin(CMath::FastMax(0.3f, fabsf(pitchDelta.AsDegrees()) / 60.f), 1.f);
+  acceleration *= accelerationScale;
+  const CRelAngle rateDelta = targetRate - mFreeLookPitchRate;
+  if (rateDelta.AsDegrees() > 0.f) {
+    mFreeLookPitchRate = CRelAngle::FromDegrees(
+        CMath::FastMin(CMath::FastMax(-targetRate.AsDegrees(), mFreeLookPitchRate.AsDegrees() +
+                                                                   dt * acceleration.AsDegrees()),
+                       targetRate.AsDegrees()));
+  } else {
+    mFreeLookPitchRate = CRelAngle::FromDegrees(
+        CMath::FastMin(CMath::FastMax(-targetRate.AsDegrees(), mFreeLookPitchRate.AsDegrees() -
+                                                                   dt * acceleration.AsDegrees()),
+                       targetRate.AsDegrees()));
+  }
+  if (0.f <= pitchDelta.AsRadians()) {
+    mFreeLookPitchAngle += mFreeLookPitchRate * dt;
+  } else {
+    mFreeLookPitchAngle -= mFreeLookPitchRate * dt;
+  }
+
+  const CRelAngle yawDelta = mHorizFreeLookAngleVel - mFreeLookYawAngle;
+  const CRelAngle yawStep =
+      lookSpeed *
+      CMath::FastMin(CMath::FastMax(0.f, fabsf(yawDelta.AsRadians() /
+                                               gpTweakPlayer->GetHorizontalFreeLookAngleVel())),
+                     1.f);
+  if (0.f <= yawDelta.AsRadians()) {
+    mFreeLookYawAngle += yawStep;
+  } else {
+    mFreeLookYawAngle -= yawStep;
+  }
+  mFreeLookYawAngle = CRelAngle::FromRadians(0.f);
+}
+
+void CPlayer::ComputeFreeLook(const CFinalInput& input, CStateManager& mgr) {
+  if (mPointerAimHeld && mOrbitState != kOS_Grapple) {
+    return;
+  }
+  if (mgr.GetCameraManager()->IsInCinematicCamera()) {
+    mHorizFreeLookAngleVel = CRelAngle::FromRadians(0.f);
+    mFreeLookYawAngle = CRelAngle::FromRadians(0.f);
+    mVertFreeLookAngleVel = CRelAngle::FromRadians(0.f);
+    mFreeLookPitchAngle = CRelAngle::FromRadians(0.f);
+    return;
+  }
+
+  const float lookLeft = mControlMapper.GetAnalogInput(CControlMapper::kC_LookLeft, input,
+                                                       CControlMapper::kFT_Filtered);
+  const float lookRight = mControlMapper.GetAnalogInput(CControlMapper::kC_LookRight, input,
+                                                        CControlMapper::kFT_Filtered);
+  const float lookUp =
+      mControlMapper.GetAnalogInput(CControlMapper::kC_LookUp, input, CControlMapper::kFT_Filtered);
+  const float lookDown = mControlMapper.GetAnalogInput(CControlMapper::kC_LookDown, input,
+                                                       CControlMapper::kFT_Filtered);
+  mHorizFreeLookAngleVel = CRelAngle::FromRadians((lookLeft - lookRight) *
+                                                  gpTweakPlayer->GetHorizontalFreeLookAngleVel());
+  if (lookUp > 0.f) {
+    const float& maxLook = 1.f;
+    const float minLook = -maxLook;
+    mVertFreeLookAngleVel =
+        CRelAngle::FromDegrees(gpTweakPlayerControlCurrent->GetLookUpResponse().EvaluateAt(
+            CMath::FastMin(CMath::FastMax(minLook, lookUp), maxLook)));
+  } else if (lookDown > 0.f) {
+    const float& maxLook = 1.f;
+    const float minLook = -maxLook;
+    mVertFreeLookAngleVel =
+        CRelAngle::FromDegrees(gpTweakPlayerControlCurrent->GetLookDownResponse().EvaluateAt(
+            CMath::FastMin(CMath::FastMax(minLook, lookDown), maxLook)));
+  } else {
+    mVertFreeLookAngleVel = CRelAngle::FromRadians(0.f);
+  }
+  if (mOrbitState == kOS_Grapple) {
+    mVertFreeLookAngleVel = CRelAngle::FromRadians(0.f);
+  }
+  if (mVerticalLookFilter.get() != nullptr) {
+    mVertFreeLookAngleVel =
+        CRelAngle::FromRadians(mVerticalLookFilter->Filter(mVertFreeLookAngleVel.AsRadians()));
+  }
+  if (IsMorphBallTransitioning()) {
+    mHorizFreeLookAngleVel = CRelAngle::FromRadians(0.f);
+    mVertFreeLookAngleVel = CRelAngle::FromRadians(0.f);
+  }
+}
+
+float CPlayer::GetTurnInputWarmupScale() const {
+  const float& minScale = 0.f;
+  const float& maxScale = 1.f;
+  return CMath::FastMin(
+      CMath::FastMax(minScale, 1.f - mTurnInputWarmupRemaining / mTurnInputWarmupDuration),
+      maxScale);
+}
+
+void CPlayer::UpdateTurnInputWarmup(float dt, const CStateManager& mgr) {
+  if (!mgr.GetCameraManager()->IsInCinematicCamera()) {
+    if (mTurnInputWarmupRemaining > 0.f) {
+      mTurnInputWarmupRemaining -= dt;
+    } else {
+      mTurnInputWarmupRemaining = 0.f;
+    }
+  }
+}
+
+void CPlayer::SetBallJump(bool enabled) {
+  mBallJump = enabled;
+  if (enabled && mRidingPlatform != kInvalidUniqueId) {
+    mBallJumpPlatform = mRidingPlatform;
+    mBallJumpFromPlatform = true;
+  }
+}
+
+bool CPlayer::GetOrbitLockGun() { return !gpGameState->GameOptions().GetIsLockOnFreeAim(); }
+
+#else
+
 #include "Collision/CInternalCollisionStructure.hpp"
 #include "Kyoto/CDependencyGroup.hpp"
 #include "Kyoto/Input/CInputFilter.hpp"
@@ -3146,3 +3334,5 @@ bool CPlayer::IsEnergyLow(const CStateManager& mgr) const {
 }
 
 bool CPlayer::IsTransparent() const { return mAlpha < 1.f; }
+
+#endif

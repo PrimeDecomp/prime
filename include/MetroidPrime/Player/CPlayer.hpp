@@ -73,6 +73,9 @@ public:
   const CFinalInput& GetLastInput() const { return mLastInput; }
   const CControlMapper& GetControlMapper() const { return mControlMapper; }
   bool GetPointerAimHeld() const { return mPointerAimHeld; }
+  void SetBallJump(bool enabled);
+  float GetTurnInputWarmupScale() const;
+  void UpdateTurnInputWarmup(float dt, const CStateManager& mgr);
 #endif
   class CPlayerStuckTracker {
   public:
@@ -358,7 +361,11 @@ public:
   void UpdateStepCameraZBias(float dt);
   void UpdateEnvironmentDamageCameraShake(float dt, CStateManager& mgr);
   void UpdatePhazonDamage(float dt, CStateManager& mgr);
+#if VERSION >= VERSION_R3IJ_00
+  void UpdateFreeLook(float dt, CStateManager& mgr);
+#else
   void UpdateFreeLook(float dt);
+#endif
   void UpdatePlayerHints(CStateManager& mgr);
   void UpdateBombJumpStuff();
   void BombJump(const CVector3f& pos, CStateManager& mgr);
@@ -374,7 +381,11 @@ public:
   bool IsUnderBetaMetroidAttack(CStateManager& mgr) const;
   void UpdateGrappleState(const CFinalInput& input, CStateManager& mgr);
   void ApplyGrappleForces(const CFinalInput& input, CStateManager& mgr, float dt);
+#if VERSION >= VERSION_R3IJ_00
+  void ComputeFreeLook(const CFinalInput& input, CStateManager& mgr);
+#else
   void ComputeFreeLook(const CFinalInput& input);
+#endif
   void UpdateOrbitInput(const CFinalInput& input, CStateManager& mgr);
   void UpdateOrbitZone(CStateManager& mgr);
   void UpdateMorphBallState(float dt, const CFinalInput& input, CStateManager& mgr);
@@ -474,8 +485,13 @@ public:
   EGrappleState GetGrappleState() const { return mGrappleState; }
   bool IsInFreeLook() const { return mInFreeLook; }
   bool IsLookButtonHeld() const { return mLookButtonHeld; }
+#if VERSION >= VERSION_R3IJ_00
+  float GetFreeLookAngleZ() const { return mFreeLookYawAngle.AsRadians(); }
+  float GetFreeLookAngleX() const { return mFreeLookPitchAngle.AsRadians(); }
+#else
   float GetFreeLookAngleZ() const { return mFreeLookYawAngle; }
   float GetFreeLookAngleX() const { return mFreeLookPitchAngle; }
+#endif
   float GetJumpCameraTimer() const { return mJumpCameraTimer; }
   float GetFallCameraTimer() const { return mFallCameraTimer; }
   bool GetOrbitLockAcquired() const { return mOrbitLockEstablished; }
@@ -611,10 +627,17 @@ private:
   bool mLookButtonHeld;
   bool mLookAnalogHeld;
   float mCurFreeLookCenteredTime;
+#if VERSION >= VERSION_R3IJ_00
+  CRelAngle mFreeLookYawAngle;
+  CRelAngle mHorizFreeLookAngleVel;
+  CRelAngle mFreeLookPitchAngle;
+  CRelAngle mVertFreeLookAngleVel;
+#else
   float mFreeLookYawAngle;
   float mHorizFreeLookAngleVel;
   float mFreeLookPitchAngle;
   float mVertFreeLookAngleVel;
+#endif
   TUniqueId mAimTarget;
   CVector3f mTargetAimPosition;
   TReservedAverage< CVector3f, 10 > mAimTargetAverage;
