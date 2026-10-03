@@ -272,9 +272,16 @@ public:
   void RemoveOrbitDisableSource(TUniqueId uid);
   bool CheckOrbitDisableSourceList() const;
   bool CheckOrbitDisableSourceList(const CStateManager& mgr);
+#if VERSION >= VERSION_R3IJ_00
+  bool WithinOrbitScreenEllipse(const CVector3f& screenCoords, EPlayerZoneInfo zone,
+                                const CStateManager& mgr) const;
+  bool WithinOrbitScreenBox(const CVector3f& screenCoords, EPlayerZoneInfo zone,
+                            EPlayerZoneType type, const CStateManager& mgr) const;
+#else
   bool WithinOrbitScreenEllipse(const CVector3f& screenCoords, EPlayerZoneInfo zone) const;
   bool WithinOrbitScreenBox(const CVector3f& screenCoords, EPlayerZoneInfo zone,
                             EPlayerZoneType type) const;
+#endif
   void SetAimTargetId(TUniqueId target);
   EOrbitValidationResult ValidateCurrentOrbitTargetId(CStateManager& mgr);
   EOrbitValidationResult ValidateOrbitTargetId(TUniqueId target, CStateManager& mgr) const;
