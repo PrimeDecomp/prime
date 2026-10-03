@@ -71,6 +71,7 @@ public:
 #if VERSION >= VERSION_R3IJ_00
   bool CanOpenSelector(const CStateManager& mgr, CControlMapper::ECommands command) const;
   const CFinalInput& GetLastInput() const { return mLastInput; }
+  CControlMapper& ControlMapper() { return mControlMapper; }
   const CControlMapper& GetControlMapper() const { return mControlMapper; }
   const CAimingCursor& GetAimingCursor() const { return mAimingCursor; }
   bool GetPointerAimHeld() const { return mPointerAimHeld; }
@@ -387,6 +388,7 @@ public:
   void UpdateScanningState(const CFinalInput& input, CStateManager& mgr, float dt);
   bool IsUnderBetaMetroidAttack(CStateManager& mgr) const;
   void UpdateGrappleState(const CFinalInput& input, CStateManager& mgr);
+  void UpdateGrappleState(CStateManager& mgr, float dt);
   void ApplyGrappleForces(const CFinalInput& input, CStateManager& mgr, float dt);
 #if VERSION >= VERSION_R3IJ_00
   void ComputeFreeLook(const CFinalInput& input, CStateManager& mgr);

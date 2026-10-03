@@ -3,6 +3,10 @@
 #if VERSION >= VERSION_R3IJ_00
 
 #include "Kyoto/CSimplePool.hpp"
+#include "MetroidPrime/CGameCollision.hpp"
+#include "MetroidPrime/Player/CMorphBall.hpp"
+#include "MetroidPrime/Player/CGrappleArm.hpp"
+#include "WorldFormat/CMetroidAreaCollider.hpp"
 #include "Kyoto/Input/CInputFilter.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"
 #include "MetroidPrime/CStateManager.hpp"
@@ -30,6 +34,234 @@ static const SVisorToItemMapping skVisorToItemMapping[] = {
     {CPlayerState::kIT_ScanVisor, CPlayerState::kPV_Scan, CControlMapper::kC_ScanVisor},
     {CPlayerState::kIT_ThermalVisor, CPlayerState::kPV_Thermal, CControlMapper::kC_ThermalVisor},
 };
+
+void CPlayer::EndLandingControlFreeze() {
+  mControlsFrozen = false;
+  mControlsFrozenTimeout = 0.f;
+}
+
+void CPlayer::StartLandingControlFreeze() {
+  mControlsFrozen = true;
+  mControlsFrozenTimeout = 0.75f;
+}
+
+void CPlayer::UpdateControlLostState(float dt, CStateManager& mgr) {
+  mControlsFrozenTimeout -= dt;
+  if (mControlsFrozenTimeout <= 0.f) {
+    EndLandingControlFreeze();
+  } else {
+    const CFinalInput dummy;
+    if (mMorphBallState == kMS_Morphed) {
+      mMorphball->ComputeBallMovement(dummy, mgr, dt);
+      mMorphball->UpdateBallDynamics(mgr, dt);
+    } else {
+      ComputeMovement(dummy, mgr, dt);
+    }
+  }
+}
+
+void CPlayer::UpdateCameraTimers(float dt, const CFinalInput& input) {
+  if (mControlMapper.GetPressInput(CControlMapper::kC_JumpOrBoost, input,
+                                  CControlMapper::kFT_Filtered)) {
+    ++mJumpPresses;
+  }
+  if (mControlMapper.GetDigitalInput(CControlMapper::kC_JumpOrBoost, input,
+                                    CControlMapper::kFT_Filtered) &&
+      mJumpCameraTimer > 0.f && !mCancelCameraPitch && mJumpPresses <= 2) {
+    mJumpCameraTimer += dt;
+  }
+  if (mFallCameraTimer > 0.f && !mCancelCameraPitch) {
+    mFallCameraTimer += dt;
+  }
+}
+
+void CPlayer::ProcessInput(const CFinalInput& input, CStateManager& mgr) {
+  if (input.ControllerNumber() != 0) {
+    return;
+  }
+
+  mControlMapper.Update(input, mgr, *this);
+  float dt = input.Time();
+  if (GetMorphballTransitionState() != kMS_Morphed) {
+    UpdateScanningState(input, mgr, dt);
+  }
+
+  mLastInput = input;
+
+  if (mgr.GetGameState() != CStateManager::kGS_Running || !mgr.GetPlayerState()->IsAlive()) {
+    return;
+  }
+
+  bool aimHeld = ControlMapper().GetDigitalInput(
+      CControlMapper::kC_PointerAimHold, input, CControlMapper::kFT_Filtered);
+  bool grappling = GetOrbitState() == kOS_Grapple;
+  if ((aimHeld && !grappling) || mControlMapper.GetSelectorActive() == 1) {
+    mPointerAimHeld = true;
+    mTurnToCursor = true;
+  } else {
+    mPointerAimHeld = false;
+    mTurnToCursor = false;
+  }
+
+  if (mPointerAimHeld) {
+    mPointerAimHoldTime =
+        CMath::FastMin(CMath::FastMax(-1.f, mPointerAimHoldTime + input.Time()), 1.f);
+  } else {
+    mPointerAimHoldTime =
+        CMath::FastMin(CMath::FastMax(0.f, mPointerAimHoldTime - input.Time()), 1.f);
+  }
+  mPointerAimHoldBlend = CMath::FastMin(CMath::FastMax(0.f, mPointerAimHoldTime), 1.f);
+
+  if (GetFrozenState()) {
+    UpdateFrozenState(input, mgr);
+
+    if (GetFrozenState()) {
+      if (GetPlayerMovementState() != NPlayer::kMS_OnGround &&
+          GetPlayerMovementState() != NPlayer::kMS_FallingMorphed) {
+        const CFinalInput dummyInput;
+        if (GetMorphballTransitionState() == kMS_Morphed) {
+          mMorphball->ComputeBallMovement(dummyInput, mgr, dt);
+          mMorphball->UpdateBallDynamics(mgr, dt);
+        } else {
+          ComputeMovement(dummyInput, mgr, dt);
+        }
+      }
+      return;
+    }
+  }
+
+  if (GetControlsFrozen()) {
+    UpdateControlLostState(dt, mgr);
+    return;
+  }
+
+  if (GetMorphballTransitionState() == kMS_Unmorphed && mPlayerStuckTracker->IsPlayerStuck()) {
+    const CCollidableAABox* prim = static_cast< const CCollidableAABox* >(GetCollisionPrimitive());
+    const CAABox& bounds = prim->GetBox();
+    const CVector3f extent(0.2f, 0.2f, 0.2f);
+    const CCollidableAABox tmpBox(
+        CAABox(bounds.GetMinPoint() - extent, bounds.GetMaxPoint() + extent),
+        GetCollisionPrimitive()->GetMaterial());
+    CPhysicsActor::Stop();
+    const CAABox testBounds = bounds.GetTransformedAABox(GetTransform());
+    const CVector3f expansion(3.f, 3.f, 3.f);
+    const CAABox expandedBounds(testBounds.GetMinPoint() - expansion,
+                               testBounds.GetMaxPoint() + expansion);
+    CAreaCollisionCache cache(expandedBounds);
+    CGameCollision::BuildAreaCollisionCache(mgr, cache);
+    TEntityList nearList;
+    mgr.BuildColliderList(nearList, *this, expandedBounds);
+    const rstl::optional_object< CVector3f > nonIntVec =
+        CGameCollision::FindNonIntersectingVector(mgr, cache, *this, tmpBox, nearList);
+    if (nonIntVec) {
+      mPlayerStuckTracker->ResetStats();
+      SetTranslation(GetTranslation() + *nonIntVec);
+    }
+  }
+
+  UpdateGrappleState(mgr, dt);
+  if (GetMorphballTransitionState() == kMS_Morphed) {
+    if (GetAttachedActor() == kInvalidUniqueId) {
+      // The original retains this query after removing the input scaling.
+      IsUnderBetaMetroidAttack(mgr);
+    }
+    const CFinalInput scaledInput = input;
+    mMorphball->ComputeBallMovement(scaledInput, mgr, dt);
+    mMorphball->UpdateBallDynamics(mgr, dt);
+    mPlayerStuckTracker->ResetStats();
+  } else {
+    if (GetOrbitState() == CPlayer::kOS_Grapple) {
+      ApplyGrappleForces(input, mgr, dt);
+    } else {
+      const CFinalInput scaledInput = input;
+      ComputeMovement(scaledInput, mgr, dt);
+    }
+
+    if (ShouldSampleFailsafe(mgr)) {
+      CPlayerStuckTracker::EPlayerState playerState = CPlayerStuckTracker::kPS_Moving;
+      if (GetPlayerMovementState() == NPlayer::kMS_ApplyJump) {
+        playerState = CPlayerStuckTracker::kPS_StartingJump;
+      } else if (GetPlayerMovementState() == NPlayer::kMS_Jump) {
+        playerState = CPlayerStuckTracker::kPS_Jump;
+      }
+      mPlayerStuckTracker->AddState(
+          playerState, GetTranslation(), GetVelocityWR(),
+          CVector2f(input.GetControllerData().GetAxis(0).GetAbsoluteValue(),
+                    input.GetControllerData().GetAxis(1).GetAbsoluteValue()));
+    }
+  }
+
+  ComputeFreeLook(input, mgr);
+  UpdateFreeLookState(input, dt, mgr);
+  UpdateOrbitInput(input, mgr);
+  UpdateOrbitZone(mgr);
+  UpdateGunState(input, mgr);
+  UpdateVisorState(input, dt, mgr);
+
+  if (GetMorphballTransitionState() == kMS_Morphed ||
+      (GetMorphballTransitionState() == kMS_Unmorphed && mGunHolsterState == kGH_Drawn) ||
+      mgr.GetPlayerState()->GetCurrentVisor() == CPlayerState::kPV_Scan) {
+    mGun->ProcessInput(input, mgr);
+    if (GetMorphballTransitionState() == kMS_Morphed && GetAttachedActor() != kInvalidUniqueId) {
+      bool turnLeft = mControlMapper.GetPressInput(
+          CControlMapper::kC_TurnLeft, input, CControlMapper::kFT_Filtered);
+      bool turnRight = mControlMapper.GetPressInput(
+          CControlMapper::kC_TurnRight, input, CControlMapper::kFT_Filtered);
+      bool forward = mControlMapper.GetPressInput(
+          CControlMapper::kC_Forward, input, CControlMapper::kFT_Filtered);
+      bool backward = mControlMapper.GetPressInput(
+          CControlMapper::kC_Backward, input, CControlMapper::kFT_Filtered);
+      bool jump = mControlMapper.GetPressInput(
+          CControlMapper::kC_JumpOrBoost, input, CControlMapper::kFT_Filtered);
+      if (turnLeft || turnRight || forward || backward || jump) {
+        float tmp = 600.0f * dt;
+        mAttachedActorStruggle += dt * tmp;
+        if (mAttachedActorStruggle > 1.f) {
+          mAttachedActorStruggle = 1.f;
+        }
+      } else {
+        float tmp = 7.5f * dt;
+        tmp = tmp + mAttachedActorStruggle * tmp;
+        tmp = tmp <= 1.f ? tmp : 1.f;
+        mAttachedActorStruggle -= dt * tmp;
+        if (mAttachedActorStruggle < 0.f) {
+          mAttachedActorStruggle = 0.f;
+        }
+      }
+    }
+  }
+
+  UpdateMorphBallState(dt, input, mgr);
+  UpdateCameraTimers(dt, input);
+  UpdateFootstepSounds(input, mgr, dt);
+  mTimeSinceJump += dt;
+
+  if (CheckSubmerged()) {
+    SetSoundEventPitchBend(0);
+  } else {
+    SetSoundEventPitchBend(8192);
+  }
+
+  CalculateLeaveMorphBallDirection(input);
+}
+
+void CPlayer::UpdateArmAndGunTransforms(float dt, CStateManager& mgr) {
+  CVector3f gunOffset = CVector3f::Zero();
+  CVector3f grappleOffset = CVector3f::Zero();
+  if (mMorphBallState == kMS_Morphed) {
+    gunOffset = CVector3f(0.f, 0.f, 0.6f);
+  } else {
+    gunOffset = gpTweakPlayerGun->mGunPosition;
+    grappleOffset = mGun->GetGrappleArm().IsArmMoving()
+                        ? CVector3f::Zero()
+                        : gpTweakPlayerGun->mGrapplingArmPosition;
+    gunOffset[kDZ] += GetEyeHeight();
+    grappleOffset[kDZ] += GetEyeHeight();
+  }
+
+  UpdateGunTransform(gunOffset + mCameraBob->GetGunBobTransformation().GetTranslation(), mgr);
+  UpdateGrappleArmTransform(grappleOffset, mgr, dt);
+}
 
 void CPlayer::DoPostCameraStuff(float dt, CStateManager& mgr) {
   mAimingCursor.Update(mLastInput, dt, mgr);
