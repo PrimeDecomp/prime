@@ -133,10 +133,11 @@ void CPuffer::UpdateJets(CStateManager& mgr) {
 
   if (moveVector.CanBeNormalized()) {
     CVector3f moveNorm = -moveVector.AsNormalized();
+    bool enable;
     for (int i = 0; i < ARRAY_SIZE(skGasJetLocators); ++i) {
       CVector3f tmp = GetTransform().Rotate(mGasLocators[i]);
       float ang = CMath::FastCosR(CAbsAngle::FromDegrees(45.f).AsRadians());
-      bool enable = CVector3f::Dot(moveNorm, tmp) > ang;
+      enable = CVector3f::Dot(moveNorm, tmp) > ang;
       if (IsParticleEnabled(i) != enable) {
         AnimationData()->SetParticleEffectState(rstl::string_l(skGasJetLocators[i]), enable, mgr);
       }
