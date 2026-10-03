@@ -98,6 +98,65 @@ void CPlayer::DrawGun(CStateManager& mgr) {
   mGun->ResetIdle(mgr);
 }
 
+void CPlayer::ResetGun(CStateManager& mgr) {
+  mGunHolsterState = kGH_Holstered;
+  mGunHolsterRemTime = 0.f;
+  mGun->CancelFiring(mgr);
+  SetAimTargetId(kInvalidUniqueId);
+}
+
+void CPlayer::UpdateGunState(const CFinalInput& input, CStateManager& mgr) {
+  float dt = input.Time();
+  switch (mGunHolsterState) {
+  case kGH_Drawn:
+    if (mControlMapper.GetDigitalInput(CControlMapper::kC_FireOrBomb, input,
+                                      CControlMapper::kFT_Filtered) ||
+        mControlMapper.GetDigitalInput(CControlMapper::kC_MissileOrPowerBomb, input,
+                                      CControlMapper::kFT_Filtered) ||
+        !mGun->IsFidgeting()) {
+      mGunHolsterRemTime = gpTweakPlayerGun->mGunNotFiringTime;
+    }
+    break;
+  case kGH_Drawing:
+    if (mGunHolsterRemTime > 0.f) {
+      mGunHolsterRemTime -= dt;
+    } else {
+      mGunHolsterState = kGH_Drawn;
+      mGunHolsterRemTime = gpTweakPlayerGun->mGunNotFiringTime;
+    }
+    break;
+  case kGH_Holstered: {
+    bool needsDraw = false;
+    if (mControlMapper.GetDigitalInput(CControlMapper::kC_FireOrBomb, input,
+                                      CControlMapper::kFT_Filtered) ||
+        mControlMapper.GetDigitalInput(CControlMapper::kC_MissileOrPowerBomb, input,
+                                      CControlMapper::kFT_Filtered) ||
+        mGrappleState == kGS_None) {
+      needsDraw = true;
+    }
+
+    if (mGrappleState != kGS_None ||
+        mgr.GetPlayerState()->GetCurrentVisor() == CPlayerState::kPV_Scan ||
+        mgr.GetPlayerState()->GetTransitioningVisor() == CPlayerState::kPV_Scan) {
+      needsDraw = false;
+    }
+    if (needsDraw) {
+      DrawGun(mgr);
+    }
+    break;
+  }
+  case kGH_Holstering:
+    if (mGunHolsterRemTime > 0.f) {
+      mGunHolsterRemTime -= dt;
+    } else {
+      mGunHolsterState = kGH_Holstered;
+    }
+    break;
+  default:
+    break;
+  }
+}
+
 CVector3f CPlayer::CalculateLeftStickEdgePosition(float strafeInput, float forwardInput) const {
   CVector3f side(-1.f, 0.f, 0.f);
   CVector3f corner(-0.555f, 0.555f, 0.f);
