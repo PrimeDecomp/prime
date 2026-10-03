@@ -39,6 +39,7 @@ private:
   CVector3f mCloseInVec;
   float mCloseInTimer;
 };
-CHECK_SIZEOF(CFirstPersonCamera, (VERSION >= VERSION_GM8E_02 ? 0x1e8 : 0x1d8))
+CHECK_SIZEOF(CFirstPersonCamera,
+             (VERSION >= VERSION_R3IJ_00 ? 0x1e0 : (VERSION >= VERSION_GM8E_02 ? 0x1e8 : 0x1d8)))
 
 #endif // _CFIRSTPERSONCAMERA

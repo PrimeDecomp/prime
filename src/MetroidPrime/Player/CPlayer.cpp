@@ -11,6 +11,9 @@
 #include "Kyoto/Math/CloseEnough.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
+#include "MetroidPrime/Cameras/CFirstPersonCamera.hpp"
+#include "MetroidPrime/Cameras/CBallCamera.hpp"
+#include "MetroidPrime/Cameras/CCinematicCamera.hpp"
 #include "MetroidPrime/Player/CGameState.hpp"
 #include "MetroidPrime/Player/CPlayerGun.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptGrapplePoint.hpp"
@@ -34,6 +37,116 @@ static const SVisorToItemMapping skVisorToItemMapping[] = {
     {CPlayerState::kIT_ScanVisor, CPlayerState::kPV_Scan, CControlMapper::kC_ScanVisor},
     {CPlayerState::kIT_ThermalVisor, CPlayerState::kPV_Thermal, CControlMapper::kC_ThermalVisor},
 };
+
+void CPlayer::ForceGunOrientation(const CTransform4f& xf, CStateManager& mgr) {
+  ResetGun(mgr);
+  mGunDir = CVector3f(xf.Get01(), xf.Get11(), xf.Get21());
+  mGun->SetTransform(xf);
+  UpdateArmAndGunTransforms(0.01f, mgr);
+}
+
+void CPlayer::SetCameraState(EPlayerCameraState camState, CStateManager& mgr) {
+  if (mCameraState == camState) {
+    return;
+  }
+
+  mCameraState = camState;
+
+  CCameraManager* camMgr = mgr.CameraManager();
+  switch (camState) {
+  case kCS_FirstPerson:
+    camMgr->SetCurrentCameraId(camMgr->GetFirstPersonCamera()->GetUniqueId());
+    mMorphball->SetBallLightActive(mgr, false);
+    break;
+  case kCS_Ball:
+    camMgr->SetCurrentCameraId(camMgr->GetBallCamera()->GetUniqueId());
+    mMorphball->SetBallLightActive(mgr, true);
+    break;
+  case kCS_Transitioning:
+    camMgr->SetCurrentCameraId(camMgr->GetBallCamera()->GetUniqueId());
+    mMorphball->SetBallLightActive(mgr, true);
+    break;
+  case kCS_Two:
+    break;
+  case kCS_Spawned: {
+    bool ballLight = false;
+    if (const CCinematicCamera* cineCam =
+            TCastToConstPtr< CCinematicCamera >(camMgr->GetCurrentCamera(mgr))) {
+      ballLight = mMorphBallState == kMS_Morphed && cineCam->GetFlags() & 0x40;
+    }
+    mMorphball->SetBallLightActive(mgr, ballLight);
+    break;
+  }
+  }
+}
+
+void CPlayer::UpdateCinematicState(CStateManager& mgr) {
+  if (mgr.GetCameraManager()->IsInCinematicCamera()) {
+    if (mCameraState != kCS_Spawned) {
+      mSpawnedMorphBallState = mMorphBallState;
+      if (mSpawnedMorphBallState == kMS_Unmorphing) {
+        mSpawnedMorphBallState = kMS_Unmorphed;
+      }
+      if (mSpawnedMorphBallState == kMS_Morphing) {
+        mSpawnedMorphBallState = kMS_Morphed;
+      }
+      SetCameraState(kCS_Spawned, mgr);
+    }
+  } else {
+    if (mCameraState == kCS_Spawned) {
+      if (mSpawnedMorphBallState == mMorphBallState) {
+        switch (mSpawnedMorphBallState) {
+        case kMS_Morphed:
+          SetCameraState(kCS_Ball, mgr);
+          break;
+        case kMS_Unmorphed:
+          SetCameraState(kCS_FirstPerson, mgr);
+          if (mgr.GetPlayerState()->GetCurrentVisor() != CPlayerState::kPV_Scan) {
+            ForceGunOrientation(GetTransform(), mgr);
+            DrawGun(mgr);
+          }
+          break;
+        default:
+          break;
+        }
+      } else {
+        CPhysicsActor::Stop();
+        BreakOrbit(kOB_Respawn, mgr);
+        switch (mSpawnedMorphBallState) {
+        case kMS_Unmorphed: {
+          CVector3f vec = CVector3f::Zero();
+          if (CanLeaveMorphBallState(mgr, vec)) {
+            SetTranslation(GetTranslation() + vec);
+            LeaveMorphBallState(mgr);
+            SetCameraState(kCS_FirstPerson, mgr);
+            ForceGunOrientation(GetTransform(), mgr);
+            DrawGun(mgr);
+          }
+          break;
+        }
+        case kMS_Morphed:
+          EnterMorphBallState(mgr);
+          ActivateMorphBallCamera(mgr);
+          mgr.CameraManager()->ResetCameraHint(mgr);
+          mgr.CameraManager()->BallCamera()->Reset(CreateTransformFromMovementDirection(), mgr);
+          break;
+        default:
+          break;
+        }
+      }
+    }
+  }
+}
+
+bool CPlayer::ShouldSampleFailsafe(CStateManager& mgr) const {
+  const CCinematicCamera* cineCam =
+      TCastToConstPtr< CCinematicCamera >(mgr.GetCameraManager()->GetCurrentCamera(mgr));
+  if (!mgr.GetPlayerState()->IsAlive() ||
+      (mCameraState == kCS_Spawned && cineCam && (cineCam->GetFlags() & 0x80) != 0)) {
+    return false;
+  }
+  return true;
+}
 
 void CPlayer::EndLandingControlFreeze() {
   mControlsFrozen = false;
