@@ -5,7 +5,10 @@
 
 #if VERSION >= VERSION_R3IJ_00
 
+#include "rstl/string.hpp"
+
 class CStateManager;
+class CHUDMemoParms;
 
 class CSamusHud {
 public:
@@ -13,6 +16,7 @@ public:
 
   explicit CSamusHud(const CStateManager& mgr);
   static void ClearHudMemo();
+  static void DisplayHudMemo(const rstl::wstring& text, const CHUDMemoParms& info);
 
 private:
   void InternalClearHudMemo();
