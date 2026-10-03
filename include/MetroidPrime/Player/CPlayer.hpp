@@ -538,7 +538,11 @@ public:
   float GetAverageSpeed() const;
   float GetAcceleration() const;
   float GetGravity() const;
+#if VERSION >= VERSION_R3IJ_00
+  void CancelDash();
+#else
   void FinishSidewaysDash();
+#endif
   bool SidewaysDashAllowed(float strafeInput, float forwardInput, const CFinalInput& input,
                           CStateManager& mgr) const;
   void ComputeDash(const CFinalInput& input, float dt, CStateManager& mgr);
