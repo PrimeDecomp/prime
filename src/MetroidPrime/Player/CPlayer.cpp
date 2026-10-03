@@ -4,7 +4,10 @@
 
 #include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/CSimplePool.hpp"
+#include "Kyoto/Text/CStringTable.hpp"
+#include "MetroidPrime/HUD/CHUDMemoParms.hpp"
 #include "MetroidPrime/HUD/CSamusHud.hpp"
+#include "MetroidPrime/ScriptObjects/CHUDBillboardEffect.hpp"
 #include "MetroidPrime/SFX/IceCrack.h"
 #include "MetroidPrime/CGameCollision.hpp"
 #include "MetroidPrime/Player/CMorphBall.hpp"
@@ -692,8 +695,6 @@ void CPlayer::UpdateFreeLookState(const CFinalInput& input, float dt, CStateMana
   mInFreeLook = true;
   UpdateCrosshairsState(input);
 }
-
-bool CPlayer::GetFrozenState() const { return mFrozenTimeout > 0.f; }
 
 void CPlayer::UpdateFreeLook(float dt, CStateManager& mgr) {
   if (mPointerAimHeld && mOrbitState != kOS_Grapple) {
@@ -2524,6 +2525,8 @@ void CPlayer::Think(float dt, CStateManager& mgr) {
   mLastVelocity = GetVelocityWR();
 }
 
+#endif
+
 void CPlayer::SetFrozenState(CStateManager& stateMgr, CAssetId steamTxtr, const ushort sfx,
                              CAssetId iceTxtr) {
   if (!stateMgr.GetCameraManager()->IsInCinematicCamera() && !GetFrozenState()) {
@@ -2536,12 +2539,16 @@ void CPlayer::SetFrozenState(CStateManager& stateMgr, CAssetId steamTxtr, const 
     }
 
     if (showMsg) {
+#if VERSION >= VERSION_R3IJ_00
+      int msgIdx = mMorphBallState == kMS_Morphed || mMorphBallState == kMS_Morphing ? 20 : 19;
+#else
       int msgIdx = mMorphBallState != kMS_Morphed ? 19 : 20;
+#endif
       CSamusHud::DisplayHudMemo(rstl::wstring_l(gpStringTable->GetString(msgIdx)),
                                 CHUDMemoParms(5.f, true, false, false));
     }
 
-    mFrozenTimeout = mFrozenTimeoutBias + gpTweakPlayer->mFrozenTimeout;
+    mFrozenTimeout = mFrozenTimeoutBias + gpTweakPlayer->GetFrozenTimeout();
     mIceBreakJumps = -mAdditionalIceBreakJumps;
 
     CPhysicsActor::Stop();
@@ -2587,8 +2594,6 @@ void CPlayer::BreakFrozenState(CStateManager& stateMgr) {
   mMorphball->ResetMorphBallIceBreak();
   SetVisorSteam(0.f, 0.3f / 0.7f, 1.f / 14.f, mSteamTextureId, false);
 }
-
-#endif
 
 void CPlayer::UpdateFrozenState(const CFinalInput& input, CStateManager& mgr) {
   mFrozenTimeout -= input.Time();
