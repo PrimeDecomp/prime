@@ -371,7 +371,7 @@ float CPlayer::ComputeMovementForce(int axis, float input, float velocity, float
 void CPlayer::ComputeMovement(const CFinalInput& input, CStateManager& mgr, float dt) {
   const float jumpInput = JumpInput(dt, input, mgr);
   float turnInput = TurnInput(input);
-  if (gpGameState->GameOptions().GetControlPreset() == 0) {
+  if (gpGameState->GameOptions().GetControlPreset() == CTrilogyOptions::kCP_Basic) {
     if (close_enough(turnInput, 0.f)) {
       mContinuousTurnTime = 0.f;
     } else {
