@@ -5,6 +5,7 @@
 #include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/CSimplePool.hpp"
 #include "Kyoto/Text/CStringTable.hpp"
+#include "MetroidPrime/Factories/CScannableObjectInfo.hpp"
 #include "MetroidPrime/HUD/CHUDMemoParms.hpp"
 #include "MetroidPrime/HUD/CSamusHud.hpp"
 #include "MetroidPrime/ScriptObjects/CHUDBillboardEffect.hpp"
@@ -23,6 +24,7 @@
 #include "MetroidPrime/Player/CGameState.hpp"
 #include "MetroidPrime/Player/CPlayerGun.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptGrapplePoint.hpp"
+#include "MetroidPrime/Tweaks/CTweakGui.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayerControl.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayerGun.hpp"
@@ -3239,6 +3241,8 @@ bool CPlayer::GetExplorationMode() const {
   }
 }
 
+#endif
+
 void CPlayer::SetScanningState(EPlayerScanState state, CStateManager& mgr) {
   if (mScanState == state) {
     return;
@@ -3288,8 +3292,13 @@ void CPlayer::SetScanningState(EPlayerScanState state, CStateManager& mgr) {
 }
 
 // TODO nonmatching
-bool CPlayer::ValidateScanning(const CFinalInput& input, CStateManager& mgr) const {
+bool CPlayer::ValidateScanning(const CFinalInput& input, CStateManager& mgr) {
+#if VERSION >= VERSION_R3IJ_00
+  if (mControlMapper.GetDigitalInput(CControlMapper::kC_ScanItem, input,
+                                    CControlMapper::kFT_Filtered)) {
+#else
   if (ControlMapper::GetDigitalInput(ControlMapper::kC_ScanItem, input)) {
+#endif
     CActor* act = TCastToPtr< CActor >(mgr.ObjectById(GetOrbitTargetId()));
     if (mOrbitState == CPlayer::kOS_OrbitObject && act &&
         act->GetMaterialList().HasMaterial(kMT_Scannable)) {
@@ -3309,9 +3318,10 @@ void CPlayer::UpdateScanningState(const CFinalInput& input, CStateManager& mgr, 
     return;
   }
 
-  if (mScanState != kSS_NotScanning && mScanningObject != GetOrbitTargetId() &&
-      GetOrbitTargetId() != kInvalidUniqueId) {
-    SetScanningState(kSS_NotScanning, mgr);
+  if (mScanState != kSS_NotScanning) {
+    if (mScanningObject != GetOrbitTargetId() && GetOrbitTargetId() != kInvalidUniqueId) {
+      SetScanningState(kSS_NotScanning, mgr);
+    }
   }
 
   switch (mScanState) {
@@ -3338,7 +3348,15 @@ void CPlayer::UpdateScanningState(const CFinalInput& input, CStateManager& mgr, 
       if (const CActor* act = TCastToConstPtr< CActor >(mgr.ObjectById(GetOrbitTargetId()))) {
         if (const CScannableObjectInfo* scanInfo = act->GetScannableObjectInfo()) {
           float totalTime = scanInfo->GetTotalDownloadTime();
+#if VERSION >= VERSION_R3IJ_00
+          float scanningTime = mScanningTime + dt;
+          if (totalTime < scanningTime) {
+            scanningTime = totalTime;
+          }
+          mScanningTime = scanningTime;
+#else
           mScanningTime = rstl::min_val(mScanningTime + dt, totalTime);
+#endif
           mCurScanTime += dt;
           mgr.PlayerState()->SetScanTime(scanInfo->GetScannableObjectId(),
                                          mScanningTime / totalTime);
@@ -3361,6 +3379,8 @@ void CPlayer::UpdateScanningState(const CFinalInput& input, CStateManager& mgr, 
     break;
   }
 }
+
+#if VERSION < VERSION_R3IJ_00
 
 void CPlayer::Touch(CActor& actor, CStateManager& mgr) {
   if (mMorphBallState != kMS_Morphed) {
@@ -3659,6 +3679,8 @@ void CPlayer::FluidFXThink(EFluidState state, CScriptWater& water, CStateManager
   }
 }
 
+#endif
+
 // TODO nonmatching
 bool CPlayer::ObjectInScanningRange(TUniqueId id, const CStateManager& mgr) {
   if (const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(id))) {
@@ -3669,6 +3691,8 @@ bool CPlayer::ObjectInScanningRange(TUniqueId id, const CStateManager& mgr) {
   }
   return false;
 }
+
+#if VERSION < VERSION_R3IJ_00
 
 CVector3f CPlayer::GetAimPosition(const CStateManager& mgr, float dt) const {
   CVector3f ret = GetTranslation();
