@@ -318,7 +318,7 @@ if version_num >= VERSIONS.index("R3IJ01_00"):
 
 if version_num >= VERSIONS.index("R3ME01_00"):
     mw_version_retro = "Wii/1.0a"
-    cflags_retro.extend(["-sdata2 4", "-fp_contract off"])
+    cflags_retro.append("-sdata2 4")
 
 # Most Retro code uses this inline limit. Objects that still need the compiler
 # default retain cflags_retro explicitly while their helper inlining is investigated.
@@ -1943,7 +1943,13 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
                 "Kyoto/Math/CloseEnough.cpp",
             ),
-            Object(NonMatching, "Kyoto/Math/CMayaSpline.cpp"),
+            Object(
+                NonMatching,
+                "Kyoto/Math/CMayaSpline.cpp",
+                extra_cflags=["-fp_contract off"]
+                if version_num >= VERSIONS.index("R3ME01_00")
+                else [],
+            ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Kyoto/Math/CMatrix3f.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
@@ -2171,13 +2177,28 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "R3ME01_00"),
                 "Kyoto/Input/CFinalInput.cpp",
             ),
-            Object(NonMatching, "Kyoto/Input/CInputFilter.cpp"),
+            Object(
+                NonMatching,
+                "Kyoto/Input/CInputFilter.cpp",
+                extra_cflags=["-fp_contract off"]
+                if version_num >= VERSIONS.index("R3IJ01_00")
+                else [],
+            ),
             Object(MatchingFor("R3ME01_00"), "Kyoto/Input/IController.cpp"),
-            Object(NonMatching, "Kyoto/Input/CWiiInput.cpp"),
+            Object(
+                NonMatching,
+                "Kyoto/Input/CWiiInput.cpp",
+                extra_cflags=["-fp_contract off"]
+                if version_num >= VERSIONS.index("R3ME01_00")
+                else [],
+            ),
             Object(MatchingFor("R3ME01_00"), "Kyoto/Input/CControllerData.cpp"),
             Object(
                 NonMatching,
                 "Kyoto/Input/CWiiMotionProcessor.cpp",
+                extra_cflags=["-fp_contract off"]
+                if version_num >= VERSIONS.index("R3ME01_00")
+                else [],
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8J01_00"),
