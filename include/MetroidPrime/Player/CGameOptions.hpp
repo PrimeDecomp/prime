@@ -10,6 +10,7 @@
 #include "Kyoto/Audio/CAudioSys.hpp"
 #include "Kyoto/SObjectTag.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
+#include "MetroidPrime/Player/CTrilogyOptions.hpp"
 
 class CInputStream;
 class CMemoryStreamOut;
@@ -77,7 +78,7 @@ public:
   void SetIsFireAndJumpSwapped(bool enabled);
   void SetNotifyAchievementEarned(bool enabled);
   void UpdateAssetRemapList();
-  void SetControlPreset(int preset);
+  void SetControlPreset(CTrilogyOptions::EControlPreset preset);
   int GetScreenBrightness() const;
   int GetSfxVolume() const;
   int GetMusicVolume() const;
@@ -91,7 +92,7 @@ public:
   bool GetIsFireAndJumpSwapped() const;
   bool GetNotifyAchievementEarned() const;
   const rstl::vector< rstl::pair< CAssetId, CAssetId > >& GetAssetRemapList();
-  int GetControlPreset() const;
+  CTrilogyOptions::EControlPreset GetControlPreset() const;
 
 private:
   rstl::reserved_vector< uchar, 64 > mPersistentData;

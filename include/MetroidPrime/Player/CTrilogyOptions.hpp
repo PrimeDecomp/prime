@@ -8,6 +8,12 @@ class COutputStream;
 
 class CTrilogyOptions {
 public:
+  enum EControlPreset {
+    kCP_Basic,
+    kCP_Standard,
+    kCP_Advanced
+  };
+
   CTrilogyOptions();
   CTrilogyOptions(CInputStream& in);
   void SetScreenBrightness(int value);
@@ -18,7 +24,7 @@ public:
   void SetHudAlpha(int value);
   void SetHelmetAlpha(int value);
 
-  static int kDefaultControlPreset;
+  static EControlPreset kDefaultControlPreset;
 
 private:
   friend class CGameOptions;
@@ -40,7 +46,7 @@ private:
   bool mLockOnFreeAim : 1;
   bool mReservedFlag : 1;
   bool mNotifyAchievementEarned : 1;
-  int mControlPreset;
+  EControlPreset mControlPreset;
 };
 CHECK_SIZEOF(CTrilogyOptions, 0x28)
 

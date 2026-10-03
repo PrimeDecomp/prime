@@ -189,20 +189,20 @@ void CGameOptions::UpdateAssetRemapList() {
   rstl::sort_by_key(mControlTxtrMap);
 }
 
-void CGameOptions::SetControlPreset(int preset) {
+void CGameOptions::SetControlPreset(CTrilogyOptions::EControlPreset preset) {
   if (gpTrilogyState != nullptr) {
     gpTrilogyState->Options().mControlPreset = preset;
   }
 
   int index = 13;
   switch (preset) {
-  case 0:
+  case CTrilogyOptions::kCP_Basic:
     index = 12;
     break;
-  case 1:
+  case CTrilogyOptions::kCP_Standard:
     index = 13;
     break;
-  case 2:
+  case CTrilogyOptions::kCP_Advanced:
     index = 14;
     break;
   }
@@ -257,7 +257,7 @@ const rstl::vector< rstl::pair< CAssetId, CAssetId > >& CGameOptions::GetAssetRe
   return mControlTxtrMap;
 }
 
-int CGameOptions::GetControlPreset() const {
+CTrilogyOptions::EControlPreset CGameOptions::GetControlPreset() const {
   if (gpTrilogyState != nullptr) {
     return gpTrilogyState->GetOptions().mControlPreset;
   }
