@@ -264,10 +264,22 @@ void CPlayerVisor::Update(float dt, const CStateManager& mgr) {
   if (transVisor != mNextVisor)
     mNextVisor = transVisor;
   LockUnlockAssets();
+#if VERSION >= VERSION_R3IJ_00
+  if (scanState == CPlayer::kSS_ScanComplete) {
+    const float step = 2.f * dt;
+    const float interp = mScanDimInterp - step;
+    mScanDimInterp = 0.f < interp ? interp : 0.f;
+  } else {
+    const float step = 2.f * dt;
+    const float interp = mScanDimInterp + step;
+    mScanDimInterp = interp < 1.f ? interp : 1.f;
+  }
+#else
   if (scanState == CPlayer::kSS_ScanComplete)
     mScanDimInterp = rstl::max_val(0.f, mScanDimInterp - 2.f * dt);
   else
     mScanDimInterp = rstl::min_val(1.f, mScanDimInterp + 2.f * dt);
+#endif
   if (visorTransitioning) {
     if (!mVisorTransitioning)
       BeginTransitionOut();
