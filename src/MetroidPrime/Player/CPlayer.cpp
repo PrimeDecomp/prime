@@ -2,13 +2,151 @@
 
 #if VERSION >= VERSION_R3IJ_00
 
+#include "Kyoto/CSimplePool.hpp"
 #include "Kyoto/Input/CInputFilter.hpp"
+#include "Kyoto/Math/CloseEnough.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
 #include "MetroidPrime/Player/CGameState.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptGrapplePoint.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayerControl.hpp"
 #include "MetroidPrime/Tweaks/CTweaks.hpp"
+
+struct SVisorToItemMapping {
+  CPlayerState::EItemType mItem;
+  CPlayerState::EPlayerVisor mVisor;
+  CControlMapper::ECommands mCommand;
+};
+CHECK_SIZEOF(SVisorToItemMapping, 0xc)
+
+static const SVisorToItemMapping skVisorToItemMapping[] = {
+    {CPlayerState::kIT_CombatVisor, CPlayerState::kPV_Combat, CControlMapper::kC_CombatVisor},
+    {CPlayerState::kIT_CombatVisor, CPlayerState::kPV_Combat,
+     CControlMapper::kC_CombatVisorAlternative},
+    {CPlayerState::kIT_XRayVisor, CPlayerState::kPV_XRay, CControlMapper::kC_XRayVisor},
+    {CPlayerState::kIT_ScanVisor, CPlayerState::kPV_Scan, CControlMapper::kC_ScanVisor},
+    {CPlayerState::kIT_ThermalVisor, CPlayerState::kPV_Thermal, CControlMapper::kC_ThermalVisor},
+};
+
+CVector3f CPlayer::CalculateLeftStickEdgePosition(float strafeInput, float forwardInput) const {
+  CVector3f side(-1.f, 0.f, 0.f);
+  CVector3f corner(-0.555f, 0.555f, 0.f);
+  if (strafeInput >= 0.f) {
+    side[kDX] = -side[kDX];
+    corner[kDX] = -corner[kDX];
+  }
+  if (forwardInput < 0.f) {
+    corner[kDY] = -corner[kDY];
+  }
+
+  const float angle = atanf(fabsf(forwardInput) / fabsf(strafeInput));
+  const float& maxFraction = 1.f;
+  const float fraction = CMath::FastMin(
+      CMath::FastMax(-maxFraction, angle / (M_PIF / 4.f)), maxFraction);
+  return side + fraction * (corner - side);
+}
+
+void CPlayer::SetAimTargetId(const TUniqueId target) {
+  if (target == kInvalidUniqueId || mAimTarget != target) {
+    mAimTargetAverage.clear();
+  }
+  mAimTarget = target;
+}
+
+void CPlayer::CVisorSteam::Update(float dt) {
+  if (mTxtr != kInvalidAssetId) {
+    mCurTargetAlpha = mNextTargetAlpha;
+    mCurAlphaInDur = mNextAlphaInDur;
+    mCurAlphaOutDur = mNextAlphaOutDur;
+    mTex = mTxtr;
+  } else {
+    mCurTargetAlpha = 0.f;
+  }
+
+  mTxtr = kInvalidAssetId;
+  if (close_enough(mAlpha, mCurTargetAlpha) && close_enough(mAlpha, 0.f)) {
+    return;
+  }
+
+  if (mAlpha > mCurTargetAlpha) {
+    if (mDelayTimer <= 0.f) {
+      mAlpha -= dt / mCurAlphaOutDur;
+      if (mAlpha < mCurTargetAlpha) {
+        mAlpha = mCurTargetAlpha;
+      }
+    } else {
+      mDelayTimer -= dt;
+      if (mDelayTimer < 0.f) {
+        mDelayTimer = 0.f;
+      }
+    }
+    return;
+  }
+
+  if (gpSimplePool->GetObj(SObjectTag('TXTR', mTex)).IsLoaded()) {
+    mAlpha += dt / mCurAlphaInDur;
+    if (mAlpha > mCurTargetAlpha) {
+      mAlpha = mCurTargetAlpha;
+    }
+    mDelayTimer = 0.1f;
+  }
+}
+
+void CPlayer::UpdateVisorState(const CFinalInput& input, float dt, CStateManager& mgr) {
+  mVisorSteam.Update(dt);
+  if (mVisorSteam.AffectsThermal()) {
+    mgr.AddThermalColdScale2(mVisorSteam.GetAlpha());
+  }
+
+  CPlayerState* const playerState = mgr.PlayerState();
+  const EPlayerMorphBallState morphState = GetMorphballTransitionState();
+  const CScriptGrapplePoint* grapplePoint =
+      TCastToConstPtr< CScriptGrapplePoint >(mgr.GetObjectById(GetOrbitTargetId()));
+  if (GetOrbitState() == kOS_Grapple || grapplePoint) {
+    return;
+  }
+  if (morphState == kMS_Unmorphed && !playerState->GetIsVisorTransitioning() &&
+      mScanState == kSS_NotScanning) {
+    const CPlayerState::EPlayerVisor currentVisor = playerState->GetTransitioningVisor();
+    if (currentVisor == CPlayerState::kPV_Scan &&
+        (mControlMapper.GetPressInput(CControlMapper::kC_FireOrBomb, input,
+                                     CControlMapper::kFT_Filtered) ||
+         mControlMapper.GetPressInput(CControlMapper::kC_MissileOrPowerBomb, input,
+                                     CControlMapper::kFT_Filtered)) &&
+        playerState->HasPowerUp(CPlayerState::kIT_CombatVisor)) {
+      playerState->StartTransitionToVisor(CPlayerState::kPV_Combat);
+      DrawGun(mgr);
+    }
+
+    if (mControlMapper.GetTapInput(CControlMapper::kC_VisorMenu, input,
+                                  CControlMapper::kFT_Filtered)) {
+      if (currentVisor != CPlayerState::kPV_Combat) {
+        playerState->StartTransitionToVisor(CPlayerState::kPV_Combat);
+      }
+    } else {
+      for (uint i = 0; i < ARRAY_SIZE(skVisorToItemMapping); ++i) {
+        const SVisorToItemMapping& mapping = skVisorToItemMapping[i];
+        const CControlMapper::ECommands command = mapping.mCommand;
+        if (playerState->HasPowerUp(mapping.mItem) &&
+            mControlMapper.GetDigitalInput(command, input, CControlMapper::kFT_Filtered) &&
+            mControlMapper.GetSelectorReleaseInput(CControlMapper::kC_VisorMenu, input, mgr,
+                                                   *this)) {
+          mVisorChangeRequested = true;
+          const CPlayerState::EPlayerVisor visor = mapping.mVisor;
+          if (currentVisor != visor) {
+            playerState->StartTransitionToVisor(visor);
+            if (visor == CPlayerState::kPV_Scan) {
+              HolsterGun(mgr);
+            } else {
+              DrawGun(mgr);
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 bool CPlayer::IsMorphBallTransitioning() const {
   switch (mMorphBallState) {
