@@ -107,6 +107,8 @@ MetroidPrime/Player/CPlayerOrbit.cpp:
 	.text       start:0x8019A67C end:0x801A03A0
 	.ctors      start:0x8046D418 end:0x8046D41C
 	.rodata     start:0x80474B60 end:0x80474B80
+	.bss        start:0x804C34A0 end:0x804C3528
+	.sdata      start:0x805C1640 end:0x805C1688
 	.sdata2     start:0x805C5DE8 end:0x805C5E48
 
 MetroidPrime/Player/CTrilogyOptions.cpp:
