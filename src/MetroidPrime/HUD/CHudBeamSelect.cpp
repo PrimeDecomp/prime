@@ -81,16 +81,16 @@ void CHudBeamSelect::InitializeSelection(const CStateManager& mgr) {
 }
 
 bool CHudBeamSelect::HasSelectionChanged(const CStateManager& mgr) const {
+  const CPlayer* const player = mgr.GetPlayer();
   CPlayerState& state = *mgr.GetPlayerState();
-  const CPlayer& player = *mgr.GetPlayer();
   const CPlayerState::EBeamId beams[] = {CPlayerState::kBI_Power, CPlayerState::kBI_Ice,
                                          CPlayerState::kBI_Wave, CPlayerState::kBI_Plasma};
   const CPlayerState::EItemType items[] = {CPlayerState::kIT_PowerBeam, CPlayerState::kIT_IceBeam,
                                            CPlayerState::kIT_WaveBeam,
                                            CPlayerState::kIT_PlasmaBeam};
   for (uint i = 0; i < 4; ++i) {
-    if (player.GetControlMapper().GetDigitalInput(skCommands[i], player.GetLastInput(),
-                                                  CControlMapper::kFT_Unfiltered)) {
+    if (player->GetControlMapper().GetDigitalInput(skCommands[i], player->GetLastInput(),
+                                                   CControlMapper::kFT_Unfiltered)) {
       return beams[i] != state.GetCurrentBeam() && state.HasPowerUp(items[i]);
     }
   }
@@ -174,9 +174,10 @@ void CHudBeamSelect::Update(float dt, const CStateManager& mgr) {
   if (!active && mSelectionChanged) {
     flash = (1.f + CMath::FastCosR(1.5f * (2.f * (M_PIF * mSelectionFade)))) / 2.f;
   }
+  const CColor& white = CColor(CColor::White());
   for (int i = 0; i < mHighlights.size(); ++i) {
     if (mHighlights[i] != nullptr) {
-      mHighlights[i]->SetColor(CColor::White().WithAlphaOf(flash * mHighlightAlpha[i]));
+      mHighlights[i]->SetColor(white.WithAlphaOf(flash * mHighlightAlpha[i]));
     }
   }
 }
