@@ -1368,11 +1368,15 @@ float CPlayer::CalculateOrbitZBasedDistance(EPlayerOrbitType type) {
   return distance;
 }
 
+#endif
+
 void CPlayer::OrbitPoint(EPlayerOrbitType type, CStateManager& mgr) {
   mOrbitType = type;
   SetOrbitState(kOS_OrbitPoint, mgr);
   SetOrbitPosition(gpTweakPlayer->GetOrbitNormalDistance(mOrbitType), mgr);
 }
+
+#if VERSION < VERSION_R3IJ_00
 
 void CPlayer::OrbitCarcass(CStateManager& mgr) {
   if (mOrbitState == kOS_OrbitObject) {
