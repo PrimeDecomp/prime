@@ -1119,7 +1119,13 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CScriptBallTrigger.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Weapons/CPlasmaProjectile.cpp"),
-            Object(NonMatching, "MetroidPrime/Player/CPlayerOrbit.cpp"),
+            Object(
+                NonMatching,
+                "MetroidPrime/Player/CPlayerOrbit.cpp",
+                extra_cflags=["-fp_contract off"]
+                if version_num >= VERSIONS.index("R3ME01_00")
+                else [],
+            ),
             Object(EquivalentFor("GM8E01_00"), "MetroidPrime/CGameCollision.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
