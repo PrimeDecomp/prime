@@ -78,6 +78,7 @@ MetroidPrime/CInputGenerator.cpp:
 MetroidPrime/Player/CPlayer.cpp:
 	.text       start:0x8017DD68 end:0x80187FE4
 	.ctors      start:0x8046D408 end:0x8046D40C
+	.rodata     start:0x804748F0 end:0x8047492C
 	.sdata2     start:0x805C5A68 end:0x805C5BB8
 
 MetroidPrime/Player/CPlayerDynamics.cpp:

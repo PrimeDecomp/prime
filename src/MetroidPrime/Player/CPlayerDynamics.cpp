@@ -23,6 +23,76 @@ static const float skStrafeDistances[] = {11.8f, 11.8f, 11.8f, 5.f, 6.f, 5.f, 5.
 static const float skDashStrafeDistances[] = {11.8f, 30.f, 22.6f, 10.f, 10.f, 10.f, 10.f, 10.f};
 static const float skOrbitForwardDistances[] = {11.8f, 11.8f, 11.8f, 5.f, 6.f, 5.f, 5.f, 6.f};
 
+void CPlayer::SetMoveState(NPlayer::EPlayerMovementState state, CStateManager& mgr) {
+  switch (state) {
+  case NPlayer::kMS_Jump:
+    if (mMovementState == NPlayer::kMS_ApplyJump) {
+      DoSfxEffects(CSfxManager::SfxStart(SFXsam_b_jump_00, 127, 64, true));
+      mgr.GetRumbleManager()->Rumble(mgr, kRFX_PlayerBump, 0.2015f, kRP_One);
+      mStartingJumpTimeout = gpTweakPlayer->GetAllowedDoubleJumpTime();
+      mMinJumpTimeout =
+          gpTweakPlayer->GetAllowedDoubleJumpTime() - gpTweakPlayer->GetMinDoubleJumpTime();
+      mSjTimer = 0.f;
+    } else if (mMovementState != NPlayer::kMS_Jump) {
+      DoSfxEffects(CSfxManager::SfxStart(SFXsam_b_jump_01, 127, 64, true));
+      x2a0_ = 0.01f;
+      mStartingJumpTimeout = gpTweakPlayer->GetAllowedJumpTime();
+      mMinJumpTimeout = gpTweakPlayer->GetAllowedJumpTime() - gpTweakPlayer->GetMinJumpTime();
+      if (mgr.GetPlayerState()->GetItemAmount(CPlayerState::kIT_SpaceJumpBoots) != 0) {
+        mSjTimer = gpTweakPlayer->GetMaxDoubleJumpWindow();
+      } else {
+        mSjTimer = 0.f;
+      }
+      if (mJumpCameraTimer <= 0.f && mFallCameraTimer <= 0.f) {
+        mJumpCameraTimer = 0.01f;
+        mCancelCameraPitch = false;
+      }
+    }
+    mMovementState = NPlayer::kMS_Jump;
+    mSurfaceRestraint = kSR_Air;
+    mTimeSinceJump = 0.f;
+    break;
+  case NPlayer::kMS_Falling:
+    if (mMovementState == NPlayer::kMS_OnGround) {
+      mStartingJumpTimeout = gpTweakPlayer->GetAllowedLedgeTime();
+      mMovementState = NPlayer::kMS_Falling;
+      x2a0_ = 0.01f;
+      mSjTimer = 0.f;
+    }
+    break;
+  case NPlayer::kMS_FallingMorphed:
+    mMovementState = NPlayer::kMS_FallingMorphed;
+    mSurfaceRestraint = kSR_Normal;
+    break;
+  case NPlayer::kMS_OnGround:
+    mFallingTime = 0.f;
+    mMovementState = NPlayer::kMS_OnGround;
+    mStartingJumpTimeout = 0.f;
+    mSjTimer = 0.f;
+    SetBallJump(false);
+    mSurfaceRestraint = kSR_Normal;
+    if (mMorphBallState != kMS_Morphed) {
+      AddMaterial(kMT_GroundCollider, mgr);
+    }
+    mJumpCameraTimer = 0.f;
+    mFallCameraTimer = 0.f;
+    mCancelCameraPitch = false;
+    mJumpPresses = 0;
+    break;
+  case NPlayer::kMS_ApplyJump:
+    mStartingJumpTimeout = 0.f;
+    if (mMovementState != NPlayer::kMS_ApplyJump) {
+      mMovementState = NPlayer::kMS_ApplyJump;
+      if (mJumpCameraTimer <= 0.f && mFallCameraTimer <= 0.f) {
+        mFallCameraTimer = 0.01f;
+        mCancelCameraPitch = false;
+      }
+    }
+    mSurfaceRestraint = kSR_Air;
+    break;
+  }
+}
+
 CVector3f CPlayer::GetDampedClampedVelocityWR(float dt) const {
   CVector3f localVelocity = GetTransform().TransposeRotate(GetVelocityWR());
   const float maxSpeed = gpTweakPlayer->GetPlayerTranslationMaxSpeed(GetSurfaceRestraint());
