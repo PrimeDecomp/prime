@@ -2,12 +2,17 @@
 
 #if VERSION >= VERSION_R3IJ_00
 
+#include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/Input/CFinalInput.hpp"
 #include "Kyoto/Math/CMath.hpp"
+#include "Kyoto/Math/CQuaternion.hpp"
+#include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"
+#include "MetroidPrime/CRumbleManager.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/Player/CGameState.hpp"
+#include "MetroidPrime/SFX/MiscSamus.h"
 #include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayerControl.hpp"
 #include "MetroidPrime/Tweaks/CTweaks.hpp"
@@ -16,6 +21,7 @@
 
 static const float skStrafeDistances[] = {11.8f, 11.8f, 11.8f, 5.f, 6.f, 5.f, 5.f, 6.f};
 static const float skDashStrafeDistances[] = {11.8f, 30.f, 22.6f, 10.f, 10.f, 10.f, 10.f, 10.f};
+static const float skOrbitForwardDistances[] = {11.8f, 11.8f, 11.8f, 5.f, 6.f, 5.f, 5.f, 6.f};
 
 CVector3f CPlayer::GetDampedClampedVelocityWR(float dt) const {
   CVector3f localVelocity = GetTransform().TransposeRotate(GetVelocityWR());
@@ -47,6 +53,13 @@ CVector3f CPlayer::GetDampedClampedVelocityWR(float dt) const {
   return GetTransform().Rotate(localVelocity);
 }
 
+float CPlayer::GetAcceleration() const {
+  if (mCurAcceleration >= mAccelerationTable.size()) {
+    return mAccelerationTable.back();
+  }
+  return mAccelerationTable[mCurAcceleration];
+}
+
 float CPlayer::GetGravity() const {
   const bool noGravitySuit =
       !gpGameState->GetPlayerState()->HasPowerUp(CPlayerState::kIT_GravitySuit);
@@ -59,6 +72,50 @@ float CPlayer::GetGravity() const {
   return gpTweakPlayer->GetNormalGravAccel();
 }
 
+bool CPlayer::SidewaysDashAllowed(float strafeInput, float forwardInput, const CFinalInput& input,
+                                  CStateManager& mgr) const {
+  if (mgr.GetPlayerState()->GetCurrentVisor() == CPlayerState::kPV_Scan ||
+      mgr.GetPlayerState()->GetTransitioningVisor() == CPlayerState::kPV_Scan) {
+    return false;
+  }
+  if (mSlidingOnWall || mHitWall || mOrbitState != kOS_OrbitObject) {
+    return false;
+  }
+  if (gpTweakPlayer->GetDashOnButtonRelease()) {
+    if (mOrbitState != kOS_NoOrbit && gpTweakPlayer->GetDashEnabled() &&
+        mStartingJumpTimeout > 0.f &&
+        !mControlMapper.GetDigitalInput(CControlMapper::kC_JumpOrBoost, input,
+                                        CControlMapper::kFT_Filtered) &&
+        mDashButtonHoldTime < gpTweakPlayer->GetDashButtonHoldCancelTime() &&
+        CMath::AbsF(strafeInput) >= CMath::AbsF(forwardInput) &&
+        CMath::AbsF(strafeInput) > gpTweakPlayer->GetDashStrafeInputThreshold()) {
+      return true;
+    }
+  } else if (mOrbitState != kOS_NoOrbit && gpTweakPlayer->GetDashEnabled() &&
+             mControlMapper.GetPressInput(CControlMapper::kC_JumpOrBoost, input,
+                                          CControlMapper::kFT_Filtered) &&
+             mStartingJumpTimeout > 0.f && CMath::AbsF(strafeInput) >= CMath::AbsF(forwardInput) &&
+             CMath::AbsF(strafeInput) > 0.01f) {
+    const CVector3f stickEdge = CalculateLeftStickEdgePosition(strafeInput, forwardInput);
+    const float inputMagnitude =
+        CMath::SqrtF(strafeInput * strafeInput + forwardInput * forwardInput);
+    const float threshold = inputMagnitude / stickEdge.Magnitude();
+    if (threshold >= gpTweakPlayer->GetDashStrafeInputThreshold()) {
+      return true;
+    }
+  }
+  return false;
+}
+
+void CPlayer::CancelDash() {
+  if (mSidewaysDashing) {
+    mDoneSidewaysDashing = true;
+  }
+  mSidewaysDashing = false;
+  mStrafeInputAtDash = 0.f;
+  mDashTimer = 0.f;
+}
+
 static void NormalizeMovementInput(float& forwardInput, float& strafeInput) {
   const CVector2f input(forwardInput, strafeInput);
   if (input.IsMagnitudeSafe()) {
@@ -66,6 +123,136 @@ static void NormalizeMovementInput(float& forwardInput, float& strafeInput) {
     if (magnitude > 1.f) {
       forwardInput /= magnitude;
       strafeInput /= magnitude;
+    }
+  }
+}
+
+static CQuaternion ComputeDashRotation(float distance, float radius, float dt, bool dashing) {
+  const float angle = 2.f * atanf((0.5f * distance) / radius);
+  const float& maxAngle = (M_PIF / 180.f) * (dashing ? 180.f : 120.f) * dt;
+  const float limitedAngle = CMath::FastMin(CMath::FastMax(-maxAngle, angle), maxAngle);
+  return CQuaternion::ZRotation(CRelAngle::FromRadians(limitedAngle));
+}
+
+void CPlayer::ComputeDash(const CFinalInput& input, float dt, CStateManager& mgr) {
+  float strafeInput = StrafeInput(input);
+  float forwardInput = ForwardInput(input, TurnInput(input));
+  NormalizeMovementInput(forwardInput, strafeInput);
+  CVector3f orbitPoint = mOrbitPoint;
+  orbitPoint.SetZ(GetTranslation().GetZ());
+  const CVector3f orbitToPlayer = GetTranslation() - orbitPoint;
+  if (!orbitToPlayer.CanBeNormalized()) {
+    return;
+  }
+  CVector3f newPosition = GetTranslation();
+  CVector3f useOrbitToPlayer = orbitToPlayer;
+  float strafeVelocity = dt * skStrafeDistances[GetSurfaceRestraint()];
+  if (mControlMapper.GetDigitalInput(CControlMapper::kC_JumpOrBoost, input,
+                                     CControlMapper::kFT_Filtered)) {
+    mDashButtonHoldTime += dt;
+  }
+  if (!mSidewaysDashing) {
+    if (SidewaysDashAllowed(strafeInput, forwardInput, input, mgr)) {
+      mSidewaysDashing = true;
+      mStrafeInputAtDash = strafeInput;
+      mDoneSidewaysDashing = true;
+      mDashTimer = 0.f;
+      CVector3f velocity = GetVelocityWR();
+      if (velocity.GetZ() > 0.f) {
+        velocity[kDZ] *= 0.1f;
+        if (!GetPlayerIsSlidingOnWall()) {
+          SetVelocityWR(velocity);
+          mDashSfx = CSfxManager::SfxStart(SFXsam_b_jump_03, 127, 64, true);
+          DoSfxEffects(mDashSfx);
+          mgr.GetRumbleManager()->Rumble(mgr, kRFX_PlayerBump, 0.24375f, kRP_One);
+        }
+      }
+    }
+    strafeVelocity *= strafeInput;
+  } else {
+    mDashTimer += dt;
+    if (mMovementState == NPlayer::kMS_OnGround || mDashTimer >= mDashDuration ||
+        GetPlayerIsSlidingOnWall() || mHitWall || mOrbitState != kOS_OrbitObject) {
+      CancelDash();
+      strafeVelocity *= strafeInput;
+      CSfxManager::RemoveEmitter(mDashSfx);
+    } else {
+      const int outOfWaterTicks = mOutOfWaterTicks;
+      if (mNoStrafeDashBlend) {
+        const ESurfaceRestraints restraint =
+            outOfWaterTicks == 2 ? GetCurrentSurfaceRestraint() : kSR_Water;
+        strafeVelocity = dt * (mDashSpeedMultiplier * skDashStrafeDistances[restraint]);
+      } else {
+        const float& maxBlend = 1.f;
+        float blend = CMath::FastMin(
+            CMath::FastMax(-maxBlend, mDashTimer / mStrafeDashBlendDuration), maxBlend);
+        blend = 1.f - blend;
+        const float dashDifference =
+            skDashStrafeDistances[GetSurfaceRestraint()] - skStrafeDistances[GetSurfaceRestraint()];
+        strafeVelocity = dt * (mDashSpeedMultiplier *
+                               (dashDifference * blend + skStrafeDistances[GetSurfaceRestraint()]));
+      }
+      if (mStrafeInputAtDash < 0.f) {
+        strafeVelocity = -strafeVelocity;
+      }
+    }
+  }
+
+  const float angle = strafeVelocity / orbitToPlayer.Magnitude();
+  float maxAngle = M_PIF * 2.f / 3.f;
+  if (mSidewaysDashing) {
+    maxAngle = M_PIF;
+  }
+  const float& limit = maxAngle * dt;
+  const CRelAngle& limitedAngle =
+      CRelAngle::FromRadians(CMath::FastMin(CMath::FastMax(-limit, angle), limit));
+  const CQuaternion rotation =
+      CQuaternion::AxisAngle(CUnitVector3f(0.f, 0.f, 1.f, CUnitVector3f::kN_Yes), limitedAngle);
+  useOrbitToPlayer = rotation.Transform(orbitToPlayer);
+  newPosition = orbitPoint + useOrbitToPlayer;
+  if (!mControlMapper.GetDigitalInput(CControlMapper::kC_JumpOrBoost, input,
+                                      CControlMapper::kFT_Filtered)) {
+    mDashButtonHoldTime = 0.f;
+  }
+
+  if (mAccelerationChangeActive) {
+    if (!GetPlayerIsSlidingOnWall()) {
+      const CVector2f movementForce = Compute2DMovementForce(forwardInput, strafeInput, dt);
+      const float mass = GetMass();
+      const float forwardForce = movementForce.GetY();
+      const float strafeForce = movementForce.GetX();
+      const float distance =
+          dt * (GetTransform().TransposeRotate(GetVelocityWR()).GetX() + (strafeForce * dt) / mass);
+      const CQuaternion forceRotation =
+          ComputeDashRotation(distance, orbitToPlayer.Magnitude(), dt, mSidewaysDashing);
+      const CVector3f rotatedForce = forwardForce * CVector3f::Forward() +
+                                     strafeForce * forceRotation.Transform(CVector3f::Right());
+#if NONMATCHING
+      ApplyForceOR(rotatedForce, CAxisAngle::Identity());
+#else
+      // The original discards the rotation calculated above.
+      ApplyForceOR(CVector3f(strafeForce, forwardForce, 0.f), CAxisAngle::Identity());
+#endif
+    }
+  } else {
+    strafeVelocity = dt * (forwardInput * skOrbitForwardDistances[GetSurfaceRestraint()]);
+    newPosition += strafeVelocity * -useOrbitToPlayer.AsNormalized();
+    const CVector3f flatVelocity(GetVelocityWR().DropZ(), 0.f);
+    CVector3f newVelocity = (newPosition - GetTranslation()) / dt;
+    newVelocity.SetZ(GetVelocityWR().GetZ());
+    CVector3f velocityDelta = newVelocity - flatVelocity;
+    velocityDelta.SetZ(0.f);
+    const float deltaMagnitude = velocityDelta.Magnitude();
+    if (deltaMagnitude > FLT_EPSILON) {
+      const float acceleration = dt * GetAcceleration();
+      const float& maxBlend = 1.f;
+      const float accelerationBlend =
+          CMath::FastMin(CMath::FastMax(-maxBlend, deltaMagnitude / acceleration), maxBlend);
+      newVelocity =
+          GetVelocityWR() + accelerationBlend * (acceleration * (velocityDelta / deltaMagnitude));
+      if (!GetPlayerIsSlidingOnWall()) {
+        SetVelocityWR(newVelocity);
+      }
     }
   }
 }
