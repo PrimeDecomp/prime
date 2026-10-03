@@ -228,9 +228,11 @@ public:
   bool IsMorphing() const {
     return mMorph.GetGunState() != CGunMorph::kGS_OutWipeDone || IsWeaponStateSet(0x8);
   }
+  bool IsStruck() const {
+    return mDamageTimer > 0.f || mGunMotion->GunController().GetGunState() == kGS_Strike;
+  }
   bool IsInDamageReaction() const {
-    const bool struck = mDamageTimer > 0.f || mGunMotion->GunController().GetGunState() == kGS_Strike;
-    return struck || mGunMotion->GunController().GetGunState() == kGS_BigStrike;
+    return IsStruck() || mGunMotion->GunController().GetGunState() == kGS_BigStrike;
   }
 
   void SetActorAttached(bool attached) { mActorAttached = attached; } // name?
