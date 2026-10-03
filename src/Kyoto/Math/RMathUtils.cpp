@@ -61,7 +61,11 @@ float CMath::SlowTangentR(float x) { return tan(x); }
 const float CMath::FloorF(float x) { return floor(x); }
 
 float CMath::CeilingF(float x) {
+#if VERSION >= VERSION_R3IJ_00
+  float tmp = floorf(x);
+#else
   float tmp = FloorF(x);
+#endif
   if (tmp == x) {
     return x;
   }
