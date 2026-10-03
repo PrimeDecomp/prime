@@ -38,6 +38,70 @@ static const SVisorToItemMapping skVisorToItemMapping[] = {
     {CPlayerState::kIT_ThermalVisor, CPlayerState::kPV_Thermal, CControlMapper::kC_ThermalVisor},
 };
 
+void CPlayer::UpdateGunTransform(const CVector3f& gunPos, CStateManager& mgr) {
+  CTransform4f xf = GetTransform();
+  const CVector3f eyeOffset(0.f, 0.f, GetEyeHeight());
+  CTransform4f camXf = mgr.GetCameraManager()->GetCurrentCameraTransform(mgr);
+  CVector3f viewGunPos(0.f, 0.f, 0.f);
+  CTransform4f gunXf = camXf;
+
+  if (mMorphBallState == kMS_Morphing) {
+    viewGunPos = camXf * CVector3f(gunPos - eyeOffset);
+  } else {
+    viewGunPos = GetEyePosition() + camXf.Rotate(gunPos - eyeOffset);
+  }
+  gunXf.SetTranslation(viewGunPos);
+
+  CUnitVector3f rightDir(camXf.GetColumn(kDX));
+  switch (mGunHolsterState) {
+  case kGH_Drawing: {
+    float maxLift = 1.f;
+    float liftAngle = CMath::FastMin(CMath::FastMax(-maxLift, mGunHolsterRemTime / 0.45f), maxLift);
+    if (liftAngle > 0.01f) {
+      CQuaternion quat = CQuaternion::AxisAngle(
+          rightDir, CRelAngle::FromRadians(-liftAngle * gpTweakPlayerGun->mFixedVerticalAim));
+      gunXf = quat.BuildTransform4f() * camXf.GetRotation();
+      gunXf.SetTranslation(viewGunPos);
+    }
+    break;
+  }
+  case kGH_Holstered: {
+    CQuaternion quat = CQuaternion::AxisAngle(
+        rightDir, CRelAngle::FromRadians(-gpTweakPlayerGun->mFixedVerticalAim));
+    gunXf = quat.BuildTransform4f() * camXf.GetRotation();
+    gunXf.SetTranslation(viewGunPos);
+    break;
+  }
+  case kGH_Holstering: {
+    float maxLift = 1.f;
+    float liftAngle = 1.f - CMath::FastMin(
+                                CMath::FastMax(-maxLift, mGunHolsterRemTime /
+                                                            gpTweakPlayerGun->mGunHolsterTime),
+                                maxLift);
+    if (mMorphBallState == kMS_Morphing) {
+      liftAngle = 1.f - CMath::FastMin(CMath::FastMax(-maxLift, mGunHolsterRemTime / 0.1f), maxLift);
+    }
+    if (liftAngle > 0.01f) {
+      CQuaternion quat = CQuaternion::AxisAngle(
+          rightDir, CRelAngle::FromRadians(-liftAngle * gpTweakPlayerGun->mFixedVerticalAim));
+      gunXf = quat.BuildTransform4f() * camXf.GetRotation();
+      gunXf.SetTranslation(viewGunPos);
+    }
+    break;
+  }
+  default:
+    break;
+  }
+
+  mGun->SetTransform(gunXf);
+}
+
+const CTransform4f& CPlayer::GetFirstPersonCameraTransform(CStateManager& mgr) const {
+  return mgr.GetCameraManager()->GetFirstPersonCamera()->GetGunFollowTransform();
+}
+
+void CPlayer::UpdateDebugCamera(CStateManager& mgr) {}
+
 void CPlayer::ForceGunOrientation(const CTransform4f& xf, CStateManager& mgr) {
   ResetGun(mgr);
   mGunDir = CVector3f(xf.Get01(), xf.Get11(), xf.Get21());
