@@ -73,10 +73,8 @@ bool CPlayer::CheckPostGrapple() const {
 #include "Collision/CRayCastResult.hpp"
 
 #include "Kyoto/Math/CAABox.hpp"
-#if VERSION < VERSION_R3IJ_00
 #include "Kyoto/Basics/CCast.hpp"
 #include "Kyoto/Graphics/CGraphics.hpp"
-#endif
 
 static const CMaterialList kLineOfSightIncludeList = CMaterialList(kMT_Solid);
 static const CMaterialList kLineOfSightExcludeList =
@@ -96,8 +94,6 @@ static const CMaterialFilter kCharacterLineOfSightFilter =
 #endif
 static CAABox staticBox(CVector3f(0.f, 0.f, 0.f), CVector3f(1.f, 1.f, 1.f));
 
-#if VERSION < VERSION_R3IJ_00
-
 static CAABox BuildNearListBox(bool cropBottom, const CTransform4f& xf, float x, float z, float y) {
   const CAABox bounds(-x, cropBottom ? 0.f : -y, -z, x, y, z);
   return bounds.GetTransformedAABox(xf);
@@ -109,6 +105,8 @@ bool CPlayer::ValidateOrbitTargetIdAndPointer(const TUniqueId id, CStateManager&
   }
   return TCastToConstPtr< CActor >(mgr.GetObjectById(id)) != nullptr;
 }
+
+#if VERSION < VERSION_R3IJ_00
 
 CPlayer::EOrbitValidationResult CPlayer::ValidateCurrentOrbitTargetId(CStateManager& mgr) {
   const CActor* const act = TCastToConstPtr< CActor >(mgr.GetObjectById(GetOrbitTargetId()));
@@ -186,6 +184,8 @@ CPlayer::EOrbitValidationResult CPlayer::ValidateCurrentOrbitTargetId(CStateMana
   return kOVR_OK;
 }
 
+#endif
+
 CPlayer::EOrbitValidationResult CPlayer::ValidateOrbitTargetId(const TUniqueId id,
                                                                CStateManager& mgr) const {
   if (id == kInvalidUniqueId) {
@@ -199,12 +199,19 @@ CPlayer::EOrbitValidationResult CPlayer::ValidateOrbitTargetId(const TUniqueId i
     return kOVR_PlayerNotReadyToTarget;
   }
   const CVector3f orbitPosition = act->GetOrbitPosition(mgr);
-  const CVector3f eyeToOrbit = orbitPosition - GetEyePosition();
+  const CVector3f eyePosition = GetEyePosition();
+  const CVector3f eyeToOrbit = orbitPosition - eyePosition;
   CVector3f eyeToOrbitFlat = eyeToOrbit;
   eyeToOrbitFlat.SetZ(0.f);
   if (eyeToOrbitFlat.CanBeNormalized() && eyeToOrbitFlat.Magnitude() > 1.f) {
+#if VERSION >= VERSION_R3IJ_00
+    float maxSin = 1.f;
+    const float angle = static_cast< float >(
+        asin(CMath::FastLimit(CMath::AbsF(eyeToOrbit.GetZ()) / eyeToOrbit.Magnitude(), maxSin)));
+#else
     const float angle = static_cast< float >(
         asin(CMath::Limit(CMath::AbsF(eyeToOrbit.GetZ()) / eyeToOrbit.Magnitude(), 1.f)));
+#endif
     if ((eyeToOrbit.GetZ() >= 0.f && angle >= gpTweakPlayer->GetOrbitUpperAngle()) ||
         (eyeToOrbit.GetZ() < 0.f && angle >= gpTweakPlayer->GetOrbitLowerAngle())) {
       return kOVR_ExtremeHorizonAngle;
@@ -232,8 +239,6 @@ CPlayer::EOrbitValidationResult CPlayer::ValidateOrbitTargetId(const TUniqueId i
   return kOVR_OK;
 }
 
-#endif
-
 float CPlayer::GetOrbitMaxTargetDistance(const CStateManager& mgr) const {
   float distance = gpTweakPlayer->GetOrbitMaxTargetDistance();
   if (mgr.GetPlayerState()->GetCurrentVisor() == CPlayerState::kPV_Scan) {
@@ -242,8 +247,6 @@ float CPlayer::GetOrbitMaxTargetDistance(const CStateManager& mgr) const {
   return distance;
 }
 
-#if VERSION < VERSION_R3IJ_00
-
 float CPlayer::GetOrbitMaxLockDistance(const CStateManager& mgr) const {
   float distance = gpTweakPlayer->GetOrbitMaxLockDistance();
   if (mgr.GetPlayerState()->GetCurrentVisor() == CPlayerState::kPV_Scan) {
@@ -251,6 +254,8 @@ float CPlayer::GetOrbitMaxLockDistance(const CStateManager& mgr) const {
   }
   return distance;
 }
+
+#if VERSION < VERSION_R3IJ_00
 
 void CPlayer::UpdateOrbitTarget(CStateManager& mgr) {
   if (!ValidateOrbitTargetIdAndPointer(GetOrbitTargetId(), mgr)) {
@@ -629,6 +634,8 @@ void CPlayer::UpdateOrbitModeTimer(float dt) {
   mOrbitModeTimer = 0.f;
 }
 
+#endif
+
 void CPlayer::UpdateOrbitPreventionTimer(float dt) {
   if (mOrbitPreventionTimer > 0.f) {
     mOrbitPreventionTimer -= dt;
@@ -674,8 +681,6 @@ bool CPlayer::CheckOrbitDisableSourceList(const CStateManager& mgr) {
   }
   return !mOrbitDisableList.empty();
 }
-
-#endif
 
 #if VERSION >= VERSION_R3IJ_00
 bool CPlayer::WithinOrbitScreenEllipse(const CVector3f& screenCoords, EPlayerZoneInfo zone,
@@ -942,6 +947,8 @@ TUniqueId CPlayer::FindBestOrbitableObject(const rstl::vector< TUniqueId >& ids,
   return bestId;
 }
 
+#endif
+
 void CPlayer::UpdateOrbitableObjects(CStateManager& mgr) {
   mOnScreenOrbitObjects.clear();
   mNearbyOrbitObjects.clear();
@@ -970,8 +977,6 @@ void CPlayer::UpdateOrbitableObjects(CStateManager& mgr) {
   FindOrbitableObjects(nearList, mOffScreenOrbitObjects, mOrbitZoneMode, mOrbitZoneType,
                        mgr, false);
 }
-
-#endif
 
 TUniqueId CPlayer::FindOrbitTargetId(CStateManager& mgr) {
   return FindBestOrbitableObject(mOnScreenOrbitObjects, mOrbitZoneMode, mgr);
