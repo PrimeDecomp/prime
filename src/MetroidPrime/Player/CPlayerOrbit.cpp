@@ -356,6 +356,8 @@ void CPlayer::UpdateOrbitOrientation(CStateManager& mgr) {
   }
 }
 
+#endif
+
 void CPlayer::UpdateOrbitSelection(const CFinalInput& input, CStateManager& mgr) {
   mOrbitNextTargetId = FindOrbitTargetId(mgr);
   const CScriptGrapplePoint* const curPoint =
@@ -366,8 +368,14 @@ void CPlayer::UpdateOrbitSelection(const CFinalInput& input, CStateManager& mgr)
     mOrbitNextTargetId = kInvalidUniqueId;
     return;
   }
+#if VERSION >= VERSION_R3IJ_00
+  if (ControlMapper().GetPressInput(CControlMapper::kC_OrbitObject, input,
+                                    CControlMapper::kFT_Filtered) &&
+      mOrbitNextTargetId != kInvalidUniqueId) {
+#else
   if (ControlMapper::GetPressInput(ControlMapper::kC_OrbitObject, input) &&
       mOrbitNextTargetId != kInvalidUniqueId) {
+#endif
     SetOrbitTargetId(mOrbitNextTargetId, mgr);
     if (ValidateAimTargetId(GetOrbitTargetId(), mgr)) {
       SetAimTargetId(GetOrbitTargetId());
@@ -378,6 +386,9 @@ void CPlayer::UpdateOrbitSelection(const CFinalInput& input, CStateManager& mgr)
 }
 
 void CPlayer::ActivateOrbitSource(CStateManager& mgr) {
+#if VERSION >= VERSION_R3IJ_00
+  BreakOrbit(kOB_InvalidateTarget, mgr);
+#else
   switch (mOrbitSource) {
   case 0:
   default:
@@ -394,6 +405,7 @@ void CPlayer::ActivateOrbitSource(CStateManager& mgr) {
     }
     break;
   }
+#endif
 }
 
 void CPlayer::UpdateOrbitInput(const CFinalInput& input, CStateManager& mgr) {
@@ -407,12 +419,26 @@ void CPlayer::UpdateOrbitInput(const CFinalInput& input, CStateManager& mgr) {
   if (mOrbitState == kOS_NoOrbit) {
     SetOrbitNextTargetId(FindOrbitTargetId(mgr));
   }
+#if VERSION >= VERSION_R3IJ_00
+  if (ControlMapper().GetDigitalInput(CControlMapper::kC_OrbitClose, input,
+                                      CControlMapper::kFT_Filtered) ||
+      ControlMapper().GetDigitalInput(CControlMapper::kC_OrbitFar, input,
+                                      CControlMapper::kFT_Filtered) ||
+      ControlMapper().GetDigitalInput(CControlMapper::kC_OrbitObject, input,
+                                      CControlMapper::kFT_Filtered)) {
+#else
   if (ControlMapper::GetDigitalInput(ControlMapper::kC_OrbitClose, input) ||
       ControlMapper::GetDigitalInput(ControlMapper::kC_OrbitFar, input) ||
       ControlMapper::GetDigitalInput(ControlMapper::kC_OrbitObject, input)) {
+#endif
     switch (mOrbitState) {
     case kOS_NoOrbit:
+#if VERSION >= VERSION_R3IJ_00
+      if (ControlMapper().GetPressInput(CControlMapper::kC_OrbitObject, input,
+                                        CControlMapper::kFT_Filtered)) {
+#else
       if (ControlMapper::GetPressInput(ControlMapper::kC_OrbitObject, input)) {
+#endif
         SetOrbitTargetId(GetOrbitNextTargetId(), mgr);
         if (mOrbitTargetId != kInvalidUniqueId) {
           if (ValidateAimTargetId(GetOrbitTargetId(), mgr)) {
@@ -422,10 +448,20 @@ void CPlayer::UpdateOrbitInput(const CFinalInput& input, CStateManager& mgr) {
           UpdateOrbitPosition(gpTweakPlayer->GetOrbitNormalDistance(mOrbitType), mgr);
         }
       } else {
+#if VERSION >= VERSION_R3IJ_00
+        if (ControlMapper().GetPressInput(CControlMapper::kC_OrbitFar, input,
+                                          CControlMapper::kFT_Filtered)) {
+#else
         if (ControlMapper::GetPressInput(ControlMapper::kC_OrbitFar, input)) {
+#endif
           OrbitPoint(kOT_Far, mgr);
         }
+#if VERSION >= VERSION_R3IJ_00
+        if (ControlMapper().GetPressInput(CControlMapper::kC_OrbitClose, input,
+                                          CControlMapper::kFT_Filtered)) {
+#else
         if (ControlMapper::GetPressInput(ControlMapper::kC_OrbitClose, input)) {
+#endif
           OrbitPoint(kOT_Close, mgr);
         }
       }
@@ -457,7 +493,12 @@ void CPlayer::UpdateOrbitInput(const CFinalInput& input, CStateManager& mgr) {
       UpdateOrbitSelection(input, mgr);
       break;
     case kOS_OrbitPoint:
+#if VERSION >= VERSION_R3IJ_00
+      if (ControlMapper().GetPressInput(CControlMapper::kC_OrbitObject, input,
+                                        CControlMapper::kFT_Filtered)) {
+#else
       if (ControlMapper::GetPressInput(ControlMapper::kC_OrbitObject, input)) {
+#endif
         SetOrbitTargetId(FindOrbitTargetId(mgr), mgr);
         if (mOrbitTargetId != kInvalidUniqueId) {
           if (ValidateAimTargetId(GetOrbitTargetId(), mgr)) {
@@ -471,14 +512,26 @@ void CPlayer::UpdateOrbitInput(const CFinalInput& input, CStateManager& mgr) {
         case kOT_Default:
           break;
         case kOT_Far:
+#if VERSION >= VERSION_R3IJ_00
+          if (ControlMapper().GetDigitalInput(CControlMapper::kC_OrbitClose, input,
+                                              CControlMapper::kFT_Filtered)) {
+#else
           if (ControlMapper::GetDigitalInput(ControlMapper::kC_OrbitClose, input)) {
+#endif
             mOrbitType = kOT_Close;
             SetOrbitPosition(gpTweakPlayer->GetOrbitNormalDistance(mOrbitType), mgr);
           }
           break;
         case kOT_Close:
+#if VERSION >= VERSION_R3IJ_00
+          if (ControlMapper().GetDigitalInput(CControlMapper::kC_OrbitFar, input,
+                                              CControlMapper::kFT_Filtered) &&
+              !ControlMapper().GetDigitalInput(CControlMapper::kC_OrbitClose, input,
+                                               CControlMapper::kFT_Filtered)) {
+#else
           if (ControlMapper::GetDigitalInput(ControlMapper::kC_OrbitFar, input) &&
               !ControlMapper::GetDigitalInput(ControlMapper::kC_OrbitClose, input)) {
+#endif
             mOrbitType = kOT_Far;
             SetOrbitPosition(gpTweakPlayer->GetOrbitNormalDistance(mOrbitType), mgr);
           }
@@ -490,7 +543,12 @@ void CPlayer::UpdateOrbitInput(const CFinalInput& input, CStateManager& mgr) {
       UpdateOrbitPosition(gpTweakPlayer->GetOrbitNormalDistance(mOrbitType), mgr);
       break;
     case kOS_OrbitCarcass:
+#if VERSION >= VERSION_R3IJ_00
+      if (ControlMapper().GetPressInput(CControlMapper::kC_OrbitObject, input,
+                                        CControlMapper::kFT_Filtered)) {
+#else
       if (ControlMapper::GetPressInput(ControlMapper::kC_OrbitObject, input)) {
+#endif
         SetOrbitTargetId(FindOrbitTargetId(mgr), mgr);
         if (mOrbitTargetId != kInvalidUniqueId) {
           if (ValidateAimTargetId(GetOrbitTargetId(), mgr)) {
@@ -556,6 +614,8 @@ void CPlayer::UpdateOrbitZone(CStateManager& mgr) {
     mOrbitZoneMode = kZI_Scan;
   }
 }
+
+#if VERSION < VERSION_R3IJ_00
 
 void CPlayer::UpdateOrbitModeTimer(float dt) {
   if (mOrbitState == kOS_NoOrbit && mOrbitModeTimer > 0.f) {
@@ -855,9 +915,13 @@ void CPlayer::UpdateOrbitableObjects(CStateManager& mgr) {
                        mgr, false);
 }
 
+#endif
+
 TUniqueId CPlayer::FindOrbitTargetId(CStateManager& mgr) {
   return FindBestOrbitableObject(mOnScreenOrbitObjects, mOrbitZoneMode, mgr);
 }
+
+#if VERSION < VERSION_R3IJ_00
 
 TUniqueId CPlayer::CheckEnemiesAgainstOrbitZone(const rstl::reserved_vector< TUniqueId, 1024 >& ids,
                                                 EPlayerZoneInfo zone, EPlayerZoneType type,
@@ -1145,6 +1209,8 @@ void CPlayer::UpdateOrbitZPosition() {
   }
 }
 
+#endif
+
 void CPlayer::UpdateOrbitPosition(float distance, CStateManager& mgr) {
   switch (mOrbitState) {
   case kOS_NoOrbit:
@@ -1166,8 +1232,6 @@ void CPlayer::UpdateOrbitPosition(float distance, CStateManager& mgr) {
     break;
   }
 }
-
-#endif
 
 void CPlayer::SetOrbitTargetId(TUniqueId id, CStateManager& mgr) {
   if (id != kInvalidUniqueId) {
