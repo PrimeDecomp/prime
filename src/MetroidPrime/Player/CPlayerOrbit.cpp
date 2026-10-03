@@ -333,17 +333,47 @@ void CPlayer::UpdateOrbitTarget(CStateManager& mgr) {
   UpdateOrbitZPosition();
 }
 
-void CPlayer::UpdateOrbitOrientation(CStateManager& mgr) {
+#endif
+
+#if VERSION >= VERSION_R3IJ_00
+void CPlayer::UpdateOrbitOrientation(CStateManager& mgr, float dt)
+#else
+void CPlayer::UpdateOrbitOrientation(CStateManager& mgr)
+#endif
+{
   if (mMorphBallState != kMS_Unmorphed) {
     return;
   }
   switch (mOrbitState) {
   case kOS_NoOrbit:
+#if VERSION >= VERSION_R3IJ_00
+    if (mTurnToCursor) {
+      CVector3f playerToCursor = mAimingCursor.GetCursorOrbitPosition(mgr) - GetTranslation();
+      playerToCursor.SetZ(0.f);
+      if (playerToCursor.IsMagnitudeSafe()) {
+        playerToCursor.Normalize();
+        float maxBlend = 1.f;
+        float maxCount = 60.f;
+        const float blend = CMath::FastMin(
+            CMath::FastMax(0.f, mAimingCursor.GetCursorObjectCount() / maxCount), maxBlend);
+        const float scale = CMath::EaseInOut(blend, CMath::kET_Sinusoidal, 0.25f, 0.75f,
+                                           0.f, 1.f, 2.f);
+        const CRelAngle maxAngle = CRelAngle::FromRadians(scale * (CMath::Deg2Rad(60.f) * dt));
+        const CQuaternion rotation = CQuaternion::ShortestRotationArcClamped(
+            GetTransform().GetForward(), playerToCursor, maxAngle);
+        CTransform4f xf = rotation.BuildTransform4f() * GetTransform();
+        xf.SetTranslation(GetTranslation());
+        SetTransform(xf);
+      }
+    }
+#endif
     return;
   case kOS_OrbitPoint:
+#if VERSION < VERSION_R3IJ_00
     if (mInFreeLook) {
       return;
     }
+#endif
   case kOS_OrbitObject:
   case kOS_OrbitCarcass:
   case kOS_ForcedOrbitObject: {
@@ -360,12 +390,11 @@ void CPlayer::UpdateOrbitOrientation(CStateManager& mgr) {
     break;
   }
   case kOS_Grapple:
+    return;
   default:
     break;
   }
 }
-
-#endif
 
 void CPlayer::UpdateOrbitSelection(const CFinalInput& input, CStateManager& mgr) {
   mOrbitNextTargetId = FindOrbitTargetId(mgr);

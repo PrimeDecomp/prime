@@ -164,6 +164,14 @@ Kyoto/Math/CMayaSpline.cpp:
 	.sdata      start:0x805C1CE0 end:0x805C1CE8
 	.sdata2     start:0x805C7DD0 end:0x805C7E08
 
+Kyoto/Math/CQuaternion.cpp:
+	.text       start:0x80324CF4 end:0x80326230
+	.ctors      start:0x8046D4C0 end:0x8046D4C4
+	.rodata     start:0x8047BB80 end:0x8047BBA0
+	.bss        start:0x804E4680 end:0x804E46B8
+	.sbss       start:0x805C2A50 end:0x805C2A58
+	.sdata2     start:0x805C7F18 end:0x805C7F40
+
 Kyoto/Input/CWiiMotionProcessor.cpp:
 	.text       start:0x8032D774 end:0x80330D88
 	.rodata     start:0x8047BBF0 end:0x8047BC30
@@ -175,6 +183,13 @@ Kyoto/Input/CWiiInput.cpp:
 	.data       start:0x80493400 end:0x804935C8
 	.sbss       start:0x805C2A60 end:0x805C2A68
 	.sdata2     start:0x805C7FE8 end:0x805C8040
+
+Kyoto/Math/RMathUtils.cpp:
+	.text       start:0x803635B4 end:0x80364104
+	.ctors      start:0x8046D4FC end:0x8046D500
+	.rodata     start:0x8047C980 end:0x8047C9F8
+	.bss        start:0x804E8B00 end:0x804E8B08
+	.sdata2     start:0x805C8228 end:0x805C82A0
 
 Kyoto/Input/IController.cpp:
 	.text       start:0x80364104 end:0x80364190
