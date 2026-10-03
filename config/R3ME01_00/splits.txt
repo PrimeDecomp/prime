@@ -92,6 +92,7 @@ MetroidPrime/Player/CPlayerCameraBob.cpp:
 MetroidPrime/Player/CPlayerGun.cpp:
 	.text       start:0x80189568 end:0x80192C50
 	.ctors      start:0x8046D410 end:0x8046D414
+	.rodata     start:0x80474A50 end:0x80474A8C
 	.sdata2     start:0x805C5BF8 end:0x805C5CD8
 
 MetroidPrime/Player/CPlayerDynamics.cpp:
