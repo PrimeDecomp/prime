@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MP1 Trilogy — control splines</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0e1621;
+        --surface: #182431;
+        --ink: #e6edf4;
+        --muted: #a6b6c6;
+        --line: #344557;
+        --p0: #65d7d0;
+        --p1: #ffbd69;
+        --p2: #a99eff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font:
+          15px/1.5 system-ui,
+          sans-serif;
+      }
+      main {
+        max-width: 1180px;
+        margin: auto;
+        padding: 32px 28px;
+      }
+      h1 {
+        font-size: 28px;
+        margin: 0 0 4px;
+        font-weight: 650;
+      }
+      p {
+        margin: 0 0 20px;
+        color: var(--muted);
+      }
+      .eyebrow {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--p0);
+        margin-bottom: 8px;
+      }
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        align-items: end;
+        margin: 24px 0 18px;
+      }
+      label {
+        display: flex;
+        gap: 6px;
+        flex-direction: column;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      select,
+      button {
+        font: inherit;
+        color: var(--ink);
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 8px 12px;
+      }
+      select {
+        min-width: 180px;
+      }
+      button {
+        cursor: pointer;
+      }
+      button:hover {
+        border-color: var(--p0);
+      }
+      :focus-visible {
+        outline: 2px solid var(--p0);
+        outline-offset: 3px;
+      }
+      .check {
+        flex-direction: row;
+        align-items: center;
+        padding-bottom: 9px;
+        color: var(--ink);
+      }
+      input[type="checkbox"] {
+        accent-color: var(--p0);
+        width: 16px;
+        height: 16px;
+      }
+      .chart-wrap {
+        position: relative;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 12px 0;
+      }
+      svg {
+        display: block;
+        width: 100%;
+        height: auto;
+        min-height: 240px;
+        touch-action: pan-y;
+      }
+      .axis {
+        fill: var(--muted);
+        font: 13px system-ui;
+      }
+      .grid {
+        stroke: var(--line);
+        stroke-width: 1;
+      }
+      .curve {
+        fill: none;
+        stroke-width: 2.7;
+      }
+      .handle {
+        stroke-dasharray: 4 4;
+        stroke-width: 1.2;
+        opacity: 0.8;
+      }
+      .knot {
+        stroke: var(--bg);
+        stroke-width: 2;
+      }
+      .legend {
+        display: flex;
+        gap: 22px;
+        flex-wrap: wrap;
+        margin: 12px 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .swatch {
+        display: inline-block;
+        width: 20px;
+        margin-right: 6px;
+        vertical-align: middle;
+        border-top: 3px solid;
+      }
+      .readouts {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+        margin: 18px 0 12px;
+      }
+      .readout {
+        min-width: 150px;
+      }
+      .readout span {
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .readout strong {
+        font-size: 22px;
+        font-weight: 500;
+        font-variant-numeric: tabular-nums;
+      }
+      .slider {
+        width: 100%;
+        accent-color: var(--p0);
+        margin: 10px 0 22px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 13px;
+        font-variant-numeric: tabular-nums;
+      }
+      th,
+      td {
+        text-align: right;
+        padding: 9px 10px;
+        border-bottom: 1px solid var(--line);
+      }
+      th {
+        color: var(--muted);
+        font-weight: 500;
+      }
+      td:first-child,
+      th:first-child {
+        text-align: left;
+      }
+      .table-wrap {
+        overflow-x: auto;
+      }
+      .footer {
+        margin-top: 22px;
+        font-size: 12px;
+        overflow-wrap: anywhere;
+      }
+      .footer code {
+        font-size: 11px;
+      }
+      .table-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin: 22px 0 6px;
+      }
+      .table-title h2 {
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0;
+      }
+      .tip {
+        font-size: 12px;
+        color: var(--muted);
+        margin: 8px 0 0;
+      }
+      .empty {
+        display: none;
+      }
+      @media (max-width: 600px) {
+        main {
+          padding: 22px 14px;
+        }
+        h1 {
+          font-size: 23px;
+        }
+        .controls {
+          gap: 12px;
+        }
+        select {
+          min-width: 0;
+          width: 100%;
+        }
+        .controls > label:not(.check) {
+          flex: 1 1 160px;
+        }
+        .readouts {
+          gap: 12px;
+        }
+        .readout {
+          min-width: 130px;
+        }
+        .readout strong {
+          font-size: 19px;
+        }
+        .axis {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="eyebrow">Metroid Prime 1 · Trilogy</div>
+      <h1>Control response splines</h1>
+      <p>
+        Explore the recovered CMayaSpline curves across all three control
+        presets.
+      </p>
+      <div class="controls">
+        <label for="curve">Response curve<select id="curve"></select></label>
+        <label for="preset"
+          >Selected preset<select id="preset">
+            <option value="0">Preset 0</option>
+            <option value="1">Preset 1</option>
+            <option value="2">Preset 2</option>
+          </select></label
+        >
+        <label class="check"
+          ><input id="compare" type="checkbox" checked />Compare presets</label
+        >
+        <label class="check"
+          ><input id="handles" type="checkbox" checked />Show tangent
+          handles</label
+        >
+      </div>
+      <div class="legend" id="legend"></div>
+      <div class="chart-wrap">
+        <svg
+          id="chart"
+          viewBox="0 0 1000 420"
+          role="img"
+          aria-labelledby="chart-title chart-desc"
+        >
+          <title id="chart-title">Control response</title>
+          <desc id="chart-desc">
+            Input on the horizontal axis, response on the vertical axis. Use the
+            slider below to inspect a value.
+          </desc>
+        </svg>
+      </div>
+      <div id="readouts" class="readouts" aria-live="polite"></div>
+      <label for="probe"
+        >Input value<input
+          class="slider"
+          id="probe"
+          type="range"
+          min="0"
+          max="1000"
+          value="500"
+      /></label>
+      <div class="table-title">
+        <h2 id="table-title">Selected preset knots</h2>
+        <button id="download" type="button">Export curve CSV</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Knot</th>
+              <th>Input</th>
+              <th>Response</th>
+              <th>In tangent</th>
+              <th>Out tangent</th>
+              <th>In angle (rad)</th>
+              <th>Out angle (rad)</th>
+            </tr>
+          </thead>
+          <tbody id="knots"></tbody>
+        </table>
+      </div>
+      <p class="tip">
+        Move across the plot or use the input slider. Dashed segments show the
+        selected curve’s normalized tangent handles. Curves extend with constant
+        values outside their knot range.
+      </p>
+      <p class="footer">
+        Data: <code>CTweakPlayerControl.cpp</code>, 3 × 16 curves. Invalid
+        padding knots are excluded. Names follow recovered accessors where
+        available; curve IDs remain visible. The viewer follows the recovered
+        uncached spline calculations using a float32 arithmetic model. It does
+        not emulate PowerPC instructions or the stateful cache. Source SHA-256:
+        <code id="source-hash"></code>
+      </p>
+    </main>
+    <script>
+      "use strict";
+      const SOURCE = /* PRESET_DATA */ null;
+      const F = Math.fround,
+        add = (a, b) => F(F(a) + F(b)),
+        sub = (a, b) => F(F(a) - F(b)),
+        mul = (a, b) => F(F(a) * F(b)),
+        div = (a, b) => F(F(a) / F(b));
+      const point = (x, y) => [F(x), F(y)],
+        delta = (a, b) => point(sub(a[0], b[0]), sub(a[1], b[1]));
+      const names = [
+        "Curve 0",
+        "Curve 1",
+        "Turn up",
+        "Turn down",
+        "Cursor up",
+        "Cursor down",
+        "Cursor right",
+        "Cursor left",
+        "Held cursor up",
+        "Held cursor down",
+        "Ball cursor horizontal",
+        "Ball cursor vertical",
+        "Curve 12",
+        "Curve 13",
+        "Look up",
+        "Look down",
+      ];
+      const colors = ["#65d7d0", "#ffbd69", "#a99eff"];
+      const cleanKnots = (knots) =>
+        knots.map((k) => ({
+          ...k,
+          t: F(k.t),
+          y: F(k.y),
+          inAngle: F(k.inAngle),
+          outAngle: F(k.outAngle),
+        }));
+
+      function normalize(t) {
+        t = [...t];
+        if (t[0] < 0) t[0] = 0;
+        const magnitude = F(Math.sqrt(add(mul(t[0], t[0]), mul(t[1], t[1]))));
+        if (magnitude !== 0) {
+          const reciprocal = div(1, magnitude);
+          t[0] = mul(t[0], reciprocal);
+          t[1] = mul(t[1], reciprocal);
+        }
+        if (t[0] === 0 && t[1] !== 0) {
+          t[0] = F(0.0001);
+          t[1] = mul(mul(5729578, t[0]), t[1] < 0 ? -1 : 1);
+        }
+        return t;
+      }
+      function tangents(knots, i) {
+        const k = knots[i],
+          p = knots[i - 1],
+          n = knots[i + 1];
+        const toPrevious = p
+          ? point(sub(k.t, p.t), sub(k.y, p.y))
+          : point(1, 0);
+        const toNext = n ? point(sub(n.t, k.t), sub(n.y, k.y)) : point(1, 0);
+        let smoothA = point(1, 0),
+          smoothB = point(1, 0);
+        if (!p && n) smoothA = smoothB = toNext;
+        else if (p && !n) smoothA = smoothB = toPrevious;
+        else if (p && n) {
+          const dt = sub(n.t, p.t),
+            dy = sub(n.y, p.y);
+          const slope =
+            dt < F(0.0001) ? (dy > 0 ? F(5729578) : F(-5729578)) : div(dy, dt);
+          let nextTime = sub(n.t, k.t),
+            previousTime = sub(k.t, p.t),
+            nextY,
+            previousY;
+          if (nextTime < F(0.0001)) {
+            nextY = slope;
+            nextTime = 0;
+          } else nextY = mul(nextTime, slope);
+          if (previousTime < F(0.0001)) {
+            previousY = slope;
+            previousTime = 0;
+          } else previousY = mul(previousTime, slope);
+          // Preserve the native assignments of the next/previous spans to A/B.
+          smoothA = point(nextTime, nextY);
+          smoothB = point(previousTime, previousY);
+        }
+        function one(type, incoming) {
+          if (type === "Clamped") {
+            if ((incoming && p) || (!incoming && n)) {
+              const a = p
+                ? F(Math.abs(sub(p.y, k.y)))
+                : F(Math.abs(sub(n.y, k.y)));
+              const b = n ? F(Math.abs(sub(n.y, k.y))) : a;
+              type = a <= F(0.05) || b <= F(0.05) ? "Flat" : "Smooth";
+            } else type = "Smooth";
+          }
+          if (type === "Linear") return incoming ? toPrevious : toNext;
+          if (type === "Flat")
+            return point(
+              incoming
+                ? p
+                  ? sub(k.t, p.t)
+                  : n
+                    ? sub(n.t, k.t)
+                    : 0
+                : n
+                  ? sub(n.t, k.t)
+                  : p
+                    ? sub(k.t, p.t)
+                    : 0,
+              0,
+            );
+          if (type === "Smooth") return incoming ? smoothA : smoothB;
+          if (type === "Fixed") {
+            const angle = incoming ? k.inAngle : k.outAngle;
+            return point(
+              mul(3, F(Math.cos(angle))),
+              mul(3, F(Math.sin(angle))),
+            );
+          }
+          if (type === "Step") return point(1, 0);
+          throw new Error("Unsupported tangent type " + type);
+        }
+        return [
+          normalize(one(k.incoming, true)),
+          normalize(one(k.outgoing, false)),
+        ];
+      }
+      function makeCurve(raw) {
+        const knots = cleanKnots(raw),
+          ts = knots.map((_, i) => tangents(knots, i)),
+          segments = [];
+        for (let i = 0; i < knots.length - 1; i++) {
+          const a = knots[i],
+            b = knots[i + 1],
+            start = point(a.t, a.y),
+            end = point(b.t, b.y);
+          const p1 = point(
+            add(a.t, mul(ts[i][1][0], F(1 / 3))),
+            add(a.y, mul(ts[i][1][1], F(1 / 3))),
+          );
+          const p2 = point(
+            sub(b.t, mul(ts[i + 1][0][0], F(1 / 3))),
+            sub(b.y, mul(ts[i + 1][0][1], F(1 / 3))),
+          );
+          const span = delta(end, start),
+            ta = delta(p1, start),
+            tb = delta(end, p2);
+          const slopeA = ta[0] !== 0 ? div(ta[1], ta[0]) : F(5729578),
+            slopeB = tb[0] !== 0 ? div(tb[1], tb[0]) : F(5729578);
+          const [dx, dy] = span,
+            inv = div(1, mul(dx, dx)),
+            scaledA = mul(slopeA, dx),
+            scaledB = mul(slopeB, dx);
+          const c0 = div(mul(inv, sub(sub(add(scaledA, scaledB), dy), dy)), dx);
+          const c1 = mul(
+            inv,
+            sub(sub(sub(add(dy, add(dy, dy)), scaledA), scaledA), scaledB),
+          );
+          segments.push({
+            start,
+            end,
+            p1,
+            p2,
+            coeff: [c0, c1, slopeA, a.y],
+            step: a.outgoing === "Step",
+          });
+        }
+        function evaluate(time) {
+          time = F(time);
+          if (time <= knots[0].t) return knots[0].y;
+          if (time > knots.at(-1).t) return knots.at(-1).y;
+          const s = segments.find((s) => time <= s.end[0]) || segments.at(-1);
+          if (s.step) return s.start[1];
+          const t = sub(time, s.start[0]),
+            c = s.coeff;
+          return add(c[3], mul(t, add(c[2], mul(t, add(c[1], mul(t, c[0]))))));
+        }
+        return { knots, segments, evaluate };
+      }
+
+      const curves = SOURCE.presets.map((p) => p.map(makeCurve));
+      const el = (id) => document.getElementById(id),
+        svg = el("chart");
+      const ns = "http://www.w3.org/2000/svg";
+      function mark(tag, attrs, parent = svg, text) {
+        const node = document.createElementNS(ns, tag);
+        for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
+        if (text !== undefined) node.textContent = text;
+        parent.appendChild(node);
+        return node;
+      }
+      function fmt(v) {
+        return Number(v.toPrecision(7)).toString();
+      }
+      let domain = [0, 1],
+        range = [0, 1],
+        probe = 0.5,
+        width = 1000,
+        bottom = 365;
+      const X = (x) =>
+          68 + ((x - domain[0]) / (domain[1] - domain[0])) * (width - 94),
+        Y = (y) =>
+          bottom - ((y - range[0]) / (range[1] - range[0])) * (bottom - 28);
+      function selection() {
+        return {
+          index: Number(el("curve").value),
+          preset: Number(el("preset").value),
+        };
+      }
+      function active() {
+        const { preset } = selection();
+        return el("compare").checked ? [0, 1, 2] : [preset];
+      }
+      function drawProbe() {
+        document.getElementById("probe-marks")?.remove();
+        const group = mark("g", { id: "probe-marks" });
+        mark(
+          "line",
+          {
+            x1: X(probe),
+            x2: X(probe),
+            y1: 28,
+            y2: bottom,
+            stroke: "#a6b6c6",
+            "stroke-dasharray": "3 5",
+          },
+          group,
+        );
+        const { index } = selection();
+        el("readouts").replaceChildren();
+        const entries = [
+          ["Input", probe],
+          ...active().map((p) => [
+            "Preset " + p,
+            curves[p][index].evaluate(probe),
+          ]),
+        ];
+        for (const [name, value] of entries) {
+          const box = document.createElement("div");
+          box.className = "readout";
+          const label = document.createElement("span");
+          label.textContent = name;
+          const strong = document.createElement("strong");
+          strong.textContent = fmt(value);
+          box.append(label, strong);
+          el("readouts").append(box);
+        }
+        for (const p of active())
+          mark(
+            "circle",
+            {
+              cx: X(probe),
+              cy: Y(curves[p][index].evaluate(probe)),
+              r: 5,
+              fill: colors[p],
+              stroke: "#0e1621",
+              "stroke-width": 2,
+            },
+            group,
+          );
+        el("probe").setAttribute("aria-valuetext", fmt(probe));
+      }
+      function draw() {
+        width = svg.clientWidth < 600 ? 480 : 1000;
+        bottom = width === 480 ? 305 : 365;
+        svg.setAttribute("viewBox", "0 0 " + width + " " + (bottom + 55));
+        const { index, preset } = selection(),
+          selected = curves[preset][index],
+          indices = active(),
+          knots = indices.flatMap((p) => curves[p][index].knots);
+        let min = Math.min(...knots.map((k) => k.t)),
+          max = Math.max(...knots.map((k) => k.t)),
+          padding = (max - min) * 0.07;
+        domain = [min - padding, max + padding];
+        const values = indices.flatMap((p) =>
+          Array.from({ length: 801 }, (_, i) =>
+            curves[p][index].evaluate(
+              domain[0] + (i * (domain[1] - domain[0])) / 800,
+            ),
+          ),
+        );
+        let lo = Math.min(...values),
+          hi = Math.max(...values),
+          pad = Math.max((hi - lo) * 0.12, 0.03);
+        range = [lo - pad, hi + pad];
+        probe =
+          domain[0] +
+          (Number(el("probe").value) / 1000) * (domain[1] - domain[0]);
+        svg.replaceChildren();
+        mark(
+          "title",
+          { id: "chart-title" },
+          svg,
+          names[index] + " response curves",
+        );
+        mark(
+          "desc",
+          { id: "chart-desc" },
+          svg,
+          "Input versus response for " +
+            indices.map((p) => "preset " + p).join(", ") +
+            ". Selected preset " +
+            preset +
+            " has " +
+            selected.knots.length +
+            " knots.",
+        );
+        for (let i = 0; i <= 5; i++) {
+          const x = domain[0] + (i * (domain[1] - domain[0])) / 5,
+            y = range[0] + (i * (range[1] - range[0])) / 5;
+          mark("line", {
+            x1: X(x),
+            x2: X(x),
+            y1: 28,
+            y2: bottom,
+            class: "grid",
+          });
+          mark(
+            "text",
+            { x: X(x), y: bottom + 25, "text-anchor": "middle", class: "axis" },
+            svg,
+            Number(x.toPrecision(3)).toString(),
+          );
+          mark("line", {
+            x1: 68,
+            x2: width - 26,
+            y1: Y(y),
+            y2: Y(y),
+            class: "grid",
+          });
+          mark(
+            "text",
+            { x: 58, y: Y(y) + 4, "text-anchor": "end", class: "axis" },
+            svg,
+            Number(y.toPrecision(3)).toString(),
+          );
+        }
+        mark("text", { x: 68, y: 18, class: "axis" }, svg, "Response");
+        mark(
+          "text",
+          {
+            x: width - 26,
+            y: bottom + 50,
+            "text-anchor": "end",
+            class: "axis",
+          },
+          svg,
+          "Input",
+        );
+        const defs = mark("defs", {}),
+          clip = mark("clipPath", { id: "plot-clip" }, defs);
+        mark(
+          "rect",
+          { x: 68, y: 28, width: width - 94, height: bottom - 28 },
+          clip,
+        );
+        const plot = mark("g", { "clip-path": "url(#plot-clip)" });
+        for (const p of indices) {
+          const c = curves[p][index],
+            points = Array.from({ length: 1001 }, (_, i) => {
+              const x = domain[0] + (i * (domain[1] - domain[0])) / 1000;
+              return X(x) + "," + Y(c.evaluate(x));
+            });
+          mark(
+            "polyline",
+            {
+              points: points.join(" "),
+              stroke: colors[p],
+              class: "curve",
+              "stroke-dasharray": p === 0 ? "none" : p === 1 ? "9 3" : "3 3",
+              opacity: p === preset ? 1 : 0.75,
+            },
+            plot,
+          );
+        }
+        if (el("handles").checked)
+          for (const s of selected.segments)
+            for (const [a, b] of [
+              [s.start, s.p1],
+              [s.end, s.p2],
+            ]) {
+              mark(
+                "line",
+                {
+                  x1: X(a[0]),
+                  y1: Y(a[1]),
+                  x2: X(b[0]),
+                  y2: Y(b[1]),
+                  stroke: colors[preset],
+                  class: "handle",
+                },
+                plot,
+              );
+              mark(
+                "rect",
+                {
+                  x: X(b[0]) - 3,
+                  y: Y(b[1]) - 3,
+                  width: 6,
+                  height: 6,
+                  fill: colors[preset],
+                },
+                plot,
+              );
+            }
+        for (const [i, k] of selected.knots.entries()) {
+          const node = mark(
+            "circle",
+            {
+              cx: X(k.t),
+              cy: Y(k.y),
+              r: 5.5,
+              fill: colors[preset],
+              class: "knot",
+            },
+            plot,
+          );
+          mark(
+            "title",
+            {},
+            node,
+            "Knot " + i + ": input " + fmt(k.t) + ", response " + fmt(k.y),
+          );
+        }
+        el("legend").replaceChildren();
+        for (const p of indices) {
+          const label = document.createElement("span"),
+            swatch = document.createElement("i");
+          swatch.className = "swatch";
+          swatch.style.borderColor = colors[p];
+          swatch.style.borderTopStyle =
+            p === 0 ? "solid" : p === 1 ? "dashed" : "dotted";
+          label.append(
+            swatch,
+            document.createTextNode(
+              "Preset " + p + (p === preset ? " · selected" : ""),
+            ),
+          );
+          el("legend").append(label);
+        }
+        el("table-title").textContent =
+          "Preset " +
+          preset +
+          " · curve " +
+          index +
+          " · " +
+          selected.knots.length +
+          " knots";
+        el("knots").replaceChildren();
+        selected.knots.forEach((k, i) => {
+          const tr = document.createElement("tr");
+          for (const v of [
+            i,
+            fmt(k.t),
+            fmt(k.y),
+            k.incoming,
+            k.outgoing,
+            k.incoming === "Fixed" ? fmt(k.inAngle) : "—",
+            k.outgoing === "Fixed" ? fmt(k.outAngle) : "—",
+          ]) {
+            const td = document.createElement("td");
+            td.textContent = v;
+            tr.append(td);
+          }
+          el("knots").append(tr);
+        });
+        drawProbe();
+      }
+      names.forEach((name, i) => {
+        const option = document.createElement("option");
+        option.value = i;
+        option.textContent = name.startsWith("Curve ")
+          ? name
+          : i + " · " + name;
+        el("curve").append(option);
+      });
+      el("curve").value = "14";
+      for (const id of ["curve", "preset", "compare", "handles"])
+        el(id).addEventListener("change", draw);
+      el("probe").addEventListener("input", () => {
+        probe =
+          domain[0] +
+          (Number(el("probe").value) / 1000) * (domain[1] - domain[0]);
+        drawProbe();
+      });
+      svg.addEventListener("pointermove", (event) => {
+        if (event.pointerType === "touch" && event.buttons === 0) return;
+        const rect = svg.getBoundingClientRect(),
+          fraction = Math.max(
+            0,
+            Math.min(
+              1,
+              (((event.clientX - rect.left) / rect.width) * width - 68) /
+                (width - 94),
+            ),
+          );
+        el("probe").value = Math.round(fraction * 1000);
+        probe = domain[0] + fraction * (domain[1] - domain[0]);
+        drawProbe();
+      });
+      window.addEventListener("resize", draw);
+      el("download").addEventListener("click", () => {
+        const { index } = selection();
+        const lines = ["input,preset_0,preset_1,preset_2"];
+        for (let i = 0; i <= 1000; i++) {
+          const x = F(domain[0] + (i * (domain[1] - domain[0])) / 1000);
+          lines.push([x, ...curves.map((p) => p[index].evaluate(x))].join(","));
+        }
+        const a = document.createElement("a"),
+          url = URL.createObjectURL(
+            new Blob([lines.join("\n") + "\n"], { type: "text/csv" }),
+          );
+        a.href = url;
+        a.download = "trilogy-curve-" + index + ".csv";
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      });
+      el("source-hash").textContent = SOURCE.sourceSha256;
+      window.SplineViewer = {
+        makeCurve,
+        curves,
+        selection,
+        draw,
+        source: SOURCE,
+      };
+      draw();
+    </script>
+  </body>
+</html>
