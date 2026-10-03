@@ -334,7 +334,13 @@ public:
   ushort GetMaterialSoundUnderPlayer(CStateManager& mgr, const ushort* table, int length,
                                      ushort defId);
   void UpdateFootstepSounds(const CFinalInput& input, CStateManager& mgr, float dt);
+#if VERSION >= VERSION_R3IJ_00
+  float JumpInput(float dt, const CFinalInput& input, CStateManager& mgr);
+  bool IsJumpBlocked(CStateManager& mgr, const CFinalInput& input) const;
+  void InitializeJumpBlockLocations();
+#else
   float JumpInput(const CFinalInput& input, CStateManager& mgr);
+#endif
   float TurnInput(const CFinalInput& input) const;
   float StrafeInput(const CFinalInput& input) const;
   float ForwardInput(const CFinalInput& input, float turnInput) const;
@@ -783,14 +789,14 @@ private:
   float mTurnInputWarmupDuration;
   bool mBallJump : 1;
   bool mBallJumpFromPlatform : 1;
-  bool x1194_26_ : 1;
+  bool mAccelerationChangeActive : 1;
   bool x1194_27_ : 1;
   TUniqueId mBallJumpPlatform;
   rstl::single_ptr< CScalarInputFilter > mVerticalLookFilter;
   CRelAngle mFreeLookPitchRate;
   float mContinuousTurnTime;
   float mOrbitModeBlend;
-  rstl::multimap< unsigned long long, CVector3f > mJumpAssistLocations;
+  rstl::multimap< unsigned long long, CVector3f > mJumpBlockLocations;
 #endif
 };
 NESTED_CHECK_SIZEOF(CPlayer, CPlayerStuckTracker, 0x2e0);
