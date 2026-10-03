@@ -23,6 +23,9 @@ class CThardusRockProjectile;
 
 #if VERSION >= VERSION_R3IJ_00
 
+#include "MetroidPrime/CGameCollision.hpp"
+#include "Collision/CCollidableAABox.hpp"
+
 void CPlayer::UpdateOrbitModeTimer(float dt) {
   if (mOrbitState == kOS_NoOrbit) {
     if (mOrbitModeTimer > 0.f) {
@@ -63,12 +66,16 @@ bool CPlayer::CheckPostGrapple() const {
 #include "MetroidPrime/Enemies/CThardusRockProjectile.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptGunTurret.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptDoor.hpp"
+#endif
+
 #include "Collision/CMaterialFilter.hpp"
 #include "Collision/CRayCastResult.hpp"
 
 #include "Kyoto/Math/CAABox.hpp"
+#if VERSION < VERSION_R3IJ_00
 #include "Kyoto/Basics/CCast.hpp"
 #include "Kyoto/Graphics/CGraphics.hpp"
+#endif
 
 static const CMaterialList kLineOfSightIncludeList = CMaterialList(kMT_Solid);
 static const CMaterialList kLineOfSightExcludeList =
@@ -80,7 +87,15 @@ static const CMaterialList kOccluderExcludeList =
     CMaterialList(kMT_ProjectilePassthrough, kMT_ScanPassthrough, kMT_Player);
 static const CMaterialFilter kOccluderFilter =
     CMaterialFilter::MakeIncludeExclude(kOccluderIncludeList, kOccluderExcludeList);
+#if VERSION >= VERSION_R3IJ_00
+static const CMaterialList kCharacterLineOfSightExcludeList =
+    CMaterialList(kMT_ProjectilePassthrough, kMT_ScanPassthrough, kMT_Character, kMT_Player);
+static const CMaterialFilter kCharacterLineOfSightFilter =
+    CMaterialFilter::MakeIncludeExclude(kLineOfSightIncludeList, kCharacterLineOfSightExcludeList);
+#endif
 static CAABox staticBox(CVector3f(0.f, 0.f, 0.f), CVector3f(1.f, 1.f, 1.f));
+
+#if VERSION < VERSION_R3IJ_00
 
 static CAABox BuildNearListBox(bool cropBottom, const CTransform4f& xf, float x, float z, float y) {
   const CAABox bounds(-x, cropBottom ? 0.f : -y, -z, x, y, z);
@@ -1363,7 +1378,87 @@ void CPlayer::ApplyGrappleJump(CStateManager& mgr) {
   ApplyForceWR(force, CAxisAngle::Identity());
 }
 
-#if VERSION < VERSION_R3IJ_00
+#if VERSION >= VERSION_R3IJ_00
+
+void CPlayer::UpdateGrappleState(CStateManager& mgr, float dt) {
+  if (!mgr.GetPlayerState()->HasPowerUp(CPlayerState::kIT_GrappleBeam)) {
+    return;
+  }
+  const float& zero = 0.f;
+  const float& time = mGrappleJumpTimeout - dt;
+  mGrappleJumpTimeout = CMath::FastMax(zero, time);
+  if (mMorphBallState == kMS_Morphed ||
+      mgr.GetPlayerState()->GetCurrentVisor() == CPlayerState::kPV_Scan ||
+      mgr.GetPlayerState()->GetTransitioningVisor() == CPlayerState::kPV_Scan) {
+    return;
+  }
+  if (GetOrbitTargetId() == kInvalidUniqueId) {
+    mGrappleState = kGS_None;
+    AddMaterial(kMT_GroundCollider, mgr);
+    return;
+  }
+
+  const CScriptGrapplePoint* point =
+      TCastToConstPtr< CScriptGrapplePoint >(mgr.GetObjectById(GetOrbitTargetId()));
+  if (point) {
+    const CVector3f position = GetTranslation();
+    const CVector3f eyePosition = GetEyePosition();
+    CVector3f playerToPoint = point->GetTransform().GetTranslation() - eyePosition;
+    CVector3f playerToPointFlat = playerToPoint;
+    playerToPointFlat.SetZ(0.f);
+    if (playerToPoint.CanBeNormalized() && playerToPointFlat.CanBeNormalized() &&
+        playerToPointFlat.Magnitude() > 2.f) {
+      if (mOrbitState == kOS_OrbitObject && playerToPoint.CanBeNormalized()) {
+        const CRayCastResult result =
+            mgr.RayStaticIntersection(eyePosition, playerToPoint.AsNormalized(),
+                                      playerToPoint.Magnitude(), kLineOfSightFilter);
+        if (result.IsInvalid()) {
+          HolsterGun(mgr);
+          switch (mGrappleState) {
+          case kGS_Swinging:
+          case kGS_Firing:
+            switch (mGun->GrappleArm().GetAnimState()) {
+            case CGrappleArm::kAS_IntoGrappleIdle:
+              mGun->GrappleArm().SetAnimState(CGrappleArm::kAS_FireGrapple);
+              break;
+            case CGrappleArm::kAS_Connected:
+              BeginGrapple(playerToPoint, mgr);
+              break;
+            default:
+              break;
+            }
+            break;
+          case kGS_None:
+            mGrappleState = kGS_Firing;
+            mGun->GrappleArm().Activate(true);
+            break;
+          default:
+            break;
+          }
+        }
+      }
+    }
+  }
+
+  if (mOrbitState == kOS_Grapple) {
+    if (!point) {
+      BreakGrapple(kOB_Default, mgr);
+      return;
+    }
+    const CVector3f position = GetTranslation();
+    const CVector3f eyePosition = GetEyePosition();
+    const CVector3f playerToPoint = point->GetTransform().GetTranslation() - eyePosition;
+    if (playerToPoint.CanBeNormalized()) {
+      const CRayCastResult result = mgr.RayStaticIntersection(
+          eyePosition, playerToPoint.AsNormalized(), playerToPoint.Magnitude(), kLineOfSightFilter);
+      if (result.IsValid()) {
+        BreakGrapple(kOB_LostGrappleLineOfSight, mgr);
+      }
+    }
+  }
+}
+
+#else
 
 void CPlayer::UpdateGrappleState(const CFinalInput& input, CStateManager& mgr) {
   if (!mgr.GetPlayerState()->HasPowerUp(CPlayerState::kIT_GrappleBeam) ||
@@ -1570,13 +1665,14 @@ void CPlayer::UpdateGrappleState(const CFinalInput& input, CStateManager& mgr) {
   }
 }
 
+#endif
+
 bool CPlayer::ValidateFPPosition(CVector3f position, CStateManager& mgr) {
   TEntityList nearList;
   const CMaterialFilter solidFilter = CMaterialFilter::MakeInclude(CMaterialList(kMT_Solid));
-  const CVector3f margin(1.f, 1.f, 1.f);
   mgr.BuildColliderList(nearList, *this,
-                        CAABox(mFpBounds.GetMinPoint() - margin + position,
-                               mFpBounds.GetMaxPoint() + margin + position));
+                        CAABox(mFpBounds.GetMinPoint() - CVector3f(1.f, 1.f, 1.f) + position,
+                               mFpBounds.GetMaxPoint() + CVector3f(1.f, 1.f, 1.f) + position));
   const CAABox& baseBounds = GetBaseBoundingBox();
   const CCollidableAABox collisionBounds(
       CAABox(baseBounds.GetMinPoint() + position, baseBounds.GetMaxPoint() + position),
@@ -1587,6 +1683,8 @@ bool CPlayer::ValidateFPPosition(CVector3f position, CStateManager& mgr) {
   }
   return false;
 }
+
+#if VERSION < VERSION_R3IJ_00
 
 void CPlayer::ApplyGrappleForces(const CFinalInput& input, CStateManager& mgr, float dt) {
   const CVector3f playerPosition = GetTranslation();
