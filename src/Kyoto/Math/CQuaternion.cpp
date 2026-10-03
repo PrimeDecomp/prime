@@ -277,7 +277,7 @@ CQuaternion CQuaternion::YRotation(const CRelAngle& angle) { return AxisAngle(YA
 
 CQuaternion CQuaternion::ZRotation(const CRelAngle& angle) { return AxisAngle(ZAxis, angle); }
 
-CQuaternion CQuaternion::ClampedRotateTo(const CVector3f& from, const CVector3f& to,
+CQuaternion CQuaternion::ShortestRotationArcClamped(const CVector3f& from, const CVector3f& to,
                                          const CRelAngle& angle) {
   const CQuaternion arc = ShortestRotationArc(from, to);
   const float radians = angle.AsRadians();
