@@ -99,6 +99,13 @@ MetroidPrime/Player/CTrilogyOptions.cpp:
 	.text       start:0x8024A110 end:0x8024A8D0
 	.sdata      start:0x805C1AB8 end:0x805C1AC0
 
+MetroidPrime/Tweaks/CTweakPlayer.cpp:
+	.text       start:0x80253608 end:0x802543D8
+	.rodata     start:0x80478290 end:0x80478298
+	.data       start:0x8048E8C0 end:0x8048E8D0
+	.sbss       start:0x805C27B0 end:0x805C27B8
+	.sdata2     start:0x805C6ED8 end:0x805C6EE8
+
 MetroidPrime/Tweaks/CTweakPlayerControl.cpp:
 	.text       start:0x802543D8 end:0x80266F1C
 	.ctors      start:0x8046D460 end:0x8046D464

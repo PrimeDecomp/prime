@@ -577,7 +577,7 @@ config.libs = [
                 "MetroidPrime/Factories/CAssetFactory.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "R3ME01_00"),
                 "MetroidPrime/Tweaks/CTweakPlayer.cpp",
             ),
             Object(NonMatching, "MetroidPrime/Tweaks/CTweaks.cpp"),
