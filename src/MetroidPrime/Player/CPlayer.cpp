@@ -2,9 +2,7 @@
 
 #include "Collision/CInternalCollisionStructure.hpp"
 #include "Kyoto/CDependencyGroup.hpp"
-#if VERSION >= VERSION_R3IJ_00
 #include "Kyoto/Input/CInputFilter.hpp"
-#endif
 #include "Kyoto/SObjectTag.hpp"
 #include "MetroidPrime/CActor.hpp"
 #include "MetroidPrime/CActorParameters.hpp"
