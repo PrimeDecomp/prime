@@ -531,7 +531,13 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
                 "MetroidPrime/CObjectList.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/Player/CPlayer.cpp"),
+            Object(
+                NonMatching,
+                "MetroidPrime/Player/CPlayer.cpp",
+                extra_cflags=["-fp_contract off"]
+                if version_num >= VERSIONS.index("R3ME01_00")
+                else [],
+            ),
             Object(MatchingFor("R3ME01_00"), "MetroidPrime/Player/CTrilogyOptions.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"), "MetroidPrime/CAxisAngle.cpp"
@@ -1445,7 +1451,13 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/Enemies/CMetroidPrimeStage2.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CMetroidPrimeRelay.cpp"),
-            Object(NonMatching, "MetroidPrime/Player/CPlayerDynamics.cpp"),
+            Object(
+                NonMatching,
+                "MetroidPrime/Player/CPlayerDynamics.cpp",
+                extra_cflags=["-fp_contract off"]
+                if version_num >= VERSIONS.index("R3ME01_00")
+                else [],
+            ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/ScriptObjects/CScriptMazeNode.cpp",
