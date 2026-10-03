@@ -158,16 +158,28 @@ inline bool operator!=(const CVector3f& lhs, const CVector3f& rhs) {
 }
 
 inline CVector3f operator-(const CVector3f& lhs, const CVector3f& rhs) {
+#if VERSION >= VERSION_R3IJ_00
+  float x = lhs.GetX() - rhs.GetX();
+  float y = lhs.GetY() - rhs.GetY();
+  float z = lhs.GetZ() - rhs.GetZ();
+#else
   float x = lhs.mX - rhs.mX;
   float y = lhs.mY - rhs.mY;
   float z = lhs.mZ - rhs.mZ;
+#endif
   return CVector3f(x, y, z);
 }
 
 inline CVector3f operator+(const CVector3f& lhs, const CVector3f& rhs) {
+#if VERSION >= VERSION_R3IJ_00
+  float x = lhs.GetX() + rhs.GetX();
+  float y = lhs.GetY() + rhs.GetY();
+  float z = lhs.GetZ() + rhs.GetZ();
+#else
   float x = lhs.mX + rhs.mX;
   float y = lhs.mY + rhs.mY;
   float z = lhs.mZ + rhs.mZ;
+#endif
   return CVector3f(x, y, z);
 }
 
