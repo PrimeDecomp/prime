@@ -437,7 +437,7 @@ private:
   bool mInRestPose : 1;
 
   bool mNotFidgeting : 1;
-  bool x833_25_ : 1;
+  bool mBeamSelectionRequested : 1;
   bool x833_26_ : 1;
   bool x833_27_ : 1;
   bool mPhazonBeamActive : 1;
