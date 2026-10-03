@@ -391,9 +391,14 @@ CVector2f CPlayerVisor::InterpolateScanFrameVertex(float blend, float squareRadi
 }
 #endif
 
+static inline int ClampScanDimension(int min, int val, int max) {
+  return val < min ? min : max < val ? max : val;
+}
+
 static inline float InterpolateScanValue(float start, float end, const float& t) {
   const float complement = 1.f - t;
-  return complement * start + t * end;
+  // Preserve the separate product rounding in the Wii scan geometry.
+  return static_cast< float >(complement * start) + static_cast< float >(t * end);
 }
 
 void CPlayerVisor::DrawScanEffect(const CStateManager& mgr,
@@ -420,21 +425,16 @@ void CPlayerVisor::DrawScanEffect(const CStateManager& mgr,
   const bool drawWindow = !CMath::IsEpsilon(t, 0.f, 0.00001f);
   mScanFrameShapeBlend = t;
   const float divisor =
-      transFactor * InterpolateScanValue(mScanMagInterp, gpTweakGui->GetScanWindowScanningAspect(), t) +
+      static_cast< float >(
+          transFactor *
+          InterpolateScanValue(mScanMagInterp, gpTweakGui->GetScanWindowScanningAspect(), t)) +
       (1.f - transFactor);
   const float vpW = 169.218f * mInterpWindowDims.GetX();
   const float vpH = 152.218f * mInterpWindowDims.GetY();
-  int width = round_up_to_tile(vpW / divisor);
-  if (width < skPixelsPerTileDimension16Bit)
-    width = skPixelsPerTileDimension16Bit;
-  else if (vpWidth < width)
-    width = vpWidth;
-
-  int height = round_up_to_tile(vpH / divisor);
-  if (height < skPixelsPerTileDimension16Bit)
-    height = skPixelsPerTileDimension16Bit;
-  else if (vpHeight < height)
-    height = vpHeight;
+  const int width =
+      ClampScanDimension(skPixelsPerTileDimension16Bit, round_up_to_tile(vpW / divisor), vpWidth);
+  const int height =
+      ClampScanDimension(skPixelsPerTileDimension16Bit, round_up_to_tile(vpH / divisor), vpHeight);
 #else
   const float divisor =
       transFactor * ((1.f - t) * mScanMagInterp + t * gpTweakGui->GetScanWindowScanningAspect()) +
@@ -477,24 +477,25 @@ void CPlayerVisor::DrawScanEffect(const CStateManager& mgr,
 
     gpRender->SetDepthReadWrite(false, false);
     gpRender->SetBlendMode_AlphaBlended();
-    static const CRelAngle angleStep = CRelAngle::FromDegrees(10.f);
+    static const float angleStepRadians = CRelAngle::FromDegrees(10.f).AsRadians();
     for (int ring = 0; ring < 2; ++ring) {
       const CColor innerColor = colors[ring].WithAlphaOf(transFactor * alphas[ring]);
       const CColor outerColor = colors[ring + 1].WithAlphaOf(transFactor * alphas[ring + 1]);
       gpRender->BeginTriangleStrip(74);
       const float innerRadius = radii[ring];
       for (int i = 0; i <= 36; ++i) {
-        const CVector2f vertex =
-            InterpolateScanFrameVertex(mScanFrameShapeBlend, 0.72f, angleStep * (i % 36));
+        const CVector2f vertex = InterpolateScanFrameVertex(
+            mScanFrameShapeBlend, 0.72f, CRelAngle::FromRadians((i % 36) * angleStepRadians));
         const float vertexX = vertex.GetX();
         const float vertexY = vertex.GetY();
         gpRender->PrimColor(innerColor);
-        gpRender->PrimVertex(CVector3f(centerX + vertexX * innerRadius, 0.f,
-                                       centerY + vertexY * innerRadius));
+        gpRender->PrimVertex(CVector3f(centerX + static_cast< float >(vertexX * innerRadius), 0.f,
+                                       centerY + static_cast< float >(vertexY * innerRadius)));
         gpRender->PrimColor(outerColor);
         if (ring == 0)
-          gpRender->PrimVertex(CVector3f(centerX + vertexX * radii[ring + 1], 0.f,
-                                         centerY + vertexY * radii[ring + 1]));
+          gpRender->PrimVertex(
+              CVector3f(centerX + static_cast< float >(vertexX * radii[ring + 1]), 0.f,
+                        centerY + static_cast< float >(vertexY * radii[ring + 1])));
         else
           gpRender->PrimVertex(
               CVector3f(vertexX * radii[ring + 1], 0.f, vertexY * radii[ring + 1]));
@@ -518,8 +519,9 @@ void CPlayerVisor::DrawScanEffect(const CStateManager& mgr,
       vertices[i] = vertex;
       float wave = 0.f;
       for (uint j = 0; j < 4; ++j)
-        wave += CMath::FastSinR(phases[j] + (mScanFrameAnimationTime * speeds[j] +
-                                            frequencies[j] * angle.AsRadians()));
+        wave +=
+            CMath::FastSinR(phases[j] + (static_cast< float >(mScanFrameAnimationTime * speeds[j]) +
+                                         static_cast< float >(frequencies[j] * angle.AsRadians())));
       active[i] = wave > 0.5f;
     }
     const int clockwise = static_cast< int >(30.f * mScanFrameAnimationTime) % 360;
@@ -545,18 +547,18 @@ void CPlayerVisor::DrawScanEffect(const CStateManager& mgr,
         gpRender->PrimColor(frameColor);
         for (int j = 0; j <= length; j += 2) {
           const CVector2f& vertex = vertices[(i + j) % 360];
-          gpRender->PrimVertex(
-              CVector3f(centerX + 122.f * vertex.GetX(), 0.f, centerY + 122.f * vertex.GetY()));
-          gpRender->PrimVertex(
-              CVector3f(centerX + 124.f * vertex.GetX(), 0.f, centerY + 124.f * vertex.GetY()));
+          gpRender->PrimVertex(CVector3f(centerX + static_cast< float >(122.f * vertex.GetX()), 0.f,
+                                         centerY + static_cast< float >(122.f * vertex.GetY())));
+          gpRender->PrimVertex(CVector3f(centerX + static_cast< float >(124.f * vertex.GetX()), 0.f,
+                                         centerY + static_cast< float >(124.f * vertex.GetY())));
         }
         gpRender->EndPrimitive();
         gpRender->BeginTriangleStrip(vertexCount);
         for (int j = 0; j <= length; j += 2) {
           const CVector2f& vertex = vertices[(i + j) % 360];
           gpRender->PrimColor(glowColor);
-          gpRender->PrimVertex(
-              CVector3f(centerX + 124.f * vertex.GetX(), 0.f, centerY + 124.f * vertex.GetY()));
+          gpRender->PrimVertex(CVector3f(centerX + static_cast< float >(124.f * vertex.GetX()), 0.f,
+                                         centerY + static_cast< float >(124.f * vertex.GetY())));
           gpRender->PrimColor(transparent);
           gpRender->PrimVertex(
               CVector3f(outerRadius * vertex.GetX(), 0.f, outerRadius * vertex.GetY()));
@@ -567,9 +569,10 @@ void CPlayerVisor::DrawScanEffect(const CStateManager& mgr,
         const float tipRadius = 124.f + length;
         gpRender->BeginTriangleStrip(4);
         gpRender->PrimColor(frameColor);
-        const CVector3f base(centerX + 124.f * vertex.GetX(), 0.f, centerY + 124.f * vertex.GetY());
-        const CVector3f tip(centerX + tipRadius * vertex.GetX(), 0.f,
-                            centerY + tipRadius * vertex.GetY());
+        const CVector3f base(centerX + static_cast< float >(124.f * vertex.GetX()), 0.f,
+                             centerY + static_cast< float >(124.f * vertex.GetY()));
+        const CVector3f tip(centerX + static_cast< float >(tipRadius * vertex.GetX()), 0.f,
+                            centerY + static_cast< float >(tipRadius * vertex.GetY()));
         const CVector3f baseWidth = 3.f * CVector3f(vertex.GetY(), 0.f, -vertex.GetX());
         const CVector3f baseOffset = -0.5f * CVector3f(vertex.GetX(), 0.f, vertex.GetY());
         const CVector3f tipWidth = 1.f * CVector3f(vertex.GetY(), 0.f, -vertex.GetX());
@@ -654,7 +657,12 @@ void CPlayerVisor::DrawScanEffect(const CStateManager& mgr,
     }
     const float xScale = windowScale.GetRight().GetX();
     const float zScale = windowScale.GetUp().GetZ();
+#if VERSION >= VERSION_R3IJ_00
+    const float frameWidth = 5.f * xScale;
+    const float topWidth = frameWidth - 1.f - 1.884f;
+#else
     const float topWidth = 5.f * xScale - 1.f - 1.884f;
+#endif
     CVector3f stretchTopPosition(-1.f, 0.f, 4.553f * zScale);
     if (const CModel* model = mScanFrameStretchTop.GetObject()) {
       const CTransform4f modelXf = seventeenScale * CTransform4f::Translate(stretchTopPosition) *
@@ -668,7 +676,12 @@ void CPlayerVisor::DrawScanEffect(const CStateManager& mgr,
       gpRender->SetModelMatrix(verticalFlip * horizontalFlip * modelXf);
       model->Draw(flags);
     }
+#if VERSION >= VERSION_R3IJ_00
+    const float frameHeight = 4.553f * zScale;
+    const float sideHeight = frameHeight - 1.f - 1.886f;
+#else
     const float sideHeight = 4.553f * zScale - 1.f - 1.886f;
+#endif
     CVector3f stretchSidePosition(-5.f * xScale, 0.f, 1.f);
     if (const CModel* model = mScanFrameStretchSide.GetObject()) {
       const CTransform4f modelXf = seventeenScale * CTransform4f::Translate(stretchSidePosition) *
