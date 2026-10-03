@@ -1,5 +1,7 @@
 #include "MetroidPrime/Player/CPlayerGun.hpp"
 
+#include "Kyoto/Math/CMath.hpp"
+
 #if VERSION >= VERSION_R3IJ_00
 
 #include "MetroidPrime/CStateManager.hpp"
@@ -275,7 +277,6 @@ void CPlayerGun::CancelLockOn() {
 #include "Kyoto/Graphics/CGX.hpp"
 #include "Kyoto/Graphics/CModelFlags.hpp"
 #include "Kyoto/Math/CAbsAngle.hpp"
-#include "Kyoto/Math/CMath.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Particles/CElementGen.hpp"
 #include "Kyoto/Particles/CGenDescription.hpp"
@@ -1865,12 +1866,14 @@ TUniqueId CPlayerGun::GetTargetId(CStateManager& mgr) {
   return ret;
 }
 
+#endif
+
 CPlayerGun::CGunMorph::CGunMorph(float gunTransformTime, float holoHoldTime)
 : mYLerp(0.f)
 , mGunTransformTime(CMath::FastFSel(-gunTransformTime, 1.f, gunTransformTime))
 , mRemTime(0.f)
 , mSpeed(0.1f)
-, mHoloHoldTime(fabs(holoHoldTime))
+, mHoloHoldTime(fabsf(holoHoldTime))
 , mRemHoldTime(2.f)
 , mTransitionFactor(1.f)
 , mDir(kD_Done)
@@ -1944,6 +1947,8 @@ CPlayerGun::CGunMorph::EMorphEvent CPlayerGun::CGunMorph::Update(float inY, floa
 
   return ret;
 }
+
+#if VERSION < VERSION_R3IJ_00
 
 void CPlayerGun::UpdateWeaponFire(float dt, CPlayerState& playerState, CStateManager& mgr) {
   uint oldFiring = mLastFireButtonStates;
