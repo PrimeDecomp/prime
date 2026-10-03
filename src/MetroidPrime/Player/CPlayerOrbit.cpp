@@ -232,6 +232,8 @@ CPlayer::EOrbitValidationResult CPlayer::ValidateOrbitTargetId(const TUniqueId i
   return kOVR_OK;
 }
 
+#endif
+
 float CPlayer::GetOrbitMaxTargetDistance(const CStateManager& mgr) const {
   float distance = gpTweakPlayer->GetOrbitMaxTargetDistance();
   if (mgr.GetPlayerState()->GetCurrentVisor() == CPlayerState::kPV_Scan) {
@@ -239,6 +241,8 @@ float CPlayer::GetOrbitMaxTargetDistance(const CStateManager& mgr) const {
   }
   return distance;
 }
+
+#if VERSION < VERSION_R3IJ_00
 
 float CPlayer::GetOrbitMaxLockDistance(const CStateManager& mgr) const {
   float distance = gpTweakPlayer->GetOrbitMaxLockDistance();
@@ -671,10 +675,30 @@ bool CPlayer::CheckOrbitDisableSourceList(const CStateManager& mgr) {
   return !mOrbitDisableList.empty();
 }
 
+#endif
+
+#if VERSION >= VERSION_R3IJ_00
+bool CPlayer::WithinOrbitScreenEllipse(const CVector3f& screenCoords, EPlayerZoneInfo zone,
+                                     const CStateManager& mgr) const {
+#else
 bool CPlayer::WithinOrbitScreenEllipse(const CVector3f& screenCoords, EPlayerZoneInfo zone) const {
+#endif
   if (screenCoords.GetZ() >= 1.f) {
     return false;
   }
+#if VERSION >= VERSION_R3IJ_00
+  const float centerX = CCast::LtoF(gpTweakPlayer->GetOrbitZoneCentreX(zone, mgr));
+  const float x = CMath::AbsF(screenCoords.GetX() - centerX);
+  const float centerY = CCast::LtoF(gpTweakPlayer->GetOrbitZoneCentreY(zone, mgr));
+  const float y = CMath::AbsF(screenCoords.GetY() - centerY);
+  const float xSq = x * x;
+  const float ySq = y * y;
+  const float heXSq =
+      CCast::LtoF(gpTweakPlayer->GetOrbitZoneWidth(zone) * gpTweakPlayer->GetOrbitZoneWidth(zone));
+  const float heYSq =
+      CCast::LtoF(gpTweakPlayer->GetOrbitZoneHeight(zone) * gpTweakPlayer->GetOrbitZoneHeight(zone));
+  return xSq <= heXSq * (1.f - ySq / heYSq);
+#else
   const float x =
       CMath::AbsF(screenCoords.GetX() - CCast::LtoF(gpTweakPlayer->GetOrbitZoneCentreX(zone)));
   const float heYSq = CCast::LtoF(gpTweakPlayer->GetOrbitZoneHeight(zone) *
@@ -685,25 +709,49 @@ bool CPlayer::WithinOrbitScreenEllipse(const CVector3f& screenCoords, EPlayerZon
       CMath::AbsF(screenCoords.GetY() - CCast::LtoF(gpTweakPlayer->GetOrbitZoneCentreY(zone)));
   const bool inside = x * x <= (1.f - y * y / heYSq) * heXSq;
   return inside;
+#endif
 }
 
+#if VERSION >= VERSION_R3IJ_00
 bool CPlayer::WithinOrbitScreenBox(const CVector3f& screenCoords, EPlayerZoneInfo zone,
-                                   EPlayerZoneType type) const {
+                                 EPlayerZoneType type, const CStateManager& mgr) const {
+#else
+bool CPlayer::WithinOrbitScreenBox(const CVector3f& screenCoords, EPlayerZoneInfo zone,
+                                 EPlayerZoneType type) const {
+#endif
   if (screenCoords.GetZ() >= 1.f) {
     return false;
   }
   switch (type) {
-  case kZT_Box:
-    if (CMath::AbsF(screenCoords.GetX() - CCast::LtoF(gpTweakPlayer->GetOrbitZoneCentreX(zone))) <=
-            CCast::LtoF(gpTweakPlayer->GetOrbitZoneWidth(zone)) &&
-        CMath::AbsF(screenCoords.GetY() - CCast::LtoF(gpTweakPlayer->GetOrbitZoneCentreY(zone))) <=
-            CCast::LtoF(gpTweakPlayer->GetOrbitZoneHeight(zone)) &&
-        screenCoords.GetZ() < 1.f) {
-      return true;
+  case kZT_Box: {
+    const float x = screenCoords.GetX();
+#if VERSION >= VERSION_R3IJ_00
+    const float distanceX =
+        CMath::AbsF(x - CCast::LtoF(gpTweakPlayer->GetOrbitZoneCentreX(zone, mgr)));
+#else
+    const float distanceX = CMath::AbsF(x - CCast::LtoF(gpTweakPlayer->GetOrbitZoneCentreX(zone)));
+#endif
+    if (distanceX <= CCast::LtoF(gpTweakPlayer->GetOrbitZoneWidth(zone))) {
+      const float y = screenCoords.GetY();
+#if VERSION >= VERSION_R3IJ_00
+      const float distanceY =
+          CMath::AbsF(y - CCast::LtoF(gpTweakPlayer->GetOrbitZoneCentreY(zone, mgr)));
+#else
+      const float distanceY = CMath::AbsF(y - CCast::LtoF(gpTweakPlayer->GetOrbitZoneCentreY(zone)));
+#endif
+      if (distanceY <= CCast::LtoF(gpTweakPlayer->GetOrbitZoneHeight(zone)) &&
+          screenCoords.GetZ() < 1.f) {
+        return true;
+      }
     }
     break;
+  }
   case kZT_Ellipse:
+#if VERSION >= VERSION_R3IJ_00
+    return WithinOrbitScreenEllipse(screenCoords, zone, mgr);
+#else
     return WithinOrbitScreenEllipse(screenCoords, zone);
+#endif
   default:
     return true;
   }
@@ -714,16 +762,14 @@ void CPlayer::FindOrbitableObjects(const rstl::reserved_vector< TUniqueId, 1024 
                                    rstl::vector< TUniqueId >& listOut, EPlayerZoneInfo zone,
                                    EPlayerZoneType type, CStateManager& mgr,
                                    bool onScreenTest) const {
+  const CVector3f position = GetTranslation();
   const CVector3f eyePosition = GetEyePosition();
   CVector3f forward = GetTransform().GetForward();
   forward.Normalize();
   const CFirstPersonCamera* const fpCamera = mgr.GetCameraManager()->GetFirstPersonCamera();
   for (AUTO(it, nearObjects.begin()); it != nearObjects.end(); ++it) {
     const CActor* const act = TCastToConstPtr< CActor >(mgr.GetObjectById(*it));
-    if (act) {
-      if (act->GetUniqueId() == GetUniqueId()) {
-        continue;
-      }
+    if (act && act->GetUniqueId() != GetUniqueId()) {
       if (ValidateOrbitTargetId(act->GetUniqueId(), mgr) != kOVR_OK) {
         continue;
       }
@@ -735,23 +781,37 @@ void CPlayer::FindOrbitableObjects(const rstl::reserved_vector< TUniqueId, 1024 
                               2.f +
                           CCast::LtoF(CGraphics::GetViewportHeight()) / 2.f);
       bool pass = false;
+#if VERSION >= VERSION_R3IJ_00
+      if (onScreenTest && WithinOrbitScreenBox(screenPosition, zone, type, mgr)) {
+        pass = true;
+      } else if (!onScreenTest && !WithinOrbitScreenBox(screenPosition, zone, type, mgr)) {
+        pass = true;
+      }
+#else
       if (onScreenTest && WithinOrbitScreenBox(screenPosition, zone, type)) {
         pass = true;
       } else if (!onScreenTest && !WithinOrbitScreenBox(screenPosition, zone, type)) {
         pass = true;
       }
+#endif
       if (pass) {
         const CVector3f eyeToOrbit = orbitPosition - eyePosition;
         const float distance = eyeToOrbit.Magnitude();
         if (!act->GetDoTargetDistanceTest() || distance <= GetOrbitMaxTargetDistance(mgr)) {
           if (listOut.size() != listOut.capacity()) {
+#if VERSION >= VERSION_R3IJ_00
+            listOut.push_back_unsafe(act->GetUniqueId());
+#else
             listOut.push_back(act->GetUniqueId());
+#endif
           }
         }
       }
     }
   }
 }
+
+#if VERSION < VERSION_R3IJ_00
 
 TUniqueId CPlayer::FindBestOrbitableObject(const rstl::vector< TUniqueId >& ids,
                                            EPlayerZoneInfo zone, CStateManager& mgr) const {
