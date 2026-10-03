@@ -8,9 +8,11 @@
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
 #include "MetroidPrime/Player/CGameState.hpp"
+#include "MetroidPrime/Player/CPlayerGun.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptGrapplePoint.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayer.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayerControl.hpp"
+#include "MetroidPrime/Tweaks/CTweakPlayerGun.hpp"
 #include "MetroidPrime/Tweaks/CTweaks.hpp"
 
 struct SVisorToItemMapping {
@@ -28,6 +30,73 @@ static const SVisorToItemMapping skVisorToItemMapping[] = {
     {CPlayerState::kIT_ScanVisor, CPlayerState::kPV_Scan, CControlMapper::kC_ScanVisor},
     {CPlayerState::kIT_ThermalVisor, CPlayerState::kPV_Thermal, CControlMapper::kC_ThermalVisor},
 };
+
+void CPlayer::DoPostCameraStuff(float dt, CStateManager& mgr) {
+  mAimingCursor.Update(mLastInput, dt, mgr);
+  UpdateCameraState(mgr);
+  UpdateArmAndGunTransforms(dt, mgr);
+
+  float grappleSwingT;
+  if (mGrappleState != kGS_Swinging) {
+    grappleSwingT = 0.f;
+  } else {
+    grappleSwingT = mGrappleSwingTimer / gpTweakPlayer->GetGrappleSwingPeriod();
+  }
+
+  float cameraBobT = 0.f;
+  if (mgr.GetCameraManager()->IsInCinematicCamera()) {
+    *mCameraBob = CPlayerCameraBob(CPlayerCameraBob::kCBT_One);
+  } else {
+    cameraBobT = UpdateCameraBob(dt, mgr);
+  }
+
+  mGun->Update(grappleSwingT, cameraBobT, dt, mgr);
+  UpdateOrbitTarget(mgr);
+  UpdateOrbitOrientation(mgr, dt);
+}
+
+void CPlayer::UpdateCameraState(CStateManager& mgr) { UpdateCinematicState(mgr); }
+
+bool CPlayer::CanOpenSelector(const CStateManager& mgr, CControlMapper::ECommands command) const {
+  bool canOpen = GetMorphballTransitionState() == kMS_Unmorphed && !mGun->IsMorphing() &&
+                 !mGun->IsInDamageReaction();
+
+  if (canOpen && command == CControlMapper::kC_BeamMenu &&
+      mgr.GetPlayerState()->GetActiveVisor(mgr) == CPlayerState::kPV_Scan) {
+    canOpen = false;
+  }
+  return canOpen;
+}
+
+void CPlayer::HolsterGun(CStateManager& mgr) {
+  if (mGunHolsterState == kGH_Holstered || mGunHolsterState == kGH_Holstering) {
+    return;
+  }
+
+  float time = gpTweakPlayerGun->mGunHolsterTime;
+  if (mMorphBallState == kMS_Morphing) {
+    time = 0.1f;
+  }
+  if (mGunHolsterState == kGH_Drawing) {
+    mGunHolsterRemTime = time * (1.f - mGunHolsterRemTime / 0.45f);
+  } else {
+    mGunHolsterRemTime = time;
+  }
+
+  mGunHolsterState = kGH_Holstering;
+  mGun->CancelFiring(mgr);
+  SetAimTargetId(kInvalidUniqueId);
+}
+
+void CPlayer::DrawGun(CStateManager& mgr) {
+  if (mGunHolsterState != kGH_Holstered || CheckPostGrapple()) {
+    return;
+  }
+
+  mGunHolsterState = kGH_Drawing;
+  mGunHolsterRemTime = 0.45f;
+  mGun->ResetIdle(mgr);
+}
 
 CVector3f CPlayer::CalculateLeftStickEdgePosition(float strafeInput, float forwardInput) const {
   CVector3f side(-1.f, 0.f, 0.f);
