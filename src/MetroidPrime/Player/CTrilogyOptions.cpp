@@ -3,7 +3,7 @@
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "Kyoto/Streams/COutputStream.hpp"
 
-int CTrilogyOptions::kDefaultControlPreset = 1;
+CTrilogyOptions::EControlPreset CTrilogyOptions::kDefaultControlPreset = kCP_Standard;
 
 CTrilogyOptions::CTrilogyOptions()
 : mScreenBrightness(50)
@@ -53,7 +53,7 @@ CTrilogyOptions::CTrilogyOptions(CInputStream& in)
   mVoiceVolume = in.ReadLong();
   mHudAlpha = in.ReadLong();
   mHelmetAlpha = in.ReadLong();
-  mControlPreset = in.ReadLong();
+  mControlPreset = static_cast< EControlPreset >(in.ReadLong());
   mHudLag = in.ReadBool();
   mRedundantHintSystem = in.ReadBool();
   mControllerRumble = in.ReadBool();
