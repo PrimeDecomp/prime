@@ -850,6 +850,22 @@ void CPlayerVisor::UpdateScanObjectIndicators(const CStateManager& mgr, float dt
   }
 }
 
+static inline float ClampScanValue(float min, float val, float max) {
+  float low = min - val;
+  low = CMath::FastFSel(low, min, val);
+  const float high = low - max;
+  return CMath::FastFSel(high, max, low);
+}
+
+static inline float InterpolateScanIndicator(float start, float end, float t) {
+  const float twice = 2.f * t;
+  const float factor = t * ((3.f - twice) * t);
+  const float complement = 1.f - factor;
+  float from = complement * start;
+  float to = factor * end;
+  return from + to;
+}
+
 bool CPlayerVisor::DrawScanObjectIndicators(const CStateManager& mgr) const {
   if (!mScanIconNoncritical.TryCache())
     return false;
@@ -868,14 +884,18 @@ bool CPlayerVisor::DrawScanObjectIndicators(const CStateManager& mgr) const {
   const CGameCamera& camera = mgr.GetCameraManager()->GetCurrentCamera(mgr);
   CTransform4f cameraXf = mgr.GetCameraManager()->GetCurrentCameraTransform(mgr);
   CGraphics::SetViewPointMatrix(cameraXf);
-  CFrustumPlanes frustum(cameraXf, 0.01745329238474369f * camera.GetFov(), camera.GetAspectRatio(),
-                         1.f, false, 100.f);
+  CFrustumPlanes frustum(cameraXf, CRelAngle::FromDegrees(camera.GetFov()).AsRadians(),
+                         camera.GetAspectRatio(), 1.f, false, 100.f);
   gpRender->SetClippingPlanes(frustum);
-  gpRender->SetPerspective(camera.GetFov(), CGraphics::GetViewportWidth(),
-                           CGraphics::GetViewportHeight(), camera.GetNearClipDistance(),
-                           camera.GetFarClipDistance());
+  gpRender->SetPerspective(camera.GetFov(), CCast::LtoF(CGraphics::GetViewportWidth()),
+                          CCast::LtoF(CGraphics::GetViewportHeight()), camera.GetNearClipDistance(),
+                          camera.GetFarClipDistance());
   CMatrix3f cameraRotation = cameraXf.BuildMatrix3f();
+#if VERSION >= VERSION_R3IJ_00
+  const CVector3f cameraPosition(cameraXf.Get03(), cameraXf.Get13(), cameraXf.Get23());
+#else
   CVector3f cameraPosition = cameraXf.GetTranslation();
+#endif
   for (int i = 0; i < mScanTargets.size(); ++i) {
     const SScanObjectIndicatorInfo& target = mScanTargets[i];
     if (target.mTimer == 0.f)
@@ -892,29 +912,32 @@ bool CPlayerVisor::DrawScanObjectIndicators(const CStateManager& mgr) const {
       const CColor& dimColor = scanInfo->IsImportant()
                                    ? gpTweakGuiColors->GetScanIconCriticalDimColor()
                                    : gpTweakGuiColors->GetScanIconNoncriticalDimColor();
-      CVector3f scanPosition = actor->GetScanObjectIndicatorPosition(mgr);
 #if VERSION >= VERSION_R3IJ_00
-      scanPosition += mgr.GetCameraManager()->GetGlobalCameraTranslation(mgr);
+      const CVector3f indicatorPosition = actor->GetScanObjectIndicatorPosition(mgr);
+      const CVector3f scanPosition =
+          indicatorPosition + mgr.GetCameraManager()->GetGlobalCameraTranslation(mgr);
+#else
+      CVector3f scanPosition = actor->GetScanObjectIndicatorPosition(mgr);
 #endif
       float scale = CCompoundTargetReticle::CalculateClampedScale(
           scanPosition, 1.f, gpTweakTargeting->mScanTargetClampMin,
           gpTweakTargeting->mScanTargetClampMax, mgr);
 #if VERSION >= VERSION_R3IJ_00
-      const float inBox = target.mInBoxInterp;
-      const float sizeInterp = inBox * ((3.f - 2.f * inBox) * inBox);
-      scale *= (1.f - sizeInterp) * 0.8f + sizeInterp * 1.f;
+      scale *= InterpolateScanIndicator(0.8f, 1.f, target.mInBoxInterp);
 #endif
       CTransform4f xf(CMatrix3f::Scale(scale) * cameraRotation, scanPosition);
       float distance = (scanPosition - cameraPosition).Magnitude();
       float scanRange = gpTweakPlayer->GetScanningRange();
       float farRange = gpTweakPlayer->GetScanMaxLockDistance() - scanRange;
+#if VERSION >= VERSION_R3IJ_00
+      const float farT = farRange <= 0.f
+                             ? 1.f
+                             : ClampScanValue(0.f, 1.f - (distance - scanRange) / farRange, 1.f);
+#else
       float farT;
       if (farRange <= 0.f)
         farT = 1.f;
       else
-#if VERSION >= VERSION_R3IJ_00
-        farT = CMath::FastMin(CMath::FastMax(0.f, 1.f - (distance - scanRange) / farRange), 1.f);
-#else
         farT = CMath::Clamp(0.f, 1.f - (distance - scanRange) / farRange, 1.f);
 #endif
       CColor iconColor = CColor::Lerp(color, dimColor, target.mInRangeTimer);
@@ -922,14 +945,23 @@ bool CPlayerVisor::DrawScanObjectIndicators(const CStateManager& mgr) const {
       if (mgr.GetPlayerState()->GetScanTime(scanInfo->GetScannableObjectId()) == 1.f) {
         iconAlpha *= 0.25f;
       } else {
+#if VERSION >= VERSION_R3IJ_00
+        float alphaScale;
+        if (target.mObjId == mgr.GetPlayer()->GetOrbitTargetId()) {
+          const float dim = 0.75f * mScanDimInterp;
+          alphaScale = dim + 0.25f;
+        } else {
+          alphaScale = 1.f;
+        }
+#else
         float alphaScale = 1.f;
         if (target.mObjId == mgr.GetPlayer()->GetOrbitTargetId())
           alphaScale = 0.75f * mScanDimInterp + 0.25f;
+#endif
         iconAlpha *= alphaScale;
       }
 #if VERSION >= VERSION_R3IJ_00
-      const float alphaInterp = inBox * ((3.f - 2.f * inBox) * inBox);
-      const float inBoxAlpha = (1.f - alphaInterp) * 0.f + alphaInterp * 1.f;
+      const float inBoxAlpha = InterpolateScanIndicator(0.f, 1.f, target.mInBoxInterp);
       if (inBoxAlpha > 0.f) {
         gpRender->SetModelMatrix(xf);
         model->Draw(
