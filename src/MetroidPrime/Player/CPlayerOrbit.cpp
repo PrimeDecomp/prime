@@ -23,6 +23,7 @@ class CThardusRockProjectile;
 
 #if VERSION >= VERSION_R3IJ_00
 
+#include "MetroidPrime/CControlMapper.hpp"
 #include "MetroidPrime/CGameCollision.hpp"
 #include "Collision/CCollidableAABox.hpp"
 
@@ -1684,14 +1685,13 @@ bool CPlayer::ValidateFPPosition(CVector3f position, CStateManager& mgr) {
   return false;
 }
 
-#if VERSION < VERSION_R3IJ_00
-
 void CPlayer::ApplyGrappleForces(const CFinalInput& input, CStateManager& mgr, float dt) {
-  const CVector3f playerPosition = GetTranslation();
+  CVector3f playerPosition = GetTranslation();
   if (const CScriptGrapplePoint* point =
           TCastToConstPtr< CScriptGrapplePoint >(mgr.GetObjectById(GetOrbitTargetId()))) {
+    const CGrappleParameters& parameters = point->GetGrappleParameters();
     const CVector3f pointPosition = point->GetTranslation();
-    switch (mGrappleState) {
+    switch (GetGrappleState()) {
     case kGS_Pull: {
       const CVector3f swingLow =
           pointPosition + CVector3f(0.f, 0.f, -gpTweakPlayer->GetGrappleSwingLength());
@@ -1701,8 +1701,13 @@ void CPlayer::ApplyGrappleForces(const CFinalInput& input, CStateManager& mgr, f
         if (playerToSwingLow.CanBeNormalized()) {
           const float distanceToLow = playerToSwingLow.Magnitude();
           playerToSwingLow.Normalize();
+#if VERSION >= VERSION_R3IJ_00
+          const float timeToLow =
+              CMath::FastLimit(distanceToLow / gpTweakPlayer->GetGrapplePullSpeedProportion(), 1.f);
+#else
           const float timeToLow =
               CMath::Limit(distanceToLow / gpTweakPlayer->GetGrapplePullSpeedProportion(), 1.f);
+#endif
           const float pullSpeed = timeToLow * (gpTweakPlayer->GetGrapplePullSpeedMax() -
                                                gpTweakPlayer->GetGrapplePullSpeedMin()) +
                                   gpTweakPlayer->GetGrapplePullSpeedMin();
@@ -1712,26 +1717,31 @@ void CPlayer::ApplyGrappleForces(const CFinalInput& input, CStateManager& mgr, f
             mGrappleState = kGS_Swinging;
             mGrappleSwingTimer = 0.25f * gpTweakPlayer->GetGrappleSwingPeriod();
             mGrappleJumpTimeout = 0.f;
-            mAligningGrappleSwingTurn = point->GetGrappleParameters().GetLockSwingTurn();
+            mAligningGrappleSwingTurn = parameters.GetLockSwingTurn();
           } else {
             const CMotionState& motion = PredictMotion(dt);
             CVector3f lookDirectionFlat = GetTransform().GetForward();
             CVector3f newPlayerToPoint =
                 pointPosition - (GetTranslation() + motion.GetTranslation());
-            lookDirectionFlat.SetZ(0.f);
+            lookDirectionFlat[kDZ] = 0.f;
             if (lookDirectionFlat.CanBeNormalized()) {
               lookDirectionFlat.Normalize();
             }
-            newPlayerToPoint.SetZ(0.f);
+            newPlayerToPoint[kDZ] = 0.f;
             if (newPlayerToPoint.CanBeNormalized()) {
               newPlayerToPoint.Normalize();
               float cosAngle = CVector3f::Dot(lookDirectionFlat, newPlayerToPoint);
+#if VERSION >= VERSION_R3IJ_00
+              cosAngle = CMath::FastLimit(cosAngle, 1.f);
+              const double lookToPointAngle = acosf(cosAngle);
+#else
               cosAngle = CMath::Limit(cosAngle, 1.f);
               const double lookToPointAngle = acos(cosAngle);
+#endif
               if (lookToPointAngle > 0.001f) {
                 float deltaAngle = dt * gpTweakPlayer->GetGrappleLookCenterSpeed();
                 if (lookToPointAngle >= deltaAngle) {
-                  CVector3f leftDirection(lookDirectionFlat.GetY(), -lookDirectionFlat.GetX(), 0.f);
+                  CVector3f leftDirection(lookDirectionFlat[1], -lookDirectionFlat[0], 0.f);
                   if (leftDirection.CanBeNormalized()) {
                     leftDirection.Normalize();
                   }
@@ -1740,7 +1750,7 @@ void CPlayer::ApplyGrappleForces(const CFinalInput& input, CStateManager& mgr, f
                   }
                   RotateToOR(
                       CQuaternion::AxisAngle(CUnitVector3f(0.f, 0.f, 1.f, CUnitVector3f::kN_Yes),
-                                             CRelAngle(deltaAngle)),
+                                             CRelAngle::FromRadians(deltaAngle)),
                       dt);
                 } else if (fabs(lookToPointAngle - M_PI) > 0.001f) {
                   RotateToOR(CQuaternion::ShortestRotationArc(lookDirectionFlat, newPlayerToPoint),
@@ -1766,10 +1776,29 @@ void CPlayer::ApplyGrappleForces(const CFinalInput& input, CStateManager& mgr, f
         turnAngleSpeed *= -1.f;
       }
       const CVector3f pointToPlayer = playerPosition - pointPosition;
+#if VERSION >= VERSION_R3IJ_00
+      const float pointToPlayerZProjection =
+          CMath::FastLimit(CMath::AbsF(pointToPlayer.GetZ() / pointToPlayer.Magnitude()), 1.f);
+#else
       const float pointToPlayerZProjection =
           CMath::Limit(CMath::AbsF(pointToPlayer.GetZ() / pointToPlayer.Magnitude()), 1.f);
+#endif
       bool enableTurn = false;
-      if (!point->GetGrappleParameters().GetLockSwingTurn()) {
+      if (!parameters.GetLockSwingTurn()) {
+#if VERSION >= VERSION_R3IJ_00
+        if (ControlMapper().GetAnalogInput(CControlMapper::kC_StrafeLeft, input,
+                                           CControlMapper::kFT_Filtered) > 0.05f) {
+          enableTurn = true;
+          turnAngleSpeed *= -ControlMapper().GetAnalogInput(CControlMapper::kC_StrafeLeft, input,
+                                                            CControlMapper::kFT_Filtered);
+        }
+        if (ControlMapper().GetAnalogInput(CControlMapper::kC_StrafeRight, input,
+                                           CControlMapper::kFT_Filtered) > 0.05f) {
+          enableTurn = true;
+          turnAngleSpeed *= ControlMapper().GetAnalogInput(CControlMapper::kC_StrafeRight, input,
+                                                           CControlMapper::kFT_Filtered);
+        }
+#else
         if (ControlMapper::GetAnalogInput(ControlMapper::kC_TurnLeft, input) > 0.05f) {
           enableTurn = true;
           turnAngleSpeed *= -ControlMapper::GetAnalogInput(ControlMapper::kC_TurnLeft, input);
@@ -1778,6 +1807,7 @@ void CPlayer::ApplyGrappleForces(const CFinalInput& input, CStateManager& mgr, f
           enableTurn = true;
           turnAngleSpeed *= ControlMapper::GetAnalogInput(ControlMapper::kC_TurnRight, input);
         }
+#endif
       } else if (mAligningGrappleSwingTurn) {
         enableTurn = true;
       }
@@ -1792,13 +1822,22 @@ void CPlayer::ApplyGrappleForces(const CFinalInput& input, CStateManager& mgr, f
       float swingCos =
           cosf(2.f * M_PIF * (mGrappleSwingTimer / gpTweakPlayer->GetGrappleSwingPeriod()) +
                M_PIF / 2.f);
+#if VERSION >= VERSION_R3IJ_00
+      swingCos = CMath::FastLimit(swingCos, 1.f);
+#else
       swingCos = CMath::Limit(swingCos, 1.f);
+#endif
       const float pullSpeed = CMath::AbsF(swingCos) * gpTweakPlayer->GetGrapplePullSpeedMin();
       CVector3f pullVector = pullSpeed * CVector3f::Cross(pointToPlayer.AsNormalized(), swingAxis);
       const float lengthError = pointToPlayer.Magnitude() - gpTweakPlayer->GetGrappleSwingLength();
+#if VERSION >= VERSION_R3IJ_00
+      const float lengthScale =
+          CMath::FastLimit(lengthError / gpTweakPlayer->GetGrappleSwingLength(), 1.f);
+#else
       const float lengthScale =
           CMath::Limit(lengthError / gpTweakPlayer->GetGrappleSwingLength(), 1.f);
-      pullVector += pointToPlayerZProjection * (-32.f * (lengthScale * pointToPlayer));
+#endif
+      pullVector += pointToPlayerZProjection * (-32.f * (pointToPlayer * lengthScale));
       const CVector3f backupVelocity = GetVelocityWR();
       SetVelocityWR(pullVector);
       const CTransform4f backupTransform = GetTransform();
@@ -1806,30 +1845,34 @@ void CPlayer::ApplyGrappleForces(const CFinalInput& input, CStateManager& mgr, f
       const CVector3f translation = GetTranslation();
       if (ValidateFPPosition(translation + predictedMotion.GetTranslation(), mgr)) {
         if (enableTurn) {
-          CQuaternion turnRotation = CQuaternion::ZRotation(CRelAngle(turnAngleSpeed * dt));
-          if (point->GetGrappleParameters().GetLockSwingTurn() &&
-              mAligningGrappleSwingTurn) {
+          CQuaternion turnRotation =
+              CQuaternion::ZRotation(CRelAngle::FromRadians(turnAngleSpeed * dt));
+          if (parameters.GetLockSwingTurn() && mAligningGrappleSwingTurn) {
             CVector3f playerDirection = GetTransform().GetForward();
             CVector3f pointDirection = point->GetTransform().GetForward().AsNormalized();
             float playerPointProjection =
                 CVector3f::Dot(playerDirection.AsNormalized(), pointDirection);
+#if VERSION >= VERSION_R3IJ_00
+            playerPointProjection = CMath::FastLimit(playerPointProjection, 1.f);
+#else
             playerPointProjection = CMath::Limit(playerPointProjection, 1.f);
+#endif
             if (CMath::AbsF(playerPointProjection) == 1.f) {
               mAligningGrappleSwingTurn = false;
             }
             if (playerPointProjection < 0.f) {
-              playerPointProjection = -playerPointProjection;
               pointDirection = -pointDirection;
+              playerPointProjection = -playerPointProjection;
             }
             float turnAngle = acosf(playerPointProjection);
-            playerDirection.SetZ(0.f);
+            playerDirection[kDZ] = 0.f;
             turnAngle *= dt;
             turnRotation = CQuaternion::LookAt(playerDirection.AsNormalized(), pointDirection,
-                                               CRelAngle(turnAngle));
+                                               CRelAngle::FromRadians(turnAngle));
           }
           if (pointToPlayer.MagSquared() > 0.2f * 0.2f) {
-            const CVector3f pointAtPlayerHeight(pointPosition.GetX(), pointPosition.GetY(),
-                                                playerPosition.GetZ());
+            CVector3f pointAtPlayerHeight = pointPosition;
+            pointAtPlayerHeight[kDZ] = playerPosition[kDZ];
             const CVector3f pointToPlayerFlat = playerPosition - pointAtPlayerHeight;
             const CVector3f playerToGrapplePlane =
                 pointAtPlayerHeight + turnRotation.Transform(pointToPlayerFlat) - playerPosition;
@@ -1840,8 +1883,7 @@ void CPlayer::ApplyGrappleForces(const CFinalInput& input, CStateManager& mgr, f
           const CVector3f backupSwingAxis = mGrappleSwingAxis;
           mGrappleSwingAxis = turnRotation.Transform(mGrappleSwingAxis);
           mGrappleSwingAxis.Normalize();
-          const CVector3f swingForward(-mGrappleSwingAxis.GetY(), mGrappleSwingAxis.GetX(),
-                                       0.f);
+          const CVector3f swingForward(-mGrappleSwingAxis[kDY], mGrappleSwingAxis[kDX], 0.f);
           SetTransform(CTransform4f::FromColumns(mGrappleSwingAxis, swingForward,
                                                  CVector3f(0.f, 0.f, 1.f), GetTranslation()));
           SetVelocityWR(pullVector);
@@ -1856,10 +1898,12 @@ void CPlayer::ApplyGrappleForces(const CFinalInput& input, CStateManager& mgr, f
       }
       break;
     }
+#if VERSION < VERSION_R3IJ_00
     case kGS_JumpOff: {
       ApplyForceOR(CVector3f(0.f, 0.f, GetGravity() * GetMass()), CAxisAngle::Identity());
       break;
     }
+#endif
     default:
       break;
     }
@@ -1867,8 +1911,6 @@ void CPlayer::ApplyGrappleForces(const CFinalInput& input, CStateManager& mgr, f
   SetAngularVelocityOR(
       CAxisAngle(CVector3f(0.f, 0.f, 0.9f * GetAngularVelocityOR().GetVector().GetZ())));
 }
-
-#endif
 
 void CPlayer::UpdateGrappleArmTransform(const CVector3f& offset, CStateManager& mgr, float dt) {
   CTransform4f armXf = GetTransform();
