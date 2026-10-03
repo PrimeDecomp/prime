@@ -19,6 +19,8 @@
 
 #include "MetroidPrime/ScriptObjects/CScriptGrapplePoint.hpp"
 
+class CThardusRockProjectile;
+
 #if VERSION >= VERSION_R3IJ_00
 
 void CPlayer::UpdateOrbitModeTimer(float dt) {
@@ -1149,12 +1151,21 @@ void CPlayer::UpdateOrbitPosition(float distance, CStateManager& mgr) {
   }
 }
 
+#endif
+
 void CPlayer::SetOrbitTargetId(TUniqueId id, CStateManager& mgr) {
   if (id != kInvalidUniqueId) {
-    const CPatterned* patterned = TCastToConstPtr< CPatterned >(mgr.GetObjectById(id));
-    const CWallCrawlerSwarm* swarm = TCastToConstPtr< CWallCrawlerSwarm >(mgr.GetObjectById(id));
-    const CThardusRockProjectile* rock = PATTERNED_CAST_TO(CThardusRockProjectile, const_cast< CEntity* >(mgr.GetObjectById(id)));
-    const CScriptGunTurret* turret = TCastToConstPtr< CScriptGunTurret >(mgr.GetObjectById(id));
+    const CPatterned* const patterned = TCastToConstPtr< CPatterned >(mgr.GetObjectById(id));
+    const CWallCrawlerSwarm* const swarm =
+        TCastToConstPtr< CWallCrawlerSwarm >(mgr.GetObjectById(id));
+#ifdef HAS_TYPES_MATCH
+    const CThardusRockProjectile* const rock =
+        TCastToConstPtr< CThardusRockProjectile >(mgr.GetObjectById(id));
+#else
+    const CThardusRockProjectile* const rock =
+        PATTERNED_CAST_TO(CThardusRockProjectile, const_cast< CEntity* >(mgr.GetObjectById(id)));
+#endif
+    const CScriptGunTurret* const turret = TCastToConstPtr< CScriptGunTurret >(mgr.GetObjectById(id));
     if (patterned || swarm || rock || turret) {
       mOrbitingEnemy = true;
     } else {
@@ -1166,8 +1177,6 @@ void CPlayer::SetOrbitTargetId(TUniqueId id, CStateManager& mgr) {
     mOrbitLockEstablished = false;
   }
 }
-
-#endif
 
 void CPlayer::SetOrbitState(EPlayerOrbitState state, CStateManager& mgr) {
   mOrbitState = state;
