@@ -1,5 +1,92 @@
 #include "MetroidPrime/Player/CPlayerGun.hpp"
 
+#if VERSION >= VERSION_R3IJ_00
+
+#include "MetroidPrime/CStateManager.hpp"
+#include "MetroidPrime/Player/CGameState.hpp"
+#include "MetroidPrime/Player/CPlayer.hpp"
+
+void CPlayerGun::ProcessInput(const CFinalInput& input, CStateManager& mgr) {
+  const CPlayer& player = *mgr.GetPlayer();
+  CPlayerState* playerState = mgr.GetPlayerState();
+  bool damageNotMorphed = false;
+  if (mInBigStrike && player.GetMorphballTransitionState() != CPlayer::kMS_Morphed) {
+    damageNotMorphed = true;
+  }
+
+  if (mCoolingCharge || damageNotMorphed || IsWeaponStateSet(0x8)) {
+    return;
+  }
+
+  if (playerState->HasPowerUp(CPlayerState::kIT_ChargeBeam)) {
+    if (!playerState->ItemEnabled(CPlayerState::kIT_ChargeBeam)) {
+      playerState->EnableItem(CPlayerState::kIT_ChargeBeam);
+    }
+  } else if (playerState->ItemEnabled(CPlayerState::kIT_ChargeBeam)) {
+    playerState->DisableItem(CPlayerState::kIT_ChargeBeam);
+    ResetCharge(mgr, false);
+  }
+
+  switch (player.GetMorphballTransitionState()) {
+  case CPlayer::kMS_Morphing:
+  case CPlayer::kMS_Unmorphing:
+    mFireButtonStates = 0;
+    break;
+  case CPlayer::kMS_Unmorphed:
+    if (!IsWeaponStateSet(0x10)) {
+      HandleWeaponChange(input, mgr);
+    }
+    mFireButtonStates = player.GetControlMapper().GetDigitalInput(
+        CControlMapper::kC_FireOrBomb, input, CControlMapper::kFT_Filtered) ? 1 : 0;
+    mFireButtonStates |= player.GetControlMapper().GetDigitalInput(
+        CControlMapper::kC_MissileOrPowerBomb, input, CControlMapper::kFT_Filtered) ? 2 : 0;
+    break;
+  case CPlayer::kMS_Morphed:
+    if (gpGameState->GameOptions().GetIsFireAndJumpSwapped()) {
+      mFireButtonStates = player.GetControlMapper().GetDigitalInput(
+          CControlMapper::kC_JumpOrBoost, input, CControlMapper::kFT_Filtered) ? 1 : 0;
+    } else {
+      mFireButtonStates = player.GetControlMapper().GetDigitalInput(
+          CControlMapper::kC_FireOrBomb, input, CControlMapper::kFT_Filtered) ? 1 : 0;
+    }
+    mFireButtonStates |= player.GetControlMapper().GetDigitalInput(
+        CControlMapper::kC_MissileOrPowerBomb, input, CControlMapper::kFT_Filtered) ? 2 : 0;
+    break;
+  }
+}
+
+void CPlayerGun::HandleWeaponChange(const CFinalInput& input, CStateManager& mgr) {
+  mBeamSelectionRequested = false;
+  if (mgr.GetPlayer()->GetControlMapper().GetPressInput(CControlMapper::kC_Morph, input,
+                                                     CControlMapper::kFT_Filtered)) {
+    StopContinuousBeam(mgr, true);
+  }
+  if (!IsWeaponStateSet(0x8)) {
+    if (!mInPhazonBeam) {
+      HandleBeamChange(input, mgr);
+    } else {
+      HandlePhazonBeamChange(mgr);
+    }
+  }
+}
+
+void CPlayerGun::DamageRumble(const CVector3f& location, float damage, const CStateManager&) {
+  mDamageAmt = damage;
+  mDamageLocation = location;
+}
+
+void CPlayerGun::CancelLockOn() {
+  if (mLockedOn) {
+    mLockedOn = false;
+    mMotionState.SetState(CMotionState::kMS_CancelLockOn);
+    if (mChargePhase == kCP_NotCharging && int(mComboAmmoIdx) != 1) {
+      PlayAnim(NWeaponTypes::kGAT_BasePosition, false);
+    }
+  }
+}
+
+#else
+
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 #include "MetroidPrime/CAnimData.hpp"
@@ -295,7 +382,7 @@ CPlayerGun::CPlayerGun(TUniqueId playerId)
 , mRequestReturnToDefault(false)
 , mInRestPose(true)
 , mNotFidgeting(true)
-, x833_25_(false)
+, mBeamSelectionRequested(false)
 , x833_26_(false)
 , x833_27_(false)
 , mPhazonBeamActive(false)
@@ -1468,7 +1555,7 @@ void CPlayerGun::StartPhazonBeamTransition(bool active, CStateManager& mgr,
 }
 
 void CPlayerGun::HandleWeaponChange(const CFinalInput& input, CStateManager& mgr) {
-  x833_25_ = false;
+  mBeamSelectionRequested = false;
   if (ControlMapper::GetPressInput(ControlMapper::kC_Morph, input)) {
     StopContinuousBeam(mgr, true);
   }
@@ -1497,7 +1584,7 @@ void CPlayerGun::HandleBeamChange(const CFinalInput& input, CStateManager& mgr) 
   }
 
   if (beam > -1) {
-    x833_25_ = true;
+    mBeamSelectionRequested = true;
     if (mEquippedBeamId != beam && playerState.HasPowerUp(mBeamArr[beam])) {
       mNextBeamId = static_cast< CPlayerState::EBeamId >(beam);
 
@@ -2861,4 +2948,6 @@ void CPlayerGun::LoadBeam(CPlayerState::EBeamId beamId, CStateManager& mgr) {
   DisableWeaponState(0x8);
   ResetToBeam();
 }
+#endif
+
 #endif
