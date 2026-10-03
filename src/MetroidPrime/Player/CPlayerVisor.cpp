@@ -363,12 +363,19 @@ void CPlayerVisor::DrawScanFrameArc(float centerX, float centerY, float innerRad
   gpRender->PrimColor(color);
   for (int angle = angleOffset + startAngle; angle <= angleOffset + endAngle; angle += 2) {
     const CVector2f& vertex = vertices[angle % 360];
-    const float innerX = innerRadius * vertex.GetX();
-    const float innerY = innerRadius * vertex.GetY();
-    gpRender->PrimVertex(CVector3f(centerX + innerX, 0.f, centerY + innerY));
-    const float outerY = outerRadius * vertex.GetY();
-    const float outerX = outerRadius * vertex.GetX();
-    gpRender->PrimVertex(CVector3f(centerX + outerX, 0.f, centerY + outerY));
+    float innerX = innerRadius * vertex.GetX();
+    float innerY = innerRadius * vertex.GetY();
+    innerX = centerX + innerX;
+    innerY = centerY + innerY;
+    CVector3f inner(innerX, 0.f, innerY);
+    gpRender->PrimVertex(inner);
+
+    float outerY = outerRadius * vertex[1];
+    float outerX = outerRadius * vertex[0];
+    const float posY = centerY + outerY;
+    const float posX = centerX + outerX;
+    CVector3f outer(posX, 0.f, posY);
+    gpRender->PrimVertex(outer);
   }
   gpRender->EndPrimitive();
 }
@@ -767,7 +774,12 @@ void CPlayerVisor::UpdateScanWindow(float dt, const CStateManager& mgr) {
     break;
   }
   if (mPrevState != mNextState) {
+#if VERSION >= VERSION_R3IJ_00
+    const float timer = mWindowInterpTimer - dt;
+    mWindowInterpTimer = 0.f < timer ? timer : 0.f;
+#else
     mWindowInterpTimer = rstl::max_val(0.f, mWindowInterpTimer - dt);
+#endif
     if (mWindowInterpTimer == 0.f)
       mPrevState = mNextState;
     float t = 0.f;
@@ -785,23 +797,55 @@ void CPlayerVisor::UpdateScanWindow(float dt, const CStateManager& mgr) {
   }
 }
 
+static inline float ClampScanValue(float min, float val, float max) {
+  float low = min - val;
+  low = CMath::FastFSel(low, min, val);
+  const float high = low - max;
+  return CMath::FastFSel(high, max, low);
+}
+
 void CPlayerVisor::UpdateScanObjectIndicators(const CStateManager& mgr, float dt) {
   bool inBoxExists = false;
+#if VERSION < VERSION_R3IJ_00
   float dt2 = 2.f * dt;
+#endif
   for (AUTO(it, mScanTargets.begin()); it != mScanTargets.end(); ++it) {
     SScanObjectIndicatorInfo& target = *it;
+#if VERSION >= VERSION_R3IJ_00
+    const float timer = target.mTimer - dt;
+    target.mTimer = 0.f < timer ? timer : 0.f;
+    if (const_cast< CPlayer* >(mgr.GetPlayer())->ObjectInScanningRange(target.mObjId, mgr)) {
+      const float step = 2.f * dt;
+      const float timer = target.mInRangeTimer - step;
+      target.mInRangeTimer = 0.f < timer ? timer : 0.f;
+    } else {
+      const float step = 2.f * dt;
+      const float timer = target.mInRangeTimer + step;
+      target.mInRangeTimer = timer < 1.f ? timer : 1.f;
+    }
+#else
     target.mTimer = rstl::max_val(0.f, target.mTimer - dt);
     if (const_cast< CPlayer* >(mgr.GetPlayer())->ObjectInScanningRange(target.mObjId, mgr))
       target.mInRangeTimer = rstl::max_val(0.f, target.mInRangeTimer - dt2);
     else
       target.mInRangeTimer = rstl::min_val(1.f, target.mInRangeTimer + dt2);
-    if (const CActor* actor = TCastToConstPtr< CActor >(mgr.GetObjectById(target.mObjId))) {
+#endif
+    if (const CActor* const actor = TCastToConstPtr< CActor >(mgr.GetObjectById(target.mObjId))) {
       const CGameCamera& camera = mgr.GetCameraManager()->GetCurrentCamera(mgr);
       CVector3f orbitPos = camera.ConvertToScreenSpace(actor->GetOrbitPosition(mgr));
+#if VERSION >= VERSION_R3IJ_00
+      const float halfWidth = 0.5f * CGraphics::GetViewportWidth();
+      const float screenX = 0.5f * (orbitPos.GetX() * CGraphics::GetViewportWidth());
+      orbitPos.SetX(halfWidth + screenX);
+      const float halfHeight = 0.5f * CGraphics::GetViewportHeight();
+      const float screenY = 0.5f * (orbitPos.GetY() * CGraphics::GetViewportHeight());
+      orbitPos.SetY(halfHeight + screenY);
+#else
       orbitPos.SetX(0.5f * (orbitPos.GetX() * CGraphics::GetViewportWidth()) +
                     0.5f * CGraphics::GetViewportWidth());
       orbitPos.SetY(0.5f * (orbitPos.GetY() * CGraphics::GetViewportHeight()) +
                     0.5f * CGraphics::GetViewportHeight());
+#endif
       bool inBox = mgr.GetPlayer()->WithinOrbitScreenBox(
           orbitPos, mgr.GetPlayer()->GetOrbitZoneMode(), mgr.GetPlayer()->GetOrbitZoneType()
 #if VERSION >= VERSION_R3IJ_00
@@ -810,8 +854,8 @@ void CPlayerVisor::UpdateScanObjectIndicators(const CStateManager& mgr, float dt
 #endif
       );
 #if VERSION >= VERSION_R3IJ_00
-      target.mInBoxInterp = CMath::FastMin(
-          CMath::FastMax(0.f, target.mInBoxInterp + (3.f * dt) * (inBox ? 1.f : -1.f)), 1.f);
+      const float inBoxStep = (3.f * dt) * (inBox ? 1.f : -1.f);
+      target.mInBoxInterp = ClampScanValue(0.f, target.mInBoxInterp + inBoxStep, 1.f);
 #endif
       if (inBox != target.mInBox) {
         target.mInBox = inBox;
@@ -821,12 +865,25 @@ void CPlayerVisor::UpdateScanObjectIndicators(const CStateManager& mgr, float dt
       inBoxExists = inBoxExists || inBox;
     }
   }
+#if VERSION >= VERSION_R3IJ_00
+  if (inBoxExists) {
+    const float step = 2.f * dt;
+    const float interp = mScanFrameColorInterp + step;
+    mScanFrameColorInterp = interp < 1.f ? interp : 1.f;
+  } else {
+    const float step = 2.f * dt;
+    const float interp = mScanFrameColorInterp - step;
+    mScanFrameColorInterp = 0.f < interp ? interp : 0.f;
+  }
+  const float impulse = mScanFrameColorImpulseInterp - dt;
+  mScanFrameColorImpulseInterp = 0.f < impulse ? impulse : 0.f;
+#else
   if (inBoxExists)
     mScanFrameColorInterp = rstl::min_val(1.f, mScanFrameColorInterp + dt2);
   else
     mScanFrameColorInterp = rstl::max_val(0.f, mScanFrameColorInterp - dt2);
   mScanFrameColorImpulseInterp = rstl::max_val(0.f, mScanFrameColorImpulseInterp - dt);
-  dt = FLT_EPSILON + dt;
+#endif
   const CPlayer& player = *mgr.GetPlayer();
   const rstl::vector< TUniqueId >& nearbyObjects = player.GetOrbitObjectsOnScreenList();
   AUTO(it, nearbyObjects.begin());
@@ -840,21 +897,20 @@ void CPlayerVisor::UpdateScanObjectIndicators(const CStateManager& mgr, float dt
       int target = FindCachedInactiveScanTarget(*it);
       if (target != -1) {
         SScanObjectIndicatorInfo& info = mScanTargets[target];
+#if VERSION >= VERSION_R3IJ_00
+        const float step = 2.f * dt;
+        const float timer = info.mTimer + step;
+        info.mTimer = timer < 1.f ? timer : 1.f;
+#else
         info.mTimer = rstl::min_val(1.f, info.mTimer + dt2);
+#endif
       } else {
         target = FindEmptyInactiveScanTarget();
         if (target != -1)
-          mScanTargets[target] = SScanObjectIndicatorInfo(*it, dt, 1.f);
+          mScanTargets[target] = SScanObjectIndicatorInfo(*it, FLT_EPSILON + dt, 1.f);
       }
     }
   }
-}
-
-static inline float ClampScanValue(float min, float val, float max) {
-  float low = min - val;
-  low = CMath::FastFSel(low, min, val);
-  const float high = low - max;
-  return CMath::FastFSel(high, max, low);
 }
 
 static inline float InterpolateScanIndicator(float start, float end, float t) {
