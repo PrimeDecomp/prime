@@ -108,9 +108,11 @@ public:
       return *this;
     }
 #if RSTL_VERSION >= RSTL_R3ME_00
-    T* ptr = data();
-    for (int i = 0; i < mCount; ++i) {
-      destroy(&ptr[i]);
+    if (!reserved_vector_traits< T >::trivial_destructor) {
+      T* ptr = data();
+      for (int i = 0; i < mCount; ++i) {
+        destroy(&ptr[i]);
+      }
     }
 #else
     clear();
