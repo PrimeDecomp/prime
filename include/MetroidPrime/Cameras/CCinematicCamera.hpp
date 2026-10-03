@@ -65,6 +65,7 @@ private:
                   // 0x200: disable out of into
   bool x220_24_ : 1;
 };
-CHECK_SIZEOF(CCinematicCamera, (VERSION >= VERSION_GM8E_02 ? 0x238 : 0x228))
+CHECK_SIZEOF(CCinematicCamera,
+             (VERSION >= VERSION_R3IJ_00 ? 0x218 : (VERSION >= VERSION_GM8E_02 ? 0x238 : 0x228)))
 
 #endif // _CCINEMATICCAMERA
