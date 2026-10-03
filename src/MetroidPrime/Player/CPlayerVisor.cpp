@@ -396,9 +396,8 @@ static inline int ClampScanDimension(int min, int val, int max) {
 }
 
 static inline float InterpolateScanValue(float start, float end, const float& t) {
-  const float complement = 1.f - t;
   // Preserve the separate product rounding in the Wii scan geometry.
-  return static_cast< float >(complement * start) + static_cast< float >(t * end);
+  return static_cast< float >((1.f - t) * start) + static_cast< float >(t * end);
 }
 
 void CPlayerVisor::DrawScanEffect(const CStateManager& mgr,
@@ -424,11 +423,10 @@ void CPlayerVisor::DrawScanEffect(const CStateManager& mgr,
 #if VERSION >= VERSION_R3IJ_00
   const bool drawWindow = !CMath::IsEpsilon(t, 0.f, 0.00001f);
   mScanFrameShapeBlend = t;
-  const float divisor =
-      static_cast< float >(
-          transFactor *
-          InterpolateScanValue(mScanMagInterp, gpTweakGui->GetScanWindowScanningAspect(), t)) +
-      (1.f - transFactor);
+  float divisor =
+      transFactor * (static_cast< float >((1.f - t) * mScanMagInterp) +
+                     static_cast< float >(t * gpTweakGui->mScanWindowScanningAspect));
+  divisor = (1.f - transFactor) + divisor;
   const float vpW = 169.218f * mInterpWindowDims.GetX();
   const float vpH = 152.218f * mInterpWindowDims.GetY();
   const int width =
@@ -471,9 +469,8 @@ void CPlayerVisor::DrawScanEffect(const CStateManager& mgr,
     static const CColor colors[3] = {CColor(0.f, 0.f, 0.f, 1.f), CColor(0.f, 0.f, 0.f, 1.f),
                                      CColor(0.f, 0.2f, 0.3f, 1.f)};
     float radii[3];
-    const float circleBlend = 1.f - mScanFrameShapeBlend;
     for (int i = 0; i < 3; ++i)
-      radii[i] = InterpolateScanValue(squareRadii[i], circleRadii[i], circleBlend);
+      radii[i] = InterpolateScanValue(squareRadii[i], circleRadii[i], 1.f - mScanFrameShapeBlend);
 
     gpRender->SetDepthReadWrite(false, false);
     gpRender->SetBlendMode_AlphaBlended();
@@ -482,15 +479,15 @@ void CPlayerVisor::DrawScanEffect(const CStateManager& mgr,
       const CColor innerColor = colors[ring].WithAlphaOf(transFactor * alphas[ring]);
       const CColor outerColor = colors[ring + 1].WithAlphaOf(transFactor * alphas[ring + 1]);
       gpRender->BeginTriangleStrip(74);
-      const float innerRadius = radii[ring];
       for (int i = 0; i <= 36; ++i) {
+        const float angleIndex = i % 36;
         const CVector2f vertex = InterpolateScanFrameVertex(
-            mScanFrameShapeBlend, 0.72f, CRelAngle::FromRadians((i % 36) * angleStepRadians));
+            mScanFrameShapeBlend, 0.72f, CRelAngle::FromRadians(angleIndex * angleStepRadians));
         const float vertexX = vertex.GetX();
         const float vertexY = vertex.GetY();
         gpRender->PrimColor(innerColor);
-        gpRender->PrimVertex(CVector3f(centerX + static_cast< float >(vertexX * innerRadius), 0.f,
-                                       centerY + static_cast< float >(vertexY * innerRadius)));
+        gpRender->PrimVertex(CVector3f(centerX + static_cast< float >(vertexX * radii[ring]), 0.f,
+                                       centerY + static_cast< float >(vertexY * radii[ring])));
         gpRender->PrimColor(outerColor);
         if (ring == 0)
           gpRender->PrimVertex(
@@ -542,40 +539,42 @@ void CPlayerVisor::DrawScanEffect(const CStateManager& mgr,
         int length = 1;
         while (active[(i + length) % 360] && length < 360)
           ++length;
-        const int vertexCount = (length / 2 + 1) * 2;
+        int vertexCount = length / 2;
+        vertexCount = (vertexCount + 1) * 2;
         gpRender->BeginTriangleStrip(vertexCount);
         gpRender->PrimColor(frameColor);
         for (int j = 0; j <= length; j += 2) {
           const CVector2f& vertex = vertices[(i + j) % 360];
-          gpRender->PrimVertex(CVector3f(centerX + static_cast< float >(122.f * vertex.GetX()), 0.f,
-                                         centerY + static_cast< float >(122.f * vertex.GetY())));
-          gpRender->PrimVertex(CVector3f(centerX + static_cast< float >(124.f * vertex.GetX()), 0.f,
-                                         centerY + static_cast< float >(124.f * vertex.GetY())));
+          gpRender->PrimVertex(CVector3f(centerX + static_cast< float >(122.f * vertex[0]), 0.f,
+                                         centerY + static_cast< float >(122.f * vertex[1])));
+          gpRender->PrimVertex(CVector3f(centerX + static_cast< float >(124.f * vertex[0]), 0.f,
+                                         centerY + static_cast< float >(124.f * vertex[1])));
         }
         gpRender->EndPrimitive();
         gpRender->BeginTriangleStrip(vertexCount);
         for (int j = 0; j <= length; j += 2) {
           const CVector2f& vertex = vertices[(i + j) % 360];
           gpRender->PrimColor(glowColor);
-          gpRender->PrimVertex(CVector3f(centerX + static_cast< float >(124.f * vertex.GetX()), 0.f,
-                                         centerY + static_cast< float >(124.f * vertex.GetY())));
+          gpRender->PrimVertex(CVector3f(centerX + static_cast< float >(124.f * vertex[0]), 0.f,
+                                         centerY + static_cast< float >(124.f * vertex[1])));
           gpRender->PrimColor(transparent);
           gpRender->PrimVertex(
-              CVector3f(outerRadius * vertex.GetX(), 0.f, outerRadius * vertex.GetY()));
+              CVector3f(outerRadius * vertex[0], 0.f, outerRadius * vertex[1]));
         }
         gpRender->EndPrimitive();
 
-        const CVector2f& vertex = vertices[(i + length / 2) % 360];
         const float tipRadius = 124.f + length;
+        const int middle = length / 2;
+        const CVector2f& vertex = vertices[(i + middle) % 360];
         gpRender->BeginTriangleStrip(4);
         gpRender->PrimColor(frameColor);
-        const CVector3f base(centerX + static_cast< float >(124.f * vertex.GetX()), 0.f,
-                             centerY + static_cast< float >(124.f * vertex.GetY()));
-        const CVector3f tip(centerX + static_cast< float >(tipRadius * vertex.GetX()), 0.f,
-                            centerY + static_cast< float >(tipRadius * vertex.GetY()));
-        const CVector3f baseWidth = 3.f * CVector3f(vertex.GetY(), 0.f, -vertex.GetX());
-        const CVector3f baseOffset = -0.5f * CVector3f(vertex.GetX(), 0.f, vertex.GetY());
-        const CVector3f tipWidth = 1.f * CVector3f(vertex.GetY(), 0.f, -vertex.GetX());
+        const CVector3f base(centerX + static_cast< float >(124.f * vertex[0]), 0.f,
+                             centerY + static_cast< float >(124.f * vertex[1]));
+        const CVector3f tip(centerX + static_cast< float >(tipRadius * vertex[0]), 0.f,
+                            centerY + static_cast< float >(tipRadius * vertex[1]));
+        const CVector3f baseWidth = 3.f * CVector3f(vertex[1], 0.f, -vertex[0]);
+        const CVector3f baseOffset = -0.5f * CVector3f(vertex[0], 0.f, vertex[1]);
+        const CVector3f tipWidth = 1.f * CVector3f(vertex[1], 0.f, -vertex[0]);
         gpRender->PrimVertex(base - baseWidth + baseOffset);
         gpRender->PrimVertex(base + baseWidth + baseOffset);
         gpRender->PrimVertex(tip - tipWidth);
