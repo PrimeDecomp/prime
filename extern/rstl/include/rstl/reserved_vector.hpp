@@ -10,7 +10,7 @@ class CInputStream;
 class COutputStream;
 
 namespace rstl {
-#if RSTL_VERSION >= RSTL_R3ME_00
+#if RSTL_VERSION >= RSTL_R3IJ
 // Scalar fill and destruction behavior recovered from Trilogy's input filters.
 template < typename T >
 struct reserved_vector_traits {
@@ -61,7 +61,7 @@ public:
   inline const_iterator end() const { return const_iterator(data() + mCount); }
 
   reserved_vector() : mCount(0) {}
-#if RSTL_VERSION >= RSTL_R3ME_00
+#if RSTL_VERSION >= RSTL_R3IJ
   explicit reserved_vector(int count) : mCount(count) {
     int i;
     T* dest = data();
@@ -69,6 +69,8 @@ public:
       new (dest) T;
     }
   }
+#endif
+#if RSTL_VERSION >= RSTL_R3ME_00
   explicit reserved_vector(typename reserved_vector_traits< T >::fill_type value) : mCount(N) {
     reserved_vector_traits< T >::fill(data(), N, value);
   }
@@ -113,7 +115,7 @@ public:
   }
 
   ~reserved_vector() {
-#if RSTL_VERSION >= RSTL_R3ME_00
+#if RSTL_VERSION >= RSTL_R3IJ
     if (!reserved_vector_traits< T >::trivial_destructor) {
       T* ptr = data();
       for (int i = 0; i < mCount; ++i) {
