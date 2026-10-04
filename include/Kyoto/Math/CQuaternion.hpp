@@ -58,12 +58,7 @@ public:
   static const CQuaternion& NoRotation() { return sNoRotation; }
 
   static float Dot(const CQuaternion& a, const CQuaternion& b) {
-#if VERSION >= VERSION_R3IJ_00
-    return static_cast< float >(a.GetScalar() * b.GetScalar()) +
-           CVector3f::Dot(a.GetVector(), b.GetVector());
-#else
     return a.GetScalar() * b.GetScalar() + CVector3f::Dot(a.GetVector(), b.GetVector());
-#endif
   }
 
   bool LocalTo(const CQuaternion& other) const { return Dot(other, *this) >= 0.f; }

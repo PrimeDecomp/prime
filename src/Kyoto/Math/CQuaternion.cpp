@@ -148,8 +148,7 @@ CQuaternion CQuaternion::Slerp(const CQuaternion& a, const CQuaternion& b, float
   const float bScale = CCast::ToReal32(sin(angle * t));
   const double scale = 1.0 / sineAngle;
   const float vectorScale = scale;
-  return CQuaternion(CCast::ToReal32(scale * (static_cast< float >(aScale * a.GetScalar()) +
-                                              static_cast< float >(bScale * b.GetScalar()))),
+  return CQuaternion(CCast::ToReal32(scale * (aScale * a.GetScalar() + bScale * b.GetScalar())),
                      vectorScale * (aScale * a.GetVector() + bScale * b.GetVector()));
 #else
   const float aScale = sin(angle * (1.f - t));
@@ -265,8 +264,7 @@ CQuaternion CQuaternion::BuildEquivalent() const {
 }
 
 CQuaternion CQuaternion::BuildNormalized() const {
-  const float scale =
-      CMath::InvSqrtF(static_cast< float >(w * w) + CVector3f::Dot(imaginary, imaginary));
+  const float scale = CMath::InvSqrtF(w * w + CVector3f::Dot(imaginary, imaginary));
   return CQuaternion(scale * GetScalar(), scale * GetVector());
 }
 
@@ -286,26 +284,6 @@ bool CQuaternion::IsValidQuaternion(float epsilon) const {
 }
 
 CVector3f CQuaternion::Transform(const CVector3f& vector) const {
-#if VERSION >= VERSION_R3IJ_00
-  const float scalar = -CVector3f::Dot(imaginary, vector);
-  const CVector3f rotated(
-      static_cast< float >(w * vector.GetX()) + static_cast< float >(AxisY() * vector.GetZ()) -
-          static_cast< float >(vector.GetY() * AxisZ()),
-      static_cast< float >(w * vector.GetY()) + static_cast< float >(AxisZ() * vector.GetX()) -
-          static_cast< float >(vector.GetZ() * AxisX()),
-      static_cast< float >(w * vector.GetZ()) + static_cast< float >(AxisX() * vector.GetY()) -
-          static_cast< float >(vector.GetX() * AxisY()));
-  return CVector3f(
-      static_cast< float >(w * rotated.GetX()) - static_cast< float >(scalar * AxisX()) -
-          static_cast< float >(rotated.GetY() * AxisZ()) +
-          static_cast< float >(AxisY() * rotated.GetZ()),
-      static_cast< float >(w * rotated.GetY()) - static_cast< float >(scalar * AxisY()) -
-          static_cast< float >(rotated.GetZ() * AxisX()) +
-          static_cast< float >(AxisZ() * rotated.GetX()),
-      static_cast< float >(w * rotated.GetZ()) - static_cast< float >(scalar * AxisZ()) -
-          static_cast< float >(rotated.GetX() * AxisY()) +
-          static_cast< float >(AxisX() * rotated.GetY()));
-#else
   const float scalar = -CVector3f::Dot(imaginary, vector);
   const CVector3f rotated(w * vector.GetX() + AxisY() * vector.GetZ() - vector.GetY() * AxisZ(),
                           w * vector.GetY() + AxisZ() * vector.GetX() - vector.GetZ() * AxisX(),
@@ -314,7 +292,6 @@ CVector3f CQuaternion::Transform(const CVector3f& vector) const {
       w * rotated.GetX() - scalar * AxisX() - rotated.GetY() * AxisZ() + AxisY() * rotated.GetZ(),
       w * rotated.GetY() - scalar * AxisY() - rotated.GetZ() * AxisX() + AxisZ() * rotated.GetX(),
       w * rotated.GetZ() - scalar * AxisZ() - rotated.GetX() * AxisY() + AxisX() * rotated.GetY());
-#endif
 }
 
 CQuaternion CQuaternion::operator*(const CQuaternion& rhs) const {
@@ -322,12 +299,8 @@ CQuaternion CQuaternion::operator*(const CQuaternion& rhs) const {
   const CVector3f& rightVector = rhs.GetVector();
   const float leftScalar = GetScalar();
   const float rightScalar = rhs.GetScalar();
-#if VERSION >= VERSION_R3IJ_00
-  const float scalar =
-      static_cast< float >(leftScalar * rightScalar) - CVector3f::Dot(leftVector, rightVector);
-#else
   const float scalar = leftScalar * rightScalar - CVector3f::Dot(leftVector, rightVector);
-#endif
+
   return CQuaternion(scalar, leftScalar * rightVector + rightScalar * leftVector +
                                  CVector3f::Cross(leftVector, rightVector));
 }
