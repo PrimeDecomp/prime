@@ -1646,8 +1646,14 @@ void CCompoundTargetReticle::DrawGrapplePoint(const CScriptGrapplePoint& point, 
                                   : gpTweakTargeting->mGrapplePointSelectColor;
   CColor color = CColor::Lerp(gpTweakTargeting->mGrapplePointColor, selectColor, t);
 
+#if VERSION >= VERSION_R3IJ_00
+  const float baseScale = (1.f - t) * gpTweakTargeting->mGrappleScale;
+  const float selectScale = t * gpTweakTargeting->mGrappleSelectScale;
+  t = baseScale + selectScale;
+#else
   t = (1.f - t) * gpTweakTargeting->mGrappleScale +
       t * gpTweakTargeting->mGrappleSelectScale;
+#endif
   float scale = CalculateClampedScale(orbitPos, 1.f, gpTweakTargeting->mGrappleClampMin,
                                       gpTweakTargeting->mGrappleClampMax, mgr);
   scale *= t;
@@ -2421,8 +2427,8 @@ bool CCompoundTargetReticle::IsActiveGrappleTarget(TUniqueId id, const CStateMan
 #endif
 
 bool CCompoundTargetReticle::IsGrappleTarget(TUniqueId id, const CStateManager& mgr) {
-  return TCastToConstPtr< CScriptGrapplePoint >(mgr.GetObjectListById(kOL_All).GetObjectById(id)) !=
-         nullptr;
+  const CObjectList& objects = mgr.GetObjectListById(kOL_All);
+  return TCastToConstPtr< CScriptGrapplePoint >(objects.GetObjectById(id)) != nullptr;
 }
 
 float CCompoundTargetReticle::CalculateClampedScale(CVector3f pos, float scale, float clampMin,
@@ -2468,12 +2474,28 @@ CTargetReticleRenderState::CTargetReticleRenderState(TUniqueId target, float rad
 void CTargetReticleRenderState::InterpolateWithClamp(const CTargetReticleRenderState& a,
                                                      CTargetReticleRenderState& out,
                                                      const CTargetReticleRenderState& b, float t) {
+#if VERSION >= VERSION_R3IJ_00
+  float lower = CMath::FastMax(0.f, t);
+  float t2 = CMath::FastFSel(lower - 1.f, 1.f, lower);
+
+  out.SetRadiusWorld(static_cast< float >((1.f - t2) * a.GetRadiusWorld()) +
+                     static_cast< float >(t2 * b.GetRadiusWorld()));
+  out.SetFactor(static_cast< float >((1.f - t2) * a.GetFactor()) +
+                static_cast< float >(t2 * b.GetFactor()));
+  out.SetMinViewportClampScale(
+      static_cast< float >((1.f - t2) * a.GetMinViewportClampScale()) +
+      static_cast< float >(t2 * b.GetMinViewportClampScale()));
+  out.SetTargetPositionWorld(
+      CVector3f::Lerp(a.GetTargetPositionWorld(), b.GetTargetPositionWorld(), t2));
+#else
   float t2 = CMath::Clamp(0.f, t, 1.f);
   float omt = 1.f - t2;
   out.mRadiusWorld = omt * a.mRadiusWorld + t2 * b.mRadiusWorld;
   out.mFactor = omt * a.mFactor + t2 * b.mFactor;
   out.mMinVpClampScale = omt * a.mMinVpClampScale + t2 * b.mMinVpClampScale;
   out.mPositionWorld = CVector3f::Lerp(a.mPositionWorld, b.mPositionWorld, t2);
+#endif
+
   if (t2 == 1.f)
     out.SetTargetId(b.GetTargetId());
   else if (t2 == 0.f)
