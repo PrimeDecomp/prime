@@ -982,14 +982,8 @@ void CCompoundTargetReticle::Update(float dt, const CStateManager& mgr) {
   if (extreme) {
     t = 1.f;
   } else {
-#if VERSION >= VERSION_R3IJ_00
-    float lagSpeed = gpTweakTargeting->mAngularLagSpeed;
-    const float step = lagSpeed * dt / angleDeg;
-    t = step < 1.f ? step : 1.f;
-#else
     float lagSpeed = gpTweakTargeting->mAngularLagSpeed;
     t = rstl::min_val(1.f, lagSpeed * dt / angleDeg);
-#endif
   }
   mLaggingOrientation =
       t == 1.f ? mLeadingOrientation
@@ -1133,16 +1127,6 @@ void CCompoundTargetReticle::Update(float dt, const CStateManager& mgr) {
   if (fullyCharged != mFullyCharged) {
     mFullyCharged = fullyCharged;
   }
-#if VERSION >= VERSION_R3IJ_00
-  if (mFullyCharged) {
-    const float duration = gpTweakTargeting->mFullChargeFadeDuration;
-    const float time = mFullChargeFadeTimer + dt / duration;
-    mFullChargeFadeTimer = time < duration ? time : duration;
-  } else {
-    const float time = mFullChargeFadeTimer - dt / gpTweakTargeting->mFullChargeFadeDuration;
-    mFullChargeFadeTimer = 0.f < time ? time : 0.f;
-  }
-#else
   if (mFullyCharged) {
     mFullChargeFadeTimer = rstl::min_val(
         gpTweakTargeting->mFullChargeFadeDuration,
@@ -1151,7 +1135,6 @@ void CCompoundTargetReticle::Update(float dt, const CStateManager& mgr) {
     mFullChargeFadeTimer = rstl::max_val(
         0.f, mFullChargeFadeTimer - dt / gpTweakTargeting->mFullChargeFadeDuration);
   }
-#endif
 
   // 6. Missile active state
   bool missileActive = mgr.GetPlayer()->GetPlayerGun()->GetMissileMode() == CPlayerGun::kMM_Active;
@@ -1279,12 +1262,7 @@ void CCompoundTargetReticle::Update(float dt, const CStateManager& mgr) {
     if (gpId != mGrapplePoint0) {
       float tmp;
       if (gpId == mGrapplePoint1) {
-#if VERSION >= VERSION_R3IJ_00
-        const float previousTime = mGrapplePoint1T;
-        tmp = FLT_EPSILON < previousTime ? previousTime : FLT_EPSILON;
-#else
         tmp = rstl::max_val(gkEpsilon, mGrapplePoint1T);
-#endif
       } else {
         tmp = FLT_EPSILON;
       }
@@ -1303,19 +1281,6 @@ void CCompoundTargetReticle::Update(float dt, const CStateManager& mgr) {
   }
 
   // 11. Grapple point interpolation timers
-#if VERSION >= VERSION_R3IJ_00
-  if (mGrapplePoint0T > 0.f) {
-    const float time = mGrapplePoint0T + dt / 0.5f;
-    mGrapplePoint0T = time < 1.f ? time : 1.f;
-  }
-  if (mGrapplePoint1T > 0.f) {
-    const float time = mGrapplePoint1T - dt / 0.5f;
-    mGrapplePoint1T = 0.f < time ? time : 0.f;
-    if (mGrapplePoint1T == 0.f) {
-      mGrapplePoint1 = kInvalidUniqueId;
-    }
-  }
-#else
   if (mGrapplePoint0T > 0.f) {
     mGrapplePoint0T = rstl::min_val(1.f, mGrapplePoint0T + dt / 0.5f);
   }
@@ -1325,7 +1290,6 @@ void CCompoundTargetReticle::Update(float dt, const CStateManager& mgr) {
       mGrapplePoint1 = kInvalidUniqueId;
     }
   }
-#endif
 
   // 12. Xray/seeker angle updates
   mXrayRetAngle = CMath::ClampRadians(
@@ -1381,12 +1345,7 @@ void CCompoundTargetReticle::UpdateCurrLockOnGroup(float dt, const CStateManager
   if (mCurrGroupTimer > 0.f) {
     UpdateTargetParameters(mCurrGroupA, mgr);
     UpdateTargetParameters(mCurrGroupB, mgr);
-#if VERSION >= VERSION_R3IJ_00
-    const float timer = mCurrGroupTimer - dt;
-    mCurrGroupTimer = 0.f < timer ? timer : 0.f;
-#else
     mCurrGroupTimer = rstl::max_val(0.f, mCurrGroupTimer - dt);
-#endif
     CTargetReticleRenderState::InterpolateWithClamp(mCurrGroupA, mCurrGroupInterp,
                                                     mCurrGroupB,
                                                     1.f - mCurrGroupTimer / mCurrGroupDur);
@@ -1394,38 +1353,18 @@ void CCompoundTargetReticle::UpdateCurrLockOnGroup(float dt, const CStateManager
     UpdateTargetParameters(mCurrGroupInterp, mgr);
   }
 
-#if VERSION >= VERSION_R3IJ_00
-  if (mMissileBracketTimer != 0.f &&
-      mMissileBracketTimer < gpTweakTargeting->mMissileBracketDuration) {
-    if (mMissileBracketTimer < 0.f) {
-      const float timer = mMissileBracketTimer + dt;
-      mMissileBracketTimer = 0.f < timer ? 0.f : timer;
-    } else {
-      const float timer = mMissileBracketTimer + dt;
-      mMissileBracketTimer = gpTweakTargeting->mMissileBracketDuration < timer
-                                 ? gpTweakTargeting->mMissileBracketDuration
-                                 : timer;
-    }
-  }
-#else
   if (mMissileBracketTimer != 0.f &&
       mMissileBracketTimer < gpTweakTargeting->mMissileBracketDuration) {
     if (mMissileBracketTimer < 0.f) {
       mMissileBracketTimer = rstl::min_val(mMissileBracketTimer + dt, 0.f);
     } else {
-      mMissileBracketTimer = rstl::min_val(mMissileBracketTimer + dt,
-                                               gpTweakTargeting->mMissileBracketDuration);
+      mMissileBracketTimer =
+          rstl::min_val(mMissileBracketTimer + dt, gpTweakTargeting->mMissileBracketDuration);
     }
   }
-#endif
 
   if (mChargeGaugeOvershootTimer > 0.f) {
-#if VERSION >= VERSION_R3IJ_00
-    const float timer = mChargeGaugeOvershootTimer - dt;
-    mChargeGaugeOvershootTimer = timer < 0.f ? 0.f : timer;
-#else
     mChargeGaugeOvershootTimer = rstl::max_val(mChargeGaugeOvershootTimer - dt, 0.f);
-#endif
     if (mChargeGaugeOvershootTimer == 0.f) {
       for (int i = 0; i < 9; ++i) {
         mOuterBeamIconSquares[i].mRotAng = mOuterBeamIconSquares[i].mBaseAngle;
@@ -1458,34 +1397,16 @@ void CCompoundTargetReticle::UpdateCurrLockOnGroup(float dt, const CStateManager
     }
   }
 
-#if VERSION >= VERSION_R3IJ_00
-  if (mLockonTimer > 0.f && mLockonTimer < gpTweakTargeting->mLockonDuration) {
-    mLockonTimer = gpTweakTargeting->mLockonDuration < mLockonTimer + dt
-                       ? gpTweakTargeting->mLockonDuration
-                       : mLockonTimer + dt;
-  }
-#else
   if (mLockonTimer > 0.f && mLockonTimer < gpTweakTargeting->mLockonDuration) {
     mLockonTimer = rstl::min_val(mLockonTimer + dt, gpTweakTargeting->mLockonDuration);
   }
-#endif
 
   if (mLockFireTimer > 0.f) {
-#if VERSION >= VERSION_R3IJ_00
-    const float timer = mLockFireTimer - dt;
-    mLockFireTimer = 0.f < timer ? timer : 0.f;
-#else
     mLockFireTimer = rstl::max_val(0.f, mLockFireTimer - dt);
-#endif
   }
 
   if (mMissileBracketScaleTimer > 0.f) {
-#if VERSION >= VERSION_R3IJ_00
-    const float timer = mMissileBracketScaleTimer - dt;
-    mMissileBracketScaleTimer = 0.f < timer ? timer : 0.f;
-#else
     mMissileBracketScaleTimer = rstl::max_val(0.f, mMissileBracketScaleTimer - dt);
-#endif
   }
 #if VERSION >= VERSION_R3IJ_00
   bool hasScanTarget = false;
@@ -1562,12 +1483,7 @@ void CCompoundTargetReticle::UpdateNextLockOnGroup(float dt, const CStateManager
   if (mNextGroupTimer > 0.f) {
     UpdateTargetParameters(mNextGroupA, mgr);
     UpdateTargetParameters(mNextGroupB, mgr);
-#if VERSION >= VERSION_R3IJ_00
-    const float time = mNextGroupTimer - dt;
-    mNextGroupTimer = 0.f < time ? time : 0.f;
-#else
     mNextGroupTimer = rstl::max_val(0.f, mNextGroupTimer - dt);
-#endif
     CTargetReticleRenderState::InterpolateWithClamp(mNextGroupA, mNextGroupInterp,
                                                     mNextGroupB,
                                                     1.f - mNextGroupTimer / mNextGroupDur);
@@ -1577,28 +1493,18 @@ void CCompoundTargetReticle::UpdateNextLockOnGroup(float dt, const CStateManager
 }
 
 void CCompoundTargetReticle::UpdateOrbitZoneGroup(float dt, const CStateManager& mgr) {
+  if (mTargetId == kInvalidUniqueId && mNextTargetId != kInvalidUniqueId) {
 #if VERSION >= VERSION_R3IJ_00
-  if (mTargetId == kInvalidUniqueId && mNextTargetId != kInvalidUniqueId) {
-    const float value = mUnk + static_cast< float >(2.f * dt);
-    mUnk = 1.f < value ? 1.f : value;
-  } else {
-    const float value = mUnk - static_cast< float >(2.f * dt);
-    mUnk = value < 0.f ? 0.f : value;
-  }
-
-  if (mgr.GetPlayer()->IsCrosshairsOpen() &&
-      mgr.GetPlayerState()->GetCurrentVisor() != CPlayerState::kPV_Scan) {
-    const float value = mCrosshairsScale + dt / gpTweakTargeting->mCrosshairsScaleDur;
-    mCrosshairsScale = 1.f < value ? 1.f : value;
-  } else {
-    const float value = mCrosshairsScale - dt / gpTweakTargeting->mCrosshairsScaleDur;
-    mCrosshairsScale = value < 0.f ? 0.f : value;
-  }
+    mUnk = rstl::min_val(mUnk + static_cast< float >(2.f * dt), 1.f);
 #else
-  if (mTargetId == kInvalidUniqueId && mNextTargetId != kInvalidUniqueId) {
     mUnk = rstl::min_val(2.f * dt + mUnk, 1.f);
+#endif
   } else {
+#if VERSION >= VERSION_R3IJ_00
+    mUnk = rstl::max_val(mUnk - static_cast< float >(2.f * dt), 0.f);
+#else
     mUnk = rstl::max_val(mUnk - 2.f * dt, 0.f);
+#endif
   }
 
   if (mgr.GetPlayer()->IsCrosshairsOpen() &&
@@ -1609,7 +1515,6 @@ void CCompoundTargetReticle::UpdateOrbitZoneGroup(float dt, const CStateManager&
     mCrosshairsScale =
         rstl::max_val(mCrosshairsScale - dt / gpTweakTargeting->mCrosshairsScaleDur, 0.f);
   }
-#endif
 }
 
 void CCompoundTargetReticle::Draw(const CStateManager& mgr, bool hideLockon) const {
@@ -2276,17 +2181,17 @@ float CCompoundTargetReticle::CalculateRadiusWorld(const CActor& actor,
   case 0: {
     const float height = max.GetY() - min.GetY();
     const float depth = max.GetZ() - min.GetZ();
-    const float yz = height < depth ? height : depth;
+    const float yz = rstl::min_val(depth, height);
     const float width = max.GetX() - min.GetX();
-    radius = (yz < width ? yz : width) * 0.5f;
+    radius = rstl::min_val(width, yz) * 0.5f;
     break;
   }
   case 1: {
     const float height = max.GetY() - min.GetY();
     const float depth = max.GetZ() - min.GetZ();
-    const float yz = depth < height ? height : depth;
+    const float yz = rstl::max_val(depth, height);
     const float width = max.GetX() - min.GetX();
-    radius = (width < yz ? yz : width) * 0.5f;
+    radius = rstl::max_val(width, yz) * 0.5f;
     break;
   }
   default: {
@@ -2721,14 +2626,11 @@ void COrbitPointMarker::Update(float dt, const CStateManager& mgr) {
 
 #if VERSION >= VERSION_R3IJ_00
   if (IsInterpolating()) {
-    const float time = mInterpTimer - dt;
-    mInterpTimer = 0.f < time ? time : 0.f;
-  }
 #else
   if (mInterpTimer > 0.f) {
+#endif
     mInterpTimer = rstl::max_val(0.f, mInterpTimer - dt);
   }
-#endif
 
   if (!mCamRelZPos) {
     CVector3f orbitPos = player->GetHUDOrbitTargetPosition();
