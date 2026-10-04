@@ -23,6 +23,18 @@
 #include "dolphin/thp/THPPlayer.h"
 #include "dolphin/thp/THPVideoDecode.h"
 
+// Defined here so it inlines into InitializeTextures without also inlining
+// vector<auto_ptr<uchar>>::~vector into ~CMoviePlayer.
+template <>
+inline void rstl::vector< CMoviePlayer::CTHPTextureSet >::push_back(
+    const CMoviePlayer::CTHPTextureSet& in) {
+  if (mCount >= mCapacity) {
+    reserve(mCapacity != 0 ? mCapacity * 2 : 4);
+  }
+  new (mItems + mCount) CMoviePlayer::CTHPTextureSet(in);
+  ++mCount;
+}
+
 static int sNumReferences = 0;
 static CMoviePlayer* sAudioPlayer;
 static const short* curAudioBuffer;
