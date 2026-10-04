@@ -70,21 +70,6 @@ struct SBeamToItemMapping {
 };
 CHECK_SIZEOF(SBeamToItemMapping, 0xc)
 
-static const SBeamToItemMapping skBeamToItemMapping[] = {
-    {CControlMapper::kC_PowerBeam, CPlayerState::kIT_PowerBeam, CPlayerState::kBI_Power},
-    {CControlMapper::kC_PowerBeamAlternative, CPlayerState::kIT_PowerBeam, CPlayerState::kBI_Power},
-    {CControlMapper::kC_IceBeam, CPlayerState::kIT_IceBeam, CPlayerState::kBI_Ice},
-    {CControlMapper::kC_WaveBeam, CPlayerState::kIT_WaveBeam, CPlayerState::kBI_Wave},
-    {CControlMapper::kC_PlasmaBeam, CPlayerState::kIT_PlasmaBeam, CPlayerState::kBI_Plasma},
-};
-
-static const CPlayerState::EItemType mBeamComboArr[4] = {
-    CPlayerState::kIT_SuperMissile,
-    CPlayerState::kIT_IceSpreader,
-    CPlayerState::kIT_Wavebuster,
-    CPlayerState::kIT_Flamethrower,
-};
-
 static const ushort mToMissileSound[4] = {
     SFXsam_b_misswitch_00,
     SFXsam_b_misswitch_10,
@@ -102,6 +87,21 @@ static const ushort mFromMissileSound[4] = {
 static const CPlayerState::EItemType skItemArr[2] = {
     CPlayerState::kIT_Invalid,
     CPlayerState::kIT_Missiles,
+};
+
+static const CPlayerState::EItemType mBeamComboArr[4] = {
+    CPlayerState::kIT_SuperMissile,
+    CPlayerState::kIT_IceSpreader,
+    CPlayerState::kIT_Wavebuster,
+    CPlayerState::kIT_Flamethrower,
+};
+
+static const SBeamToItemMapping skBeamToItemMapping[] = {
+    {CControlMapper::kC_PowerBeam, CPlayerState::kIT_PowerBeam, CPlayerState::kBI_Power},
+    {CControlMapper::kC_PowerBeamAlternative, CPlayerState::kIT_PowerBeam, CPlayerState::kBI_Power},
+    {CControlMapper::kC_IceBeam, CPlayerState::kIT_IceBeam, CPlayerState::kBI_Ice},
+    {CControlMapper::kC_WaveBeam, CPlayerState::kIT_WaveBeam, CPlayerState::kBI_Wave},
+    {CControlMapper::kC_PlasmaBeam, CPlayerState::kIT_PlasmaBeam, CPlayerState::kBI_Plasma},
 };
 
 static const ushort mItemEmptySound[2] = {
