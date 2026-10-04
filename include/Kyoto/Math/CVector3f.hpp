@@ -118,9 +118,8 @@ public:
 
   static const float Dot(const CVector3f& a, const CVector3f& b) {
 #if VERSION >= VERSION_R3IJ_00
-    return static_cast< float >(a.GetX() * b.GetX()) +
-           static_cast< float >(a.GetY() * b.GetY()) +
-           static_cast< float >(a.GetZ() * b.GetZ());
+    return static_cast< float >(a.mX * b.mX) + static_cast< float >(a.mY * b.mY) +
+           static_cast< float >(a.mZ * b.mZ);
 #else
     return (a.GetX() * b.GetX()) + (a.GetY() * b.GetY()) + (a.GetZ() * b.GetZ());
 #endif

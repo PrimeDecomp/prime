@@ -28,7 +28,8 @@ public:
   static CQuaternion ShortestRotationArc(const CVector3f&, const CVector3f&);
 
   static CQuaternion LookAt(const CUnitVector3f&, const CUnitVector3f&, const CRelAngle&);
-  static CQuaternion ShortestRotationArcClamped(const CVector3f&, const CVector3f&, const CRelAngle&);
+  static CQuaternion ShortestRotationArcClamped(const CVector3f&, const CVector3f&,
+                                                const CRelAngle&);
 
   bool IsValidQuaternion(float epsilon) const;
   static CQuaternion Slerp(const CQuaternion& a, const CQuaternion& b, float t);
@@ -57,7 +58,12 @@ public:
   static const CQuaternion& NoRotation() { return sNoRotation; }
 
   static float Dot(const CQuaternion& a, const CQuaternion& b) {
+#if VERSION >= VERSION_R3IJ_00
+    return static_cast< float >(a.GetScalar() * b.GetScalar()) +
+           CVector3f::Dot(a.GetVector(), b.GetVector());
+#else
     return a.GetScalar() * b.GetScalar() + CVector3f::Dot(a.GetVector(), b.GetVector());
+#endif
   }
 
   bool LocalTo(const CQuaternion& other) const { return Dot(other, *this) >= 0.f; }
@@ -65,8 +71,7 @@ public:
   static CQuaternion MadeLocalToFirst(const CQuaternion& first, const CQuaternion& second) {
     return second.LocalTo(first) ? second : second.BuildEquivalent();
   }
-  
-  
+
   float GetScalar() const { return w; }
   const CVector3f& GetVector() const { return imaginary; }
   float AxisX() const { return imaginary.GetX(); }
