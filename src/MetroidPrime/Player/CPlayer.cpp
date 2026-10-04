@@ -2,6 +2,7 @@
 
 #if VERSION >= VERSION_R3IJ_00
 
+#include "Collision/CCollidableAABox.hpp"
 #include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/CSimplePool.hpp"
 #include "Kyoto/Text/CStringTable.hpp"
@@ -10,6 +11,7 @@
 #include "MetroidPrime/HUD/CSamusHud.hpp"
 #include "MetroidPrime/ScriptObjects/CHUDBillboardEffect.hpp"
 #include "MetroidPrime/SFX/IceCrack.h"
+#include "MetroidPrime/SFX/Weapons.h"
 #include "MetroidPrime/CGameCollision.hpp"
 #include "MetroidPrime/Player/CMorphBall.hpp"
 #include "MetroidPrime/Player/CGrappleArm.hpp"
@@ -29,6 +31,8 @@
 #include "MetroidPrime/Tweaks/CTweakPlayerControl.hpp"
 #include "MetroidPrime/Tweaks/CTweakPlayerGun.hpp"
 #include "MetroidPrime/Tweaks/CTweaks.hpp"
+
+class CMetroidBeta;
 
 struct SVisorToItemMapping {
   CPlayerState::EItemType mItem;
@@ -2809,8 +2813,15 @@ void CPlayer::ProcessInput(const CFinalInput& input, CStateManager& mgr) {
   CalculateLeaveMorphBallDirection(input);
 }
 
+#endif
+
 void CPlayer::UpdateMorphBallState(float dt, const CFinalInput& input, CStateManager& mgr) {
+#if VERSION >= VERSION_R3IJ_00
+  if (!mControlMapper.GetPressInput(CControlMapper::kC_Morph, input,
+                                   CControlMapper::kFT_Filtered)) {
+#else
   if (!ControlMapper::GetPressInput(ControlMapper::kC_Morph, input)) {
+#endif
     return;
   }
 
@@ -2844,6 +2855,7 @@ void CPlayer::UpdateMorphBallState(float dt, const CFinalInput& input, CStateMan
   }
 }
 
+#if VERSION < VERSION_R3IJ_00
 float CPlayer::GetMaximumPlayerPositiveVerticalVelocity(const CStateManager& mgr) const {
   return mgr.GetPlayerState()->GetItemAmount(CPlayerState::kIT_SpaceJumpBoots) ? 14.f : 11.66666f;
 }
@@ -3419,6 +3431,8 @@ void CPlayer::SetHudDisable(float staticTimer, float outSpeed, float inSpeed) {
   }
 }
 
+#endif
+
 bool CPlayer::CanEnterMorphBallState(CStateManager& mgr, float f1) const {
 #if !NONMATCHING
   TEntityList nearList;
@@ -3435,7 +3449,12 @@ bool CPlayer::CanEnterMorphBallState(CStateManager& mgr, float f1) const {
 
 bool CPlayer::CanLeaveMorphBallState(CStateManager& mgr, CVector3f& pos) const {
   if (mMorphball->IsProjectile() || !mLeaveMorphballAllowed ||
+#if VERSION >= VERSION_R3IJ_00
+      ((mAttachedActor != kInvalidUniqueId || IsUnderBetaMetroidAttack(mgr)) &&
+       mMorphBallState == kMS_Morphed)) {
+#else
       (IsUnderBetaMetroidAttack(mgr) && mMorphBallState == kMS_Morphed)) {
+#endif
     return false;
   }
 
@@ -3472,7 +3491,12 @@ bool CPlayer::IsUnderBetaMetroidAttack(CStateManager& mgr) const {
     const rstl::vector< CEnergyDrainSource >& sources = mEnergyDrain.GetEnergyDrainSources();
     for (rstl::vector< CEnergyDrainSource >::const_iterator it = sources.begin();
          it != sources.end(); ++it) {
+#ifdef HAS_TYPES_MATCH
+      if (TCastToPtr< CMetroidBeta >(
+              const_cast< CEntity* >(mgr.GetObjectById(it->GetEnergyDrainSourceId())))) {
+#else
       if (PATTERNED_CAST_TO(CMetroidBeta, const_cast< CEntity* >(mgr.GetObjectById(it->GetEnergyDrainSourceId())))) {
+#endif
         return true;
       }
     }
@@ -3481,6 +3505,7 @@ bool CPlayer::IsUnderBetaMetroidAttack(CStateManager& mgr) const {
   return false;
 }
 
+#if VERSION < VERSION_R3IJ_00
 float CPlayer::GetTransitionAlpha(const CVector3f& camPos, float zNear) const {
   float zLimit =
       (mFpBounds.GetMaxPoint().GetX() - mFpBounds.GetMinPoint().GetX()) * 0.5f + zNear;
@@ -3964,6 +3989,8 @@ const bool CPlayer::StartSamusVoiceSfx(const ushort sfx, const short vol, int pr
 
 float CPlayer::GetAttachedActorStruggle() const { return mAttachedActorStruggle; }
 
+#endif
+
 extern bool IsDataLoreResearchScan(CAssetId id);
 
 void CPlayer::UpdateSlideShowUnlocking(CStateManager& mgr) {
@@ -3985,6 +4012,24 @@ void CPlayer::UpdateSlideShowUnlocking(CStateManager& mgr) {
   if (mgr.PlayerState()->GetScanTime(scanInfo->GetScannableObjectId()) >= 1.f &&
       IsDataLoreResearchScan(scanInfo->GetScannableObjectId())) {
     rstl::pair< int, int > scanCompletion = mgr.CalculateScanCompletionRate();
+#if VERSION >= VERSION_R3IJ_00
+    const int oldPercent = mgr.GetPlayerState()->GetScanPercent();
+    mgr.PlayerState()->SetScanCompletionRateFirst(scanCompletion.first);
+    mgr.PlayerState()->SetScanCompletionRateSecond(scanCompletion.second);
+    const int newPercent = mgr.GetPlayerState()->GetScanPercent();
+    if (oldPercent < 50 && newPercent >= 50) {
+      const CStateManager::SAchievementInfo info(
+          23, "STRG_Logbook50Achievement", 7, CStateManager::SAchievementInfo::kDT_HudMemo,
+          FLT_EPSILON, 3.5f, CStateManager::SAchievementInfo::kCM_Allow);
+      mgr.EarnAchievementAndNotify(info);
+    }
+    if (oldPercent < 100 && newPercent >= 100) {
+      const CStateManager::SAchievementInfo info(
+          24, "STRG_Logbook100Achievement", 7, CStateManager::SAchievementInfo::kDT_HudMemo,
+          FLT_EPSILON, 3.5f, CStateManager::SAchievementInfo::kCM_Allow);
+      mgr.EarnAchievementAndNotify(info);
+    }
+#else
     extern CAssetId UpdatePersistentScanPercent(int, int, int); // TODO: CSlideShow
     CAssetId message = UpdatePersistentScanPercent(mgr.PlayerState()->GetLogScans(),
                                                    scanCompletion.first, scanCompletion.second);
@@ -3993,8 +4038,11 @@ void CPlayer::UpdateSlideShowUnlocking(CStateManager& mgr) {
     }
     mgr.PlayerState()->SetScanCompletionRateFirst(scanCompletion.first);
     mgr.PlayerState()->SetScanCompletionRateSecond(scanCompletion.second);
+#endif
   }
 }
+
+#if VERSION < VERSION_R3IJ_00
 
 bool CPlayer::IsEnergyLow(const CStateManager& mgr) const {
   CHealthInfo healthInfo = *GetHealthInfo(mgr);
