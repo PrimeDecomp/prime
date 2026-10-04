@@ -3964,6 +3964,8 @@ const bool CPlayer::StartSamusVoiceSfx(const ushort sfx, const short vol, int pr
 
 float CPlayer::GetAttachedActorStruggle() const { return mAttachedActorStruggle; }
 
+#endif
+
 extern bool IsDataLoreResearchScan(CAssetId id);
 
 void CPlayer::UpdateSlideShowUnlocking(CStateManager& mgr) {
@@ -3985,6 +3987,24 @@ void CPlayer::UpdateSlideShowUnlocking(CStateManager& mgr) {
   if (mgr.PlayerState()->GetScanTime(scanInfo->GetScannableObjectId()) >= 1.f &&
       IsDataLoreResearchScan(scanInfo->GetScannableObjectId())) {
     rstl::pair< int, int > scanCompletion = mgr.CalculateScanCompletionRate();
+#if VERSION >= VERSION_R3IJ_00
+    const int oldPercent = mgr.GetPlayerState()->GetScanPercent();
+    mgr.PlayerState()->SetScanCompletionRateFirst(scanCompletion.first);
+    mgr.PlayerState()->SetScanCompletionRateSecond(scanCompletion.second);
+    const int newPercent = mgr.GetPlayerState()->GetScanPercent();
+    if (oldPercent < 50 && newPercent >= 50) {
+      const CStateManager::SAchievementInfo info(
+          23, "STRG_Logbook50Achievement", 7, CStateManager::SAchievementInfo::kDT_HudMemo,
+          FLT_EPSILON, 3.5f, CStateManager::SAchievementInfo::kCM_Allow);
+      mgr.EarnAchievementAndNotify(info);
+    }
+    if (oldPercent < 100 && newPercent >= 100) {
+      const CStateManager::SAchievementInfo info(
+          24, "STRG_Logbook100Achievement", 7, CStateManager::SAchievementInfo::kDT_HudMemo,
+          FLT_EPSILON, 3.5f, CStateManager::SAchievementInfo::kCM_Allow);
+      mgr.EarnAchievementAndNotify(info);
+    }
+#else
     extern CAssetId UpdatePersistentScanPercent(int, int, int); // TODO: CSlideShow
     CAssetId message = UpdatePersistentScanPercent(mgr.PlayerState()->GetLogScans(),
                                                    scanCompletion.first, scanCompletion.second);
@@ -3993,8 +4013,11 @@ void CPlayer::UpdateSlideShowUnlocking(CStateManager& mgr) {
     }
     mgr.PlayerState()->SetScanCompletionRateFirst(scanCompletion.first);
     mgr.PlayerState()->SetScanCompletionRateSecond(scanCompletion.second);
+#endif
   }
 }
+
+#if VERSION < VERSION_R3IJ_00
 
 bool CPlayer::IsEnergyLow(const CStateManager& mgr) const {
   CHealthInfo healthInfo = *GetHealthInfo(mgr);
