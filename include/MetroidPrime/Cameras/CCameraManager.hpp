@@ -134,7 +134,7 @@ private:
   CGameArea::CAreaFog mFog;
   int mFluidCounter;
   TUniqueId mFluidId;
-#if VERSION == VERSION_GM8E_02
+#if VERSION == VERSION_GM8E_02 || VERSION == VERSION_GM8J_00
   rstl::reserved_vector< TUniqueId, 4 > x7c_;
 #endif
   CFirstPersonCamera* mFpCamera;
@@ -162,7 +162,7 @@ private:
   float mCurFov;
 };
 #if VERSION < VERSION_R3IJ_00
-CHECK_SIZEOF(CCameraManager, VERSION == VERSION_GM8E_02 ? 0x3cc : 0x3c0)
+CHECK_SIZEOF(CCameraManager, (VERSION == VERSION_GM8E_02 || VERSION == VERSION_GM8J_00) ? 0x3cc : 0x3c0)
 #endif
 
 #endif // _CCAMERAMANAGER
