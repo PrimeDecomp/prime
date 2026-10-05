@@ -111,7 +111,7 @@ CPlayerState::CPlayerState(CInputStream& stream)
 , mScanTimes()
 , mScanCompletionRateFirst(0)
 , mScanCompletionRateSecond(0)
-, mStaticIntf(5) 
+, mStaticIntf(5) {
   mEnabledItems = uint(stream.ReadBits(32));
 
   const uint integralHP = uint(stream.ReadBits(32));
