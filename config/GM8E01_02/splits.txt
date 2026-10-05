@@ -733,8 +733,11 @@ MetroidPrime/CRippleManager.cpp:
 	.sdata2     start:0x805AC520 end:0x805AC528
 
 MetroidPrime/Player/CGrappleArm.cpp:
-	.text       start:0x80120544 end:0x80120CFC
-	.sdata2     start:0x805AC588 end:0x805AC590
+	.text       start:0x8011DC70 end:0x80120CFC
+	.rodata     start:0x803D03E0 end:0x803D04F8
+	.data       start:0x803E1770 end:0x803E17C0
+	.sdata      start:0x805A86C0 end:0x805A86D8
+	.sdata2     start:0x805AC528 end:0x805AC590
 
 MetroidPrime/Enemies/CSpacePirate.cpp:
 	.text       start:0x80120CFC end:0x8012DAEC
@@ -1054,7 +1057,8 @@ MetroidPrime/Enemies/CDrone.cpp:
 	.text       start:0x8015F93C end:0x80168350
 
 MetroidPrime/CMapWorldInfo.cpp:
-	.text       start:0x80169728 end:0x80169BA0
+	.text       start:0x801683F8 end:0x8016A100
+	.rodata     start:0x803D14E8 end:0x803D14F0
 	.sdata      start:0x805A89D0 end:0x805A89D8
 
 MetroidPrime/Factories/CScannableObjectInfo.cpp:
