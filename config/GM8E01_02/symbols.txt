@@ -158,7 +158,7 @@ erase__Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>FQ24rstl110pointer_
 erase__Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>FQ24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator>Q24rstl110pointer_iterator<9TUniqueId,Q24rstl45vector<9TUniqueId,Q24rstl17rmemory_allocator>,Q24rstl17rmemory_allocator> = .text:0x8000B364; // type:function size:0x98
 AddCinemaCamera__14CCameraManagerF9TUniqueIdR13CStateManager = .text:0x8000B3FC; // type:function size:0x130
 ProcessInput__14CCameraManagerFRC11CFinalInputR13CStateManager = .text:0x8000B52C; // type:function size:0xB0
-fn_8000B5DC = .text:0x8000B5DC; // type:function size:0x1E0
+SetInsideFluid__14CCameraManagerFb9TUniqueId = .text:0x8000B5DC; // type:function size:0x1E0
 Update__14CCameraManagerFfR13CStateManager = .text:0x8000B7BC; // type:function size:0x80
 SetWaterFogScale__14CCameraManagerFff = .text:0x8000B83C; // type:function size:0x28 scope:global
 GetWaterFarDistance__14CCameraManagerFR13CStateManagerPC12CScriptWater = .text:0x8000B864; // type:function size:0x8C scope:global

@@ -517,7 +517,7 @@ config.libs = [
                 if version_num < VERSIONS.index("GM8E01_02")
                 else [],
             ),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "MetroidPrime/Cameras/CCameraManager.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00"), "MetroidPrime/Cameras/CCameraManager.cpp"),
             Object(
                 NonMatching,
                 "MetroidPrime/CAimingCursor.cpp",
