@@ -264,7 +264,15 @@ void CMetroidPrimeStage2::Think(float dt, CStateManager& mgr) {
 }
 
 void CMetroidPrimeStage2::UpdateVisibleSpectrum(float dt, CStateManager& mgr) {
+#if VERSION >= VERSION_GM8E_02
+  const CPlayerState* playerState = mgr.GetPlayerState();
+  const int phase =
+      skVisorPhases[mgr.GetCameraManager()->IsInCinematicCamera()
+                        ? 0
+                        : playerState->GetCurrentVisor()];
+#else
   const int phase = skVisorPhases[mgr.GetPlayerState()->GetCurrentVisor()];
+#endif
   if (phase == mCurrentVisorPhase) {
     const float alpha = 1.f - mPhaseAlpha;
     mColor.SetAlpha(alpha);
@@ -735,7 +743,15 @@ void CMetroidPrimeStage2::StartSpectralFade(CStateManager& mgr) {
   mIsSpaceWarping = true;
   mPhaseAlpha = 1.f;
   mCanSpawnAi = false;
+#if VERSION >= VERSION_GM8E_02
+  const CPlayerState* playerState = mgr.GetPlayerState();
+  const int phase =
+      skVisorPhases[mgr.GetCameraManager()->IsInCinematicCamera()
+                        ? 0
+                        : playerState->GetCurrentVisor()];
+#else
   const int phase = skVisorPhases[mgr.GetPlayerState()->GetCurrentVisor()];
+#endif
   const ushort sfx =
       phase == mCurrentVisorPhase ? static_cast< ushort >(0xb7e) : static_cast< ushort >(0xb7d);
   if (phase == mCurrentVisorPhase) {
