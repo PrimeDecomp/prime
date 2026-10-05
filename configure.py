@@ -835,7 +835,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/Cameras/CCameraFilter.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"),
                 "MetroidPrime/Player/CMorphBall.cpp",
                 extra_cflags=['-pragma "inline_max_size(100)"']
                 if version_num >= VERSIONS.index("GM8P01_00")
@@ -1698,7 +1698,7 @@ config.libs = [
                 "Kyoto/Animation/CAnimCharacterSet.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8E01_02"),
                 "Kyoto/Animation/CAnimTreeLoopIn.cpp",
                 extra_cflags=['-pragma "inline_max_size(260)"'] if version_num < VERSIONS.index("GM8P01_00") else [],
             ),
@@ -1746,7 +1746,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8E01_02"), "Kyoto/Animation/CPrimitive.cpp"
             ),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"), "Kyoto/Animation/CSequenceHelper.cpp",
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8E01_02"), "Kyoto/Animation/CSequenceHelper.cpp",
                    extra_cflags=(
                        ['-pragma "inline_max_size(255)"']
                        if version_num < VERSIONS.index("GM8P01_00")
@@ -2025,7 +2025,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
                    "Kyoto/Math/CSphere.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8J01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8J01_00", "GM8E01_02"),
                 "Kyoto/Math/CAABox.cpp",
                 extra_cflags=(
                     ['-pragma "inline_max_size(140)"']
