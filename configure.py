@@ -990,7 +990,10 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8E01_02"),
                 "MetroidPrime/BodyState/CBSLoopAttack.cpp",
             ),
-            Object(MatchingFor("GM8E01_02"), "MetroidPrime/Weapons/CTargetableProjectile.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"),
+                "MetroidPrime/Weapons/CTargetableProjectile.cpp",
+            ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8E01_02"),
                 "MetroidPrime/BodyState/CBSLoopReaction.cpp",
@@ -1576,7 +1579,7 @@ config.libs = [
         "GuiSys",
         "core",
         [
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "GuiSys/CAuiMain.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "GuiSys/CAuiMain.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8E01_02"), "GuiSys/CAuiMeter.cpp"
             ),
@@ -1795,7 +1798,7 @@ config.libs = [
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8E01_02"),
                    "Kyoto/Animation/CAnimMathUtils.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "Kyoto/Animation/CAnimPerSegmentData.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "Kyoto/Animation/CAnimPerSegmentData.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "Kyoto/Animation/CAnimPOIData.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "Kyoto/Animation/CAnimSource.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8E01_02"),
@@ -1854,7 +1857,7 @@ config.libs = [
                 "Kyoto/Animation/CInt32POINode.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8E01_02"),
                 "Kyoto/Animation/CMultiFormatAnimReader.CPP",
             ),
             Object(
@@ -2453,7 +2456,7 @@ config.libs = [
         "gx",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02", "GM8P01_00"),
                 "dolphin/gx/GXInit.c",
             ),
             Object(
@@ -2461,11 +2464,11 @@ config.libs = [
                 "dolphin/gx/GXFifo.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02", "GM8P01_00"),
                 "dolphin/gx/GXAttr.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02", "GM8P01_00"),
                 "dolphin/gx/GXMisc.c",
             ),
             Object(
@@ -2494,7 +2497,7 @@ config.libs = [
                 "dolphin/gx/GXTev.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02"),
                 "dolphin/gx/GXPixel.c",
                 extra_cflags=["-fp_contract off"],
             ),
