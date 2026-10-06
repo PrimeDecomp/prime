@@ -597,7 +597,11 @@ CAssetId UpdatePersistentScanPercent(int previous, int current, int total) {
 }
 
 CIOWin::EMessageReturn CSlideShow::ProcessUserInput(const CFinalInput& input) {
+#if VERSION == VERSION_GM8E_02
+  if (!mDisableInput && mPhase == 5) {
+#else
   if (!mDisableInput) {
+#endif
     if (IsControlsAnimating()) {
       UpdateControlsText(input);
     }
