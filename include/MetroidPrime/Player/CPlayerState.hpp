@@ -267,7 +267,7 @@ private:
 };
 #if VERSION >= VERSION_R3IJ_00
 CHECK_SIZEOF(CPlayerState, 0x194)
-#elseif VERSION != VERSION_GM8EAB_00
+#elif VERSION != VERSION_GM8EAB_00
 CHECK_SIZEOF(CPlayerState, 0x198)
 #endif
 
