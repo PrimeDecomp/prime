@@ -136,6 +136,14 @@ static BOOL __GXShutdown(BOOL final) {
 }
 
 static OSResetFunctionInfo GXResetFuncInfo = {__GXShutdown, OS_RESET_PRIO_GX};
+
+static inline void RegisterResetFunction(void) {
+  static u32 resetFuncRegistered = 0;
+  if (resetFuncRegistered == 0) {
+    OSRegisterResetFunction(&GXResetFuncInfo);
+    resetFuncRegistered = 1;
+  }
+}
 #endif
 
 GXFifoObj *GXInit(void *base, u32 size) {
@@ -167,13 +175,7 @@ GXFifoObj *GXInit(void *base, u32 size) {
   GXSetGPFifo(&FifoObj);
 
 #if VERSION == VERSION_GM8E_02
-  {
-    static u32 resetFuncRegistered = 0;
-    if (resetFuncRegistered == 0) {
-      OSRegisterResetFunction(&GXResetFuncInfo);
-      resetFuncRegistered = 1;
-    }
-  }
+  RegisterResetFunction();
 #endif
 
   __GXPEInit();
