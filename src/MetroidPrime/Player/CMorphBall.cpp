@@ -432,7 +432,11 @@ bool CMorphBall::IsMovementAllowed() const {
   return !(mDisableControlCooldown > 0.f);
 }
 
+#if VERSION >= VERSION_R3IJ_00
+void CMorphBall::SetDisableSpiderBallTime(float time) { mDamageTimer = time; }
+#else
 void CMorphBall::SetDamageTimer(const float time) { mDamageTimer = time; }
+#endif
 
 void CMorphBall::UpdateSpiderBall(const CFinalInput& input, CStateManager& mgr, float dt) {
   SetSpiderBallSwingingState(CheckForSwitchToSpiderBallSwinging(mgr));

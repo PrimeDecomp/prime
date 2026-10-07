@@ -1640,6 +1640,75 @@ CTransform4f CPlayer::CreateTransformFromMovementDirection() const {
   return CTransform4f::FromColumns(right, direction, CVector3f::Up(), GetTranslation());
 }
 
+#if VERSION >= VERSION_R3IJ_00
+
+void CPlayer::BombJump(const CVector3f& position, CStateManager& mgr, bool airborneBomb) {
+  if (mMorphBallState == kMS_Morphed &&
+      mMorphball->GetBombJumpState() != CMorphBall::kBJS_BombJumpDisabled) {
+    const float extent = gpTweakPlayer->GetPlayerBallHalfExtent();
+    const CVector3f toBall =
+        GetTransform().GetTranslation() + CVector3f(0.f, 0.f, extent) - position;
+    const float maxDistance = gpTweakPlayer->GetBombJumpHeight();
+    if (toBall.MagSquared() < maxDistance * maxDistance &&
+        CVector3f::Dot(CVector3f(0.f, 0.f, 1.f), toBall) >= -extent) {
+      mgr.GetRumbleManager()->Rumble(mgr, kRFX_PlayerBump, 0.3f, kRP_One);
+      x2a0_ = 0.01f;
+      bool applyJump = true;
+      bool unrestrictedJump = false;
+      if (mgr.GetPlayerState()->HasPowerUp(CPlayerState::kIT_GravitySuit)) {
+        if (CheckSubmerged()) {
+          unrestrictedJump = true;
+        } else {
+          const u64 location = (static_cast< u64 >(mgr.GetWorld()->GetWorldAssetId()) << 32) |
+                               mgr.GetNextAreaId().Value();
+          if (location == 0xB1AC4D6500000003ULL) {
+            unrestrictedJump = true;
+          }
+        }
+      }
+      if (airborneBomb && !unrestrictedJump) {
+        if (mCanAirBombJump) {
+          mCanAirBombJump = false;
+        } else {
+          applyJump = false;
+        }
+      }
+      if (mMorphball->GetSpiderBallState() == CMorphBall::kSBS_Active) {
+        applyJump = true;
+        mCanAirBombJump = true;
+      }
+      if (applyJump) {
+        SetVelocityWR(CVector3f(0.f, 0.f, mMorphball->CalculateJumpSpeed(mgr)));
+      }
+      mMorphball->SetDisableSpiderBallTime(0.1f);
+      mMorphball->CancelBoosting();
+      if (mBombJumpCount > 0) {
+        if (mBombJumpCount > 2) {
+          mBombJumpCount = 0;
+          mBombJumpCheckDelayFrames = 0;
+          SetBallJump(false);
+        } else {
+          ++mBombJumpCount;
+        }
+      } else {
+        const CBallCamera* const camera = mgr.GetCameraManager()->GetBallCamera();
+        if (camera->GetTooCloseActorId() != kInvalidUniqueId &&
+            camera->GetTooCloseActorDistance() < 5.f) {
+          mBombJumpCount = 1;
+          mBombJumpCheckDelayFrames = 2;
+          SetBallJump(true);
+        }
+      }
+      if (applyJump) {
+        DoSfxEffects(CSfxManager::AddEmitter(SFXsam_b_bombjump_00, GetTranslation(),
+                                           CVector3f::Zero(), false, false));
+      }
+    }
+  }
+}
+
+#endif
+
 #if VERSION < VERSION_R3IJ_00
 
 void CPlayer::BombJump(const CVector3f& position, CStateManager& mgr) {
