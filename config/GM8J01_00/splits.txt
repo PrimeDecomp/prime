@@ -1960,6 +1960,7 @@ GuiSys/CGuiFactories.cpp:
 GuiSys/CGuiFeeHelper.cpp:
 	.text       start:0x802AFE2C end:0x802AFF44
 	.ctors      start:0x803B6E28 end:0x803B6E2C
+	.bss        start:0x80588C30 end:0x80588D68 align:4 common
 	.sbss       start:0x805922A8 end:0x805922B0
 
 GuiSys/CGuiFrame.cpp:
@@ -1970,7 +1971,6 @@ GuiSys/CGuiGroup.cpp:
 	.text       start:0x802B11FC end:0x802B13B8
 	.rodata     start:0x803C2D40 end:0x803C2D48
 	.data       start:0x803D55B8 end:0x803D55F8
-	.bss        start:0x80588C30 end:0x80588D68 align:4 common
 
 GuiSys/CGuiHeadWidget.cpp:
 	.text       start:0x802B13B8 end:0x802B1504
