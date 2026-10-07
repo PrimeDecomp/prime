@@ -3705,7 +3705,7 @@ void CPlayer::TakeDamage(bool significant, const CVector3f& location, float dama
 
     if (mMorphBallState != kMS_Unmorphed) {
       mMorphball->TakeDamage(mDamageAmt);
-      mMorphball->SetDamageTimer(0.4f);
+      mMorphball->SetDisableSpiderBallTime(0.4f);
     }
   }
 

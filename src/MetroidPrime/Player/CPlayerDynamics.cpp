@@ -1739,7 +1739,7 @@ void CPlayer::BombJump(const CVector3f& position, CStateManager& mgr) {
       }
       const CVector3f newVelocity(0.f, 0.f, velocity);
       SetVelocityWR(newVelocity);
-      mMorphball->SetDamageTimer(0.1f);
+      mMorphball->SetDisableSpiderBallTime(0.1f);
       mMorphball->CancelBoosting();
       if (mBombJumpCount > 0) {
         if (mBombJumpCount > 2) {
@@ -2379,7 +2379,7 @@ void CPlayer::EnterMorphBallState(CStateManager& mgr) {
       -GetVelocityWR().Magnitude() / gpTweakPlayer->GetPlayerBallHalfExtent(), 0.f, 0.f)));
   mMorphball->EnterMorphBallState(mgr);
   mMorphball->TakeDamage(-1.f);
-  mMorphball->SetDamageTimer(0.f);
+  mMorphball->SetDisableSpiderBallTime(0.f);
   mgr.PlayerState()->StartTransitionToVisor(CPlayerState::kPV_Combat);
 }
 

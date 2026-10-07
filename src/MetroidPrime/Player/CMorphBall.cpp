@@ -299,7 +299,7 @@ CMorphBall::CMorphBall(CPlayer& player, float radius)
 , mNormSpiderSurfaceForces(0.f, 0.f)
 , mSpiderTrackForceMag(0.f)
 , mSpiderViewControlMag(0.f)
-, mDamageTimer(0.f)
+, mDisableSpiderBallTime(0.f)
 , mSpiderForcesReset(false)
 , mSurfaceToWorld(CTransform4f::Identity())
 , mIsProjectile(false)
@@ -432,11 +432,7 @@ bool CMorphBall::IsMovementAllowed() const {
   return !(mDisableControlCooldown > 0.f);
 }
 
-#if VERSION >= VERSION_R3IJ_00
-void CMorphBall::SetDisableSpiderBallTime(float time) { mDamageTimer = time; }
-#else
-void CMorphBall::SetDamageTimer(const float time) { mDamageTimer = time; }
-#endif
+void CMorphBall::SetDisableSpiderBallTime(const float time) { mDisableSpiderBallTime = time; }
 
 void CMorphBall::UpdateSpiderBall(const CFinalInput& input, CStateManager& mgr, float dt) {
   SetSpiderBallSwingingState(CheckForSwitchToSpiderBallSwinging(mgr));
@@ -933,7 +929,7 @@ void CMorphBall::ComputeMarioMovement(const CFinalInput& input, CStateManager& m
   mSpiderPullMovement = spiderPull >= spiderPullThreshold ? 1.f : 0.f;
 
   if (mgr.GetPlayerState()->HasPowerUp(CPlayerState::kIT_SpiderBall) &&
-      mSpiderPullMovement != 0.f && !mDamageTimer) {
+      mSpiderPullMovement != 0.f && !mDisableSpiderBallTime) {
     if (mSpiderBallState != kSBS_Active) {
       mTouchingSpider = false;
       mSpiderBallState = kSBS_Active;
@@ -1184,8 +1180,8 @@ void CMorphBall::UpdateBallDynamics(CStateManager& mgr, float dt) {
 
   mDisableControlCooldown -= dt;
   mDisableControlCooldown = rstl::max_val(mDisableControlCooldown, 0.f);
-  mDamageTimer -= dt;
-  mDamageTimer = rstl::max_val(mDamageTimer, 0.f);
+  mDisableSpiderBallTime -= dt;
+  mDisableSpiderBallTime = rstl::max_val(mDisableSpiderBallTime, 0.f);
 
   if (mSpiderBallState == kSBS_Active) {
     mSurfaceToWorld = CalculateSurfaceToWorld(
