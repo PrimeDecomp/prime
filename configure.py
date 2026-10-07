@@ -1311,7 +1311,10 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS),
                 "MetroidPrime/Enemies/CFlaahgraPlants.cpp",
             ),
-            Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/CWorldTransManager.cpp"),
+            Object(
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                "MetroidPrime/CWorldTransManager.cpp",
+            ),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptMidi.cpp"),
             Object(
                 NonMatching,
@@ -1756,8 +1759,14 @@ config.libs = [
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Animation/CPASAnimParm.cpp",
             ),
-            Object(MatchingFor(*NTSC_GC_VERSIONS), "Kyoto/Animation/CPASAnimState.cpp"),
-            Object(MatchingFor(*NTSC_GC_VERSIONS), "Kyoto/Animation/CPASDatabase.cpp"),
+            Object(
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                "Kyoto/Animation/CPASAnimState.cpp",
+            ),
+            Object(
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                "Kyoto/Animation/CPASDatabase.cpp",
+            ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Animation/CPASParmInfo.cpp",
@@ -1919,7 +1928,10 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Text/CPushStateInstruction.cpp",
             ),
-            Object(MatchingFor(*NTSC_GC_VERSIONS), "Kyoto/Text/CRasterFont.cpp"),
+            Object(
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                "Kyoto/Text/CRasterFont.cpp",
+            ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Text/CRemoveColorOverrideInstruction.cpp",

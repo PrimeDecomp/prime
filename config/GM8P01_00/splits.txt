@@ -1495,9 +1495,10 @@ MetroidPrime/Enemies/CFlaahgraPlants.cpp:
 
 MetroidPrime/CWorldTransManager.cpp:
 	.text       start:0x801FA2D8 end:0x801FD1E8
-	.rodata     start:0x803BD190 end:0x803BD1A8
-	.sdata      start:0x8046A070 end:0x8046A080
-	.sdata2     start:0x8046F028 end:0x8046F084
+	.rodata     start:0x803BD190 end:0x803BD1C8
+	.sdata      start:0x8046A060 end:0x8046A098
+	.sbss       start:0x8046B1C0 end:0x8046B1C8
+	.sdata2     start:0x8046F028 end:0x8046F0C0
 
 MetroidPrime/ScriptObjects/CScriptMidi.cpp:
 	.text       start:0x801FD1E8 end:0x801FD690
@@ -2249,7 +2250,7 @@ Kyoto/Animation/CAnimationManager.cpp:
 	.text       start:0x802C2920 end:0x802C2A68
 
 Kyoto/Animation/CAnimationSet.cpp:
-	.text       start:0x802C2A68 end:0x802C3BCC
+	.text       start:0x802C2A68 end:0x802C3C10
 	.sbss       start:0x8046B378 end:0x8046B398
 	.sdata2     start:0x804704F0 end:0x804704F8
 
@@ -2574,7 +2575,7 @@ Kyoto/Text/CPushStateInstruction.cpp:
 	.data       start:0x803D5508 end:0x803D5528
 
 Kyoto/Text/CRasterFont.cpp:
-	.text       start:0x802E8B88 end:0x802EA370
+	.text       start:0x802E8B88 end:0x802EA700
 	.rodata     start:0x803C2320 end:0x803C2340
 	.sdata2     start:0x804706A0 end:0x804706A8
 
