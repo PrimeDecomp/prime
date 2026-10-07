@@ -33,6 +33,7 @@
 #include "MetroidPrime/SFX/LavaWorld.h"
 #include "MetroidPrime/SFX/MiscSamus.h"
 #include "MetroidPrime/ScriptObjects/CScriptAreaAttributes.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptPlatform.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptSpiderBallAttractionSurface.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptSpiderBallWaypoint.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptWater.hpp"
@@ -3124,8 +3125,8 @@ float CMorphBall::CalculateJumpSpeed(const CStateManager& mgr) const {
     break;
   }
 
-  if (const CPhysicsActor* platform =
-          TCastToConstPtr< CPhysicsActor >(mgr.GetObjectById(mPlayer.GetRidingPlatformId()))) {
+  if (const CScriptPlatform* platform =
+          TCastToConstPtr< CScriptPlatform >(mgr.GetObjectById(mPlayer.GetRidingPlatformId()))) {
     speed += platform->GetVelocityWR().GetZ();
   }
 
