@@ -1597,7 +1597,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8E01_02"), "GuiSys/CGuiHeadWidget.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8E01_02"), "GuiSys/CGuiLight.cpp"),
             Object(EquivalentFor("GM8E01_00"), "GuiSys/CGuiModel.cpp"),
-            Object(MatchingFor("GM8J01_00"), "GuiSys/CGuiObject.cpp", cflags=[*cflags_retro, "-inline auto"]),
+            Object(NonMatching, "GuiSys/CGuiObject.cpp", cflags=[*cflags_retro, "-inline auto"]),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8E01_02"), "GuiSys/CGuiPane.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8E01_02"), "GuiSys/CGuiSliderGroup.cpp"),
             Object(
@@ -2298,7 +2298,7 @@ config.libs = [
                 extra_cflags=["-inline", "level=4"] if config.version == "GM8P01_00" else [],
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8J01_00", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
                 "Kyoto/Text/CImageInstruction.cpp",
                 extra_cflags=["-inline", "level=4"] if config.version == "GM8P01_00" else [],
             ),
@@ -2984,7 +2984,7 @@ config.libs = [
                 "musyx/runtime/hw_aramdma.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8J01_00", "GM8E01_02"),
                 "musyx/runtime/dsp_import.c",
             ),
             Object(
