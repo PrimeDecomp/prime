@@ -17,9 +17,6 @@
 #include "MetroidPrime/CFluidPlaneCPU.hpp"
 #include "MetroidPrime/CGameCollision.hpp"
 #include "MetroidPrime/CGameLight.hpp"
-#if VERSION >= VERSION_R3IJ_00
-#include "MetroidPrime/Player/CGameState.hpp"
-#endif
 #include "MetroidPrime/CPhysicsActor.hpp"
 #include "MetroidPrime/CRainSplashGenerator.hpp"
 #include "MetroidPrime/CWorld.hpp"
@@ -27,6 +24,7 @@
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
 #include "MetroidPrime/Cameras/CGameCamera.hpp"
 #include "MetroidPrime/Enemies/CMetroidBeta.hpp"
+#include "MetroidPrime/Player/CGameState.hpp"
 #include "MetroidPrime/Player/CMorphBallShadow.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/SFX/IceWorld.h"
