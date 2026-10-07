@@ -2497,7 +2497,7 @@ Kyoto/Animation/CAnimPOIData.cpp:
 	.text       start:0x802D5B14 end:0x802D63EC
 	.rodata     start:0x803C2290 end:0x803C2298
 	.data       start:0x803D4D98 end:0x803D4DA8
-	.sbss       start:0x8046B40C end:0x8046B428
+	.sbss       start:0x8046B408 end:0x8046B428
 
 Kyoto/Animation/CAnimSource.cpp:
 	.text       start:0x802D63EC end:0x802D7BB4
@@ -3137,7 +3137,11 @@ Kyoto/Audio/DolphinCAudioSys.cpp:
 Kyoto/DolphinCMemoryCardSys.cpp:
 	.text       start:0x803359AC end:0x80337E48
 	.ctors      start:0x803B5128 end:0x803B512C
+	.rodata     start:0x803C3690 end:0x803C3698
+	.bss        start:0x80402048 end:0x80402060
 	.bss        start:0x8046887C end:0x804688AC align:4 common
+	.sdata      start:0x8046AA88 end:0x8046AA98
+	.sbss       start:0x8046B700 end:0x8046B708
 
 Kyoto/Input/DolphinIController.cpp:
 	.text       start:0x80337E48 end:0x80337EF4
@@ -3252,8 +3256,10 @@ Kyoto/Text/CImageInstruction.cpp:
 	.data       start:0x803D7610 end:0x803D7630
 
 Kyoto/Text/CTextRenderBuffer.cpp:
-	.text       start:0x803436E8 end:0x80344BD8
+	.text       start:0x803430D4 end:0x803452D4
+	.rodata     start:0x803C37D0 end:0x803C3808
 	.sdata      start:0x8046AAC8 end:0x8046AAD0
+	.sdata2     start:0x80470C58 end:0x80470C78
 
 Kyoto/Graphics/CCubeMoviePlayer.cpp:
 	.text       start:0x803452D4 end:0x80347ADC
