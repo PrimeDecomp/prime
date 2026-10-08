@@ -74,7 +74,7 @@ private:
   void UpdateContinuousAngleAxis(int channel, int axis);
   void ClearButtonEvents(int channel);
   void UpdateDigitalInput(int channel);
-  void UpdateButton(uint heldMask, CControllerButton& button, uint mask);
+  void UpdateButton(uint heldMask, CControllerButton& button, uint mask, int buttonId);
   void UpdateMotionButton(int channel, CControllerButton& button, uint mask);
   void UpdateMotionButtons(int channel);
   void UpdateSwingButton(int channel, CControllerButton& button, uint mask);

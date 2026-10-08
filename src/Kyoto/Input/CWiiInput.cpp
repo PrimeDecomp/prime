@@ -2,6 +2,7 @@
 
 #include "Kyoto/Alloc/CMemory.hpp"
 #include "Kyoto/Basics/CBasics.hpp"
+#include "Kyoto/Input/CFinalInput.hpp"
 #include "Kyoto/Input/CInputFilter.hpp"
 #include "Kyoto/Input/CWiiMotionProcessor.hpp"
 #include "Kyoto/Math/CMath.hpp"
@@ -242,80 +243,97 @@ void CWiiInput::ApplyPointerDistanceScale(int channel) {
                          (mPointerMaxDistance - mPointerMinDistance);
   const float scale = mPointerMinScale +
                       (mPointerMaxScale - mPointerMinScale) * CMath::FastClamp(0.f, distance, 1.f);
-  mStatus[channel].pos.x =
-      CMath::FastLimit(mStatus[channel].pos.x * scale, 1.f);
+  mStatus[channel].pos.x = CMath::FastLimit(mStatus[channel].pos.x * scale, 1.f);
 }
 
 void CWiiInput::UpdatePointerState(int channel) {
   const bool valid = IsPointerValid(channel);
-  CControllerData& input = mInput[channel];
   if (valid) {
-    ++input.mPointerValidFrameCount;
-    input.mPointerInvalidFrameCount = 0;
+    ++mInput[channel].mPointerValidFrameCount;
+    mInput[channel].mPointerInvalidFrameCount = 0;
   } else {
-    ++input.mPointerInvalidFrameCount;
-    input.mPointerValidFrameCount = 0;
+    ++mInput[channel].mPointerInvalidFrameCount;
+    mInput[channel].mPointerValidFrameCount = 0;
   }
 
-  if (input.mPointerState == CControllerData::kPS_Tracking) {
-    if (valid) {
-      input.mPointerPosition[0] = mPointerFilterX[channel]->Filter(mStatus[channel].pos.x);
-      input.mPointerPosition[1] = mPointerFilterY[channel]->Filter(mStatus[channel].pos.y);
-      mStatus[channel].pos.x = input.mPointerPosition.GetX();
-      mStatus[channel].pos.y = input.mPointerPosition.GetY();
-    } else {
+  CControllerData& input = mInput[channel];
+  switch (input.mPointerState) {
+  case CControllerData::kPS_Tracking:
+    if (!valid) {
       input.mPointerState = CControllerData::kPS_RecentlyLost;
       mStatus[channel].pos.x = input.mPointerPosition.GetX();
       mStatus[channel].pos.y = input.mPointerPosition.GetY();
+    } else {
+      const int filterChannel = channel;
+      KPADStatus& status = mStatus[channel];
+      input.mPointerPosition[0] = mPointerFilterX[filterChannel]->Filter(status.pos.x);
+      input.mPointerPosition[1] = mPointerFilterY[filterChannel]->Filter(status.pos.y);
+      status.pos.x = input.mPointerPosition.GetX();
+      status.pos.y = input.mPointerPosition.GetY();
     }
-  } else if (input.mPointerState == CControllerData::kPS_RecentlyLost) {
-    if (valid) {
-      if (input.mPointerValidFrameCount >= 3) {
-        input.mPointerState = CControllerData::kPS_Reacquiring;
-        input.mPointerValidFrameCount = 0;
-        mPointerReacquireFrames[channel] = 0;
+    break;
+  case CControllerData::kPS_RecentlyLost:
+    if (!valid) {
+      if (input.mPointerInvalidFrameCount >= 120) {
+        input.mPointerState = CControllerData::kPS_Lost;
       }
-    } else if (input.mPointerInvalidFrameCount >= 120) {
-      input.mPointerState = CControllerData::kPS_Lost;
+    } else if (input.mPointerValidFrameCount >= 3) {
+      input.mPointerState = CControllerData::kPS_Reacquiring;
+      input.mPointerValidFrameCount = 0;
+      mPointerReacquireFrames[channel] = 0;
     }
     mStatus[channel].pos.x = input.mPointerPosition.GetX();
     mStatus[channel].pos.y = input.mPointerPosition.GetY();
-  } else if (input.mPointerState == CControllerData::kPS_Lost) {
+    break;
+  case CControllerData::kPS_Lost: {
     bool recenter = true;
     if (valid && input.mPointerValidFrameCount > 3) {
       input.mPointerState = CControllerData::kPS_Reacquiring;
-      input.mPointerValidFrameCount = 0;
       recenter = false;
+      input.mPointerValidFrameCount = 0;
     }
     if (recenter) {
-      if (mPointerRecenterMode[channel] == kPRM_Both) {
+      switch (uint(mPointerRecenterMode[channel])) {
+      case kPRM_Both:
         if (input.mPointerPosition.IsMagnitudeSafe()) {
-          const float magnitude = input.mPointerPosition.Magnitude() * 0.95f;
+          float magnitude = input.mPointerPosition.Magnitude();
+          magnitude *= 0.95f;
           input.mPointerPosition = input.mPointerPosition.AsNormalized() * magnitude;
         }
-      } else if (mPointerRecenterMode[channel] == kPRM_X) {
+        break;
+      case kPRM_X:
         input.mPointerPosition[0] *= 0.95f;
-      } else if (mPointerRecenterMode[channel] == kPRM_Y) {
+        break;
+      case kPRM_Y:
         input.mPointerPosition[1] *= 0.95f;
+        break;
       }
     }
     mStatus[channel].pos.x = input.mPointerPosition.GetX();
     mStatus[channel].pos.y = input.mPointerPosition.GetY();
-  } else if (input.mPointerState == CControllerData::kPS_Reacquiring) {
-    if (valid) {
-      if (++mPointerReacquireFrames[channel] >= 10) {
+    break;
+  }
+  case CControllerData::kPS_Reacquiring:
+    if (!valid) {
+      input.mPointerState = CControllerData::kPS_Lost;
+    } else {
+      if (++mPointerReacquireFrames[channel] >= 10u) {
         input.mPointerState = CControllerData::kPS_Tracking;
       }
-      mStatus[channel].pos.x = mPointerFilterX[channel]->Filter(mStatus[channel].pos.x);
-      mStatus[channel].pos.y = mPointerFilterY[channel]->Filter(mStatus[channel].pos.y);
-      const float blend = CMath::FastClamp(0.f, mPointerReacquireFrames[channel] / 10.f, 1.f);
-      input.mPointerPosition[0] =
-          (1.f - blend) * input.mPointerPosition.GetX() + blend * mStatus[channel].pos.x;
-      input.mPointerPosition[1] =
-          (1.f - blend) * input.mPointerPosition.GetY() + blend * mStatus[channel].pos.y;
-    } else {
-      input.mPointerState = CControllerData::kPS_Lost;
+      const int filterChannel = channel;
+      KPADStatus& status = mStatus[channel];
+      status.pos.x = mPointerFilterX[filterChannel]->Filter(status.pos.x);
+      status.pos.y = mPointerFilterY[filterChannel]->Filter(status.pos.y);
+      const float blend =
+          CMath::FastMin(CMath::FastMax(0.f, mPointerReacquireFrames[channel] / 10.f), 1.f);
+      const float currentX = status.pos.x;
+      const float previousX = input.mPointerPosition.GetX();
+      input.mPointerPosition[0] = (1.f - blend) * previousX + blend * currentX;
+      const float currentY = status.pos.y;
+      const float previousY = input.mPointerPosition.GetY();
+      input.mPointerPosition[1] = (1.f - blend) * previousY + blend * currentY;
     }
+    break;
   }
 }
 
@@ -335,22 +353,32 @@ void CWiiInput::ProcessControllerInput(int channel) {
   switch (mControllerTypes[channel]) {
   case kDT_Nunchuk:
     if (mStatus[channel].wpad_err == WPAD_ERR_OK) {
-      UpdateAnalogInput(0.7f, channel, 0, input.mButtons[20], input.mButtons[19]);
-      UpdateAnalogInput(0.7f, channel, 1, input.mButtons[16], input.mButtons[13]);
-      UpdateAnalogInput(0.7f, channel, 2, input.mButtons[14], input.mButtons[18]);
-      UpdateAnalogInput(0.7f, channel, 3, input.mButtons[17], input.mButtons[15]);
-      UpdateAnalogInput(0.5f, channel, 4, input.mButtons[23], input.mButtons[24]);
-      UpdateAnalogInput(0.5f, channel, 5, input.mButtons[25], input.mButtons[26]);
+      UpdateAnalogInput(CFinalInput::kAnalogAxisDigitalThreshold, channel, 0, input.mButtons[20],
+                        input.mButtons[19]);
+      UpdateAnalogInput(CFinalInput::kAnalogAxisDigitalThreshold, channel, 1, input.mButtons[16],
+                        input.mButtons[13]);
+      UpdateAnalogInput(CFinalInput::kAnalogAxisDigitalThreshold, channel, 2, input.mButtons[14],
+                        input.mButtons[18]);
+      UpdateAnalogInput(CFinalInput::kAnalogAxisDigitalThreshold, channel, 3, input.mButtons[17],
+                        input.mButtons[15]);
+      UpdateAnalogInput(CFinalInput::kRollDigitalThreshold, channel, 4, input.mButtons[23],
+                        input.mButtons[24]);
+      UpdateAnalogInput(CFinalInput::kPitchDigitalThreshold, channel, 5, input.mButtons[25],
+                        input.mButtons[26]);
       UpdateContinuousAngleAxis(channel, 0);
       UpdateContinuousAngleAxis(channel, 1);
     }
   case kDT_Classic:
   case kDT_Wiimote:
     if (mStatus[channel].wpad_err == WPAD_ERR_OK) {
-      UpdateAnalogInput(0.7f, channel, 6, input.mButtons[30], input.mButtons[29]);
-      UpdateAnalogInput(0.7f, channel, 7, input.mButtons[27], input.mButtons[28]);
-      UpdateAnalogInput(0.5f, channel, 8, input.mButtons[31], input.mButtons[32]);
-      UpdateAnalogInput(0.5f, channel, 9, input.mButtons[33], input.mButtons[34]);
+      UpdateAnalogInput(CFinalInput::kPointerDigitalThreshold, channel, 6, input.mButtons[30],
+                        input.mButtons[29]);
+      UpdateAnalogInput(CFinalInput::kPointerDigitalThreshold, channel, 7, input.mButtons[27],
+                        input.mButtons[28]);
+      UpdateAnalogInput(CFinalInput::kRollDigitalThreshold, channel, 8, input.mButtons[31],
+                        input.mButtons[32]);
+      UpdateAnalogInput(CFinalInput::kPitchDigitalThreshold, channel, 9, input.mButtons[33],
+                        input.mButtons[34]);
       UpdateContinuousAngleAxis(channel, 2);
       UpdateContinuousAngleAxis(channel, 3);
       if (!mMotionProcessors[channel].null()) {
@@ -360,16 +388,15 @@ void CWiiInput::ProcessControllerInput(int channel) {
     }
     break;
   }
-  if (mControllerTypes[channel] == kDT_Unsupported) {
+  if (mControllerTypes[channel] != kDT_Unsupported) {
+    UpdateDigitalInput(channel);
+  } else {
     CBasics::ZeroMemory(&mStatus[channel], sizeof(KPADStatus));
     mStatus[channel].dev_type = 0xff;
+    const CControllerButton button;
     for (int i = 0; i < 64; ++i) {
-      input.mButtons[i].SetIsPressed(false);
-      input.mButtons[i].SetPressEvent(false);
-      input.mButtons[i].SetReleaseEvent(false);
+      input.SetButton(i, button);
     }
-  } else {
-    UpdateDigitalInput(channel);
   }
 }
 
@@ -385,16 +412,14 @@ void CWiiInput::UpdateAnalogInput(float threshold, int channel, int axis,
   switch (mControllerTypes[channel]) {
   case kDT_Nunchuk:
     if (axis == 0) {
-      CVector2f stick(mStatus[channel].ex_status.fs.stick.x,
-                      mStatus[channel].ex_status.fs.stick.y);
+      CVector2f stick(mStatus[channel].ex_status.fs.stick.x, mStatus[channel].ex_status.fs.stick.y);
       if (stick.IsMagnitudeSafe()) {
         const float magnitude = CMath::FastClamp(0.f, stick.Magnitude() / 0.707f, 1.f);
         stick = stick.AsNormalized() * magnitude;
       }
       value = stick.GetX();
     } else if (axis == 1) {
-      CVector2f stick(mStatus[channel].ex_status.fs.stick.x,
-                      mStatus[channel].ex_status.fs.stick.y);
+      CVector2f stick(mStatus[channel].ex_status.fs.stick.x, mStatus[channel].ex_status.fs.stick.y);
       if (stick.IsMagnitudeSafe()) {
         const float magnitude = CMath::FastClamp(0.f, stick.Magnitude() / 0.707f, 1.f);
         stick = stick.AsNormalized() * magnitude;
@@ -416,8 +441,7 @@ void CWiiInput::UpdateAnalogInput(float threshold, int channel, int axis,
       }
     } else if (axis == 4) {
       if (!mMotionProcessors[channel].null()) {
-        value =
-            mMotionProcessors[channel]->GetNunchukTracker().GetWrappedRoll() / (M_PIF / 2.f);
+        value = mMotionProcessors[channel]->GetNunchukTracker().GetWrappedRoll() / (M_PIF / 2.f);
         value = CMath::FastLimit(value, 2.f);
       }
     } else if (axis == 5 && !mMotionProcessors[channel].null()) {
@@ -432,8 +456,7 @@ void CWiiInput::UpdateAnalogInput(float threshold, int channel, int axis,
       value = mStatus[channel].pos.y;
     } else if (axis == 8) {
       if (!mMotionProcessors[channel].null()) {
-        value =
-            mMotionProcessors[channel]->GetWiimoteTracker().GetWrappedRoll() / (M_PIF / 2.f);
+        value = mMotionProcessors[channel]->GetWiimoteTracker().GetWrappedRoll() / (M_PIF / 2.f);
         value = CMath::FastLimit(value, 2.f);
       }
     } else if (axis == 9 && !mMotionProcessors[channel].null()) {
@@ -550,7 +573,7 @@ void CWiiInput::UpdateDigitalInput(int channel) {
       const uint held = mStatus[channel].hold;
       for (int i = 1; i < 35; ++i) {
         if (sButtonMasks[i] != 0) {
-          UpdateButton(held, mInput[channel].mButtons[i], sButtonMasks[i]);
+          UpdateButton(held, mInput[channel].mButtons[i], sButtonMasks[i], i);
         }
       }
     }
@@ -559,25 +582,25 @@ void CWiiInput::UpdateDigitalInput(int channel) {
   }
 }
 
-void CWiiInput::UpdateButton(uint heldMask, CControllerButton& button, uint mask) {
+void CWiiInput::UpdateButton(uint heldMask, CControllerButton& button, uint mask, int buttonId) {
   const int wasPressed = button.GetIsPressed();
-  const bool pressed = (heldMask & mask) != 0;
+  heldMask &= mask;
+  const bool pressed = heldMask != 0;
   button.SetIsPressed(pressed);
-  const int changed = pressed ^ wasPressed;
-  button.SetPressEvent(pressed & changed);
-  button.SetReleaseEvent(wasPressed & changed);
+  button.SetPressEvent(pressed & (pressed ^ wasPressed));
+  button.SetReleaseEvent(wasPressed & (pressed ^ wasPressed));
 }
 
 void CWiiInput::UpdateMotionButton(int channel, CControllerButton& button, uint mask) {
   if (!mInput[channel].DeviceIsPresent()) {
     return;
   }
-  const int wasPressed = button.GetIsPressed();
-  const bool pressed = (mInput[channel].mMotionMask & mask) != 0;
+  const bool wasPressed = button.GetIsPressed();
+  mask &= mInput[channel].mMotionMask;
+  const bool pressed = mask != 0;
   button.SetIsPressed(pressed);
-  const int changed = pressed ^ wasPressed;
-  button.SetPressEvent(pressed & changed);
-  button.SetReleaseEvent(wasPressed & changed);
+  button.SetPressEvent(pressed & (pressed ^ wasPressed));
+  button.SetReleaseEvent(wasPressed & (pressed ^ wasPressed));
 }
 
 void CWiiInput::UpdateMotionButtons(int channel) {
@@ -595,12 +618,12 @@ void CWiiInput::UpdateSwingButton(int channel, CControllerButton& button, uint m
   if (!mInput[channel].DeviceIsPresent()) {
     return;
   }
-  const int wasPressed = button.GetIsPressed();
-  const bool pressed = (mInput[channel].mSwingMask & mask) != 0;
+  const bool wasPressed = button.GetIsPressed();
+  mask &= mInput[channel].mSwingMask;
+  const bool pressed = mask != 0;
   button.SetIsPressed(pressed);
-  const int changed = pressed ^ wasPressed;
-  button.SetPressEvent(pressed & changed);
-  button.SetReleaseEvent(wasPressed & changed);
+  button.SetPressEvent(pressed & (pressed ^ wasPressed));
+  button.SetReleaseEvent(wasPressed & (pressed ^ wasPressed));
 }
 
 void CWiiInput::UpdateSwingButtons(int channel) {
