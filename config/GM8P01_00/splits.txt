@@ -1708,6 +1708,7 @@ MetroidPrime/Enemies/CBabygoth.cpp:
 MetroidPrime/Enemies/CEyeBall.cpp:
 	.text       start:0x80215490 end:0x8021659C
 	.rodata     start:0x803BDC98 end:0x803BDCC8
+	.data       start:0x803D05C8 end:0x803D0630
 	.sdata      start:0x8046A1D8 end:0x8046A1E0
 	.sbss       start:0x8046B1E8 end:0x8046B1F0
 	.sdata2     start:0x8046F388 end:0x8046F3C0
