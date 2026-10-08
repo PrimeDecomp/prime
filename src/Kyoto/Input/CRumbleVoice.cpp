@@ -2,13 +2,8 @@
 #include "rstl/math.hpp"
 
 CRumbleVoice::CRumbleVoice()
-#if VERSION >= VERSION_GM8P_00
 : mDatas(4, SAdsrData(), rstl::rmemory_allocator())
 , mDeltas(4, SAdsrDelta::Stopped(), rstl::rmemory_allocator())
-#else
-: mDatas(4, SAdsrData())
-, mDeltas(4, SAdsrDelta::Stopped())
-#endif
 , mHandleIds(0)
 , mUsedChannels(0)
 , mLastId(0) {}
