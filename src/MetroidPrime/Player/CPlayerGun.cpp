@@ -1675,6 +1675,34 @@ void CPlayerGun::DamageRumble(const CVector3f& location, float damage, const CSt
   mDamageLocation = location;
 }
 
+void CPlayerGun::TakeDamage(bool bigStrike, bool notFromMetroid, CStateManager& mgr) {
+  const CPlayer& player = *mgr.GetPlayer();
+  bool hasStrikeAngle = false;
+  float angle = 0.f;
+  if (mDamageAmt >= 10.f && !bigStrike && !IsWeaponStateSet(0x10) && !mComboFiring &&
+      mGunStrikeDelayTimer <= 0.f) {
+    mGunStrikeDelayTimer = 20.f;
+    mGunStrikeCoolTimer = 0.75f;
+    if (mMorph.GetGunState() == CGunMorph::kGS_OutWipeDone) {
+      CVector3f localDamageLoc = player.GetTransform().TransposeRotate(mDamageLocation);
+      angle =
+          CMath::Rad2Deg(CMath::ClampRadians(atan2(localDamageLoc[kDY], localDamageLoc[kDX])));
+      hasStrikeAngle = true;
+    }
+  }
+
+  if (hasStrikeAngle || bigStrike) {
+    if (mgr.GetPlayerState()->GetCurrentVisor() != CPlayerState::kPV_Scan) {
+      mGunMotion->PlayPasAnim(SamusGun::kAS_Struck, mgr, angle, bigStrike);
+      if ((bigStrike && notFromMetroid) || mInFreeLook)
+        mGrappleArm->EnterStruck(mgr, angle, bigStrike, !mInFreeLook);
+    }
+  }
+
+  mDamageAmt = 0.f;
+  mDamageLocation = CVector3f::Zero();
+}
+
 void CPlayerGun::StopChargeSound(CStateManager& mgr) {
   if (CSfxHandle::NullHandle() != mChargeSfx) {
     CSfxManager::SfxStop(mChargeSfx);
@@ -1736,6 +1764,37 @@ void CPlayerGun::StopContinuousBeam(CStateManager& mgr, bool stopSfx) {
     if (beam->IsFiring(mgr)) {
       beam->StopBeam(mgr, stopSfx);
     }
+  }
+}
+
+void CPlayerGun::DoUserAnimEvent(float dt, CStateManager& mgr, const CInt32POINode&,
+                                 EUserEventType type) {
+  switch (type) {
+  case kUE_Projectile: {
+    if (mChargePhase != kCP_ComboFireDone) {
+      return;
+    }
+
+    const bool fireSecondary = mEquippedBeamId != CPlayerState::kBI_Wave &&
+                               mEquippedBeamId != CPlayerState::kBI_Plasma;
+
+    bool doFireSecondary = fireSecondary ? true : (mLastFireButtonStates & 0x1);
+    if (doFireSecondary) {
+      FireSecondary(dt, mgr);
+    }
+    if (!IsWeaponStateSet(0x10)) {
+      EnableWeaponState(0x10);
+    }
+    CancelCharge(mgr, true);
+    if (doFireSecondary) {
+      mCurrentBeam->EnableSecondaryFx(CGunWeapon::kSFT_ToCombo);
+    }
+    break;
+  }
+  case kUE_Delete:
+  case kUE_DamageOn:
+  default:
+    break;
   }
 }
 
@@ -2150,6 +2209,11 @@ void CPlayerGun::SetFidgetAnimBits(int animSet, bool beamOnly) {
   default:
     return;
   }
+}
+
+void CPlayerGun::AsyncLoadSuit(CStateManager& mgr) {
+  mCurrentBeam->AsyncLoadSuitArm(mgr);
+  mGrappleArm->AsyncLoadSuit(mgr);
 }
 
 void CPlayerGun::ReturnToRestPose() {
