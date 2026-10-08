@@ -27,6 +27,7 @@ struct CDvdFileARAM {
   , mAramOffset(0)
   , mBufferLen(0)
   , mBufferIndex(0) {}
+
   ARQRequest mARQRequest;
   struct SDvdInfo {
     SDvdInfo() : mDvdFileInfo(), mDvdFile(nullptr), mNextfile(nullptr) {}
@@ -54,16 +55,21 @@ const char* DecodeARAMFile(const char* filename) {
 }
 
 void CDvdFile::DVDARAMXferCallback(s32 result, DVDFileInfo* info) {
+#if !defined(TARGET_PC)
   CDvdFileARAM::SDvdInfo* ptr = reinterpret_cast< CDvdFileARAM::SDvdInfo* >(info);
   DVDClose(&ptr->mDvdFileInfo);
   ptr->mDvdFile->HandleDVDInterrupt();
+#endif
 }
 
 void CDvdFile::ARAMARAMXferCallback(uintptr_t addr) {
+#if !defined(TARGET_PC)
   reinterpret_cast< CDvdFileARAM* >(addr)->mInfo.mDvdFile->HandleARAMInterrupt();
+#endif
 }
 
 void CDvdFile::HandleARAMInterrupt() {
+#if !defined(TARGET_PC)
   BOOL enabled = OSDisableInterrupts();
   CDvdFileARAM* arFile = mARAMFile.get();
 
@@ -74,9 +80,11 @@ void CDvdFile::HandleARAMInterrupt() {
   }
 
   OSRestoreInterrupts(enabled);
+#endif
 }
 
 void CDvdFile::HandleDVDInterrupt() {
+#if !defined(TARGET_PC)
   BOOL enabled = OSDisableInterrupts();
   CDvdFileARAM* arFile = mARAMFile.get();
 
@@ -87,9 +95,11 @@ void CDvdFile::HandleDVDInterrupt() {
   }
 
   OSRestoreInterrupts(enabled);
+#endif
 }
 
 void CDvdFile::PingARAMTransfer() {
+#if !defined(TARGET_PC)
   CDvdFileARAM* aramFile = mARAMFile.get();
 
   if (aramFile->mBufferLen == 0) {
@@ -117,9 +127,11 @@ void CDvdFile::PingARAMTransfer() {
     aramFile->mCurBufferLen -= length2;
     aramFile->mGotDvdInterrupt = false;
   }
+#endif
 }
 
 void CDvdFile::TryARAMFile() {
+#if !defined(TARGET_PC)
   mARAMBuffer = static_cast< uchar* >(CARAMManager::Alloc(mSize));
   if (CARAMManager::GetInvalidAlloc() == mARAMBuffer) {
     return;
@@ -131,9 +143,11 @@ void CDvdFile::TryARAMFile() {
   arfile->mFileSize1 = arfile->mCurBufferLen = arfile->mBufferLen = GetFileSize();
   mARAMAllocated = true;
   PushARAMFileLoad();
+#endif
 }
 
 void CDvdFile::PushARAMFileLoad() {
+#if !defined(TARGET_PC)
   BOOL enabled = OSDisableInterrupts();
   CDvdFile* file = sFirstARAM;
   if (file == NULL) {
@@ -148,9 +162,11 @@ void CDvdFile::PushARAMFileLoad() {
     }
   }
   OSRestoreInterrupts(enabled);
+#endif
 }
 
 void CDvdFile::PopARAMFileLoad() {
+#if !defined(TARGET_PC)
   BOOL enabled = OSDisableInterrupts();
   CDvdFile* file = mARAMFile->mInfo.mNextfile;
   mARAMPopped = true;
@@ -160,9 +176,11 @@ void CDvdFile::PopARAMFileLoad() {
   }
 
   OSRestoreInterrupts(enabled);
+#endif
 }
 
 bool CDvdFile::IsARAMFileLoaded() {
+#if !defined(TARGET_PC)
   if (!mARAMAllocated) {
     return true;
   }
@@ -172,11 +190,13 @@ bool CDvdFile::IsARAMFileLoaded() {
   }
 
   mARAMFile = nullptr;
+#endif
 
   return true;
 }
 
 void CDvdFile::StartARAMFileLoad() {
+#if !defined(TARGET_PC)
   CDvdFileARAM* aramFile = mARAMFile.get();
   aramFile->mBuffers.push_back(
       static_cast< uchar* >(CMemory::Alloc(0x10000, IAllocator::kHI_RoundUpLen)));
@@ -189,12 +209,15 @@ void CDvdFile::StartARAMFileLoad() {
   DVDFastOpen(mFileEntry, &aramFile->mInfo.mDvdFileInfo);
   DVDReadAsync(&aramFile->mInfo.mDvdFileInfo, aramFile->mBuffers[0].get(), len, 0,
                DVDARAMXferCallback);
+#endif
 }
 
 void CDvdFile::StallForARAMFile() {
+#if !defined(TARGET_PC)
   while (mARAMFile.get() != nullptr) {
     OSYieldThread();
   }
+#endif
 }
 
 CDvdFile::CDvdFile(const char* filename)
@@ -208,6 +231,14 @@ CDvdFile::CDvdFile(const char* filename)
 , mFilename(filename, -1) {
   const char* decodedName = DecodeARAMFile(filename);
   mFileEntry = DVDConvertPathToEntrynum(const_cast< char* >(decodedName));
+#if defined(TARGET_PC)
+  DVDFileInfo fileInfo{};
+  if (mFileEntry != -1 && DVDFastOpen(mFileEntry, &fileInfo)) {
+    mSize = fileInfo.length;
+    DVDClose(&fileInfo);
+    mARAMAllocated = filename != decodedName;
+  }
+#else
   DVDFileInfo fileInfo;
   if (mFileEntry != -1) {
     DVDFastOpen(mFileEntry, &fileInfo);
@@ -219,6 +250,7 @@ CDvdFile::CDvdFile(const char* filename)
   if (filename != decodedName) {
     TryARAMFile();
   }
+#endif
 }
 
 CDvdFile::~CDvdFile() { CloseFile(); }
@@ -228,6 +260,10 @@ CDvdRequest* CDvdFile::SyncRead(void* dest, uint len) {
 }
 
 void CDvdFile::SyncSeekRead(void* dest, uint len, ESeekOrigin origin, int offset) {
+#if defined(TARGET_PC)
+  std::unique_ptr< CDvdRequest > request{AsyncSeekRead(dest, len, origin, offset)};
+  request->WaitUntilComplete();
+#else
   StallForARAMFile();
   CalcFileOffset(offset, origin);
 
@@ -246,9 +282,23 @@ void CDvdFile::SyncSeekRead(void* dest, uint len, ESeekOrigin origin, int offset
   }
 
   UpdateFilePos(len);
+#endif
 }
 
 CDvdRequest* CDvdFile::AsyncSeekRead(void* dest, uint len, ESeekOrigin origin, int offset) {
+#if defined(TARGET_PC)
+  CalcFileOffset(offset, origin);
+  auto request = std::make_unique< CRealDvdRequest >();
+  DVDFileInfo* info = request->FileInfo();
+  if (mFileEntry == -1 || !DVDFastOpen(mFileEntry, info)) {
+    Log.fatal("Unable to open DVD file");
+  }
+  if (!DVDReadAsync(info, dest, len, mOffset, internalCallback)) {
+    Log.fatal("Unable to start DVD read");
+  }
+  UpdateFilePos(len);
+  return request.release();
+#else
   StallForARAMFile();
   CalcFileOffset(offset, origin);
   CDvdRequest* request;
@@ -268,15 +318,18 @@ CDvdRequest* CDvdFile::AsyncSeekRead(void* dest, uint len, ESeekOrigin origin, i
   UpdateFilePos(len);
 
   return request;
+#endif
 }
 
 void CDvdFile::CloseFile() {
+#if !defined(TARGET_PC)
   if (!mARAMAllocated) {
     return;
   }
 
   StallForARAMFile();
   CARAMManager::Free(mARAMBuffer);
+#endif
 }
 
 bool CDvdFile::FileExists(const char* filename) {

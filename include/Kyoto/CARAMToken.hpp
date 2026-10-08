@@ -4,7 +4,9 @@
 #include "types.h"
 
 class CARAMToken {
+#if !defined(TARGET_PC)
   static CARAMToken* sLists[7];
+#endif
 public:
   enum EStatus {
     kS_Zero,
@@ -28,10 +30,6 @@ public:
   bool LoadToARAM();
   bool RefreshStatus();
   static void UpdateAllDMAs();
-  void InitiallyMoveToList();
-  void MoveToList(EStatus status);
-  void RemoveFromList();
-  void MakeInvalid();
 
   void* ForceSyncMRAM();
   void ForceSyncARAM();
@@ -39,6 +37,16 @@ public:
   void* GetMRAMSafe();
 
 private:
+  void InitiallyMoveToList();
+  void MoveToList(EStatus status);
+  void RemoveFromList();
+  void MakeInvalid();
+  
+#if defined(TARGET_PC)
+  mutable EStatus mStatus;
+  mutable void* mMramPtr;
+  mutable int mDataLen;
+#else
   EStatus mStatus;
   void* mMramPtr;
   const void* mAramPtr;
@@ -47,6 +55,7 @@ private:
   CARAMToken* mPrev;
   CARAMToken* mNext;
   bool x1c_24_ : 1;
+#endif // defined(TARGET_PC)
 };
 
 #endif // _CARAMTOKEN
