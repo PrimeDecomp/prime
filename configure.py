@@ -928,7 +928,7 @@ config.libs = [
             Object(EquivalentFor("GM8E01_00"), "MetroidPrime/Player/CGrappleArm.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CSpacePirate.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00"),
                 "MetroidPrime/ScriptObjects/CScriptCoverPoint.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "MetroidPrime/Cameras/CPathCamera.cpp"),
@@ -2076,7 +2076,7 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                    "Kyoto/Math/CSphere.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Math/CAABox.cpp",
                 extra_cflags=(
                     ['-pragma "inline_max_size(140)"']
@@ -2381,12 +2381,12 @@ config.libs = [
                 "Kyoto/Input/RumbleAdsr.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00"),
                 "Kyoto/Input/CRumbleGenerator.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "Kyoto/Audio/CDSPStream.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00"),
                 "Kyoto/Audio/g721.cpp",
             ),
             Object(NonMatching, "Kyoto/Audio/CStaticAudioPlayer.cpp"),
