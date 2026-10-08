@@ -2101,6 +2101,11 @@ config.libs = [
             ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                "rstl/CStringExtras.cpp",
+                src_dir="extern/rstl/src",
+            ),
+            Object(
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "rstl/RstlExtras.cpp",
                 src_dir="extern/rstl/src",
             ),
