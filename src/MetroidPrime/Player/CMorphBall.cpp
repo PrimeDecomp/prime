@@ -401,15 +401,10 @@ float CMorphBall::ForwardInput(const CFinalInput& input) const {
     return 0.f;
   }
 
-#if VERSION >= VERSION_R3IJ_00
-  const float forwardInput = mPlayer.GetControlMapper().GetAnalogInput(
-      CControlMapper::kC_Forward, input, CControlMapper::kFT_Filtered);
-  const float backwardInput = mPlayer.GetControlMapper().GetAnalogInput(
-      CControlMapper::kC_Backward, input, CControlMapper::kFT_Filtered);
-#else
-  const float forwardInput = ControlMapper::GetAnalogInput(ControlMapper::kC_Forward, input);
-  const float backwardInput = ControlMapper::GetAnalogInput(ControlMapper::kC_Backward, input);
-#endif
+  const float forwardInput =
+      mPlayer.GetControlMapper().GetAnalogInput(CControlMapper::kC_Forward, input);
+  const float backwardInput =
+      mPlayer.GetControlMapper().GetAnalogInput(CControlMapper::kC_Backward, input);
 
   return forwardInput - backwardInput;
 }
@@ -505,22 +500,12 @@ CVector2f CMorphBall::CalculateSpiderBallAttractionSurfaceForces(const CFinalInp
     return CVector2f::Zero();
   }
 
-#if VERSION >= VERSION_R3IJ_00
-  const float forwardBack = mPlayer.GetControlMapper().GetAnalogInput(
-                                CControlMapper::kC_Forward, input, CControlMapper::kFT_Filtered) -
-                            mPlayer.GetControlMapper().GetAnalogInput(
-                                CControlMapper::kC_Backward, input, CControlMapper::kFT_Filtered);
+  const float forwardBack =
+      mPlayer.GetControlMapper().GetAnalogInput(CControlMapper::kC_Forward, input) -
+      mPlayer.GetControlMapper().GetAnalogInput(CControlMapper::kC_Backward, input);
   const float rightLeft =
-      mPlayer.GetControlMapper().GetAnalogInput(CControlMapper::kC_BallTurnRight, input,
-                                              CControlMapper::kFT_Filtered) -
-      mPlayer.GetControlMapper().GetAnalogInput(CControlMapper::kC_BallTurnLeft, input,
-                                              CControlMapper::kFT_Filtered);
-#else
-  const float forwardBack = ControlMapper::GetAnalogInput(ControlMapper::kC_Forward, input) -
-                            ControlMapper::GetAnalogInput(ControlMapper::kC_Backward, input);
-  const float rightLeft = ControlMapper::GetAnalogInput(ControlMapper::kC_TurnRight, input) -
-                          ControlMapper::GetAnalogInput(ControlMapper::kC_TurnLeft, input);
-#endif
+      mPlayer.GetControlMapper().GetAnalogInput(CControlMapper::kC_BallTurnRight, input) -
+      mPlayer.GetControlMapper().GetAnalogInput(CControlMapper::kC_BallTurnLeft, input);
   return CVector2f(rightLeft, forwardBack);
 }
 
@@ -860,21 +845,12 @@ float CMorphBall::GetSpiderBallControllerMovement(const CFinalInput& input) cons
     return 0.f;
   }
 
-#if VERSION >= VERSION_R3IJ_00
-  const float forward = mPlayer.GetControlMapper().GetAnalogInput(CControlMapper::kC_Forward, input,
-                                                                CControlMapper::kFT_Filtered) -
-                        mPlayer.GetControlMapper().GetAnalogInput(
-                            CControlMapper::kC_Backward, input, CControlMapper::kFT_Filtered);
-  const float turn = mPlayer.GetControlMapper().GetAnalogInput(
-                         CControlMapper::kC_BallTurnRight, input, CControlMapper::kFT_Filtered) -
-                     mPlayer.GetControlMapper().GetAnalogInput(CControlMapper::kC_BallTurnLeft,
-                                                             input, CControlMapper::kFT_Filtered);
-#else
-  const float forward = ControlMapper::GetAnalogInput(ControlMapper::kC_Forward, input) -
-                        ControlMapper::GetAnalogInput(ControlMapper::kC_Backward, input);
-  const float turn = ControlMapper::GetAnalogInput(ControlMapper::kC_TurnRight, input) -
-                     ControlMapper::GetAnalogInput(ControlMapper::kC_TurnLeft, input);
-#endif
+  const float forward =
+      mPlayer.GetControlMapper().GetAnalogInput(CControlMapper::kC_Forward, input) -
+      mPlayer.GetControlMapper().GetAnalogInput(CControlMapper::kC_Backward, input);
+  const float turn =
+      mPlayer.GetControlMapper().GetAnalogInput(CControlMapper::kC_BallTurnRight, input) -
+      mPlayer.GetControlMapper().GetAnalogInput(CControlMapper::kC_BallTurnLeft, input);
   const double angleTemp = atan2(forward, turn);
   const float angle = (180.f / M_PIF) * static_cast< float >(angleTemp);
   const float hyp = CMath::SqrtF(forward * forward + turn * turn);
@@ -948,12 +924,8 @@ void CMorphBall::ComputeMarioMovement(const CFinalInput& input, CStateManager& m
   }
 
   float spiderPullThreshold = gkSpiderBallControllerActivationPercentage / 100.f;
-#if VERSION >= VERSION_R3IJ_00
-  const float spiderPull = mPlayer.GetControlMapper().GetAnalogInput(
-      CControlMapper::kC_SpiderBall, input, CControlMapper::kFT_Filtered);
-#else
-  const float spiderPull = ControlMapper::GetAnalogInput(ControlMapper::kC_SpiderBall, input);
-#endif
+  const float spiderPull =
+      mPlayer.GetControlMapper().GetAnalogInput(CControlMapper::kC_SpiderBall, input);
   mSpiderPullMovement = spiderPull >= spiderPullThreshold ? 1.f : 0.f;
 
   if (mgr.GetPlayerState()->HasPowerUp(CPlayerState::kIT_SpiderBall) &&
@@ -1180,15 +1152,10 @@ float CMorphBall::BallTurnInput(const CFinalInput& input) const {
     return 0.f;
   }
 
-#if VERSION >= VERSION_R3IJ_00
-  const float turnLeftInput = mPlayer.GetControlMapper().GetAnalogInput(
-      CControlMapper::kC_BallTurnLeft, input, CControlMapper::kFT_Filtered);
-  const float turnRightInput = mPlayer.GetControlMapper().GetAnalogInput(
-      CControlMapper::kC_BallTurnRight, input, CControlMapper::kFT_Filtered);
-#else
-  const float turnLeftInput = ControlMapper::GetAnalogInput(ControlMapper::kC_TurnLeft, input);
-  const float turnRightInput = ControlMapper::GetAnalogInput(ControlMapper::kC_TurnRight, input);
-#endif
+  const float turnLeftInput =
+      mPlayer.GetControlMapper().GetAnalogInput(CControlMapper::kC_BallTurnLeft, input);
+  const float turnRightInput =
+      mPlayer.GetControlMapper().GetAnalogInput(CControlMapper::kC_BallTurnRight, input);
 
   return turnLeftInput - turnRightInput;
 }
@@ -1602,11 +1569,10 @@ void CMorphBall::ComputeBoostBallMovement(const CFinalInput& input, const CState
     mTimeNotInBoost += dt;
 
 #if VERSION >= VERSION_R3IJ_00
-    const bool boostHeld = gpGameState->GameOptions().GetIsFireAndJumpSwapped()
-                               ? mPlayer.GetControlMapper().GetDigitalInput(
-                                     CControlMapper::kC_FireOrBomb, input, CControlMapper::kFT_Filtered)
-                               : mPlayer.GetControlMapper().GetDigitalInput(
-                                     CControlMapper::kC_JumpOrBoost, input, CControlMapper::kFT_Filtered);
+    const bool boostHeld =
+        gpGameState->GameOptions().GetIsFireAndJumpSwapped()
+            ? mPlayer.GetControlMapper().GetDigitalInput(CControlMapper::kC_FireOrBomb, input)
+            : mPlayer.GetControlMapper().GetDigitalInput(CControlMapper::kC_JumpOrBoost, input);
     if (boostHeld && mSpiderBallState != kSBS_Active) {
 #else
     if (ControlMapper::GetDigitalInput(ControlMapper::kC_JumpOrBoost, input) &&
@@ -3096,9 +3062,7 @@ void CMorphBall::CheckSpringBallJump(const CFinalInput& input, CStateManager& mg
 
   const bool blocked =
       mPlayer.IsAttached() || mPlayer.GetPlayerEnergyDrain().GetEnergyDrainIntensity() > 0.f;
-  if (!blocked &&
-      mPlayer.GetControlMapper().GetPressInput(CControlMapper::kC_SpringBall, input,
-                                             CControlMapper::kFT_Filtered) &&
+  if (!blocked && mPlayer.GetControlMapper().GetPressInput(CControlMapper::kC_SpringBall, input) &&
       CheckGroundUnderBallForSpring(mgr)) {
     SpringBallJump(mgr);
     mPlayer.SetBallJump(true);
