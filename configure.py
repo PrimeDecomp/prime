@@ -1048,7 +1048,7 @@ config.libs = [
                 "MetroidPrime/BodyState/CBSProjectileAttack.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00"),
                 "MetroidPrime/Weapons/CPowerBomb.cpp",
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/Enemies/CMetaree.cpp"),
