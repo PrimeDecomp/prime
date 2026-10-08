@@ -3038,7 +3038,7 @@ Kyoto/Particles/CWarp.cpp:
 	.data       start:0x803D6170 end:0x803D6190
 
 Kyoto/Math/CPlane.cpp:
-	.text       start:0x8031F980 end:0x8031FA1C
+	.text       start:0x8031F980 end:0x8031FAEC
 	.sdata2     start:0x80470AE0 end:0x80470AE8
 
 Kyoto/Math/CSphere.cpp:
@@ -3423,7 +3423,7 @@ Kyoto/Animation/CHalfTransition.cpp:
 	.text       start:0x803507AC end:0x8035081C
 
 Kyoto/Particles/CElectricDescription.cpp:
-	.text       start:0x80350AEC end:0x80350B44
+	.text       start:0x8035081C end:0x80350B44
 
 Kyoto/Particles/CSwooshDescription.cpp:
 	.text       start:0x80350B44 end:0x80350E84
