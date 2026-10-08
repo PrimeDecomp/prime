@@ -35,7 +35,3 @@ void CScriptTargetingPoint::Think(float dt, CStateManager&) {
 void CScriptTargetingPoint::AddToRenderer(const CFrustumPlanes&, const CStateManager&) const {}
 
 void CScriptTargetingPoint::Render(const CStateManager&) const {}
-
-#if VERSION < VERSION_GM8P_00
-CScriptTargetingPoint::~CScriptTargetingPoint() {}
-#endif

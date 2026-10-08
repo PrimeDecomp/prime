@@ -13,9 +13,6 @@ class CScriptTargetingPoint : public CActor {
 public:
   CScriptTargetingPoint(TUniqueId, const rstl::string&, const CEntityInfo&, const CTransform4f&,
                         bool);
-#if VERSION < VERSION_GM8P_00
-  ~CScriptTargetingPoint();
-#endif
 
   DECLARE_TYPES_MATCH_OR_ACCEPT;
   void AcceptScriptMsg(EScriptObjectMessage, TUniqueId, CStateManager&) override;
