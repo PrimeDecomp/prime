@@ -3,6 +3,8 @@
 
 #include "rstl/allocator.hpp"
 
+#include <stddef.h>
+
 namespace rstl {
 template < typename T, int N, typename Alloc = rmemory_allocator >
 class listpool : private Alloc {
@@ -16,8 +18,8 @@ private:
   node* mEnd;
   node* mEmpty_prev;
   node* mEmpty_next;
-  unsigned long mEmptyCount;
-  unsigned long mCount;
+  size_t mEmptyCount;
+  size_t mCount;
 };
 } // namespace rstl
 
