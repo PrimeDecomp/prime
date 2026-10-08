@@ -1,4 +1,4 @@
-#include "Kyoto/Input/CWiiInput.hpp"
+#include "Kyoto/Input/CRevolutionController.hpp"
 
 #include "Kyoto/Alloc/CMemory.hpp"
 #include "Kyoto/Basics/CBasics.hpp"
@@ -29,7 +29,7 @@ private:
 };
 } // namespace
 
-static CWiiInput* sWiiInput;
+static CRevolutionController* sRevolutionController;
 static uint sButtonMasks[64] = {
     0, 0x8000, 0x1000, 0x800, 0x400,  0x100,  0x200, 0x10, 0x8,  0x4, 0x2, 0x1, 0xf, 0, 0, 0, 0,
     0, 0,      0,      0,     0x2000, 0x4000, 0,     0,    0,    0,   0,   0,   0,   0, 0, 0, 0,
@@ -44,16 +44,16 @@ static uint sSwingButtonMasks[12] = {
     0x1, 0x2, 0x4, 0x8, 0x10, 0x20, 0x10000, 0x20000, 0x40000, 0x80000, 0x100000, 0x200000,
 };
 
-void* CWiiInput::AllocateWpadMemory(u32 size) {
+void* CRevolutionController::AllocateWpadMemory(u32 size) {
   return CMemory::Alloc(size, static_cast< IAllocator::EHint >(6));
 }
 
-int CWiiInput::FreeWpadMemory(void* memory) {
+int CRevolutionController::FreeWpadMemory(void* memory) {
   CMemory::Free(memory);
   return 1;
 }
 
-CWiiInput::CWiiInput()
+CRevolutionController::CRevolutionController()
 : mStatus(KPADStatus())
 , mControllerTypes(kDT_Disconnected)
 , mInput(CControllerData())
@@ -76,37 +76,37 @@ CWiiInput::CWiiInput()
 , mPointerMinScale(1.3f)
 , mPointerMaxScale(1.f)
 , mAcceptAdditionalConnections(false) {
-  sWiiInput = this;
+  sRevolutionController = this;
   Initialize();
 }
 
-CWiiInput::~CWiiInput() {
-  sWiiInput = nullptr;
+CRevolutionController::~CRevolutionController() {
+  sRevolutionController = nullptr;
   for (int i = 0; i < 4; ++i) {
     WPADSetConnectCallback(i, nullptr);
     WPADSetExtensionCallback(i, nullptr);
   }
 }
 
-void CWiiInput::Poll() {}
+void CRevolutionController::Poll() {}
 
-uint CWiiInput::GetDeviceCount() const { return 4; }
+uint CRevolutionController::GetDeviceCount() const { return 4; }
 
-CControllerData& CWiiInput::GetInput(uint channel) { return mInput[channel]; }
+CControllerData& CRevolutionController::GetInput(uint channel) { return mInput[channel]; }
 
-IController::EDeviceType CWiiInput::GetControllerType(int channel) const {
+IController::EDeviceType CRevolutionController::GetControllerType(int channel) const {
   return mControllerTypes[channel];
 }
 
-void CWiiInput::QueueConnectionEvent(int channel, EConnectionEvent event) {
+void CRevolutionController::QueueConnectionEvent(int channel, EConnectionEvent event) {
   mPendingConnectionEvents[channel] = event;
 }
 
-void CWiiInput::QueueExtensionEvent(int channel, EExtensionEvent event) {
+void CRevolutionController::QueueExtensionEvent(int channel, EExtensionEvent event) {
   mPendingExtensionEvents[channel] = event;
 }
 
-void CWiiInput::ProcessConnectionEvents() {
+void CRevolutionController::ProcessConnectionEvents() {
   rstl::reserved_vector< EConnectionEvent, 4 > connections(4);
   rstl::reserved_vector< EExtensionEvent, 4 > extensions(4);
   CInterruptGuard interrupts;
@@ -148,7 +148,7 @@ void CWiiInput::ProcessConnectionEvents() {
   }
 }
 
-void CWiiInput::Update(float dt) {
+void CRevolutionController::Update(float dt) {
   KPADStatus samples[16];
   KPADUnifiedWpadStatus rawSamples[16];
   ProcessConnectionEvents();
@@ -193,14 +193,14 @@ void CWiiInput::Update(float dt) {
   }
 }
 
-bool CWiiInput::IsPointerValid(int channel) const {
+bool CRevolutionController::IsPointerValid(int channel) const {
   if (IsPointerDevicePresent(channel) && mStatus[channel].dpd_valid_fg > 0) {
     return true;
   }
   return false;
 }
 
-bool CWiiInput::IsPointerDevicePresent(int channel) const {
+bool CRevolutionController::IsPointerDevicePresent(int channel) const {
 #if NONMATCHING
   if (channel < 0) {
     return false;
@@ -219,26 +219,26 @@ bool CWiiInput::IsPointerDevicePresent(int channel) const {
   }
 }
 
-CControllerData::EPointerState CWiiInput::GetPointerState(int channel) const {
+CControllerData::EPointerState CRevolutionController::GetPointerState(int channel) const {
   if (IsPointerDevicePresent(channel)) {
     return mInput[channel].GetPointerState();
   }
   return CControllerData::kPS_RecentlyLost;
 }
 
-uint CWiiInput::GetPointerValidFrameCount(int channel) const {
+uint CRevolutionController::GetPointerValidFrameCount(int channel) const {
   return mInput[channel].GetPointerValidFrameCount();
 }
 
-uint CWiiInput::GetPointerInvalidFrameCount(int channel) const {
+uint CRevolutionController::GetPointerInvalidFrameCount(int channel) const {
   return mInput[channel].GetPointerInvalidFrameCount();
 }
 
-CVector2f CWiiInput::GetPointerPosition(int channel) const {
+CVector2f CRevolutionController::GetPointerPosition(int channel) const {
   return mInput[channel].GetPointerPosition();
 }
 
-void CWiiInput::ApplyPointerDistanceScale(int channel) {
+void CRevolutionController::ApplyPointerDistanceScale(int channel) {
   const float distance = (mInput[channel].mPointerDistance - mPointerMinDistance) /
                          (mPointerMaxDistance - mPointerMinDistance);
   const float scale = mPointerMinScale +
@@ -246,7 +246,7 @@ void CWiiInput::ApplyPointerDistanceScale(int channel) {
   mStatus[channel].pos.x = CMath::FastLimit(mStatus[channel].pos.x * scale, 1.f);
 }
 
-void CWiiInput::UpdatePointerState(int channel) {
+void CRevolutionController::UpdatePointerState(int channel) {
   const bool valid = IsPointerValid(channel);
   if (valid) {
     ++mInput[channel].mPointerValidFrameCount;
@@ -337,7 +337,7 @@ void CWiiInput::UpdatePointerState(int channel) {
   }
 }
 
-void CWiiInput::ProcessControllerInput(int channel) {
+void CRevolutionController::ProcessControllerInput(int channel) {
   if (IsPointerDevicePresent(channel) && mStatus[channel].wpad_err == WPAD_ERR_OK) {
     if (IsPointerValid(channel)) {
       mInput[channel].mPointerDistance = mStatus[channel].dist;
@@ -400,9 +400,9 @@ void CWiiInput::ProcessControllerInput(int channel) {
   }
 }
 
-void CWiiInput::UpdateAnalogInput(float threshold, int channel, int axis,
-                                  CControllerButton& negativeButton,
-                                  CControllerButton& positiveButton) {
+void CRevolutionController::UpdateAnalogInput(float threshold, int channel, int axis,
+                                              CControllerButton& negativeButton,
+                                              CControllerButton& positiveButton) {
   CControllerData& input = mInput[channel];
   if (!input.DeviceIsPresent()) {
     return;
@@ -501,7 +501,7 @@ void CWiiInput::UpdateAnalogInput(float threshold, int channel, int axis,
   positiveButton.SetReleaseEvent(wasPositive & (positive ^ wasPositive));
 }
 
-void CWiiInput::UpdateContinuousAngleAxis(int channel, int axis) {
+void CRevolutionController::UpdateContinuousAngleAxis(int channel, int axis) {
   CControllerData& input = mInput[channel];
   if (!input.DeviceIsPresent()) {
     return;
@@ -542,7 +542,7 @@ void CWiiInput::UpdateContinuousAngleAxis(int channel, int axis) {
   data.SetAbsoluteValue(value);
 }
 
-void CWiiInput::ClearButtonEvents(int channel) {
+void CRevolutionController::ClearButtonEvents(int channel) {
   CControllerData& input = mInput[channel];
   if (!input.DeviceIsPresent()) {
     return;
@@ -567,7 +567,7 @@ void CWiiInput::ClearButtonEvents(int channel) {
   }
 }
 
-void CWiiInput::UpdateDigitalInput(int channel) {
+void CRevolutionController::UpdateDigitalInput(int channel) {
   if (mInput[channel].DeviceIsPresent()) {
     if (int(mControllerTypes[channel]) >= 0 && int(mControllerTypes[channel]) < 3) {
       const uint held = mStatus[channel].hold;
@@ -582,7 +582,8 @@ void CWiiInput::UpdateDigitalInput(int channel) {
   }
 }
 
-void CWiiInput::UpdateButton(uint heldMask, CControllerButton& button, uint mask, int buttonId) {
+void CRevolutionController::UpdateButton(uint heldMask, CControllerButton& button, uint mask,
+                                         int buttonId) {
   const int wasPressed = button.GetIsPressed();
   heldMask &= mask;
   const bool pressed = heldMask != 0;
@@ -591,7 +592,7 @@ void CWiiInput::UpdateButton(uint heldMask, CControllerButton& button, uint mask
   button.SetReleaseEvent(wasPressed & (pressed ^ wasPressed));
 }
 
-void CWiiInput::UpdateMotionButton(int channel, CControllerButton& button, uint mask) {
+void CRevolutionController::UpdateMotionButton(int channel, CControllerButton& button, uint mask) {
   if (!mInput[channel].DeviceIsPresent()) {
     return;
   }
@@ -603,7 +604,7 @@ void CWiiInput::UpdateMotionButton(int channel, CControllerButton& button, uint 
   button.SetReleaseEvent(wasPressed & (pressed ^ wasPressed));
 }
 
-void CWiiInput::UpdateMotionButtons(int channel) {
+void CRevolutionController::UpdateMotionButtons(int channel) {
   CControllerData& input = mInput[channel];
   if (input.DeviceIsPresent()) {
     for (int i = 0; i < 16; ++i) {
@@ -614,7 +615,7 @@ void CWiiInput::UpdateMotionButtons(int channel) {
   }
 }
 
-void CWiiInput::UpdateSwingButton(int channel, CControllerButton& button, uint mask) {
+void CRevolutionController::UpdateSwingButton(int channel, CControllerButton& button, uint mask) {
   if (!mInput[channel].DeviceIsPresent()) {
     return;
   }
@@ -626,7 +627,7 @@ void CWiiInput::UpdateSwingButton(int channel, CControllerButton& button, uint m
   button.SetReleaseEvent(wasPressed & (pressed ^ wasPressed));
 }
 
-void CWiiInput::UpdateSwingButtons(int channel) {
+void CRevolutionController::UpdateSwingButtons(int channel) {
   CControllerData& input = mInput[channel];
   if (input.DeviceIsPresent()) {
     for (int i = 0; i < 12; ++i) {
@@ -637,7 +638,7 @@ void CWiiInput::UpdateSwingButtons(int channel) {
   }
 }
 
-void CWiiInput::SetMotorState(int channel, EMotorState state) {
+void CRevolutionController::SetMotorState(int channel, EMotorState state) {
 #if NONMATCHING
   if (uint(channel) >= 4) {
     return;
@@ -658,7 +659,7 @@ void CWiiInput::SetMotorState(int channel, EMotorState state) {
   }
 }
 
-void CWiiInput::SetMotorEnabled(int channel, bool enabled) {
+void CRevolutionController::SetMotorEnabled(int channel, bool enabled) {
 #if NONMATCHING
   if (channel < 0) {
     return;
@@ -678,7 +679,7 @@ void CWiiInput::SetMotorEnabled(int channel, bool enabled) {
   }
 }
 
-bool CWiiInput::HasMotionActivity(uint channel) const {
+bool CRevolutionController::HasMotionActivity(uint channel) const {
 #if NONMATCHING
   if (channel >= 4) {
 #else
@@ -697,7 +698,7 @@ bool CWiiInput::HasMotionActivity(uint channel) const {
   return active;
 }
 
-float CWiiInput::GetMotionIdleTime(uint channel) const {
+float CRevolutionController::GetMotionIdleTime(uint channel) const {
 #if NONMATCHING
   if (channel < 4) {
 #else
@@ -708,7 +709,7 @@ float CWiiInput::GetMotionIdleTime(uint channel) const {
   return 0.f;
 }
 
-bool CWiiInput::HasButtonActivity(uint channel) const {
+bool CRevolutionController::HasButtonActivity(uint channel) const {
 #if NONMATCHING
   if (channel >= 4) {
 #else
@@ -732,7 +733,7 @@ bool CWiiInput::HasButtonActivity(uint channel) const {
   return active;
 }
 
-float CWiiInput::GetButtonIdleTime(uint channel) const {
+float CRevolutionController::GetButtonIdleTime(uint channel) const {
 #if NONMATCHING
   if (channel < 4) {
 #else
@@ -743,9 +744,11 @@ float CWiiInput::GetButtonIdleTime(uint channel) const {
   return 0.f;
 }
 
-bool CWiiInput::IsControllerIdle(uint channel) const { return GetButtonIdleTime(channel) >= 60.f; }
+bool CRevolutionController::IsControllerIdle(uint channel) const {
+  return GetButtonIdleTime(channel) >= 60.f;
+}
 
-void CWiiInput::UpdateIdleTimes(uint channel, float dt) {
+void CRevolutionController::UpdateIdleTimes(uint channel, float dt) {
 #if NONMATCHING
   if (channel >= 4) {
 #else
@@ -771,7 +774,7 @@ void CWiiInput::UpdateIdleTimes(uint channel, float dt) {
   }
 }
 
-bool CWiiInput::Initialize() {
+bool CRevolutionController::Initialize() {
   for (int i = 0; i < 4; ++i) {
     mInput[i].mConnected = false;
     mInput[i].mPointerPosition = CVector2f::Zero();
@@ -804,7 +807,7 @@ bool CWiiInput::Initialize() {
   return true;
 }
 
-void CWiiInput::InitializeController(uint channel) {
+void CRevolutionController::InitializeController(uint channel) {
 #if NONMATCHING
   if (channel >= 4) {
 #else
@@ -825,7 +828,7 @@ void CWiiInput::InitializeController(uint channel) {
   }
 }
 
-void CWiiInput::SetPointerRecenterMode(uint channel, EPointerRecenterMode mode) {
+void CRevolutionController::SetPointerRecenterMode(uint channel, EPointerRecenterMode mode) {
 #if NONMATCHING
   if (channel >= 4) {
 #else
@@ -836,84 +839,88 @@ void CWiiInput::SetPointerRecenterMode(uint channel, EPointerRecenterMode mode) 
   mPointerRecenterMode[channel] = mode;
 }
 
-void CWiiInput::SetControllerType(int channel, EDeviceType type) {
+void CRevolutionController::SetControllerType(int channel, EDeviceType type) {
   mControllerTypes[channel] = type;
   mInput[channel].mConnected = type != kDT_Disconnected;
 }
 
-WPADInfo CWiiInput::GetWpadInfo(int channel) const { return mWpadInfo[channel]; }
+WPADInfo CRevolutionController::GetWpadInfo(int channel) const { return mWpadInfo[channel]; }
 
-const KPADStatus& CWiiInput::GetKpadStatus(int channel) const { return mStatus[channel]; }
+const KPADStatus& CRevolutionController::GetKpadStatus(int channel) const {
+  return mStatus[channel];
+}
 
-void CWiiInput::CopyWpadInfo(int channel) { mWpadInfo[channel] = mWpadInfoBuf[channel]; }
+void CRevolutionController::CopyWpadInfo(int channel) {
+  mWpadInfo[channel] = mWpadInfoBuf[channel];
+}
 
-void CWiiInput::WpadInfoCallback(s32 channel, s32 result) {
-  if (sWiiInput != nullptr && result == 0) {
-    sWiiInput->CopyWpadInfo(channel);
+void CRevolutionController::WpadInfoCallback(s32 channel, s32 result) {
+  if (sRevolutionController != nullptr && result == 0) {
+    sRevolutionController->CopyWpadInfo(channel);
   }
 }
 
-void CWiiInput::WpadConnectCallback(s32 channel, s32 result) {
-  if (sWiiInput != nullptr) {
+void CRevolutionController::WpadConnectCallback(s32 channel, s32 result) {
+  if (sRevolutionController != nullptr) {
     if (channel >= 1) {
-      sWiiInput->QueueConnectionEvent(channel, kCE_Rejected);
+      sRevolutionController->QueueConnectionEvent(channel, kCE_Rejected);
     } else {
       switch (result) {
       case WPAD_ERR_OK:
-        sWiiInput->QueueConnectionEvent(channel, kCE_Connected);
-        sWiiInput->SetControllerType(channel, kDT_Wiimote);
+        sRevolutionController->QueueConnectionEvent(channel, kCE_Connected);
+        sRevolutionController->SetControllerType(channel, kDT_Wiimote);
         WPADSetExtensionCallback(channel, WpadExtensionCallback);
         break;
       case WPAD_ERR_NO_CONTROLLER:
-        sWiiInput->QueueConnectionEvent(channel, kCE_Disconnected);
-        sWiiInput->SetControllerType(channel, kDT_Disconnected);
+        sRevolutionController->QueueConnectionEvent(channel, kCE_Disconnected);
+        sRevolutionController->SetControllerType(channel, kDT_Disconnected);
         break;
       case WPAD_ERR_BUSY:
-        sWiiInput->SetControllerType(channel, kDT_Disconnected);
+        sRevolutionController->SetControllerType(channel, kDT_Disconnected);
         break;
       case WPAD_ERR_TRANSFER:
-        sWiiInput->SetControllerType(channel, kDT_Disconnected);
+        sRevolutionController->SetControllerType(channel, kDT_Disconnected);
         break;
       }
     }
   }
 }
 
-void CWiiInput::WpadExtensionCallback(s32 channel, s32 extension) {
-  if (sWiiInput != nullptr) {
+void CRevolutionController::WpadExtensionCallback(s32 channel, s32 extension) {
+  if (sRevolutionController != nullptr) {
     if (channel >= 1) {
-      sWiiInput->SetControllerType(channel, kDT_Wiimote);
+      sRevolutionController->SetControllerType(channel, kDT_Wiimote);
     } else {
       switch (extension) {
       case WPAD_DEV_CORE:
-        sWiiInput->QueueExtensionEvent(channel, kEE_Wiimote);
-        sWiiInput->SetControllerType(channel, kDT_Wiimote);
+        sRevolutionController->QueueExtensionEvent(channel, kEE_Wiimote);
+        sRevolutionController->SetControllerType(channel, kDT_Wiimote);
         break;
       case WPAD_DEV_FS:
-        sWiiInput->QueueExtensionEvent(channel, kEE_Nunchuk);
-        sWiiInput->SetControllerType(channel, kDT_Nunchuk);
+        sRevolutionController->QueueExtensionEvent(channel, kEE_Nunchuk);
+        sRevolutionController->SetControllerType(channel, kDT_Nunchuk);
         break;
       case WPAD_DEV_CLASSIC:
-        sWiiInput->QueueExtensionEvent(channel, kEE_Classic);
-        sWiiInput->SetControllerType(channel, kDT_Classic);
+        sRevolutionController->QueueExtensionEvent(channel, kEE_Classic);
+        sRevolutionController->SetControllerType(channel, kDT_Classic);
         break;
       case 0xfd:
-        sWiiInput->SetControllerType(channel, kDT_Wiimote);
+        sRevolutionController->SetControllerType(channel, kDT_Wiimote);
         break;
       case 0xfb:
-        sWiiInput->QueueExtensionEvent(channel, kEE_Unsupported);
-        sWiiInput->SetControllerType(channel, kDT_Wiimote);
+        sRevolutionController->QueueExtensionEvent(channel, kEE_Unsupported);
+        sRevolutionController->SetControllerType(channel, kDT_Wiimote);
         break;
       default:
-        sWiiInput->QueueExtensionEvent(channel, kEE_Unsupported);
-        sWiiInput->SetControllerType(channel, kDT_Unsupported);
+        sRevolutionController->QueueExtensionEvent(channel, kEE_Unsupported);
+        sRevolutionController->SetControllerType(channel, kDT_Unsupported);
         break;
       }
     }
   }
 }
 
-void CWiiInput::SetAcceptAdditionalConnections(bool accept) {
+void CRevolutionController::SetAcceptAdditionalConnections(bool accept) {
   if (accept == mAcceptAdditionalConnections) {
     return;
   }
@@ -923,4 +930,6 @@ void CWiiInput::SetAcceptAdditionalConnections(bool accept) {
   }
 }
 
-void CWiiInput::SetInput(const CControllerData& input, int channel) { mInput[channel] = input; }
+void CRevolutionController::SetInput(const CControllerData& input, int channel) {
+  mInput[channel] = input;
+}

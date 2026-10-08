@@ -50,7 +50,7 @@ public:
   const CControllerButton& GetSwingButton(int button) const { return mSwingButtons[button]; }
 
 private:
-  friend class CWiiInput;
+  friend class CRevolutionController;
   friend class CFinalInput;
 
   bool mConnected;

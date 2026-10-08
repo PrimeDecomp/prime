@@ -240,7 +240,7 @@ Kyoto/Input/CWiiMotionProcessor.cpp:
 	.rodata     start:0x8047BBF0 end:0x8047BC30
 	.sdata2     start:0x805C7F68 end:0x805C7FE8
 
-Kyoto/Input/CWiiInput.cpp:
+Kyoto/Input/CRevolutionController.cpp:
 	.text       start:0x80330D88 end:0x80333F84
 	.rodata     start:0x8047BC30 end:0x8047BC40
 	.data       start:0x80493400 end:0x804935C8
