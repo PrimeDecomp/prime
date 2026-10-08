@@ -12,6 +12,9 @@ static const CMaterialFilter BallTransitionCollide =
 
 #include "MetroidPrime/CModelData.hpp"
 #include "MetroidPrime/CAnimPlaybackParms.hpp"
+#include "MetroidPrime/CFluidPlaneCPU.hpp"
+#include "MetroidPrime/Cameras/CCameraFilterPass.hpp"
+#include "Kyoto/Animation/CAnimTreeNode.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"
 #include "MetroidPrime/Cameras/CBallCamera.hpp"
 #include "MetroidPrime/Cameras/CFirstPersonCamera.hpp"
@@ -19,9 +22,11 @@ static const CMaterialFilter BallTransitionCollide =
 #include "MetroidPrime/Player/CPlayerGun.hpp"
 #include "MetroidPrime/Player/CPlayerCameraBob.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptPlayerHint.hpp"
+#include "MetroidPrime/ScriptObjects/CScriptWater.hpp"
 #include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/Input/CFinalInput.hpp"
 #include "Kyoto/Math/CMath.hpp"
+#include "Kyoto/Math/CPlane.hpp"
 #include "Kyoto/Math/CQuaternion.hpp"
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"
@@ -35,6 +40,13 @@ static const CMaterialFilter BallTransitionCollide =
 #include "MetroidPrime/Tweaks/CTweaks.hpp"
 
 #include <float.h>
+
+CAnimRes MakePlayerAnimres(CAssetId resId, const CVector3f& scale);
+
+// Inferred feature-gate name; the native constant-false stub is shared with the gun.
+static bool GetUseMorphBallTransitionModels() { return false; }
+
+static const float skTransitionFilterTime = .95f;
 
 static const float skStrafeDistances[] = {11.8f, 11.8f, 11.8f, 5.f, 6.f, 5.f, 5.f, 6.f};
 static const float skDashStrafeDistances[] = {11.8f, 30.f, 22.6f, 10.f, 10.f, 10.f, 10.f, 10.f};
@@ -861,9 +873,9 @@ void CPlayer::UpdateStepCameraZBias(float dt) {
         newBias = mStepCameraZBias - newDelta;
       }
     }
-    SetEyeZBias(newBias - oldBias);
+    SetEyeOffset(newBias - oldBias);
   } else {
-    SetEyeZBias(0.f);
+    SetEyeOffset(0.f);
   }
   mStepCameraZBias = newBias;
   mStepCameraZBiasDirty = false;
@@ -1785,7 +1797,7 @@ void CPlayer::Teleport(const CTransform4f& transform, CStateManager& mgr,
     SetTranslation(transform.GetTranslation());
   }
   mStepCameraZBiasDirty = true;
-  SetEyeZBias(0.f);
+  SetEyeOffset(0.f);
   SetLastNonCollidingState(GetMotionState());
   SetMoveState(NPlayer::kMS_OnGround, mgr);
   CTransform4f eyeTransform = GetTransform();
@@ -1816,6 +1828,8 @@ bool CPlayer::CheckSubmerged() const {
   return mDistanceUnderWater >= height;
 }
 
+#endif
+
 void CPlayer::UpdateSubmerged(const CStateManager& mgr) {
   mInLava = false;
   mDistanceUnderWater = 0.f;
@@ -1823,9 +1837,17 @@ void CPlayer::UpdateSubmerged(const CStateManager& mgr) {
     return;
   }
   if (const CScriptWater* water = TCastToConstPtr< CScriptWater >(mgr.GetObjectById(InFluidId()))) {
+#if VERSION >= VERSION_R3IJ_00
+    const CVector3f& translation = GetTranslation();
+    mDistanceUnderWater =
+        -CPlane(water->GetTriggerBoundsWR().GetMaxPoint().GetZ(),
+                CUnitVector3f(0.f, 0.f, 1.f, CUnitVector3f::kN_Yes))
+             .GetHeight(translation);
+#else
     mDistanceUnderWater = -CPlane(water->GetTriggerBoundsWR().GetMaxPoint().GetZ(),
                                       CUnitVector3f(0.f, 0.f, 1.f, CUnitVector3f::kN_Yes))
                                    .GetHeight(GetTranslation());
+#endif
     bool lava = true;
     const CFluidPlane::EFluidType fluidType = water->GetFluidPlane().GetFluidType();
     if (fluidType != CFluidPlane::kFT_Lava && fluidType != CFluidPlane::kFT_ThickLava) {
@@ -1835,6 +1857,8 @@ void CPlayer::UpdateSubmerged(const CStateManager& mgr) {
     CheckSubmerged();
   }
 }
+
+#if VERSION < VERSION_R3IJ_00
 
 float CPlayer::GetStepDownHeight() const {
   if (mMovementState == NPlayer::kMS_Jump) {
@@ -2048,7 +2072,7 @@ void CPlayer::AddToPlayerHintRemoveList(TUniqueId id, CStateManager& mgr) {
   }
 }
 
-void CPlayer::SetEyeZBias(float bias) { mEyeZBias = bias; }
+void CPlayer::SetEyeOffset(float bias) { mEyeZBias = bias; }
 
 #endif
 
@@ -2137,8 +2161,6 @@ float CPlayer::UpdateCameraBob(float dt, CStateManager& mgr) {
   return magnitude;
 }
 
-#if VERSION < VERSION_R3IJ_00
-
 void CPlayer::SetIntoBallReadyAnimation(CStateManager& mgr) {
   const CAnimPlaybackParms parms(2, -1, 1.f, true);
   AnimationData()->SetAnimation(parms, false);
@@ -2146,8 +2168,6 @@ void CPlayer::SetIntoBallReadyAnimation(CStateManager& mgr) {
   ModelData()->AdvanceAnimation(0.f, mgr, kInvalidAreaId, true);
   AnimationData()->SetIsAnimating(false);
 }
-
-#endif
 
 int CPlayer::ChoseTransitionToAnimation(float dt, CStateManager& mgr) const {
   if (mMovementState == NPlayer::kMS_ApplyJump) {
@@ -2365,7 +2385,6 @@ void CPlayer::TransitionFromMorphBallState(float dt, CStateManager& mgr) {
   }
 }
 
-#if VERSION < VERSION_R3IJ_00
 void CPlayer::ActivateMorphBallCamera(CStateManager& mgr) {
   SetCameraState(kCS_Ball, mgr);
   mgr.CameraManager()->BallCamera()->SetState(CBallCamera::kBCS_Default, mgr);
@@ -2392,13 +2411,20 @@ void CPlayer::LeaveMorphBallState(CStateManager& mgr) {
   SetHudDisable(FLT_EPSILON, 0.f, 2.f);
   SetIntoBallReadyAnimation(mgr);
   Stop();
+#if VERSION >= VERSION_R3IJ_00
+  mFreeLookYawAngle = CRelAngle::FromRadians(0.f);
+  mHorizFreeLookAngleVel = CRelAngle::FromRadians(0.f);
+  mFreeLookPitchAngle = CRelAngle::FromRadians(0.f);
+  mVertFreeLookAngleVel = CRelAngle::FromRadians(0.f);
+#else
   mFreeLookYawAngle = 0.f;
   mHorizFreeLookAngleVel = 0.f;
   mFreeLookPitchAngle = 0.f;
   mVertFreeLookAngleVel = 0.f;
+#endif
   mMorphball->LeaveMorphBallState(mgr);
   mgr.CameraManager()->SetPlayerCamera(
-      mgr, mgr.GetCameraManager()->GetFirstPersonCamera()->GetUniqueId());
+      mgr, mgr.CameraManager()->FirstPersonCamera()->GetUniqueId());
   mgr.CameraManager()->BallCamera()->SetState(CBallCamera::kBCS_Default, mgr);
   SetCameraState(kCS_FirstPerson, mgr);
   mgr.CameraManager()->FirstPersonCamera()->DeferBallTransitionProcessing();
@@ -2433,16 +2459,22 @@ void CPlayer::UpdateTransitionFilter(float dt, CStateManager& mgr) {
   if (time < .1f) {
     color = color.WithAlphaOf(.3f * time / .1f);
   } else if (time >= .15f) {
+#if VERSION >= VERSION_R3IJ_00
+    const float& limit = 1.f;
+    color = color.WithAlphaOf(.3f * (1.f - CMath::FastLimit((time - .15f) / .15f, limit)));
+#else
     color = color.WithAlphaOf(.3f * (1.f - CMath::Limit((time - .15f) / .15f, 1.f)));
+#endif
   } else {
-    color = color.WithAlphaOf(.3f);
+    float alpha = .3f;
+    color = color.WithAlphaOf(alpha);
   }
   filter.SetFilter(CCameraFilterPass::kFT_Add, CCameraFilterPass::kFS_ScanLinesEven, 0.f, color,
                    kInvalidAssetId);
 }
 
 void CPlayer::UpdateMorphBallTransition(float dt, CStateManager& mgr) {
-  const EPlayerMorphBallState morphState = mMorphBallState;
+  const EPlayerMorphBallState morphState = GetMorphballTransitionState();
   if (morphState != kMS_Morphing && morphState != kMS_Unmorphing) {
     CPlayerState::EPlayerSuit suit = mgr.GetPlayerState()->GetCurrentSuitRaw();
     if (mgr.GetPlayerState()->GetIsFusionEnabled()) {
@@ -2468,22 +2500,29 @@ void CPlayer::UpdateMorphBallTransition(float dt, CStateManager& mgr) {
         bool loop = false;
         mBallTransitionAnim = GetNextBallTransitionAnim(dt, loop, mgr);
         if (HasAnimation()) {
-          const CAnimPlaybackParms parms(mBallTransitionAnim, -1, 1.f, true);
-          animData.SetAnimation(parms, false);
+          animData.SetAnimation(CAnimPlaybackParms(mBallTransitionAnim, -1, 1.f, true), false);
           animData.EnableLooping(loop);
         }
       }
     } else if (mBallTransitionAnim != 5 && mBallTransitionAnim != 7) {
+#if VERSION >= VERSION_R3IJ_00
+      const float maxSpeedDelta = .4f * GetActualFirstPersonMaxVelocity(dt);
+      const CVector2f velocity = GetVelocityWR().DropZ();
+#else
       const float maxSpeed = GetActualFirstPersonMaxVelocity(dt);
       const CVector2f velocity(GetVelocityWR().GetX(), GetVelocityWR().GetY());
+#endif
       const float speed = velocity.Magnitude();
-      if (fabsf(mTransitionVel - speed) > .4f * maxSpeed || speed < 1.f) {
+#if VERSION >= VERSION_R3IJ_00
+      if (CMath::AbsF(mTransitionVel - speed) > maxSpeedDelta || speed < 1.f) {
+#else
+      if (CMath::AbsF(mTransitionVel - speed) > .4f * maxSpeed || speed < 1.f) {
+#endif
         bool loop = false;
         const int nextAnim = GetNextBallTransitionAnim(dt, loop, mgr);
         if (HasAnimation() && mBallTransitionAnim != nextAnim && mBallTransitionAnim != 7) {
           mBallTransitionAnim = nextAnim;
-          const CAnimPlaybackParms parms(mBallTransitionAnim, -1, 1.f, true);
-          animData.SetAnimation(parms, false);
+          animData.SetAnimation(CAnimPlaybackParms(mBallTransitionAnim, -1, 1.f, true), false);
           animData.EnableLooping(loop);
           mTransitionVel = speed;
         }
@@ -2499,9 +2538,24 @@ void CPlayer::UpdateMorphBallTransition(float dt, CStateManager& mgr) {
   RotateInOneFrameOR(deltas.GetOrientationDelta(), dt);
   mMorphTime = rstl::min_val(mMorphDuration, mMorphTime + dt);
   const float morphT = mMorphTime / mMorphDuration;
+#if VERSION >= VERSION_R3IJ_00
+  if (morphT < .7f && mMorphTime > 2.f * dt) {
+    if (GetUseMorphBallTransitionModels()) {
+      const CAnimRes res = MakePlayerAnimres(mAnimRes.GetId(), mAnimRes.GetScale());
+      CModelData* model = rs_new CModelData(res);
+      model->AnimationData()->AnimationTree() = Cast(GetAnimationData()->GetAnimationTree()->Clone());
+      model->AnimationData()->SetPhase(0.f);
+      model->AnimationData()->SetIsAnimating(true);
+      mTransitionModels.insert(mTransitionModels.begin(), rstl::auto_ptr< CModelData >(model));
+    }
+  } else if (!mTransitionModels.empty()) {
+    mTransitionModels.erase(mTransitionModels.begin());
+  }
+#else
   if ((!(morphT < .7f) || !(mMorphTime > 2.f * dt)) && !mTransitionModels.empty()) {
     mTransitionModels.erase(mTransitionModels.begin());
   }
+#endif
   for (int i = 0; i < mTransitionModels.size(); ++i) {
     mTransitionModels[i]->AdvanceAnimation(dt, mgr, kInvalidAreaId, true);
   }
@@ -2512,9 +2566,7 @@ void CPlayer::UpdateMorphBallTransition(float dt, CStateManager& mgr) {
     SetModelFlags(CModelFlags::AlphaBlended(mAlpha).DepthCompareUpdate(true, false));
   } else if (morphState == kMS_Unmorphing && mAlpha < 1.f) {
     if (mAlpha > .05f) {
-      const CModelFlags& flags =
-          CModelFlags::AlphaBlended(mAlpha).DepthCompareUpdate(true, false);
-      SetModelFlags(CModelFlags(flags, flags.GetOtherFlags() | CModelFlags::kF_DrawNormal));
+      SetModelFlags(CModelFlags::AlphaBlended(mAlpha).DepthCompareUpdate(true, false).DrawNormal(true));
     } else {
       SetModelFlags(CModelFlags::AlphaBlended(mAlpha).DepthCompareUpdate(true, false));
     }
@@ -2527,7 +2579,9 @@ void CPlayer::UpdateMorphBallTransition(float dt, CStateManager& mgr) {
   switch (morphState) {
   case kMS_Unmorphing: {
     const CAABox bounds = GetCollisionPrimitive()->CalculateAABox(GetPrimitiveTransform());
-    bounds.GetCenterPoint();
+    const CVector3f center = bounds.GetCenterPoint();
+    const CVector3f top(center.GetX(), center.GetY(), bounds.GetMaxPoint().GetZ());
+    const CVector3f transitionCenter = .5f * (center + top);
     ClearForcesAndTorques();
     SetAngularVelocityWR(CAxisAngle::Identity());
     bool cinematic = false;
@@ -2576,5 +2630,3 @@ void CPlayer::UpdateMorphBallTransition(float dt, CStateManager& mgr) {
     break;
   }
 }
-
-#endif
