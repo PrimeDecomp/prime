@@ -126,6 +126,19 @@ basic_string< char >& basic_string< char >::assign(const basic_string& other) {
   return *this;
 }
 
+#if RSTL_VERSION >= RSTL_GM8P_00 && RSTL_VERSION < RSTL_R3IJ
+template <>
+basic_string< char >& basic_string< char >::assign(const char* data, int count) {
+  const pair< const char*, int > range = compute_length(data, count);
+  const int len = range.second;
+  internal_prepare_to_write(len, false);
+  char_traits< char >::copy(const_cast< char* >(mPtr), data, len);
+  mSize = len;
+  char_traits< char >::assign(const_cast< char& >(mPtr[length()]), char_traits< char >::eos());
+  return *this;
+}
+#endif
+
 template <>
 void basic_string< char >::PutTo(COutputStream& out) const {
   for (int i = 0; i < length() + 1; ++i) {

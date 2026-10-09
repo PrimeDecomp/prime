@@ -1803,6 +1803,8 @@ MetroidPrime/Enemies/CKnockBackMgr.cpp:
 MetroidPrime/CScriptLayerManager.cpp:
 	.text       start:0x80225A50 end:0x80225FEC
 	.ctors      start:0x803B6DE8 end:0x803B6DEC
+	.rodata     start:0x803C06E0 end:0x803C06E8
+	.bss        start:0x80456248 end:0x80456268
 
 MetroidPrime/Enemies/CMagdolite.cpp:
 	.text       start:0x802261C4 end:0x802291E8
@@ -1974,6 +1976,7 @@ MetroidPrime/CGameHintInfo.cpp:
 
 MetroidPrime/Enemies/CWallWalker.cpp:
 	.text       start:0x80258F28 end:0x80259E80
+	.rodata     start:0x803C1740 end:0x803C1758
 	.data       start:0x803D35C0 end:0x803D3890
 	.sdata2     start:0x80596AF0 end:0x80596B20
 
@@ -3449,7 +3452,8 @@ Kyoto/Particles/CParticleElectric.cpp:
 Kyoto/Graphics/DolphinCColor.cpp:
 	.text       start:0x8034EBF8 end:0x8034F124
 	.sdata      start:0x80591AB8 end:0x80591AC8
-	.sdata2     start:0x80597DF4 end:0x80597E08
+	.sdata2     start:0x80597DF0 end:0x80597E08
+	.sbss2      start:0x80598838 end:0x8059883C
 
 Kyoto/Audio/CDSPStreamManager.cpp:
 	.text       start:0x8034F124 end:0x80350B98

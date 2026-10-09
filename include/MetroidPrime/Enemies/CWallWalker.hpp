@@ -38,7 +38,7 @@ public:
 
   // CActor
   void Render(const CStateManager& mgr) const override;
-  const CCollisionPrimitive* GetCollisionPrimitive() const override { return &mColSphere; }
+  const CCollisionPrimitive* GetCollisionPrimitive() const override;
 #if VERSION >= VERSION_GM8P_00
   rstl::optional_object< CAABox > GetTouchBounds() const override;
 #endif
