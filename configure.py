@@ -1211,7 +1211,13 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/Player/CStaticInterference.cpp"),
             Object(EquivalentFor("GM8E01_00"), "MetroidPrime/Enemies/CMetroidBeta.cpp"),
             Object(NonMatching, "MetroidPrime/PathFinding/CPathFindSearch.cpp"),
-            Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/PathFinding/CPathFindRegion.cpp"),
+            Object(
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                "MetroidPrime/PathFinding/CPathFindRegion.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"']
+                if version_num >= VERSIONS.index("GM8P01_00")
+                else [],
+            ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS),
                 "MetroidPrime/PathFinding/CPathFindArea.cpp",
@@ -1478,8 +1484,11 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/Enemies/CPhazonHealingNodule.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "MetroidPrime/Player/CMorphBallShadow.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "R3ME01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00", "R3ME01_00"),
                 "MetroidPrime/Player/CPlayerStuckTracker.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"']
+                if VERSIONS.index("GM8P01_00") <= version_num < VERSIONS.index("R3IJ01_00")
+                else [],
             ),
             Object(NonMatching, "MetroidPrime/CSlideShow.cpp"),
             Object(
@@ -1819,7 +1828,13 @@ config.libs = [
             Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                    "Kyoto/Animation/CAnimMathUtils.cpp"),
 
-            Object(MatchingFor("GM8EAB_00", "GM8E01_00", "GM8E01_01", "GM8E01_02"), "Kyoto/Animation/CAnimPerSegmentData.cpp"),
+            Object(
+                MatchingFor("GM8EAB_00", "GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
+                "Kyoto/Animation/CAnimPerSegmentData.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"']
+                if version_num >= VERSIONS.index("GM8P01_00")
+                else [],
+            ),
             Object(
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Animation/CAnimPOIData.cpp",
