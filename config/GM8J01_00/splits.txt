@@ -229,7 +229,7 @@ MetroidPrime/CWorld.cpp:
 	.ctors      start:0x803B6D2C end:0x803B6D30
 	.rodata     start:0x803B92B8 end:0x803B92C0
 	.data       start:0x803C6340 end:0x803C6408
-	.sbss       start:0x80591E88 end:0x80591E90
+	.sbss       start:0x80591E88 end:0x80591E98
 	.sdata2     start:0x80593560 end:0x80593578
 
 MetroidPrime/Tweaks/CTweakParticle.cpp:
@@ -1836,7 +1836,9 @@ MetroidPrime/Enemies/CSnakeWeedSwarm.cpp:
 	.sdata2     start:0x80596700 end:0x80596738
 
 MetroidPrime/Cameras/CBallCameraFailsafeState.cpp:
-	.text       start:0x8022F584 end:0x8022F644
+	.text       start:0x8022F580 end:0x802301F0
+	.sdata      start:0x805912E0 end:0x80591308
+	.sdata2     start:0x80596738 end:0x80596760
 
 MetroidPrime/Enemies/CScriptContraption.cpp:
 	.text       start:0x802301F0 end:0x80230ADC
@@ -2112,7 +2114,7 @@ MetroidPrime/Tweaks/CTweakSlideShow.cpp:
 MetroidPrime/CArtifactDoll.cpp:
 	.text       start:0x8028BB2C end:0x8028C7BC
 	.ctors      start:0x803B6E14 end:0x803B6E18
-	.rodata     start:0x803C21E8 end:0x803C2254
+	.rodata     start:0x803C21E8 end:0x803C22E8
 	.sdata      start:0x80591668 end:0x80591678
 	.sbss       start:0x80592220 end:0x80592228
 	.sdata2     start:0x80597058 end:0x805970A8
@@ -3358,6 +3360,8 @@ Kyoto/Animation/DolphinCSkinnedModel.cpp:
 	.ctors      start:0x803B6EA8 end:0x803B6EAC
 	.rodata     start:0x803C4708 end:0x803C4710
 	.data       start:0x803D8530 end:0x803D8540
+	.bss        start:0x804A9020 end:0x80529070
+	.sbss       start:0x805926C8 end:0x805926E0
 
 Kyoto/Animation/DolphinCSkinRules.cpp:
 	.text       start:0x8033E6E4 end:0x8033F630
@@ -4247,6 +4251,7 @@ dolphin/dtk.c:
 
 dolphin/card/CARDBios.c:
 	.text       start:0x803A3C50 end:0x803A4F34
+	.data       start:0x803DFAD0 end:0x803DFB28
 	.bss        start:0x80552AB8 end:0x80552CF8
 	.sdata      start:0x80591C90 end:0x80591C98
 	.sbss       start:0x80592CA0 end:0x80592CA8

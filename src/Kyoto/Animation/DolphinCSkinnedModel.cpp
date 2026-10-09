@@ -27,14 +27,14 @@ struct SSkinnedAllocation {
 };
 
 namespace Skinning {
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8J_00
 static void* sStaticSkinningData = nullptr;
 static int sStaticSkinningDataSize = 0x80000;
 #endif
 static ushort skCurrentToken = 0;
 static int sNumSkinnedObjects = 0;
 static bool sSkinningInitialized = false;
-#if VERSION < VERSION_GM8P_00
+#if VERSION < VERSION_GM8P_00 || VERSION == VERSION_GM8J_00
 ATTRIBUTE_ALIGN_DECL(32, static char sStaticSkinningData[0x80000]);
 #endif
 static rstl::optional_object< CCircularBuffer > sSkinningBuffer;
@@ -43,12 +43,12 @@ static bool sbDumpedSpinLockMessage = false;
 
 void AddSkinnedRef();
 void DelSkinnedRef();
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8J_00
 void SetSkinningBuffer(void* buffer, int size);
 #endif
 } // namespace Skinning
 
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8J_00
 void Skinning::SetSkinningBuffer(void* buffer, int size) {
   sStaticSkinningDataSize = size;
   sAllocations.clear();
@@ -70,7 +70,11 @@ void Skinning::AddSkinnedRef() {
 
 #if VERSION >= VERSION_GM8P_00
   if (sNumSkinnedObjects++ == 0) {
+#if VERSION == VERSION_GM8J_00
+    sSkinningBuffer = CCircularBuffer(sStaticSkinningData, sizeof(sStaticSkinningData));
+#else
     sSkinningBuffer = CCircularBuffer(sStaticSkinningData, sStaticSkinningDataSize);
+#endif
   }
 #else
   if (sNumSkinnedObjects == 0) {
@@ -88,7 +92,7 @@ void Skinning::DelSkinnedRef() {
   }
 }
 
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8J_00
 void CSkinnedModel::SetSkinningBuffer(void* buffer, int size) {
   Skinning::SetSkinningBuffer(buffer, size);
 }
@@ -269,12 +273,28 @@ void* CSkinnedModel::EnsureAllocation(int size) {
     if (ptr == nullptr) {
       s32 currentTick = OSGetTick();
       if (OSTicksToMilliseconds(static_cast< uint >(currentTick - startTick)) > 60) {
+#if VERSION == VERSION_GM8J_00
+        ushort token = GXReadDrawSync();
+        for (AUTO(it, Skinning::sAllocations.begin()); it != Skinning::sAllocations.end(); ++it) {
+        }
+        Skinning::skCurrentToken = token;
+        startTick = currentTick;
+        GXSetDrawSync(token);
+        int numSkinned = Skinning::sNumSkinnedObjects;
+        for (int i = 0; i < numSkinned; ++i) {
+          Skinning::DelSkinnedRef();
+        }
+        for (int i = 0; i < numSkinned; ++i) {
+          Skinning::AddSkinnedRef();
+        }
+#else
         GXReadDrawSync();
         for (AUTO(it, Skinning::sAllocations.begin()); it != Skinning::sAllocations.end(); ++it) {
         }
         startTick = currentTick;
         GXSetDrawSync(Skinning::skCurrentToken);
         ++Skinning::skCurrentToken;
+#endif
       }
     }
   }
