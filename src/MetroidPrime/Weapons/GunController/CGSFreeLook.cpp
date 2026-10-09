@@ -36,10 +36,7 @@ bool CGSFreeLook::Update(CAnimData& data, float dt, CStateManager& mgr) {
 
 int CGSFreeLook::SetAnim(CAnimData& data, const int gunId, const int setId, const int loopState,
                          CStateManager& mgr, const float delay) {
-  int useLoopState = 1;
-  if (!mIdle) {
-    useLoopState = loopState;
-  }
+  const int useLoopState = mIdle ? 1 : loopState;
   mIdle = false;
 
   const CPASDatabase& pas = data.GetCharacterInfo().GetPASDatabase();

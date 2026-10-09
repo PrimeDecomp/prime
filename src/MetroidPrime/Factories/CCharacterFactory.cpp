@@ -15,11 +15,10 @@
 #include "rstl/algorithm.hpp"
 
 inline CAnimationManager::CAnimationManager(const TToken< CAnimationDatabase >& animDB,
-                                          const CAnimSysContext& sysCtx)
-: mAnimDB(animDB)
-, mSysCtx(sysCtx) {}
-
+                                            const CAnimSysContext& sysCtx)
+: mAnimDB(animDB), mSysCtx(sysCtx) {}
 inline CTransitionManager::CTransitionManager(const CAnimSysContext& context) : mContext(context) {}
+
 
 rstl::auto_ptr< IObj > CCharacterFactory::CDummyFactory::Build(const SObjectTag& tag,
                                                                const CVParamTransfer& params) {
@@ -72,8 +71,7 @@ CCharacterFactory::CCharacterFactory(CSimplePool& store, const CAnimCharacterSet
   const TToken< CTransitionDatabaseGame > transDB(
       rs_new CTransitionDatabaseGame(transitions, halfTransitions, defaultTrans));
   const rstl::ncrc_ptr< CRandom16 > random(rs_new CRandom16(2334));
-  mSysContext =
-      rstl::ncrc_ptr< CAnimSysContext >(rs_new CAnimSysContext(transDB, random, store));
+  mSysContext = rstl::ncrc_ptr< CAnimSysContext >(rs_new CAnimSysContext(transDB, random, store));
   mAnimMgr = rs_new CAnimationManager(animDB, *mSysContext);
   mTransMgr = rs_new CTransitionManager(*mSysContext);
 
@@ -104,9 +102,9 @@ CCharacterFactory::CreateCharacter(int charIdx, bool loop,
     iceModel = TLockedToken< CSkinnedModelWithAvgNormals >(mCacheResPool.GetObj(
         iceTag, CVParamTransfer(rs_new TObjOwnerParam< const CCharacterInfo* const >(&charInfo))));
   }
-  CAnimData* animData = rs_new CAnimData(mSelfId, charInfo, defaultAnim, charIdx, loop,
-                                         mCharLayoutInfoDB[charIdx], skinnedModel, iceModel,
-                                         mSysContext, mAnimMgr, mTransMgr, factory);
+  CAnimData* animData =
+      rs_new CAnimData(mSelfId, charInfo, defaultAnim, charIdx, loop, mCharLayoutInfoDB[charIdx],
+                       skinnedModel, iceModel, mSysContext, mAnimMgr, mTransMgr, factory);
   return animData;
 }
 

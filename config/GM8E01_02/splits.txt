@@ -1373,6 +1373,8 @@ MetroidPrime/Weapons/GunController/CGunController.cpp:
 
 MetroidPrime/Weapons/GunController/CGSFreeLook.cpp:
 	.text       start:0x801CD4F8 end:0x801CD8F0
+	.rodata     start:0x803D2B78 end:0x803D2B88
+	.sdata2     start:0x805AD960 end:0x805AD970
 
 MetroidPrime/Weapons/GunController/CGSComboFire.cpp:
 	.text       start:0x801CD8F0 end:0x801CDCE0

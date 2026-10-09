@@ -8,7 +8,7 @@ class CPASAnimParmData {
   rstl::reserved_vector< CPASAnimParm, 8 > mParms;
 
 public:
-  CPASAnimParmData(pas::EAnimationState stateId,
+  CPASAnimParmData(const pas::EAnimationState stateId,
                    const CPASAnimParm& parm1 = CPASAnimParm::NoParameter(),
                    const CPASAnimParm& parm2 = CPASAnimParm::NoParameter(),
                    const CPASAnimParm& parm3 = CPASAnimParm::NoParameter(),
