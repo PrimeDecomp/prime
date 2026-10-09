@@ -2856,7 +2856,11 @@ CEntity* ScriptLoader::LoadVisorFlare(CStateManager& mgr, CInputStream& in, int 
 
 CEntity* ScriptLoader::LoadWorldTeleporter(CStateManager& mgr, CInputStream& in, int propCount,
                                            const CEntityInfo& info) {
+#if VERSION >= VERSION_GM8P_00
+  if (!(propCount >= 4 && propCount <= 26 ? true : false))
+#else
   if (!(propCount >= 4 && propCount <= 21 ? true : false))
+#endif
     return nullptr;
 
   rstl::string name = mgr.HashInstanceName(in);
@@ -2906,10 +2910,43 @@ CEntity* ScriptLoader::LoadWorldTeleporter(CStateManager& mgr, CInputStream& in,
     showDelay = 0.f;
   }
 
+#if VERSION >= VERSION_GM8P_00
+  const rstl::string audioFile = propCount >= 22 ? rstl::string(in) : rstl::string_l("");
+  const bool showSecondaryText = propCount >= 23 ? in.ReadBool() : false;
+
+  float textEndDelay;
+  if (propCount >= 24) {
+    textEndDelay = in.Get< float >();
+  } else {
+    textEndDelay = 4.f;
+  }
+
+  float secondaryTextStartTime;
+  if (propCount >= 25) {
+    secondaryTextStartTime = in.Get< float >();
+  } else {
+    secondaryTextStartTime = 2.f;
+  }
+
+  float secondaryTextFadeDuration;
+  if (propCount >= 26) {
+    secondaryTextFadeDuration = in.Get< float >();
+  } else {
+    secondaryTextFadeDuration = 3.f;
+  }
+
+  if (showText)
+    return rs_new CScriptWorldTeleporter(mgr.AllocateUniqueId(), name, info, active, worldId,
+                                         areaId, elevatorSound, volume, panning, fontId, stringId,
+                                         fadeWhite, charFadeInTime, charsPerSecond, showDelay,
+                                         audioFile, showSecondaryText, textEndDelay,
+                                         secondaryTextStartTime, secondaryTextFadeDuration);
+#else
   if (showText)
     return rs_new CScriptWorldTeleporter(mgr.AllocateUniqueId(), name, info, active, worldId,
                                          areaId, elevatorSound, volume, panning, fontId, stringId,
                                          fadeWhite, charFadeInTime, charsPerSecond, showDelay);
+#endif
 
   return rs_new CScriptWorldTeleporter(
       mgr.AllocateUniqueId(), name, info, active, worldId, areaId, animParms.GetACSFile(),

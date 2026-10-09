@@ -7,6 +7,8 @@
 
 #include "Kyoto/Math/CVector3f.hpp"
 
+#include "GameVersions.h"
+
 class CScriptWorldTeleporter : public CEntity {
 public:
   CScriptWorldTeleporter(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
@@ -17,13 +19,23 @@ public:
                          CAssetId platformModel, const CVector3f& platformScale,
                          CAssetId backgroundModel, const CVector3f& backgroundScale,
                          bool upElevator, ushort soundId, uchar volume, uchar panning);
+#if VERSION >= VERSION_GM8P_00
+  CScriptWorldTeleporter(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
+                         bool active, CAssetId worldId, CAssetId areaId, int soundId,
+                         uchar volume, uchar panning, CAssetId fontId, CAssetId stringId,
+                         bool fadeWhite, float charFadeIn, float charsPerSecond, float showDelay,
+                         const rstl::string& audioFile, bool showSecondaryText,
+                         float textEndDelay, float secondaryTextStartTime,
+                         float secondaryTextFadeDuration);
+#else
   CScriptWorldTeleporter(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                          bool active, CAssetId worldId, CAssetId areaId, int soundId,
                          uchar volume, uchar panning, CAssetId fontId, CAssetId stringId,
                          bool fadeWhite, float charFadeIn, float charsPerSecond, float showDelay);
+#endif
   ~CScriptWorldTeleporter();
 
-  DECLARE_TYPES_MATCH_OR_ACCEPT;
+  DECLARE_ACCEPT;
   void AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) override;
   void StartTransition(CStateManager&);
 
@@ -39,9 +51,17 @@ private:
   bool mInTransition : 1; // = false;
   bool x40_26_ : 1;
   bool mFadeWhite : 1; // = false;
+#if VERSION >= VERSION_GM8P_00
+  bool mShowSecondaryText : 1;
+#endif
   float mCharFadeIn;      // = 0.1f;
   float mCharsPerSecond;  // = 8.0f;
   float mShowDelay;       // = 0.0f;
+#if VERSION >= VERSION_GM8P_00
+  float mTextEndDelay;
+  float mSecondaryTextStartTime;
+  float mSecondaryTextFadeDuration;
+#endif
   CAnimationParameters mPlayerAnim;
   CVector3f mPlayerScale;
   CAssetId mPlatformModel;
@@ -53,6 +73,9 @@ private:
   uchar mPanning;  // = 0;
   CAssetId mFontId;
   CAssetId mStringId;
+#if VERSION >= VERSION_GM8P_00
+  rstl::string mAudioFile;
+#endif
 };
 
 #endif // _CSCRIPTWORLDTELEPORTER
