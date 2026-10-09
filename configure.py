@@ -887,7 +887,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/CInGameGuiManager.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CWarWasp.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "MetroidPrime/CWorldShadow.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8J01_00"), "MetroidPrime/CWorldShadow.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "MetroidPrime/CAudioStateWin.cpp"
             ),
@@ -1021,7 +1021,7 @@ config.libs = [
                 "MetroidPrime/BodyState/CBSSlide.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "MetroidPrime/BodyState/CBSHurled.cpp"),
-            Object(EquivalentFor("GM8E01_00"), "MetroidPrime/BodyState/CBSJump.cpp"),
+            Object(EquivalentFor("GM8E01_00") or MatchingFor("GM8J01_00"), "MetroidPrime/BodyState/CBSJump.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/BodyState/CBSGenerate.cpp",
@@ -1137,7 +1137,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/CGroundMovement.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/Enemies/CNewIntroBoss.cpp"),
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00"), "MetroidPrime/Weapons/CPhazonBeam.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/Weapons/CPhazonBeam.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/ScriptObjects/CScriptTargetingPoint.cpp",
@@ -2619,7 +2619,7 @@ config.libs = [
                 "dolphin/os/OSError.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "dolphin/os/OSFatal.c",
             ),
             Object(
