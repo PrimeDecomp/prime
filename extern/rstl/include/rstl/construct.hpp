@@ -73,6 +73,7 @@ static inline void destroy(T* begin, T* end) {
 
 template < typename It >
 static inline void destroy(It begin, It end) {
+  RS_ASSERT(begin == end || &*begin != nullptr, "rstl precondition");
   if (is_trivially_destructible< typename iterator_traits< It >::value_type >::value) {
     return;
   }
@@ -87,6 +88,7 @@ static inline void destroy(It begin, It end) {
 #else
 template < typename It >
 static inline void destroy(It begin, It end) {
+  RS_ASSERT(begin == end || &*begin != nullptr, "rstl precondition");
   if (is_trivially_destructible< typename iterator_traits< It >::value_type >::value) {
     return;
   }
@@ -100,6 +102,7 @@ static inline void destroy(It begin, It end) {
 
 template < typename It, typename T >
 static inline T uninitialized_copy(It begin, It end, T out) {
+  RS_ASSERT(begin == end || out != nullptr, "rstl precondition");
   T tmp = out;
   It cur = begin;
 #if RSTL_VERSION >= RSTL_R3IJ

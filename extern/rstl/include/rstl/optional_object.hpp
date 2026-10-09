@@ -59,10 +59,16 @@ public:
     m_valid = false;
   }
 
-  T& operator*() { return data(); }
+  T& operator*() {
+    RS_ASSERT(valid(), "rstl precondition");
+    return data();
+  }
   T* operator->() { return &data(); }
 
-  const T& operator*() const { return data(); }
+  const T& operator*() const {
+    RS_ASSERT(valid(), "rstl precondition");
+    return data();
+  }
   const T* operator->() const { return &data(); }
 
 private:
