@@ -7,6 +7,8 @@
 #include "MetroidPrime/Enemies/CPatterned.hpp"
 #include "MetroidPrime/PathFinding/CPathFindSearch.hpp"
 
+#include "GameVersions.h"
+
 class CSpacePirate;
 
 class CMetroid : public CPatterned {
@@ -78,6 +80,9 @@ public:
   bool InAttackPosition(CStateManager& mgr, float arg) override;
   CPathFindSearch* GetSearchPath() override { return &mPathFindSearch; }
   bool IsListening() const override { return true; }
+#if VERSION >= VERSION_GM8P_00
+  void TouchedDock(CStateManager& mgr);
+#endif
 
 private:
   void SpawnGammaMetroid(CStateManager& mgr);

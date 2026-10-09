@@ -524,7 +524,9 @@ MetroidPrime/CMemoryDrawEnum.cpp:
 
 MetroidPrime/ScriptObjects/CScriptDock.cpp:
 	.text       start:0x800BD58C end:0x800BE4AC
-	.data       start:0x803CAAC0 end:0x803CAB44
+	.data       start:0x803CAAC0 end:0x803CABC8
+	.sdata      start:0x805902F8 end:0x80590308
+	.sdata2     start:0x80593D30 end:0x80593D40
 
 MetroidPrime/ScriptObjects/CScriptCameraHint.cpp:
 	.text       start:0x800BE4AC end:0x800BF05C

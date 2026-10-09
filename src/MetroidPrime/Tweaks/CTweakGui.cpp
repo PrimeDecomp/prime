@@ -3,7 +3,13 @@
 #include "Kyoto/Graphics/CGraphics.hpp"
 #include "Kyoto/Streams/CInputStream.hpp"
 
+#include "GameVersions.h"
+
+#if VERSION >= VERSION_GM8P_00
+static ERglFogMode read_fog_mode(CInputStream& in) {
+#else
 static inline ERglFogMode read_fog_mode(CInputStream& in) {
+#endif
   switch (in.ReadInt32()) {
   case 0:
     return kRFM_None;

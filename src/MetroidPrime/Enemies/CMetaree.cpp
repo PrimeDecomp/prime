@@ -10,6 +10,8 @@
 
 #include "Collision/CCollisionInfoList.hpp"
 
+#include "GameVersions.h"
+
 CMetaree::CMetaree(TUniqueId uid, const rstl::string& name, EFlavorType flavor,
                    const CEntityInfo& info, const CTransform4f& xf, const CModelData& mData,
                    const CPatternedInfo& pInfo, const CDamageInfo& dInfo, float f1,
@@ -74,7 +76,11 @@ void CMetaree::Touch(CActor& act, CStateManager& mgr) {
     }
 
     SetWasHit(true);
+#if VERSION >= VERSION_GM8P_00
+    mProjectileDelta = projectile->GetVelocity();
+#else
     mProjectileDelta = projectile->GetTranslation() - projectile->GetPreviousPos();
+#endif
   }
 }
 

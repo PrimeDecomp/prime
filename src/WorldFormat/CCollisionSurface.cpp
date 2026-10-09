@@ -7,8 +7,7 @@ CCollisionSurface::CCollisionSurface(const CVector3f& a, const CVector3f& b, con
 CUnitVector3f CCollisionSurface::GetNormal() const {
   CVector3f baDiff = mB - mA;
   CVector3f caDiff = mC - mA;
-  CVector3f tmp = CVector3f::Cross(baDiff, caDiff);
-  return tmp;
+  return CVector3f::Cross(baDiff, caDiff);
 }
 
 CPlane CCollisionSurface::GetPlane() const {
