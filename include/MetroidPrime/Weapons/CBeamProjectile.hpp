@@ -22,12 +22,13 @@ public:
 
   // CEntity
   DECLARE_ACCEPT;
-  ~CBeamProjectile() override;
 
   // CActor
   rstl::optional_object<CAABox> GetTouchBounds() const override;
   void Touch(CActor&, CStateManager&) override;
   void CalculateRenderBounds() override;
+
+  ~CBeamProjectile() override;
 
   // CBeamProjectile
   virtual void UpdateFx(const CTransform4f&, float, CStateManager&);

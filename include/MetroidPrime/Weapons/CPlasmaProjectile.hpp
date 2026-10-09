@@ -29,6 +29,9 @@ public:
   CColor GetInnerColor() const { return mInnerColor; }
   CColor GetOuterColor() const { return mOuterColor; }
   bool IsFiring() const { return mFiring; }
+#if VERSION >= VERSION_GM8P_00
+  void SetInitialDamage(float damage);
+#endif
   void SetPlayerSustainedDamage(float duration, const CDamageInfo& damage);
 
 private:
@@ -59,7 +62,7 @@ private:
   CColor mOuterColor;
   CDamageInfo mPhazonDamage;
   EExpansionState mExpansionState;
-#if VERSION >= VERSION_R3IJ_00
+#if VERSION >= VERSION_GM8P_00
   float mInitialDamage;
 #endif
   float mBeamWidth;
@@ -93,7 +96,7 @@ private:
   bool mTexturesLoaded : 1;
   bool mDrawOwnerFirst : 1;
   bool mActivePlayerPhazon : 1;
-#if VERSION >= VERSION_R3IJ_00
+#if VERSION >= VERSION_GM8P_00
   bool mEnableInitialDamage : 1;
   bool mInitialDamagePending : 1;
 #endif

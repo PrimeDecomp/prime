@@ -17,6 +17,17 @@ void CFontRenderState::RefreshColor(const EColorType col) {
   case kCT_Main: {
     if (IsFinishedLoading() && GetFont().IsLoaded()) {
       switch (GetFont()->GetMode()) {
+#if VERSION >= VERSION_GM8P_00
+      case kFM_OneLayer:
+      case kFM_OneLayerOutline:
+      case kFM_FourLayers:
+      case kFM_TwoLayersOutline:
+      case kFM_TwoLayers:
+        if (!GetOverride()[0]) {
+          GetOptions().SetPaletteEntry(0, ConvertToTextureSpace(GetColors()[0]));
+        }
+        break;
+#else
       case kFM_OneLayer:
         if (!GetOverride()[0]) {
           GetOptions().SetPaletteEntry(0, ConvertToTextureSpace(GetColors()[0]));
@@ -28,6 +39,7 @@ void CFontRenderState::RefreshColor(const EColorType col) {
         }
         break;
       }
+#endif
       default:
         break;
       }
@@ -41,7 +53,12 @@ void CFontRenderState::RefreshColor(const EColorType col) {
   } break;
   case kCT_Outline: {
     if (IsFinishedLoading() && GetFont().IsLoaded() && !GetOverride()[1]) {
+#if VERSION >= VERSION_GM8P_00
+      if (GetFont()->GetMode() == kFM_OneLayerOutline ||
+          GetFont()->GetMode() == kFM_TwoLayersOutline) {
+#else
       if (GetFont()->GetMode() == kFM_OneLayerOutline) {
+#endif
         GetOptions().SetPaletteEntry(1, ConvertToTextureSpace(GetColors()[1]));
       }
     }

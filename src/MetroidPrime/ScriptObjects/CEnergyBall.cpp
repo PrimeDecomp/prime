@@ -57,6 +57,9 @@ void CEnergyBall::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStat
   if (msg == kSM_Registered) {
     SetMaterialFilter(CMaterialFilter::MakeInclude(CMaterialList(sPlayerMaterial)));
     RemoveMaterial(kMT_Solid, mgr);
+#if VERSION >= VERSION_GM8P_00
+    AddMaterial(kMT_NonSolidDamageable, mgr);
+#endif
   }
   CPatterned::AcceptScriptMsg(msg, uid, mgr);
 }
@@ -84,8 +87,16 @@ void CEnergyBall::Attack(CStateManager& mgr, EStateMsg msg, float arg) {
     break;
   case kStateMsg_Update: {
     const CVector3f eyePos = mgr.GetPlayer()->GetEyePosition();
+#if VERSION >= VERSION_GM8P_00
+    CVector3f seek = mSteeringBehaviors.Seek(*this, eyePos);
+    float z = seek.GetZ();
+    z *= 8.f;
+    seek.SetZ(z);
+    BodyCtrl()->FaceDirection3D(seek.AsNormalized(), GetTransform().GetForward(), arg);
+#else
     const CVector3f seek = mSteeringBehaviors.Seek(*this, eyePos);
     BodyCtrl()->FaceDirection3D(seek, GetTransform().GetForward(), arg);
+#endif
     break;
   }
   case kStateMsg_Deactivate:
