@@ -1643,6 +1643,8 @@ MetroidPrime/CRagDoll.cpp:
 
 MetroidPrime/Player/CGameOptions.cpp:
 	.text       start:0x80201654 end:0x80202998
+	.sdata      start:0x80591078 end:0x80591110
+	.sdata2     start:0x805961B8 end:0x805961E0
 
 MetroidPrime/ScriptObjects/CRepulsor.cpp:
 	.text       start:0x80202998 end:0x80202ACC
