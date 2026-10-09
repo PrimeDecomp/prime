@@ -37,21 +37,25 @@ CTweakGunRes* gpTweakGunRes = nullptr;
 CTweakPlayerRes* gpTweakPlayerRes = nullptr;
 CTweakSlideShow* gpTweakSlideShow = nullptr;
 
-static CAssetId IDFromFactory(CResFactory& factory, const char* filename);
+static CAssetId IDFromFactory(CResFactory& factory, const char* filename) {
+  return factory.GetResourceIdByName(filename)->GetId();
+}
 
-void CTweaks::RegisterResourceTweaks() {
-  CResFactory* resFactory = gpResourceFactory;
-  if (gpTweakGunRes == nullptr) {
-    rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
-        SObjectTag('CTWK', IDFromFactory(*resFactory, "GunRes")), nullptr);
-    mTweakObjects[10] = gpTweakGunRes = rs_new CTweakGunRes(*stream);
-  }
-
-  if (gpTweakPlayerRes == nullptr) {
-    rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
-        SObjectTag('CTWK', IDFromFactory(*resFactory, "PlayerRes")), nullptr);
-    mTweakObjects[11] = gpTweakPlayerRes = rs_new CTweakPlayerRes(*stream);
-  }
+CTweaks::CTweaks() { mTweakObjects.resize(14, rstl::auto_ptr< ITweakObject >()); }
+CTweaks::~CTweaks() {
+  gpTweakPlayer = nullptr;
+  gpTweakBall = nullptr;
+  gpTweakGame = nullptr;
+  gpTweakParticle = nullptr;
+  gpTweakPlayerControlCurrent = nullptr;
+  gpTweakPlayerGun = nullptr;
+  gpTweakGui = nullptr;
+  gpTweakGuiColors = nullptr;
+  gpTweakTargeting = nullptr;
+  gpTweakAutoMapper = nullptr;
+  gpTweakGunRes = nullptr;
+  gpTweakPlayerRes = nullptr;
+  gpTweakSlideShow = nullptr;
 }
 
 void CTweaks::RegisterTweaks() {
@@ -116,8 +120,7 @@ void CTweaks::RegisterTweaks() {
   {
     rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
         SObjectTag('CTWK', IDFromFactory(*resFactory, "PlayerControls")), nullptr);
-    gpTweakPlayerControlCurrent = rs_new CTweakPlayerControl(*stream);
-    mTweakObjects[3] = gpTweakPlayerControlCurrent;
+    mTweakObjects[3] = gpTweakPlayerControlCurrent= rs_new CTweakPlayerControl(*stream);
     gpTweakPlayerControl1 = gpTweakPlayerControlCurrent;
   }
   {
@@ -129,28 +132,20 @@ void CTweaks::RegisterTweaks() {
   {
     rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
         SObjectTag('CTWK', IDFromFactory(*resFactory, "SlideShow")), nullptr);
-    mTweakObjects[12] = gpTweakSlideShow = rs_new CTweakSlideShow(*stream);
+    mTweakObjects[12] = gpTweakSlideShow= rs_new CTweakSlideShow(*stream);
   }
 }
+void CTweaks::RegisterResourceTweaks() {
+  CResFactory* resFactory = gpResourceFactory;
+  if (gpTweakGunRes == nullptr) {
+    rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
+        SObjectTag('CTWK', IDFromFactory(*resFactory, "GunRes")), nullptr);
+    mTweakObjects[10] = gpTweakGunRes = rs_new CTweakGunRes(*stream);
+  }
 
-CTweaks::~CTweaks() {
-  gpTweakPlayer = nullptr;
-  gpTweakBall = nullptr;
-  gpTweakGame = nullptr;
-  gpTweakParticle = nullptr;
-  gpTweakPlayerControlCurrent = nullptr;
-  gpTweakPlayerGun = nullptr;
-  gpTweakGui = nullptr;
-  gpTweakGuiColors = nullptr;
-  gpTweakTargeting = nullptr;
-  gpTweakAutoMapper = nullptr;
-  gpTweakGunRes = nullptr;
-  gpTweakPlayerRes = nullptr;
-  gpTweakSlideShow = nullptr;
-}
-
-CTweaks::CTweaks() { mTweakObjects.resize(14, rstl::auto_ptr< ITweakObject >()); }
-
-static CAssetId IDFromFactory(CResFactory& factory, const char* filename) {
-  return factory.GetResourceIdByName(filename)->GetId();
+  if (gpTweakPlayerRes == nullptr) {
+    rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
+        SObjectTag('CTWK', IDFromFactory(*resFactory, "PlayerRes")), nullptr);
+    mTweakObjects[11] = gpTweakPlayerRes = rs_new CTweakPlayerRes(*stream);
+  }
 }
