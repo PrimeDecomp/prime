@@ -171,7 +171,7 @@ void CStaticAudioPlayer::Decode(const ushort* bufIn, ushort* bufOut, int numSamp
                    loopEndSamp + halfLen, loopStartSamp + halfLen, mVolume, mRightState);
 #if VERSION == VERSION_GM8E_02 || VERSION == VERSION_GM8J_00
   if (CAudioSys::GetSurroundMode() == CAudioSys::kSM_Mono) {
-    MixStereoToMono(reinterpret_cast< short* >(bufOut), numSamples);
+    MixStereoToMono(reinterpret_cast< short* >(const_cast< ushort* >(bufIn)), numSamples);
   }
 #endif
 
@@ -179,9 +179,9 @@ void CStaticAudioPlayer::Decode(const ushort* bufIn, ushort* bufOut, int numSamp
   while (remSamples != 0) {
     int rs = remSamples;
     int remTillLoop = mLoopEndSamp - mCurSamp;
-    int consumed = rstl::min_val(rs, remTillLoop);
-    mCurSamp += consumed;
-    remSamples -= consumed;
+    rs = rstl::min_val(rs, remTillLoop);
+    mCurSamp += rs;
+    remSamples -= rs;
     if (mCurSamp == mLoopEndSamp) {
       mCurSamp = mLoopStartSamp;
     }

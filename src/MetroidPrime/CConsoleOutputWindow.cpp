@@ -3,6 +3,10 @@
 #include "MetroidPrime/CArchitectureMessage.hpp"
 #include "MetroidPrime/Decode.hpp"
 
+#include "MetaRender/CCubeRenderer.hpp"
+
+#include "GameVersions.h"
+
 
 #include <rstl/math.hpp>
 
@@ -48,5 +52,16 @@ void CConsoleOutputWindow::Update(float dt) {
 
 
 void CConsoleOutputWindow::Draw() const {
-  
+#if VERSION >= VERSION_GM8P_00
+  int idx = PrevIndex(x44_);
+  int line = 0;
+  gpRender->SetBlendMode_AlphaBlended();
+  while (mUnkFloats[idx] > 0.f && line < mText.size()) {
+    mFont.DrawString(mText[idx].c_str(), 20, line * (mFont.GetFontSize() + 2) + 10, CColor::Black());
+    mFont.DrawString(mText[idx].c_str(), 18, line * (mFont.GetFontSize() + 2) + 12,
+                     CColor(static_cast< uchar >(200), 200, 200, 255));
+    ++line;
+    idx = PrevIndex(idx);
+  }
+#endif
 }

@@ -727,7 +727,7 @@ config.libs = [
                 "MetroidPrime/TCastTo.cpp",
             ),
             Object(
-                NonMatching,
+                MatchingFor("GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/TypesMatch.cpp",
             ),
             Object(
@@ -863,7 +863,7 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CScriptActorKeyframe.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CConsoleOutputWindow.cpp",
             ),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptWater.cpp"),
@@ -890,12 +890,12 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/CInGameGuiManager.cpp"),
             Object(NonMatching, "MetroidPrime/Enemies/CWarWasp.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8J01_00"), "MetroidPrime/CWorldShadow.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "MetroidPrime/CWorldShadow.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "MetroidPrime/CAudioStateWin.cpp"
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8J01_00", "R3ME01_00"), "MetroidPrime/Player/CPlayerVisor.cpp"
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00", "R3ME01_00"), "MetroidPrime/Player/CPlayerVisor.cpp"
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "MetroidPrime/CModelData.cpp"
@@ -1084,7 +1084,7 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CScriptPlayerHint.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/Enemies/CRipper.cpp",
             ),
             Object(EquivalentFor("GM8E01_00"), "MetroidPrime/Cameras/CCameraShakeData.cpp"),
@@ -1307,7 +1307,7 @@ config.libs = [
             ),
             Object(EquivalentFor("GM8E01_00"), "MetroidPrime/Weapons/CIceAttackProjectile.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/Enemies/CPatternedAiFunctions.cpp",
             ),
             Object(NonMatching, "MetroidPrime/Enemies/CFlyingPirate.cpp"),
@@ -2343,14 +2343,14 @@ config.libs = [
                 "Kyoto/Audio/CMidiManager.cpp",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Text/CFontImageDef.cpp",
-                extra_cflags=["-inline", "level=4"] if config.version == "GM8P01_00" else [],
+                extra_cflags=["-inline", "level=4"] if config.version in ("GM8P01_00", "GM8J01_00") else [],
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Text/CImageInstruction.cpp",
-                extra_cflags=["-inline", "level=4"] if config.version == "GM8P01_00" else [],
+                extra_cflags=["-inline", "level=4"] if config.version in ("GM8P01_00", "GM8J01_00") else [],
             ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS),

@@ -17,6 +17,8 @@
 
 #include "dolphin/gx/GXFrameBuffer.h"
 
+#include "GameVersions.h"
+
 CWorldShadow::CWorldShadow(uint w, uint h, bool rgba8)
 : mTexture(rs_new CTexture(rgba8 ? kTF_RGBA8 : kTF_RGB565, w, h, 1))
 , mView(CTransform4f::Identity())
@@ -141,8 +143,13 @@ void CWorldShadow::BuildLightShadowTexture(const CStateManager& mgr, TAreaId aid
 
         mBlurReset = false;
 
+#if VERSION == VERSION_GM8P_00
+        GXSetTexCopySrc(0, CGraphics::GetRenderMode().xfbHeight - mTexture->GetHeight() * 2,
+                        mTexture->GetWidth() * 2, mTexture->GetHeight() * 2);
+#else
         GXSetTexCopySrc(0, 448 - mTexture->GetHeight() * 2, mTexture->GetWidth() * 2,
                         mTexture->GetHeight() * 2);
+#endif
         GXSetTexCopyDst(mTexture->GetWidth(), mTexture->GetHeight(),
                         mTexture->GetTexelFormat() == kTF_RGB565 ? GX_TF_RGB565 : GX_TF_RGBA8,
                         true);
