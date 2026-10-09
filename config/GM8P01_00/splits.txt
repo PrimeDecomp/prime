@@ -691,12 +691,12 @@ MetroidPrime/ScriptObjects/CScriptActorKeyframe.cpp:
 	.sdata2     start:0x8046D258 end:0x8046D260
 
 MetroidPrime/CConsoleOutputWindow.cpp:
-	.text       start:0x800F65B0 end:0x800F6924
+	.text       start:0x800F6488 end:0x800F6924
 	.rodata     start:0x803B9840 end:0x803B9858
 	.data       start:0x803CA3F0 end:0x803CA410
 	.sdata      start:0x804695F0 end:0x804695F8
 	.sbss       start:0x8046B018 end:0x8046B020
-	.sdata2     start:0x8046D264 end:0x8046D270
+	.sdata2     start:0x8046D260 end:0x8046D270
 
 MetroidPrime/ScriptObjects/CScriptWater.cpp:
 	.text       start:0x800F6924 end:0x800F9BB0
@@ -860,8 +860,10 @@ MetroidPrime/CFluidPlaneManager.cpp:
 	.bss        start:0x80431954 end:0x80433A6C align:4 common
 
 MetroidPrime/ScriptObjects/CScriptGrapplePoint.cpp:
-	.text       start:0x80126ACC end:0x80126C40
+	.text       start:0x80126ACC end:0x80126DA4
 	.data       start:0x803CB230 end:0x803CB2A0
+	.sdata      start:0x80469798 end:0x804697A0
+	.sdata2     start:0x8046D7F0 end:0x8046D7F8
 
 MetroidPrime/ScriptObjects/CHUDBillboardEffect.cpp:
 	.text       start:0x80126DA4 end:0x80127554
@@ -1883,7 +1885,7 @@ MetroidPrime/CPauseScreenFrame.cpp:
 	.sdata2     start:0x8046F728 end:0x8046F758
 
 MetroidPrime/Enemies/CAtomicAlpha.cpp:
-	.text       start:0x80234ACC end:0x8023576C
+	.text       start:0x80234A78 end:0x8023576C
 	.rodata     start:0x803BF1A8 end:0x803BF1D8
 	.sdata      start:0x8046A378 end:0x8046A380
 	.sdata2     start:0x8046F758 end:0x8046F770

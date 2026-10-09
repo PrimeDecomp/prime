@@ -11,6 +11,7 @@ public:
   ~CFont();
   int CharWidth(char) const;
   void DrawString(const char* str, long x, long y, const CColor& col) const;
+  int GetFontSize() const { return mFontSize; }
 
 private:
   int mFontSize;

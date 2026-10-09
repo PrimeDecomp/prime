@@ -727,7 +727,7 @@ config.libs = [
                 "MetroidPrime/TCastTo.cpp",
             ),
             Object(
-                NonMatching,
+                MatchingFor("GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/TypesMatch.cpp",
             ),
             Object(
@@ -863,7 +863,7 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CScriptActorKeyframe.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CConsoleOutputWindow.cpp",
             ),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptWater.cpp"),
@@ -1084,7 +1084,7 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CScriptPlayerHint.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/Enemies/CRipper.cpp",
             ),
             Object(EquivalentFor("GM8E01_00"), "MetroidPrime/Cameras/CCameraShakeData.cpp"),

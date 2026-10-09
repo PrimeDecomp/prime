@@ -16,6 +16,7 @@ public:
   EMessageReturn OnMessage(const CArchitectureMessage&, CArchitectureQueue&) override;
   void Update(float);
   void Draw() const override;
+  int PrevIndex(int i) const { return (i - 1 + mText.size()) % mText.size(); }
 private:
   CFont mFont;
   float mUnk;
