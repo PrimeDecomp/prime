@@ -131,7 +131,7 @@ void CGrenadeLauncher::PreRender(CStateManager& mgr, const CFrustumPlanes& frust
                                                           mDamageAddColor.GetGreenu8(),
                                                           mDamageAddColor.GetBlueu8(), 255)));
   } else {
-    SetModelFlags(CModelFlags::AlphaBlendedDepthCompareUpdate(mDamageAddColor, true, true));
+    SetModelFlags(CModelFlags::AlphaBlended(mDamageAddColor).DepthCompareUpdate(true, true));
   }
   CActor::PreRender(mgr, frustum);
 }

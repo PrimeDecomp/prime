@@ -1213,7 +1213,7 @@ MetroidPrime/Weapons/CPlasmaProjectile.cpp:
 	.rodata     start:0x803BCA08 end:0x803BCA68
 	.data       start:0x803CE818 end:0x803CE898
 	.sbss       start:0x805920A8 end:0x805920B0
-	.sdata2     start:0x805950FC end:0x80595168
+	.sdata2     start:0x805950F8 end:0x80595168
 
 MetroidPrime/Player/CPlayerOrbit.cpp:
 	.text       start:0x80170024 end:0x80176724
@@ -1313,19 +1313,20 @@ MetroidPrime/HUD/CHudThreatInterface.cpp:
 MetroidPrime/HUD/CHudDecoInterface.cpp:
 	.text       start:0x8018A92C end:0x8018D5B0
 	.rodata     start:0x803BD320 end:0x803BD628
-	.data       start:0x803CEA80 end:0x803CEB58
+	.data       start:0x803CEA80 end:0x803CEBA0
 	.sdata      start:0x80590BE8 end:0x80590C0C
 
 MetroidPrime/Weapons/CFlameThrower.cpp:
 	.text       start:0x8018D5B0 end:0x8018EFC0
 	.ctors      start:0x803B6DA8 end:0x803B6DAC
 	.rodata     start:0x803BD628 end:0x803BD648
-	.data       start:0x803CEB58 end:0x803CEC90
+	.data       start:0x803CEBA0 end:0x803CEC10
 	.bss        start:0x8055B06C end:0x8055B078 align:4 common
 	.sdata2     start:0x805955E8 end:0x80595618
 
 MetroidPrime/Weapons/CBeamProjectile.cpp:
 	.text       start:0x8018EFC0 end:0x8018F9D0
+	.data       start:0x803CEC10 end:0x803CEC90
 	.sdata      start:0x80590C18 end:0x80590C20
 	.sdata2     start:0x80595618 end:0x80595628
 
@@ -1788,7 +1789,7 @@ MetroidPrime/Enemies/CGrenadeLauncher.cpp:
 	.rodata     start:0x803BF810 end:0x803BF868
 	.data       start:0x803D1A48 end:0x803D1B40
 	.sdata      start:0x80591248 end:0x80591288
-	.sbss       start:0x80592198 end:0x8059219C
+	.sbss       start:0x80592198 end:0x805921A0
 	.sdata2     start:0x805965E8 end:0x80596640
 
 MetroidPrime/Weapons/CShockWave.cpp:
@@ -2148,7 +2149,7 @@ MetroidPrime/ScriptObjects/CEnergyBall.cpp:
 	.rodata     start:0x803C2350 end:0x803C2380
 	.data       start:0x803D4E90 end:0x803D5160
 	.sdata      start:0x80591688 end:0x805916A0
-	.sdata2     start:0x80597110 end:0x80597114
+	.sdata2     start:0x80597110 end:0x80597128
 
 MetroidPrime/ScriptObjects/CSustainedPlayerDamage.cpp:
 	.text       start:0x8028F0AC end:0x8028F390
