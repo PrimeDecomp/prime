@@ -1024,7 +1024,7 @@ config.libs = [
                 "MetroidPrime/BodyState/CBSSlide.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "MetroidPrime/BodyState/CBSHurled.cpp"),
-            Object(EquivalentFor("GM8E01_00") or MatchingFor("GM8J01_00"), "MetroidPrime/BodyState/CBSJump.cpp"),
+            Object(EquivalentFor("GM8E01_00") or MatchingFor("GM8P01_00", "GM8J01_00"), "MetroidPrime/BodyState/CBSJump.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/BodyState/CBSGenerate.cpp",
