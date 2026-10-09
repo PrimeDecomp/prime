@@ -1011,7 +1011,8 @@ MetroidPrime/BodyState/CBSGenerate.cpp:
 
 MetroidPrime/Enemies/CPuddleSpore.cpp:
 	.text       start:0x8013DA50 end:0x80140504
-	.rodata     start:0x803BAAD8 end:0x803BAAE4
+	.rodata     start:0x803BAAD8 end:0x803BABA8
+	.data       start:0x803CC5A8 end:0x803CC5F8
 	.sdata      start:0x80469858 end:0x80469860
 	.sdata2     start:0x8046DB48 end:0x8046DB90
 
