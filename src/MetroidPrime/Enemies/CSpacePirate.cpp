@@ -2451,7 +2451,7 @@ void CSpacePirate::Bounce(CStateManager& mgr, EStateMsg msg, float dt) {
       if (const CScriptWaypoint* wp =
               TCastToConstPtr< CScriptWaypoint >(mgr.GetObjectById(target))) {
         CBodyStateCmdMgr& cmdMgr = BodyCtrl()->CommandMgr();
-        cmdMgr.DeliverCmd(CBCJumpCmd(mPatrolDestPos, wp->GetTranslation(), pas::kJT_Normal));
+        cmdMgr.DeliverCmd(CBCJumpCmd(mPatrolDestPos, wp->GetTranslation()));
       }
     }
     break;

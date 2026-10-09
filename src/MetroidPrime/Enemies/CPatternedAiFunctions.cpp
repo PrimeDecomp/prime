@@ -463,7 +463,7 @@ void CPatterned::UpdateDest(CStateManager& mgr) {
                       TCastToConstPtr< CScriptWaypoint >(mgr.GetObjectById(nextId))) {
                 CBodyStateCmdMgr& cmdMgr = mBodyController->CommandMgr();
                 cmdMgr.DeliverCmd(
-                    CBCJumpCmd(next->GetTranslation(), end->GetTranslation(), pas::kJT_Normal));
+                    CBCJumpCmd(next->GetTranslation(), end->GetTranslation()));
               }
             }
           }

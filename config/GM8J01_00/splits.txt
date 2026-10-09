@@ -3424,7 +3424,7 @@ Kyoto/Audio/CMidiManager.cpp:
 
 Kyoto/Text/CFontImageDef.cpp:
 	.text       start:0x803448E8 end:0x80344AB8
-	.sdata2     start:0x80597D18 end:0x80597D28
+	.sdata2     start:0x80597D18 end:0x80597D30
 
 Kyoto/Text/CImageInstruction.cpp:
 	.text       start:0x80344AB8 end:0x80344D50
