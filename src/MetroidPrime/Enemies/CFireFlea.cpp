@@ -15,6 +15,8 @@
 #include "MetroidPrime/Player/CPlayerState.hpp"
 #include "MetroidPrime/TCastTo.hpp"
 
+#include "GameVersions.h"
+
 const CColor CFireFlea::CDeathCameraEffect::skEndFadeColor(1.f, 1.f, 0.5f, 1.f);
 const CColor CFireFlea::CDeathCameraEffect::skStartFadeColor(1.f, 0.f, 0.f, 0.f);
 CColor CFireFlea::CDeathCameraEffect::sCurrentFadeColor = CColor(0.f, 0.f, 0.f, 0.f);
@@ -163,6 +165,9 @@ CVector3f CFireFlea::AdjustMovementVec(CStateManager& mgr, const CVector3f& forw
         GetTranslation(), direction, 1.f, CMaterialFilter::MakeInclude(CMaterialList(kMT_Solid)));
     const bool nearWater = MoveTooCloseToWater(mgr, direction);
     if (result.IsValid() || nearWater) {
+#if VERSION >= VERSION_GM8P_00
+      const CVector3f right = CVector3f::Cross(CVector3f::Up(), direction).AsNormalized();
+#else
       const CVector3f& worldUp = CVector3f::Up();
       const float upX = worldUp.GetX();
       const float upY = worldUp.GetY();
@@ -174,6 +179,7 @@ CVector3f CFireFlea::AdjustMovementVec(CStateManager& mgr, const CVector3f& forw
       const float rightY = upZ * dirX - dirZ * upX;
       const float rightZ = upX * dirY - dirX * upY;
       const CVector3f right = CVector3f(rightX, rightY, rightZ).AsNormalized();
+#endif
       const CRayCastResult rightResult = mgr.RayStaticIntersection(
           GetTranslation(), right, 1.f, CMaterialFilter::MakeInclude(CMaterialList(kMT_Solid)));
       if (rightResult.IsValid()) {

@@ -984,7 +984,7 @@ MetroidPrime/Enemies/CFireFlea.cpp:
 	.text       start:0x80139A00 end:0x8013AF90
 	.ctors      start:0x803B5008 end:0x803B500C
 	.rodata     start:0x803BAAD0 end:0x803BAAD8
-	.data       start:0x803CC484 end:0x803CC4A8
+	.data       start:0x803CC1B8 end:0x803CC4A8
 	.sdata      start:0x80469838 end:0x80469858
 	.sbss       start:0x8046B0A8 end:0x8046B0B8
 	.sdata2     start:0x8046DA80 end:0x8046DAB0
@@ -2021,7 +2021,7 @@ MetroidPrime/CErrorOutputWindow.cpp:
 	.sdata2     start:0x8046FA60 end:0x8046FA80
 
 MetroidPrime/CRainSplashGenerator.cpp:
-	.text       start:0x802588B4 end:0x802599A0
+	.text       start:0x802588B4 end:0x80259A08
 	.rodata     start:0x803C08E0 end:0x803C08F8
 	.sdata2     start:0x8046FA80 end:0x8046FAC8
 

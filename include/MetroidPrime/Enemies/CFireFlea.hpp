@@ -12,7 +12,7 @@ public:
     ~CDeathCameraEffect() {}
     void PreThink(float, CStateManager& mgr) override;
     void Think(float, CStateManager& mgr) override;
-    DECLARE_TYPES_MATCH_OR_ACCEPT;
+    DECLARE_ACCEPT;
 
     CDeathCameraEffect(const TUniqueId uid, const TAreaId aid, const rstl::string& name);
 

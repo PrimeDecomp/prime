@@ -1013,7 +1013,7 @@ config.libs = [
                 "MetroidPrime/Enemies/CChozoGhost.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/Enemies/CFireFlea.cpp",
             ),
             Object(
@@ -1144,7 +1144,7 @@ config.libs = [
             ),
             Object(EquivalentFor("GM8E01_00") or MatchingFor("GM8P01_00", "GM8J01_00"), "MetroidPrime/BodyState/CBSWallHang.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/ScriptObjects/CScriptEMPulse.cpp",
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/HUD/CHudEnergyInterface.cpp"),
@@ -1345,7 +1345,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptGunTurret.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/Weapons/CProjectileInfo.cpp",
             ),
             Object(
@@ -1445,7 +1445,7 @@ config.libs = [
             Object(EquivalentFor("GM8E01_00"), "MetroidPrime/CGameHintInfo.cpp"),
             Object(EquivalentFor("GM8E01_00"), "MetroidPrime/Enemies/CWallWalker.cpp"),
             Object(NonMatching, "MetroidPrime/CErrorOutputWindow.cpp"),
-            Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/CRainSplashGenerator.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/CRainSplashGenerator.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CWorldSaveGameInfo.cpp",

@@ -8,6 +8,8 @@
 
 #include "Kyoto/Streams/CInputStream.hpp"
 
+#include "GameVersions.h"
+
 CProjectileInfo::CProjectileInfo(CAssetId proj, const CDamageInfo& dInfo)
 : mWeaponDescription(gpSimplePool->GetObj(SObjectTag('WPSC', proj))), mDamageInfo(dInfo) {}
 
@@ -36,11 +38,18 @@ CVector3f CProjectileInfo::PredictInterceptPos(const CVector3f& gunPos, const CV
                                                const CPlayer& player, bool gravity, float speed,
                                                float dt) {
   CVector3f ret = CVector3f::Zero();
+#if VERSION >= VERSION_GM8P_00
+  const CPlayer::EPlayerOrbitState orbitState = player.GetOrbitState();
+#endif
   const CVector3f playerVel = player.GetDampedClampedVelocityWR();
   const CVector3f gravVec(0.f, 0.f, player.GetGravity());
   bool result = false;
 
+#if VERSION >= VERSION_GM8P_00
+  switch (orbitState) {
+#else
   switch (player.GetOrbitState()) {
+#endif
   case CPlayer::kOS_OrbitObject:
   case CPlayer::kOS_OrbitPoint:
   case CPlayer::kOS_OrbitCarcass:
