@@ -29,9 +29,7 @@ public:
   CColor GetInnerColor() const { return mInnerColor; }
   CColor GetOuterColor() const { return mOuterColor; }
   bool IsFiring() const { return mFiring; }
-#if VERSION >= VERSION_GM8P_00
   void SetInitialDamage(float damage);
-#endif
   void SetPlayerSustainedDamage(float duration, const CDamageInfo& damage);
 
 private:
