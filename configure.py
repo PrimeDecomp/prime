@@ -591,7 +591,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/CStateManager.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00", "R3ME01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02", "GM8P01_00", "GM8J01_00") or EquivalentFor("R3ME01_00"),
                 "MetroidPrime/CEntity.cpp",
             ),
             Object(
@@ -1603,8 +1603,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
                 "Collision/CCollidableCollisionSurface.cpp",
             ),
-            Object(
-                MatchingFor("GM8EAB_00") or EquivalentFor("GM8E01_02", "GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8J01_00"),
+            Object( EquivalentFor("GM8EAB_00", "GM8E01_02", "GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8J01_00"),
                 "Collision/CCollisionInfo.cpp",
             ),
             Object(
@@ -2228,7 +2227,7 @@ config.libs = [
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                    "Kyoto/Particles/CParticleData.cpp"),
-            Object(MatchingFor("GM8EAB_00") or EquivalentFor("GM8J01_00", "GM8E01_48", "GM8E01_02", "GM8E01_00", "GM8E01_01", "GM8P01_00"),
+            Object( EquivalentFor("GM8EAB_00", "GM8J01_00", "GM8E01_48", "GM8E01_02", "GM8E01_00", "GM8E01_01", "GM8P01_00"),
                    "Kyoto/Animation/CVertexMorphEffect.cpp"),
             Object(MatchingFor("GM8P01_00", "GM8J01_00"), "Kyoto/Animation/CSkinnedModelWithAvgNormals.cpp"),
             Object(
