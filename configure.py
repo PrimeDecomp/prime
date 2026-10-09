@@ -850,7 +850,7 @@ config.libs = [
                 "MetroidPrime/Weapons/CWeapon.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02") or EquivalentFor("GM8J01_00", "GM8P01_00"),
                 "MetroidPrime/CDamageVulnerability.cpp",
             ),
             Object(EquivalentFor("GM8E01_00"), "MetroidPrime/CActorLights.cpp"),
@@ -897,7 +897,7 @@ config.libs = [
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/CRipple.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02") or EquivalentFor("GM8J01_00", "GM8P01_00"),
                 "MetroidPrime/CFluidUVMotion.cpp",
             ),
             Object(
@@ -1292,7 +1292,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/CRagDoll.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02", "GM8J01_00") or EquivalentFor("GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02") or EquivalentFor("GM8J01_00", "GM8P01_00"),
                 "MetroidPrime/Player/CGameOptions.cpp",
             ),
             Object(
@@ -1564,7 +1564,7 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "GuiSys/CGuiPane.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "GuiSys/CGuiSliderGroup.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02") or EquivalentFor("GM8J01_00", "GM8P01_00"),
                 "GuiSys/CGuiSys.cpp",
             ),
             Object(
@@ -2244,11 +2244,11 @@ config.libs = [
                 "Kyoto/Audio/CMidiManager.cpp",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00"),
+                MatchingFor("GM8EAB_00", "GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02") or EquivalentFor("GM8P01_00"),
                 "Kyoto/Text/CFontImageDef.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8E01_02") or EquivalentFor("GM8P01_00"),
                 "Kyoto/Text/CImageInstruction.cpp",
             ),
             Object( EquivalentFor("GM8E01_02", "GM8E01_00", "GM8E01_01", "GM8E01_48"),
