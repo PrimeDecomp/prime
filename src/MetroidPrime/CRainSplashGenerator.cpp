@@ -11,6 +11,8 @@
 
 #include "rstl/math.hpp"
 
+#include "GameVersions.h"
+
 const float CRainSplashGenerator::SSplashLine::skInitialSpeed = 4.f;
 const float CRainSplashGenerator::SSplashLine::skInitialHeight = 0.015625f;
 const uchar CRainSplashGenerator::SSplashLine::skInitialWidth = 3;
@@ -238,7 +240,14 @@ void CRainSplashGenerator::SSplashLine::Draw(float alpha, float dt, const CVecto
 }
 
 CRainSplashGenerator::SRainSplash::SRainSplash()
-: mLines(SSplashLine()), mPos(CVector3f::Zero()), x70_(0.0f) {}
+#if VERSION >= VERSION_GM8P_00
+: mLines(4, SSplashLine())
+#else
+: mLines(SSplashLine())
+#endif
+, mPos(CVector3f::Zero())
+, x70_(0.0f) {
+}
 
 void CRainSplashGenerator::SRainSplash::Update(float dt, CStateManager& mgr) {
   for (AUTO(it, mLines.begin()); it != mLines.end(); ++it) {

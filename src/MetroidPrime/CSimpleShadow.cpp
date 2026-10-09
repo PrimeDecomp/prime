@@ -12,6 +12,8 @@
 #include "Kyoto/Graphics/CTexture.hpp"
 #include "Kyoto/Math/CAABox.hpp"
 
+#include "GameVersions.h"
+
 CSimpleShadow::CSimpleShadow(float scale, float userAlpha, float maxObjHeight, float displacement)
 : mXf(CTransform4f::Identity())
 , mScale(scale)
@@ -55,9 +57,15 @@ void CSimpleShadow::Calculate(const CAABox& aabb, const CTransform4f& xf,
         CGameCollision::RayDynamicIntersection(mgr, cid, pos, dir, mMaxObjHeight,
                                                CMaterialFilter::GetPassEverything(), nearList);
     if (resD.IsValid() && resD.GetTime() < height) {
+#if VERSION >= VERSION_GM8P_00
+      height = resD.GetTime();
+      closestResult = resD;
+      mCollision = true;
+#else
       closestResult = resD;
       mCollision = true;
       height = resD.GetTime();
+#endif
     }
   }
 

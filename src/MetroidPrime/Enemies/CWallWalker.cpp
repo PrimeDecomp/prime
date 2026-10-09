@@ -146,6 +146,8 @@ void CWallWalker::AlignToFloor(CStateManager& mgr, float radius, const CVector3f
   }
 }
 
+const CCollisionPrimitive* CWallWalker::GetCollisionPrimitive() const { return &mColSphere; }
+
 void CWallWalker::PreThink(float dt, CStateManager& mgr) {
   CPatterned::PreThink(dt, mgr);
   if (GetActive() && !mPlayerObstructed && mPatrolPauseRemTime <= 0.f &&

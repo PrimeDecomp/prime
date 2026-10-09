@@ -4,7 +4,7 @@
 
 #include "dolphin/gx/GXPriv.h"
 
-#if VERSION == VERSION_GM8E_02
+#if VERSION == VERSION_GM8E_02 || VERSION == VERSION_GM8P_00 || VERSION == VERSION_GM8J_00
 void GXSetFog(GXFogType type, f32 startz, f32 endz, f32 nearz, f32 farz, GXColor color) {
   u32 fogclr;
   u32 fog0;
@@ -333,7 +333,7 @@ void GXSetDither(GXBool dither) {
 
   reg = __GXData->cmode0;
 
-#if VERSION == VERSION_GM8E_02
+#if VERSION == VERSION_GM8E_02 || VERSION == VERSION_GM8P_00 || VERSION == VERSION_GM8J_00
   __SET_REG_FIELD(reg, 1, 2, dither);
 #else
   SET_REG_FIELD(reg, 1, 2, dither);

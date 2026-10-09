@@ -4,6 +4,8 @@
 
 #include "rstl/math.hpp"
 
+#include "GameVersions.h"
+
 CColor::CColor(CInputStream& in) {
   float r = in.ReadFloat();
   float g = in.ReadFloat();
@@ -89,6 +91,24 @@ CColor CColor::Add(const CColor& arg0, const CColor& arg1) {
                 (uchar)rstl::min_val< uint >(255, arg0.GetBlueu8() + arg1.GetBlueu8()),
                 (uchar)rstl::min_val< uint >(255, arg0.GetAlphau8() + arg1.GetAlphau8()));
 }
+
+#if VERSION >= VERSION_GM8P_00
+CColor CColor::FromRGB5A3(uint color) {
+  const ushort c = color;
+  if (c & 0x8000) {
+    const GXColor col = {static_cast< uchar >(((c & 0x7c00) >> 7) | ((c & 0x7000) >> 13)),
+                         static_cast< uchar >(((c & 0x3e0) >> 2) | ((c & 0x380) >> 7)),
+                         static_cast< uchar >(((c & 0x1f) << 3) | ((c & 0x1c) >> 2)), 0xff};
+    return CColor(col.r, col.g, col.b, col.a);
+  } else {
+    const GXColor col = {static_cast< uchar >(((c & 0xf00) >> 4) | ((c & 0xf00) >> 8)),
+                         static_cast< uchar >((c & 0xf0) | ((c & 0xf0) >> 4)),
+                         static_cast< uchar >(((c & 0xf) << 4) | (c & 0xf)),
+                         static_cast< uchar >(((c & 0x7000) >> 7) | ((c & 0x7000) >> 10))};
+    return CColor(col.r, col.g, col.b, col.a);
+  }
+}
+#endif
 
 ushort CColor::ToRGB5A3() const {
   uchar r = GetRedu8();

@@ -520,7 +520,7 @@ config.libs = [
                 if version_num < VERSIONS.index("GM8P01_00")
                 else [],
             ),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
                    "MetroidPrime/Cameras/CCameraManager.cpp"),
             Object(
                 NonMatching,
@@ -547,8 +547,11 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                    "MetroidPrime/CMatrix3f_Ext.cpp"),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CArchMsgParmUserInput.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"']
+                if version_num >= VERSIONS.index("GM8P01_00")
+                else [],
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "MetroidPrime/CFrontEndUI.cpp"),
             Object(
@@ -658,7 +661,7 @@ config.libs = [
                 cflags=cflags_retro,
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/CPauseScreen.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "MetroidPrime/Tweaks/CTweakGui.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "MetroidPrime/Tweaks/CTweakGui.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/ScriptObjects/CScriptActor.cpp"
@@ -781,7 +784,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CMemoryDrawEnum.cpp",
             ),
-            Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/ScriptObjects/CScriptDock.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/ScriptObjects/CScriptDock.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_48", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
                    "MetroidPrime/ScriptObjects/CScriptCameraHint.cpp"),
             Object(NonMatching, "MetroidPrime/ScriptLoader.cpp"),
@@ -880,7 +883,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/Enemies/CPatternedInfo.cpp",
             ),
-            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS), "MetroidPrime/CSimpleShadow.cpp"),
+            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/CSimpleShadow.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CActorParameters.cpp",
@@ -936,7 +939,7 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CScriptCoverPoint.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "MetroidPrime/Cameras/CPathCamera.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "MetroidPrime/CFluidPlane.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "MetroidPrime/CFluidPlane.cpp"),
             Object(NonMatching, "MetroidPrime/CFluidPlaneManager.cpp"),
             Object(
                 MatchingFor("GM8EAB_00", "GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
@@ -1013,7 +1016,7 @@ config.libs = [
                 "MetroidPrime/Enemies/CChozoGhost.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/Enemies/CFireFlea.cpp",
             ),
             Object(
@@ -1021,12 +1024,12 @@ config.libs = [
                 "MetroidPrime/BodyState/CBSSlide.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "MetroidPrime/BodyState/CBSHurled.cpp"),
-            Object(EquivalentFor("GM8E01_00") or MatchingFor("GM8J01_00"), "MetroidPrime/BodyState/CBSJump.cpp"),
+            Object(EquivalentFor("GM8E01_00") or MatchingFor("GM8P01_00", "GM8J01_00"), "MetroidPrime/BodyState/CBSJump.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/BodyState/CBSGenerate.cpp",
             ),
-            Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/Enemies/CPuddleSpore.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/Enemies/CPuddleSpore.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/BodyState/CBSTaunt.cpp",
@@ -1055,7 +1058,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/Weapons/CPowerBomb.cpp",
             ),
-            Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/Enemies/CMetaree.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/Enemies/CMetaree.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/ScriptObjects/CScriptDockAreaChange.cpp",
@@ -1144,11 +1147,11 @@ config.libs = [
             ),
             Object(EquivalentFor("GM8E01_00") or MatchingFor("GM8P01_00", "GM8J01_00"), "MetroidPrime/BodyState/CBSWallHang.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/ScriptObjects/CScriptEMPulse.cpp",
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/HUD/CHudEnergyInterface.cpp"),
-            Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/HUD/CHudFreeLookInterface.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/HUD/CHudFreeLookInterface.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/HUD/CHudHelmetInterface.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/HUD/CHudMissileInterface.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "MetroidPrime/HUD/CHudRadarInterface.cpp"),
@@ -1208,7 +1211,13 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/Player/CStaticInterference.cpp"),
             Object(EquivalentFor("GM8E01_00"), "MetroidPrime/Enemies/CMetroidBeta.cpp"),
             Object(NonMatching, "MetroidPrime/PathFinding/CPathFindSearch.cpp"),
-            Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/PathFinding/CPathFindRegion.cpp"),
+            Object(
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                "MetroidPrime/PathFinding/CPathFindRegion.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"']
+                if version_num >= VERSIONS.index("GM8P01_00")
+                else [],
+            ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS),
                 "MetroidPrime/PathFinding/CPathFindArea.cpp",
@@ -1345,7 +1354,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptGunTurret.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/Weapons/CProjectileInfo.cpp",
             ),
             Object(
@@ -1387,7 +1396,7 @@ config.libs = [
                 "MetroidPrime/Enemies/CKnockBackMgr.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CScriptLayerManager.cpp",
             ),
             Object(EquivalentFor("GM8E01_00"), "MetroidPrime/Enemies/CMagdolite.cpp"),
@@ -1435,7 +1444,7 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CFire.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CPauseScreenBlur.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "MetroidPrime/Enemies/CTryclops.cpp"),
@@ -1445,7 +1454,7 @@ config.libs = [
             Object(EquivalentFor("GM8E01_00"), "MetroidPrime/CGameHintInfo.cpp"),
             Object(EquivalentFor("GM8E01_00"), "MetroidPrime/Enemies/CWallWalker.cpp"),
             Object(NonMatching, "MetroidPrime/CErrorOutputWindow.cpp"),
-            Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/CRainSplashGenerator.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/CRainSplashGenerator.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CWorldSaveGameInfo.cpp",
@@ -1475,8 +1484,11 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/Enemies/CPhazonHealingNodule.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "MetroidPrime/Player/CMorphBallShadow.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "R3ME01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00", "R3ME01_00"),
                 "MetroidPrime/Player/CPlayerStuckTracker.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"']
+                if VERSIONS.index("GM8P01_00") <= version_num < VERSIONS.index("R3IJ01_00")
+                else [],
             ),
             Object(NonMatching, "MetroidPrime/CSlideShow.cpp"),
             Object(
@@ -1516,7 +1528,7 @@ config.libs = [
         [
             Object(MatchingFor(*NTSC_GC_VERSIONS), "WorldFormat/CAreaOctTree_Tests.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "WorldFormat/CCollisionSurface.cpp",
             ),
             Object(
@@ -1693,7 +1705,7 @@ config.libs = [
         [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Basics/CBasics.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00"), "Kyoto/Basics/CStopwatch.cpp"
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Basics/CStopwatch.cpp"
             ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Basics/CBasicsDolphin.cpp"
@@ -1816,7 +1828,13 @@ config.libs = [
             Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                    "Kyoto/Animation/CAnimMathUtils.cpp"),
 
-            Object(MatchingFor("GM8EAB_00", "GM8E01_00", "GM8E01_01", "GM8E01_02"), "Kyoto/Animation/CAnimPerSegmentData.cpp"),
+            Object(
+                MatchingFor("GM8EAB_00", "GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
+                "Kyoto/Animation/CAnimPerSegmentData.cpp",
+                extra_cflags=['-pragma "inline_max_size(250)"']
+                if version_num >= VERSIONS.index("GM8P01_00")
+                else [],
+            ),
             Object(
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Animation/CAnimPOIData.cpp",
@@ -1963,7 +1981,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Text/CTextInstruction.cpp"
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "Kyoto/Text/CTextParser.cpp"),
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00"), "Kyoto/Text/CWordBreakTables.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Text/CWordBreakTables.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Text/CWordInstruction.cpp"),
             Object(
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
@@ -1972,7 +1990,7 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Text/CFont.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Graphics/CLight.cpp"),
             Object(EquivalentFor("GM8E01_00"), "Kyoto/Graphics/CCubeModel.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00"), "Kyoto/Graphics/CGX.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "Kyoto/Graphics/CGX.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Graphics/CTevCombiners.cpp",
@@ -1987,11 +2005,11 @@ config.libs = [
                 ),
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Graphics/DolphinCPalette.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Graphics/DolphinCTexture.cpp",
             ),
             Object(
@@ -2352,7 +2370,7 @@ config.libs = [
             ),
             Object(EquivalentFor("GM8E01_00"), "Kyoto/Particles/CParticleElectric.cpp"),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Graphics/DolphinCColor.cpp",
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
@@ -2390,7 +2408,7 @@ config.libs = [
             ),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "Kyoto/Audio/CDSPStream.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Audio/g721.cpp",
             ),
             Object(NonMatching, "Kyoto/Audio/CStaticAudioPlayer.cpp"),
@@ -2454,7 +2472,7 @@ config.libs = [
         "dvd",
         [
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "dolphin/dvd/dvdlow.c",
             ),
             Object(
@@ -2532,7 +2550,7 @@ config.libs = [
                 "dolphin/gx/GXTev.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "dolphin/gx/GXPixel.c",
                 extra_cflags=["-fp_contract off"],
             ),
@@ -2959,7 +2977,7 @@ config.libs = [
                 "musyx/runtime/synthmacros.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "musyx/runtime/synthvoice.c",
             ),
             Object(

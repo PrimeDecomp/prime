@@ -70,7 +70,7 @@ CCameraManager::CCameraManager(TUniqueId curCamera)
                            CVector3f(1.f, 0.f, 0.f), CVector3f(0.f, 0.f, 1.f), 50.f, 50.f, 1000.f,
                            1, CAudioSys::kMaxVolume);
   sAspectRatio =
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8P_00 && VERSION != VERSION_GM8J_00
       CGraphics::GetPixelAspectRatio() *
 #endif
       (static_cast< float >(CGraphics::GetViewport().mWidth) / CGraphics::GetViewport().mHeight);

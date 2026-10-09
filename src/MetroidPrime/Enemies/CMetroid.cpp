@@ -1903,3 +1903,10 @@ bool CMetroid::CanStartAttack(CStateManager& mgr) const {
   }
   return false;
 }
+
+#if VERSION >= VERSION_GM8P_00
+void CMetroid::TouchedDock(CStateManager& mgr) {
+  DetachFromTarget(mgr);
+  SetPendingDeath(true);
+}
+#endif

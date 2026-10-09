@@ -3,6 +3,7 @@
 #include "MetroidPrime/CActorParameters.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CWorld.hpp"
+#include "MetroidPrime/Enemies/CMetroid.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptDoor.hpp"
 
@@ -25,13 +26,24 @@ CScriptDock::CScriptDock(TUniqueId uid, const rstl::string& name, const CEntityI
 
 CScriptDock::~CScriptDock() {}
 
-void CScriptDock::Touch(CActor& actor, CStateManager&) {
+void CScriptDock::Touch(CActor& actor, CStateManager& mgr) {
   if (mDockState == kDS_InNextRoom) {
     return;
   }
   if (TCastToPtr< CPlayer >(actor)) {
     mDockState = kDS_PlayerTouched;
   }
+#if VERSION >= VERSION_GM8P_00
+  if (CMetroid* metroid = TCastToPtr< CMetroid >(actor)) {
+#if VERSION == VERSION_GM8P_00
+    if (metroid->GetCurrentAreaId() != mArea) {
+      metroid->TouchedDock(mgr);
+    }
+#else
+    metroid->TouchedDock(mgr);
+#endif
+  }
+#endif
 }
 
 rstl::optional_object< CAABox > CScriptDock::GetTouchBounds() const {

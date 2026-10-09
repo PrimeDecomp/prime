@@ -21,6 +21,9 @@ CScriptWorldTeleporter::CScriptWorldTeleporter(const TUniqueId uid, const rstl::
 , mUpElevator(false)
 , mInTransition(false)
 , mFadeWhite(false)
+#if VERSION >= VERSION_GM8P_00
+, mShowSecondaryText(false)
+#endif
 , mCharFadeIn(0.1f)
 , mCharsPerSecond(8.0f)
 , mShowDelay(0.0f)
@@ -47,6 +50,9 @@ CScriptWorldTeleporter::CScriptWorldTeleporter(
 , mUpElevator(upElevator)
 , mInTransition(false)
 , mFadeWhite(false)
+#if VERSION >= VERSION_GM8P_00
+, mShowSecondaryText(false)
+#endif
 , mCharFadeIn(0.1f)
 , mCharsPerSecond(8.0f)
 , mShowDelay(0.0f)
@@ -64,7 +70,13 @@ CScriptWorldTeleporter::CScriptWorldTeleporter(
     const TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const bool active,
     const CAssetId worldId, const CAssetId areaId, const int soundId, const uchar volume,
     const uchar panning, CAssetId fontId, const CAssetId stringId, const bool fadeWhite,
-    const float charFadeIn, const float charsPerSecond, const float showDelay)
+    const float charFadeIn, const float charsPerSecond, const float showDelay
+#if VERSION >= VERSION_GM8P_00
+    ,
+    const rstl::string& audioFile, const bool showSecondaryText, const float textEndDelay,
+    const float secondaryTextStartTime, const float secondaryTextFadeDuration
+#endif
+    )
 : CEntity(uid, info, active, name)
 , mWorldId(worldId)
 , mAreaId(areaId)
@@ -72,9 +84,17 @@ CScriptWorldTeleporter::CScriptWorldTeleporter(
 , mUpElevator(false)
 , mInTransition(false)
 , mFadeWhite(fadeWhite)
+#if VERSION >= VERSION_GM8P_00
+, mShowSecondaryText(showSecondaryText)
+#endif
 , mCharFadeIn(charFadeIn)
 , mCharsPerSecond(charsPerSecond)
 , mShowDelay(showDelay)
+#if VERSION >= VERSION_GM8P_00
+, mTextEndDelay(textEndDelay)
+, mSecondaryTextStartTime(secondaryTextStartTime)
+, mSecondaryTextFadeDuration(secondaryTextFadeDuration)
+#endif
 , mPlayerAnim(kInvalidAssetId, -1, 0)
 , mPlayerScale(CVector3f::Zero())
 , mPlatformModel(kInvalidAssetId)
@@ -85,7 +105,12 @@ CScriptWorldTeleporter::CScriptWorldTeleporter(
 , mVolume(volume)
 , mPanning(panning)
 , mFontId(fontId)
-, mStringId(stringId) {}
+, mStringId(stringId)
+#if VERSION >= VERSION_GM8P_00
+, mAudioFile(audioFile)
+#endif
+{
+}
 
 CScriptWorldTeleporter::~CScriptWorldTeleporter() {}
 
@@ -150,8 +175,14 @@ void CScriptWorldTeleporter::StartTransition(CStateManager& mgr) {
     mInTransition = true;
 
   } else if (mType == kTT_Text) {
+#if VERSION >= VERSION_GM8P_00
+    transMgr->EnableTransition(mFontId, mStringId, 0, mFadeWhite, mAudioFile, mVolume,
+                               mShowSecondaryText, mCharFadeIn, mCharsPerSecond, mShowDelay,
+                               mTextEndDelay, mSecondaryTextStartTime, mSecondaryTextFadeDuration);
+#else
     transMgr->EnableTransition(mFontId, mStringId, 0, GetFadeWhite(), mCharFadeIn,
                                mCharsPerSecond, mShowDelay);
+#endif
     mInTransition = true;
 
   } else {

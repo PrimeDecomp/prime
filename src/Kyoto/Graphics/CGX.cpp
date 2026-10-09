@@ -3,9 +3,12 @@
 #include "Kyoto/Alloc/CMemory.hpp"
 #include "Kyoto/Graphics/CTexture.hpp"
 
+#include "dolphin/gx/GXManage.h"
 #include "dolphin/gx/GXTexture.h"
 
 #include <limits.h>
+
+#include "GameVersions.h"
 
 CGX::SGXState CGX::sGXState;
 
@@ -75,6 +78,10 @@ void CGX::ResetGXStates() {
     GXSetTexCoordScaleManually(static_cast< GXTexCoordID >(i), false, 0, 0);
   }
   GXSetZTexture(GX_ZT_DISABLE, GX_TF_Z8, 0);
+#if VERSION == VERSION_GM8J_00
+  GXSetMisc(GX_MT_XF_FLUSH, 8);
+  GXSetDither(GX_FALSE);
+#endif
 }
 
 void CGX::ResetGXStatesFull() {
