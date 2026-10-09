@@ -237,7 +237,7 @@ MetroidPrime/CWorld.cpp:
 	.ctors      start:0x803B4FB0 end:0x803B4FB4
 	.rodata     start:0x803B7910 end:0x803B7918
 	.data       start:0x803C53A0 end:0x803C5468
-	.sbss       start:0x8046AEF0 end:0x8046AEF8
+	.sbss       start:0x8046AEF0 end:0x8046AF00
 	.sdata2     start:0x8046C518 end:0x8046C530
 
 MetroidPrime/Tweaks/CTweakParticle.cpp:
@@ -1864,7 +1864,9 @@ MetroidPrime/Enemies/CSnakeWeedSwarm.cpp:
 	.sdata2     start:0x8046F680 end:0x8046F6B8
 
 MetroidPrime/Cameras/CBallCameraFailsafeState.cpp:
-	.text       start:0x8022E12C end:0x8022E1EC
+	.text       start:0x8022E128 end:0x8022ED98
+	.sdata      start:0x8046A320 end:0x8046A348
+	.sdata2     start:0x8046F6B8 end:0x8046F6E0
 
 MetroidPrime/Enemies/CScriptContraption.cpp:
 	.text       start:0x8022ED98 end:0x8022F684
@@ -2151,9 +2153,9 @@ MetroidPrime/Tweaks/CTweakSlideShow.cpp:
 MetroidPrime/CArtifactDoll.cpp:
 	.text       start:0x80289E78 end:0x8028AB08
 	.ctors      start:0x803B5098 end:0x803B509C
-	.rodata     start:0x803C1240 end:0x803C12AC
+	.rodata     start:0x803C1240 end:0x803C1340
 	.sdata      start:0x8046A6A8 end:0x8046A6B8
-	.sbss       start:0x8046B288 end:0x8046B298
+	.sbss       start:0x8046B288 end:0x8046B290
 	.sdata2     start:0x8046FF88 end:0x8046FFD8
 
 MetroidPrime/CProjectedShadow.cpp:
@@ -2205,6 +2207,7 @@ WorldFormat/CAreaOctTree_Tests.cpp:
 	.text       start:0x8028DD10 end:0x8028F73C
 	.rodata     start:0x803C13E0 end:0x803C1508
 	.bss        start:0x803F61B0 end:0x803F62B0
+	.sbss       start:0x8046B290 end:0x8046B298
 	.sdata2     start:0x80470070 end:0x80470090
 
 WorldFormat/CCollisionSurface.cpp:

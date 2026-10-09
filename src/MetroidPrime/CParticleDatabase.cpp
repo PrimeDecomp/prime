@@ -228,7 +228,7 @@ void CParticleDatabase::AddAuxiliaryParticleEffect(const rstl::string& name, int
         gen->SetIsGrabInitialData(false);
         InsertParticleGen(false, flags, name, gen);
       } else {
-        SObjectTag::Type2Text(type);
+        SObjectTag::Type2Text(tag.GetType());
       }
     }
   } else if (!effect->GetIsActive()) {

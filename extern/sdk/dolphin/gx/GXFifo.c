@@ -178,6 +178,18 @@ void GXSetGPFifo(GXFifoObj *fifo) {
   OSRestoreInterrupts(interrupts);
 }
 
+#if VERSION == VERSION_GM8J_00
+void GXGetGPStatus(GXBool *overhi, GXBool *underlow, GXBool *readIdle, GXBool *cmdIdle,
+                   GXBool *brkpt) {
+  __GXData->cpStatus = GX_GET_CP_REG(0);
+  *overhi = GET_REG_FIELD(__GXData->cpStatus, 1, 0);
+  *underlow = (int)GET_REG_FIELD(__GXData->cpStatus, 1, 1);
+  *readIdle = (int)GET_REG_FIELD(__GXData->cpStatus, 1, 2);
+  *cmdIdle = (int)GET_REG_FIELD(__GXData->cpStatus, 1, 3);
+  *brkpt = (int)GET_REG_FIELD(__GXData->cpStatus, 1, 4);
+}
+#endif
+
 void GXGetFifoPtrs(GXFifoObj *fifo, void **readPtr, void **writePtr) {
   struct __GXFifoObj *realFifo = (struct __GXFifoObj *)fifo;
 
@@ -205,6 +217,7 @@ void GXGetFifoPtrs(GXFifoObj *fifo, void **readPtr, void **writePtr) {
   *writePtr = realFifo->wrPtr;
 }
 
+#if VERSION != VERSION_GM8J_00
 void GXGetGPStatus(GXBool *overhi, GXBool *underlow, GXBool *readIdle, GXBool *cmdIdle,
                    GXBool *brkpt) {
   __GXData->cpStatus = GX_GET_CP_REG(0);
@@ -214,6 +227,7 @@ void GXGetGPStatus(GXBool *overhi, GXBool *underlow, GXBool *readIdle, GXBool *c
   *cmdIdle = (int)GET_REG_FIELD(__GXData->cpStatus, 1, 3);
   *brkpt = (int)GET_REG_FIELD(__GXData->cpStatus, 1, 4);
 }
+#endif
 
 void *GXGetFifoBase(const GXFifoObj *obj) {
   __GXFifoObj *realFifo = (__GXFifoObj *)obj;
@@ -319,9 +333,17 @@ void __GXCleanGPFifo(void) {
   }
 }
 
+#if VERSION == VERSION_GM8J_00
+OSThread *GXGetCurrentGXThread(void) { return __GXCurrentThread; }
+#endif
+
 GXFifoObj *GXGetCPUFifo(void) { return (GXFifoObj *)CPUFifo; }
 
 GXFifoObj *GXGetGPFifo(void) { return (GXFifoObj *)GPFifo; }
+
+#if VERSION == VERSION_GM8J_00
+u32 GXGetOverflowCount(void) { return __GXOverflowCount; }
+#endif
 
 volatile void *GXRedirectWriteGatherPipe(void *ptr) {
   u32 reg = 0;

@@ -4,6 +4,8 @@
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/TToken.hpp"
 
+#include "GameVersions.h"
+
 class CFinalInput;
 class CGuiFrame;
 class CGuiModel;
@@ -14,6 +16,9 @@ class CStringTable;
 class CMessageScreen {
 public:
   CMessageScreen(CAssetId msg, float time);
+#if VERSION >= VERSION_GM8P_00
+  ~CMessageScreen();
+#endif
   void ProcessControllerInput(const CFinalInput& input);
   bool Update(float dt, float blurAmt);
   void Draw() const;
