@@ -37,26 +37,21 @@ CTweakGunRes* gpTweakGunRes = nullptr;
 CTweakPlayerRes* gpTweakPlayerRes = nullptr;
 CTweakSlideShow* gpTweakSlideShow = nullptr;
 
-CAssetId IDFromFactory(CResFactory& factory, const char* filename) {
-  return factory.GetResourceIdByName(filename)->GetId();
-}
+static CAssetId IDFromFactory(CResFactory& factory, const char* filename);
 
-CTweaks::CTweaks() { mTweakObjects.resize(14, rstl::auto_ptr< ITweakObject >()); }
+void CTweaks::RegisterResourceTweaks() {
+  CResFactory* resFactory = gpResourceFactory;
+  if (gpTweakGunRes == nullptr) {
+    rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
+        SObjectTag('CTWK', IDFromFactory(*resFactory, "GunRes")), nullptr);
+    mTweakObjects[10] = gpTweakGunRes = rs_new CTweakGunRes(*stream);
+  }
 
-CTweaks::~CTweaks() {
-  gpTweakPlayer = nullptr;
-  gpTweakBall = nullptr;
-  gpTweakGame = nullptr;
-  gpTweakParticle = nullptr;
-  gpTweakPlayerControlCurrent = nullptr;
-  gpTweakPlayerGun = nullptr;
-  gpTweakGui = nullptr;
-  gpTweakGuiColors = nullptr;
-  gpTweakTargeting = nullptr;
-  gpTweakAutoMapper = nullptr;
-  gpTweakGunRes = nullptr;
-  gpTweakPlayerRes = nullptr;
-  gpTweakSlideShow = nullptr;
+  if (gpTweakPlayerRes == nullptr) {
+    rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
+        SObjectTag('CTWK', IDFromFactory(*resFactory, "PlayerRes")), nullptr);
+    mTweakObjects[11] = gpTweakPlayerRes = rs_new CTweakPlayerRes(*stream);
+  }
 }
 
 void CTweaks::RegisterTweaks() {
@@ -64,15 +59,16 @@ void CTweaks::RegisterTweaks() {
   {
     rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
         SObjectTag('CTWK', IDFromFactory(*resFactory, "Particle")), nullptr);
-    mTweakObjects[2] = gpTweakParticle = rs_new CTweakParticle(*stream);  }
+    mTweakObjects[2] = gpTweakParticle = rs_new CTweakParticle(*stream);
+  }
   {
     rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
-    SObjectTag('CTWK', IDFromFactory(*resFactory, "Player")), nullptr);
+        SObjectTag('CTWK', IDFromFactory(*resFactory, "Player")), nullptr);
     mTweakObjects[0] = gpTweakPlayer = rs_new CTweakPlayer(*stream);
   }
   {
     rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
-    SObjectTag('CTWK', IDFromFactory(*resFactory, "CameraBob")), nullptr);
+        SObjectTag('CTWK', IDFromFactory(*resFactory, "CameraBob")), nullptr);
     CPlayerCameraBob::ReadTweaks(*stream);
   }
 
@@ -133,22 +129,28 @@ void CTweaks::RegisterTweaks() {
   {
     rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
         SObjectTag('CTWK', IDFromFactory(*resFactory, "SlideShow")), nullptr);
-    ;
     mTweakObjects[12] = gpTweakSlideShow = rs_new CTweakSlideShow(*stream);
   }
 }
 
-void CTweaks::RegisterResourceTweaks() {
-  CResFactory* resFactory = gpResourceFactory;
-  if (gpTweakGunRes == nullptr) {
-    rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
-        SObjectTag('CTWK', IDFromFactory(*resFactory, "GunRes")), nullptr);
-    mTweakObjects[10] = gpTweakGunRes = rs_new CTweakGunRes(*stream);
-  }
+CTweaks::~CTweaks() {
+  gpTweakPlayer = nullptr;
+  gpTweakBall = nullptr;
+  gpTweakGame = nullptr;
+  gpTweakParticle = nullptr;
+  gpTweakPlayerControlCurrent = nullptr;
+  gpTweakPlayerGun = nullptr;
+  gpTweakGui = nullptr;
+  gpTweakGuiColors = nullptr;
+  gpTweakTargeting = nullptr;
+  gpTweakAutoMapper = nullptr;
+  gpTweakGunRes = nullptr;
+  gpTweakPlayerRes = nullptr;
+  gpTweakSlideShow = nullptr;
+}
 
-  if (gpTweakPlayerRes == nullptr) {
-    rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
-        SObjectTag('CTWK', IDFromFactory(*resFactory, "PlayerRes")), nullptr);
-    mTweakObjects[11] = gpTweakPlayerRes = rs_new CTweakPlayerRes(*stream);
-  }
+CTweaks::CTweaks() { mTweakObjects.resize(14, rstl::auto_ptr< ITweakObject >()); }
+
+static CAssetId IDFromFactory(CResFactory& factory, const char* filename) {
+  return factory.GetResourceIdByName(filename)->GetId();
 }
