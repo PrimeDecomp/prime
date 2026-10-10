@@ -297,7 +297,8 @@ uint CGameAllocator::FixupAllocPtrs(SGameMemInfo* info, const uint len, uint rou
 
   const bool topOfHeap = (hint & kHI_TopOfHeap) != 0;
   uint ret = 0;
-  const size_t blockLength = info->mLen;
+  const SGameMemInfo* initialInfo = info;
+  const size_t blockLength = initialInfo->GetLength();
   if (blockLength == roundedLen + sizeof(SGameMemInfo)) {
     ret = sizeof(SGameMemInfo);
     roundedLen += sizeof(SGameMemInfo);
@@ -317,11 +318,12 @@ uint CGameAllocator::FixupAllocPtrs(SGameMemInfo* info, const uint len, uint rou
       AddFreeEntryToFreeList(info);
       newPtr = newInfo;
     } else {
-      uint offset = roundedLen + sizeof(SGameMemInfo);
-      newInfo = reinterpret_cast< SGameMemInfo* >(reinterpret_cast< char* >(info) + offset);
+      newInfo = reinterpret_cast< SGameMemInfo* >(
+          reinterpret_cast< uintptr_t >(info) + roundedLen + sizeof(SGameMemInfo));
+      SGameMemInfo* nextFree = info->GetNextFree();
       const SGameMemInfo& block =
-          SGameMemInfo(info, infoNext, info->GetNextFree(),
-                       info->mLen - roundedLen - sizeof(SGameMemInfo), "", "");
+          SGameMemInfo(info, infoNext, nextFree, info->mLen - roundedLen - sizeof(SGameMemInfo),
+                       "", "");
       *newInfo = block;
       AddFreeEntryToFreeList(newInfo);
     }
