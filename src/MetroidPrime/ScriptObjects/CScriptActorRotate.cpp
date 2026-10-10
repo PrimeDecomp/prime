@@ -28,7 +28,7 @@ void CScriptActorRotate::UpdatePlatformRiders(rstl::vector< SRiders >& riders,
                                               CStateManager& mgr) {
 
   for (rstl::vector< SRiders >::iterator rider = riders.begin(); rider != riders.end(); ++rider) {
-    if (CActor* const act = TCastToPtr< CActor >(mgr.ObjectById(rider->mUid))) {
+    if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(rider->mUid))) {
       CTransform4f& riderTransform = rider->mTransform;
       act->SetTransform(riderTransform);
       act->SetTransform(xf * act->GetTransform());
