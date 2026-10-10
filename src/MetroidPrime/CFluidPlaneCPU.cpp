@@ -310,7 +310,6 @@ void UpdatePatchNoNormals(CFluidPlaneCPURender::SHFieldSample (&heights)[45][45]
     }
   }
 }
-
 void ApplyTurbulence(float time, CFluidPlaneCPURender::SHFieldSample (&heights)[45][45],
                      const unsigned char* flags, const float (&sineTable)[256],
                      const CFluidPlaneCPURender::SPatchInfo& info, const CFluidPlaneCPU& fluidPlane,
@@ -338,8 +337,8 @@ void ApplyTurbulence(float time, CFluidPlaneCPURender::SHFieldSample (&heights)[
     float curX = (info.mLocalMinX - rippleRes) - areaCenter.GetX();
     for (int j = 0; j <= xDivs; ++j) {
       float dist = fast_sqrt(curX * curX + curYSq);
-      float sel = ooDist * dist;
-      sel += time;
+      float sel = ooDist * dist + time;
+      
       heights[i][j].height = fluidPlane.GetTurbulenceHeight(sel);
       curX += info.mRippleResolution;
     }
