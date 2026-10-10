@@ -147,7 +147,7 @@ public:
   iterator insert(const iterator& pos, const T& val);
 
   template < typename InputIterator >
-  void insert(const iterator& pos, InputIterator first, InputIterator last);
+  inline void insert(const iterator& pos, InputIterator first, InputIterator last);
 
   void destroy() {
 #if RSTL_VERSION >= RSTL_GM8P_00
@@ -273,7 +273,7 @@ inline typename list< T, Alloc >::iterator list< T, Alloc >::insert(const iterat
 
 template < typename T, typename Alloc >
 template < typename InputIterator >
-inline void list< T, Alloc >::insert(const iterator& pos, InputIterator first, InputIterator last) {
+void list< T, Alloc >::insert(const iterator& pos, InputIterator first, InputIterator last) {
   for (InputIterator it = first; it != last; ++it) {
     insert(pos, *it);
   }

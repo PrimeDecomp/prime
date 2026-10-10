@@ -1643,7 +1643,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "GuiSys/CGuiTextPane.cpp"
             ),
-            Object(NonMatching, "GuiSys/CGuiTextSupport.cpp"),
+            Object(MatchingFor("GM8E01_00"), "GuiSys/CGuiTextSupport.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "GuiSys/CGuiWidget.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "GuiSys/CGuiWidgetIdDB.cpp"),
             Object(

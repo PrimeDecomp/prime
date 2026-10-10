@@ -322,3 +322,6 @@ const rstl::pair< CVector2i, CVector2i >& CGuiTextSupport::GetBounds() {
   CheckAndRebuildRenderBuffer();
   return mOneBufBounds;
 }
+
+// Stripped by the linker; instantiates the rstl::destroy helpers ahead of GetBounds
+static void StrippedFunc(const CTextExecuteBuffer& buf) { buf.BuildRenderBuffer(); }
