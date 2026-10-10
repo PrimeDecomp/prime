@@ -6663,7 +6663,7 @@ __ct__17CScriptVisorFlareF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_trai
 fn_801CA644 = .text:0x801CA644; // type:function size:0x124
 fn_801CA768 = .text:0x801CA768; // type:function size:0x184
 fn_801CA8EC = .text:0x801CA8EC; // type:function size:0x74
-__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiiUcUcUiUibfff = .text:0x801CA960; // type:function size:0x1E4
+__ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiUsUcUcUiUibfff = .text:0x801CA960; // type:function size:0x1E4
 __ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUiUiUiUiRC9CVector3fUiRC9CVector3fUiRC9CVector3fbUsUcUc = .text:0x801CAB44; // type:function size:0x170
 __ct__22CScriptWorldTeleporterF9TUniqueIdRCQ24rstl66basic_string<c,Q24rstl14char_traits<c>,Q24rstl17rmemory_allocator>RC11CEntityInfobUiUi = .text:0x801CACB4; // type:function size:0x150
 AddToRenderer__15CScriptVisorGooCFRC14CFrustumPlanesRC13CStateManager = .text:0x801CAE04; // type:function size:0x4

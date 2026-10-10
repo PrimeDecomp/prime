@@ -39,7 +39,7 @@ CScriptWorldTeleporter::CScriptWorldTeleporter(const TUniqueId uid, const rstl::
 
 CScriptWorldTeleporter::CScriptWorldTeleporter(
     const TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const bool active,
-    CAssetId worldId, const CAssetId areaId, CAssetId playerAncs, uint charIdx, uint defaultAnim,
+    const CAssetId worldId, const CAssetId areaId, CAssetId playerAncs, const uint charIdx, uint defaultAnim,
     const CVector3f& playerScale, const CAssetId platformModel, const CVector3f& platformScale,
     const CAssetId backgroundModel, const CVector3f& backgroundScale, const bool upElevator,
     const ushort soundId, const uchar volume, const uchar panning)
@@ -68,8 +68,8 @@ CScriptWorldTeleporter::CScriptWorldTeleporter(
 
 CScriptWorldTeleporter::CScriptWorldTeleporter(
     const TUniqueId uid, const rstl::string& name, const CEntityInfo& info, const bool active,
-    const CAssetId worldId, const CAssetId areaId, const int soundId, const uchar volume,
-    const uchar panning, CAssetId fontId, const CAssetId stringId, const bool fadeWhite,
+    const CAssetId worldId, const CAssetId areaId, const ushort soundId, const uchar volume,
+    const uchar panning, const CAssetId fontId, const CAssetId stringId, const bool fadeWhite
     const float charFadeIn, const float charsPerSecond, const float showDelay
 #if VERSION >= VERSION_GM8P_00
     ,
