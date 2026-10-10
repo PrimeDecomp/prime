@@ -77,6 +77,9 @@ void CScriptGenerator::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sende
       break;
     }
 
+    CEntity* genObj;
+    CEntity* follow;
+
     for (int i = 0; i < mSpawnCount; ++i) {
       if (activates.size() == 0 || follows.size() == 0) {
         break;
@@ -94,7 +97,7 @@ void CScriptGenerator::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sende
 
       const rstl::pair< TUniqueId, TEditorId > idPair = activates[activatesRand];
       CEntity* activate = stateMgr.ObjectById(idPair.first);
-      CEntity* follow = stateMgr.ObjectById(follows[followsRand]);
+      follow = stateMgr.ObjectById(follows[followsRand]);
 
       if (!activate || !follow) {
         break;
@@ -106,10 +109,10 @@ void CScriptGenerator::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sende
       stateMgr.SetIsGeneratingObject(oldGeneratingObject);
 
       if (objId != kInvalidUniqueId) {
-        CEntity* genObj = stateMgr.ObjectById(objId);
+        genObj = stateMgr.ObjectById(objId);
         CActor* activateActor = TCastToPtr< CActor >(genObj);
-        const CActor* followActor = TCastToConstPtr< CActor >(follow);
-        const CWallCrawlerSwarm* wallCrawlerSwarm = TCastToConstPtr< CWallCrawlerSwarm >(follow);
+        CActor* followActor = TCastToPtr< CActor >(follow);
+        CWallCrawlerSwarm* wallCrawlerSwarm = TCastToPtr< CWallCrawlerSwarm >(follow);
 
         if (activateActor && wallCrawlerSwarm) {
           if (!mNoInheritTransform) {
@@ -123,10 +126,10 @@ void CScriptGenerator::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sende
           activateActor->SetTranslation(followActor->GetTranslation() + mOffset);
         }
         if (genObj) {
-          CEntity* genObj = stateMgr.ObjectById(objId);
+          genObj = stateMgr.ObjectById(objId);
           CActor* activateActor = TCastToPtr< CActor >(genObj);
-          const CActor* followActor = TCastToConstPtr< CActor >(follow);
-          const CWallCrawlerSwarm* wallCrawlerSwarm = TCastToConstPtr< CWallCrawlerSwarm >(follow);
+          CActor* followActor = TCastToPtr< CActor >(follow);
+          CWallCrawlerSwarm* wallCrawlerSwarm = TCastToPtr< CWallCrawlerSwarm >(follow);
 
           if (activateActor) {
             if (activateActor && wallCrawlerSwarm) {
