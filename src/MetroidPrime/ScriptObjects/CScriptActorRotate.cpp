@@ -28,14 +28,15 @@ void CScriptActorRotate::UpdatePlatformRiders(rstl::vector< SRiders >& riders,
                                               CStateManager& mgr) {
 
   for (rstl::vector< SRiders >::iterator rider = riders.begin(); rider != riders.end(); ++rider) {
-    if (CActor* act = TCastToPtr< CActor >(mgr.ObjectById(rider->mUid))) {
-      act->SetTransform(rider->mTransform);
-      act->SetTransform(xf * rider->mTransform);
-      act->SetTranslation(act->GetTranslation() + plat.GetTranslation());
+    if (CActor* const act = TCastToPtr< CActor >(mgr.ObjectById(rider->mUid))) {
+      CTransform4f& riderTransform = rider->mTransform;
+      act->SetTransform(riderTransform);
+      act->SetTransform(xf * act->GetTransform());
+      act->SetTranslation(plat.GetTranslation() + act->GetTranslation());
       if (!mUpdateRotation) {
         CTransform4f riderXf(act->GetTransform());
         riderXf.SetTranslation(act->GetTranslation() - plat.GetTranslation());
-        rider->mTransform = riderXf;
+        riderTransform = riderXf;
         if (TCastToConstPtr< CScriptSpiderBallWaypoint >(act)) {
           mUpdateSpiderBallWaypoints = true;
         }
