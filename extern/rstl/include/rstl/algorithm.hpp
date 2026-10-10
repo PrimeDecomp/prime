@@ -24,20 +24,15 @@ int count(It first, It last, const T& val) {
 }
 
 template < class It, class T >
-#ifndef RSTL_DONT_INLINE_ALGORITHM
-inline
-#endif
-It find(It first, It last, const T& val) {
+inline It find(It first, It last, const T& val) {
   while (first != last && !(*first == val))
     ++first;
   return first;
 }
 
 template < typename T >
-#ifndef RSTL_DONT_INLINE_ALGORITHM
-inline
-#endif
-    void swap(T& a, T& b) {
+inline void swap(T& a, T& b) {
+  ((void)0);
   T tmp(a);
   a = b;
   b = tmp;
