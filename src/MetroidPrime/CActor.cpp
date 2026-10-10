@@ -1,5 +1,7 @@
 #include "MetroidPrime/CActor.hpp"
 
+static TSfxId skInvalidSfxId = 0xFFFFu;
+
 #include "MetaRender/CCubeRenderer.hpp"
 #include "MetroidPrime/CActorLights.hpp"
 #include "MetroidPrime/CActorModelParticles.hpp"
@@ -47,7 +49,7 @@ CActor::CActor(const TUniqueId uid, const bool active, const rstl::string& name,
 , mMaterial(MakeActorMaterialList(list, params))
 , mMaterialFilter(
       CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()))
-, mSfxId(InvalidSfxId)
+, mSfxId(skInvalidSfxId)
 , mActorLights(mData.IsNull() ? nullptr : params.GetLighting().MakeActorLights().release())
 , mRenderBounds(CAABox::MakeMaxInvertedBox())
 , mDrawFlags(CModelFlags::Normal())
@@ -741,7 +743,6 @@ void CActor::SetInFluid(bool in, TUniqueId uid) {
 #endif
 }
 
-// TODO nonmatching
 void CActor::ProcessSoundEvent(const int sfxId, const float weight, const int flags,
                                const float fallOff, const float maxDist, const uchar minVol,
                                const uchar maxVol, const CVector3f& toListener,
@@ -753,7 +754,7 @@ void CActor::ProcessSoundEvent(const int sfxId, const float weight, const int fl
 
     const bool looping = (sfxId & 0x80000000) != 0;
     const bool nonEmitter = (sfxId & 0x40000000) != 0;
-    const bool continuousUpdate = sfxId & 0x20000000;
+    const bool continuousUpdate = (sfxId & 0x20000000) != 0;
     const bool useAcoustics = (flags & 0x80) == 0;
 
     uint musyxFlags = 0x1; // Continuous parameter update
@@ -806,8 +807,9 @@ void CActor::ProcessSoundEvent(const int sfxId, const float weight, const int fl
           handle = CSfxManager::SfxStart(id, 127, 64, useAcoustics, CSfxManager::kMedPriority,
                                          false, aid);
         } else {
+          short prio = CSfxManager::kMedPriority;
           handle =
-              CSfxManager::AddEmitter(parms, useAcoustics, CSfxManager::kMedPriority, false, aid);
+              CSfxManager::AddEmitter(parms, useAcoustics, prio, false, aid);
         }
         if (continuousUpdate) {
           mNonLoopingSfxHandles[mNextNonLoopingSfxHandle] = handle;
