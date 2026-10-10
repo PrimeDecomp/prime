@@ -196,7 +196,7 @@ void* CGameAllocator::Alloc(size_t size, const EHint hint, const EScope scope, c
   }
 
   const bool topOfHeap = (hint & kHI_TopOfHeap) != 0;
-  uint roundedSize = T_round_up< uint, size_t >(size, 32);
+  uint roundedSize = T_round_up< size_t, size_t >(size, 32);
   SGameMemInfo* info = nullptr;
 
   if (topOfHeap) {
