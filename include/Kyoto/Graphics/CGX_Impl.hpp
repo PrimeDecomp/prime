@@ -61,10 +61,7 @@ CGX_INLINE void CGX::SetChanCtrl(EChannelId channel, GXBool enable, GXColorSrc a
 CGX_INLINE void CGX::SetChanCtrl_Compressed(EChannelId channel, GXLightID lights, uint ctrl) {
   ushort& state = sGXState.mChanCtrls[channel];
   ushort prevFlags = sGXState.mPrevChanCtrls[channel];
-  uint flags = ctrl & ~1;
-  if (lights != 0) {
-    flags = ctrl | MaskAndShiftLeft(lights, 0xFF, 3);
-  }
+  uint flags = lights != 0 ? ctrl | MaskAndShiftLeft(lights, 0xFF, 3) : ctrl & ~1;
   state = flags;
   sGXState.mChanFlags =
       ((flags != prevFlags) << (channel + 1)) | (sGXState.mChanFlags & ~(1 << (channel + 1)));
