@@ -33,6 +33,10 @@ CMessageScreen::CMessageScreen(CAssetId msg, float time)
   mMsg.Lock();
 }
 
+#if VERSION >= VERSION_GM8P_00
+CMessageScreen::~CMessageScreen() {}
+#endif
+
 bool CMessageScreen::Update(float dt, float blurAmt) {
   mBlurAmt = blurAmt;
   if (!mLoadedMsgScreen) {
@@ -71,6 +75,9 @@ bool CMessageScreen::Update(float dt, float blurAmt) {
       mModel_bottom->SetIsAlwaysDepthWrite(true);
       mModel_center->SetIsAlwaysDepthWrite(true);
       mModel_bg->SetIsAlwaysDepthWrite(true);
+#if VERSION == VERSION_GM8J_00
+      mTextpane_message->TextSupport().SetExtraLineSpace(10);
+#endif
 
       if (mMsg.GetObject()->GetStringCount() > 0) {
         CGuiTextSupport& text = mTextpane_message->TextSupport();

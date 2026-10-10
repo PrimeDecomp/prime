@@ -28,8 +28,8 @@ static const SSphereJointInfo skSphereJoints[] = {{"Pelvis", 1.5f}};
 static const char* const skLeftClaw = "L_Claw_1";
 static const char* const skRightClaw = "R_Claw_1";
 static const char* const skPelvis = "Pelvis";
-static const CVector3f skExtendedTouchBounds(1.f, 1.f, 1.f);
-static const CVector3f skTentacleOffset(-0.2f, 0.f, -0.3f);
+CVector3f skExtendedTouchBounds(1.f, 1.f, 1.f);
+CVector3f skTentacleOffset(-0.2f, 0.f, -0.3f);
 
 CMetroidBetaData::CMetroidBetaData(CInputStream& in, int propCount)
 : mFrozenVulnerability(in)
@@ -633,10 +633,12 @@ void CMetroidBeta::Attack(CStateManager& mgr, EStateMsg msg, float dt) {
     }
     const CVector3f face = -direction;
     if (face.CanBeNormalized()) {
-      const CVector3f& normal = face.AsNormalized();
+      CVector3f normal(face.AsNormalized());
+      const CVector3f forward = GetTransform().GetForward();
+      const CRelAngle angle = CRelAngle::FromDegrees(360.f);
       const CQuaternion rotation = CQuaternion::LookAt(
-          CUnitVector3f(GetTransform().GetForward(), CUnitVector3f::kN_No),
-          CUnitVector3f(normal, CUnitVector3f::kN_No), CRelAngle::FromDegrees(360.f));
+          CUnitVector3f(forward, CUnitVector3f::kN_No),
+          CUnitVector3f(normal[kDX], normal[kDY], normal[kDZ]), angle);
       const CQuaternion orientation = CQuaternion::FromMatrix(GetTransform()) * rotation;
       SetRotation(orientation.BuildNormalized());
     }
@@ -1155,12 +1157,17 @@ void CMetroidBeta::ApplyGrowth(float amount, CStateManager& mgr) {
   TakeDamage(CVector3f::Zero(), 0.f);
 }
 
+static inline void SetGrowthSoundParams(CActor& actor, float growth);
+
 void CMetroidBeta::UpdateSoundVolume() {
-  const float growth = CMath::Clamp(0.f, GetGrowthStage() - 1.f, 1.f);
-  SetVolume(
+  SetGrowthSoundParams(*this, CMath::Clamp(0.f, GetGrowthStage() - 1.f, 1.f));
+}
+
+static inline void SetGrowthSoundParams(CActor& actor, float growth) {
+  actor.SetVolume(
       CMath::Clamp< uchar >(0, CCast::ToUint8(127.f * ((1.f - 0.67f) * growth + 0.67f)), 127));
   const int pitch = CMath::Clamp(0, 4096 - CCast::ToInt32(4096.f * growth), 16383);
-  SetSoundEventPitchBend(pitch);
+  actor.SetSoundEventPitchBend(pitch);
 }
 
 void CMetroidBeta::UpdateModelScale(const CVector3f& scale) { ModelData()->SetScale(scale); }

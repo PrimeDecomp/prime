@@ -66,6 +66,22 @@ pas::EGenerateType CNewIntroBoss::GetGenerateForHealth(const CStateManager& mgr)
 }
 
 float CNewIntroBoss::GetNextAttackTime(CStateManager& mgr) const {
+#if VERSION >= VERSION_GM8P_00
+  const float hp = GetHealthInfo(mgr)->GetHP();
+  if (hp > 400.f) {
+    return 10.f;
+  }
+  if (hp >= 350.f) {
+    return 7.f;
+  }
+  if (hp >= 250.f) {
+    return 5.f;
+  }
+  if (hp >= 150.f) {
+    return 3.f;
+  }
+  return 1.5f;
+#else
   float attackTime = 2.f * mgr.Random()->Float() + 6.f;
   const CHealthInfo* hInfo = GetHealthInfo(mgr);
 
@@ -77,6 +93,7 @@ float CNewIntroBoss::GetNextAttackTime(CStateManager& mgr) const {
   }
 
   return attackTime - (0.825f * attackTime);
+#endif
 }
 
 CNewIntroBoss::CNewIntroBoss(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
@@ -248,7 +265,9 @@ void CNewIntroBoss::Think(float dt, CStateManager& mgr) {
       projectile->ResetBeam(mgr, true);
     }
     BodyCtrl()->SetPlaybackRate(1.f);
+#if VERSION < VERSION_GM8P_00
     SetTransform(mInitialXf);
+#endif
     StopRumble(mgr);
     Death(mgr, GetTransform().GetForward(), kSS_DeathRattle);
   }
@@ -418,6 +437,11 @@ void CNewIntroBoss::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CSt
           CTransform4f::Identity(), kMT_Character, stage3Damage, mStage3Projectile,
           GetCurrentAreaId(), GetUniqueId(), CWeaponAssetInfo(), true,
           CWeapon::kPA_KeepInCinematic);
+#if VERSION >= VERSION_GM8P_00
+      stage1->SetInitialDamage(2.f);
+      stage2->SetInitialDamage(2.f);
+      stage3->SetInitialDamage(2.f);
+#endif
       mgr.AddObject(*stage1);
       mgr.AddObject(*stage2);
       mgr.AddObject(*stage3);
@@ -483,6 +507,11 @@ void CNewIntroBoss::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CSt
       TakeDamage(CVector3f::Zero(), 0.f);
     }
     break;
+#if VERSION >= VERSION_GM8P_00
+  case kSM_Action:
+    SetTransform(mInitialXf);
+    break;
+#endif
   default:
     break;
   }

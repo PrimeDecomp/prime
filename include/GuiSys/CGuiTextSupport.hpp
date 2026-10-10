@@ -95,6 +95,9 @@ public:
     mExtentY = extent;
     ClearRenderBuffer();
   }
+#if VERSION >= VERSION_GM8P_00
+  void SetExtraLineSpace(int spacing) { mExtraLineSpace = spacing; }
+#endif
 
   float GetNumCharsTotal() const;
   float GetNumCharactersPrinted() const;

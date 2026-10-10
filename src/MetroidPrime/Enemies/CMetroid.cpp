@@ -330,10 +330,10 @@ const CDamageVulnerability* CMetroid::GetDamageVulnerability(const CVector3f&, c
 EWeaponCollisionResponseTypes CMetroid::GetCollisionResponseType(const CVector3f&, const CVector3f&,
                                                                  const CWeaponMode& mode,
                                                                  int) const {
-  EWeaponCollisionResponseTypes response = static_cast< EWeaponCollisionResponseTypes >(33);
+  EWeaponCollisionResponseTypes response = kWCR_Unknown33;
   const bool frozen = GetBodyCtrl()->GetPercentageFrozen() > 0.f;
   if (!GetDamageVulnerability()->WeaponHurts(mode, CDamageVulnerability::kRD_No) && !frozen) {
-    response = static_cast< EWeaponCollisionResponseTypes >(58);
+    response = kWCR_Unknown58;
   }
   return response;
 }

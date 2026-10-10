@@ -37,12 +37,11 @@ CTweakGunRes* gpTweakGunRes = nullptr;
 CTweakPlayerRes* gpTweakPlayerRes = nullptr;
 CTweakSlideShow* gpTweakSlideShow = nullptr;
 
-CAssetId IDFromFactory(CResFactory& factory, const char* filename) {
+static CAssetId IDFromFactory(CResFactory& factory, const char* filename) {
   return factory.GetResourceIdByName(filename)->GetId();
 }
 
 CTweaks::CTweaks() { mTweakObjects.resize(14, rstl::auto_ptr< ITweakObject >()); }
-
 CTweaks::~CTweaks() {
   gpTweakPlayer = nullptr;
   gpTweakBall = nullptr;
@@ -64,15 +63,16 @@ void CTweaks::RegisterTweaks() {
   {
     rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
         SObjectTag('CTWK', IDFromFactory(*resFactory, "Particle")), nullptr);
-    mTweakObjects[2] = gpTweakParticle = rs_new CTweakParticle(*stream);  }
+    mTweakObjects[2] = gpTweakParticle = rs_new CTweakParticle(*stream);
+  }
   {
     rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
-    SObjectTag('CTWK', IDFromFactory(*resFactory, "Player")), nullptr);
+        SObjectTag('CTWK', IDFromFactory(*resFactory, "Player")), nullptr);
     mTweakObjects[0] = gpTweakPlayer = rs_new CTweakPlayer(*stream);
   }
   {
     rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
-    SObjectTag('CTWK', IDFromFactory(*resFactory, "CameraBob")), nullptr);
+        SObjectTag('CTWK', IDFromFactory(*resFactory, "CameraBob")), nullptr);
     CPlayerCameraBob::ReadTweaks(*stream);
   }
 
@@ -120,8 +120,7 @@ void CTweaks::RegisterTweaks() {
   {
     rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
         SObjectTag('CTWK', IDFromFactory(*resFactory, "PlayerControls")), nullptr);
-    gpTweakPlayerControlCurrent = rs_new CTweakPlayerControl(*stream);
-    mTweakObjects[3] = gpTweakPlayerControlCurrent;
+    mTweakObjects[3] = gpTweakPlayerControlCurrent= rs_new CTweakPlayerControl(*stream);
     gpTweakPlayerControl1 = gpTweakPlayerControlCurrent;
   }
   {
@@ -133,11 +132,9 @@ void CTweaks::RegisterTweaks() {
   {
     rstl::auto_ptr< CInputStream > stream = resFactory->GetResLoader().LoadNewResourceSync(
         SObjectTag('CTWK', IDFromFactory(*resFactory, "SlideShow")), nullptr);
-    ;
-    mTweakObjects[12] = gpTweakSlideShow = rs_new CTweakSlideShow(*stream);
+    mTweakObjects[12] = gpTweakSlideShow= rs_new CTweakSlideShow(*stream);
   }
 }
-
 void CTweaks::RegisterResourceTweaks() {
   CResFactory* resFactory = gpResourceFactory;
   if (gpTweakGunRes == nullptr) {

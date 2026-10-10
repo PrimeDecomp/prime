@@ -316,9 +316,9 @@ public:
   , mWallJump(false)
   , mStartInJumpLoop(startInLoop) {}
 
-  CBCJumpCmd(const CVector3f& wp1, const CVector3f& wp2, pas::EJumpType type)
+  CBCJumpCmd(const CVector3f& wp1, const CVector3f& wp2)
   : CBodyStateCmd(kBSC_Jump)
-  , mType(type)
+  , mType(pas::kJT_Normal)
   , mWaypoint1(wp1)
   , mWaypoint2(wp2)
   , mWallJump(true)

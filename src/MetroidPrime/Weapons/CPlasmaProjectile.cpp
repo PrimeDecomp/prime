@@ -40,7 +40,7 @@ CPlasmaProjectile::CPlasmaProjectile(const TToken< CWeaponDescription >& wDesc,
 , mOuterColor(bInfo.GetOuterColor())
 , mPhazonDamage(CDamageInfo())
 , mExpansionState(kES_Inactive)
-#if VERSION >= VERSION_R3IJ_00
+#if VERSION >= VERSION_GM8P_00
 , mInitialDamage(0.f)
 #endif
 , mBeamWidth(0.f)
@@ -79,7 +79,7 @@ CPlasmaProjectile::CPlasmaProjectile(const TToken< CWeaponDescription >& wDesc,
 , mTexturesLoaded(false)
 , mDrawOwnerFirst(growingBeam)
 , mActivePlayerPhazon(false)
-#if VERSION >= VERSION_R3IJ_00
+#if VERSION >= VERSION_GM8P_00
 , mEnableInitialDamage(false)
 , mInitialDamagePending(false)
 #endif
@@ -151,9 +151,22 @@ void CPlasmaProjectile::MakeBillboardEffect(
 void CPlasmaProjectile::UpdatePlayerEffects(float dt, CStateManager& mgr) {
   CPlayer& player = *mgr.Player();
   mPlayerEffectPulseTimer -= dt;
+#if VERSION >= VERSION_GM8P_00
+  if ((mExpansionState == kES_Attack || mExpansionState == kES_Sustain) &&
+      GetDamageType() == kDT_Actor && GetCollisionActorId() == player.GetUniqueId()) {
+    if (mEnableInitialDamage && mInitialDamagePending) {
+      CDamageInfo damage = GetCurrentDamageInfo();
+      damage.SetDamage(mInitialDamage);
+      mgr.ApplyDamage(GetUniqueId(), player.GetUniqueId(), GetOwnerId(), damage, GetFilter(),
+                      CVector3f::Zero());
+      mInitialDamagePending = false;
+    }
+    if (mPlayerEffectPulseTimer <= 0.f) {
+#else
   if ((mExpansionState == kES_Attack || mExpansionState == kES_Sustain) &&
       mPlayerEffectPulseTimer <= 0.f && GetDamageType() == kDT_Actor &&
       GetCollisionActorId() == player.GetUniqueId()) {
+#endif
     if ((mBeamAttributes & 8) && mActivePlayerPhazon != true) {
       mActivePlayerPhazon = true;
       mPlayerDamageTimer = 0.f;
@@ -186,6 +199,9 @@ void CPlasmaProjectile::UpdatePlayerEffects(float dt, CStateManager& mgr) {
       break;
     }
     mPlayerEffectPulseTimer = 0.75f;
+#if VERSION >= VERSION_GM8P_00
+    }
+#endif
   }
   if (mActivePlayerPhazon) {
     mgr.ApplyDamage(GetUniqueId(), player.GetUniqueId(), GetOwnerId(),
@@ -290,6 +306,9 @@ void CPlasmaProjectile::Fire(const CTransform4f& xf, CStateManager& mgr, const b
   mFiring = true;
   x548_24_ = b;
   mExpansionState = kES_Attack;
+#if VERSION >= VERSION_GM8P_00
+  mInitialDamagePending = mEnableInitialDamage;
+#endif
   if (mBeamAttributes & 1) {
     for (int i = 0; i < 8; ++i) {
       cache[i] = xf.GetTranslation();
@@ -553,5 +572,12 @@ void CPlasmaProjectile::SetPlayerSustainedDamage(float duration, const CDamageIn
     mBeamAttributes &= ~8;
   }
 }
+
+#if VERSION >= VERSION_GM8P_00
+void CPlasmaProjectile::SetInitialDamage(float damage) {
+  mEnableInitialDamage = damage > 0.f;
+  mInitialDamage = damage;
+}
+#endif
 
 CBeamProjectile::~CBeamProjectile() {}

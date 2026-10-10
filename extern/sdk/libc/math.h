@@ -231,7 +231,7 @@ static inline float sqrtf(float x) {
   }
 }
 #else
-extern inline float sqrtf(float x) {
+static inline float sqrtf(float x) {
   static const double _half = .5;
   static const double _three = 3.0;
   volatile float y;
