@@ -89,8 +89,8 @@ void CHintOptions::SetHintNextTime() {
   }
   const CGameHintInfo::CGameHint& hint = gpMemoryCard->GetHints()[mNextHintIdx];
   AUTO(it, mHintStates.begin());
-  it += mNextHintIdx;
-  it->mTime = hint.GetTextTime() + 5.f;
+  ++it; --it;
+  (it + mNextHintIdx)->mTime = hint.GetTextTime() + 5.f;
 }
 
 #if VERSION >= VERSION_GM8E_02
