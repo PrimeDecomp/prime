@@ -239,7 +239,6 @@ void* CGameAllocator::Alloc(size_t size, const EHint hint, const EScope scope, c
 }
 
 CGameAllocator::SGameMemInfo* CGameAllocator::FindFreeBlock(uint len) {
-  uint delta;
   CGameAllocator::SGameMemInfo* ret = nullptr;
   uint binIndex = GetFreeBinEntryForSize(len);
 
@@ -252,13 +251,12 @@ CGameAllocator::SGameMemInfo* CGameAllocator::FindFreeBlock(uint len) {
     SGameMemInfo* last = nullptr;
     for (; candidate; last = candidate, candidate = candidate->GetNextFree()) {
       if (!candidate->IsAllocated() && candidate->mLen >= len) {
-        delta = candidate->mLen - len;
-        if (delta < bestDelta && candidate->GetNext()) {
+        if (candidate->mLen - len < bestDelta && candidate->GetNext()) {
           ret = candidate;
           previous = last;
-          bestDelta = delta;
+          bestDelta = candidate->mLen - len;
           chosenBin = binIndex;
-          if (delta < sizeof(SGameMemInfo)) {
+          if (bestDelta < sizeof(SGameMemInfo)) {
             break;
           }
         }
