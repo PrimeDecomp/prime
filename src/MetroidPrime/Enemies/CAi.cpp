@@ -313,7 +313,9 @@ void CAi::FluidFXThink(EFluidState state, CScriptWater& water, CStateManager& mg
     if (dt >= (HealthInfo(mgr)->GetHP() > 0.f ? 0.2f : 0.7f)) {
       const float surfaceZ = water.GetSurfaceZ();
       CVector3f center(GetTranslation().GetX(), GetTranslation().GetY(), surfaceZ);
-      const CPlane& surface = water.GetWRSurfacePlane();
+      const CPlane& surface =
+          CPlane(water.GetTriggerBoundsWR().GetMaxPoint().GetZ(),
+                 CUnitVector3f(0.f, 0.f, 1.f, CUnitVector3f::kN_Yes));
       const float mass = GetMass();
       water.FluidPlane().AddRipple(mass, GetUniqueId(), center, GetVelocityWR(), water, mgr,
                                    surface.GetNormal());

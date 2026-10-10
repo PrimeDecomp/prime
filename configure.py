@@ -710,7 +710,7 @@ config.libs = [
             ),
             Object(NonMatching, "MetroidPrime/CMapWorld.cpp"),
             Object(
-                EquivalentFor("GM8E01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Enemies/CAi.cpp",
                 extra_cflags=['-pragma "inline_max_size(260)"']
                 if config.version == "GM8E01_02"
