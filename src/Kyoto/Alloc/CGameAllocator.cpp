@@ -73,8 +73,8 @@ bool CGameAllocator::Initialize(COsContext& ctx) {
       reinterpret_cast< intptr_t >(mFirst) -
       (reinterpret_cast< uintptr_t >(mFirst) & kAllocatorPointerTopNybbleMask));
   OSGetArenaLo();
-  mLast =
-      reinterpret_cast< SGameMemInfo* >(reinterpret_cast< char* >(mFirst - 1) + mHeapSize);
+  mLast = reinterpret_cast< SGameMemInfo* >(
+      reinterpret_cast< uintptr_t >(mFirst) + mHeapSize - sizeof(SGameMemInfo));
 
   const SGameMemInfo& head = SGameMemInfo(
       nullptr, mLast, mLast, mHeapSize - sizeof(SGameMemInfo) * 2, "MemHead", "MemHead");
