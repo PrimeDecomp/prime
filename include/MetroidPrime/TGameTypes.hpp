@@ -69,7 +69,7 @@ CHECK_SIZEOF(TUniqueId, 0x2)
 // CHECK_SIZEOF(TGameScriptId, 0x8)
 
 typedef ushort TSfxId;
-static TSfxId InvalidSfxId = 0xFFFFu;
+const TSfxId InvalidSfxId = 0xFFFFu;
 
 #define ALIGN_UP(x, a) (((x) + (a - 1)) & ~(a - 1))
 
