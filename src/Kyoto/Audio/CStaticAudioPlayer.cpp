@@ -193,10 +193,10 @@ void CStaticAudioPlayer::DecodeMonoAndMix(ushort* bufIn, ushort* bufOut, int num
                                           g72x_state& state) {
   int i;
   for (int remBytes = numSamples / 2; remBytes != 0;) {
-    int rb = remBytes;
+    int thisBytes = remBytes;
     int curBuf = curSample / 0x20000;
-    int thisBytes = ((curBuf + 1) * 0x20000) - curSample;
-    thisBytes = rstl::min_val(rb, thisBytes);
+    int remainingInBuffer = ((curBuf + 1) * 0x20000) - curSample;
+    thisBytes = rstl::min_val(thisBytes, remainingInBuffer);
 
     int remTillLoop = sampleEnd - curSample;
     thisBytes = rstl::min_val(thisBytes, remTillLoop);
