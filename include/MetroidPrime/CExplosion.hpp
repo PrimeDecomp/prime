@@ -43,6 +43,9 @@ public:
   bool mRenderThermalHot : 1;
   bool mHasRenderBounds : 1;
   bool mRenderXray : 1;
+#if VERSION >= VERSION_GM8P_00
+  bool mFixedTimeStep : 1;
+#endif
   float mTime;
 };
 CHECK_CHILD_SIZEOF(CExplosion, CEffect, 0x18)

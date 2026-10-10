@@ -182,6 +182,10 @@ MetroidPrime/CIOWin.cpp:
 
 MetroidPrime/CActor.cpp:
 	.text       start:0x80052CC0 end:0x80055DD4
+	.rodata     start:0x803CD068 end:0x803CD070
+	.data       start:0x803D9FB0 end:0x803DA0C0
+	.sdata      start:0x805A6B48 end:0x805A6B58
+	.sdata2     start:0x805AA030 end:0x805AA090
 
 MetroidPrime/CWorld.cpp:
 	.text       start:0x80055DD4 end:0x80059F94

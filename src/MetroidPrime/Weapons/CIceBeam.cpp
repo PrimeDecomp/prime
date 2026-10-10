@@ -81,7 +81,9 @@ void CIceBeam::Update(const float dt, CStateManager& mgr) {
     if (mLoaded) {
       mSmokeGen = rs_new CElementGen(mIceSmoke);
       mSmokeGen->SetGlobalScale(mScale);
+#if VERSION < VERSION_GM8P_00
       mSmokeGen->SetParticleEmission(false);
+#endif
     }
   }
 }

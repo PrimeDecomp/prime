@@ -23,6 +23,9 @@ CExplosion::CExplosion(const TLockedToken< CGenDescription >& particle, TUniqueI
 , mRenderThermalHot(flags & 0x4)
 , mHasRenderBounds(true)
 , mRenderXray(flags & 0x8)
+#if VERSION >= VERSION_GM8P_00
+, mFixedTimeStep(flags & 0x10)
+#endif
 , mTime(0.0f) {
   SetThermalFlags(flags & 0x1 ? kTF_Cold : kTF_Hot);
   mParticleGen->SetGlobalTranslation(xf.GetTranslation());
@@ -42,6 +45,9 @@ CExplosion::CExplosion(const TLockedToken< CElectricDescription >& electric, TUn
 , mRenderThermalHot(flags & 0x4)
 , mHasRenderBounds(true)
 , mRenderXray(flags & 0x8)
+#if VERSION >= VERSION_GM8P_00
+, mFixedTimeStep(flags & 0x10)
+#endif
 #if NONMATCHING
 , mTime(0.0f)
 #endif
@@ -79,7 +85,11 @@ void CExplosion::Think(float dt, CStateManager& mgr) {
     mParticleGen->SetOrientation(GetTransform().GetRotation());
     SetTransformDirtySpare(false);
   }
+#if VERSION >= VERSION_GM8P_00
+  mParticleGen->Update(mFixedTimeStep ? 1.0 / 60.0 : dt);
+#else
   mParticleGen->Update(dt);
+#endif
 
   if (mExplosionLight != kInvalidUniqueId) {
     CGameLight* light = TCastToPtr< CGameLight >(mgr.ObjectById(mExplosionLight));

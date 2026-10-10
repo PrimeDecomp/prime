@@ -229,8 +229,9 @@ MetroidPrime/CIOWin.cpp:
 MetroidPrime/CActor.cpp:
 	.text       start:0x80053D60 end:0x80057078
 	.rodata     start:0x803B7908 end:0x803B7910
-	.sdata      start:0x80468F18 end:0x80468F20
-	.sdata2     start:0x8046C4B8 end:0x8046C4FC
+	.data       start:0x803C5290 end:0x803C53A0
+	.sdata      start:0x80468F10 end:0x80468F20
+	.sdata2     start:0x8046C4B8 end:0x8046C518
 
 MetroidPrime/CWorld.cpp:
 	.text       start:0x80057078 end:0x8005B1E8
@@ -1105,7 +1106,7 @@ MetroidPrime/Player/CFidget.cpp:
 
 MetroidPrime/Enemies/CSpankWeed.cpp:
 	.text       start:0x8014BACC end:0x8014D750
-	.rodata     start:0x803BAC38 end:0x803BAC7C
+	.rodata     start:0x803BAC38 end:0x803BAD70
 	.data       start:0x803CCC50 end:0x803CCF20
 	.sdata      start:0x804698F0 end:0x80469908
 	.sdata2     start:0x8046DCE8 end:0x8046DD08
@@ -1468,9 +1469,11 @@ MetroidPrime/Player/CStaticInterference.cpp:
 MetroidPrime/Enemies/CMetroidBeta.cpp:
 	.text       start:0x801B40B4 end:0x801B9CAC
 	.ctors      start:0x803B5044 end:0x803B5048
+	.rodata     start:0x803BC4D0 end:0x803BC4F0
 	.data       start:0x803CE928 end:0x803CECB8
 	.bss        start:0x804340E8 end:0x8043410C align:4 common
 	.sdata      start:0x80469DB8 end:0x80469E18
+	.sbss       start:0x8046B178 end:0x8046B188
 	.sdata2     start:0x8046E960 end:0x8046EA08
 
 MetroidPrime/PathFinding/CPathFindSearch.cpp:

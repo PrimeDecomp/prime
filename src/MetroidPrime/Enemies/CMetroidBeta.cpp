@@ -165,9 +165,14 @@ void CMetroidBeta::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CSta
               x840_31_ = true;
               mShotSeverity += 1.f;
             }
+#if VERSION >= VERSION_GM8P_00
+            KnockBack(projectile->GetVelocity(), mgr, damage, damage.GetKnockBackPower(), true,
+                      false);
+#else
             const CVector3f pos = projectile->GetTranslation();
             KnockBack(pos - projectile->GetPreviousPos(), mgr, damage, damage.GetKnockBackPower(),
                       true, false);
+#endif
           }
           if (x840_25_) {
             mShotSeverity += 0.1f;
@@ -287,9 +292,14 @@ void CMetroidBeta::Touch(CActor& actor, CStateManager& mgr) {
               multiplier = 2.f;
             }
             const CVector3f relativePos = projectile->GetTranslation() - GetTranslation();
+#if VERSION >= VERSION_GM8P_00
+            const CUnitVector3f direction(
+                GetTransform().TransposeRotate(projectile->GetVelocity()));
+#else
             const CVector3f projectilePos = projectile->GetTranslation();
             const CUnitVector3f direction(
                 GetTransform().TransposeRotate(projectilePos - projectile->GetPreviousPos()));
+#endif
             Freeze(mgr, relativePos, direction, multiplier * GetFreezeDuration());
             x840_24_ = false;
           }

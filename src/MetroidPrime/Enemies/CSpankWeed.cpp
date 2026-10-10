@@ -387,8 +387,14 @@ void CSpankWeed::Flinch(CStateManager& mgr, EStateMsg msg, float arg) {
 
 CVector3f CSpankWeed::GetAimPosition(const CStateManager& mgr, float dt) const {
   CVector3f pos = CVector3f::Zero();
-  if (dt > 0.f)
+  if (dt > 0.f) {
+#if VERSION >= VERSION_GM8P_00
+    CMotionState motion = PredictMotion(dt);
+    pos = motion.GetTranslation();
+#else
     pos = PredictMotion(dt).GetTranslation();
+#endif
+  }
   const CAnimData& animData = *GetModelData()->GetAnimationData();
   const CSegId id = animData.GetLocatorSegId(rstl::string_l("lockon_target_LCTR"));
   if (id.val() != 0xff) {
