@@ -1128,7 +1128,7 @@ config.libs = [
                 NonMatching,
                 "MetroidPrime/Player/CPlayerOrbit.cpp",
             ),
-            Object(EquivalentFor("GM8E01_00"), "MetroidPrime/CGameCollision.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/CGameCollision.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CBallFilter.cpp",

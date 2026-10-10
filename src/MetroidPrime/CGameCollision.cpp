@@ -4,6 +4,7 @@
 #include "Collision/CInternalRayCastStructure.hpp"
 #include "Collision/CMaterialList.hpp"
 #include "Collision/CollisionUtil.hpp"
+#include "Kyoto/Basics/CCast.hpp"
 #include "Kyoto/Math/CLine.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"
@@ -68,451 +69,6 @@ bool CGameCollision::NullBooleanCollider(const CInternalCollisionStructure&) { r
 bool CGameCollision::NullMovingCollider(const CInternalCollisionStructure&, const CVector3f&,
                                         double&, CCollisionInfo&) {
   return false;
-}
-
-void CGameCollision::BuildAreaCollisionCache(const CStateManager& mgr, CAreaCollisionCache& cache) {
-  cache.ClearCache();
-
-  for (CGameArea::CConstChainIterator it = mgr.GetWorld()->GetChainHead(CWorld::kC_Alive);
-       it != CWorld::skGlobalEnd; ++it) {
-    CMetroidAreaCollider::COctreeLeafCache leafCache(*(*it).GetPostConstructed()->mCollision);
-    const CAreaOctTree& collision = *(*it).GetPostConstructed()->mCollision;
-    CAreaOctTree::Node node(collision.GetTreeMemory(), collision.GetBoundingBox(), collision,
-                            collision.GetTreeType());
-    CMetroidAreaCollider::BuildOctreeLeafCache(node, cache.GetCacheBounds(), leafCache);
-    cache.AddOctreeLeafCache(leafCache);
-  }
-
-  IsUser(0);
-}
-
-bool CGameCollision::DetectCollisionBoolean(const CStateManager& mgr,
-                                            const CCollisionPrimitive& prim, const CTransform4f& xf,
-                                            const CMaterialFilter& filter,
-                                            const TEntityList& nearList) {
-  if (!filter.GetExcludeList().HasMaterial(kMT_NoStaticCollision) &&
-      DetectStaticCollisionBoolean(mgr, prim, xf, filter)) {
-    return true;
-  }
-
-  if (DetectDynamicCollisionBoolean(prim, xf, nearList, mgr)) {
-    return true;
-  }
-
-  return false;
-}
-
-bool CGameCollision::DetectCollisionBoolean_Cached(
-    const CStateManager& mgr, CAreaCollisionCache& cache, const CCollisionPrimitive& prim,
-    const CTransform4f& xf, const CMaterialFilter& filter, const TEntityList& nearList) {
-  if (!filter.GetExcludeList().HasMaterial(kMT_NoStaticCollision) &&
-      DetectStaticCollisionBoolean_Cached(mgr, cache, prim, xf, filter)) {
-    return true;
-  }
-
-  if (DetectDynamicCollisionBoolean(prim, xf, nearList, mgr)) {
-    return true;
-  }
-
-  return false;
-}
-
-bool CGameCollision::DetectCollision(const CStateManager& mgr, const CCollisionPrimitive& prim,
-                                     const CTransform4f& xf, const CMaterialFilter& filter,
-                                     const TEntityList& nearList, TUniqueId& idOut,
-                                     CCollisionInfoList& infoList) {
-  bool ret = false;
-  idOut = kInvalidUniqueId;
-  if (!filter.GetExcludeList().HasMaterial(kMT_NoStaticCollision) &&
-      DetectStaticCollision(mgr, prim, xf, filter, infoList)) {
-    ret = true;
-  }
-
-  TUniqueId id = kInvalidUniqueId;
-  if (DetectDynamicCollision(prim, xf, nearList, id, infoList, mgr)) {
-    ret = true;
-    idOut = id;
-  }
-
-  return ret;
-}
-
-bool CGameCollision::DetectCollision_Cached(const CStateManager& mgr, CAreaCollisionCache& cache,
-                                            const CCollisionPrimitive& prim, const CTransform4f& xf,
-                                            const CMaterialFilter& filter,
-                                            const TEntityList& nearList, TUniqueId& idOut,
-                                            CCollisionInfoList& infoList) {
-  bool ret = false;
-  idOut = kInvalidUniqueId;
-  if (!filter.GetExcludeList().HasMaterial(kMT_NoStaticCollision) &&
-      DetectStaticCollision_Cached(mgr, cache, prim, xf, filter, infoList)) {
-    ret = true;
-  }
-
-  TUniqueId id = kInvalidUniqueId;
-  if (DetectDynamicCollision(prim, xf, nearList, id, infoList, mgr)) {
-    ret = true;
-    idOut = id;
-  }
-
-  return ret;
-}
-
-bool CGameCollision::DetectStaticCollisionBoolean(const CStateManager& mgr,
-                                                  const CCollisionPrimitive& prim,
-                                                  const CTransform4f& xf,
-                                                  const CMaterialFilter& filter) {
-  if (prim.GetPrimType() == 'OBTG') {
-    return false;
-  }
-
-  const CWorld* world = mgr.GetWorld();
-  if (prim.GetPrimType() == 'AABX') {
-    CAABox aabb = prim.CalculateAABox(xf);
-    CAABox aabb2 = aabb;
-    for (CGameArea::CConstChainIterator it = world->GetChainHead(CWorld::kC_Alive);
-         it != CWorld::skGlobalEnd; ++it) {
-      if (CMetroidAreaCollider::AABoxCollisionCheckBoolean((*it).GetOctTree(), aabb2, filter)) {
-        return true;
-      }
-    }
-  } else if (prim.GetPrimType() == 'SPHR') {
-    CAABox aabb = prim.CalculateAABox(xf);
-    CAABox aabb2 = aabb;
-    CSphere sphere = static_cast< const CCollidableSphere& >(prim).Transform(xf);
-    CSphere sphere2 = sphere;
-    for (CGameArea::CConstChainIterator it = world->GetChainHead(CWorld::kC_Alive);
-         it != CWorld::skGlobalEnd; ++it) {
-      if (CMetroidAreaCollider::SphereCollisionCheckBoolean((*it).GetOctTree(), aabb2, sphere2,
-                                                            filter)) {
-        return true;
-      }
-    }
-  } else if (prim.GetPrimType() == 'ABSH') {
-    const CCollidableAABoxSphere& absPrim = static_cast< const CCollidableAABoxSphere& >(prim);
-    if (DetectStaticCollisionBoolean(mgr, absPrim.GetCollidableAABox(), xf, filter)) {
-      return true;
-    }
-    if (DetectStaticCollisionBoolean(mgr, absPrim.GetCollidableSphere(), xf, filter)) {
-      return true;
-    }
-  }
-
-  return false;
-}
-
-bool CGameCollision::DetectStaticCollisionBoolean_Cached(const CStateManager& mgr,
-                                                         CAreaCollisionCache& cache,
-                                                         const CCollisionPrimitive& prim,
-                                                         const CTransform4f& xf,
-                                                         const CMaterialFilter& filter) {
-  if (prim.GetPrimType() == 'OBTG') {
-    return false;
-  }
-
-  bool ret = false;
-  CAABox aabb = prim.CalculateAABox(xf);
-  CAABox aabb2 = aabb;
-  if (!aabb2.Inside(cache.GetCacheBounds())) {
-    CAABox newAABB(aabb2.GetMinPoint() - CVector3f(0.2f, 0.2f, 0.2f),
-                   aabb2.GetMaxPoint() + CVector3f(0.2f, 0.2f, 0.2f));
-    newAABB.AccumulateBounds(cache.GetCacheBounds().GetMinPoint());
-    newAABB.AccumulateBounds(cache.GetCacheBounds().GetMaxPoint());
-    cache.SetCacheBounds(newAABB);
-    BuildAreaCollisionCache(mgr, cache);
-    IsUser(0);
-  }
-
-  if (cache.HasCacheOverflowed()) {
-    return DetectStaticCollisionBoolean(mgr, prim, xf, filter);
-  }
-
-  if (prim.GetPrimType() == 'AABX') {
-    for (int i = 0; i < int(cache.GetNumCaches()); ++i) {
-      if (CMetroidAreaCollider::AABoxCollisionCheckBoolean_Cached(cache.GetOctreeLeafCache(i),
-                                                                  aabb2, filter)) {
-        ret = true;
-        break;
-      }
-    }
-  } else if (prim.GetPrimType() == 'SPHR') {
-    CSphere sphere = static_cast< const CCollidableSphere& >(prim).Transform(xf);
-    CSphere sphere2 = sphere;
-    for (int i = 0; i < int(cache.GetNumCaches()); ++i) {
-      if (CMetroidAreaCollider::SphereCollisionCheckBoolean_Cached(cache.GetOctreeLeafCache(i),
-                                                                   aabb2, sphere2, filter)) {
-        ret = true;
-        break;
-      }
-    }
-  } else if (prim.GetPrimType() == 'ABSH') {
-    const CCollidableAABoxSphere& absPrim = static_cast< const CCollidableAABoxSphere& >(prim);
-    if (DetectStaticCollisionBoolean_Cached(mgr, cache, absPrim.GetCollidableAABox(), xf, filter)) {
-      ret = true;
-    } else if (DetectStaticCollisionBoolean_Cached(mgr, cache, absPrim.GetCollidableSphere(), xf,
-                                                   filter)) {
-      ret = true;
-    }
-  }
-
-  return ret;
-}
-
-bool CGameCollision::DetectStaticCollision(const CStateManager& mgr,
-                                           const CCollisionPrimitive& prim, const CTransform4f& xf,
-                                           const CMaterialFilter& filter,
-                                           CCollisionInfoList& infoList) {
-  if (prim.GetPrimType() == 'OBTG') {
-    return false;
-  }
-
-  bool ret = false;
-  const CWorld* world = mgr.GetWorld();
-  if (prim.GetPrimType() == 'AABX') {
-    const CCollidableAABox& boxPrim = static_cast< const CCollidableAABox& >(prim);
-    CAABox aabb = boxPrim.CalculateAABox(xf);
-    CAABox aabb2 = aabb;
-    for (CGameArea::CConstChainIterator it = world->GetChainHead(CWorld::kC_Alive);
-         it != CWorld::skGlobalEnd; ++it) {
-      if (CMetroidAreaCollider::AABoxCollisionCheck((*it).GetOctTree(), aabb2, filter,
-                                                    boxPrim.GetMaterial(), infoList)) {
-        ret = true;
-      }
-    }
-  } else if (prim.GetPrimType() == 'SPHR') {
-    const CCollidableSphere& spherePrim = static_cast< const CCollidableSphere& >(prim);
-    CAABox aabb = spherePrim.CalculateAABox(xf);
-    CAABox aabb2 = aabb;
-    CSphere sphere = spherePrim.Transform(xf);
-    CSphere sphere2 = sphere;
-    for (CGameArea::CConstChainIterator it = world->GetChainHead(CWorld::kC_Alive);
-         it != CWorld::skGlobalEnd; ++it) {
-      if (CMetroidAreaCollider::SphereCollisionCheck((*it).GetOctTree(), aabb2, sphere2,
-                                                     spherePrim.GetMaterial(), filter, infoList)) {
-        ret = true;
-      }
-    }
-  } else if (prim.GetPrimType() == 'ABSH') {
-    const CCollidableAABoxSphere& absPrim = static_cast< const CCollidableAABoxSphere& >(prim);
-    if (DetectStaticCollision(mgr, absPrim.GetCollidableAABox(), xf, filter, infoList)) {
-      ret = true;
-    }
-    if (DetectStaticCollision(mgr, absPrim.GetCollidableSphere(), xf, filter, infoList)) {
-      ret = true;
-    }
-  }
-
-  return ret;
-}
-
-bool CGameCollision::DetectStaticCollision_Cached(
-    const CStateManager& mgr, CAreaCollisionCache& cache, const CCollisionPrimitive& prim,
-    const CTransform4f& xf, const CMaterialFilter& filter, CCollisionInfoList& infoList) {
-  if (prim.GetPrimType() == 'OBTG') {
-    return false;
-  }
-
-  bool ret = false;
-  CAABox aabb = prim.CalculateAABox(xf);
-  CAABox aabb2 = aabb;
-  if (!aabb2.Inside(cache.GetCacheBounds())) {
-    CAABox newAABB(aabb2.GetMinPoint() - CVector3f(0.2f, 0.2f, 0.2f),
-                   aabb2.GetMaxPoint() + CVector3f(0.2f, 0.2f, 0.2f));
-    newAABB.AccumulateBounds(cache.GetCacheBounds().GetMinPoint());
-    newAABB.AccumulateBounds(cache.GetCacheBounds().GetMaxPoint());
-    cache.SetCacheBounds(newAABB);
-    BuildAreaCollisionCache(mgr, cache);
-    IsUser(0);
-  }
-
-  if (cache.HasCacheOverflowed()) {
-    return DetectStaticCollision(mgr, prim, xf, filter, infoList);
-  }
-
-  if (prim.GetPrimType() == 'AABX') {
-    const CCollidableAABox& boxPrim = static_cast< const CCollidableAABox& >(prim);
-    for (int i = 0; i < int(cache.GetNumCaches()); ++i) {
-      if (CMetroidAreaCollider::AABoxCollisionCheck_Cached(
-              cache.GetOctreeLeafCache(i), aabb2, filter, boxPrim.GetMaterial(), infoList)) {
-        ret = true;
-      }
-    }
-  } else if (prim.GetPrimType() == 'SPHR') {
-    const CCollidableSphere& spherePrim = static_cast< const CCollidableSphere& >(prim);
-    CSphere sphere = spherePrim.Transform(xf);
-    CSphere sphere2 = sphere;
-    for (int i = 0; i < int(cache.GetNumCaches()); ++i) {
-      if (CMetroidAreaCollider::SphereCollisionCheck_Cached(cache.GetOctreeLeafCache(i), aabb2,
-                                                            sphere2, spherePrim.GetMaterial(),
-                                                            filter, infoList)) {
-        ret = true;
-      }
-    }
-  } else if (prim.GetPrimType() == 'ABSH') {
-    const CCollidableAABoxSphere& absPrim = static_cast< const CCollidableAABoxSphere& >(prim);
-    if (DetectStaticCollision_Cached(mgr, cache, absPrim.GetCollidableAABox(), xf, filter,
-                                     infoList)) {
-      ret = true;
-    }
-    if (DetectStaticCollision_Cached(mgr, cache, absPrim.GetCollidableSphere(), xf, filter,
-                                     infoList)) {
-      ret = true;
-    }
-  }
-
-  return ret;
-}
-
-bool CGameCollision::DetectStaticCollision_Cached_Moving(
-    const CStateManager& mgr, CAreaCollisionCache& cache, const CCollisionPrimitive& prim,
-    const CTransform4f& xf, const CMaterialFilter& filter, CVector3f dir, CCollisionInfo& infoOut,
-    double& dOut) {
-  if (prim.GetPrimType() == 'OBTG') {
-    return false;
-  }
-
-  CVector3f dirScale = dir * dOut;
-  CAABox aabb = prim.CalculateAABox(xf);
-  CAABox offsetAABB = aabb;
-  offsetAABB.AccumulateBounds(aabb.GetMinPoint() + dirScale);
-  offsetAABB.AccumulateBounds(aabb.GetMaxPoint() + dirScale);
-
-  if (!offsetAABB.Inside(cache.GetCacheBounds())) {
-    CAABox newAABB(offsetAABB.GetMinPoint() - CVector3f(0.2f, 0.2f, 0.2f),
-                   offsetAABB.GetMaxPoint() + CVector3f(0.2f, 0.2f, 0.2f));
-    newAABB.AccumulateBounds(cache.GetCacheBounds().GetMinPoint());
-    newAABB.AccumulateBounds(cache.GetCacheBounds().GetMaxPoint());
-    cache.SetCacheBounds(newAABB);
-    BuildAreaCollisionCache(mgr, cache);
-    IsUser(0);
-  }
-
-  if (prim.GetPrimType() == 'AABX') {
-    for (int i = 0; i < int(cache.GetNumCaches()); ++i) {
-      CCollisionInfo info(CCollisionInfo::kI_Invalid);
-      double d = dOut;
-      float distance = dOut;
-      if (CMetroidAreaCollider::MovingAABoxCollisionCheck_Cached(cache.GetOctreeLeafCache(i), aabb,
-                                                                 filter, CMaterialList(kMT_Solid),
-                                                                 dir, distance, info, d) &&
-          d < dOut) {
-        infoOut = info;
-        dOut = float(d);
-      }
-    }
-  } else if (prim.GetPrimType() == 'SPHR') {
-    const CSphere& sphere = static_cast< const CCollidableSphere& >(prim).GetSphere();
-    for (int i = 0; i < int(cache.GetNumCaches()); ++i) {
-      CCollisionInfo info(CCollisionInfo::kI_Invalid);
-      double d = dOut;
-      float distance = dOut;
-      if (CMetroidAreaCollider::MovingSphereCollisionCheck_Cached(
-              cache.GetOctreeLeafCache(i), aabb,
-              CSphere(xf * sphere.GetCenter(), sphere.GetRadius()), filter,
-              CMaterialList(kMT_Solid), dir, distance, info, d) &&
-          d < dOut) {
-        infoOut = info;
-        dOut = float(d);
-      }
-    }
-  }
-
-  return infoOut.IsValid();
-}
-
-bool CGameCollision::DetectDynamicCollision(const CCollisionPrimitive& prim, const CTransform4f& xf,
-                                            const TEntityList& nearList, TUniqueId& idOut,
-                                            CCollisionInfoList& infoList,
-                                            const CStateManager& mgr) {
-  for (const TUniqueId* id = nearList.begin(); id != nearList.end(); ++id) {
-    if (const CPhysicsActor* actor = TCastToConstPtr< CPhysicsActor >(mgr.GetObjectById(*id))) {
-      if (CCollisionPrimitive::Collide(
-              CInternalCollisionStructure::CPrimDesc(prim, CMaterialFilter::skPassEverything, xf),
-              CInternalCollisionStructure::CPrimDesc(*actor->GetCollisionPrimitive(),
-                                                     CMaterialFilter::skPassEverything,
-                                                     actor->GetPrimitiveTransform()),
-              infoList)) {
-        idOut = actor->GetUniqueId();
-        return true;
-      }
-    }
-  }
-
-  idOut = kInvalidUniqueId;
-  return false;
-}
-
-bool CGameCollision::DetectDynamicCollisionBoolean(const CCollisionPrimitive& prim,
-                                                   const CTransform4f& xf,
-                                                   const TEntityList& nearList,
-                                                   const CStateManager& mgr) {
-  for (const TUniqueId* id = nearList.begin(); id != nearList.end(); ++id) {
-    if (const CPhysicsActor* actor = TCastToConstPtr< CPhysicsActor >(mgr.GetObjectById(*id))) {
-      if (CCollisionPrimitive::CollideBoolean(
-              CInternalCollisionStructure::CPrimDesc(prim, CMaterialFilter::skPassEverything, xf),
-              CInternalCollisionStructure::CPrimDesc(*actor->GetCollisionPrimitive(),
-                                                     CMaterialFilter::skPassEverything,
-                                                     actor->GetPrimitiveTransform()))) {
-        return true;
-      }
-    }
-  }
-
-  return false;
-}
-
-bool CGameCollision::DetectDynamicCollisionMoving(const CCollisionPrimitive& prim,
-                                                  const CTransform4f& xf,
-                                                  const TEntityList& nearList, CVector3f dir,
-                                                  TUniqueId& idOut, CCollisionInfo& infoOut,
-                                                  double& dOut, const CStateManager& mgr) {
-  bool ret = false;
-  const TUniqueId* id = nearList.begin();
-
-  while (id != nearList.end()) {
-    const CPhysicsActor* const actor = TCastToConstPtr< CPhysicsActor >(mgr.GetObjectById(*id));
-    double d = dOut;
-    CCollisionInfo info(CCollisionInfo::kI_Invalid);
-
-    if (actor) {
-      if (CCollisionPrimitive::CollideMoving(
-              CInternalCollisionStructure::CPrimDesc(prim, CMaterialFilter::skPassEverything, xf),
-              CInternalCollisionStructure::CPrimDesc(*actor->GetCollisionPrimitive(),
-                                                     CMaterialFilter::skPassEverything,
-                                                     actor->GetPrimitiveTransform()),
-              dir, d, info) &&
-          d < dOut) {
-        ret = true;
-        infoOut = info;
-        dOut = d;
-        idOut = actor->GetUniqueId();
-      }
-    }
-
-    ++id;
-  }
-
-  return ret;
-}
-
-bool CGameCollision::DetectCollision_Cached_Moving(
-    const CStateManager& mgr, CAreaCollisionCache& cache, const CCollisionPrimitive& prim,
-    const CTransform4f& xf, const CMaterialFilter& filter, const TEntityList& nearList,
-    CVector3f dir, TUniqueId& idOut, CCollisionInfo& infoOut, double& dOut) {
-  bool ret = false;
-  idOut = kInvalidUniqueId;
-
-  if (!filter.GetExcludeList().HasMaterial(kMT_NoStaticCollision)) {
-    if (DetectStaticCollision_Cached_Moving(mgr, cache, prim, xf, filter, dir, infoOut, dOut)) {
-      ret = true;
-    }
-  }
-
-  if (DetectDynamicCollisionMoving(prim, xf, nearList, dir, idOut, infoOut, dOut, mgr)) {
-    ret = true;
-  }
-
-  return ret;
 }
 
 CRayCastResult CGameCollision::RayWorldIntersection(const CStateManager& mgr, TUniqueId& idOut,
@@ -655,11 +211,449 @@ CRayCastResult CGameCollision::RayStaticIntersection(const CStateManager& mgr, c
   return ret;
 }
 
-bool CGameCollision::IsFloor(const CMaterialList& material, const CVector3f& normal) {
-  if (material.HasMaterial(kMT_Floor)) {
+void CGameCollision::BuildAreaCollisionCache(const CStateManager& mgr, CAreaCollisionCache& cache) {
+  cache.ClearCache();
+
+  for (CGameArea::CConstChainIterator it = mgr.GetWorld()->GetChainHead(CWorld::kC_Alive);
+       it != CWorld::skGlobalEnd; ++it) {
+    CMetroidAreaCollider::COctreeLeafCache leafCache(*(*it).GetPostConstructed()->mCollision);
+    const CAreaOctTree& collision = *(*it).GetPostConstructed()->mCollision;
+    CAreaOctTree::Node node(collision.GetTreeMemory(), collision.GetBoundingBox(), collision,
+                            collision.GetTreeType());
+    CMetroidAreaCollider::BuildOctreeLeafCache(node, cache.GetCacheBounds(), leafCache);
+    cache.AddOctreeLeafCache(leafCache);
+  }
+
+  IsUser(0);
+}
+
+bool CGameCollision::DetectCollisionBoolean(const CStateManager& mgr,
+                                            const CCollisionPrimitive& prim, const CTransform4f& xf,
+                                            const CMaterialFilter& filter,
+                                            const TEntityList& nearList) {
+  if (!filter.GetExcludeList().HasMaterial(kMT_NoStaticCollision) &&
+      DetectStaticCollisionBoolean(mgr, prim, xf, filter)) {
     return true;
   }
-  return normal.GetZ() > 0.85f;
+
+  if (DetectDynamicCollisionBoolean(prim, xf, nearList, mgr)) {
+    return true;
+  }
+
+  return false;
+}
+
+bool CGameCollision::DetectCollisionBoolean_Cached(
+    const CStateManager& mgr, CAreaCollisionCache& cache, const CCollisionPrimitive& prim,
+    const CTransform4f& xf, const CMaterialFilter& filter, const TEntityList& nearList) {
+  if (!filter.GetExcludeList().HasMaterial(kMT_NoStaticCollision) &&
+      DetectStaticCollisionBoolean_Cached(mgr, cache, prim, xf, filter)) {
+    return true;
+  }
+
+  if (DetectDynamicCollisionBoolean(prim, xf, nearList, mgr)) {
+    return true;
+  }
+
+  return false;
+}
+
+bool CGameCollision::DetectCollision(const CStateManager& mgr, const CCollisionPrimitive& prim,
+                                     const CTransform4f& xf, const CMaterialFilter& filter,
+                                     const TEntityList& nearList, TUniqueId& idOut,
+                                     CCollisionInfoList& infoList) {
+  bool ret = false;
+  idOut = kInvalidUniqueId;
+  if (!filter.GetExcludeList().HasMaterial(kMT_NoStaticCollision) &&
+      DetectStaticCollision(mgr, prim, xf, filter, infoList)) {
+    ret = true;
+  }
+
+  TUniqueId id = kInvalidUniqueId;
+  if (DetectDynamicCollision(prim, xf, nearList, id, infoList, mgr)) {
+    ret = true;
+    idOut = id;
+  }
+
+  return ret;
+}
+
+bool CGameCollision::DetectCollision_Cached(const CStateManager& mgr, CAreaCollisionCache& cache,
+                                            const CCollisionPrimitive& prim, const CTransform4f& xf,
+                                            const CMaterialFilter& filter,
+                                            const TEntityList& nearList, TUniqueId& idOut,
+                                            CCollisionInfoList& infoList) {
+  bool ret = false;
+  idOut = kInvalidUniqueId;
+  if (!filter.GetExcludeList().HasMaterial(kMT_NoStaticCollision) &&
+      DetectStaticCollision_Cached(mgr, cache, prim, xf, filter, infoList)) {
+    ret = true;
+  }
+
+  TUniqueId id = kInvalidUniqueId;
+  if (DetectDynamicCollision(prim, xf, nearList, id, infoList, mgr)) {
+    ret = true;
+    idOut = id;
+  }
+
+  return ret;
+}
+
+bool CGameCollision::DetectCollision_Cached_Moving(
+    const CStateManager& mgr, CAreaCollisionCache& cache, const CCollisionPrimitive& prim,
+    const CTransform4f& xf, const CMaterialFilter& filter, const TEntityList& nearList,
+    CVector3f dir, TUniqueId& idOut, CCollisionInfo& infoOut, double& dOut) {
+  bool ret = false;
+  idOut = kInvalidUniqueId;
+
+  if (!filter.GetExcludeList().HasMaterial(kMT_NoStaticCollision)) {
+    if (DetectStaticCollision_Cached_Moving(mgr, cache, prim, xf, filter, dir, infoOut, dOut)) {
+      ret = true;
+    }
+  }
+
+  if (DetectDynamicCollisionMoving(prim, xf, nearList, dir, idOut, infoOut, dOut, mgr)) {
+    ret = true;
+  }
+
+  return ret;
+}
+
+bool CGameCollision::DetectDynamicCollisionMoving(const CCollisionPrimitive& prim,
+                                                  const CTransform4f& xf,
+                                                  const TEntityList& nearList, CVector3f dir,
+                                                  TUniqueId& idOut, CCollisionInfo& infoOut,
+                                                  double& dOut, const CStateManager& mgr) {
+  bool ret = false;
+  const TUniqueId* id = nearList.begin();
+
+  while (id != nearList.end()) {
+    const CPhysicsActor* const actor = TCastToConstPtr< CPhysicsActor >(mgr.GetObjectById(*id));
+    double d = dOut;
+    CCollisionInfo info(CCollisionInfo::kI_Invalid);
+
+    if (actor) {
+      if (CCollisionPrimitive::CollideMoving(
+              CInternalCollisionStructure::CPrimDesc(prim, CMaterialFilter::skPassEverything, xf),
+              CInternalCollisionStructure::CPrimDesc(*actor->GetCollisionPrimitive(),
+                                                     CMaterialFilter::skPassEverything,
+                                                     actor->GetPrimitiveTransform()),
+              dir, d, info) &&
+          d < dOut) {
+        ret = true;
+        infoOut = info;
+        dOut = d;
+        idOut = actor->GetUniqueId();
+      }
+    }
+
+    ++id;
+  }
+
+  return ret;
+}
+
+bool CGameCollision::DetectDynamicCollisionBoolean(const CCollisionPrimitive& prim,
+                                                   const CTransform4f& xf,
+                                                   const TEntityList& nearList,
+                                                   const CStateManager& mgr) {
+  for (const TUniqueId* id = nearList.begin(); id != nearList.end(); ++id) {
+    if (const CPhysicsActor* actor = TCastToConstPtr< CPhysicsActor >(mgr.GetObjectById(*id))) {
+      if (CCollisionPrimitive::CollideBoolean(
+              CInternalCollisionStructure::CPrimDesc(prim, CMaterialFilter::skPassEverything, xf),
+              CInternalCollisionStructure::CPrimDesc(*actor->GetCollisionPrimitive(),
+                                                     CMaterialFilter::skPassEverything,
+                                                     actor->GetPrimitiveTransform()))) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
+bool CGameCollision::DetectDynamicCollision(const CCollisionPrimitive& prim, const CTransform4f& xf,
+                                            const TEntityList& nearList, TUniqueId& idOut,
+                                            CCollisionInfoList& infoList,
+                                            const CStateManager& mgr) {
+  for (const TUniqueId* id = nearList.begin(); id != nearList.end(); ++id) {
+    if (const CPhysicsActor* actor = TCastToConstPtr< CPhysicsActor >(mgr.GetObjectById(*id))) {
+      if (CCollisionPrimitive::Collide(
+              CInternalCollisionStructure::CPrimDesc(prim, CMaterialFilter::skPassEverything, xf),
+              CInternalCollisionStructure::CPrimDesc(*actor->GetCollisionPrimitive(),
+                                                     CMaterialFilter::skPassEverything,
+                                                     actor->GetPrimitiveTransform()),
+              infoList)) {
+        idOut = actor->GetUniqueId();
+        return true;
+      }
+    }
+  }
+
+  idOut = kInvalidUniqueId;
+  return false;
+}
+
+bool CGameCollision::DetectStaticCollision_Cached(
+    const CStateManager& mgr, CAreaCollisionCache& cache, const CCollisionPrimitive& prim,
+    const CTransform4f& xf, const CMaterialFilter& filter, CCollisionInfoList& infoList) {
+  if (prim.GetPrimType() == 'OBTG') {
+    return false;
+  }
+
+  bool ret = false;
+  CAABox aabb = prim.CalculateAABox(xf);
+  CAABox aabb2 = aabb;
+  if (!aabb2.Inside(cache.GetCacheBounds())) {
+    CAABox newAABB(aabb2.GetMinPoint() - CVector3f(0.2f, 0.2f, 0.2f),
+                   aabb2.GetMaxPoint() + CVector3f(0.2f, 0.2f, 0.2f));
+    newAABB.AccumulateBounds(cache.GetCacheBounds().GetMinPoint());
+    newAABB.AccumulateBounds(cache.GetCacheBounds().GetMaxPoint());
+    cache.SetCacheBounds(newAABB);
+    BuildAreaCollisionCache(mgr, cache);
+    IsUser(0);
+  }
+
+  if (cache.HasCacheOverflowed()) {
+    return DetectStaticCollision(mgr, prim, xf, filter, infoList);
+  }
+
+  if (prim.GetPrimType() == 'AABX') {
+    const CCollidableAABox& boxPrim = static_cast< const CCollidableAABox& >(prim);
+    for (int i = 0; i < int(cache.GetNumCaches()); ++i) {
+      if (CMetroidAreaCollider::AABoxCollisionCheck_Cached(
+              cache.GetOctreeLeafCache(i), aabb2, filter, boxPrim.GetMaterial(), infoList)) {
+        ret = true;
+      }
+    }
+  } else if (prim.GetPrimType() == 'SPHR') {
+    const CCollidableSphere& spherePrim = static_cast< const CCollidableSphere& >(prim);
+    CSphere sphere = spherePrim.Transform(xf);
+    CSphere sphere2 = sphere;
+    for (int i = 0; i < int(cache.GetNumCaches()); ++i) {
+      if (CMetroidAreaCollider::SphereCollisionCheck_Cached(cache.GetOctreeLeafCache(i), aabb2,
+                                                            sphere2, spherePrim.GetMaterial(),
+                                                            filter, infoList)) {
+        ret = true;
+      }
+    }
+  } else if (prim.GetPrimType() == 'ABSH') {
+    const CCollidableAABoxSphere& absPrim = static_cast< const CCollidableAABoxSphere& >(prim);
+    if (DetectStaticCollision_Cached(mgr, cache, absPrim.GetCollidableAABox(), xf, filter,
+                                     infoList)) {
+      ret = true;
+    }
+    if (DetectStaticCollision_Cached(mgr, cache, absPrim.GetCollidableSphere(), xf, filter,
+                                     infoList)) {
+      ret = true;
+    }
+  }
+
+  return ret;
+}
+
+bool CGameCollision::DetectStaticCollision(const CStateManager& mgr,
+                                           const CCollisionPrimitive& prim, const CTransform4f& xf,
+                                           const CMaterialFilter& filter,
+                                           CCollisionInfoList& infoList) {
+  if (prim.GetPrimType() == 'OBTG') {
+    return false;
+  }
+
+  bool ret = false;
+  const CWorld* world = mgr.GetWorld();
+  if (prim.GetPrimType() == 'AABX') {
+    const CCollidableAABox& boxPrim = static_cast< const CCollidableAABox& >(prim);
+    CAABox aabb = boxPrim.CalculateAABox(xf);
+    CAABox aabb2 = aabb;
+    for (CGameArea::CConstChainIterator it = world->GetChainHead(CWorld::kC_Alive);
+         it != CWorld::skGlobalEnd; ++it) {
+      if (CMetroidAreaCollider::AABoxCollisionCheck((*it).GetOctTree(), aabb2, filter,
+                                                    boxPrim.GetMaterial(), infoList)) {
+        ret = true;
+      }
+    }
+  } else if (prim.GetPrimType() == 'SPHR') {
+    const CCollidableSphere& spherePrim = static_cast< const CCollidableSphere& >(prim);
+    CAABox aabb = spherePrim.CalculateAABox(xf);
+    CAABox aabb2 = aabb;
+    CSphere sphere = spherePrim.Transform(xf);
+    CSphere sphere2 = sphere;
+    for (CGameArea::CConstChainIterator it = world->GetChainHead(CWorld::kC_Alive);
+         it != CWorld::skGlobalEnd; ++it) {
+      if (CMetroidAreaCollider::SphereCollisionCheck((*it).GetOctTree(), aabb2, sphere2,
+                                                     spherePrim.GetMaterial(), filter, infoList)) {
+        ret = true;
+      }
+    }
+  } else if (prim.GetPrimType() == 'ABSH') {
+    const CCollidableAABoxSphere& absPrim = static_cast< const CCollidableAABoxSphere& >(prim);
+    if (DetectStaticCollision(mgr, absPrim.GetCollidableAABox(), xf, filter, infoList)) {
+      ret = true;
+    }
+    if (DetectStaticCollision(mgr, absPrim.GetCollidableSphere(), xf, filter, infoList)) {
+      ret = true;
+    }
+  }
+
+  return ret;
+}
+
+bool CGameCollision::DetectStaticCollisionBoolean_Cached(const CStateManager& mgr,
+                                                         CAreaCollisionCache& cache,
+                                                         const CCollisionPrimitive& prim,
+                                                         const CTransform4f& xf,
+                                                         const CMaterialFilter& filter) {
+  if (prim.GetPrimType() == 'OBTG') {
+    return false;
+  }
+
+  bool ret = false;
+  CAABox aabb = prim.CalculateAABox(xf);
+  CAABox aabb2 = aabb;
+  if (!aabb2.Inside(cache.GetCacheBounds())) {
+    CAABox newAABB(aabb2.GetMinPoint() - CVector3f(0.2f, 0.2f, 0.2f),
+                   aabb2.GetMaxPoint() + CVector3f(0.2f, 0.2f, 0.2f));
+    newAABB.AccumulateBounds(cache.GetCacheBounds().GetMinPoint());
+    newAABB.AccumulateBounds(cache.GetCacheBounds().GetMaxPoint());
+    cache.SetCacheBounds(newAABB);
+    BuildAreaCollisionCache(mgr, cache);
+    IsUser(0);
+  }
+
+  if (cache.HasCacheOverflowed()) {
+    return DetectStaticCollisionBoolean(mgr, prim, xf, filter);
+  }
+
+  if (prim.GetPrimType() == 'AABX') {
+    for (int i = 0; i < int(cache.GetNumCaches()); ++i) {
+      if (CMetroidAreaCollider::AABoxCollisionCheckBoolean_Cached(cache.GetOctreeLeafCache(i),
+                                                                  aabb2, filter)) {
+        ret = true;
+        break;
+      }
+    }
+  } else if (prim.GetPrimType() == 'SPHR') {
+    CSphere sphere = static_cast< const CCollidableSphere& >(prim).Transform(xf);
+    CSphere sphere2 = sphere;
+    for (int i = 0; i < int(cache.GetNumCaches()); ++i) {
+      if (CMetroidAreaCollider::SphereCollisionCheckBoolean_Cached(cache.GetOctreeLeafCache(i),
+                                                                   aabb2, sphere2, filter)) {
+        ret = true;
+        break;
+      }
+    }
+  } else if (prim.GetPrimType() == 'ABSH') {
+    const CCollidableAABoxSphere& absPrim = static_cast< const CCollidableAABoxSphere& >(prim);
+    if (DetectStaticCollisionBoolean_Cached(mgr, cache, absPrim.GetCollidableAABox(), xf, filter)) {
+      ret = true;
+    } else if (DetectStaticCollisionBoolean_Cached(mgr, cache, absPrim.GetCollidableSphere(), xf,
+                                                   filter)) {
+      ret = true;
+    }
+  }
+
+  return ret;
+}
+
+bool CGameCollision::DetectStaticCollisionBoolean(const CStateManager& mgr,
+                                                  const CCollisionPrimitive& prim,
+                                                  const CTransform4f& xf,
+                                                  const CMaterialFilter& filter) {
+  if (prim.GetPrimType() == 'OBTG') {
+    return false;
+  }
+
+  const CWorld* world = mgr.GetWorld();
+  if (prim.GetPrimType() == 'AABX') {
+    CAABox aabb = prim.CalculateAABox(xf);
+    CAABox aabb2 = aabb;
+    for (CGameArea::CConstChainIterator it = world->GetChainHead(CWorld::kC_Alive);
+         it != CWorld::skGlobalEnd; ++it) {
+      if (CMetroidAreaCollider::AABoxCollisionCheckBoolean((*it).GetOctTree(), aabb2, filter)) {
+        return true;
+      }
+    }
+  } else if (prim.GetPrimType() == 'SPHR') {
+    CAABox aabb = prim.CalculateAABox(xf);
+    CAABox aabb2 = aabb;
+    CSphere sphere = static_cast< const CCollidableSphere& >(prim).Transform(xf);
+    CSphere sphere2 = sphere;
+    for (CGameArea::CConstChainIterator it = world->GetChainHead(CWorld::kC_Alive);
+         it != CWorld::skGlobalEnd; ++it) {
+      if (CMetroidAreaCollider::SphereCollisionCheckBoolean((*it).GetOctTree(), aabb2, sphere2,
+                                                            filter)) {
+        return true;
+      }
+    }
+  } else if (prim.GetPrimType() == 'ABSH') {
+    const CCollidableAABoxSphere& absPrim = static_cast< const CCollidableAABoxSphere& >(prim);
+    if (DetectStaticCollisionBoolean(mgr, absPrim.GetCollidableAABox(), xf, filter)) {
+      return true;
+    }
+    if (DetectStaticCollisionBoolean(mgr, absPrim.GetCollidableSphere(), xf, filter)) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+bool CGameCollision::DetectStaticCollision_Cached_Moving(
+    const CStateManager& mgr, CAreaCollisionCache& cache, const CCollisionPrimitive& prim,
+    const CTransform4f& xf, const CMaterialFilter& filter, CVector3f dir, CCollisionInfo& infoOut,
+    double& dOut) {
+  if (prim.GetPrimType() == 'OBTG') {
+    return false;
+  }
+
+  CVector3f dirScale = dir * dOut;
+  CAABox aabb = prim.CalculateAABox(xf);
+  CAABox offsetAABB = aabb;
+  offsetAABB.AccumulateBounds(aabb.GetMinPoint() + dirScale);
+  offsetAABB.AccumulateBounds(aabb.GetMaxPoint() + dirScale);
+
+  if (!offsetAABB.Inside(cache.GetCacheBounds())) {
+    CAABox newAABB(offsetAABB.GetMinPoint() - CVector3f(0.2f, 0.2f, 0.2f),
+                   offsetAABB.GetMaxPoint() + CVector3f(0.2f, 0.2f, 0.2f));
+    newAABB.AccumulateBounds(cache.GetCacheBounds().GetMinPoint());
+    newAABB.AccumulateBounds(cache.GetCacheBounds().GetMaxPoint());
+    cache.SetCacheBounds(newAABB);
+    BuildAreaCollisionCache(mgr, cache);
+    IsUser(0);
+  }
+
+  if (prim.GetPrimType() == 'AABX') {
+    for (int i = 0; i < int(cache.GetNumCaches()); ++i) {
+      CCollisionInfo info(CCollisionInfo::kI_Invalid);
+      double d = dOut;
+      float distance = dOut;
+      if (CMetroidAreaCollider::MovingAABoxCollisionCheck_Cached(cache.GetOctreeLeafCache(i), aabb,
+                                                                 filter, CMaterialList(kMT_Solid),
+                                                                 dir, distance, info, d) &&
+          d < dOut) {
+        infoOut = info;
+        dOut = float(d);
+      }
+    }
+  } else if (prim.GetPrimType() == 'SPHR') {
+    const CSphere& sphere = static_cast< const CCollidableSphere& >(prim).GetSphere();
+    for (int i = 0; i < int(cache.GetNumCaches()); ++i) {
+      CCollisionInfo info(CCollisionInfo::kI_Invalid);
+      double d = dOut;
+      float distance = CCast::ToReal32(dOut);
+      if (CMetroidAreaCollider::MovingSphereCollisionCheck_Cached(
+              cache.GetOctreeLeafCache(i), aabb,
+              CSphere(xf * sphere.GetCenter(), sphere.GetRadius()), filter,
+              CMaterialList(kMT_Solid), dir, distance, info, d) &&
+          d < dOut) {
+        infoOut = info;
+        dOut = float(d);
+      }
+    }
+  }
+
+  return infoOut.IsValid();
 }
 
 void CGameCollision::MakeCollisionCallbacks(CStateManager& mgr, CPhysicsActor& actor,
@@ -734,35 +728,176 @@ void CGameCollision::SendMaterialMessage(CStateManager& mgr, const CMaterialList
 void CGameCollision::ShowCollisionResults(CCollisionInfoList& info, const CColor& color) {}
 
 float CGameCollision::GetCoefficientOfRestitution(const CCollisionInfo& info) { return 0.f; }
+
 static float CollisionImpulseFiniteVsFinite(float mass0, float mass1, float velNormDot,
                                             float restitution) {
   return (-(1.f + restitution) * velNormDot) / ((1.f / mass0) + (1.f / mass1));
 }
+
 static float CollisionImpulseFiniteVsInfinite(const float mass, const float velNormDot,
                                               const float restitution) {
   return mass * (-(1.f + restitution) * velNormDot);
 }
 
-CVector3f CGameCollision::GetActorRelativeVelocities(const CPhysicsActor* actor0,
-                                                     const CPhysicsActor* actor1) {
-  float x = actor0->GetVelocityWR().GetX();
-  float y = actor0->GetVelocityWR().GetY();
-  float z = actor0->GetVelocityWR().GetZ();
+bool CGameCollision::IsFloor(const CMaterialList& material, const CVector3f& normal) {
+  if (material.HasMaterial(kMT_Floor)) {
+    return true;
+  }
+  return normal.GetZ() > 0.85f;
+}
 
-  if (actor1 != NULL) {
-    const CScriptPlatform* platform = TCastToConstPtr< CScriptPlatform >(actor1);
-    bool rider = false;
-    if (platform) {
-      rider = platform->IsRider(actor0->GetUniqueId());
+bool CGameCollision::CanBlock(const CMaterialList& material, const CVector3f& normal) {
+  if (material.HasMaterial(kMT_Character) && !material.HasMaterial(kMT_SolidCharacter)) {
+    return false;
+  }
+  if (material.HasMaterial(kMT_NoPlayerCollision)) {
+    return false;
+  }
+
+  if (material.HasMaterial(kMT_Floor)) {
+    return true;
+  }
+
+  return normal.GetZ() > 0.85f;
+}
+
+float CGameCollision::GetMinExtentForCollisionPrimitive(const CCollisionPrimitive& prim) {
+  if (prim.GetPrimType() == 'SPHR') {
+    return 2.f * static_cast< const CCollidableSphere& >(prim).GetSphere().GetRadius();
+  }
+
+  if (prim.GetPrimType() == 'AABX') {
+    const CAABox& aabb = static_cast< const CCollidableAABox& >(prim).GetBox();
+    CVector3f extents = aabb.GetMaxPoint() - aabb.GetMinPoint();
+    return rstl::min_val(rstl::min_val(extents[0], extents[1]), extents[2]);
+  }
+
+  if (prim.GetPrimType() == 'ABSH') {
+    const CCollidableAABoxSphere& absPrim = static_cast< const CCollidableAABoxSphere& >(prim);
+    return rstl::min_val(GetMinExtentForCollisionPrimitive(absPrim.GetCollidableAABox()),
+                         GetMinExtentForCollisionPrimitive(absPrim.GetCollidableSphere()));
+  }
+  return 1.f;
+}
+
+void CGameCollision::ResolveCollisions(CPhysicsActor& actor0, CPhysicsActor* actor1,
+                                       const CCollisionInfoList& list) {
+  for (int i = 0; i < list.GetCount(); ++i) {
+    CCollisionInfo infoCopy(list[i]);
+    const float restitution =
+        GetCoefficientOfRestitution(infoCopy) + actor0.GetCoefficientOfRestitutionModifier();
+    if (actor1 != nullptr) {
+      CollideWithDynamicBodyNoRot(actor0, *actor1, infoCopy, restitution, false);
+    } else {
+      CollideWithStaticBodyNoRot(actor0, infoCopy.GetMaterialLeft(), infoCopy.GetMaterialRight(),
+                                 infoCopy.GetNormalLeft(), restitution, false);
     }
-    if (!rider) {
-      x -= actor1->GetVelocityWR().GetX();
-      y -= actor1->GetVelocityWR().GetY();
-      z -= actor1->GetVelocityWR().GetZ();
+  }
+}
+
+void CGameCollision::CollideWithDynamicBodyNoRot(CPhysicsActor& actor0, CPhysicsActor& actor1,
+                                                 const CCollisionInfo& info, float restitution,
+                                                 bool active) {
+  CVector3f normal(info.GetNormalLeft());
+  if (active) {
+    normal.SetZ(0.f);
+  }
+
+  CVector3f relVel = GetActorRelativeVelocities(&actor0, &actor1);
+  float mass0 = actor0.GetMass();
+  float mass1 = actor1.GetMass();
+  float velNormDot = CVector3f::Dot(relVel, normal);
+
+  float maxVel0 =
+      rstl::max_val(actor0.GetVelocityWR().Magnitude(), actor0.GetMaximumCollisionVelocity());
+
+  float maxVel1 =
+      rstl::max_val(actor1.GetVelocityWR().Magnitude(), actor1.GetMaximumCollisionVelocity());
+
+  bool immovable0 = actor0.GetMaterialList().HasMaterial(kMT_Immovable) || mass0 == 0.f;
+  bool immovable1 = actor1.GetMaterialList().HasMaterial(kMT_Immovable) || mass1 == 0.f;
+
+  if (velNormDot < -0.0001f) {
+    if (!immovable0) {
+      if (!immovable1) {
+        float impulse = CollisionImpulseFiniteVsFinite(mass0, mass1, velNormDot, restitution);
+        actor0.ApplyImpulseWR(impulse * normal, CAxisAngle::Identity());
+        float negImpulse = -impulse;
+        actor1.ApplyImpulseWR(negImpulse * normal, CAxisAngle::Identity());
+      } else {
+        float impulse = CollisionImpulseFiniteVsInfinite(mass0, velNormDot, restitution);
+        CVector3f imp = impulse * normal;
+        actor0.ApplyImpulseWR(imp, CAxisAngle::Identity());
+      }
+    } else {
+      if (!immovable1) {
+        float impulse = -CollisionImpulseFiniteVsInfinite(mass1, velNormDot, restitution);
+        actor1.ApplyImpulseWR(impulse * normal, CAxisAngle::Identity());
+      } else {
+        actor0.SetVelocityWR(CVector3f::Zero());
+        actor1.SetVelocityWR(CVector3f::Zero());
+      }
+    }
+    actor0.UseCollisionImpulses();
+    actor1.UseCollisionImpulses();
+  } else if (velNormDot < 0.1f) {
+    if (!immovable0) {
+      if (IsUser(0)) {
+        gDebugPrintCount = gDebugPrintCount + 1;
+      }
+      float impulse = 0.05f * mass0;
+      CVector3f imp = impulse * normal;
+      actor0.ApplyImpulseWR(imp, CAxisAngle::Identity());
+      actor0.UseCollisionImpulses();
+    }
+    if (!immovable1) {
+      if (IsUser(0)) {
+        gDebugPrintCount = gDebugPrintCount + 1;
+      }
+      float impulse = -0.05f * mass1;
+      CVector3f imp = impulse * normal;
+      actor1.ApplyImpulseWR(imp, CAxisAngle::Identity());
+      actor1.UseCollisionImpulses();
     }
   }
 
-  return CVector3f(x, y, z);
+  float curMag0 = actor0.GetVelocityWR().Magnitude();
+  if (curMag0 > maxVel0) {
+    actor0.SetVelocityWR(maxVel0 * (actor0.GetVelocityWR() / curMag0));
+    IsUser(0);
+  }
+
+  float curMag1 = actor1.GetVelocityWR().Magnitude();
+  if (curMag1 > maxVel1) {
+    actor1.SetVelocityWR(maxVel1 * (actor1.GetVelocityWR() / curMag1));
+    IsUser(0);
+  }
+}
+
+void CGameCollision::CollideWithStaticBodyNoRot(CPhysicsActor& actor, const CMaterialList& mat0,
+                                                const CMaterialList& mat1,
+                                                const CUnitVector3f& normal, float restitution,
+                                                bool active) {
+  CVector3f local_30(normal);
+  if (((active) && mat0.HasMaterial(kMT_Player)) && !mat1.HasMaterial(kMT_Floor)) {
+    local_30.SetZ(0.f);
+  }
+
+  if (local_30.CanBeNormalized()) {
+    local_30.Normalize();
+    const float velNormalDot = CVector3f::Dot(actor.GetVelocityWR(), local_30);
+    if (velNormalDot < -0.0001f) {
+      const float impulse =
+          CollisionImpulseFiniteVsInfinite(actor.GetMass(), velNormalDot, restitution);
+      CVector3f local_3c = impulse * local_30;
+      actor.ApplyImpulseWR(local_3c, CAxisAngle::Identity());
+      actor.UseCollisionImpulses();
+    } else if (velNormalDot < 0.001f) {
+      CVector3f local_48 = (0.05f * actor.GetMass()) * local_30;
+      actor.ApplyImpulseWR(local_48, CAxisAngle::Identity());
+      actor.UseCollisionImpulses();
+    }
+  }
 }
 
 void CGameCollision::Move(CStateManager& mgr, CPhysicsActor& actor, float dt,
@@ -1126,19 +1261,26 @@ CGameCollision::FindNonIntersectingVector(const CStateManager& mgr, CAreaCollisi
   return rstl::optional_object_null();
 }
 
-bool CGameCollision::CanBlock(const CMaterialList& material, const CVector3f& normal) {
-  if (material.HasMaterial(kMT_Character) && !material.HasMaterial(kMT_SolidCharacter)) {
-    return false;
-  }
-  if (material.HasMaterial(kMT_NoPlayerCollision)) {
-    return false;
+CVector3f CGameCollision::GetActorRelativeVelocities(const CPhysicsActor* actor0,
+                                                     const CPhysicsActor* actor1) {
+  float x = actor0->GetVelocityWR().GetX();
+  float y = actor0->GetVelocityWR().GetY();
+  float z = actor0->GetVelocityWR().GetZ();
+
+  if (actor1 != NULL) {
+    const CScriptPlatform* platform = TCastToConstPtr< CScriptPlatform >(actor1);
+    bool rider = false;
+    if (platform) {
+      rider = platform->IsRider(actor0->GetUniqueId());
+    }
+    if (!rider) {
+      x -= actor1->GetVelocityWR().GetX();
+      y -= actor1->GetVelocityWR().GetY();
+      z -= actor1->GetVelocityWR().GetZ();
+    }
   }
 
-  if (material.HasMaterial(kMT_Floor)) {
-    return true;
-  }
-
-  return normal.GetZ() > 0.85f;
+  return CVector3f(x, y, z);
 }
 
 void CGameCollision::AvoidStaticCollisionWithinRadius(const CStateManager& mgr,
@@ -1197,143 +1339,4 @@ void CGameCollision::AvoidStaticCollisionWithinRadius(const CStateManager& mgr,
 
   CVector3f deltaVelocity = dt * (mass * velocity);
   actor.SetVelocityWR(actor.GetVelocityWR() + deltaVelocity);
-}
-
-float CGameCollision::GetMinExtentForCollisionPrimitive(const CCollisionPrimitive& prim) {
-  if (prim.GetPrimType() == 'SPHR') {
-    return 2.f * static_cast< const CCollidableSphere& >(prim).GetSphere().GetRadius();
-  }
-
-  if (prim.GetPrimType() == 'AABX') {
-    const CAABox& aabb = static_cast< const CCollidableAABox& >(prim).GetBox();
-    CVector3f extents = aabb.GetMaxPoint() - aabb.GetMinPoint();
-    return rstl::min_val(rstl::min_val(extents[0], extents[1]), extents[2]);
-  }
-
-  if (prim.GetPrimType() == 'ABSH') {
-    const CCollidableAABoxSphere& absPrim = static_cast< const CCollidableAABoxSphere& >(prim);
-    return rstl::min_val(GetMinExtentForCollisionPrimitive(absPrim.GetCollidableAABox()),
-                         GetMinExtentForCollisionPrimitive(absPrim.GetCollidableSphere()));
-  }
-  return 1.f;
-}
-
-void CGameCollision::ResolveCollisions(CPhysicsActor& actor0, CPhysicsActor* actor1,
-                                       const CCollisionInfoList& list) {
-  for (int i = 0; i < list.GetCount(); ++i) {
-    CCollisionInfo infoCopy(list[i]);
-    const float restitution =
-        GetCoefficientOfRestitution(infoCopy) + actor0.GetCoefficientOfRestitutionModifier();
-    if (actor1 != nullptr) {
-      CollideWithDynamicBodyNoRot(actor0, *actor1, infoCopy, restitution, false);
-    } else {
-      CollideWithStaticBodyNoRot(actor0, infoCopy.GetMaterialLeft(), infoCopy.GetMaterialRight(),
-                                 infoCopy.GetNormalLeft(), restitution, false);
-    }
-  }
-}
-
-void CGameCollision::CollideWithDynamicBodyNoRot(CPhysicsActor& actor0, CPhysicsActor& actor1,
-                                                 const CCollisionInfo& info, float restitution,
-                                                 bool active) {
-  CVector3f normal(info.GetNormalLeft());
-  if (active) {
-    normal.SetZ(0.f);
-  }
-
-  CVector3f relVel = GetActorRelativeVelocities(&actor0, &actor1);
-  float mass0 = actor0.GetMass();
-  float mass1 = actor1.GetMass();
-  float velNormDot = CVector3f::Dot(relVel, normal);
-
-  float maxVel0 =
-      rstl::max_val(actor0.GetVelocityWR().Magnitude(), actor0.GetMaximumCollisionVelocity());
-
-  float maxVel1 =
-      rstl::max_val(actor1.GetVelocityWR().Magnitude(), actor1.GetMaximumCollisionVelocity());
-
-  bool immovable0 = actor0.GetMaterialList().HasMaterial(kMT_Immovable) || mass0 == 0.f;
-  bool immovable1 = actor1.GetMaterialList().HasMaterial(kMT_Immovable) || mass1 == 0.f;
-
-  if (velNormDot < -0.0001f) {
-    if (!immovable0) {
-      if (!immovable1) {
-        float impulse = CollisionImpulseFiniteVsFinite(mass0, mass1, velNormDot, restitution);
-        actor0.ApplyImpulseWR(impulse * normal, CAxisAngle::Identity());
-        float negImpulse = -impulse;
-        actor1.ApplyImpulseWR(negImpulse * normal, CAxisAngle::Identity());
-      } else {
-        float impulse = CollisionImpulseFiniteVsInfinite(mass0, velNormDot, restitution);
-        CVector3f imp = impulse * normal;
-        actor0.ApplyImpulseWR(imp, CAxisAngle::Identity());
-      }
-    } else {
-      if (!immovable1) {
-        float impulse = -CollisionImpulseFiniteVsInfinite(mass1, velNormDot, restitution);
-        actor1.ApplyImpulseWR(impulse * normal, CAxisAngle::Identity());
-      } else {
-        actor0.SetVelocityWR(CVector3f::Zero());
-        actor1.SetVelocityWR(CVector3f::Zero());
-      }
-    }
-    actor0.UseCollisionImpulses();
-    actor1.UseCollisionImpulses();
-  } else if (velNormDot < 0.1f) {
-    if (!immovable0) {
-      if (IsUser(0)) {
-        gDebugPrintCount = gDebugPrintCount + 1;
-      }
-      float impulse = 0.05f * mass0;
-      CVector3f imp = impulse * normal;
-      actor0.ApplyImpulseWR(imp, CAxisAngle::Identity());
-      actor0.UseCollisionImpulses();
-    }
-    if (!immovable1) {
-      if (IsUser(0)) {
-        gDebugPrintCount = gDebugPrintCount + 1;
-      }
-      float impulse = -0.05f * mass1;
-      CVector3f imp = impulse * normal;
-      actor1.ApplyImpulseWR(imp, CAxisAngle::Identity());
-      actor1.UseCollisionImpulses();
-    }
-  }
-
-  float curMag0 = actor0.GetVelocityWR().Magnitude();
-  if (curMag0 > maxVel0) {
-    actor0.SetVelocityWR(maxVel0 * (actor0.GetVelocityWR() / curMag0));
-    IsUser(0);
-  }
-
-  float curMag1 = actor1.GetVelocityWR().Magnitude();
-  if (curMag1 > maxVel1) {
-    actor1.SetVelocityWR(maxVel1 * (actor1.GetVelocityWR() / curMag1));
-    IsUser(0);
-  }
-}
-
-void CGameCollision::CollideWithStaticBodyNoRot(CPhysicsActor& actor, const CMaterialList& mat0,
-                                                const CMaterialList& mat1,
-                                                const CUnitVector3f& normal, float restitution,
-                                                bool active) {
-  CVector3f local_30(normal);
-  if (((active) && mat0.HasMaterial(kMT_Player)) && !mat1.HasMaterial(kMT_Floor)) {
-    local_30.SetZ(0.f);
-  }
-
-  if (local_30.CanBeNormalized()) {
-    local_30.Normalize();
-    const float velNormalDot = CVector3f::Dot(actor.GetVelocityWR(), local_30);
-    if (velNormalDot < -0.0001f) {
-      const float impulse =
-          CollisionImpulseFiniteVsInfinite(actor.GetMass(), velNormalDot, restitution);
-      CVector3f local_3c = impulse * local_30;
-      actor.ApplyImpulseWR(local_3c, CAxisAngle::Identity());
-      actor.UseCollisionImpulses();
-    } else if (velNormalDot < 0.001f) {
-      CVector3f local_48 = (0.05f * actor.GetMass()) * local_30;
-      actor.ApplyImpulseWR(local_48, CAxisAngle::Identity());
-      actor.UseCollisionImpulses();
-    }
-  }
 }
