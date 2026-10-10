@@ -3849,15 +3849,10 @@ CEntity* ScriptLoader::LoadAmbientAI(CStateManager& mgr, CInputStream& in, int p
   const CTransform4f& xf = head.mActorHead.mTransform;
   CAABox aabox = GetCollisionBox(mgr, info.GetAreaId(), collisionExtent, collisionOffset);
   CMaterialList matList(kMT_Immovable, kMT_NonSolidDamageable);
-  bool negativeExtent;
-  if (collisionExtent.GetX() < 0.f)
-    negativeExtent = true;
-  else if (collisionExtent.GetY() < 0.f)
-    negativeExtent = true;
-  else if (collisionExtent.GetZ() < 0.f)
-    negativeExtent = true;
-  else
-    negativeExtent = false;
+  const bool negativeExtent = collisionExtent.GetX() < 0.f   ? true
+                              : collisionExtent.GetY() < 0.f ? true
+                              : collisionExtent.GetZ() < 0.f ? true
+                                                            : false;
 
   CModelData mData(CAnimRes(animParms.GetACSFile(), animParms.GetCharacter(), head.mScale,
                             animParms.GetInitialAnimation(), true));
