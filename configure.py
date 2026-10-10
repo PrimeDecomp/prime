@@ -645,11 +645,11 @@ config.libs = [
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
                    "MetroidPrime/CAnimationDatabaseGame.cpp"),
             Object(
-                MatchingFor("GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8E01_00", "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CTransitionDatabaseGame.cpp",
                 extra_cflags=['-pragma "inline_max_size(126)"']
                 if version_num >= VERSIONS.index("GM8P01_00")
-                else [],
+                else ['-pragma "inline_max_size(230)"'],
             ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
