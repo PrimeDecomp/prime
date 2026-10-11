@@ -164,11 +164,12 @@ void CCubeModel::DrawSurfaceWireframe(const CCubeSurface& surface) const {
 
   if (vertexAttributes != sLastDesc) {
     sAttrCount = 0;
-    for (int i = 0; i < 16; ++i, sLastDesc = vertexAttributes) {
+    for (int i = 0; i < 16; ++i) {
       if ((vertexAttributes >> (i * 2)) & 3) {
         sAttrCount++;
       }
     }
+    sLastDesc = vertexAttributes;
   }
 
   const int attrCountTimes2 = sAttrCount * 2;

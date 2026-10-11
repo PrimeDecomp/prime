@@ -73,8 +73,8 @@ bool CGameAllocator::Initialize(COsContext& ctx) {
       reinterpret_cast< intptr_t >(mFirst) -
       (reinterpret_cast< uintptr_t >(mFirst) & kAllocatorPointerTopNybbleMask));
   OSGetArenaLo();
-  mLast =
-      reinterpret_cast< SGameMemInfo* >(reinterpret_cast< char* >(mFirst - 1) + mHeapSize);
+  mLast = reinterpret_cast< SGameMemInfo* >(
+      reinterpret_cast< uintptr_t >(mFirst) + mHeapSize - sizeof(SGameMemInfo));
 
   const SGameMemInfo& head = SGameMemInfo(
       nullptr, mLast, mLast, mHeapSize - sizeof(SGameMemInfo) * 2, "MemHead", "MemHead");
@@ -196,7 +196,7 @@ void* CGameAllocator::Alloc(size_t size, const EHint hint, const EScope scope, c
   }
 
   const bool topOfHeap = (hint & kHI_TopOfHeap) != 0;
-  uint roundedSize = T_round_up< uint, size_t >(size, 32);
+  uint roundedSize = T_round_up< size_t, size_t >(size, 32);
   SGameMemInfo* info = nullptr;
 
   if (topOfHeap) {
@@ -239,7 +239,6 @@ void* CGameAllocator::Alloc(size_t size, const EHint hint, const EScope scope, c
 }
 
 CGameAllocator::SGameMemInfo* CGameAllocator::FindFreeBlock(uint len) {
-  uint delta;
   CGameAllocator::SGameMemInfo* ret = nullptr;
   uint binIndex = GetFreeBinEntryForSize(len);
 
@@ -252,13 +251,12 @@ CGameAllocator::SGameMemInfo* CGameAllocator::FindFreeBlock(uint len) {
     SGameMemInfo* last = nullptr;
     for (; candidate; last = candidate, candidate = candidate->GetNextFree()) {
       if (!candidate->IsAllocated() && candidate->mLen >= len) {
-        delta = candidate->mLen - len;
-        if (delta < bestDelta && candidate->GetNext()) {
+        if (candidate->mLen - len < bestDelta && candidate->GetNext()) {
           ret = candidate;
           previous = last;
-          bestDelta = delta;
+          bestDelta = candidate->mLen - len;
           chosenBin = binIndex;
-          if (delta < sizeof(SGameMemInfo)) {
+          if (bestDelta < sizeof(SGameMemInfo)) {
             break;
           }
         }
@@ -297,7 +295,8 @@ uint CGameAllocator::FixupAllocPtrs(SGameMemInfo* info, const uint len, uint rou
 
   const bool topOfHeap = (hint & kHI_TopOfHeap) != 0;
   uint ret = 0;
-  const size_t blockLength = info->mLen;
+  const SGameMemInfo* initialInfo = info;
+  const size_t blockLength = initialInfo->GetLength();
   if (blockLength == roundedLen + sizeof(SGameMemInfo)) {
     ret = sizeof(SGameMemInfo);
     roundedLen += sizeof(SGameMemInfo);
@@ -317,11 +316,12 @@ uint CGameAllocator::FixupAllocPtrs(SGameMemInfo* info, const uint len, uint rou
       AddFreeEntryToFreeList(info);
       newPtr = newInfo;
     } else {
-      uint offset = roundedLen + sizeof(SGameMemInfo);
-      newInfo = reinterpret_cast< SGameMemInfo* >(reinterpret_cast< char* >(info) + offset);
+      newInfo = reinterpret_cast< SGameMemInfo* >(
+          reinterpret_cast< uintptr_t >(info) + roundedLen + sizeof(SGameMemInfo));
+      SGameMemInfo* nextFree = info->GetNextFree();
       const SGameMemInfo& block =
-          SGameMemInfo(info, infoNext, info->GetNextFree(),
-                       info->mLen - roundedLen - sizeof(SGameMemInfo), "", "");
+          SGameMemInfo(info, infoNext, nextFree, info->mLen - roundedLen - sizeof(SGameMemInfo),
+                       "", "");
       *newInfo = block;
       AddFreeEntryToFreeList(newInfo);
     }
