@@ -151,7 +151,7 @@ public:
   bool HasGlyph(wchar_t c) const { return GetGlyph(c) != nullptr; }
 
   void GetSize(const CDrawStringOptions&, int&, int&, const wchar_t*, int) const;
-  void SetTexture(TToken< CTexture > token);
+  void SetTexture(const TToken< CTexture >& texture);
   inline TToken< CTexture > GetTexture() { return *mTexture; }
 
   void DrawString(const CDrawStringOptions& options, int x, int y, int& xOut, int& yOut,
