@@ -1,5 +1,14 @@
-#include "MetroidPrime/CGameGlobalObjects.hpp"
-#include "MetroidPrime/CMain.hpp"
+// Preserve MWCC's deferred template function placement.
+// clang-format off
+#include "Kyoto/TOneStatic.hpp" // IWYU pragma: keep
+#include "rstl/vector.hpp" // IWYU pragma: keep
+
+#include "MetroidPrime/CArchitectureMessage.hpp" // IWYU pragma: keep
+#include "MetroidPrime/CIOWinManager.hpp" // IWYU pragma: keep
+#include "MetroidPrime/CAnimData.hpp" // IWYU pragma: keep
+#include "MetroidPrime/CGameGlobalObjects.hpp" // IWYU pragma: keep
+#include "MetroidPrime/CMain.hpp" // IWYU pragma: keep
+// clang-format on
 
 #include "stdint.h"
 #include "stdio.h"
@@ -43,7 +52,6 @@
 #include "Kyoto/Streams/CZipInputStream.hpp"
 #include "Kyoto/Text/CStringTable.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
-#include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CAudioStateWin.hpp"
 #include "MetroidPrime/CConsoleOutputWindow.hpp"
 #include "MetroidPrime/CDecalManager.hpp"
