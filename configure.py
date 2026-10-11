@@ -1179,7 +1179,7 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CScriptRoomAcoustics.cpp",
             ),
             Object(NonMatching, "MetroidPrime/Enemies/CIceSheegoth.cpp"),
-            Object(MatchingFor("GM8E01_00"), "MetroidPrime/CCollisionActorManager.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/CCollisionActorManager.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/CCollisionActor.cpp"
             ),
@@ -1417,7 +1417,7 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/Enemies/CAtomicAlpha.cpp"),
             Object(EquivalentFor("GM8E01_00"), "MetroidPrime/CLogBookScreen.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "MetroidPrime/CGBASupport.cpp"
+                MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/CGBASupport.cpp"
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/CMemoryCard.cpp"),
             Object(
@@ -2281,7 +2281,7 @@ config.libs = [
             ),
             Object(NonMatching, "Kyoto/Audio/DolphinCAudioGroupSet.cpp"),
             Object(EquivalentFor("GM8E01_00"), "Kyoto/Audio/DolphinCAudioSys.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "Kyoto/DolphinCMemoryCardSys.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/DolphinCMemoryCardSys.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Input/DolphinIController.cpp",
@@ -2385,7 +2385,7 @@ config.libs = [
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/CDependencyGroup.cpp",
             ),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                    "Kyoto/Audio/CStreamAudioManager.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),

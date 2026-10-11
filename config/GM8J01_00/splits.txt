@@ -1361,8 +1361,9 @@ MetroidPrime/Enemies/CIceSheegoth.cpp:
 	.sdata2     start:0x80595688 end:0x80595748
 
 MetroidPrime/CCollisionActorManager.cpp:
-	.text       start:0x8019C824 end:0x8019DCFC
-	.sdata2     start:0x80595748 end:0x8059574C
+	.text       start:0x8019C768 end:0x8019DF68
+	.rodata     start:0x803BD8B0 end:0x803BD8B8
+	.sdata2     start:0x80595748 end:0x80595770
 
 MetroidPrime/CCollisionActor.cpp:
 	.text       start:0x8019DF68 end:0x8019F374
