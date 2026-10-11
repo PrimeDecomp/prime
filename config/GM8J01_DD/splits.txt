@@ -1659,3 +1659,132 @@ MetroidPrime/Weapons/CEnergyProjectile.cpp:
 MetroidPrime/Weapons/CProjectileInfo.cpp:
 	.text       start:0x8020CB20 end:0x8020CFEC
 	.sdata2     start:0x80594860 end:0x80594870
+
+MetroidPrime/CInGameTweakManager.cpp:
+	.text       start:0x8020D468 end:0x8020E0D0
+
+MetroidPrime/Enemies/CBabygoth.cpp:
+	.text       start:0x8020E21C end:0x80215104
+	.ctors      start:0x803B5374 end:0x803B5378
+	.bss        start:0x805596A8 end:0x805596B4 align:4 common
+	.sdata2     start:0x80594880 end:0x805948CC
+	.rodata     start:0x803BDB08 end:0x803BDBA8
+	.data       start:0x803CF6A0 end:0x803CFA90
+	.sdata      start:0x8058F65C end:0x8058F6A0
+
+MetroidPrime/Enemies/CEyeBall.cpp:
+	.text       start:0x80215104 end:0x80216210
+	.rodata     start:0x803BDBA8 end:0x803BDBD8
+	.data       start:0x803CFA90 end:0x803CFAF8
+	.sdata      start:0x8058F6A0 end:0x8058F6A8
+	.sbss       start:0x805906A0 end:0x805906A8
+	.sdata2     start:0x805948F0 end:0x80594928
+
+MetroidPrime/CIkChain.cpp:
+	.text       start:0x80216210 end:0x80216D40
+	.sdata      start:0x8058F6A8 end:0x8058F6C8
+	.sdata2     start:0x80594928 end:0x80594938
+
+MetroidPrime/ScriptObjects/CScriptCameraPitchVolume.cpp:
+	.text       start:0x80216D40 end:0x80217140
+	.ctors      start:0x803B5378 end:0x803B537C
+	.bss        start:0x805596B4 end:0x805596C0 align:4 common
+	.sdata      start:0x8058F6C8 end:0x8058F6D0
+	.sdata2     start:0x80594938 end:0x80594940
+
+MetroidPrime/RumbleFxTable.cpp:
+	.text       start:0x80217140 end:0x80217B1C
+	.ctors      start:0x803B537C end:0x803B5380
+	.bss        start:0x805596C0 end:0x80559960 align:4 common
+	.sdata2     start:0x80594940 end:0x80594A20
+
+MetroidPrime/Enemies/CElitePirate.cpp:
+	.text       start:0x80217BE0 end:0x8021E660
+	.ctors      start:0x803B5380 end:0x803B5384
+	.bss        start:0x80559960 end:0x80559984 align:4 common
+	.sdata      start:0x8058F6D0 end:0x8058F720
+	.sdata2     start:0x80594A20 end:0x80594AA8
+
+MetroidPrime/CRumbleManager.cpp:
+	.text       start:0x8021E660 end:0x8021E88C
+	.sdata2     start:0x80594AA8 end:0x80594AB8
+
+MetroidPrime/Enemies/CBouncyGrenade.cpp:
+	.text       start:0x8021E88C end:0x8021FB00
+	.rodata     start:0x803BDD68 end:0x803BDD70
+	.data       start:0x803CFEE8 end:0x803CFF70
+	.sdata      start:0x8058F720 end:0x8058F750
+	.sbss       start:0x805906A8 end:0x805906B8
+	.sdata2     start:0x80594AB8 end:0x80594AD0
+
+MetroidPrime/Enemies/CGrenadeLauncher.cpp:
+	.text       start:0x8021FB00 end:0x80221990
+	.ctors      start:0x803B5384 end:0x803B5388
+	.rodata     start:0x803BDD70 end:0x803BDDC8
+	.data       start:0x803CFF70 end:0x803D0068
+	.sdata      start:0x8058F750 end:0x8058F790
+	.sbss       start:0x805906B8 end:0x805906C0
+	.sdata2     start:0x80594AD0 end:0x80594B28
+
+MetroidPrime/Weapons/CShockWave.cpp:
+	.text       start:0x80221990 end:0x80222A7C
+	.rodata     start:0x803BDDC8 end:0x803BDDF0
+	.data       start:0x803D0068 end:0x803D00D8
+	.sdata      start:0x8058F790 end:0x8058F7A0
+	.sdata2     start:0x80594B28 end:0x80594B48
+
+MetroidPrime/Enemies/CRipperControlledPlatform.cpp:
+	.text       start:0x80222A7C end:0x80222F60
+	.data       start:0x803D00D8 end:0x803D0168
+	.sdata2     start:0x80594B48 end:0x80594B70
+
+MetroidPrime/Enemies/CKnockBackMgr.cpp:
+	.text       start:0x80222F60 end:0x8022426C
+	.rodata     start:0x803BDDF0 end:0x803BEC40
+	.data       start:0x803D0168 end:0x803D01B8
+	.sdata      start:0x8058F7A0 end:0x8058F7A8
+	.sdata2     start:0x80594B70 end:0x80594BA0
+
+MetroidPrime/CScriptLayerManager.cpp:
+	.text       start:0x8022426C end:0x80224808
+	.ctors      start:0x803B5388 end:0x803B538C
+	.rodata     start:0x803BEC40 end:0x803BEC48
+	.bss        start:0x80454768 end:0x80454788
+
+MetroidPrime/Enemies/CMagdolite.cpp:
+	.text       start:0x80224808 end:0x80227A04
+	.ctors      start:0x803B538C end:0x803B5390
+	.rodata     start:0x803BEC48 end:0x803BECE0
+	.data       start:0x803D01B8 end:0x803D02A8
+	.sdata      start:0x8058F7A8 end:0x8058F7D0
+	.sdata2     start:0x80594BA0 end:0x80594BD8
+
+MetroidPrime/Enemies/CTeamAiMgr.cpp:
+	.text       start:0x80227A04 end:0x8022B048
+	.data       start:0x803D02A8 end:0x803D02C8
+	.sdata2     start:0x80594BD8 end:0x80594BE8
+
+MetroidPrime/Enemies/CSnakeWeedSwarm.cpp:
+	.text       start:0x8022B048 end:0x8022DD9C
+	.rodata     start:0x803BECE0 end:0x803BECF8
+	.sdata      start:0x8058F7D0 end:0x8058F7E8
+	.sdata2     start:0x80594BE8 end:0x80594C20
+
+MetroidPrime/Cameras/CBallCameraFailsafeState.cpp:
+	.text       start:0x8022DD9C end:0x8022EA0C
+	.sdata      start:0x8058F7E8 end:0x8058F810
+	.sdata2     start:0x80594C20 end:0x80594C48
+
+MetroidPrime/Enemies/CScriptContraption.cpp:
+	.text       start:0x8022EA0C end:0x8022F2F8
+	.rodata     start:0x803BECF8 end:0x803BED20
+	.data       start:0x803D02C8 end:0x803D0350
+	.sdata2     start:0x80594C48 end:0x80594C50
+
+MetroidPrime/ScriptObjects/CScriptSpindleCamera.cpp:
+	.text       start:0x80230598 end:0x80230EB4
+	.ctors      start:0x803B5390 end:0x803B5394
+	.data       start:0x803D0350 end:0x803D03C8
+	.bss        start:0x804547B8 end:0x804547D0
+	.sdata      start:0x8058F810 end:0x8058F830
+	.sdata2     start:0x80594C50 end:0x80594C90
