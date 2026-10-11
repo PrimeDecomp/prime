@@ -523,6 +523,10 @@ MetroidPrime/ScriptLoader.cpp:
 MetroidPrime/CSamusDoll.cpp:
 	.text       start:0x800DAFB4 end:0x800DED80
 	.ctors      start:0x803CC2C4 end:0x803CC2C8
+	.rodata     start:0x803CF398 end:0x803CF5E8
+	.bss        start:0x8046D4E8 end:0x8046D500
+	.sdata      start:0x805A8348 end:0x805A83A0
+	.sdata2     start:0x805ABC60 end:0x805ABD10
 
 MetroidPrime/Factories/CStateMachineFactory.cpp:
 	.text       start:0x800DED80 end:0x800DF120
