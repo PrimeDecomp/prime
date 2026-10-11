@@ -485,6 +485,10 @@ MetroidPrime/ScriptLoader.cpp:
 MetroidPrime/CSamusDoll.cpp:
 	.text       start:0x800DAAA4 end:0x800DE870
 	.ctors      start:0x803CB304 end:0x803CB308
+	.rodata     start:0x803CE3D8 end:0x803CE628
+	.bss        start:0x8046C150 end:0x8046C168
+	.sdata      start:0x805A6FA8 end:0x805A7000
+	.sdata2     start:0x805AA880 end:0x805AA930
 
 MetroidPrime/Weapons/CPlasmaBeam.cpp:
 	.text       start:0x800DEC10 end:0x800DF70C
