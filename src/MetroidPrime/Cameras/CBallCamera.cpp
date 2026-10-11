@@ -35,6 +35,17 @@ static CMaterialList kLineOfSightExcludeList =
 static CMaterialFilter kLineOfSightFilter =
     CMaterialFilter::MakeIncludeExclude(kLineOfSightIncludeList, kLineOfSightExcludeList);
 
+CCameraCollider::CCameraCollider(float radius, CVector3f vec, const CCameraSpring& spring,
+                               float scale)
+: mRadius(radius)
+, mLastLocalPos(vec)
+, mLocalPos(vec)
+, mScaledWorldPos(vec)
+, mLastWorldPos(vec)
+, mSpring(spring)
+, mOcclusionCount(0)
+, mScale(scale) {}
+
 CBallCamera::CBallCamera(TUniqueId uid, TUniqueId watchedId, const CTransform4f& xf, float fovY,
                          float nearZ, float farZ, float aspect)
 : CGameCamera(uid, true, rstl::string_l("Ball Camera"),
