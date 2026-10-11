@@ -2899,6 +2899,10 @@ Kyoto/Math/RMathUtils.cpp:
 	.text       start:0x802FDDA8 end:0x802FE6E0
 	.sdata2     start:0x80595E40 end:0x80595EE8
 
+Kyoto/CCrc32.cpp:
+	.text       start:0x802FE6E0 end:0x802FE7B0
+	.rodata     start:0x803C1DA8 end:0x803C21A8
+
 Kyoto/Alloc/CCircularBuffer.cpp:
 	.text       start:0x802FE7B0 end:0x802FE968
 
@@ -2914,9 +2918,98 @@ Kyoto/Alloc/IAllocator.cpp:
 	.text       start:0x802FEDE8 end:0x802FEEC8
 	.data       start:0x803D4D00 end:0x803D4D40
 
+Kyoto/PVS/CPVSVisOctree.cpp:
+	.text       start:0x802FEF9C end:0x802FF19C
+	.rodata     start:0x803C21C0 end:0x803C21E0
+	.sdata2     start:0x80595EE8 end:0x80595EF0
+
+Kyoto/PVS/CPVSVisSet.cpp:
+	.text       start:0x802FF19C end:0x802FF5EC
+
+Kyoto/Particles/CColorElement.cpp:
+	.text       start:0x802FF5EC end:0x803008D0
+	.data       start:0x803D4D40 end:0x803D4DC0
+	.sdata      start:0x8058FE18 end:0x8058FE58
+	.sdata2     start:0x80595EF0 end:0x80595F00
+
+Kyoto/Particles/CElementGen.cpp:
+	.text       start:0x803008D0 end:0x80309DD4
+	.rodata     start:0x803C2200 end:0x803C22B0
+	.data       start:0x803D4DC0 end:0x803D4E38
+	.bss        start:0x804A73A8 end:0x804A7480
+	.sdata      start:0x8058FE58 end:0x8058FE80
+	.sbss       start:0x80590A68 end:0x80590A80
+	.sdata2     start:0x80595F00 end:0x80595F68
+
+Kyoto/Particles/CIntElement.cpp:
+	.text       start:0x80309DD4 end:0x8030BA88
+	.data       start:0x803D4E38 end:0x803D4F78
+	.sdata2     start:0x80595F68 end:0x80595F80
+
+Kyoto/Particles/CModVectorElement.cpp:
+	.text       start:0x8030BA88 end:0x8030D998
+	.data       start:0x803D4F78 end:0x803D5048
+	.sdata2     start:0x80595F80 end:0x80595F90
+
+Kyoto/Particles/CParticleDataFactory.cpp:
+	.text       start:0x8030D998 end:0x80313598
+	.ctors      start:0x803B541C end:0x803B5420
+	.rodata     start:0x803C22B0 end:0x803C22B8
+	.bss        start:0x804A7480 end:0x804A7490
+	.bss        start:0x8058DCBC end:0x8058DCD4 align:4 common
+	.sbss       start:0x80590A80 end:0x80590A88
+
+Kyoto/Particles/CParticleGlobals.cpp:
+	.text       start:0x803135EC end:0x80313718
+	.sbss       start:0x80590A88 end:0x80590AB0
+	.sdata2     start:0x80595F90 end:0x80595FA8
+
+Kyoto/Particles/CParticleSwoosh.cpp:
+	.text       start:0x80313718 end:0x80318774
+	.rodata     start:0x803C22B8 end:0x803C22F8
+	.data       start:0x803D50C0 end:0x803D5138
+	.sdata      start:0x8058FE80 end:0x8058FE88
+	.sbss       start:0x80590AB0 end:0x80590AB8
+	.sdata2     start:0x80595FA8 end:0x80596030
+
+Kyoto/Particles/CParticleSwooshDataFactory.cpp:
+	.text       start:0x80318774 end:0x80318F98
+	.rodata     start:0x803C22F8 end:0x803C2300
+	.data       start:0x803D5138 end:0x803D5148
+
+Kyoto/Particles/CRealElement.cpp:
+	.text       start:0x80318F98 end:0x8031C1A4
+	.data       start:0x803D5148 end:0x803D5458
+	.sdata      start:0x8058FE88 end:0x8058FE90
+	.sdata2     start:0x80596030 end:0x80596058
+
+Kyoto/Particles/CSpawnSystemKeyframeData.cpp:
+	.text       start:0x8031C1A4 end:0x8031CDD4
+	.bss        start:0x804A7490 end:0x804A74B0
+	.sbss       start:0x80590AB8 end:0x80590AD0
+
+Kyoto/Particles/CUVElement.cpp:
+	.text       start:0x8031CDD4 end:0x8031D6DC
+	.data       start:0x803D5458 end:0x803D5490
+	.sdata      start:0x8058FE90 end:0x8058FEA0
+	.sdata2     start:0x80596058 end:0x80596068
+
+Kyoto/Particles/CVectorElement.cpp:
+	.text       start:0x8031D6DC end:0x8031FD6C
+	.data       start:0x803D5490 end:0x803D5638
+	.sdata      start:0x8058FEA0 end:0x8058FEA8
+	.sdata2     start:0x80596068 end:0x80596098
+
+Kyoto/Particles/CWarp.cpp:
+	.text       start:0x8031FD6C end:0x8031FDB4
+	.data       start:0x803D5638 end:0x803D5658
+
 Kyoto/Math/CPlane.cpp:
 	.text       start:0x8031FDB4 end:0x8031FF20
 	.sdata2     start:0x80596098 end:0x805960A0
+
+Kyoto/Math/CSphere.cpp:
+	.text       start:0x8031FFBC end:0x80320010
 
 Kyoto/Math/CAABox.cpp:
 	.text       start:0x80320010 end:0x8032103C
@@ -2925,6 +3018,44 @@ Kyoto/Math/CAABox.cpp:
 	.bss        start:0x8058DCD4 end:0x8058DD1C align:4 common
 	.sdata2     start:0x805960A0 end:0x805960B8
 	.sbss2      start:0x80596CF8 end:0x80596D00
+
+Kyoto/CFactoryMgr.cpp:
+	.text       start:0x8032103C end:0x80321E00
+	.rodata     start:0x803C2300 end:0x803C23A0
+
+Kyoto/CResFactory.cpp:
+	.text       start:0x80322014 end:0x80323714
+	.rodata     start:0x803C23A0 end:0x803C23B0
+	.data       start:0x803D56A8 end:0x803D56C8
+	.sdata      start:0x8058FEB0 end:0x8058FEB4
+	.sdata2     start:0x805960B8 end:0x805960C0
+
+Kyoto/CResLoader.cpp:
+	.text       start:0x80323994 end:0x803251C8
+	.rodata     start:0x803C23B0 end:0x803C23C0
+	.sbss2      start:0x80596D00 end:0x80596D18
+
+rstl/rstl_map.cpp:
+	.text       start:0x803251C8 end:0x803258B4
+
+rstl/rstl_allocator.cpp:
+	.text       start:0x803258B4 end:0x803258F0
+	.rodata     start:0x803C23C0 end:0x803C23C8
+
+rstl/rstl_strings.cpp:
+	.text       start:0x803258F0 end:0x80327128
+	.ctors      start:0x803B5424 end:0x803B5428
+	.sbss       start:0x80590AD0 end:0x80590AE0
+
+rstl/CStringExtras.cpp:
+	.text       start:0x80327128 end:0x803277C4
+	.rodata     start:0x803C23C8 end:0x803C23D8
+
+rstl/RstlExtras.cpp:
+	.text       start:0x803277C4 end:0x8032784C
+	.ctors      start:0x803B5428 end:0x803B542C
+	.bss        start:0x804A74B0 end:0x804A74C0
+	.sbss       start:0x80590AE0 end:0x80590AE8
 
 Kyoto/Streams/CInputStream.cpp:
 	.text       start:0x8032784C end:0x80327DE8
@@ -2944,6 +3075,72 @@ Kyoto/Streams/COutputStream.cpp:
 	.text       start:0x80327FE0 end:0x803283D0
 	.rodata     start:0x803C23E0 end:0x803C23E8
 	.data       start:0x803D56F8 end:0x803D5708
+
+Kyoto/Streams/CZipInputStream.cpp:
+	.text       start:0x803283D0 end:0x80328610
+	.rodata     start:0x803C23E8 end:0x803C23F8
+	.data       start:0x803D5708 end:0x803D5718
+
+Kyoto/Streams/CZipSupport.cpp:
+	.text       start:0x80328610 end:0x8032866C
+	.rodata     start:0x803C23F8 end:0x803C2408
+
+Kyoto/CFactoryStore.cpp:
+	.text       start:0x8032866C end:0x803286D8
+	.data       start:0x803D5718 end:0x803D5750
+
+Kyoto/CObjectReference.cpp:
+	.text       start:0x803286D8 end:0x80328C04
+
+Kyoto/CSimplePool.cpp:
+	.text       start:0x80328D10 end:0x8032967C
+	.rodata     start:0x803C2408 end:0x803C2410
+	.data       start:0x803D5750 end:0x803D5780
+	.sbss       start:0x80590B00 end:0x80590B08
+
+Kyoto/CToken.cpp:
+	.text       start:0x8032989C end:0x80329BDC
+	.rodata     start:0x803C2410 end:0x803C2418
+
+Kyoto/IObj.cpp:
+	.text       start:0x80329BDC end:0x80329CF8
+	.ctors      start:0x803B542C end:0x803B5430
+	.sbss       start:0x80590B08 end:0x80590B18
+
+zlib-1.1.3/adler32.c:
+	.text       start:0x80329CF8 end:0x80329E7C
+
+zlib-1.1.3/infblock.c:
+	.text       start:0x80329E7C end:0x8032AFAC
+	.rodata     start:0x803C2418 end:0x803C24D8
+	.data       start:0x803D5780 end:0x803D57A8
+
+zlib-1.1.3/infcodes.c:
+	.text       start:0x8032AFAC end:0x8032B99C
+	.rodata     start:0x803C24D8 end:0x803C2510
+	.data       start:0x803D57A8 end:0x803D57D0
+
+zlib-1.1.3/inffast.c:
+	.text       start:0x8032B99C end:0x8032BF34
+	.rodata     start:0x803C2510 end:0x803C2548
+
+zlib-1.1.3/inflate.c:
+	.text       start:0x8032BF34 end:0x8032C798
+	.rodata     start:0x803C2548 end:0x803C25C0
+	.data       start:0x803D57D0 end:0x803D5808
+
+zlib-1.1.3/inftrees.c:
+	.text       start:0x8032C798 end:0x8032CFE4
+	.rodata     start:0x803C25C0 end:0x803C28C0
+	.data       start:0x803D5808 end:0x803D6908
+	.sdata      start:0x8058FEC0 end:0x8058FEC8
+
+zlib-1.1.3/infutil.c:
+	.text       start:0x8032CFE4 end:0x8032D164
+	.data       start:0x803D6908 end:0x803D6950
+
+zlib-1.1.3/zutil.c:
+	.text       start:0x8032D164 end:0x8032D1C0
 
 Kyoto/Graphics/CColor.cpp:
 	.text       start:0x80332788 end:0x80332828
