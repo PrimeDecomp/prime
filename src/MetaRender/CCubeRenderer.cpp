@@ -1,4 +1,9 @@
-#include "MetaRender/CCubeRenderer.hpp"
+// MWCC template emission order depends on these includes.
+// clang-format off
+#include "Kyoto/TOneStatic.hpp" // IWYU pragma: keep
+#include "rstl/list.hpp" // IWYU pragma: keep
+#include "MetaRender/CCubeRenderer.hpp" // IWYU pragma: keep
+// clang-format on
 #include "Kyoto/Basics/CBasics.hpp"
 
 #include "Collision/CollisionUtil.hpp"
