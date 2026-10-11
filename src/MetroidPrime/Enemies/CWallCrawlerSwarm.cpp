@@ -173,29 +173,24 @@ CWallCrawlerSwarm::~CWallCrawlerSwarm() {}
 
 ENTITY_ACCEPT_IMPL(CWallCrawlerSwarm)
 
-void CWallCrawlerSwarm::AddDoorRepulsors(CStateManager& mgr) {
-  CObjectList& objects = mgr.ObjectListById(kOL_PhysicsActor);
-  int count = 0;
-  for (int i = objects.GetFirstObjectIndex(); i != -1; i = objects.GetNextObjectIndex(i)) {
-    CEntity* entity = objects[i];
-    if (CScriptDoor* door = TCastToPtr< CScriptDoor >(entity)) {
-      if (door->GetCurrentAreaId() == GetCurrentAreaId()) {
-        ++count;
-      }
+void CWallCrawlerSwarm::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
+                                        CStateManager& mgr) {
+  CActor::AcceptScriptMsg(msg, uid, mgr);
+  switch (msg) {
+  case kSM_Activate:
+  case kSM_Deactivate:
+    break;
+  case kSM_Registered:
+    mBoids.reserve(mNumBoids);
+    for (int i = 0; i < mBoids.capacity(); ++i) {
+      mBoids.push_back(CBoid(CTransform4f::Identity(), i));
     }
-  }
-  mDoorRepulsors.reserve(count);
-  for (int i = objects.GetFirstObjectIndex(); i != -1; i = objects.GetNextObjectIndex(i)) {
-    CEntity* entity = objects[i];
-    if (CScriptDoor* door = TCastToPtr< CScriptDoor >(entity)) {
-      if (door->GetCurrentAreaId() == GetCurrentAreaId()) {
-        rstl::optional_object< CAABox > bounds = door->GetTouchBounds();
-        if (bounds.valid()) {
-          float diagonal = (bounds->GetMinPoint() - bounds->GetMaxPoint()).Magnitude();
-          mDoorRepulsors.push_back(CRepulsor(bounds->GetCenterPoint(), 0.75f * diagonal));
-        }
-      }
-    }
+    AllocateSkinnedModels(mgr, CModelData::kWM_Normal);
+    AddDoorRepulsors(mgr);
+    SetDrawShadow(false);
+    break;
+  default:
+    break;
   }
 }
 
@@ -218,75 +213,6 @@ void CWallCrawlerSwarm::AllocateSkinnedModels(CStateManager& mgr, CModelData::EW
       mModelDatas[9]->PickAnimatedModel(which).AllocateNewWorkspace(&normals));
   mNrmWorkspaces.push_back(normals);
   mWhichModel = which;
-}
-
-void CWallCrawlerSwarm::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid,
-                                        CStateManager& mgr) {
-  CActor::AcceptScriptMsg(msg, uid, mgr);
-  switch (msg) {
-  case kSM_Activate:
-  case kSM_Deactivate:
-    break;
-  case kSM_Registered:
-    mBoids.reserve(mNumBoids);
-    for (int i = 0; i < mBoids.capacity(); ++i) {
-      mBoids.push_back(CBoid(CTransform4f::Identity(), i));
-    }
-    AllocateSkinnedModels(mgr, CModelData::kWM_Normal);
-    AddDoorRepulsors(mgr);
-    SetDrawShadow(false);
-    break;
-  default:
-    break;
-  }
-}
-
-bool CWallCrawlerSwarm::FindBestSurface(const CAreaCollisionCache& cache, CVector3f pos,
-                                        float radius, CCollisionSurface& out) {
-  bool found = false;
-  float minDistance = radius * radius;
-  CSphere sphere(pos, radius);
-  for (int i = 0; i < int(cache.GetNumCaches()); ++i) {
-    const CMetroidAreaCollider::COctreeLeafCache& leafCache = cache.GetOctreeLeafCache(i);
-    for (int j = 0; j < leafCache.GetNumLeaves(); ++j) {
-      const CAreaOctTree::Node& node = leafCache.GetLeaf(j);
-      if (CCollidableSphere::Sphere_AABox_Bool(sphere, node.GetBoundingBox())) {
-        const CAreaOctTree::TriListReference triangles = node.GetTriangleArray();
-        const CAreaOctTree& tree = node.GetOwner();
-        const int triangleCount = triangles.GetSize();
-        for (int k = 0; k < triangleCount; ++k) {
-          const CCollisionSurface& surface = tree.GetMasterListTriangle(triangles.GetAt(k));
-          const CPlane plane = surface.GetPlane();
-          const float distance = CMath::AbsF(plane.GetHeight(pos));
-          if (distance < minDistance && PointOnSurface(surface, pos, plane)) {
-            sphere = CSphere(pos, CMath::FastSqrtF(distance));
-            out = surface;
-            found = true;
-            minDistance = distance;
-          }
-        }
-      }
-    }
-  }
-  return found;
-}
-
-CCollisionSurface CWallCrawlerSwarm::FindBestCollisionInBox(CStateManager& mgr,
-                                                            const CVector3f& pos) {
-  CCollisionSurface result(CVector3f(1.f, 0.f, 0.f), CVector3f(0.f, 1.f, 0.f),
-                           CVector3f(0.f, 0.f, 1.f), ~0);
-  const CAABox& bounds = GetBoundingBox();
-  const CVector3f extent(0.5f * bounds.GetWidth(), 0.5f * bounds.GetHeight(),
-                         0.5f * bounds.GetDepth());
-  for (float scale = 0.1f; scale < 1.f; scale += 0.1f) {
-    const CAABox searchBounds(pos - extent * scale, pos + extent * scale);
-    CAreaCollisionCache cache(searchBounds);
-    CGameCollision::BuildAreaCollisionCache(mgr, cache);
-    if (FindBestSurface(cache, pos, 2.f * (extent * scale).Magnitude(), result)) {
-      return result;
-    }
-  }
-  return result;
 }
 
 void CWallCrawlerSwarm::CreateBoid(CStateManager& mgr, int index) {
@@ -359,337 +285,212 @@ bool CWallCrawlerSwarm::PointOnSurface(const CCollisionSurface& surface, const C
   return true;
 }
 
-bool CWallCrawlerSwarm::CanRenderUnsorted(const CStateManager&) const { return true; }
-
-TUniqueId CWallCrawlerSwarm::GetWaypointForState(EScriptObjectState state, CStateManager& mgr) {
-  for (AUTO(it, GetConnectionList().begin()); it != GetConnectionList().end(); ++it) {
-    if (it->mState == state && it->mMsg == kSM_Follow) {
-      return mgr.GetIdForScript(it->mObjId);
+CCollisionSurface CWallCrawlerSwarm::FindBestCollisionInBox(CStateManager& mgr,
+                                                            const CVector3f& pos) {
+  CCollisionSurface result(CVector3f(1.f, 0.f, 0.f), CVector3f(0.f, 1.f, 0.f),
+                           CVector3f(0.f, 0.f, 1.f), ~0);
+  const CAABox& bounds = GetBoundingBox();
+  const CVector3f extent(0.5f * bounds.GetWidth(), 0.5f * bounds.GetHeight(),
+                         0.5f * bounds.GetDepth());
+  for (float scale = 0.1f; scale < 1.f; scale += 0.1f) {
+    const CAABox searchBounds(pos - extent * scale, pos + extent * scale);
+    CAreaCollisionCache cache(searchBounds);
+    CGameCollision::BuildAreaCollisionCache(mgr, cache);
+    if (FindBestSurface(cache, pos, 2.f * (extent * scale).Magnitude(), result)) {
+      return result;
     }
   }
-  return kInvalidUniqueId;
+  return result;
 }
 
-CAABox CWallCrawlerSwarm::BoxForPosition(int x, int y, int z, float margin) const {
-  const CAABox bounds = GetBoundingBox();
-  const CVector3f extent = bounds.GetMaxPoint() - bounds.GetMinPoint();
-  const CVector3f size(extent[0] / 5.f, extent[1] / 5.f, extent[2] / 5.f);
-  return CAABox(CVector3f(x * size[0] + bounds.GetMinPoint()[0] - margin,
-                          y * size[1] + bounds.GetMinPoint()[1] - margin,
-                          z * size[2] + bounds.GetMinPoint()[2] - margin),
-                CVector3f((x + 1) * size[0] + bounds.GetMinPoint()[0] + margin,
-                          (y + 1) * size[1] + bounds.GetMinPoint()[1] + margin,
-                          (z + 1) * size[2] + bounds.GetMinPoint()[2] + margin));
-}
-
-void CWallCrawlerSwarm::UpdatePartition() {
-  mPartitionedBoidLists.clear();
-  for (int i = 0; i < 125; ++i) {
-    mPartitionedBoidLists.push_back(nullptr);
-  }
-  mOutlierBoidList = nullptr;
-  const CAABox bounds = GetBoundingBox();
-  const CVector3f extent = bounds.GetMaxPoint() - bounds.GetMinPoint();
-  const CVector3f size(extent.GetX() / 5.f, extent.GetY() / 5.f, extent.GetZ() / 5.f);
-  for (AUTO(it, mBoids.begin()); it != mBoids.end(); ++it) {
-    if (it->GetActive()) {
-      const CVector3f& pos = it->GetTranslation();
-      const CVector3f delta = pos - bounds.GetMinPoint();
-      const int x = CCast::ToInt32(delta.GetX() / size.GetX());
-      const int y = CCast::ToInt32(delta.GetY() / size.GetY());
-      const int z = CCast::ToInt32(delta.GetZ() / size.GetZ());
-      const int index = x + 5 * y + 25 * z;
-      if (index < 0 || index >= 125 || x < 0 || x >= 5 || y < 0 || y >= 5 || z < 0 || z >= 5) {
-        it->mNext = mOutlierBoidList;
-        mOutlierBoidList = &*it;
-      } else {
-        it->mNext = mPartitionedBoidLists[index];
-        mPartitionedBoidLists[index] = &*it;
-      }
-    }
-  }
-}
-
-CVector3f CWallCrawlerSwarm::FindClosestCell(const CVector3f& pos) const {
-  float minDistance = FLT_MAX;
-  CVector3f result = CVector3f::Zero();
-  for (int x = 0; x < 5; ++x) {
-    int rowIndex = x;
-    for (int y = 0; y < 5; ++y, rowIndex += 5) {
-      for (int z = 0; z < 5; ++z) {
-        if (mPartitionedBoidLists[rowIndex + z * 25] != nullptr) {
-          const CAABox bounds = BoxForPosition(x, y, z, 0.1f);
-          const float distance = (bounds.GetCenterPoint() - pos).MagSquared();
-          if (distance < minDistance) {
-            result = bounds.GetCenterPoint();
+bool CWallCrawlerSwarm::FindBestSurface(const CAreaCollisionCache& cache, CVector3f pos,
+                                        float radius, CCollisionSurface& out) {
+  bool found = false;
+  float minDistance = radius * radius;
+  CSphere sphere(pos, radius);
+  for (int i = 0; i < int(cache.GetNumCaches()); ++i) {
+    const CMetroidAreaCollider::COctreeLeafCache& leafCache = cache.GetOctreeLeafCache(i);
+    for (int j = 0; j < leafCache.GetNumLeaves(); ++j) {
+      const CAreaOctTree::Node& node = leafCache.GetLeaf(j);
+      if (CCollidableSphere::Sphere_AABox_Bool(sphere, node.GetBoundingBox())) {
+        const CAreaOctTree::TriListReference triangles = node.GetTriangleArray();
+        const CAreaOctTree& tree = node.GetOwner();
+        const int triangleCount = triangles.GetSize();
+        for (int k = 0; k < triangleCount; ++k) {
+          const CCollisionSurface& surface = tree.GetMasterListTriangle(triangles.GetAt(k));
+          const CPlane plane = surface.GetPlane();
+          const float distance = CMath::AbsF(plane.GetHeight(pos));
+          if (distance < minDistance && PointOnSurface(surface, pos, plane)) {
+            sphere = CSphere(pos, CMath::FastSqrtF(distance));
+            out = surface;
+            found = true;
             minDistance = distance;
           }
         }
       }
     }
   }
-  return result;
+  return found;
 }
 
-CWallCrawlerSwarm::CBoid* CWallCrawlerSwarm::GetListAt(const CVector3f& pos) {
-  const CAABox bounds = GetBoundingBox();
-  const CVector3f delta = pos - bounds.GetMinPoint();
-  const int index = CCast::ToInt32(delta.GetX() / (bounds.GetWidth() / 5.f)) +
-                    CCast::ToInt32(delta.GetY() / (bounds.GetHeight() / 5.f)) * 5 +
-                    CCast::ToInt32(delta.GetZ() / (bounds.GetDepth() / 5.f)) * 25;
-  if (index < 0 || index >= 125) {
-    return mOutlierBoidList;
-  }
-  return mPartitionedBoidLists[index];
-}
-
-void CWallCrawlerSwarm::BuildBoidNearList(const CBoid& boid, float radius,
-                                          rstl::reserved_vector< CBoid*, 50 >& nearList) {
-  CBoid* other = GetListAt(boid.GetTranslation());
-  const CVector3f pos = boid.GetTranslation();
-  while (other != nullptr && nearList.size() < 50) {
-    const float distance = (other->GetTranslation() - pos).MagSquared();
-    if (distance != 0.f && distance < radius) {
-      nearList.push_back(other);
-    }
-    other = other->mNext;
-  }
-}
-
-void CWallCrawlerSwarm::ApplySeparation(CBoid& boid,
-                                        const rstl::reserved_vector< CBoid*, 50 >& nearList,
-                                        CVector3f& ahead) {
-  if (nearList.size() > 0) {
-    CVector3f closest(0.f, 0.f, 0.f);
-    float minDistance = FLT_MAX;
-    for (AUTO(it, nearList.begin()); it != nearList.end(); ++it) {
-      const CVector3f delta = boid.GetTranslation() - (*it)->GetTranslation();
-      const float distance = delta.MagSquared();
-      if (distance != 0.f && distance < minDistance) {
-        minDistance = distance;
-        closest = (*it)->GetTranslation();
+void CWallCrawlerSwarm::UpdateBoid(CAreaCollisionCache& cache, CStateManager& mgr, float dt,
+                                   CBoid& boid) {
+  if (boid.mScarabExplodeTimerEnabled) {
+    if (mFlavor == kF_Scarab && boid.mTimeToExplode > 0.f) {
+      boid.mTimeToExplode -= 2.f * dt;
+      if (boid.mTimeToExplode <= 0.f) {
+        ExplodeBoid(boid, mgr);
       }
     }
-    ApplySeparation(boid, closest, mSeparationRadius, mSeparationMagnitude, ahead);
-  }
-}
-
-void CWallCrawlerSwarm::ApplySeparation(CBoid& boid, const CVector3f& pos, float radius,
-                                        float magnitude, CVector3f& ahead) {
-  const CVector3f delta = boid.GetTranslation() - pos;
-  if (delta.CanBeNormalized()) {
-    const float distance = delta.MagSquared();
-    const float radiusSquared = radius * radius;
-    if (distance < radiusSquared) {
-      const float factor = 1.f - distance / radiusSquared;
-      ahead += factor * delta.AsNormalized() * magnitude;
-    }
-  }
-}
-
-void CWallCrawlerSwarm::ApplyCohesion(CBoid& boid,
-                                      const rstl::reserved_vector< CBoid*, 50 >& nearList,
-                                      CVector3f& ahead) {
-  if (nearList.size() > 0) {
-    CVector3f center(0.f, 0.f, 0.f);
-    for (AUTO(it, nearList.begin()); it != nearList.end(); ++it) {
-      center += (*it)->GetTranslation();
-    }
-    center = (1.f / nearList.size()) * center;
-    ApplyCohesion(boid, center, mSeparationRadius, mCohesionMagnitude, ahead);
-  }
-}
-
-void CWallCrawlerSwarm::ApplyCohesion(CBoid& boid, const CVector3f& pos, float radius,
-                                      float magnitude, CVector3f& ahead) {
-  const CVector3f delta = pos - boid.GetTranslation();
-  if (delta.CanBeNormalized()) {
-    const float distance = delta.MagSquared();
-    const float radiusSquared = radius * radius;
-    const float factor = distance > radiusSquared ? 1.f : distance / radiusSquared;
-    ahead += factor * delta.AsNormalized() * magnitude;
-  }
-}
-
-void CWallCrawlerSwarm::ApplyAttraction(CBoid& boid, const CVector3f& pos, float radius,
-                                        float magnitude, CVector3f& ahead) {
-  const CVector3f delta = pos - boid.GetTranslation();
-  if (delta.CanBeNormalized()) {
-    const float distance = delta.MagSquared();
-    const float radiusSquared = radius * radius;
-    const float factor = distance > radiusSquared ? 0.f : 1.f - distance / radiusSquared;
-    ahead += factor * delta.AsNormalized() * magnitude;
-  }
-}
-
-void CWallCrawlerSwarm::ApplyAlignment(CBoid& boid,
-                                       const rstl::reserved_vector< CBoid*, 50 >& nearList,
-                                       CVector3f& ahead) {
-  if (nearList.size() > 0) {
-    CVector3f direction(0.f, 0.f, 0.f);
-    for (AUTO(it, nearList.begin()); it != nearList.end(); ++it) {
-      direction += (*it)->GetTransform().GetForward();
-    }
-    direction = (1.f / nearList.size()) * direction;
-    const float angle =
-        CVector3f::GetAngleDiff(boid.GetTransform().GetForward(), direction) / M_PIF;
-    ahead += angle * (mAlignmentWeight * direction);
-  }
-}
-
-void CWallCrawlerSwarm::HardwareLight(const CStateManager& mgr, const CAABox& bounds) const {
-  CActorLights lights(8, CVector3f::Zero(), 4, 4);
-  lights.SetNeedsRelight(true);
-  lights.SetCastShadows(false);
-  lights.SetFindShadowLight(false);
-  lights.BuildAreaLightList(mgr, mgr.GetWorld()->GetAreaAlways(GetCurrentAreaId()), bounds);
-  lights.BuildDynamicLightList(mgr, bounds);
-  lights.ActivateLights();
-}
-
-CColor CWallCrawlerSwarm::SoftwareLight(const CStateManager& mgr, const CAABox& bounds) const {
-  CActorLights lights(8, CVector3f::Zero(), 4, 4);
-  lights.SetNeedsRelight(true);
-  lights.SetCastShadows(false);
-  lights.SetFindShadowLight(false);
-  lights.BuildAreaLightList(mgr, mgr.GetWorld()->GetAreaAlways(GetCurrentAreaId()), bounds);
-  lights.BuildDynamicLightList(mgr, bounds);
-  CColor result = lights.GetAmbientColor();
-  const CVector3f center = bounds.GetCenterPoint();
-  for (uint i = 0; i < lights.GetActiveLightCount(); ++i) {
-    const CLight& light = lights.GetLight(i);
-    const float distance = (light.GetPosition() - center).Magnitude();
-    const float attenuation =
-        rstl::min_val(1.f, 1.f / (distance * (distance * light.GetAttenuationQuadratic()) +
-                                 (distance * light.GetAttenuationLinear() +
-                                  light.GetAttenuationConstant())));
-    result = CColor::Add(result,
-                         CColor::Lerp(CColor::Black(), light.GetColor(), 0.8f * attenuation));
-  }
-  return result;
-}
-
-void CWallCrawlerSwarm::Render(const CStateManager& mgr) const {
-  uint drawMask = ~0;
-  const bool enableLighting = mEnableLighting;
-  int rowIndex;
-  const bool useSoftwareLight = mUseSoftwareLight;
-  if (!enableLighting) {
-    CGraphics::DisableAllLights();
-    gpRender->SetAmbientColor(CColor(0.5f, 0.5f, 0.5f, 1.f));
-  }
-  bool thermalHot = mgr.GetThermalDrawFlag() == kTD_Hot;
-  CModelFlags flags = CModelFlags::Normal();
-  if (mgr.GetPlayerState()->GetActiveVisor(mgr) == CPlayerState::kPV_XRay) {
-    flags = CModelFlags::AlphaBlended(0.3f);
-  }
-  const uint lights = CGraphics::GetLightMask();
-  CGX::SetChanCtrl(CGX::Channel0,
-                   (lights && enableLighting && !useSoftwareLight) ? GX_TRUE : GX_FALSE, GX_SRC_REG,
-                   GX_SRC_REG, static_cast< GXLightID >(lights), lights ? GX_DF_CLAMP : GX_DF_NONE,
-                   lights ? GX_AF_SPOT : GX_AF_NONE);
-  for (int x = 0; x < 5; ++x) {
-    rowIndex = x;
-    for (int y = 0; y < 5; ++y, rowIndex += 5) {
-      for (int z = 0; z < 5; ++z) {
-        const int index = rowIndex + z * 25;
-        CBoid* boid = mPartitionedBoidLists[index];
-        if (boid != nullptr) {
-          if (enableLighting) {
-            const CAABox bounds = BoxForPosition(x, y, z, 0.f);
-            if (useSoftwareLight) {
-              if ((index & 3) == (mThinkCounter & 3)) {
-                const CColor color = SoftwareLight(mgr, bounds);
-                for (CBoid* it = boid; it != nullptr; it = it->mNext) {
-                  if (it->GetActive()) {
-                    it->mAmbientLighting = CColor::Lerp(it->mAmbientLighting, color, 0.3f);
-                  }
-                }
-              }
-            } else {
-              HardwareLight(mgr, bounds);
-            }
-          }
-          for (; boid != nullptr; boid = boid->mNext) {
-            if (boid->mInFrustum && boid->mActive) {
-              RenderBoid(boid, drawMask, thermalHot, flags);
-            }
-          }
+  } else if (boid.mLaunched) {
+    const float radius = 2.f * mBoidRadius;
+    const float boidRadius = mBoidRadius;
+    const float speed = boid.mVelocity.Magnitude();
+    float distance = speed * dt;
+    CVector3f pos = boid.GetTranslation();
+    const CVector3f step = (-boid.mVelocity / speed) * boidRadius;
+    bool found = false;
+    while (distance >= 0.f && !found) {
+      CCollisionSurface surface(CVector3f(1.f, 0.f, 0.f), CVector3f(0.f, 1.f, 0.f),
+                                CVector3f(0.f, 0.f, 1.f), ~0);
+      const CVector3f move = dt * boid.mVelocity;
+      const CVector3f offset = 1.5f * move;
+      const CVector3f predicted = pos + offset;
+      if (FindBestSurface(cache, predicted, radius, surface) &&
+          boid.mRemainingLaunchNotOnSurfaceFrames == 0) {
+        if (mFlavor != kF_Scarab) {
+          boid.mTransform = LookAt(boid.GetTransform().GetUp(), surface.GetNormal(),
+                                     CRelAngle::FromRadians(M_PIF))
+                                  .MultiplyIgnoreTranslation(boid.GetTransform());
         }
-      }
-    }
-  }
-  CBoid* boid = mOutlierBoidList;
-  int index = 0;
-  for (; boid != nullptr; boid = boid->mNext) {
-    ++index;
-    if (boid->mInFrustum && boid->mActive) {
-      if (enableLighting) {
-        const CVector3f pos = boid->GetTranslation();
-        const CVector3f extent(mBoidRadius, mBoidRadius, mBoidRadius);
-        const CAABox bounds = CAABox(pos - extent, pos + extent);
-        if (useSoftwareLight) {
-          if ((index & 3) == (mThinkCounter & 3)) {
-            const CColor color = SoftwareLight(mgr, bounds);
-            if (boid->GetActive()) {
-              boid->mAmbientLighting = CColor::Lerp(boid->mAmbientLighting, color, 0.3f);
-            }
-          }
-        } else {
-          HardwareLight(mgr, bounds);
+        const CPlane plane = surface.GetPlane();
+        const CVector3f correction =
+            -(plane.GetHeight(boid.GetTranslation()) - boidRadius - 0.01f) * plane.GetNormal();
+        boid.mTransform.AddTranslation(correction);
+        boid.mFramesNotOnSurface = 0;
+        boid.mLaunched = false;
+        if (mFlavor == kF_Scarab) {
+          boid.mScarabExplodeTimerEnabled = true;
+          boid.mTimeToExplode = mScarabTimeToExplode;
+          CSfxManager::AddEmitter(mScatterSfx, boid.GetTranslation(), CVector3f::Zero(), true,
+                                  false, CSfxManager::kMedPriority, GetCurrentAreaId().Value());
         }
+        found = true;
       }
-      RenderBoid(boid, drawMask, thermalHot, flags);
+      distance -= boidRadius;
+      pos += step;
     }
-  }
-  CGraphics::DisableAllLights();
-  DrawTouchBounds();
-}
-
-void CWallCrawlerSwarm::RenderBoid(CBoid* boid, uint& drawMask, bool thermalHot,
-                                   const CModelFlags& flags) const {
-  uint index = boid->mIndex & 3;
-  uint mask = drawMask;
-  if (boid->mLaunched) {
-    index = 8;
-  } else if (boid->mTimeToDie > 0.f) {
-    index = 9;
-  } else if (boid->mScarabExplodeTimerEnabled || boid->mNearPlayer) {
-    index += 4;
-  }
-  CModelData& data = *mModelDatas[index];
-  CAnimData& animData = *data.AnimationData();
-  CSkinnedModel& model = data.PickAnimatedModel(mWhichModel);
-  if (mask & (1 << index)) {
-    mask &= ~(1 << index);
-    animData.BuildPose();
-    model.Calculate(animData.GetPose(), rstl::optional_object< CVertexMorphEffect >(), nullptr,
-                    mPosWorkspaces[index].get());
-  }
-  gpRender->SetAmbientColor(boid->mAmbientLighting);
-  gpRender->SetModelMatrix(boid->GetTransform());
-  const float* const positions = mPosWorkspaces[index].get();
-  const float* const normals = mNrmWorkspaces[index];
-  const float timeToDie = boid->mTimeToDie;
-  if (timeToDie > 0.f && !thermalHot) {
-    model.Draw(positions, normals, CModelFlags::Normal());
-    if (animData.GetIceModel()) {
-      gpRender->SetAmbientColor(CColor::White());
-      const CSkinnedModel& iceModel = (*animData.GetIceModel())->GetSkinnedModel();
-      animData.Render(iceModel,
-                      CModelFlags::AlphaBlended(
-                          CColor(1.f, 1.f, 1.f, CMath::FastFSel(1.f - timeToDie, timeToDie, 1.f)))
-                          .DepthCompareUpdate(true, true),
-                      rstl::optional_object< CVertexMorphEffect >(), nullptr);
+    if (!found) {
+      const float gravity = CPhysicsActor::GravityConstant();
+      float acceleration = gravity;
+      if (mFlavor == kF_Scarab)
+        acceleration = 3.f * gravity;
+      boid.mVelocity += dt * CVector3f(0.f, 0.f, -acceleration);
+      if (boid.mRemainingLaunchNotOnSurfaceFrames != 0) {
+        boid.mRemainingLaunchNotOnSurfaceFrames--;
+      }
     }
-  } else if (thermalHot) {
-    CModelData::ThermalDraw(model, positions, normals, CColor(0xffffffff),
-                            CColor(uchar(0), uchar(0), uchar(0), uchar(64)),
-                            CModelFlags::Normal().DepthCompareUpdate(true, false));
+  } else if (boid.mFramesNotOnSurface >= 30) {
+    boid.mActive = false;
   } else {
-    model.Draw(positions, normals, flags);
+    const float radius = 2.f * mBoidRadius;
+    const float boidRadius = mBoidRadius;
+    const CVector3f pos = boid.GetTranslation();
+    bool found = false;
+    CCollisionSurface surface(CVector3f(1.f, 0.f, 0.f), CVector3f(0.f, 1.f, 0.f),
+                              CVector3f(0.f, 0.f, 1.f), ~0);
+    const CVector3f move = dt * boid.mVelocity;
+    const CVector3f offset = 1.5f * move;
+    const CVector3f predicted = pos + offset;
+    if (FindBestSurface(cache, predicted, radius, surface)) {
+      boid.mSurface = surface;
+      boid.mTransform = LookAt(boid.GetTransform().GetUp(), surface.GetNormal(),
+                                 CRelAngle::FromDegrees(180.f * dt))
+                              .MultiplyIgnoreTranslation(boid.GetTransform());
+      const CPlane plane = surface.GetPlane();
+      const float distance = plane.GetHeight(boid.GetTranslation());
+      if (distance <= 1.5f * mBoidRadius) {
+        const CVector3f correction = -(distance - boidRadius - 0.01f) * plane.GetNormal();
+        boid.mTransform.AddTranslation(correction);
+        boid.mFramesNotOnSurface = 0;
+        found = true;
+      }
+    }
+    if (!found) {
+      const float angularSpeed = boid.mVelocity.Magnitude() / boidRadius;
+      boid.mTransform = LookAt(boid.GetTransform().GetUp(), boid.GetTransform().GetForward(),
+                                 CRelAngle(angularSpeed * dt))
+                              .MultiplyIgnoreTranslation(boid.GetTransform());
+      ++boid.mFramesNotOnSurface;
+    }
+    rstl::reserved_vector< CBoid*, 50 > nearList;
+    BuildBoidNearList(boid, mSeparationRadius, nearList);
+    CVector3f ahead = 0.3f * boid.GetTransform().GetForward();
+    for (int i = 0; i < 8; ++i) {
+      switch (i) {
+      case 0:
+        for (AUTO(it, mDoorRepulsors.begin()); it != mDoorRepulsors.end(); ++it) {
+          if ((it->mCenter - boid.GetTranslation()).MagSquared() <
+              it->mMagnitude * it->mMagnitude) {
+            ApplySeparation(boid, it->mCenter, it->mMagnitude, 4.5f, ahead);
+          }
+        }
+        break;
+      case 4:
+        ApplySeparation(boid, nearList, ahead);
+        break;
+      case 5:
+        MoveToWayPoint(boid, mgr, ahead);
+        break;
+      case 6:
+        ApplyCohesion(boid, nearList, ahead);
+        break;
+      case 7:
+        ApplyAlignment(boid, nearList, ahead);
+        break;
+      case 3:
+        ApplyAttraction(boid, mgr.GetPlayer()->GetTranslation(), mAttractionRadius,
+                        mAttractionMagnitude, ahead);
+        break;
+      default:
+        break;
+      }
+      if (ahead.MagSquared() >= 9.f) {
+        break;
+      }
+    }
+    const CVector3f projected = ProjectVectorToPlane(ahead, boid.GetTransform().GetUp());
+    const CVector3f forward = boid.GetTransform().GetForward();
+    const CVector3f direction = projected.AsNormalized();
+    boid.mTransform = LookAt(forward, direction, CRelAngle::FromRadians(M_PIF * dt))
+                            .MultiplyIgnoreTranslation(boid.GetTransform());
   }
-  drawMask = mask;
+}
+
+void CWallCrawlerSwarm::AddDoorRepulsors(CStateManager& mgr) {
+  CObjectList& objects = mgr.ObjectListById(kOL_PhysicsActor);
+  int count = 0;
+  for (int i = objects.GetFirstObjectIndex(); i != -1; i = objects.GetNextObjectIndex(i)) {
+    CEntity* entity = objects[i];
+    if (CScriptDoor* door = TCastToPtr< CScriptDoor >(entity)) {
+      if (door->GetCurrentAreaId() == GetCurrentAreaId()) {
+        ++count;
+      }
+    }
+  }
+  mDoorRepulsors.reserve(count);
+  for (int i = objects.GetFirstObjectIndex(); i != -1; i = objects.GetNextObjectIndex(i)) {
+    CEntity* entity = objects[i];
+    if (CScriptDoor* door = TCastToPtr< CScriptDoor >(entity)) {
+      if (door->GetCurrentAreaId() == GetCurrentAreaId()) {
+        rstl::optional_object< CAABox > bounds = door->GetTouchBounds();
+        if (bounds.valid()) {
+          float diagonal = (bounds->GetMinPoint() - bounds->GetMaxPoint()).Magnitude();
+          mDoorRepulsors.push_back(CRepulsor(bounds->GetCenterPoint(), 0.75f * diagonal));
+        }
+      }
+    }
+  }
 }
 
 void CWallCrawlerSwarm::Think(float dt, CStateManager& mgr) {
@@ -894,168 +695,20 @@ void CWallCrawlerSwarm::Think(float dt, CStateManager& mgr) {
   }
 }
 
-void CWallCrawlerSwarm::PreRender(CStateManager&, const CFrustumPlanes& frustum) {
-  bool active = false;
-  for (int i = 0; i < 5; ++i) {
-    mModelDatas[i]->AnimationData()->PreRender();
-  }
-  for (AUTO(it, mBoids.begin()); it != mBoids.end(); ++it) {
-    if (it->mActive) {
-      it->mInFrustum =
-          frustum.SphereInFrustumPlanes(CSphere(it->GetTranslation(), 2.f * mBoidRadius));
-      active = true;
-    } else {
-      it->mInFrustum = false;
-    }
-  }
-  SetPreRenderClipped(!active);
-}
-
-void CWallCrawlerSwarm::AddToRenderer(const CFrustumPlanes&, const CStateManager& mgr) const {
-  if (GetActive()) {
-    RenderParticles();
-    if (!GetPreRenderClipped()) {
-      if (CanRenderUnsorted(mgr)) {
-        Render(mgr);
-      } else {
-        EnsureRendered(mgr);
-      }
-    }
-  }
-}
-
-void CWallCrawlerSwarm::UpdateBoid(CAreaCollisionCache& cache, CStateManager& mgr, float dt,
-                                   CBoid& boid) {
-  if (boid.mScarabExplodeTimerEnabled) {
-    if (mFlavor == kF_Scarab && boid.mTimeToExplode > 0.f) {
-      boid.mTimeToExplode -= 2.f * dt;
-      if (boid.mTimeToExplode <= 0.f) {
-        ExplodeBoid(boid, mgr);
-      }
-    }
-  } else if (boid.mLaunched) {
-    const float radius = 2.f * mBoidRadius;
-    const float boidRadius = mBoidRadius;
-    const float speed = boid.mVelocity.Magnitude();
-    float distance = speed * dt;
-    CVector3f pos = boid.GetTranslation();
-    const CVector3f step = (-boid.mVelocity / speed) * boidRadius;
-    bool found = false;
-    while (distance >= 0.f && !found) {
-      CCollisionSurface surface(CVector3f(1.f, 0.f, 0.f), CVector3f(0.f, 1.f, 0.f),
-                                CVector3f(0.f, 0.f, 1.f), ~0);
-      const CVector3f move = dt * boid.mVelocity;
-      const CVector3f offset = 1.5f * move;
-      const CVector3f predicted = pos + offset;
-      if (FindBestSurface(cache, predicted, radius, surface) &&
-          boid.mRemainingLaunchNotOnSurfaceFrames == 0) {
-        if (mFlavor != kF_Scarab) {
-          boid.mTransform = LookAt(boid.GetTransform().GetUp(), surface.GetNormal(),
-                                     CRelAngle::FromRadians(M_PIF))
-                                  .MultiplyIgnoreTranslation(boid.GetTransform());
-        }
-        const CPlane plane = surface.GetPlane();
-        const CVector3f correction =
-            -(plane.GetHeight(boid.GetTranslation()) - boidRadius - 0.01f) * plane.GetNormal();
-        boid.mTransform.AddTranslation(correction);
-        boid.mFramesNotOnSurface = 0;
-        boid.mLaunched = false;
-        if (mFlavor == kF_Scarab) {
-          boid.mScarabExplodeTimerEnabled = true;
-          boid.mTimeToExplode = mScarabTimeToExplode;
-          CSfxManager::AddEmitter(mScatterSfx, boid.GetTranslation(), CVector3f::Zero(), true,
-                                  false, CSfxManager::kMedPriority, GetCurrentAreaId().Value());
-        }
-        found = true;
-      }
-      distance -= boidRadius;
-      pos += step;
-    }
-    if (!found) {
-      const float gravity = CPhysicsActor::GravityConstant();
-      float acceleration = gravity;
-      if (mFlavor == kF_Scarab)
-        acceleration = 3.f * gravity;
-      boid.mVelocity += dt * CVector3f(0.f, 0.f, -acceleration);
-      if (boid.mRemainingLaunchNotOnSurfaceFrames != 0) {
-        boid.mRemainingLaunchNotOnSurfaceFrames--;
-      }
-    }
-  } else if (boid.mFramesNotOnSurface >= 30) {
-    boid.mActive = false;
-  } else {
-    const float radius = 2.f * mBoidRadius;
-    const float boidRadius = mBoidRadius;
-    const CVector3f pos = boid.GetTranslation();
-    bool found = false;
-    CCollisionSurface surface(CVector3f(1.f, 0.f, 0.f), CVector3f(0.f, 1.f, 0.f),
-                              CVector3f(0.f, 0.f, 1.f), ~0);
-    const CVector3f move = dt * boid.mVelocity;
-    const CVector3f offset = 1.5f * move;
-    const CVector3f predicted = pos + offset;
-    if (FindBestSurface(cache, predicted, radius, surface)) {
-      boid.mSurface = surface;
-      boid.mTransform = LookAt(boid.GetTransform().GetUp(), surface.GetNormal(),
-                                 CRelAngle::FromDegrees(180.f * dt))
-                              .MultiplyIgnoreTranslation(boid.GetTransform());
-      const CPlane plane = surface.GetPlane();
-      const float distance = plane.GetHeight(boid.GetTranslation());
-      if (distance <= 1.5f * mBoidRadius) {
-        const CVector3f correction = -(distance - boidRadius - 0.01f) * plane.GetNormal();
-        boid.mTransform.AddTranslation(correction);
-        boid.mFramesNotOnSurface = 0;
-        found = true;
-      }
-    }
-    if (!found) {
-      const float angularSpeed = boid.mVelocity.Magnitude() / boidRadius;
-      boid.mTransform = LookAt(boid.GetTransform().GetUp(), boid.GetTransform().GetForward(),
-                                 CRelAngle(angularSpeed * dt))
-                              .MultiplyIgnoreTranslation(boid.GetTransform());
-      ++boid.mFramesNotOnSurface;
-    }
-    rstl::reserved_vector< CBoid*, 50 > nearList;
-    BuildBoidNearList(boid, mSeparationRadius, nearList);
-    CVector3f ahead = 0.3f * boid.GetTransform().GetForward();
-    for (int i = 0; i < 8; ++i) {
-      switch (i) {
-      case 0:
-        for (AUTO(it, mDoorRepulsors.begin()); it != mDoorRepulsors.end(); ++it) {
-          if ((it->mCenter - boid.GetTranslation()).MagSquared() <
-              it->mMagnitude * it->mMagnitude) {
-            ApplySeparation(boid, it->mCenter, it->mMagnitude, 4.5f, ahead);
-          }
-        }
-        break;
-      case 4:
-        ApplySeparation(boid, nearList, ahead);
-        break;
-      case 5:
-        MoveToWayPoint(boid, mgr, ahead);
-        break;
-      case 6:
-        ApplyCohesion(boid, nearList, ahead);
-        break;
-      case 7:
-        ApplyAlignment(boid, nearList, ahead);
-        break;
-      case 3:
-        ApplyAttraction(boid, mgr.GetPlayer()->GetTranslation(), mAttractionRadius,
-                        mAttractionMagnitude, ahead);
-        break;
-      default:
-        break;
-      }
-      if (ahead.MagSquared() >= 9.f) {
-        break;
-      }
-    }
-    const CVector3f projected = ProjectVectorToPlane(ahead, boid.GetTransform().GetUp());
-    const CVector3f forward = boid.GetTransform().GetForward();
-    const CVector3f direction = projected.AsNormalized();
-    boid.mTransform = LookAt(forward, direction, CRelAngle::FromRadians(M_PIF * dt))
-                            .MultiplyIgnoreTranslation(boid.GetTransform());
-  }
+void CWallCrawlerSwarm::ScatterScarabBoid(CBoid& boid, CStateManager& mgr) {
+  const CVector3f oldDirection = boid.GetTransform().GetForward();
+  boid.mTransform.SetRotation(CTransform4f::Identity());
+  boid.mTransform = LookAt(boid.GetTransform().GetForward(), oldDirection, CRelAngle(M_PIF))
+                          .MultiplyIgnoreTranslation(boid.GetTransform());
+  boid.mVelocity = CVector3f::Zero();
+  const float angle = mgr.Random()->Float() * (2.f * M_PIF);
+  const float speed = mgr.Random()->Float() * mScarabScatterXYVelocity;
+  boid.mVelocity.SetX(speed * CMath::FastCosR(angle));
+  boid.mVelocity.SetY(speed * CMath::FastSinR(angle));
+  boid.mLaunched = true;
+  boid.mRemainingLaunchNotOnSurfaceFrames = 5;
+  CSfxManager::AddEmitter(mLaunchSfx, boid.GetTranslation(), CVector3f::Zero(), true, false,
+                          CSfxManager::kMedPriority, GetCurrentAreaId().Value());
 }
 
 void CWallCrawlerSwarm::LaunchBoid(CBoid& boid, const CVector3f& dir) {
@@ -1103,20 +756,337 @@ void CWallCrawlerSwarm::LaunchBoid(CBoid& boid, const CVector3f& dir) {
                           CSfxManager::kMedPriority, GetCurrentAreaId().Value());
 }
 
-void CWallCrawlerSwarm::ScatterScarabBoid(CBoid& boid, CStateManager& mgr) {
-  const CVector3f oldDirection = boid.GetTransform().GetForward();
-  boid.mTransform.SetRotation(CTransform4f::Identity());
-  boid.mTransform = LookAt(boid.GetTransform().GetForward(), oldDirection, CRelAngle(M_PIF))
-                          .MultiplyIgnoreTranslation(boid.GetTransform());
-  boid.mVelocity = CVector3f::Zero();
-  const float angle = mgr.Random()->Float() * (2.f * M_PIF);
-  const float speed = mgr.Random()->Float() * mScarabScatterXYVelocity;
-  boid.mVelocity.SetX(speed * CMath::FastCosR(angle));
-  boid.mVelocity.SetY(speed * CMath::FastSinR(angle));
-  boid.mLaunched = true;
-  boid.mRemainingLaunchNotOnSurfaceFrames = 5;
-  CSfxManager::AddEmitter(mLaunchSfx, boid.GetTranslation(), CVector3f::Zero(), true, false,
-                          CSfxManager::kMedPriority, GetCurrentAreaId().Value());
+void CWallCrawlerSwarm::UpdatePartition() {
+  mPartitionedBoidLists.clear();
+  for (int i = 0; i < 125; ++i) {
+    mPartitionedBoidLists.push_back(nullptr);
+  }
+  mOutlierBoidList = nullptr;
+  const CAABox bounds = GetBoundingBox();
+  const CVector3f extent = bounds.GetMaxPoint() - bounds.GetMinPoint();
+  const CVector3f size(extent.GetX() / 5.f, extent.GetY() / 5.f, extent.GetZ() / 5.f);
+  for (AUTO(it, mBoids.begin()); it != mBoids.end(); ++it) {
+    if (it->GetActive()) {
+      const CVector3f& pos = it->GetTranslation();
+      const CVector3f delta = pos - bounds.GetMinPoint();
+      const int x = CCast::ToInt32(delta.GetX() / size.GetX());
+      const int y = CCast::ToInt32(delta.GetY() / size.GetY());
+      const int z = CCast::ToInt32(delta.GetZ() / size.GetZ());
+      const int index = x + 5 * y + 25 * z;
+      if (index < 0 || index >= 125 || x < 0 || x >= 5 || y < 0 || y >= 5 || z < 0 || z >= 5) {
+        it->mNext = mOutlierBoidList;
+        mOutlierBoidList = &*it;
+      } else {
+        it->mNext = mPartitionedBoidLists[index];
+        mPartitionedBoidLists[index] = &*it;
+      }
+    }
+  }
+}
+
+CWallCrawlerSwarm::CBoid* CWallCrawlerSwarm::GetListAt(const CVector3f& pos) {
+  const CAABox bounds = GetBoundingBox();
+  const CVector3f delta = pos - bounds.GetMinPoint();
+  const int index = CCast::ToInt32(delta.GetX() / (bounds.GetWidth() / 5.f)) +
+                    CCast::ToInt32(delta.GetY() / (bounds.GetHeight() / 5.f)) * 5 +
+                    CCast::ToInt32(delta.GetZ() / (bounds.GetDepth() / 5.f)) * 25;
+  if (index < 0 || index >= 125) {
+    return mOutlierBoidList;
+  }
+  return mPartitionedBoidLists[index];
+}
+
+CAABox CWallCrawlerSwarm::BoxForPosition(int x, int y, int z, float margin) const {
+  const CAABox bounds = GetBoundingBox();
+  const CVector3f extent = bounds.GetMaxPoint() - bounds.GetMinPoint();
+  const CVector3f size(extent[0] / 5.f, extent[1] / 5.f, extent[2] / 5.f);
+  return CAABox(CVector3f(x * size[0] + bounds.GetMinPoint()[0] - margin,
+                          y * size[1] + bounds.GetMinPoint()[1] - margin,
+                          z * size[2] + bounds.GetMinPoint()[2] - margin),
+                CVector3f((x + 1) * size[0] + bounds.GetMinPoint()[0] + margin,
+                          (y + 1) * size[1] + bounds.GetMinPoint()[1] + margin,
+                          (z + 1) * size[2] + bounds.GetMinPoint()[2] + margin));
+}
+
+void CWallCrawlerSwarm::PreRender(CStateManager&, const CFrustumPlanes& frustum) {
+  bool active = false;
+  for (int i = 0; i < 5; ++i) {
+    mModelDatas[i]->AnimationData()->PreRender();
+  }
+  for (AUTO(it, mBoids.begin()); it != mBoids.end(); ++it) {
+    if (it->mActive) {
+      it->mInFrustum =
+          frustum.SphereInFrustumPlanes(CSphere(it->GetTranslation(), 2.f * mBoidRadius));
+      active = true;
+    } else {
+      it->mInFrustum = false;
+    }
+  }
+  SetPreRenderClipped(!active);
+}
+
+void CWallCrawlerSwarm::HardwareLight(const CStateManager& mgr, const CAABox& bounds) const {
+  CActorLights lights(8, CVector3f::Zero(), 4, 4);
+  lights.SetNeedsRelight(true);
+  lights.SetCastShadows(false);
+  lights.SetFindShadowLight(false);
+  lights.BuildAreaLightList(mgr, mgr.GetWorld()->GetAreaAlways(GetCurrentAreaId()), bounds);
+  lights.BuildDynamicLightList(mgr, bounds);
+  lights.ActivateLights();
+}
+
+CColor CWallCrawlerSwarm::SoftwareLight(const CStateManager& mgr, const CAABox& bounds) const {
+  CActorLights lights(8, CVector3f::Zero(), 4, 4);
+  lights.SetNeedsRelight(true);
+  lights.SetCastShadows(false);
+  lights.SetFindShadowLight(false);
+  lights.BuildAreaLightList(mgr, mgr.GetWorld()->GetAreaAlways(GetCurrentAreaId()), bounds);
+  lights.BuildDynamicLightList(mgr, bounds);
+  CColor result = lights.GetAmbientColor();
+  const CVector3f center = bounds.GetCenterPoint();
+  for (uint i = 0; i < lights.GetActiveLightCount(); ++i) {
+    const CLight& light = lights.GetLight(i);
+    const float distance = (light.GetPosition() - center).Magnitude();
+    const float attenuation =
+        rstl::min_val(1.f, 1.f / (distance * (distance * light.GetAttenuationQuadratic()) +
+                                 (distance * light.GetAttenuationLinear() +
+                                  light.GetAttenuationConstant())));
+    result = CColor::Add(result,
+                         CColor::Lerp(CColor::Black(), light.GetColor(), 0.8f * attenuation));
+  }
+  return result;
+}
+
+bool CWallCrawlerSwarm::CanRenderUnsorted(const CStateManager&) const { return true; }
+
+void CWallCrawlerSwarm::RenderBoid(CBoid* boid, uint& drawMask, bool thermalHot,
+                                   const CModelFlags& flags) const {
+  uint index = boid->mIndex & 3;
+  uint mask = drawMask;
+  if (boid->mLaunched) {
+    index = 8;
+  } else if (boid->mTimeToDie > 0.f) {
+    index = 9;
+  } else if (boid->mScarabExplodeTimerEnabled || boid->mNearPlayer) {
+    index += 4;
+  }
+  CModelData& data = *mModelDatas[index];
+  CAnimData& animData = *data.AnimationData();
+  CSkinnedModel& model = data.PickAnimatedModel(mWhichModel);
+  if (mask & (1 << index)) {
+    mask &= ~(1 << index);
+    animData.BuildPose();
+    model.Calculate(animData.GetPose(), rstl::optional_object< CVertexMorphEffect >(), nullptr,
+                    mPosWorkspaces[index].get());
+  }
+  gpRender->SetAmbientColor(boid->mAmbientLighting);
+  gpRender->SetModelMatrix(boid->GetTransform());
+  const float* const positions = mPosWorkspaces[index].get();
+  const float* const normals = mNrmWorkspaces[index];
+  const float timeToDie = boid->mTimeToDie;
+  if (timeToDie > 0.f && !thermalHot) {
+    model.Draw(positions, normals, CModelFlags::Normal());
+    if (animData.GetIceModel()) {
+      gpRender->SetAmbientColor(CColor::White());
+      const CSkinnedModel& iceModel = (*animData.GetIceModel())->GetSkinnedModel();
+      animData.Render(iceModel,
+                      CModelFlags::AlphaBlended(
+                          CColor(1.f, 1.f, 1.f, CMath::FastFSel(1.f - timeToDie, timeToDie, 1.f)))
+                          .DepthCompareUpdate(true, true),
+                      rstl::optional_object< CVertexMorphEffect >(), nullptr);
+    }
+  } else if (thermalHot) {
+    CModelData::ThermalDraw(model, positions, normals, CColor(0xffffffff),
+                            CColor(uchar(0), uchar(0), uchar(0), uchar(64)),
+                            CModelFlags::Normal().DepthCompareUpdate(true, false));
+  } else {
+    model.Draw(positions, normals, flags);
+  }
+  drawMask = mask;
+}
+
+void CWallCrawlerSwarm::AddToRenderer(const CFrustumPlanes&, const CStateManager& mgr) const {
+  if (GetActive()) {
+    RenderParticles();
+    if (!GetPreRenderClipped()) {
+      if (CanRenderUnsorted(mgr)) {
+        Render(mgr);
+      } else {
+        EnsureRendered(mgr);
+      }
+    }
+  }
+}
+
+void CWallCrawlerSwarm::Render(const CStateManager& mgr) const {
+  uint drawMask = ~0;
+  const bool enableLighting = mEnableLighting;
+  int rowIndex;
+  const bool useSoftwareLight = mUseSoftwareLight;
+  if (!enableLighting) {
+    CGraphics::DisableAllLights();
+    gpRender->SetAmbientColor(CColor(0.5f, 0.5f, 0.5f, 1.f));
+  }
+  bool thermalHot = mgr.GetThermalDrawFlag() == kTD_Hot;
+  CModelFlags flags = CModelFlags::Normal();
+  if (mgr.GetPlayerState()->GetActiveVisor(mgr) == CPlayerState::kPV_XRay) {
+    flags = CModelFlags::AlphaBlended(0.3f);
+  }
+  const uint lights = CGraphics::GetLightMask();
+  CGX::SetChanCtrl(CGX::Channel0,
+                   (lights && enableLighting && !useSoftwareLight) ? GX_TRUE : GX_FALSE, GX_SRC_REG,
+                   GX_SRC_REG, static_cast< GXLightID >(lights), lights ? GX_DF_CLAMP : GX_DF_NONE,
+                   lights ? GX_AF_SPOT : GX_AF_NONE);
+  for (int x = 0; x < 5; ++x) {
+    rowIndex = x;
+    for (int y = 0; y < 5; ++y, rowIndex += 5) {
+      for (int z = 0; z < 5; ++z) {
+        const int index = rowIndex + z * 25;
+        CBoid* boid = mPartitionedBoidLists[index];
+        if (boid != nullptr) {
+          if (enableLighting) {
+            const CAABox bounds = BoxForPosition(x, y, z, 0.f);
+            if (useSoftwareLight) {
+              if ((index & 3) == (mThinkCounter & 3)) {
+                const CColor color = SoftwareLight(mgr, bounds);
+                for (CBoid* it = boid; it != nullptr; it = it->mNext) {
+                  if (it->GetActive()) {
+                    it->mAmbientLighting = CColor::Lerp(it->mAmbientLighting, color, 0.3f);
+                  }
+                }
+              }
+            } else {
+              HardwareLight(mgr, bounds);
+            }
+          }
+          for (; boid != nullptr; boid = boid->mNext) {
+            if (boid->mInFrustum && boid->mActive) {
+              RenderBoid(boid, drawMask, thermalHot, flags);
+            }
+          }
+        }
+      }
+    }
+  }
+  CBoid* boid = mOutlierBoidList;
+  int index = 0;
+  for (; boid != nullptr; boid = boid->mNext) {
+    ++index;
+    if (boid->mInFrustum && boid->mActive) {
+      if (enableLighting) {
+        const CVector3f pos = boid->GetTranslation();
+        const CVector3f extent(mBoidRadius, mBoidRadius, mBoidRadius);
+        const CAABox bounds = CAABox(pos - extent, pos + extent);
+        if (useSoftwareLight) {
+          if ((index & 3) == (mThinkCounter & 3)) {
+            const CColor color = SoftwareLight(mgr, bounds);
+            if (boid->GetActive()) {
+              boid->mAmbientLighting = CColor::Lerp(boid->mAmbientLighting, color, 0.3f);
+            }
+          }
+        } else {
+          HardwareLight(mgr, bounds);
+        }
+      }
+      RenderBoid(boid, drawMask, thermalHot, flags);
+    }
+  }
+  CGraphics::DisableAllLights();
+  DrawTouchBounds();
+}
+
+void CWallCrawlerSwarm::BuildBoidNearList(const CBoid& boid, float radius,
+                                          rstl::reserved_vector< CBoid*, 50 >& nearList) {
+  CBoid* other = GetListAt(boid.GetTranslation());
+  const CVector3f pos = boid.GetTranslation();
+  while (other != nullptr && nearList.size() < 50) {
+    const float distance = (other->GetTranslation() - pos).MagSquared();
+    if (distance != 0.f && distance < radius) {
+      nearList.push_back(other);
+    }
+    other = other->mNext;
+  }
+}
+
+void CWallCrawlerSwarm::ApplySeparation(CBoid& boid,
+                                        const rstl::reserved_vector< CBoid*, 50 >& nearList,
+                                        CVector3f& ahead) {
+  if (nearList.size() > 0) {
+    CVector3f closest(0.f, 0.f, 0.f);
+    float minDistance = FLT_MAX;
+    for (AUTO(it, nearList.begin()); it != nearList.end(); ++it) {
+      const CVector3f delta = boid.GetTranslation() - (*it)->GetTranslation();
+      const float distance = delta.MagSquared();
+      if (distance != 0.f && distance < minDistance) {
+        minDistance = distance;
+        closest = (*it)->GetTranslation();
+      }
+    }
+    ApplySeparation(boid, closest, mSeparationRadius, mSeparationMagnitude, ahead);
+  }
+}
+
+void CWallCrawlerSwarm::ApplySeparation(CBoid& boid, const CVector3f& pos, float radius,
+                                        float magnitude, CVector3f& ahead) {
+  const CVector3f delta = boid.GetTranslation() - pos;
+  if (delta.CanBeNormalized()) {
+    const float distance = delta.MagSquared();
+    const float radiusSquared = radius * radius;
+    if (distance < radiusSquared) {
+      const float factor = 1.f - distance / radiusSquared;
+      ahead += factor * delta.AsNormalized() * magnitude;
+    }
+  }
+}
+
+void CWallCrawlerSwarm::ApplyCohesion(CBoid& boid,
+                                      const rstl::reserved_vector< CBoid*, 50 >& nearList,
+                                      CVector3f& ahead) {
+  if (nearList.size() > 0) {
+    CVector3f center(0.f, 0.f, 0.f);
+    for (AUTO(it, nearList.begin()); it != nearList.end(); ++it) {
+      center += (*it)->GetTranslation();
+    }
+    center = (1.f / nearList.size()) * center;
+    ApplyCohesion(boid, center, mSeparationRadius, mCohesionMagnitude, ahead);
+  }
+}
+
+void CWallCrawlerSwarm::ApplyCohesion(CBoid& boid, const CVector3f& pos, float radius,
+                                      float magnitude, CVector3f& ahead) {
+  const CVector3f delta = pos - boid.GetTranslation();
+  if (delta.CanBeNormalized()) {
+    const float distance = delta.MagSquared();
+    const float radiusSquared = radius * radius;
+    const float factor = distance > radiusSquared ? 1.f : distance / radiusSquared;
+    ahead += factor * delta.AsNormalized() * magnitude;
+  }
+}
+
+void CWallCrawlerSwarm::ApplyAttraction(CBoid& boid, const CVector3f& pos, float radius,
+                                        float magnitude, CVector3f& ahead) {
+  const CVector3f delta = pos - boid.GetTranslation();
+  if (delta.CanBeNormalized()) {
+    const float distance = delta.MagSquared();
+    const float radiusSquared = radius * radius;
+    const float factor = distance > radiusSquared ? 0.f : 1.f - distance / radiusSquared;
+    ahead += factor * delta.AsNormalized() * magnitude;
+  }
+}
+
+void CWallCrawlerSwarm::ApplyAlignment(CBoid& boid,
+                                       const rstl::reserved_vector< CBoid*, 50 >& nearList,
+                                       CVector3f& ahead) {
+  if (nearList.size() > 0) {
+    CVector3f direction(0.f, 0.f, 0.f);
+    for (AUTO(it, nearList.begin()); it != nearList.end(); ++it) {
+      direction += (*it)->GetTransform().GetForward();
+    }
+    direction = (1.f / nearList.size()) * direction;
+    const float angle =
+        CVector3f::GetAngleDiff(boid.GetTransform().GetForward(), direction) / M_PIF;
+    ahead += angle * (mAlignmentWeight * direction);
+  }
 }
 
 void CWallCrawlerSwarm::MoveToWayPoint(CBoid& boid, CStateManager& mgr, CVector3f& ahead) {
@@ -1138,6 +1108,31 @@ void CWallCrawlerSwarm::MoveToWayPoint(CBoid& boid, CStateManager& mgr, CVector3
     }
     ahead += (waypoint->GetTranslation() - boid.GetTranslation()).AsNormalized() *
              mMoveToWaypointWeight;
+  }
+}
+
+TUniqueId CWallCrawlerSwarm::GetWaypointForState(EScriptObjectState state, CStateManager& mgr) {
+  for (AUTO(it, GetConnectionList().begin()); it != GetConnectionList().end(); ++it) {
+    if (it->mState == state && it->mMsg == kSM_Follow) {
+      return mgr.GetIdForScript(it->mObjId);
+    }
+  }
+  return kInvalidUniqueId;
+}
+
+void CWallCrawlerSwarm::ApplyRadiusDamage(CVector3f pos, const CDamageInfo& info,
+                                          CStateManager& mgr) {
+  const float radiusSquared = info.GetRadius() * info.GetRadius();
+  for (AUTO(it, mBoids.begin()); it != mBoids.end(); ++it) {
+    if (it->GetActive()) {
+      const CVector3f boidPos = it->GetTranslation();
+      if ((boidPos - pos).MagSquared() < radiusSquared) {
+        it->mHealth -= info.GetRadiusDamage(mDamageVulnerability);
+        if (it->mHealth <= 0.f) {
+          KillBoid(*it, mgr, 1.f, 0.1f);
+        }
+      }
+    }
   }
 }
 
@@ -1209,6 +1204,28 @@ void CWallCrawlerSwarm::Touch(CActor& actor, CStateManager& mgr) {
   }
 }
 
+void CWallCrawlerSwarm::SetExplodeTimers(const CVector3f& pos, float radius, float minTime,
+                                         float maxTime) {
+  const float radiusSquared = radius * radius;
+  for (AUTO(it, mBoids.begin()); it != mBoids.end(); ++it) {
+    if (it->GetActive() && it->mTimeToDie <= 0.f) {
+      const float distanceSquared = (it->GetTranslation() - pos).MagSquared();
+      if (distanceSquared < radiusSquared) {
+        const float time = (distanceSquared / radiusSquared) * (maxTime - minTime) + minTime;
+        if (it->mTimeToExplode > time || it->mTimeToExplode == 0.f) {
+          it->mTimeToExplode = time;
+        }
+      }
+    }
+  }
+}
+
+void CWallCrawlerSwarm::ExplodeBoid(CBoid& boid, CStateManager& mgr) {
+  KillBoid(boid, mgr, 0.f, 1.f);
+  mgr.ApplyDamageToWorld(GetUniqueId(), *this, boid.GetTranslation(), mScarabExplodeDamage,
+                         CMaterialFilter::MakeInclude(CMaterialList(kMT_Player)));
+}
+
 int CWallCrawlerSwarm::GetLockOnIndex(const CStateManager& mgr) const {
   const CTransform4f cameraXf = mgr.GetCameraManager()->GetFirstPersonCamera()->GetTransform();
   const CVector3f cameraPos = cameraXf.GetTranslation();
@@ -1249,44 +1266,6 @@ int CWallCrawlerSwarm::GetLockOnIndex(const CStateManager& mgr) const {
     }
   }
   return result;
-}
-
-void CWallCrawlerSwarm::ApplyRadiusDamage(CVector3f pos, const CDamageInfo& info,
-                                          CStateManager& mgr) {
-  const float radiusSquared = info.GetRadius() * info.GetRadius();
-  for (AUTO(it, mBoids.begin()); it != mBoids.end(); ++it) {
-    if (it->GetActive()) {
-      const CVector3f boidPos = it->GetTranslation();
-      if ((boidPos - pos).MagSquared() < radiusSquared) {
-        it->mHealth -= info.GetRadiusDamage(mDamageVulnerability);
-        if (it->mHealth <= 0.f) {
-          KillBoid(*it, mgr, 1.f, 0.1f);
-        }
-      }
-    }
-  }
-}
-
-void CWallCrawlerSwarm::SetExplodeTimers(const CVector3f& pos, float radius, float minTime,
-                                         float maxTime) {
-  const float radiusSquared = radius * radius;
-  for (AUTO(it, mBoids.begin()); it != mBoids.end(); ++it) {
-    if (it->GetActive() && it->mTimeToDie <= 0.f) {
-      const float distanceSquared = (it->GetTranslation() - pos).MagSquared();
-      if (distanceSquared < radiusSquared) {
-        const float time = (distanceSquared / radiusSquared) * (maxTime - minTime) + minTime;
-        if (it->mTimeToExplode > time || it->mTimeToExplode == 0.f) {
-          it->mTimeToExplode = time;
-        }
-      }
-    }
-  }
-}
-
-void CWallCrawlerSwarm::ExplodeBoid(CBoid& boid, CStateManager& mgr) {
-  KillBoid(boid, mgr, 0.f, 1.f);
-  mgr.ApplyDamageToWorld(GetUniqueId(), *this, boid.GetTranslation(), mScarabExplodeDamage,
-                         CMaterialFilter::MakeInclude(CMaterialList(kMT_Player)));
 }
 
 CVector3f CWallCrawlerSwarm::GetAimPosition(const CStateManager&, float dt) const {
@@ -1354,6 +1333,27 @@ void CWallCrawlerSwarm::FreezeCollision(const CMarkerGrid& grid, float duration)
       }
     }
   }
+}
+
+CVector3f CWallCrawlerSwarm::FindClosestCell(const CVector3f& pos) const {
+  float minDistance = FLT_MAX;
+  CVector3f result = CVector3f::Zero();
+  for (int x = 0; x < 5; ++x) {
+    int rowIndex = x;
+    for (int y = 0; y < 5; ++y, rowIndex += 5) {
+      for (int z = 0; z < 5; ++z) {
+        if (mPartitionedBoidLists[rowIndex + z * 25] != nullptr) {
+          const CAABox bounds = BoxForPosition(x, y, z, 0.1f);
+          const float distance = (bounds.GetCenterPoint() - pos).MagSquared();
+          if (distance < minDistance) {
+            result = bounds.GetCenterPoint();
+            minDistance = distance;
+          }
+        }
+      }
+    }
+  }
+  return result;
 }
 
 void CWallCrawlerSwarm::UpdateEffects(CStateManager& mgr, CAnimData& animData, const int volume) {
