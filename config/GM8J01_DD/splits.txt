@@ -4154,5 +4154,173 @@ musyx/runtime/snd_midictrl.c:
 	.data       start:0x803DB548 end:0x803DB5D8
 	.bss        start:0x80547D10 end:0x8054E510
 
+musyx/runtime/snd_service.c:
+	.text       start:0x8039D11C end:0x8039D2C8
+	.data       start:0x803DB5D8 end:0x803DBDE0
+	.sdata      start:0x80590178 end:0x80590180
+
+musyx/runtime/hardware.c:
+	.text       start:0x8039D2C8 end:0x8039E2EC
+	.rodata     start:0x803C3568 end:0x803C3668
+	.sdata      start:0x80590180 end:0x80590190
+	.sbss       start:0x80591138 end:0x80591148
+	.sdata2     start:0x80596BC0 end:0x80596BD8
+
+musyx/runtime/hw_aramdma.c:
+	.text       start:0x8039E2EC end:0x8039EFB8
+	.bss        start:0x8054E510 end:0x8054EE20
+	.sbss       start:0x80591148 end:0x80591168
+
+musyx/runtime/hw_dolphin.c:
+	.text       start:0x8039EFB8 end:0x8039F4B0
+	.bss        start:0x8054EE20 end:0x80550E80
+	.sbss       start:0x80591168 end:0x80591190
+
+musyx/runtime/hw_memory.c:
+	.text       start:0x8039F4B0 end:0x8039F504
+
+musyx/runtime/CheapReverb/creverb_fx.c:
+	.text       start:0x8039F504 end:0x8039F5C0
+
+musyx/runtime/CheapReverb/creverb.c:
+	.text       start:0x8039F5C0 end:0x8039FE7C
+	.data       start:0x803DD7C0 end:0x803DD7D0
+	.sdata2     start:0x80596BD8 end:0x80596C18
+
+musyx/runtime/StdReverb/reverb_fx.c:
+	.text       start:0x8039FE7C end:0x8039FF3C
+
+musyx/runtime/StdReverb/reverb.c:
+	.text       start:0x8039FF3C end:0x803A0C80
+	.data       start:0x803DD7D0 end:0x803DD7F0
+	.sdata2     start:0x80596C18 end:0x80596C60
+
+musyx/runtime/Delay/delay_fx.c:
+	.text       start:0x803A0C80 end:0x803A102C
+
+musyx/runtime/Chorus/chorus_fx.c:
+	.text       start:0x803A102C end:0x803A1894
+	.data       start:0x803DD7F0 end:0x803DDFF0
+	.sdata2     start:0x80596C60 end:0x80596C68
+
+MetroTRK/nubinit.c:
+	.text       start:0x803A1894 end:0x803A1894
+	.bss        start:0x80550E80 end:0x80550E88
+
+dolphin/dtk.c:
+	.text       start:0x803A1894 end:0x803A21F0
+	.bss        start:0x80550E88 end:0x80550FD8
+	.sbss       start:0x80591190 end:0x805911C0
+
+dolphin/card/CARDBios.c:
+	.text       start:0x803A21F0 end:0x803A34D4
+	.data       start:0x803DDFF0 end:0x803DE048
+	.bss        start:0x80550FD8 end:0x80551218
+	.sdata      start:0x80590198 end:0x805901A0
+	.sbss       start:0x805911C0 end:0x805911C8
+
+dolphin/card/CARDUnlock.c:
+	.text       start:0x803A34D4 end:0x803A4734
+	.data       start:0x803DE060 end:0x803DE1C0
+	.sdata      start:0x805901A0 end:0x805901A8
+
+dolphin/card/CARDRdwr.c:
+	.text       start:0x803A4734 end:0x803A49B4
+
+dolphin/card/CARDBlock.c:
+	.text       start:0x803A49B4 end:0x803A4DB8
+
+dolphin/card/CARDDir.c:
+	.text       start:0x803A4DB8 end:0x803A501C
+
+dolphin/card/CARDCheck.c:
+	.text       start:0x803A501C end:0x803A5F58
+
+dolphin/card/CARDMount.c:
+	.text       start:0x803A5F58 end:0x803A69D0
+	.data       start:0x803DE1C0 end:0x803DE200
+
+dolphin/card/CARDFormat.c:
+	.text       start:0x803A69D0 end:0x803A71B4
+
+dolphin/card/CARDOpen.c:
+	.text       start:0x803A71B4 end:0x803A74B8
+
+dolphin/card/CARDCreate.c:
+	.text       start:0x803A74B8 end:0x803A7808
+
+dolphin/card/CARDRead.c:
+	.text       start:0x803A7808 end:0x803A7C38
+
+dolphin/card/CARDWrite.c:
+	.text       start:0x803A7C80 end:0x803A7FB4
+
+dolphin/card/CARDDelete.c:
+	.text       start:0x803A7FB4 end:0x803A8184
+
+dolphin/card/CARDStat.c:
+	.text       start:0x803A8184 end:0x803A861C
+
+dolphin/card/CARDNet.c:
+	.text       start:0x803A861C end:0x803A86E0
+	.sdata      start:0x805901A8 end:0x805901B0
+
+dolphin/si/SIBios.c:
+	.text       start:0x803A86E0 end:0x803A9F40
+	.data       start:0x803DE200 end:0x803DE318
+	.bss        start:0x80551218 end:0x80551418
+	.sdata      start:0x805901B0 end:0x805901B8
+	.sbss       start:0x805911C8 end:0x805911D8
+
+dolphin/si/SISamplingRate.c:
+	.text       start:0x803A9F40 end:0x803AA048
+	.data       start:0x803DE318 end:0x803DE3B0
+	.sbss       start:0x805911D8 end:0x805911E0
+
+dolphin/exi/EXIBios.c:
+	.text       start:0x803AA048 end:0x803AB9B4
+	.data       start:0x803DE3B0 end:0x803DE4C0
+	.bss        start:0x80551418 end:0x805514E0
+	.sdata      start:0x805901B8 end:0x805901C0
+	.sbss       start:0x805911E0 end:0x805911E8
+
+dolphin/exi/EXIUart.c:
+	.text       start:0x803AB9B4 end:0x803ABC40
+	.sbss       start:0x805911E8 end:0x805911F8
+
+dolphin/thp/THPDec.c:
+	.text       start:0x803ABC40 end:0x803B31A8
+	.rodata     start:0x803C3668 end:0x803C36F8
+	.data       start:0x803DE4C0 end:0x803DE500
+	.bss        start:0x805514E0 end:0x80551620
+	.sdata      start:0x805901C0 end:0x805901C4
+	.sbss       start:0x80591200 end:0x80591318
+	.sdata2     start:0x80596C68 end:0x80596C84
+
+dolphin/thp/THPAudio.c:
+	.text       start:0x803B31A8 end:0x803B36D8
+
+dolphin/GBA/GBA.c:
+	.text       start:0x803B36D8 end:0x803B39C8
+	.data       start:0x803DE500 end:0x803DE510
+	.bss        start:0x80551620 end:0x80551B20
+	.sbss       start:0x80591318 end:0x8059131C
+
+dolphin/GBA/GBAGetProcessStatus.c:
+	.text       start:0x803B39C8 end:0x803B3B3C
+
+dolphin/GBA/GBAJoyBoot.c:
+	.text       start:0x803B3B3C end:0x803B4A00
+	.data       start:0x803DE510 end:0x803DE540
+
+dolphin/GBA/GBARead.c:
+	.text       start:0x803B4A00 end:0x803B4B60
+
+dolphin/GBA/GBAWrite.c:
+	.text       start:0x803B4B60 end:0x803B4CE8
+
+dolphin/GBA/GBAXfer.c:
+	.text       start:0x803B4CE8 end:0x803B5020
+
 runtime/__mem.c:
 	.init       start:0x800033A8 end:0x800034E0

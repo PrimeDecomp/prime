@@ -503,7 +503,7 @@ config.libs = [
         "TRK_MINNOW_DOLPHIN",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "MetroTRK/nubinit.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "MetroTRK/nubinit.c"
             ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
@@ -3053,7 +3053,7 @@ config.libs = [
                 "musyx/runtime/hw_dolphin.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "musyx/runtime/hw_memory.c",
             ),
             Object(
@@ -3069,7 +3069,7 @@ config.libs = [
                 "musyx/runtime/CheapReverb/creverb_fx.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "musyx/runtime/CheapReverb/creverb.c",
             ),
             Object(
@@ -3077,15 +3077,15 @@ config.libs = [
                 "musyx/runtime/StdReverb/reverb_fx.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "musyx/runtime/StdReverb/reverb.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "musyx/runtime/Delay/delay_fx.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "musyx/runtime/Chorus/chorus_fx.c",
             ),
         ],
@@ -3093,7 +3093,7 @@ config.libs = [
     DolphinLib(
         "dtk",
         [
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                    "dolphin/dtk.c"),
         ],
     ),
@@ -3109,7 +3109,7 @@ config.libs = [
                 "dolphin/card/CARDUnlock.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDRdwr.c",
             ),
             Object(
@@ -3121,7 +3121,7 @@ config.libs = [
                 "dolphin/card/CARDDir.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDCheck.c",
             ),
             Object(
@@ -3129,31 +3129,31 @@ config.libs = [
                 "dolphin/card/CARDMount.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDFormat.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDOpen.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDCreate.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDRead.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDWrite.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDDelete.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDStat.c",
             ),
             Object(
@@ -3161,7 +3161,7 @@ config.libs = [
                 "dolphin/card/CARDRename.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDNet.c",
             ),
         ],
@@ -3170,11 +3170,11 @@ config.libs = [
         "si",
         [
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/si/SIBios.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/si/SISamplingRate.c",
             ),
         ],
@@ -3187,7 +3187,7 @@ config.libs = [
                 "dolphin/exi/EXIBios.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/exi/EXIUart.c",
             ),
         ],
@@ -3200,7 +3200,7 @@ config.libs = [
                 "dolphin/thp/THPDec.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/thp/THPAudio.c",
             ),
         ],
@@ -3213,7 +3213,7 @@ config.libs = [
                 "dolphin/GBA/GBA.c"
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/GBA/GBAGetProcessStatus.c",
             ),
             Object(
@@ -3229,7 +3229,7 @@ config.libs = [
                 "dolphin/GBA/GBAWrite.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/GBA/GBAXfer.c",
             ),
             Object(
