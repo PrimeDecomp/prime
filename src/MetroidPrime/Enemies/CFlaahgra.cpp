@@ -242,6 +242,8 @@ void CFlaahgra::Think(float dt, CStateManager& mgr) {
   }
 }
 
+ENTITY_ACCEPT_IMPL(CFlaahgra)
+
 void CFlaahgra::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) {
   switch (msg) {
   case kSM_InitializedInArea:
@@ -373,8 +375,6 @@ void CFlaahgra::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateM
   }
   CPatterned::AcceptScriptMsg(msg, uid, mgr);
 }
-
-ENTITY_ACCEPT_IMPL(CFlaahgra)
 
 bool CFlaahgra::CanRenderUnsorted(const CStateManager& mgr) const { return true; }
 
