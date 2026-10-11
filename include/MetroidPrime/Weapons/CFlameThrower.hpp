@@ -44,8 +44,12 @@ private:
   void ApplyFlameDamageToActor(TUniqueId id, CStateManager& mgr);
 #endif
   void ApplyFlameDamageToActors(CStateManager& mgr, const TUniqueId id, float dt);
-  void ApplyDamageToWorld(CStateManager& mgr, const TUniqueId id, const CVector3f& point,
-                          const CDamageInfo& dInfo, const CMaterialFilter& filter);
+  void ApplyDamageToWorld(CStateManager& mgr, const CVector3f& point,
+                          const CDamageInfo& dInfo, const CMaterialFilter& filter) {
+    const TUniqueId owner = GetOwnerId();
+    mgr.ApplyDamageToWorld(owner, *this, point, dInfo, filter);
+  }
+  void UpdateFlameLight(CStateManager& mgr);
 
   CTransform4f mFlameXf;
   CAABox mFlameBounds;

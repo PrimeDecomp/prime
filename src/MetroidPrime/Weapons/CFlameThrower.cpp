@@ -59,6 +59,20 @@ rstl::optional_object< CAABox > CFlameThrower::GetTouchBounds() const {
 ENTITY_ACCEPT_IMPL(CFlameThrower)
 
 void CFlameThrower::Touch(CActor&, CStateManager&) {}
+
+inline void CFlameThrower::UpdateFlameLight(CStateManager& mgr) {
+  if (GetProjectileLightId() != kInvalidUniqueId) {
+    const TUniqueId lightId = GetProjectileLightId();
+    if (CGameLight* light = TCastToPtr< CGameLight >(mgr.ObjectById(lightId))) {
+      light->SetTransform(GetTransform());
+      light->SetTranslation(mFlameWarp.GetFloatingPoint());
+      if (mFlameGen.get() && mFlameGen->SystemHasLight()) {
+        light->SetLight(mFlameGen->GetLight());
+      }
+    }
+  }
+}
+
 void CFlameThrower::Think(float dt, CStateManager& mgr) {
   CWeapon::Think(dt, mgr);
   if (!GetActive()) {
@@ -115,9 +129,9 @@ void CFlameThrower::Think(float dt, CStateManager& mgr) {
       if (x428_28_ && !mgr.GetPlayer()->GetFrozenState()) {
         DoRadialFreeze(result.GetPoint(), scaledDamage, mgr);
       }
-      ApplyDamageToWorld(mgr, GetOwnerId(), result.GetPoint(), scaledDamage, GetFilter());
+      ApplyDamageToWorld(mgr, result.GetPoint(), scaledDamage, GetFilter());
 #else
-      ApplyDamageToWorld(mgr, GetOwnerId(), result.GetPoint(),
+      ApplyDamageToWorld(mgr, result.GetPoint(),
                          mCurDamageInfo.MakeScaledForTime(dt), GetFilter());
 #endif
     }
@@ -125,15 +139,7 @@ void CFlameThrower::Think(float dt, CStateManager& mgr) {
 
   CActor::SetTransform(xf.GetRotation());
   CActor::SetTranslation(xf.GetTranslation());
-  if (GetProjectileLightId() != kInvalidUniqueId) {
-    if (CGameLight* light = TCastToPtr< CGameLight >(mgr.ObjectById(GetProjectileLightId()))) {
-      light->SetTransform(GetTransform());
-      light->SetTranslation(mFlameWarp.GetFloatingPoint());
-      if (mFlameGen.get() && mFlameGen->SystemHasLight()) {
-        light->SetLight(mFlameGen->GetLight());
-      }
-    }
-  }
+  UpdateFlameLight(mgr);
 }
 
 float CFlameThrower::UpdateFlameState(float dt, CStateManager& mgr) {
@@ -320,11 +326,7 @@ void CFlameThrower::ApplyFlameDamageToActor(TUniqueId id, CStateManager& mgr) {
 }
 #endif
 
-inline void CFlameThrower::ApplyDamageToWorld(CStateManager& mgr, const TUniqueId id,
-                                              const CVector3f& point, const CDamageInfo& dInfo,
-                                              const CMaterialFilter& filter) {
-  mgr.ApplyDamageToWorld(id, *this, point, dInfo, filter);
-}
+
 
 #if VERSION >= VERSION_GM8P_00
 void CFlameThrower::DoRadialFreeze(const CVector3f&, const CDamageInfo&, CStateManager& mgr) {}
