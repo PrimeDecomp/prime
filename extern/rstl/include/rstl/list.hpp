@@ -193,7 +193,7 @@ public:
     }
   }
 
-  void exchange(node* nodeA, node* nodeB);
+  inline void exchange(node* nodeA, node* nodeB);
 
 public:
   class const_iterator {
@@ -329,23 +329,23 @@ void list< T, Alloc >::exchange(node* nodeA, node* nodeB) {
   node* nodeBPrev = nodeB->mPrev;
 
   if (nodeBNext != nodeA) {
-    nodeBNext->mPrev = nodeA;
-    nodeA->mNext = nodeBNext;
-    nodeAPrev->mNext = nodeB;
-    nodeB->mPrev = nodeAPrev;
+    nodeBNext->set_prev(nodeA);
+    nodeA->set_next(nodeBNext);
+    nodeAPrev->set_next(nodeB);
+    nodeB->set_prev(nodeAPrev);
   } else {
-    nodeA->mNext = nodeB;
-    nodeB->mPrev = nodeA;
+    nodeA->set_next(nodeB);
+    nodeB->set_prev(nodeA);
   }
 
   if (nodeBPrev != nodeA) {
-    nodeBPrev->mNext = nodeA;
-    nodeA->mPrev = nodeBPrev;
-    nodeANext->mPrev = nodeB;
-    nodeB->mNext = nodeANext;
+    nodeBPrev->set_next(nodeA);
+    nodeA->set_prev(nodeBPrev);
+    nodeANext->set_prev(nodeB);
+    nodeB->set_next(nodeANext);
   } else {
-    nodeB->mNext = nodeA;
-    nodeA->mPrev = nodeB;
+    nodeB->set_next(nodeA);
+    nodeA->set_prev(nodeB);
   }
 }
 
