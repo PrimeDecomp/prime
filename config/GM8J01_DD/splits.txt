@@ -89,6 +89,13 @@ MetroidPrime/CMainFlow.cpp:
 	.data       start:0x803C42E0 end:0x803C4340
 	.sdata      start:0x8058E2B0 end:0x8058E2D8
 
+MetroidPrime/CSplashScreen.cpp:
+	.text       start:0x80028FC8 end:0x8002A56C
+	.rodata     start:0x803B75B0 end:0x803B7600
+	.data       start:0x803C43D0 end:0x803C4410
+	.sdata      start:0x8058E308 end:0x8058E310
+	.sdata2     start:0x80591740 end:0x80591798
+
 MetroidPrime/CAnimData.cpp:
 	.text       start:0x8002A56C end:0x80032DCC
 	.ctors      start:0x803B52C0 end:0x803B52C4
@@ -604,6 +611,15 @@ MetroidPrime/ScriptObjects/CScriptCameraFilterKeyframe.cpp:
 MetroidPrime/ScriptObjects/CScriptCameraBlurKeyframe.cpp:
 	.text       start:0x800E2124 end:0x800E22DC
 	.data       start:0x803C9708 end:0x803C9728
+
+MetroidPrime/Cameras/CCameraFilter.cpp:
+	.text       start:0x800E22DC end:0x800E4FC4
+	.ctors      start:0x803B52FC end:0x803B5300
+	.rodata     start:0x803B9080 end:0x803B908C
+	.data       start:0x803C9728 end:0x803C9770
+	.sdata      start:0x8058E958 end:0x8058E95C
+	.sbss       start:0x805904B0 end:0x805904B8
+	.sdata2     start:0x805924D8 end:0x80592558
 
 MetroidPrime/Player/CMorphBall.cpp:
 	.text       start:0x800E4FC4 end:0x800F1D24
@@ -1679,6 +1695,15 @@ MetroidPrime/Weapons/CEnergyProjectile.cpp:
 	.rodata     start:0x803BD1F0 end:0x803BD268
 	.sdata2     start:0x80594790 end:0x805947C8
 
+MetroidPrime/ScriptObjects/CScriptGunTurret.cpp:
+	.text       start:0x802080F0 end:0x8020CB20
+	.ctors      start:0x803B5370 end:0x803B5374
+	.rodata     start:0x803BD268 end:0x803BD998
+	.data       start:0x803CF520 end:0x803CF6A0
+	.sdata      start:0x8058F648 end:0x8058F65C
+	.sbss       start:0x80590690 end:0x805906A0
+	.sdata2     start:0x805947DC end:0x80594860
+
 MetroidPrime/Weapons/CProjectileInfo.cpp:
 	.text       start:0x8020CB20 end:0x8020CFEC
 	.sdata2     start:0x80594860 end:0x80594870
@@ -1822,6 +1847,12 @@ MetroidPrime/Enemies/CAtomicAlpha.cpp:
 	.sdata      start:0x8058F840 end:0x8058F848
 	.sdata2     start:0x80594D00 end:0x80594D18
 
+MetroidPrime/CLogBookScreen.cpp:
+	.text       start:0x80236250 end:0x80238AF4
+	.rodata     start:0x803BF208 end:0x803BF210
+	.data       start:0x803D0590 end:0x803D0620
+	.sdata2     start:0x80594D18 end:0x80594D38
+
 MetroidPrime/CGBASupport.cpp:
 	.text       start:0x80238AF4 end:0x80239230
 	.rodata     start:0x803BF210 end:0x803BF238
@@ -1846,6 +1877,12 @@ MetroidPrime/Enemies/CAmbientAI.cpp:
 	.rodata     start:0x803BF250 end:0x803BF260
 	.data       start:0x803D06B8 end:0x803D0740
 	.sdata2     start:0x80594D48 end:0x80594D64
+
+MetroidPrime/CMemoryCardDriver.cpp:
+	.text       start:0x8023C310 end:0x8023DF0C
+	.rodata     start:0x803BF260 end:0x803BF548
+	.data       start:0x803D0740 end:0x803D0798
+	.sbss       start:0x805906E8 end:0x805906F0
 
 MetroidPrime/CSaveGameScreen.cpp:
 	.text       start:0x8023EB2C end:0x8023F8A0
@@ -2022,6 +2059,13 @@ MetroidPrime/Enemies/CScriptPhazonPool.cpp:
 	.data       start:0x803D2E50 end:0x803D2F58
 	.sdata      start:0x8058FB20 end:0x8058FB28
 	.sdata2     start:0x80595400 end:0x80595428
+
+MetroidPrime/CNESEmulator.cpp:
+	.text       start:0x80280DB4 end:0x80281E4C
+	.rodata     start:0x803C0558 end:0x803C0570
+	.data       start:0x803D2F58 end:0x803D2F88
+	.sbss       start:0x80590730 end:0x80590738
+	.sdata2     start:0x80595428 end:0x80595478
 
 MetroidPrime/Enemies/CPhazonHealingNodule.cpp:
 	.text       start:0x80281E4C end:0x80282BC4
@@ -3964,6 +4008,151 @@ runtime/s_atan.c:
 
 runtime/s_copysign.c:
 	.text       start:0x8037E744 end:0x8037E76C
+
+runtime/s_cos.c:
+	.text       start:0x8037E76C end:0x8037E840
+	.sdata2     start:0x805969E0 end:0x805969E8
+
+runtime/s_floor.c:
+	.text       start:0x8037E840 end:0x8037E988
+	.sdata2     start:0x805969E8 end:0x805969F8
+
+runtime/s_frexp.c:
+	.text       start:0x8037E988 end:0x8037EA14
+	.sdata2     start:0x805969F8 end:0x80596A00
+
+runtime/s_ldexp.c:
+	.text       start:0x8037EA14 end:0x8037EBD8
+	.sdata2     start:0x80596A00 end:0x80596A28
+
+runtime/s_modf.c:
+	.text       start:0x8037EBD8 end:0x8037ECD4
+
+runtime/s_nextafter.c:
+	.text       start:0x8037ECD4 end:0x8037EE58
+
+runtime/s_sin.c:
+	.text       start:0x8037EE58 end:0x8037EF30
+	.sdata2     start:0x80596A28 end:0x80596A30
+
+runtime/s_tan.c:
+	.text       start:0x8037EF30 end:0x8037EFA8
+	.sdata2     start:0x80596A30 end:0x80596A38
+
+runtime/w_acos.c:
+	.text       start:0x8037EFA8 end:0x8037EFC8
+
+runtime/w_asin.c:
+	.text       start:0x8037EFC8 end:0x8037EFE8
+
+runtime/w_atan2.c:
+	.text       start:0x8037EFE8 end:0x8037F008
+
+runtime/w_exp.c:
+	.text       start:0x8037F008 end:0x8037F028
+
+runtime/w_fmod.c:
+	.text       start:0x8037F028 end:0x8037F048
+
+runtime/w_log.c:
+	.text       start:0x8037F048 end:0x8037F068
+
+runtime/w_pow.c:
+	.text       start:0x8037F068 end:0x8037F088
+
+runtime/math_ppc.c:
+	.text       start:0x8037F088 end:0x8037F0AC
+
+musyx/runtime/seq.c:
+	.text       start:0x8037F0AC end:0x8038301C
+	.data       start:0x803DA2E8 end:0x803DA338
+	.bss        start:0x80529B50 end:0x80537390
+	.sbss       start:0x80590FE0 end:0x80591000
+	.sdata2     start:0x80596A38 end:0x80596A58
+
+musyx/runtime/synth.c:
+	.text       start:0x8038301C end:0x80386378
+	.bss        start:0x80537390 end:0x80538978
+	.sbss       start:0x80591000 end:0x80591048
+	.sdata2     start:0x80596A58 end:0x80596A98
+
+musyx/runtime/seq_api.c:
+	.text       start:0x80386378 end:0x8038650C
+
+musyx/runtime/snd_synthapi.c:
+	.text       start:0x8038650C end:0x80386BE0
+
+musyx/runtime/stream.c:
+	.text       start:0x80386BE0 end:0x8038AFB0
+	.bss        start:0x80538978 end:0x8053A278
+	.sbss       start:0x80591048 end:0x80591050
+	.sdata2     start:0x80596A98 end:0x80596AB0
+
+musyx/runtime/synthdata.c:
+	.text       start:0x8038AFB0 end:0x8038CD40
+	.bss        start:0x8053A278 end:0x805448B0
+	.sbss       start:0x80591050 end:0x80591098
+
+musyx/runtime/synthmacros.c:
+	.text       start:0x8038CD40 end:0x803919DC
+	.data       start:0x803DA338 end:0x803DA780
+	.bss        start:0x805448B0 end:0x805448D0
+	.sbss       start:0x80591098 end:0x805910B8
+	.sdata2     start:0x80596AB0 end:0x80596AD8
+
+musyx/runtime/synthvoice.c:
+	.text       start:0x803919DC end:0x8039346C
+	.bss        start:0x805448D0 end:0x80545890
+	.sbss       start:0x805910B8 end:0x805910D0
+
+musyx/runtime/synth_ac.c:
+	.text       start:0x8039346C end:0x8039358C
+	.data       start:0x803DA780 end:0x803DAB80
+	.sdata2     start:0x80596AD8 end:0x80596AF0
+
+musyx/runtime/synth_adsr.c:
+	.text       start:0x8039358C end:0x80393D4C
+	.sdata2     start:0x80596AF0 end:0x80596B18
+
+musyx/runtime/synth_vsamples.c:
+	.text       start:0x80393D4C end:0x80394500
+	.bss        start:0x80545890 end:0x805461E0
+
+musyx/runtime/s_data.c:
+	.text       start:0x80394500 end:0x80395078
+	.bss        start:0x805461E0 end:0x805467E0
+	.sbss       start:0x805910D0 end:0x805910D8
+
+musyx/runtime/hw_dspctrl.c:
+	.text       start:0x80395078 end:0x8039848C
+	.rodata     start:0x803C3400 end:0x803C3458
+	.data       start:0x803DB308 end:0x803DB320
+	.bss        start:0x805467E0 end:0x80546EC0
+	.sbss       start:0x805910D8 end:0x80591118
+
+musyx/runtime/hw_volconv.c:
+	.text       start:0x8039848C end:0x80398B7C
+	.data       start:0x803DB320 end:0x803DB548
+	.sdata2     start:0x80596B18 end:0x80596B50
+
+musyx/runtime/snd3d.c:
+	.text       start:0x80398B7C end:0x8039AF3C
+	.bss        start:0x80546EC0 end:0x80547D10
+	.sbss       start:0x80591118 end:0x80591138
+	.sdata2     start:0x80596B50 end:0x80596BA0
+
+musyx/runtime/snd_init.c:
+	.text       start:0x8039AF3C end:0x8039B088
+
+musyx/runtime/snd_math.c:
+	.text       start:0x8039B088 end:0x8039B448
+	.sdata2     start:0x80596BA0 end:0x80596BC0
+
+musyx/runtime/snd_midictrl.c:
+	.text       start:0x8039B448 end:0x8039D11C
+	.rodata     start:0x803C3458 end:0x803C3568
+	.data       start:0x803DB548 end:0x803DB5D8
+	.bss        start:0x80547D10 end:0x8054E510
 
 runtime/__mem.c:
 	.init       start:0x800033A8 end:0x800034E0
