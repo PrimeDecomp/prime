@@ -176,7 +176,7 @@ void CBodyController::FaceDirection3D(const CVector3f& v0, const CVector3f& v1, 
       if (!close_enough(dot, 1.f)) {
         if (dot < -0.99981f) {
           const CQuaternion rot = CQuaternion::AxisAngle(
-              CUnitVector3f(actor->GetTransform().GetColumn(2), CUnitVector3f::kN_No),
+              CUnitVector3f(actor->GetTransform().GetColumn(kDZ), CUnitVector3f::kN_No),
               CRelAngle::FromDegrees(dt * mTurnSpeed));
           const CQuaternion localRot = CQuaternion::ScalarVector(
               rot.GetScalar(), GetOwner().TransformWorldToLocalRotation(rot.GetVector()));

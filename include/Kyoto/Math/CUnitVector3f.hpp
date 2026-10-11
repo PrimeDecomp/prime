@@ -8,8 +8,10 @@
 class CUnitVector3f : public CVector3f {
 public:
   enum ENormalize {
-    kN_No,
-    kN_Yes,
+    kN_Yes = 1,
+  };
+  enum EDontNormalize {
+    kN_No = 0,
   };
 
   CUnitVector3f(const float x, const float y, const float z) : CVector3f(x, y, z) {}
@@ -25,6 +27,9 @@ public:
       Normalize();
     }
   }
+
+  CUnitVector3f(const CVector3f& vec, const EDontNormalize) : CVector3f(vec) {}
+
   CUnitVector3f(const CVector3f& vec);
   CUnitVector3f operator-() const { return CUnitVector3f(-GetX(), -GetY(), -GetZ()); }
 };
