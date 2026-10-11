@@ -189,7 +189,9 @@ CSaveRegion::CSaveRegion(CMain& main) {
 }
 
 int main(int argc, char** argv) {
+#if VERSION != VERSION_GM8E_48
   DVDSetAutoFatalMessaging(TRUE);
+#endif
   SetErrorHandlers();
   CMain* main = new (&sMainSpace) CMain();
   gpMain->RsMain(argc, argv);
@@ -490,12 +492,13 @@ bool CGameArchitectureSupport::LoadAudio() {
 
   bool loaded = true;
   for (int i = 0; i < sizeof(skPreLoadGroups) / sizeof(skPreLoadGroups[0]); ++i) {
-    CToken& token = *(mPendingAudioGroups.begin() + i);
+    CToken& token = mPendingAudioGroups[i];
     const SAudioGroupInfo& info = skPreLoadGroups[i];
     if (token.IsLocked()) {
       if (token.IsLoaded()) {
         TToken< CAudioGrpSetLoc > group(token);
-        if (!CAudioSys::SysIsGroupSetLoaded(group->GetGroupSetName())) {
+        const int groupLoaded = CAudioSys::SysIsGroupSetLoaded(group->GetGroupSetName());
+        if (!groupLoaded) {
           const CAssetId id = gpResourceFactory->GetResourceIdByName(info.name)->GetId();
           CAudioSys::SysLoadGroupSet(group, group->GetGroupSetName(), id);
           const rstl::string& name = group->GetGroupSetName();
@@ -587,7 +590,7 @@ void CGameGlobalObjects::AddPaksAndFactories() {
     errorWindow.ShowMessage();
     CGraphics::EndScene();
 #if VERSION >= VERSION_GM8E_01
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8E_02
     if (controller.get() != nullptr) {
       controller->Poll();
     }
