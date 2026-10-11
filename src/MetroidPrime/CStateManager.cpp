@@ -64,8 +64,15 @@ void CStateManager::ApplyDamageToWorld(TUniqueId damagerId, const CActor& actor,
 #else
 
 #define CSTATEMANAGER_OUT_OF_LINE_GETPLAYER
-#include "MetroidPrime/Player/CPlayer.hpp"
-#include "MetroidPrime/CStateManager.hpp"
+// This order preserves MWCC template emission and static allocator layout.
+// clang-format off
+#include "Kyoto/TOneStatic.hpp" // IWYU pragma: keep
+#include "rstl/red_black_tree.hpp" // IWYU pragma: keep
+#include "MetroidPrime/CActorLights.hpp" // IWYU pragma: keep
+#include "MetroidPrime/CWorldSaveGameInfo.hpp" // IWYU pragma: keep
+#include "MetroidPrime/Player/CPlayer.hpp" // IWYU pragma: keep
+#include "MetroidPrime/CStateManager.hpp" // IWYU pragma: keep
+// clang-format on
 #undef CSTATEMANAGER_OUT_OF_LINE_GETPLAYER
 
 #include "MetroidPrime/CActor.hpp"
@@ -190,8 +197,6 @@ static const float skBombUnderwaterRanges[2] = {2.f, 4.f};
 static const float skBombAboveWaterRanges[2] = {1.f, 2.f};
 static const float skBombUnderwaterMags[2] = {0.75f, 1.f};
 static const float skBombAboveWaterMags[2] = {0.65f, 0.75f};
-static float nextShake = 0.f;
-static char init = 0;
 
 } // namespace
 
@@ -1004,22 +1009,7 @@ void CStateManager::MoveDoors(float dt) {
     if (actor != nullptr && actor->GetActive() && actor->GetMass() != 0.f) {
       CPatterned* patterned = TCastToPtr< CPatterned >(actor);
       if (patterned != nullptr) {
-        bool doThink = mCinematicPause == false;
-        if (doThink && patterned->GetCurrentAreaId() != kInvalidAreaId) {
-          const TAreaId areaId = patterned->mAreaId;
-          const CGameArea& area = mWorld->GetAreaAlways(areaId);
-          float occTime;
-          if (area.IsPostConstructed()) {
-            occTime = area.GetPostConstructed()->mOccludedTime;
-          } else {
-            occTime = 0.f;
-          }
-          if (occTime > 5.f) {
-            doThink = false;
-          }
-        }
-
-        if (!doThink) {
+        if (!ShouldThink(*patterned)) {
           SendScriptMsgAlways(patterned->GetUniqueId(), kInvalidUniqueId, kSM_SuspendedMove);
           continue;
         }
@@ -1071,6 +1061,23 @@ void CStateManager::CrossTouchActors() {
   }
 }
 
+inline bool CStateManager::ShouldThink(const CEntity& actor) const {
+  bool doThink = mCinematicPause == false;
+  if (doThink && actor.GetCurrentAreaId() != kInvalidAreaId) {
+    const CGameArea& area = mWorld->GetAreaAlways(actor.GetCurrentAreaId());
+    float occTime;
+    if (area.IsPostConstructed()) {
+      occTime = area.GetPostConstructed()->mOccludedTime;
+    } else {
+      occTime = 0.f;
+    }
+    if (occTime > 5.f) {
+      doThink = false;
+    }
+  }
+  return doThink;
+}
+
 void CStateManager::Think(float dt) {
   const float deathTime = mPlayer->GetDeathTime();
   if (deathTime > 0.f) {
@@ -1093,22 +1100,7 @@ void CStateManager::Think(float dt) {
       if (ent != nullptr) {
         CPatterned* patterned = TCastToPtr< CPatterned >(ent);
         if (patterned != nullptr) {
-          bool doThink = mCinematicPause == false;
-          if (doThink && patterned->GetCurrentAreaId() != kInvalidAreaId) {
-            const TAreaId areaId = patterned->mAreaId;
-            const CGameArea& area = mWorld->GetAreaAlways(areaId);
-            float occTime;
-            if (area.IsPostConstructed()) {
-              occTime = area.GetPostConstructed()->mOccludedTime;
-            } else {
-              occTime = 0.f;
-            }
-            if (occTime > 5.f) {
-              doThink = false;
-            }
-          }
-
-          if (!doThink) {
+          if (!ShouldThink(*patterned)) {
             continue;
           }
         }
@@ -1466,6 +1458,15 @@ bool CStateManager::ApplyLocalDamage(const CVector3f& pos, const CVector3f& dir,
   return significant;
 }
 
+static inline CVector3f GetWaterSurfacePosition(const CScriptWater& water, const CVector3f& pos) {
+  return CVector3f(pos.GetX(), pos.GetY(), water.GetTriggerBoundsWR().GetMaxPoint().GetZ());
+}
+
+static inline CPlane GetWaterSurfacePlane(const CScriptWater& water) {
+  return CPlane(water.GetTriggerBoundsWR().GetMaxPoint().GetZ(),
+                CUnitVector3f(0.f, 0.f, 1.f, CUnitVector3f::kN_Yes));
+}
+
 void CStateManager::TestBombHittingWater(const CActor& damager, const CVector3f& pos,
                                          CActor& damagee) {
   int idx = 0;
@@ -1476,10 +1477,8 @@ void CStateManager::TestBombHittingWater(const CActor& damager, const CVector3f&
         idx = 1;
       }
       if (CScriptWater* const water = TCastToPtr< CScriptWater >(damagee)) {
-        CVector3f hitPos(pos.GetX(), pos.GetY(), water->GetTriggerBoundsWR().GetMaxPoint().GetZ());
-        const float depth = -CPlane(water->GetTriggerBoundsWR().GetMaxPoint().GetZ(),
-                                    CUnitVector3f(0.f, 0.f, 1.f, CUnitVector3f::kN_Yes))
-                                 .GetHeight(pos);
+        CVector3f hitPos = GetWaterSurfacePosition(*water, pos);
+        const float depth = -GetWaterSurfacePlane(*water).GetHeight(pos);
 
         if (depth <= skBombUnderwaterRanges[idx] && depth > 0.f) {
           const float rippleFactor = 1.f - depth / skBombUnderwaterRanges[idx];
@@ -1495,7 +1494,7 @@ void CStateManager::TestBombHittingWater(const CActor& damager, const CVector3f&
                                                  rippleFactor, true);
           }
         } else if (depth > -skBombAboveWaterRanges[idx] && depth < 0.f) {
-          const CVector3f down(0.f, 0.f, -1.f);
+          const CVector3f& down = CVector3f(0.f, 0.f, -1.f);
           const CRayCastResult result =
               RayStaticIntersection(pos, down, -depth, CMaterialFilter::GetPassEverything());
 
@@ -2721,6 +2720,9 @@ void CStateManager::ResetEscapeSequenceTimer(float time) {
 float CStateManager::GetEscapeSequenceTimer() const { return mEscapeTimer; }
 
 void CStateManager::UpdateEscapeSequenceTimer(float dt) {
+  static float nextShake;
+  static char init;
+
   const float totalTime = mEscapeTotalTime;
   if (mEscapeTimer > 0.f) {
     mEscapeTimer = rstl::max_val(gkEpsilon, mEscapeTimer - dt);

@@ -501,6 +501,7 @@ private:
   void MovePlatforms(float dt);
   void MoveDoors(float dt);
   void CrossTouchActors();
+  bool ShouldThink(const CEntity& actor) const;
   void Think(float dt);
   void PreThinkObjects(float dt);
   void UpdateRoomAcoustics(TAreaId areaId);
