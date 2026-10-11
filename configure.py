@@ -208,7 +208,9 @@ if args.map:
     # config.ldflags.append("-listclosure") # For Wii linkers
 
 # Build the NES emulator module alongside the main executable.
-config.build_rels = config.version in ("GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02")
+config.build_rels = config.version in (
+    "GM8E01_00", "GM8E01_01", "GM8E01_48", "GM8P01_00", "GM8E01_02", "GM8J01_00"
+)
 
 # Use for any additional files that should cause a re-configure when modified
 config.reconfig_deps = []
@@ -3297,6 +3299,27 @@ if config.version == "GM8P01_00":
                 )
             )
         config.libs.append(Rel(module, objects))
+
+# The Japanese module has its own ROM and TU order.
+if config.version == "GM8J01_00":
+    nes_lib = next(lib for lib in config.libs if lib["lib"] == "NESemuP")
+    config.libs.remove(nes_lib)
+    objects = []
+    for obj in nes_lib["objects"]:
+        options = dict(obj.options)
+        options["source"] = obj.name
+        options["cflags"] = [
+            f"-i {(config.out_path() / 'include' / 'NESJPNemuP').as_posix()}",
+            *options["cflags"],
+        ]
+        objects.append(
+            Object(
+                obj.name != "NESemu/emu.cpp",
+                obj.name.replace("NESemu/", "NESJPNemuP/", 1),
+                **options,
+            )
+        )
+    config.libs.append(Rel("NESJPNemuP", objects))
 
 
 # Optional callback to adjust link order. This can be used to add, remove, or reorder objects.
