@@ -2254,3 +2254,117 @@ Weapons/CCollisionResponseData.cpp:
 	.rodata     start:0x803C0B80 end:0x803C0F48
 	.data       start:0x803D3830 end:0x803D3840
 	.sdata2     start:0x80595740 end:0x80595750
+
+Weapons/IWeaponRenderer.cpp:
+	.text       start:0x8029FDCC end:0x8029FEA4
+	.ctors      start:0x803B53BC end:0x803B53C0
+	.data       start:0x803D3840 end:0x803D3860
+	.bss        start:0x80455770 end:0x80455780
+	.sdata      start:0x8058FBF0 end:0x8058FBF8
+	.sbss       start:0x80590770 end:0x80590778
+
+Weapons/CDecalDataFactory.cpp:
+	.text       start:0x8029FEA4 end:0x802A0E10
+	.rodata     start:0x803C0F48 end:0x803C0F50
+	.data       start:0x803D3860 end:0x803D38E0
+
+Weapons/CDecal.cpp:
+	.text       start:0x802A0E10 end:0x802A1D84
+	.ctors      start:0x803B53C0 end:0x803B53C4
+	.rodata     start:0x803C0F50 end:0x803C0F70
+	.sbss       start:0x80590778 end:0x80590780
+	.sdata2     start:0x80595750 end:0x80595768
+
+Weapons/CWeaponDescription.cpp:
+	.text       start:0x802A1D84 end:0x802A21FC
+	.data       start:0x803D38E0 end:0x803D38F0
+
+Weapons/CDecalDescription.cpp:
+	.text       start:0x802A21FC end:0x802A228C
+
+MetaRender/CCubeRenderer.cpp:
+	.text       start:0x802A228C end:0x802AD008
+	.ctors      start:0x803B53C4 end:0x803B53C8
+	.rodata     start:0x803C0F70 end:0x803C1278
+	.data       start:0x803D38F0 end:0x803D3A10
+	.bss        start:0x80455780 end:0x804606F8
+	.sdata      start:0x8058FBF8 end:0x8058FC48
+	.sbss       start:0x80590780 end:0x805907C8
+	.sdata2     start:0x80595768 end:0x80595860
+	.sbss2      start:0x80596CE0 end:0x80596CF0
+
+GuiSys/CAuiMeter.cpp:
+	.text       start:0x802AD008 end:0x802AD89C
+	.rodata     start:0x803C1278 end:0x803C1280
+	.data       start:0x803D3A10 end:0x803D3A50
+	.sdata      start:0x8058FC50 end:0x8058FC60
+	.sdata2     start:0x80595860 end:0x80595870
+
+GuiSys/CGuiCamera.cpp:
+	.text       start:0x802AD89C end:0x802ADD68
+	.rodata     start:0x803C1280 end:0x803C1288
+	.data       start:0x803D3A50 end:0x803D3A90
+	.sdata2     start:0x80595870 end:0x80595880
+
+GuiSys/CGuiCompoundWidget.cpp:
+	.text       start:0x802ADD68 end:0x802ADF44
+	.data       start:0x803D3A90 end:0x803D3AD0
+
+GuiSys/CGuiFactories.cpp:
+	.text       start:0x802ADF44 end:0x802AE3E4
+	.rodata     start:0x803C1288 end:0x803C1290
+	.data       start:0x803D3AD0 end:0x803D3AE0
+
+GuiSys/CGuiFeeHelper.cpp:
+	.text       start:0x802AE3E4 end:0x802AE4FC
+	.ctors      start:0x803B53C8 end:0x803B53CC
+	.bss        start:0x80587150 end:0x80587288 align:4 common
+	.sbss       start:0x805907C8 end:0x805907D0
+
+GuiSys/CGuiFrame.cpp:
+	.text       start:0x802AE4FC end:0x802AF7B4
+	.rodata     start:0x803C1290 end:0x803C1298
+
+GuiSys/CGuiGroup.cpp:
+	.text       start:0x802AF7B4 end:0x802AF970
+	.rodata     start:0x803C1298 end:0x803C12A0
+	.data       start:0x803D3AE0 end:0x803D3B20
+
+GuiSys/CGuiHeadWidget.cpp:
+	.text       start:0x802AF970 end:0x802AFABC
+	.rodata     start:0x803C12A0 end:0x803C12A8
+	.data       start:0x803D3B20 end:0x803D3B60
+
+GuiSys/CGuiLight.cpp:
+	.text       start:0x802AFABC end:0x802B0048
+	.rodata     start:0x803C12A8 end:0x803C12B0
+	.data       start:0x803D3B60 end:0x803D3BA0
+	.sdata2     start:0x80595880 end:0x80595888
+
+GuiSys/CGuiModel.cpp:
+	.text       start:0x802B0104 end:0x802B07F8
+	.rodata     start:0x803C12B0 end:0x803C12B8
+	.data       start:0x803D3BA0 end:0x803D3BE0
+	.sdata2     start:0x80595888 end:0x80595898
+
+GuiSys/CGuiObject.cpp:
+	.text       start:0x802B07F8 end:0x802B15A4
+	.data       start:0x803D3BE0 end:0x803D3BF8
+	.sdata2     start:0x80595898 end:0x805958A0
+
+GuiSys/CGuiPane.cpp:
+	.text       start:0x802B15A4 end:0x802B1C08
+	.rodata     start:0x803C12B8 end:0x803C12C0
+	.data       start:0x803D3BF8 end:0x803D3C48
+	.sdata2     start:0x805958A0 end:0x805958B8
+
+GuiSys/CGuiSliderGroup.cpp:
+	.text       start:0x802B1C08 end:0x802B2408
+	.rodata     start:0x803C12C0 end:0x803C12C8
+	.data       start:0x803D3C48 end:0x803D3C88
+	.sdata2     start:0x805958B8 end:0x805958C8
+
+GuiSys/CGuiSys.cpp:
+	.text       start:0x802B2408 end:0x802B25D8
+	.rodata     start:0x803C12C8 end:0x803C12D0
+	.sbss       start:0x805907D0 end:0x805907D8

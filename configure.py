@@ -1584,7 +1584,7 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Weapons/CProjectileWeaponDataFactory.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Weapons/CCollisionResponseData.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "Weapons/IWeaponRenderer.cpp"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "Weapons/IWeaponRenderer.cpp"
             ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00", "R3ME01_00"),
@@ -1595,7 +1595,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Weapons/CWeaponDescription.cpp"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Weapons/CDecalDescription.cpp"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "Weapons/CDecalDescription.cpp"
             ),
         ],
     ),
@@ -1622,7 +1622,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "GuiSys/CGuiFactories.cpp",
             ),
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "GuiSys/CGuiFeeHelper.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "GuiSys/CGuiFeeHelper.cpp"),
             Object(NonMatching, "GuiSys/CGuiFrame.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "GuiSys/CGuiGroup.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "GuiSys/CGuiHeadWidget.cpp"),
