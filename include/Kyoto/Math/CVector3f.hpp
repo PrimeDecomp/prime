@@ -75,7 +75,7 @@ public:
   float& operator[](EDimY dim) { return mY; }
   float& operator[](EDimZ dim) { return mZ; }
   const float& operator[](EDimX) const { return mX; }
-  const float& operator[](EDimY) const { return mY; }
+  const float& operator[](EDimY) const { return reinterpret_cast< const float* >(this)[1]; }
   const float& operator[](EDimZ) const { return mZ; }
 
   float& operator[](const int i) { return (&mX)[i]; }

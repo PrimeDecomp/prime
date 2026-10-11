@@ -447,7 +447,7 @@ void CSnakeWeedSwarm::PushBackPoint(CVector3f pos) {
 void CSnakeWeedSwarm::FloodFill(CStateManager& mgr, int count) {
   const int width = GetGridWidth();
   for (int i = 0; i < count && mBoidPositions->size() > 0; ++i) {
-    const CVector3f pos = mBoidPositions->back();
+    CVector3f pos = mBoidPositions->back();
     mBoidPositions->pop_back();
     const CVector2i& grid = CVector2i(GetGridPosition(pos));
     if (PlaceSnakeWeedAtPoint(pos, mgr)) {
