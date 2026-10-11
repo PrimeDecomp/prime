@@ -1164,7 +1164,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/HUD/CHudVisorSelect.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/HUD/CHudDecoInterface.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_48", "GM8E01_02"),
+                MatchingFor(*NTSC_GC_VERSIONS),
                 "MetroidPrime/Weapons/CFlameThrower.cpp",
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/Weapons/CBeamProjectile.cpp"),
