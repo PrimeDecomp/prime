@@ -118,3 +118,108 @@ MetroidPrime/Weapons/CGameProjectile.cpp:
 	.data       start:0x803C4588 end:0x803C45F8
 	.sdata      start:0x8058E330 end:0x8058E358
 	.sdata2     start:0x805917D0 end:0x80591818
+
+MetroidPrime/Player/CPlayerGun.cpp:
+	.text       start:0x8003B1F0 end:0x800449CC
+	.ctors      start:0x803B52C4 end:0x803B52C8
+	.rodata     start:0x803B7718 end:0x803B77C0
+	.data       start:0x803C45F8 end:0x803C46D8
+	.bss        start:0x80443908 end:0x80443940
+	.bss        start:0x80554984 end:0x80554990 align:4 common
+	.sdata      start:0x8058E358 end:0x8058E398
+	.sbss       start:0x80590340 end:0x80590368
+	.sdata2     start:0x80591818 end:0x80591910
+
+MetroidPrime/CEntity.cpp:
+	.text       start:0x80051B04 end:0x80051F88
+	.ctors      start:0x803B52C8 end:0x803B52CC
+	.data       start:0x803C46D8 end:0x803C46F8
+	.bss        start:0x804537E0 end:0x804537F0
+	.bss        start:0x80554990 end:0x805549A0 align:4 common
+
+MetroidPrime/CArchMsgParmInt32.cpp:
+	.text       start:0x80051F88 end:0x80052004
+	.data       start:0x803C46F8 end:0x803C4708
+
+MetroidPrime/CArchMsgParmInt32Int32VoidPtr.cpp:
+	.text       start:0x80052004 end:0x80052088
+	.data       start:0x803C4708 end:0x803C4718
+
+MetroidPrime/CArchMsgParmNull.cpp:
+	.text       start:0x80052088 end:0x80052100
+	.data       start:0x803C4718 end:0x803C4728
+
+MetroidPrime/CArchMsgParmReal32.cpp:
+	.text       start:0x80052100 end:0x8005217C
+	.data       start:0x803C4728 end:0x803C4738
+
+MetroidPrime/Decode.cpp:
+	.text       start:0x8005217C end:0x8005273C
+	.rodata     start:0x803B77F8 end:0x803B7800
+
+MetroidPrime/CIOWinManager.cpp:
+	.text       start:0x8005273C end:0x800535E4
+	.rodata     start:0x803B7800 end:0x803B7840
+
+MetroidPrime/CIOWin.cpp:
+	.text       start:0x800535E4 end:0x800536A4
+	.data       start:0x803C4738 end:0x803C4758
+
+MetroidPrime/CActor.cpp:
+	.text       start:0x800536A4 end:0x800569BC
+	.rodata     start:0x803B7840 end:0x803B7848
+	.data       start:0x803C4758 end:0x803C4868
+	.sdata      start:0x8058E3E0 end:0x8058E3F0
+	.sdata2     start:0x80591A00 end:0x80591A60
+
+MetroidPrime/CWorld.cpp:
+	.text       start:0x800569BC end:0x8005AB2C
+	.ctors      start:0x803B52CC end:0x803B52D0
+	.rodata     start:0x803B7848 end:0x803B7850
+	.data       start:0x803C4868 end:0x803C4930
+	.sbss       start:0x805903A8 end:0x805903B8
+	.sdata2     start:0x80591A60 end:0x80591A78
+
+MetroidPrime/Tweaks/CTweakParticle.cpp:
+	.text       start:0x8005AB2C end:0x8005AC70
+	.data       start:0x803C4930 end:0x803C4940
+
+MetroidPrime/Clamp_int.cpp:
+	.text       start:0x8005AC70 end:0x8005AC9C
+
+MetroidPrime/CArchMsgParmControllerStatus.cpp:
+	.text       start:0x8005AC9C end:0x8005AD1C
+	.data       start:0x803C4940 end:0x803C4950
+
+MetroidPrime/CExplosion.cpp:
+	.text       start:0x8005AD1C end:0x8005B8F4
+	.rodata     start:0x803B7850 end:0x803B7868
+	.data       start:0x803C4950 end:0x803C49C0
+	.sdata2     start:0x80591A78 end:0x80591A90
+
+MetroidPrime/CEffect.cpp:
+	.text       start:0x8005B8F4 end:0x8005B9E8
+	.sdata      start:0x8058E3F0 end:0x8058E3F8
+
+MetroidPrime/Cameras/CGameCamera.cpp:
+	.text       start:0x8005B9E8 end:0x8005E9F4
+	.data       start:0x803C49C0 end:0x803C4A40
+	.sdata      start:0x8058E3FC end:0x8058E408
+	.sdata2     start:0x80591A90 end:0x80591AD8
+
+MetroidPrime/CGameArea.cpp:
+	.text       start:0x8005E9F4 end:0x80064FE0
+	.rodata     start:0x803B7868 end:0x803B7888
+	.data       start:0x803C4A40 end:0x803C4AD0
+	.sdata      start:0x8058E410 end:0x8058E428
+	.sdata2     start:0x80591AD8 end:0x80591B00
+
+MetroidPrime/CAnimationDatabaseGame.cpp:
+	.text       start:0x8006DAEC end:0x8006E3A8
+	.rodata     start:0x803B7B38 end:0x803B7B70
+	.data       start:0x803C4B40 end:0x803C4B60
+
+MetroidPrime/CTransitionDatabaseGame.cpp:
+	.text       start:0x8006E3A8 end:0x8006FCAC
+	.data       start:0x803C4B60 end:0x803C4B70
+	.sbss       start:0x805903C0 end:0x805903D0
