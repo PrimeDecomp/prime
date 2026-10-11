@@ -580,3 +580,112 @@ MetroidPrime/CConsoleOutputWindow.cpp:
 	.sdata      start:0x8058EAC0 end:0x8058EAC8
 	.sbss       start:0x805904D0 end:0x805904D8
 	.sdata2     start:0x805927C0 end:0x805927D0
+
+MetroidPrime/ScriptObjects/CScriptWater.cpp:
+	.text       start:0x800F7C50 end:0x800F954C
+	.rodata     start:0x803B9760 end:0x803B9780
+	.data       start:0x803C98D8 end:0x803C9958
+	.bss        start:0x80453948 end:0x80453960
+	.sdata      start:0x8058EACC end:0x8058EAD8
+	.sbss       start:0x805904D8 end:0x805904E0
+	.sdata2     start:0x805927D0 end:0x80592800
+
+MetroidPrime/Weapons/CWeapon.cpp:
+	.text       start:0x800F954C end:0x800F9AA8
+	.data       start:0x803C9958 end:0x803C99E8
+	.sdata      start:0x8058EAD8 end:0x8058EAE0
+	.sdata2     start:0x80592800 end:0x80592818
+
+MetroidPrime/CDamageVulnerability.cpp:
+	.text       start:0x800F9AA8 end:0x800FA69C
+	.ctors      start:0x803B5304 end:0x803B5308
+	.bss        start:0x80554AF8 end:0x80554DD0 align:4 common
+
+MetroidPrime/CActorLights.cpp:
+	.text       start:0x800FA69C end:0x800FCBA8
+	.rodata     start:0x803B9780 end:0x803B9790
+	.sdata      start:0x8058EAE0 end:0x8058EAF8
+	.sbss       start:0x805904E0 end:0x805904E8
+	.sdata2     start:0x80592818 end:0x80592868
+
+MetroidPrime/Enemies/CPatternedInfo.cpp:
+	.text       start:0x800FCDF4 end:0x800FD0CC
+
+MetroidPrime/CSimpleShadow.cpp:
+	.text       start:0x800FD0CC end:0x800FD96C
+	.sdata      start:0x8058EAF8 end:0x8058EB00
+	.sdata2     start:0x80592868 end:0x80592890
+
+MetroidPrime/CActorParameters.cpp:
+	.text       start:0x800FD96C end:0x800FDFE0
+	.rodata     start:0x803B9790 end:0x803B9798
+	.data       start:0x803C99E8 end:0x803C99F8
+	.sdata      start:0x8058EB00 end:0x8058EB10
+	.sdata2     start:0x80592890 end:0x80592898
+
+MetroidPrime/Enemies/CWarWasp.cpp:
+	.text       start:0x801025A8 end:0x80108500
+	.sdata2     start:0x80592900 end:0x80592974
+
+MetroidPrime/CWorldShadow.cpp:
+	.text       start:0x80108500 end:0x8010920C
+	.rodata     start:0x803B9B48 end:0x803B9B50
+	.sbss       start:0x805904E8 end:0x805904F8
+	.sdata2     start:0x80592990 end:0x805929E8
+
+MetroidPrime/CAudioStateWin.cpp:
+	.text       start:0x8010920C end:0x80109360
+	.rodata     start:0x803B9B50 end:0x803B9B60
+	.data       start:0x803C9D10 end:0x803C9D30
+
+MetroidPrime/Player/CPlayerVisor.cpp:
+	.text       start:0x80109360 end:0x8010C0DC
+	.rodata     start:0x803B9B60 end:0x803B9C40
+	.sdata      start:0x8058EB78 end:0x8058EBA8
+	.sdata2     start:0x805929E8 end:0x80592A68
+
+MetroidPrime/CModelData.cpp:
+	.text       start:0x8010C0DC end:0x8010E340
+	.ctors      start:0x803B5308 end:0x803B530C
+	.bss        start:0x80453960 end:0x80453980
+	.sdata2     start:0x80592A68 end:0x80592A78
+
+MetroidPrime/CDecalManager.cpp:
+	.text       start:0x8010E340 end:0x8010F0B0
+	.ctors      start:0x803B530C end:0x803B5310
+	.bss        start:0x80453980 end:0x80453998
+	.bss        start:0x80554DD0 end:0x80556DDC align:4 common
+	.sbss       start:0x805904F8 end:0x80590510
+	.sdata2     start:0x80592A78 end:0x80592A88
+
+MetroidPrime/ScriptObjects/CScriptSpiderBallWaypoint.cpp:
+	.text       start:0x8010F0B0 end:0x8010FEDC
+	.data       start:0x803C9D30 end:0x803C9DA0
+	.sdata      start:0x8058EBA8 end:0x8058EBB0
+	.sdata2     start:0x80592A88 end:0x80592A98
+
+MetroidPrime/TGameTypes.cpp:
+	.text       start:0x80111710 end:0x80111768
+	.ctors      start:0x803B5310 end:0x803B5314
+	.sbss       start:0x80590518 end:0x80590528
+
+MetroidPrime/CPhysicsActor.cpp:
+	.text       start:0x80111768 end:0x80113854
+	.sdata      start:0x8058EBB8 end:0x8058EBC0
+	.sdata2     start:0x80592AC0 end:0x80592AD8
+
+MetroidPrime/CPhysicsState.cpp:
+	.text       start:0x80113854 end:0x80113940
+
+MetroidPrime/CRipple.cpp:
+	.text       start:0x80113940 end:0x80113B08
+	.sbss       start:0x80590528 end:0x80590530
+	.sdata2     start:0x80592AF0 end:0x80592B38
+
+MetroidPrime/CFluidUVMotion.cpp:
+	.text       start:0x80113B08 end:0x80113F70
+	.sdata2     start:0x80592B38 end:0x80592B60
+
+MetroidPrime/CRippleManager.cpp:
+	.text       start:0x80113F70 end:0x80114438
+	.sdata2     start:0x80592B60 end:0x80592B68
