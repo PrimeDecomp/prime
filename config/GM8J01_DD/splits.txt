@@ -358,3 +358,107 @@ MetroidPrime/ScriptObjects/CScriptSound.cpp:
 	.sdata      start:0x8058E760 end:0x8058E770
 	.sbss       start:0x80590460 end:0x80590478
 	.sdata2     start:0x80592088 end:0x805920B0
+
+MetroidPrime/ScriptObjects/CScriptPlatform.cpp:
+	.text       start:0x800A9D14 end:0x800AD334
+	.rodata     start:0x803B87E8 end:0x803B87F0
+	.data       start:0x803C8CF8 end:0x803C8E00
+	.sdata      start:0x8058E770 end:0x8058E790
+	.sdata2     start:0x805920B0 end:0x805920E8
+
+MetroidPrime/UserNames.cpp:
+	.text       start:0x800AD334 end:0x800AD344
+
+MetroidPrime/ScriptObjects/CScriptGenerator.cpp:
+	.text       start:0x800AD344 end:0x800ADE6C
+	.data       start:0x803C8E00 end:0x803C8E20
+
+MetroidPrime/ScriptObjects/CScriptCameraWaypoint.cpp:
+	.text       start:0x800ADF68 end:0x800AE2A0
+	.data       start:0x803C8E20 end:0x803C8E90
+	.sdata      start:0x8058E790 end:0x8058E798
+
+MetroidPrime/CGameLight.cpp:
+	.text       start:0x800AE2A0 end:0x800AE564
+	.sdata      start:0x8058E798 end:0x8058E7A0
+	.sdata2     start:0x805920F8 end:0x80592100
+
+MetroidPrime/Tweaks/CTweakTargeting.cpp:
+	.text       start:0x800AE564 end:0x800AF344
+	.data       start:0x803C8E90 end:0x803C8EA0
+	.sbss       start:0x80590478 end:0x80590480
+	.sdata2     start:0x80592100 end:0x80592110
+
+MetroidPrime/Tweaks/CTweakAutoMapper.cpp:
+	.text       start:0x800AF344 end:0x800AF894
+	.data       start:0x803C8EA0 end:0x803C8EB0
+	.sdata2     start:0x80592110 end:0x80592118
+
+MetroidPrime/CParticleGenInfoGeneric.cpp:
+	.text       start:0x800AF894 end:0x800B0108
+	.data       start:0x803C8EB0 end:0x803C8F50
+
+MetroidPrime/CParticleGenInfo.cpp:
+	.text       start:0x800B0108 end:0x800B0380
+	.rodata     start:0x803B87F0 end:0x803B8808
+	.sdata2     start:0x80592118 end:0x80592128
+
+MetroidPrime/CParticleDatabase.cpp:
+	.text       start:0x800B0380 end:0x800B41B0
+	.rodata     start:0x803B8808 end:0x803B8828
+	.sdata2     start:0x80592128 end:0x80592138
+
+MetroidPrime/Tweaks/CTweakGunRes.cpp:
+	.text       start:0x800B41B0 end:0x800B4B08
+	.rodata     start:0x803B8828 end:0x803B8850
+	.data       start:0x803C8F50 end:0x803C8F60
+
+MetroidPrime/CTargetReticles.cpp:
+	.text       start:0x800B4B08 end:0x800BA580
+	.ctors      start:0x803B52E4 end:0x803B52E8
+	.rodata     start:0x803B8850 end:0x803B8978
+	.bss        start:0x80453878 end:0x80453898
+	.sdata      start:0x8058E7EC end:0x8058E7F8
+	.sdata2     start:0x80592138 end:0x805921D0
+
+MetroidPrime/CWeaponMgr.cpp:
+	.text       start:0x800BA580 end:0x800BAE24
+	.sdata      start:0x8058E7F8 end:0x8058E800
+
+MetroidPrime/ScriptObjects/CScriptPickup.cpp:
+	.text       start:0x800BAE24 end:0x800BBBBC
+	.rodata     start:0x803B8978 end:0x803B89C8
+	.data       start:0x803C8F60 end:0x803C8FE8
+	.sdata      start:0x8058E800 end:0x8058E808
+	.sdata2     start:0x805921D0 end:0x80592208
+
+MetroidPrime/CDamageInfo.cpp:
+	.text       start:0x800BBBBC end:0x800BBDC0
+	.sdata2     start:0x80592208 end:0x80592218
+
+MetroidPrime/CMemoryDrawEnum.cpp:
+	.text       start:0x800BBDC0 end:0x800BBE74
+	.sbss       start:0x80590480 end:0x80590488
+
+MetroidPrime/ScriptObjects/CScriptDock.cpp:
+	.text       start:0x800BBE74 end:0x800BCDA4
+	.data       start:0x803C8FE8 end:0x803C90F0
+	.sdata      start:0x8058E808 end:0x8058E818
+	.sdata2     start:0x80592218 end:0x80592228
+
+MetroidPrime/ScriptObjects/CScriptCameraHint.cpp:
+	.text       start:0x800BCDA4 end:0x800BD954
+	.data       start:0x803C90F0 end:0x803C9168
+	.sdata      start:0x8058E818 end:0x8058E820
+	.sdata2     start:0x80592228 end:0x80592230
+
+MetroidPrime/ScriptLoader.cpp:
+	.text       start:0x800BD954 end:0x800D26E0
+	.rodata     start:0x803B89C8 end:0x803B8C30
+	.sdata      start:0x8058E830 end:0x8058E858
+	.sdata2     start:0x80592234 end:0x80592290
+
+MetroidPrime/Factories/CStateMachineFactory.cpp:
+	.text       start:0x800D636C end:0x800D6694
+	.rodata     start:0x803B8E80 end:0x803B8E88
+	.data       start:0x803C9168 end:0x803C9178
