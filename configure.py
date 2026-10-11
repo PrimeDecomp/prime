@@ -553,7 +553,7 @@ config.libs = [
                 if version_num >= VERSIONS.index("GM8P01_00")
                 else [],
             ),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "MetroidPrime/CFrontEndUI.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/CFrontEndUI.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CInputGenerator.cpp",
@@ -1164,7 +1164,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/HUD/CHudVisorSelect.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/HUD/CHudDecoInterface.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_02"),
+                MatchingFor("GM8E01_00", "GM8E01_48", "GM8E01_02"),
                 "MetroidPrime/Weapons/CFlameThrower.cpp",
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/Weapons/CBeamProjectile.cpp"),
@@ -1452,7 +1452,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/Cameras/CInterpolationCamera.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/Enemies/CSeedling.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/CGameHintInfo.cpp"),
-            Object(MatchingFor("GM8E01_00"), "MetroidPrime/Enemies/CWallWalker.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/Enemies/CWallWalker.cpp"),
             Object(NonMatching, "MetroidPrime/CErrorOutputWindow.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/CRainSplashGenerator.cpp"),
             Object(
@@ -1728,7 +1728,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Basics/CSWDataDolphin.cpp"
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"), "Kyoto/Basics/RAssertDolphin.cpp"
+                MatchingFor(*NTSC_GC_VERSIONS), "Kyoto/Basics/RAssertDolphin.cpp"
             ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Animation/CAnimation.cpp"
@@ -1979,7 +1979,7 @@ config.libs = [
                 "Kyoto/Text/CSaveableState.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"),
+                MatchingFor(*NTSC_GC_VERSIONS),
                 "Kyoto/Text/CTextExecuteBuffer.cpp",
                 extra_cflags=["-inline", "level=4"] if config.version == "GM8P01_00" else [],
             ),
@@ -2058,7 +2058,7 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Alloc/CMemory.cpp"),
             Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Alloc/IAllocator.cpp"),
             Object(NonMatching, "Kyoto/PVS/CPVSVisOctree.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "Kyoto/PVS/CPVSVisSet.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/PVS/CPVSVisSet.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Particles/CColorElement.cpp",
@@ -2114,7 +2114,7 @@ config.libs = [
             ),
             Object(EquivalentFor("GM8E01_00"), "Kyoto/CFactoryMgr.cpp"),
             Object(NonMatching, "Kyoto/CResFactory.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "Kyoto/CResLoader.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/CResLoader.cpp"),
             Object(
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "rstl/rstl_map.cpp",
@@ -2412,7 +2412,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Input/CRumbleGenerator.cpp",
             ),
-            Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "Kyoto/Audio/CDSPStream.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Audio/CDSPStream.cpp"),
             Object(
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Audio/g721.cpp",

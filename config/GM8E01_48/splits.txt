@@ -70,7 +70,11 @@ MetroidPrime/CArchMsgParmUserInput.cpp:
 MetroidPrime/CFrontEndUI.cpp:
 	.text       start:0x8001BB60 end:0x8002304C
 	.ctors      start:0x803CB2D4 end:0x803CB2D8
-	.sdata2     start:0x805A9CB8 end:0x805A9D00
+	.rodata     start:0x803CC640 end:0x803CCBA0
+	.data       start:0x803D9920 end:0x803D9A28
+	.sdata      start:0x805A69B8 end:0x805A6A00
+	.sbss       start:0x805A8990 end:0x805A8998
+	.sdata2     start:0x805A9C88 end:0x805A9D00
 
 MetroidPrime/CInputGenerator.cpp:
 	.text       start:0x8002304C end:0x80023598
@@ -1193,8 +1197,10 @@ MetroidPrime/HUD/CHudDecoInterface.cpp:
 MetroidPrime/Weapons/CFlameThrower.cpp:
 	.text       start:0x80197530 end:0x80198E54
 	.ctors      start:0x803CB364 end:0x803CB368
+	.rodata     start:0x803D1310 end:0x803D1330
+	.data       start:0x803E46D8 end:0x803E4748
 	.bss        start:0x80571CEC end:0x80571CF8 align:4 common
-	.sdata2     start:0x805AC0B0 end:0x805AC0C8
+	.sdata2     start:0x805AC0A0 end:0x805AC0C8
 
 MetroidPrime/Weapons/CBeamProjectile.cpp:
 	.text       start:0x80198E54 end:0x80199908
@@ -1816,6 +1822,8 @@ MetroidPrime/CGameHintInfo.cpp:
 
 MetroidPrime/Enemies/CWallWalker.cpp:
 	.text       start:0x80268678 end:0x80269584
+	.rodata     start:0x803D54D8 end:0x803D54F0
+	.data       start:0x803EA1F0 end:0x803EA4C0
 	.sdata2     start:0x805AD4F0 end:0x805AD520
 
 MetroidPrime/CErrorOutputWindow.cpp:
@@ -2286,6 +2294,10 @@ Kyoto/Basics/CSWDataDolphin.cpp:
 
 Kyoto/Basics/RAssertDolphin.cpp:
 	.text       start:0x802D6968 end:0x802D6EF4
+	.rodata     start:0x803D6BC8 end:0x803D6E38
+	.bss        start:0x80479480 end:0x80479880
+	.sbss       start:0x805A8F28 end:0x805A8F30
+	.sdata2     start:0x805ADF78 end:0x805ADF88
 
 Kyoto/Animation/CAnimation.cpp:
 	.text       start:0x802D6EF4 end:0x802D6F60
@@ -2614,6 +2626,7 @@ Kyoto/Text/CSaveableState.cpp:
 
 Kyoto/Text/CTextExecuteBuffer.cpp:
 	.text       start:0x80301CA0 end:0x803041D4
+	.rodata     start:0x803D6FA0 end:0x803D6FA8
 	.sdata2     start:0x805AE148 end:0x805AE150
 
 Kyoto/Text/CTextInstruction.cpp:
