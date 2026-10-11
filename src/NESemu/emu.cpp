@@ -473,9 +473,10 @@ static inline u32 ksNesReadRomBit(ksNesRomBitStream* stream, u32 value) {
     stream->byte = *stream->data++;
     stream->bitsLeft = 8;
   }
-  value <<= 1;
   if (stream->byte & 0x80) {
-    value |= 1;
+    value = (value << 1) | 1;
+  } else {
+    value = value << 1;
   }
   stream->byte <<= 1;
   --stream->bitsLeft;
@@ -483,9 +484,9 @@ static inline u32 ksNesReadRomBit(ksNesRomBitStream* stream, u32 value) {
 }
 
 static inline u32 ksNesReadRomBits(ksNesRomBitStream* stream, u32 count) {
-  u32 i = 0;
+  u32 i;
   u32 value = 0;
-  for (; i < count; ++i) {
+  for (i = 0; i < count; ++i) {
     value = ksNesReadRomBit(stream, value);
   }
   return value;
@@ -556,27 +557,13 @@ static inline void ksNesDrawMakeOBJIndTex(ksNesCommonWorkObj* wp) {
 }
 
 void ksNesConvertChrToI8(ksNesCommonWorkObj* wp, const u8* data, u32 flags) {
-  u32 idx;
   u32 bufSize;
-  u32 b;
-  u32 a;
-  u32 c;
-  u32 stride;
-  u32 abc;
   u32 i;
   u32 j;
   u32 d;
   u32 mask;
 
   bufSize = (wp->chr_to_i8_buf_size > CHR_TO_I8_BUF_SIZE ? 0x100 : wp->chr_to_i8_buf_size >> 12);
-  stride = bufSize >> 3;
-  idx = (flags >> 9) & 0x1f;
-
-  a = (flags & 0x40) << 5;
-  b = (flags >> 4) & 0x18;
-  c = (flags & 0x3f) << 5;
-  abc = c + a + b;
-
   for (i = 0; i < 8; i++) {
     if (i & 1) {
       d = (data[7 - (i >> 1)]) | (data[0xf - (i >> 1)] << 8);
@@ -586,11 +573,17 @@ void ksNesConvertChrToI8(ksNesCommonWorkObj* wp, const u8* data, u32 flags) {
 
     mask = 0x8080;
     for (j = 0; j < 8; j++) {
-      wp->chr_to_u8_bufp[abc + (flags & 0x3e00) * 8 + (i * stride) * 0x1000 + j] =
+      wp->chr_to_u8_bufp[((flags & 0x40) << 5) + ((flags >> 4) & 0x18) +
+                        ((flags & 0x3f) << 5) + ((flags >> 9) & 0x1f) * 0x1000 +
+                        (i * (bufSize >> 3)) * 0x1000 + j] =
           (((d & mask) & 0xff00) != 0 ? 2 : 0) | (((d & mask) & 0x00FF) != 0 ? 1 : 0);
       mask >>= 1;
     }
-    DCStoreRangeNoSync(wp->chr_to_u8_bufp + (((idx) + (i * stride)) * 0x1000 + b + a + c), 0x20);
+    DCStoreRangeNoSync(wp->chr_to_u8_bufp +
+                          ((((flags >> 9) & 0x1f) + (i * (bufSize >> 3))) * 0x1000 +
+                           ((flags >> 4) & 0x18) + ((flags & 0x40) << 5) +
+                           ((flags & 0x3f) << 5)),
+                      0x20);
   }
 }
 
@@ -799,7 +792,11 @@ int ksNesReset(ksNesCommonWorkObj* wp, ksNesStateObj* sp, u32 flags, u8* chrramp
       (reinterpret_cast< uintptr_t >(&wp->draw_ctx.ppu_scanline_regs) & 0x1f) ||
       (reinterpret_cast< uintptr_t >(sp->ppu_chr_banks) & 3) ||
       (reinterpret_cast< uintptr_t >(&wp->draw_ctx.post_process_lut) & 0x1f)) {
+#if VERSION >= VERSION_GM8P_00
+    return 0x545;
+#else
     return 0x52d;
+#endif
   }
 
   if ((flags & 0x40) == 0) {
@@ -836,7 +833,11 @@ int ksNesReset(ksNesCommonWorkObj* wp, ksNesStateObj* sp, u32 flags, u8* chrramp
     sp->ppu_chr_bank_pointers[i] = &sp->ppu_nametable_ram[table[i & 15] * 256];
   }
   sp->nesromp = wp->nesromp;
+#if defined(NES_PAL_50HZ)
+  ksNesDecodeRom(kRomData, sp->nesromp, 0x20000, 0xad, 0x1fffc, 0xacff);
+#else
   ksNesDecodeRom(kRomData, sp->nesromp, 0x20000, 0xe9, 0x1fffc, 0xa663);
+#endif
   wp->noise_bufp = sp->nesromp + 0x1bf00;
 
   if (sp->nesromp[0] == 1) {
@@ -874,7 +875,11 @@ int ksNesReset(ksNesCommonWorkObj* wp, ksNesStateObj* sp, u32 flags, u8* chrramp
   memset(wp->chr_to_u8_bufp, 0, wp->chr_to_i8_buf_size);
 
   if (chrramp == nullptr) {
+#if VERSION >= VERSION_GM8P_00
+    return 0x609;
+#else
     return 0x5f1;
+#endif
   }
   sp->chr_ram_write_enable = TRUE;
   sp->chrramp = chrramp;
@@ -1014,7 +1019,9 @@ asm u32 ksNesResetAsm(register ksNesCommonWorkObj* work, register ksNesStateObj*
     blt init_mapper
 
 mapper_error:
-#if VERSION == VERSION_GM8E_48
+#if VERSION >= VERSION_GM8P_00
+    li r3, 0x7b5
+#elif VERSION == VERSION_GM8E_48
     li r3, 0x79d
 #else
     li r3, 0x788
@@ -3696,20 +3703,26 @@ void ksNesDrawOBJ(ksNesCommonWorkObj* wp, ksNesStateObj* state, u32 sprite_prior
   GXTexObj indirectTex;
   u32 i;
   u32 j;
+  u32 t1_2, y1;
+  u32 s0, t1, y0;
+  u32 t0;
+  u32 color;
+  u32 x0, x1;
+  u32 s1, s1_2;
+  u32 oam_attrs;
+  u32 tile_index, flags2;
+  u8* quad_pairs;
 
   if (sprite_priority_pass == 0) {
-    u32 i;
-    u32 j;
-
-    for (i = 0; i < KS_NES_SCANLINE_SPRITE_OVERDRAW_COUNT; i++) {
-      wp->draw_ctx.sprite_scanline_limit[i] =
-          i < KS_NES_SCANLINE_COUNT
+    for (j = 0; j < KS_NES_SCANLINE_SPRITE_OVERDRAW_COUNT; j++) {
+      wp->draw_ctx.sprite_scanline_limit[j] =
+          j < KS_NES_SCANLINE_COUNT
               ? ((state->frame_flags & KS_NES_FLAG_NINES_OVER_MODE) ? 255
                                                                     : KS_NES_SPRITES_PER_SCANLINE)
               : 0;
 
-      if ((wp->draw_ctx.ppu_scanline_regs[i].ppumask_flags & KS_NES_PPU_MASK_SHOW_SPRITES) == 0) {
-        wp->draw_ctx.sprite_scanline_limit[i] = 0;
+      if ((wp->draw_ctx.ppu_scanline_regs[j].ppumask_flags & KS_NES_PPU_MASK_SHOW_SPRITES) == 0) {
+        wp->draw_ctx.sprite_scanline_limit[j] = 0;
       }
     }
 
@@ -3831,28 +3844,19 @@ void ksNesDrawOBJ(ksNesCommonWorkObj* wp, ksNesStateObj* state, u32 sprite_prior
   GXSetTevAlphaOp(GX_TEVSTAGE2, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE, GX_TEVPREV);
   GXSetAlphaCompare(GX_GREATER, 0, GX_AOP_AND, GX_ALWAYS, 0);
 
-  u32 t1_2, y1;
-  u32 s0, t1, y0, color;
-  u32 t0;
-  u32 x0, x1;
-  u32 s1, s1_2;
-  u32 oam_attrs;
-  u32 tile_index, flags2;
-  u8* quad_pairs;
-
-  u32 vertexCount = 0;
-  i = vertexCount;
-  for (; i < sizeof(wp->draw_ctx.OAMTable); i += sizeof(ksNesOAMEntry)) {
+  i = 0;
+  j = i;
+  for (; j < sizeof(wp->draw_ctx.OAMTable); j += sizeof(ksNesOAMEntry)) {
 
     if (sprite_priority_pass == 0 ||
-        (wp->draw_ctx.OAMTable[i + 2] & KS_NES_OAM_ATTR_PRIORITY) != 0) {
-      vertexCount += wp->draw_ctx.sprite_vertex_count[i >> 2];
+        (wp->draw_ctx.OAMTable[j + 2] & KS_NES_OAM_ATTR_PRIORITY) != 0) {
+      i += wp->draw_ctx.sprite_vertex_count[j >> 2];
     }
   }
 
   u32 idx = sizeof(wp->draw_ctx.OAMTable) - sizeof(ksNesOAMEntry);
   u32 idx2 = KS_NES_OAM_TABLE_SIZE - 1;
-  GXBegin(GX_QUADS, GX_VTXFMT0, vertexCount);
+  GXBegin(GX_QUADS, GX_VTXFMT0, i);
   while (TRUE) {
 
     quad_pairs = wp->draw_ctx.sprite_quad_data[idx2].y_and_v_pairs;

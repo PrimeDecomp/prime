@@ -1990,11 +1990,10 @@ int Sound_Make_HVC(s32 count, s16* samples) {
       z = 0;
       break;
     }
-    p = static_cast< s16 >(p);
-    e = static_cast< s16 >(e);
     int sample = static_cast< s16 >(a) + static_cast< s16 >(b) - static_cast< s16 >(c) -
-                 static_cast< s16 >(d) + p + e - static_cast< u16 >(f) + static_cast< u16 >(x) +
-                 static_cast< u16 >(y) - static_cast< u16 >(z);
+                 static_cast< s16 >(d) + static_cast< s16 >(e);
+    sample = sample + static_cast< s16 >(p) - static_cast< u16 >(f) + static_cast< u16 >(x) +
+             static_cast< u16 >(y) - static_cast< u16 >(z);
     if (sample >= 0x7FFF) {
       sample = 0x7FFF;
     } else if (sample <= -0x7FFF) {
@@ -2171,26 +2170,11 @@ u8 Sound_Read(u16 reg_addr) {
     return z << 2 | y << 1 | (x);
   } else if (reg_addr == 0x4015) {
 #if VERSION == VERSION_GM8P_00
-    u8 a = SoundA._00;
-    if (DUMMY_ACTIVE[0]) {
-      a = DUMMY_ACTIVE[0] - 1;
-    }
-    u8 b = SoundB._00;
-    if (DUMMY_ACTIVE[1]) {
-      b = DUMMY_ACTIVE[1] - 1;
-    }
-    u8 c = SoundC._00;
-    if (DUMMY_ACTIVE[2]) {
-      c = DUMMY_ACTIVE[2] - 1;
-    }
-    u8 d = SoundD._00;
-    if (DUMMY_ACTIVE[3]) {
-      d = DUMMY_ACTIVE[3] - 1;
-    }
-    u8 e = SoundE._00;
-    if (DUMMY_ACTIVE[4]) {
-      e = DUMMY_ACTIVE[4] - 1;
-    }
+    u8 a = DUMMY_ACTIVE[0] ? static_cast< u8 >(DUMMY_ACTIVE[0] - 1) : SoundA._00;
+    u8 b = DUMMY_ACTIVE[1] ? static_cast< u8 >(DUMMY_ACTIVE[1] - 1) : SoundB._00;
+    u8 c = DUMMY_ACTIVE[2] ? static_cast< u8 >(DUMMY_ACTIVE[2] - 1) : SoundC._00;
+    u8 d = DUMMY_ACTIVE[3] ? static_cast< u8 >(DUMMY_ACTIVE[3] - 1) : SoundD._00;
+    u8 e = DUMMY_ACTIVE[4] ? static_cast< u8 >(DUMMY_ACTIVE[4] - 1) : SoundE._00;
 #else
     u8 a, b, c, d, e;
     if (DUMMY_ACTIVE[0]) {
