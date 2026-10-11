@@ -35,6 +35,7 @@ VERSIONS = [
     "GM8E01_48",  # mp-v1.097 NTSC-K
     "GM8E01_02",  # mp-v1.111 NTSC-U
     "GM8P01_00",  # mp-v1.110 PAL
+    "GM8J01_DD",  # mp-v1.111 NTSC-J DEMO
     "GM8J01_00",  # mp-v1.111 NTSC-J
     "R3IJ01_00",  # mp-v3.570 New Play Controls
     "R3ME01_00",  # mp-v3.593 Trilogy NTSC
@@ -47,7 +48,8 @@ RSTL_VERSIONS = {
     "GM8E01_48": 3,
     "GM8E01_02": 4,
     "GM8P01_00": 5,
-    "GM8J01_00": 6,
+    "GM8J01_DD": 6,
+    "GM8J01_00": 7,
     "R3IJ01_00": 30,
     "R3ME01_00": 40,
     "R3MP01_00": 41,
@@ -501,7 +503,7 @@ config.libs = [
         "TRK_MINNOW_DOLPHIN",
         [
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "MetroTRK/nubinit.c"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "MetroTRK/nubinit.c"
             ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
@@ -1484,7 +1486,7 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/Enemies/CPhazonHealingNodule.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/Player/CMorphBallShadow.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00", "R3ME01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00", "R3ME01_00"),
                 "MetroidPrime/Player/CPlayerStuckTracker.cpp",
                 extra_cflags=['-pragma "inline_max_size(250)"']
                 if VERSIONS.index("GM8P01_00") <= version_num < VERSIONS.index("R3IJ01_00")
@@ -1516,7 +1518,7 @@ config.libs = [
                 "MetroidPrime/Enemies/CPoisonProjectile.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "MetroidPrime/Enemies/SPositionHistory.cpp",
             ),
             Object(Equivalent, "dummy.c"),
@@ -1528,18 +1530,18 @@ config.libs = [
         [
             Object(MatchingFor(*NTSC_GC_VERSIONS), "WorldFormat/CAreaOctTree_Tests.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "WorldFormat/CCollisionSurface.cpp",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "WorldFormat/CMetroidModelInstance.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "WorldFormat/CAreaBspTree.cpp"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "WorldFormat/CAreaBspTree.cpp"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "WorldFormat/CAreaOctTree.cpp",
                 extra_cflags=['-pragma "inline_max_size(250)"']
                 if version_num >= VERSIONS.index("GM8P01_00")
@@ -1562,7 +1564,7 @@ config.libs = [
             ),
             Object(NonMatching, "WorldFormat/CPVSAreaSet.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "WorldFormat/CAreaRenderOctTree.cpp"
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "WorldFormat/CAreaRenderOctTree.cpp"
             ),
         ],
     ),
@@ -1582,7 +1584,7 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Weapons/CProjectileWeaponDataFactory.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Weapons/CCollisionResponseData.cpp"),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "Weapons/IWeaponRenderer.cpp"
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "Weapons/IWeaponRenderer.cpp"
             ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00", "R3ME01_00"),
@@ -1593,7 +1595,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Weapons/CWeaponDescription.cpp"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Weapons/CDecalDescription.cpp"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "Weapons/CDecalDescription.cpp"
             ),
         ],
     ),
@@ -1620,7 +1622,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "GuiSys/CGuiFactories.cpp",
             ),
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "GuiSys/CGuiFeeHelper.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "GuiSys/CGuiFeeHelper.cpp"),
             Object(NonMatching, "GuiSys/CGuiFrame.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "GuiSys/CGuiGroup.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "GuiSys/CGuiHeadWidget.cpp"),
@@ -1647,7 +1649,7 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "GuiSys/CGuiWidget.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "GuiSys/CGuiWidgetIdDB.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "GuiSys/CGuiWidgetDrawParms.cpp"
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "GuiSys/CGuiWidgetDrawParms.cpp"
             ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
@@ -1655,7 +1657,7 @@ config.libs = [
             ),
             Object(EquivalentFor("GM8E01_00"), "GuiSys/CAuiImagePane.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "GuiSys/CRepeatState.cpp",
             ),
         ],
@@ -1669,11 +1671,11 @@ config.libs = [
                 "Collision/CCollidableAABox.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Collision/CCollidableCollisionSurface.cpp",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Collision/CCollisionInfo.cpp",
                 cflags=cflags_retro,
             ),
@@ -1685,7 +1687,7 @@ config.libs = [
                 "Collision/CCollisionPrimitive.cpp",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Collision/CMaterialList.cpp"
             ),
             Object(EquivalentFor("GM8E01_00"), "Collision/CollisionUtil.cpp"),
@@ -1694,7 +1696,7 @@ config.libs = [
                 "Collision/CCollidableSphere.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Collision/CMaterialFilter.cpp",
             ),
             Object(
@@ -1702,7 +1704,7 @@ config.libs = [
                 "Collision/COBBox.cpp",
                 cflags=cflags_retro,
             ),
-            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Collision/CMRay.cpp"),
+            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "Collision/CMRay.cpp"),
         ],
     ),
     KyotoLib(
@@ -1714,10 +1716,10 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Basics/CStopwatch.cpp"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Basics/CBasicsDolphin.cpp"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "Kyoto/Basics/CBasicsDolphin.cpp"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Alloc/CCallStackDolphin.cpp",
             ),
             Object(
@@ -1771,7 +1773,7 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Animation/CMetaTransMetaAnim.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "Kyoto/Animation/CMetaTransPhaseTrans.cpp"),
             Object(
-                MatchingFor("GM8EAB_00", "GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", "GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Animation/CMetaTransSnap.cpp",
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
@@ -1781,7 +1783,7 @@ config.libs = [
                 "Kyoto/Animation/CPASAnimInfo.cpp",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Animation/CPASAnimParm.cpp",
             ),
             Object(
@@ -1793,7 +1795,7 @@ config.libs = [
                 "Kyoto/Animation/CPASDatabase.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Animation/CPASParmInfo.cpp",
             ),
             Object(
@@ -1807,7 +1809,7 @@ config.libs = [
                    ),
                    ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Animation/CTransition.cpp"
             ),
             Object(
@@ -1816,7 +1818,7 @@ config.libs = [
             ),
             Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Animation/CTreeUtils.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Animation/IMetaAnim.cpp"),
-            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                    "Kyoto/Audio/CSfxHandle.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
@@ -1888,7 +1890,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Animation/CBoolPOINode.cpp",
             ),
-            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                    "Kyoto/Animation/CCharAnimMemoryMetrics.cpp"),
             Object(NonMatching, "Kyoto/Animation/CCharLayoutInfo.cpp"),
             Object(
@@ -1899,7 +1901,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Animation/CFBStreamedCompression.cpp",
             ),
-            Object(Matching, "Kyoto/Animation/CHierarchyPoseBuilder.cpp"),
+            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00", "R3IJ01_00", "R3ME01_00", "R3MP01_00"), "Kyoto/Animation/CHierarchyPoseBuilder.cpp"),
             Object(
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Animation/CInt32POINode.cpp",
@@ -1987,18 +1989,18 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Text/CTextInstruction.cpp"
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "Kyoto/Text/CTextParser.cpp"),
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Text/CWordBreakTables.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "Kyoto/Text/CWordBreakTables.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Text/CWordInstruction.cpp"),
             Object(
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Text/CBlockInstruction.cpp",
             ),
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Text/CFont.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "Kyoto/Text/CFont.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Graphics/CLight.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "Kyoto/Graphics/CCubeModel.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Graphics/CGX.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Graphics/CTevCombiners.cpp",
             ),
             Object(
@@ -2019,7 +2021,7 @@ config.libs = [
                 "Kyoto/Graphics/DolphinCTexture.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Math/CloseEnough.cpp",
             ),
             Object(
@@ -2028,7 +2030,7 @@ config.libs = [
             ),
             Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Math/CMatrix3f.cpp"),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Math/CMatrix4f.cpp",
             ),
             Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Math/CNUQuaternion.cpp"),
@@ -2036,29 +2038,29 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Math/CQuaternion.cpp",
             ),
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/CRandom16.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "Kyoto/CRandom16.cpp"),
             Object(NonMatching, "Kyoto/Math/CTransform4f.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Math/CUnitVector3f.cpp",
             ),
             Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Math/CVector2f.cpp"),
-            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                    "Kyoto/Math/CVector2i.cpp"),
             Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Math/CVector3d.cpp"),
             Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Math/CVector3f.cpp"),
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                    "Kyoto/Math/CVector3i.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Math/RMathUtils.cpp"),
-            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/CCrc32.cpp"),
+            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "Kyoto/CCrc32.cpp"),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Alloc/CCircularBuffer.cpp"
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Alloc/CMemory.cpp"),
-            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Alloc/IAllocator.cpp"),
+            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "Kyoto/Alloc/IAllocator.cpp"),
             Object(NonMatching, "Kyoto/PVS/CPVSVisOctree.cpp"),
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/PVS/CPVSVisSet.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "Kyoto/PVS/CPVSVisSet.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Particles/CColorElement.cpp",
@@ -2078,7 +2080,7 @@ config.libs = [
                 "Kyoto/Particles/CParticleGen.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Particles/CParticleGlobals.cpp",
             ),
             Object(NonMatching, "Kyoto/Particles/CParticleSwoosh.cpp"),
@@ -2097,11 +2099,11 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Particles/CVectorElement.cpp",
             ),
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                    "Kyoto/Particles/CWarp.cpp"),
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                    "Kyoto/Math/CPlane.cpp"),
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                    "Kyoto/Math/CSphere.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
@@ -2116,12 +2118,12 @@ config.libs = [
             Object(NonMatching, "Kyoto/CResFactory.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/CResLoader.cpp"),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "rstl/rstl_map.cpp",
                 src_dir="extern/rstl/src",
             ),
             Object(
-                MatchingFor("GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "rstl/rstl_allocator.cpp",
                 src_dir="extern/rstl/src",
             ),
@@ -2131,29 +2133,29 @@ config.libs = [
                 src_dir="extern/rstl/src",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "rstl/CStringExtras.cpp",
                 src_dir="extern/rstl/src",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "rstl/RstlExtras.cpp",
                 src_dir="extern/rstl/src",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00", "R3ME01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00", "R3ME01_00"),
                 "Kyoto/Streams/CInputStream.cpp",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Streams/CMemoryInStream.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Streams/CMemoryStreamOut.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Streams/COutputStream.cpp",
             ),
             Object(
@@ -2165,20 +2167,20 @@ config.libs = [
                 "Kyoto/Streams/CZipOutputStream.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Streams/CZipSupport.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/CFactoryStore.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/CObjectReference.cpp",
             ),
             Object(NonMatching, "Kyoto/CSimplePool.cpp"),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/CToken.cpp"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "Kyoto/CToken.cpp"
             ),
             Object(
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/IObj.cpp"
@@ -2195,7 +2197,7 @@ config.libs = [
         "shift_jis": False,
         "objects": [
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "zlib-1.1.3/adler32.c",
             ),
             Object(
@@ -2219,11 +2221,11 @@ config.libs = [
                 "zlib-1.1.3/inflate.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "zlib-1.1.3/inftrees.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "zlib-1.1.3/infutil.c",
             ),
             Object(
@@ -2246,15 +2248,15 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Math/CFrustumPlanes.cpp"),
             Object(NonMatching, "Kyoto/Graphics/CCubeMaterial.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Graphics/CCubeSurface.cpp",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Animation/CCharAnimTime.cpp",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Animation/CSegIdList.cpp",
             ),
             Object(
@@ -2276,7 +2278,7 @@ config.libs = [
                 "Kyoto/Input/CRevolutionMotionProcessor.cpp",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Graphics/CColor.cpp",
             ),
             Object(NonMatching, "Kyoto/Audio/DolphinCAudioGroupSet.cpp"),
@@ -2299,7 +2301,7 @@ config.libs = [
                 "Kyoto/Alloc/CMediumAllocPool.cpp",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Alloc/CSmallAllocPool.cpp",
             ),
             Object(
@@ -2328,20 +2330,20 @@ config.libs = [
                 "Kyoto/Particles/CEmitterElement.cpp",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Particles/CEffectComponent.cpp",
             ),
-            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                    "Kyoto/Particles/CParticleData.cpp"),
             Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                    "Kyoto/Animation/CVertexMorphEffect.cpp"),
             Object(MatchingFor("GM8P01_00", "GM8J01_00"), "Kyoto/Animation/CSkinnedModelWithAvgNormals.cpp"),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/CTimeProvider.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/CARAMToken.cpp",
             ),
             Object(
@@ -2367,7 +2369,7 @@ config.libs = [
             ),
             Object(NonMatching, "Kyoto/Graphics/CCubeMoviePlayer.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Animation/CAdditiveAnimPlayback.cpp",
             ),
             Object(
@@ -2382,30 +2384,30 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                    "Kyoto/Audio/CDSPStreamManager.cpp"),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/CDependencyGroup.cpp",
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                    "Kyoto/Audio/CStreamAudioManager.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Animation/CHalfTransition.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Particles/CElectricDescription.cpp"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Particles/CSwooshDescription.cpp",
             ),
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                    "Kyoto/Particles/CGenDescription.cpp"),
             Object(NonMatching, "Kyoto/CPakFile.cpp"),
             Object(NonMatching, "Kyoto/Animation/CPoseAsTransformsVariableSize.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Input/CRumbleVoice.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/Input/RumbleAdsr.cpp",
             ),
             Object(
@@ -2428,7 +2430,7 @@ config.libs = [
     DolphinLib(
         "ai",
         [
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "dolphin/ai.c"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "dolphin/ai.c"),
         ],
     ),
     DolphinLib(
@@ -2438,7 +2440,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "dolphin/ar/ar.c"
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "dolphin/ar/arq.c"
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "dolphin/ar/arq.c"
             ),
         ],
     ),
@@ -2446,7 +2448,7 @@ config.libs = [
         "base",
         [
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/PPCArch.c"
             ),
         ],
@@ -2454,7 +2456,7 @@ config.libs = [
     DolphinLib(
         "db",
         [
-            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                    "dolphin/db.c"),
         ],
     ),
@@ -2465,11 +2467,11 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "dolphin/dsp/dsp.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/dsp/dsp_debug.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/dsp/dsp_task.c",
             ),
         ],
@@ -2490,11 +2492,11 @@ config.libs = [
                 "dolphin/dvd/dvd.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/dvd/dvdqueue.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/dvd/dvderror.c",
             ),
             Object(
@@ -2506,7 +2508,7 @@ config.libs = [
                 "dolphin/dvd/dvdfatal.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/dvd/fstload.c",
             ),
         ],
@@ -2548,11 +2550,11 @@ config.libs = [
                 "dolphin/gx/GXTexture.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/gx/GXBump.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/gx/GXTev.c",
             ),
             Object(
@@ -2561,11 +2563,11 @@ config.libs = [
                 extra_cflags=["-fp_contract off"],
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/gx/GXStubs.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/gx/GXDisplayList.c",
             ),
             Object(
@@ -2574,7 +2576,7 @@ config.libs = [
                 extra_cflags=["-fp_contract off"],
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/gx/GXPerf.c",
             ),
         ],
@@ -2592,18 +2594,18 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "dolphin/mtx/mtx.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/mtx/mtxvec.c",
             ),
             Object(NonMatching, "dolphin/mtx/mtxstack.c"),
             Object(NonMatching, "dolphin/mtx/mtx44vec.c"),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/mtx/mtx44.c",
             ),
             Object(Matching, "dolphin/mtx/vec.c"),
             Object(Equivalent, "dolphin/mtx/quat.c"),
-            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                    "dolphin/mtx/psmtx.c"),
         ],
     },
@@ -2615,7 +2617,7 @@ config.libs = [
                 "dolphin/os/__start.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/os/OS.c",
             ),
             Object(
@@ -2623,15 +2625,15 @@ config.libs = [
                 "dolphin/os/OSAlarm.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/os/OSArena.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/os/OSAudioSystem.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/os/OSCache.c",
             ),
             Object(
@@ -2639,7 +2641,7 @@ config.libs = [
                 "dolphin/os/OSContext.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/os/OSError.c",
             ),
             Object(
@@ -2647,15 +2649,15 @@ config.libs = [
                 "dolphin/os/OSFatal.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/os/OSFont.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/os/OSInterrupt.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/os/OSLink.c",
             ),
             Object(
@@ -2663,7 +2665,7 @@ config.libs = [
                 "dolphin/os/OSMessage.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/os/OSMemory.c",
             ),
             Object(
@@ -2675,7 +2677,7 @@ config.libs = [
                 "dolphin/os/OSReboot.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/os/OSReset.c",
             ),
             Object(
@@ -2687,11 +2689,11 @@ config.libs = [
                 "dolphin/os/OSRtc.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/os/OSSync.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/os/OSThread.c",
             ),
             Object(
@@ -2708,7 +2710,7 @@ config.libs = [
         "pad",
         [
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/pad/PadClamp.c",
             ),
             Object(
@@ -2735,41 +2737,41 @@ config.libs = [
                 "runtime/__mem.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/__va_arg.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/global_destructor_chain.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/CPlusLibPPC.cpp",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/NMWException.cpp",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/ptmf.c"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/ptmf.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/runtime.c"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/runtime.c"
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/__init_cpp_exceptions.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/Gecko_ExceptionPPC.cpp",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/abort_exit.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/alloc.c",
             ),
             Object(
@@ -2780,20 +2782,20 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/ansi_fp.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/arith.c"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/arith.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/buffer_io.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/ctype.c"
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/ctype.c"
             ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/locale.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/direct_io.c",
             ),
             Object(
@@ -2810,29 +2812,29 @@ config.libs = [
             ),
             Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/mem.c"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/mem_funcs.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/misc_io.c"
             ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/printf.c"
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/qsort.c"
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/rand.c"
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/rand.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/sscanf.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/string.c"
             ),
             Object(
@@ -2846,7 +2848,7 @@ config.libs = [
                 "runtime/uart_console_io.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/wchar_io.c"
             ),
             Object(
@@ -2859,10 +2861,10 @@ config.libs = [
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/e_atan2.c"
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/e_exp.c"
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/e_exp.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/e_fmod.c"
             ),
             Object(
@@ -2876,73 +2878,73 @@ config.libs = [
                 "runtime/e_rem_pio2.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/k_cos.c"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/k_cos.c"
             ),
             Object(
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "runtime/k_rem_pio2.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/k_sin.c"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/k_sin.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/k_tan.c"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/k_tan.c"
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/s_atan.c"
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/s_atan.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/s_copysign.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/s_cos.c"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/s_cos.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/s_floor.c"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/s_floor.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/s_frexp.c"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/s_frexp.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/s_ldexp.c"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/s_ldexp.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/s_modf.c"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/s_modf.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/s_nextafter.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/s_sin.c"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/s_sin.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/s_tan.c"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/s_tan.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/w_acos.c"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/w_acos.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/w_asin.c"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/w_asin.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/w_atan2.c"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/w_atan2.c"
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/w_exp.c"
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/w_exp.c"
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/w_fmod.c"
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/w_fmod.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/w_log.c"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/w_log.c"
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "runtime/w_pow.c"
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "runtime/w_pow.c"
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "runtime/math_ppc.c"
             ),
         ],
@@ -2987,7 +2989,7 @@ config.libs = [
                 "musyx/runtime/synthvoice.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "musyx/runtime/synth_ac.c",
             ),
             Object(
@@ -3023,11 +3025,11 @@ config.libs = [
                 "musyx/runtime/snd_init.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "musyx/runtime/snd_math.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "musyx/runtime/snd_midictrl.c",
             ),
             Object(
@@ -3051,7 +3053,7 @@ config.libs = [
                 "musyx/runtime/hw_dolphin.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "musyx/runtime/hw_memory.c",
             ),
             Object(
@@ -3067,7 +3069,7 @@ config.libs = [
                 "musyx/runtime/CheapReverb/creverb_fx.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "musyx/runtime/CheapReverb/creverb.c",
             ),
             Object(
@@ -3075,15 +3077,15 @@ config.libs = [
                 "musyx/runtime/StdReverb/reverb_fx.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "musyx/runtime/StdReverb/reverb.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "musyx/runtime/Delay/delay_fx.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "musyx/runtime/Chorus/chorus_fx.c",
             ),
         ],
@@ -3091,7 +3093,7 @@ config.libs = [
     DolphinLib(
         "dtk",
         [
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                    "dolphin/dtk.c"),
         ],
     ),
@@ -3107,7 +3109,7 @@ config.libs = [
                 "dolphin/card/CARDUnlock.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDRdwr.c",
             ),
             Object(
@@ -3119,7 +3121,7 @@ config.libs = [
                 "dolphin/card/CARDDir.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDCheck.c",
             ),
             Object(
@@ -3127,31 +3129,31 @@ config.libs = [
                 "dolphin/card/CARDMount.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDFormat.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDOpen.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDCreate.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDRead.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDWrite.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDDelete.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDStat.c",
             ),
             Object(
@@ -3159,7 +3161,7 @@ config.libs = [
                 "dolphin/card/CARDRename.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/card/CARDNet.c",
             ),
         ],
@@ -3168,11 +3170,11 @@ config.libs = [
         "si",
         [
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/si/SIBios.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/si/SISamplingRate.c",
             ),
         ],
@@ -3185,7 +3187,7 @@ config.libs = [
                 "dolphin/exi/EXIBios.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/exi/EXIUart.c",
             ),
         ],
@@ -3198,7 +3200,7 @@ config.libs = [
                 "dolphin/thp/THPDec.c",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/thp/THPAudio.c",
             ),
         ],
@@ -3211,7 +3213,7 @@ config.libs = [
                 "dolphin/GBA/GBA.c"
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/GBA/GBAGetProcessStatus.c",
             ),
             Object(
@@ -3227,7 +3229,7 @@ config.libs = [
                 "dolphin/GBA/GBAWrite.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "dolphin/GBA/GBAXfer.c",
             ),
             Object(
