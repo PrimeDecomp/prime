@@ -28,7 +28,7 @@ public:
   float GetViewInterpolation() const { return mViewInterp; }
   bool IsViewInterpolating() const { return mViewInterp != 0.f && mViewInterp != 1.f; }
   void Update(float dt, CRandom16& rand);
-  void Draw(const CStateManager& mgr, float alpha);
+  void Draw(const CStateManager& mgr, float alpha) const;
   void Touch();
   void CheckTransition(const bool morphball);
   void SetRotation(float xDelta, float zDelta, float dt);
@@ -74,9 +74,9 @@ private:
   float mUserZoom;
 
   float mViewInterp;
-  rstl::optional_object< CModelData > mSuitModel0;
+  mutable rstl::optional_object< CModelData > mSuitModel0;
   rstl::reserved_vector< TLockedToken< CSkinnedModel >, 2 > mSuitModel1and2;
-  rstl::optional_object< CModelData > mSuitModelBoots;
+  mutable rstl::optional_object< CModelData > mSuitModelBoots;
   rstl::optional_object< CModelData > mBallModelData;
   TCachedToken< CModel > mSpiderBallGlass;
   uint mBallMatIdx;

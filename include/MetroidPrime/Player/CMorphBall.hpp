@@ -56,6 +56,10 @@ public:
     uchar mB;
   };
 
+  static CColor GetBallGlowColor(const SColorRgb& color) {
+    return CColor(color.mR, color.mG, color.mB, 0xff);
+  }
+
   static const SColorRgb skBallInnerGlowColors[9];
   static const SColorRgb skBallHullGlowColors[9];
   static const SColorRgb skBallBoostedHullGlowColors[9];
@@ -198,7 +202,6 @@ public:
   void SetDisableSpiderBallTime(const float time);
 
 private:
-  static CColor GetBallGlowColor(const SColorRgb& color);
   struct CSpiderBallElectrictyManager {
     uint mEffectIdx;
     uint mLifetime;

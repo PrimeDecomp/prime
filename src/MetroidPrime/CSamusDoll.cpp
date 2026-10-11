@@ -337,7 +337,7 @@ void CSamusDoll::Update(float dt, CRandom16& rand) {
   }
 }
 
-void CSamusDoll::Draw(const CStateManager& mgr, float alpha) {
+void CSamusDoll::Draw(const CStateManager& mgr, float alpha) const {
   if (!IsLoaded()) {
     return;
   }
@@ -522,8 +522,8 @@ void CSamusDoll::Draw(const CStateManager& mgr, float alpha) {
     }
   }
   if (!mBallTransitionFlashGen.null()) {
-    const CMorphBall::SColorRgb& color = CMorphBall::skBallHullGlowColors[mBallGlowColorIdx];
-    mBallTransitionFlashGen->SetModulationColor(CColor(color.mR, color.mG, color.mB));
+    mBallTransitionFlashGen->SetModulationColor(
+        CMorphBall::GetBallGlowColor(CMorphBall::skBallHullGlowColors[mBallGlowColorIdx]));
     mBallTransitionFlashGen->Render();
   }
   CGraphics::DisableAllLights();
