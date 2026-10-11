@@ -7,26 +7,23 @@
 
 class CUnitVector3f : public CVector3f {
 public:
-  enum ENormalize {
-    kN_Yes = 1,
-  };
   enum EDontNormalize {
-    kN_No = 0,
+    kN_No,
+  };
+  
+  enum ENormalize {
+    kN_Yes,
   };
 
   CUnitVector3f(const float x, const float y, const float z) : CVector3f(x, y, z) {}
-  CUnitVector3f(const float x, const float y, const float z, const ENormalize normalize)
+  CUnitVector3f(const float x, const float y, const float z, const ENormalize)
   : CVector3f(x, y, z) {
-    if (normalize == kN_Yes) {
-      Normalize();
-    }
+    Normalize();
   }
+  CUnitVector3f(const float x, const float y, const float z, const EDontNormalize)
+  : CVector3f(x, y, z) {}
 
-  CUnitVector3f(const CVector3f& vec, const ENormalize normalize) : CVector3f(vec) {
-    if (normalize == kN_Yes) {
-      Normalize();
-    }
-  }
+  CUnitVector3f(const CVector3f& vec, const ENormalize) : CVector3f(vec) { Normalize(); }
 
   CUnitVector3f(const CVector3f& vec, const EDontNormalize) : CVector3f(vec) {}
 
