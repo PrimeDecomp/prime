@@ -1673,7 +1673,7 @@ config.libs = [
                 "Collision/CCollidableAABox.cpp",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", "GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Collision/CCollidableCollisionSurface.cpp",
             ),
             Object(
@@ -1991,7 +1991,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Text/CTextInstruction.cpp"
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "Kyoto/Text/CTextParser.cpp"),
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "Kyoto/Text/CWordBreakTables.cpp"),
+            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "Kyoto/Text/CWordBreakTables.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Text/CWordInstruction.cpp"),
             Object(
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
