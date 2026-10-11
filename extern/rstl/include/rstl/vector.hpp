@@ -38,7 +38,11 @@ public:
   iterator begin() { return iterator(this, data()); }
   const_iterator begin() const { return const_iterator(this, data()); }
   iterator end() {
+#if RSTL_VERSION >= RSTL_GM8P_00
     T* const end = data() + mCount;
+#else
+    T* const end = mItems + mCount;
+#endif
     return iterator(end);
   }
   const_iterator end() const { return const_iterator(this, data() + size()); }
