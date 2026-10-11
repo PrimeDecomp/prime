@@ -88,6 +88,8 @@ static const char* const skPressStartTextures[] = {
 const char MetroidBuildInfo[] = BUILD_INFO_TAG "Build v1.088 10/29/2002 2:21:25\0PAD";
 #elif VERSION == VERSION_GM8E_01
 const char MetroidBuildInfo[] = BUILD_INFO_TAG "Build v1.093 11/5/2002 19:50:01\0PAD";
+#elif VERSION == VERSION_GM8E_48
+const char MetroidBuildInfo[] = BUILD_INFO_TAG "Build v1.097 12/19/2002 16:03:43\0AD";
 #elif VERSION == VERSION_GM8E_02
 const char MetroidBuildInfo[] = BUILD_INFO_TAG "Build v1.111 3/10/2003 17:56:21\0PAD";
 #elif VERSION == VERSION_GM8P_00
