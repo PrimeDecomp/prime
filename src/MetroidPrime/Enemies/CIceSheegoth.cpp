@@ -372,6 +372,8 @@ void CIceSheegoth::AddToRenderer(const CFrustumPlanes& frustum, const CStateMana
   }
 }
 
+CProjectileInfo* CIceSheegoth::ProjectileInfo() { return &mProjectileInfo; }
+
 void CIceSheegoth::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node,
                                    EUserEventType type, float dt) {
   bool handled = false;
