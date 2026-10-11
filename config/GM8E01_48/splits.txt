@@ -1229,7 +1229,8 @@ MetroidPrime/Enemies/CIceSheegoth.cpp:
 
 MetroidPrime/CCollisionActorManager.cpp:
 	.text       start:0x801A6F34 end:0x801A8940
-	.sdata2     start:0x805AC218 end:0x805AC220
+	.rodata     start:0x803D1598 end:0x803D15A0
+	.sdata2     start:0x805AC1F8 end:0x805AC220
 
 MetroidPrime/CCollisionActor.cpp:
 	.text       start:0x801A8940 end:0x801AA2F8
@@ -1716,6 +1717,11 @@ MetroidPrime/CLogBookScreen.cpp:
 
 MetroidPrime/CGBASupport.cpp:
 	.text       start:0x80248648 end:0x80248EE8
+	.rodata     start:0x803D4868 end:0x803D4890
+	.data       start:0x803E8D18 end:0x803E8D40
+	.sdata      start:0x805A7F98 end:0x805A7FA0
+	.sbss       start:0x805A8DF0 end:0x805A8DF8
+	.sdata2     start:0x805AD278 end:0x805AD280
 
 MetroidPrime/CMemoryCard.cpp:
 	.text       start:0x80248EE8 end:0x8024B4A8
