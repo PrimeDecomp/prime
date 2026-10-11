@@ -1187,3 +1187,131 @@ MetroidPrime/CGroundMovement.cpp:
 	.sdata      start:0x8058EFF8 end:0x8058F030
 	.sbss       start:0x805905F8 end:0x80590610
 	.sdata2     start:0x80593730 end:0x805937A8
+
+MetroidPrime/Enemies/CNewIntroBoss.cpp:
+	.text       start:0x8017E3F8 end:0x80180618
+	.rodata     start:0x803BB008 end:0x803BB230
+	.sdata      start:0x8058F030 end:0x8058F038
+	.sdata2     start:0x805937A8 end:0x80593828
+
+MetroidPrime/Weapons/CPhazonBeam.cpp:
+	.text       start:0x80180618 end:0x8018164C
+	.rodata     start:0x803BB230 end:0x803BB278
+	.data       start:0x803CCE58 end:0x803CCEA0
+	.sdata2     start:0x80593828 end:0x80593890
+
+MetroidPrime/ScriptObjects/CScriptTargetingPoint.cpp:
+	.text       start:0x8018164C end:0x8018180C
+	.sdata      start:0x8058F038 end:0x8058F040
+	.sdata2     start:0x80593890 end:0x80593898
+
+MetroidPrime/BodyState/CBSWallHang.cpp:
+	.text       start:0x8018180C end:0x80182E94
+	.data       start:0x803CCEA0 end:0x803CCF00
+	.sdata2     start:0x80593898 end:0x805938C0
+
+MetroidPrime/ScriptObjects/CScriptEMPulse.cpp:
+	.text       start:0x80182E94 end:0x80183608
+	.rodata     start:0x803BB278 end:0x803BB280
+	.data       start:0x803CCF00 end:0x803CCF70
+	.sdata      start:0x8058F040 end:0x8058F048
+	.sdata2     start:0x805938C0 end:0x805938C8
+
+MetroidPrime/HUD/CHudFreeLookInterface.cpp:
+	.text       start:0x80184598 end:0x80185024
+	.rodata     start:0x803BB3A8 end:0x803BB538
+	.data       start:0x803CCF70 end:0x803CCFA8
+	.sdata      start:0x8058F068 end:0x8058F080
+	.sdata2     start:0x80593928 end:0x80593948
+
+MetroidPrime/HUD/CHudHelmetInterface.cpp:
+	.text       start:0x80185024 end:0x80185538
+	.rodata     start:0x803BB538 end:0x803BB588
+	.sdata2     start:0x80593948 end:0x80593950
+
+MetroidPrime/HUD/CHudMissileInterface.cpp:
+	.text       start:0x80185684 end:0x80186570
+	.rodata     start:0x803BB588 end:0x803BB690
+	.sdata2     start:0x80593950 end:0x805939B0
+
+MetroidPrime/HUD/CHudRadarInterface.cpp:
+	.text       start:0x80186570 end:0x80187150
+	.rodata     start:0x803BB6A0 end:0x803BB6C8
+	.sdata      start:0x8058F0B8 end:0x8058F0C8
+	.sdata2     start:0x805939B0 end:0x805939E0
+
+MetroidPrime/HUD/CHudThreatInterface.cpp:
+	.text       start:0x80187150 end:0x80187E8C
+	.rodata     start:0x803BB6C8 end:0x803BB7A0
+	.sdata      start:0x8058F0C8 end:0x8058F0F0
+	.sdata2     start:0x805939E0 end:0x80593A30
+
+MetroidPrime/Weapons/CFlameThrower.cpp:
+	.text       start:0x8018BEA0 end:0x8018D8B0
+	.ctors      start:0x803B5348 end:0x803B534C
+	.rodata     start:0x803BBB88 end:0x803BBBA8
+	.data       start:0x803CD0C8 end:0x803CD138
+	.bss        start:0x8055958C end:0x80559598 align:4 common
+	.sdata2     start:0x80593AD0 end:0x80593B00
+
+MetroidPrime/Weapons/CBeamProjectile.cpp:
+	.text       start:0x8018D8B0 end:0x8018E2C0
+	.data       start:0x803CD138 end:0x803CD1B8
+	.sdata      start:0x8058F128 end:0x8058F130
+	.sdata2     start:0x80593B00 end:0x80593B10
+
+MetroidPrime/CFluidPlaneCPU.cpp:
+	.text       start:0x8018E2C0 end:0x80191C18
+	.rodata     start:0x803BBBA8 end:0x803BBC78
+	.data       start:0x803CD1B8 end:0x803CD1D8
+	.sdata      start:0x8058F130 end:0x8058F140
+	.sbss       start:0x80590610 end:0x80590618
+	.sdata2     start:0x80593B10 end:0x80593B58
+	.sbss2      start:0x80596CA0 end:0x80596CA8
+
+MetroidPrime/CFluidPlaneDoor.cpp:
+	.text       start:0x80191C18 end:0x801924DC
+	.rodata     start:0x803BBC78 end:0x803BBCD8
+	.data       start:0x803CD1D8 end:0x803CD1F8
+	.sdata      start:0x8058F148 end:0x8058F150
+	.sdata2     start:0x80593B58 end:0x80593B70
+
+MetroidPrime/ScriptObjects/CScriptRoomAcoustics.cpp:
+	.text       start:0x801924DC end:0x80192980
+	.ctors      start:0x803B534C end:0x803B5350
+	.sbss       start:0x80590618 end:0x80590620
+
+MetroidPrime/Enemies/CIceSheegoth.cpp:
+	.text       start:0x80192980 end:0x8019B058
+	.ctors      start:0x803B5350 end:0x803B5354
+	.data       start:0x803CD1F8 end:0x803CD5E8
+	.bss        start:0x80559598 end:0x805595A4 align:4 common
+	.sdata      start:0x8058F150 end:0x8058F188
+	.sdata2     start:0x80593B70 end:0x80593C30
+
+MetroidPrime/CCollisionActorManager.cpp:
+	.text       start:0x8019B058 end:0x8019C858
+	.rodata     start:0x803BBE10 end:0x803BBE18
+	.sdata2     start:0x80593C30 end:0x80593C58
+
+MetroidPrime/CCollisionActor.cpp:
+	.text       start:0x8019C858 end:0x8019DC64
+	.ctors      start:0x803B5354 end:0x803B5358
+	.rodata     start:0x803BBE18 end:0x803BBE30
+	.data       start:0x803CD5E8 end:0x803CD648
+	.sdata      start:0x8058F188 end:0x8058F1D0
+	.sbss       start:0x80590620 end:0x80590628
+	.sdata2     start:0x80593C58 end:0x80593C70
+
+MetroidPrime/ScriptObjects/CScriptPlayerActor.cpp:
+	.text       start:0x8019DC64 end:0x8019FC20
+	.rodata     start:0x803BBE30 end:0x803BBE58
+	.data       start:0x803CD648 end:0x803CD760
+	.sdata      start:0x8058F1D0 end:0x8058F1D8
+	.sdata2     start:0x80593C70 end:0x80593CB0
+	.sbss2      start:0x80596CA8 end:0x80596CB8
+
+MetroidPrime/Tweaks/CTweakPlayerRes.cpp:
+	.text       start:0x8019FC20 end:0x801A0BE0
+	.data       start:0x803CD760 end:0x803CD770
+	.sdata2     start:0x80593CB0 end:0x80593CB8
