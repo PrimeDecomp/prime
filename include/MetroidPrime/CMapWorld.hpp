@@ -114,6 +114,9 @@ public:
     float GetObjectScale() const { return mObjectScale; }
   };
 
+  bool IsMapAreaInBFSInfoVector(const CMapAreaData* area,
+                                const rstl::vector< CMapAreaBFSInfo >& vec) const;
+
 private:
   rstl::vector< CMapAreaData > mAreas;
   rstl::reserved_vector< CMapAreaData*, 3 > mListHeads;
@@ -128,8 +131,6 @@ public:
   uint GetNumAreas() const { return mAreas.size(); }
   CMapArea* GetMapArea(int aid) { return mAreas[aid].MapArea(); }
   CMapArea* GetMapArea(int aid) const;
-  bool IsMapAreaInBFSInfoVector(const CMapAreaData* area,
-                                const rstl::vector< CMapAreaBFSInfo >& vec) const;
   void SetWhichMapAreasLoaded(const IWorld& wld, int start, int count);
   void MoveMapAreaToList(CMapAreaData* data, EMapAreaList list);
   int GetCurrentMapAreaDepth(const IWorld& wld, int aid) const;
