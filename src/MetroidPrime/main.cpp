@@ -1,3 +1,10 @@
+// Preserve MWCC's deferred template function placement.
+#include "Kyoto/TOneStatic.hpp"
+#include "rstl/vector.hpp"
+
+#include "MetroidPrime/CArchitectureMessage.hpp"
+#include "MetroidPrime/CIOWinManager.hpp"
+#include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CGameGlobalObjects.hpp"
 #include "MetroidPrime/CMain.hpp"
 
@@ -43,7 +50,6 @@
 #include "Kyoto/Streams/CZipInputStream.hpp"
 #include "Kyoto/Text/CStringTable.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
-#include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CAudioStateWin.hpp"
 #include "MetroidPrime/CConsoleOutputWindow.hpp"
 #include "MetroidPrime/CDecalManager.hpp"

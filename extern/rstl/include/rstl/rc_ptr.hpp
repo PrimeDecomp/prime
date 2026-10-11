@@ -116,7 +116,7 @@ void rc_ptr< T >::ReleaseData() {
   }
 #else
   if (mRefData->DelRef() <= 0) {
-    T* const ptr = GetPtr();
+    T* const ptr = static_cast< T* >(mRefData->GetPtr());
     delete ptr;
     delete mRefData;
   }
