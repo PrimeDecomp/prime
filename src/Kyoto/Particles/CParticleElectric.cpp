@@ -1,4 +1,8 @@
-#include "Kyoto/Particles/CParticleElectric.hpp"
+// MWCC template emission order depends on these includes.
+// clang-format off
+#include "rstl/list.hpp" // IWYU pragma: keep
+#include "Kyoto/Particles/CParticleElectric.hpp" // IWYU pragma: keep
+// clang-format on
 
 #include "Kyoto/Basics/CStopwatch.hpp"
 #include "Kyoto/Graphics/CGX.hpp"
