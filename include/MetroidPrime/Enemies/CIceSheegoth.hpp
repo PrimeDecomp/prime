@@ -125,7 +125,7 @@ public:
                                                          const CWeaponMode&, int) const override;
   void DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUserEventType type,
                        float dt) override;
-  CProjectileInfo* ProjectileInfo() override { return &mProjectileInfo; }
+  CProjectileInfo* ProjectileInfo() override;
   void Patrol(CStateManager& mgr, EStateMsg msg, float arg) override;
   void ProjectileAttack(CStateManager& mgr, EStateMsg msg, float arg) override;
   void Attack(CStateManager& mgr, EStateMsg msg, float arg) override;
