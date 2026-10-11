@@ -741,6 +741,7 @@ MetaRender/CCubeRenderer.cpp:
 GuiSys/CGuiFeeHelper.cpp:
 	.text       start:0x8020E034 end:0x8020E14C
 	.ctors      start:0x80321310 end:0x80321314
+	.bss        start:0x8052A6B4 end:0x8052A7EC align:4 common
 
 GuiSys/CGuiObject.cpp:
 	.text       start:0x80214B40 end:0x80215660
@@ -812,7 +813,7 @@ Collision/CCollidableSphere.cpp:
 Collision/CMaterialFilter.cpp:
 	.text       start:0x8022F5FC end:0x8022F744
 	.ctors      start:0x8032132C end:0x80321330
-	.bss        start:0x8052A810 end:0x8052A828
+	.bss        start:0x8052A810 end:0x8052A828 align:4 common
 
 Collision/COBBox.cpp:
 	.text       start:0x8022F744 end:0x80230254
@@ -824,11 +825,12 @@ Collision/CMRay.cpp:
 
 Kyoto/Basics/CBasics.cpp:
 	.text       start:0x8023041C end:0x802304D0
+	.bss        start:0x803DF2F8 end:0x803DF4F8
 
 Kyoto/Basics/CStopwatch.cpp:
 	.text       start:0x802304D0 end:0x802305D0
 	.ctors      start:0x80321330 end:0x80321334
-	.bss        start:0x8052A828 end:0x8052A840
+	.bss        start:0x8052A828 end:0x8052A840 align:4 common
 
 Kyoto/Basics/CBasicsDolphin.cpp:
 	.text       start:0x802305D0 end:0x80230640
@@ -948,7 +950,7 @@ Kyoto/Audio/CSfxManager.cpp:
 	.ctors      start:0x80321334 end:0x80321338
 	.rodata     start:0x8032C838 end:0x8032C8B8
 	.data       start:0x803516E0 end:0x803517E8
-	.bss        start:0x8052ED78 end:0x80532980 align:4
+	.bss        start:0x8052A840 end:0x80532980 align:4 common
 	.sdata      start:0x80535048 end:0x80535050
 	.sbss       start:0x80535980 end:0x80535998
 	.sdata2     start:0x8053973C end:0x80539758 align:4
@@ -1092,20 +1094,26 @@ Kyoto/Text/CFont.cpp:
 
 Kyoto/Graphics/CLight.cpp:
 	.text       start:0x802638B0 end:0x80263E8C
+	.bss        start:0x80532980 end:0x805329A4 align:4 common
 
 Kyoto/Graphics/CCubeModel.cpp:
 	.text       start:0x80263EB8 end:0x8026520C
 
 Kyoto/Graphics/CGX.cpp:
 	.text       start:0x8026520C end:0x80266308
+	.bss        start:0x805329A4 end:0x80532C04 align:4 common
 	.sdata2     start:0x805398C8 end:0x805398D8
 
 Kyoto/Graphics/CTevCombiners.cpp:
 	.text       start:0x80266308 end:0x80266758
 	.ctors      start:0x80321340 end:0x80321344
+	.bss        start:0x80532C04 end:0x80532C50 align:4 common
+	.sdata      start:0x805350E0 end:0x805350E8
+	.sbss       start:0x80535A18 end:0x80535A28
 
 Kyoto/Graphics/DolphinCGraphics.cpp:
 	.text       start:0x80267220 end:0x802687A4
+	.bss        start:0x80532C50 end:0x80533BB4 align:4 common
 
 Kyoto/Graphics/DolphinCPalette.cpp:
 	.text       start:0x8026B3F0 end:0x8026B604
@@ -1117,11 +1125,13 @@ Kyoto/Graphics/DolphinCTexture.cpp:
 Kyoto/Math/CMatrix3f.cpp:
 	.text       start:0x8026D484 end:0x8026DBAC
 	.ctors      start:0x8032134C end:0x80321350
+	.bss        start:0x80533BB4 end:0x80533BD8 align:4 common
 	.sdata2     start:0x80539980 end:0x80539988
 
 Kyoto/Math/CMatrix4f.cpp:
 	.text       start:0x8026DBAC end:0x8026DE74
 	.ctors      start:0x80321350 end:0x80321354
+	.bss        start:0x80533BD8 end:0x80533C18 align:4 common
 	.sdata2     start:0x80539988 end:0x80539990
 
 Kyoto/Math/CNUQuaternion.cpp:
@@ -1131,6 +1141,7 @@ Kyoto/Math/CNUQuaternion.cpp:
 Kyoto/Math/CQuaternion.cpp:
 	.text       start:0x8026E4AC end:0x8026F844
 	.ctors      start:0x80321354 end:0x80321358
+	.bss        start:0x80533C18 end:0x80533C28 align:4 common
 	.sdata      start:0x80535108 end:0x80535110
 	.sdata2     start:0x805399C0 end:0x805399C8
 
@@ -1141,6 +1152,7 @@ Kyoto/CRandom16.cpp:
 Kyoto/Math/CTransform4f.cpp:
 	.text       start:0x8026FF80 end:0x80271080
 	.ctors      start:0x80321358 end:0x8032135C
+	.bss        start:0x80533C28 end:0x80533C58 align:4 common
 	.sdata2     start:0x80539A00 end:0x80539A08
 
 Kyoto/Math/CVector2f.cpp:
@@ -1159,6 +1171,7 @@ Kyoto/Math/CVector3d.cpp:
 Kyoto/Math/CVector3f.cpp:
 	.text       start:0x80271724 end:0x80271CF8
 	.ctors      start:0x80321360 end:0x80321364
+	.bss        start:0x80533C58 end:0x80533CF4 align:4 common
 	.sdata2     start:0x80539A28 end:0x80539A38
 
 Kyoto/Math/RMathUtils.cpp:
@@ -1205,6 +1218,9 @@ Kyoto/Particles/CRealElement.cpp:
 
 Kyoto/Particles/CSpawnSystemKeyframeData.cpp:
 	.text       start:0x80290A30 end:0x80291570
+	.rodata     start:0x8033D6A8 end:0x8033D6B0
+	.bss        start:0x80449C20 end:0x80449C40
+	.sbss       start:0x80535B58 end:0x80535B70
 
 Kyoto/Particles/CVectorElement.cpp:
 	.text       start:0x80292448 end:0x8029280C
@@ -1217,6 +1233,7 @@ Kyoto/Math/CPlane.cpp:
 Kyoto/Math/CAABox.cpp:
 	.text       start:0x802953A0 end:0x802964E4
 	.ctors      start:0x8032136C end:0x80321370
+	.bss        start:0x80533CF4 end:0x80533D3C align:4 common
 
 Kyoto/CResLoader.cpp:
 	.text       start:0x80298BB0 end:0x8029A18C
@@ -1302,7 +1319,7 @@ Kyoto/CARAMManager.cpp:
 	.text       start:0x802A2258 end:0x802A2CC0
 	.ctors      start:0x8032137C end:0x80321380
 	.rodata     start:0x8033DC68 end:0x8033DCB8
-	.bss        start:0x80533D3C end:0x80533D54 align:4
+	.bss        start:0x80533D3C end:0x80533D54 align:4 common
 	.sdata      start:0x805351C8 end:0x805351D0
 	.sbss       start:0x80535BA8 end:0x80535BC8
 	.sdata2     start:0x80539C88 end:0x80539C90
@@ -1312,14 +1329,14 @@ Kyoto/Math/CFrustumPlanes.cpp:
 
 Kyoto/Graphics/CCubeMaterial.cpp:
 	.text       start:0x802A4C20 end:0x802A4F88
-	.bss        start:0x80533D54 end:0x80533D60 align:4
+	.bss        start:0x80533D54 end:0x80533D60 align:4 common
 	.sdata      start:0x805351D0 end:0x805351E0
 	.sdata2     start:0x80539CD0 end:0x80539CD8
 
 Kyoto/Graphics/CCubeSurface.cpp:
 	.text       start:0x802A5B28 end:0x802A5BAC
 	.ctors      start:0x80321384 end:0x80321388
-	.bss        start:0x80533D60 end:0x80533D6C align:4
+	.bss        start:0x80533D60 end:0x80533D6C align:4 common
 	.sdata2     start:0x80539CF8 end:0x80539D00
 
 Kyoto/Animation/CCharAnimTime.cpp:
@@ -1345,7 +1362,7 @@ Kyoto/Audio/DolphinCAudioSys.cpp:
 	.text       start:0x802A8444 end:0x802ABFA0
 	.ctors      start:0x8032138C end:0x80321390
 	.rodata     start:0x8033DF78 end:0x8033E0E8
-	.bss        start:0x80533D6C end:0x80533D7C align:4
+	.bss        start:0x80533D6C end:0x80533D7C align:4 common
 	.sdata      start:0x80535240 end:0x80535250
 	.sbss       start:0x80535C18 end:0x80535C48
 	.sdata2     start:0x80539D24 end:0x80539D30 align:4
@@ -1403,14 +1420,14 @@ Kyoto/CTimeProvider.cpp:
 Kyoto/CARAMToken.cpp:
 	.text       start:0x802B6104 end:0x802B6800
 	.rodata     start:0x8033E8E0 end:0x8033E8E8
-	.bss        start:0x80533D7C end:0x80533D98 align:4
+	.bss        start:0x80533D7C end:0x80533D98 align:4 common
 
 Kyoto/Audio/CMidiManager.cpp:
 	.text       start:0x802B6800 end:0x802B7164
 	.ctors      start:0x80321394 end:0x80321398
 	.rodata     start:0x8033E8E8 end:0x8033E8F0
 	.data       start:0x80353FC0 end:0x80353FD0
-	.bss        start:0x80533D98 end:0x80533DC0 align:4
+	.bss        start:0x80533D98 end:0x80533DC0 align:4 common
 
 Kyoto/Text/CFontImageDef.cpp:
 	.text       start:0x802B7164 end:0x802B7388
@@ -1459,7 +1476,7 @@ Kyoto/Audio/CStreamAudioManager.cpp:
 	.text       start:0x802C0D4C end:0x802C135C
 	.ctors      start:0x8032139C end:0x803213A0
 	.rodata     start:0x8033EB10 end:0x8033EB18
-	.bss        start:0x80533DF0 end:0x80533E10 align:4
+	.bss        start:0x80533DC0 end:0x80533E10 align:4 common
 	.sdata      start:0x805352A8 end:0x805352B8
 	.sbss       start:0x80535D18 end:0x80535D20
 	.sdata2     start:0x80539E70 end:0x80539E98
@@ -1517,6 +1534,7 @@ dolphin/dvd/dvd.c:
 
 dolphin/dvd/dvdqueue.c:
 	.text       start:0x802CADC0 end:0x802CAFB8
+	.bss        start:0x804CA478 end:0x804CA498
 
 dolphin/dvd/dvderror.c:
 	.text       start:0x802CAFB8 end:0x802CB150
@@ -1525,7 +1543,9 @@ dolphin/dvd/dvderror.c:
 dolphin/dvd/fstload.c:
 	.text       start:0x802CB150 end:0x802CB390
 	.data       start:0x803547E8 end:0x80354858
+	.bss        start:0x804CA498 end:0x804CA508
 	.sdata      start:0x805352E8 end:0x805352F8
+	.sbss       start:0x80535E80 end:0x80535E90
 
 dolphin/gx/GXInit.c:
 	.text       start:0x802CB390 end:0x802CC480
@@ -1636,6 +1656,7 @@ dolphin/os/OSResetSW.c:
 
 dolphin/os/OSRtc.c:
 	.text       start:0x802D79E8 end:0x802D8414
+	.bss        start:0x804CAB40 end:0x804CAB98
 
 dolphin/os/OSSync.c:
 	.text       start:0x802D8414 end:0x802D8498
@@ -1688,9 +1709,12 @@ runtime/runtime.c:
 
 runtime/Gecko_ExceptionPPC.cpp:
 	.text       start:0x802DE4A4 end:0x802DE50C
+	.bss        start:0x804CB730 end:0x804CB740
 
 runtime/abort_exit.c:
 	.text       start:0x802DE67C end:0x802DE748
+	.bss        start:0x804CB740 end:0x804CB840
+	.sbss       start:0x80536018 end:0x80536028
 
 runtime/alloc.c:
 	.text       start:0x802DF230 end:0x802DF40C
