@@ -2022,3 +2022,122 @@ Kyoto/Alloc/CCircularBuffer.cpp:
 Kyoto/Alloc/CMediumAllocPool.cpp:
 	.text       start:0x803397D0 end:0x8033A15C
 	.sbss       start:0x80590BD0 end:0x80590BD8
+
+Kyoto/Alloc/CSmallAllocPool.cpp:
+	.text       start:0x8033A15C end:0x8033A470
+
+MetroidPrime/CFluidPlaneRender.cpp:
+	.text       start:0x8025AE58 end:0x8025EEC8
+	.bss        start:0x80455240 end:0x80455640
+	.sdata      start:0x8058F9A8 end:0x8058F9B0
+	.sbss       start:0x80590700 end:0x80590710
+	.sdata2     start:0x80595070 end:0x80595098
+
+MetroidPrime/Enemies/CBurrower.cpp:
+	.text       start:0x8025EEC8 end:0x80260644
+	.ctors      start:0x803B53A0 end:0x803B53A4
+	.rodata     start:0x803BFDF0 end:0x803BFDF8
+	.data       start:0x803D1DE8 end:0x803D20D8
+	.bss        start:0x80559C14 end:0x80559C7C align:4 common
+	.sdata2     start:0x80595098 end:0x805950B0
+
+MetroidPrime/Enemies/CMetroidPrime.cpp:
+	.text       start:0x80260644 end:0x8026A930
+	.ctors      start:0x803B53A4 end:0x803B53A8
+	.rodata     start:0x803BFE08 end:0x803BFE4C
+	.data       start:0x803D20D8 end:0x803D2518
+	.sdata      start:0x8058F9BC end:0x8058F9C0
+	.sdata2     start:0x805950C4 end:0x80595134
+
+MetroidPrime/ScriptObjects/CScriptBeam.cpp:
+	.text       start:0x8026A930 end:0x8026ADE8
+	.rodata     start:0x803C0248 end:0x803C0260
+	.data       start:0x803D2518 end:0x803D2588
+
+MetroidPrime/Enemies/CMetroidPrimeStage2.cpp:
+	.text       start:0x8026ADE8 end:0x8026E57C
+	.rodata     start:0x803C0260 end:0x803C02B8
+	.data       start:0x803D2588 end:0x803D29D0
+	.sdata      start:0x8058FA40 end:0x8058FA88
+	.sdata2     start:0x805951E8 end:0x80595260
+
+MetroidPrime/Enemies/CMetroidPrimeRelay.cpp:
+	.text       start:0x8026E890 end:0x8026F988
+
+MetroidPrime/Player/CPlayerDynamics.cpp:
+	.text       start:0x80270480 end:0x8027619C
+	.ctors      start:0x803B53AC end:0x803B53B0
+	.bss        start:0x80455658 end:0x80455670
+	.sdata      start:0x8058FA88 end:0x8058FAD8
+	.sdata2     start:0x80595268 end:0x8059528C
+
+MetroidPrime/ScriptObjects/CScriptMazeNode.cpp:
+	.text       start:0x8027619C end:0x80278280
+	.rodata     start:0x803C0358 end:0x803C0370
+	.bss        start:0x80559C7C end:0x8055A12C align:4 common
+	.sdata2     start:0x80595348 end:0x80595350
+
+MetroidPrime/Weapons/WeaponTypes.cpp:
+	.text       start:0x80278280 end:0x80278CA4
+	.sdata2     start:0x80595350 end:0x80595358
+
+MetroidPrime/Enemies/COmegaPirate.cpp:
+	.text       start:0x8027A6E8 end:0x8027F9C8
+	.data       start:0x803D29D0 end:0x803D2E50
+	.sdata      start:0x8058FAD8 end:0x8058FB20
+	.sdata2     start:0x80595358 end:0x80595400
+
+MetroidPrime/Enemies/CScriptPhazonPool.cpp:
+	.text       start:0x8027F9C8 end:0x80280DB4
+	.rodata     start:0x803C0550 end:0x803C0558
+	.data       start:0x803D2E50 end:0x803D2F58
+	.sdata      start:0x8058FB20 end:0x8058FB28
+	.sdata2     start:0x80595400 end:0x80595428
+
+MetroidPrime/Enemies/CPhazonHealingNodule.cpp:
+	.text       start:0x80281E4C end:0x80282BC4
+	.rodata     start:0x803C0598 end:0x803C05B8
+	.data       start:0x803D2F88 end:0x803D32D0
+	.sdata      start:0x8058FB28 end:0x8058FB30
+	.sdata2     start:0x80595478 end:0x80595480
+
+MetroidPrime/Player/CMorphBallShadow.cpp:
+	.text       start:0x80282BC4 end:0x80284034
+	.rodata     start:0x803C05B8 end:0x803C0618
+	.sdata2     start:0x80595480 end:0x8059548C
+	.sbss2      start:0x80596CC0 end:0x80596CC8
+
+MetroidPrime/Player/CPlayerStuckTracker.cpp:
+	.text       start:0x80284034 end:0x80284B90
+	.sdata2     start:0x80595498 end:0x805954B0
+
+MetroidPrime/Tweaks/CTweakSlideShow.cpp:
+	.text       start:0x80289E10 end:0x8028A0E4
+	.data       start:0x803D3318 end:0x803D3328
+	.sdata2     start:0x80595530 end:0x80595538
+
+MetroidPrime/CArtifactDoll.cpp:
+	.text       start:0x8028A0E4 end:0x8028AD74
+	.ctors      start:0x803B53B4 end:0x803B53B8
+	.rodata     start:0x803C0740 end:0x803C0840
+	.sdata      start:0x8058FB70 end:0x8058FB80
+	.sbss       start:0x80590740 end:0x80590748
+	.sdata2     start:0x80595538 end:0x80595588
+
+MetroidPrime/CProjectedShadow.cpp:
+	.text       start:0x8028AD74 end:0x8028BC6C
+	.rodata     start:0x803C0840 end:0x803C0870
+	.sdata      start:0x8058FB80 end:0x8058FB88
+	.sdata2     start:0x80595588 end:0x805955A8
+	.sbss2      start:0x80596CD0 end:0x80596CD8
+
+MetroidPrime/CPreFrontEnd.cpp:
+	.text       start:0x8028BC6C end:0x8028BE0C
+	.rodata     start:0x803C0870 end:0x803C0888
+	.data       start:0x803D3328 end:0x803D3348
+
+MetroidPrime/CGameCubeDoll.cpp:
+	.text       start:0x8028BE0C end:0x8028C3D0
+	.rodata     start:0x803C0888 end:0x803C08A0
+	.sdata      start:0x8058FB88 end:0x8058FB90
+	.sdata2     start:0x805955A8 end:0x805955E0

@@ -1486,7 +1486,7 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/Enemies/CPhazonHealingNodule.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/Player/CMorphBallShadow.cpp"),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00", "R3ME01_00"),
+                MatchingFor("GM8J01_DD", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00", "R3ME01_00"),
                 "MetroidPrime/Player/CPlayerStuckTracker.cpp",
                 extra_cflags=['-pragma "inline_max_size(250)"']
                 if VERSIONS.index("GM8P01_00") <= version_num < VERSIONS.index("R3IJ01_00")
@@ -2301,7 +2301,7 @@ config.libs = [
                 "Kyoto/Alloc/CMediumAllocPool.cpp",
             ),
             Object(
-                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8J01_DD", "GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Alloc/CSmallAllocPool.cpp",
             ),
             Object(
