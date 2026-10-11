@@ -689,3 +689,132 @@ MetroidPrime/CFluidUVMotion.cpp:
 MetroidPrime/CRippleManager.cpp:
 	.text       start:0x80113F70 end:0x80114438
 	.sdata2     start:0x80592B60 end:0x80592B68
+
+MetroidPrime/CSamusDoll.cpp:
+	.text       start:0x800D26E0 end:0x800D636C
+	.ctors      start:0x803B52E8 end:0x803B52EC
+	.rodata     start:0x803B8C30 end:0x803B8E80
+	.bss        start:0x80453898 end:0x804538B0
+	.sdata      start:0x8058E888 end:0x8058E8A0
+	.sdata2     start:0x80592290 end:0x80592340
+
+MetroidPrime/Player/CMorphBall.cpp:
+	.text       start:0x800E4FC4 end:0x800F1D24
+	.ctors      start:0x803B5300 end:0x803B5304
+	.rodata     start:0x803B9258 end:0x803B9740
+	.bss        start:0x80453920 end:0x80453948
+	.bss        start:0x80554A74 end:0x80554AF8 align:4 common
+	.sdata      start:0x8058E968 end:0x8058EA30
+	.sbss       start:0x805904B8 end:0x805904D0
+	.sdata2     start:0x80592558 end:0x80592750
+
+MetroidPrime/Enemies/CSpacePirate.cpp:
+	.text       start:0x80117724 end:0x8012427C
+	.ctors      start:0x803B5314 end:0x803B5318
+	.rodata     start:0x803B9D80 end:0x803BA980
+	.data       start:0x803CA168 end:0x803CA660
+	.bss        start:0x80453998 end:0x80453B48
+	.bss        start:0x80556DDC end:0x80556E34 align:4 common
+	.sdata      start:0x8058EBD8 end:0x8058EC30
+	.sdata2     start:0x80592BD0 end:0x80592CB8
+
+MetroidPrime/ScriptObjects/CScriptCoverPoint.cpp:
+	.text       start:0x8012427C end:0x801247B8
+	.sdata      start:0x8058EC30 end:0x8058EC38
+	.sdata2     start:0x80592CB8 end:0x80592CC8
+
+MetroidPrime/Cameras/CPathCamera.cpp:
+	.text       start:0x801247B8 end:0x8012577C
+	.ctors      start:0x803B5318 end:0x803B531C
+	.data       start:0x803CA660 end:0x803CA6D8
+	.bss        start:0x80453B48 end:0x80453B60
+	.sdata      start:0x8058EC38 end:0x8058EC50
+	.sbss       start:0x80590530 end:0x80590540
+	.sdata2     start:0x80592CC8 end:0x80592CE8
+
+MetroidPrime/CFluidPlane.cpp:
+	.text       start:0x8012577C end:0x80125E88
+	.data       start:0x803CA6D8 end:0x803CA6F8
+	.sdata      start:0x8058EC50 end:0x8058EC60
+	.sdata2     start:0x80592CE8 end:0x80592D08
+
+MetroidPrime/CFluidPlaneManager.cpp:
+	.text       start:0x80125E88 end:0x80126588
+	.bss        start:0x80556E34 end:0x80558F4C align:4 common
+
+MetroidPrime/ScriptObjects/CScriptGrapplePoint.cpp:
+	.text       start:0x80126588 end:0x80126860
+	.data       start:0x803CA6F8 end:0x803CA768
+	.sdata      start:0x8058EC68 end:0x8058EC70
+	.sdata2     start:0x80592D50 end:0x80592D58
+
+MetroidPrime/ScriptObjects/CHUDBillboardEffect.cpp:
+	.text       start:0x80126860 end:0x80127010
+	.rodata     start:0x803BA990 end:0x803BA998
+	.data       start:0x803CA768 end:0x803CA7D8
+	.bss        start:0x80453B60 end:0x80453B70
+	.sdata      start:0x8058EC70 end:0x8058EC78
+	.sbss       start:0x80590540 end:0x80590550
+	.sdata2     start:0x80592D58 end:0x80592D80
+
+MetroidPrime/Enemies/CFlickerBat.cpp:
+	.text       start:0x80127010 end:0x801280C8
+	.data       start:0x803CA7D8 end:0x803CAAA8
+	.sdata      start:0x8058EC78 end:0x8058EC80
+	.sdata2     start:0x80592D80 end:0x80592DA8
+
+MetroidPrime/BodyState/CBodyStateCmdMgr.cpp:
+	.text       start:0x801280C8 end:0x801290CC
+	.data       start:0x803CAAA8 end:0x803CAAD0
+	.sdata2     start:0x80592DA8 end:0x80592DB8
+
+MetroidPrime/BodyState/CBodyStateInfo.cpp:
+	.text       start:0x801290CC end:0x8012BB28
+	.rodata     start:0x803BA998 end:0x803BA9A0
+	.data       start:0x803CAAD0 end:0x803CAD68
+	.sdata      start:0x8058EC80 end:0x8058EC98
+	.sdata2     start:0x80592DB8 end:0x80592DC0
+
+MetroidPrime/BodyState/CBSAttack.cpp:
+	.text       start:0x8012BB28 end:0x8012C398
+	.data       start:0x803CAD68 end:0x803CADA0
+	.sdata      start:0x8058EC98 end:0x8058ECA0
+	.sdata2     start:0x80592DC0 end:0x80592DD0
+
+MetroidPrime/BodyState/CBSDie.cpp:
+	.text       start:0x8012C398 end:0x8012C684
+	.data       start:0x803CADA0 end:0x803CADD8
+	.sdata2     start:0x80592DD0 end:0x80592DE0
+
+MetroidPrime/BodyState/CBSFall.cpp:
+	.text       start:0x8012C684 end:0x8012CBD4
+	.data       start:0x803CADD8 end:0x803CAE10
+	.sdata2     start:0x80592DE0 end:0x80592E10
+
+MetroidPrime/BodyState/CBSGetup.cpp:
+	.text       start:0x8012CBD4 end:0x8012CF48
+	.data       start:0x803CAE10 end:0x803CAE48
+	.sdata2     start:0x80592E10 end:0x80592E18
+
+MetroidPrime/BodyState/CBSKnockBack.cpp:
+	.text       start:0x8012CF48 end:0x8012D518
+	.data       start:0x803CAE48 end:0x803CAE80
+	.sdata2     start:0x80592E18 end:0x80592E48
+
+MetroidPrime/BodyState/CBSLieOnGround.cpp:
+	.text       start:0x8012D518 end:0x8012D89C
+	.data       start:0x803CAE80 end:0x803CAEB8
+	.sdata2     start:0x80592E48 end:0x80592E50
+
+MetroidPrime/BodyState/CBSLocomotion.cpp:
+	.text       start:0x8012D8FC end:0x8012FADC
+	.ctors      start:0x803B531C end:0x803B5320
+	.data       start:0x803CAEB8 end:0x803CB110
+	.sdata      start:0x8058ECA0 end:0x8058ECC8
+	.sbss       start:0x80590550 end:0x80590558
+	.sdata2     start:0x80592E50 end:0x80592E78
+
+MetroidPrime/BodyState/CBSStep.cpp:
+	.text       start:0x8012FADC end:0x8012FEFC
+	.data       start:0x803CB110 end:0x803CB148
+	.sdata2     start:0x80592E78 end:0x80592E80
