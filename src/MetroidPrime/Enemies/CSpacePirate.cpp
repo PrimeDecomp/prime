@@ -1,4 +1,8 @@
-#include "MetroidPrime/Enemies/CSpacePirate.hpp"
+// MWCC template emission order depends on these includes.
+// clang-format off
+#include "rstl/list.hpp" // IWYU pragma: keep
+#include "MetroidPrime/Enemies/CSpacePirate.hpp" // IWYU pragma: keep
+// clang-format on
 
 #include "Kyoto/Animation/CCharLayoutInfo.hpp"
 #include "Kyoto/Animation/CInt32POINode.hpp"
