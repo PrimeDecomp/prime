@@ -402,12 +402,13 @@ void CSamusHud::UpdateThreatAssessment(float dt, const CStateManager& mgr) {
           threatDistance = distance;
         }
       }
-        }
+    }
   }
   const float threatOverride = mgr.GetPlayer()->GetThreatOverride();
   if (threatOverride > 0.f) {
-    threatDistance =
-        rstl::min_val(threatDistance, (1.f - threatOverride) * gpTweakGui->GetThreatRange());
+    const float overrideFraction = 1.f - threatOverride;
+    const float overrideRange = gpTweakGui->GetThreatRange();
+    threatDistance = rstl::min_val(threatDistance, overrideRange * overrideFraction);
   }
   if (mgr.IsFullThreat()) {
     threatDistance = 0.f;
@@ -1558,6 +1559,8 @@ void CSamusHud::Draw(const CStateManager& mgr, float alpha, uint helmetVis, bool
   }
   CStopwatch timer;
   u64 currentTime = 0;
+  u64 decoPreviousTime;
+  u64 baseHudPreviousTime;
   for (int i = 0; i < 15; ++i) {
     mProfileInfo[i].mDrawUsec = 0;
   }
@@ -1593,17 +1596,17 @@ void CSamusHud::Draw(const CStateManager& mgr, float alpha, uint helmetVis, bool
       }
       if (mLoadedFrmeBaseHud != nullptr) {
         mLoadedFrmeBaseHud->Draw(CGuiWidgetDrawParms::sDefaultDrawParms);
-        const u64 previousTime = currentTime;
+        baseHudPreviousTime = currentTime;
         currentTime = timer.GetElapsedMicros();
-        mProfileInfo[6].mDrawUsec = currentTime - previousTime;
+        mProfileInfo[6].mDrawUsec = currentTime - baseHudPreviousTime;
       }
     }
   }
   if (!mDecoIntf.null() && mPreLoadCountdown == 0) {
     mDecoIntf->Draw();
-    const u64 previousTime = currentTime;
+    decoPreviousTime = currentTime;
     currentTime = timer.GetElapsedMicros();
-    mProfileInfo[12].mDrawUsec = currentTime - previousTime;
+    mProfileInfo[12].mDrawUsec = currentTime - decoPreviousTime;
   }
   bool firstPerson = mNextState >= kHS_Combat && mNextState <= kHS_Scan;
   if (firstPerson) {
