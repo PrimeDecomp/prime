@@ -439,31 +439,6 @@ CFlyingPirate::CFlyingPirate(TUniqueId uid, const rstl::string& name, const CEnt
 
 ENTITY_ACCEPT_IMPL(CFlyingPirate)
 
-bool CFlyingPirate::Listen(const CVector3f& pos, EListenNoiseType type) {
-  bool heard = false;
-  if (mAlive) {
-    const float hearingDistance = mData.GetHearingDistance() * mData.GetHearingDistance();
-    const CVector3f delta = pos - GetTranslation();
-    if (delta.MagSquared() < hearingDistance &&
-        (mDetectionHeightRange == 0.f ||
-         delta.GetZ() * delta.GetZ() < mDetectionHeightRange * mDetectionHeightRange)) {
-      mHearShot = true;
-      heard = true;
-    }
-    if (type == kLNT_PlayerFire) {
-      mCheckForProjectiles = true;
-    }
-  }
-  const bool result = heard;
-  return result;
-}
-
-void CFlyingPirate::DeliverGetUp() {
-  if (mBodyController->GetCurrentStateId() == pas::kAS_LieOnGround) {
-    mBodyController->CommandMgr().DeliverCmd(CBCGetupCmd(pas::kGetup_Zero));
-  }
-}
-
 void CFlyingPirate::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) {
   switch (msg) {
   case kSM_Alert:
@@ -555,6 +530,31 @@ void CFlyingPirate::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CSt
   case kSM_SetToZero:
     x6a2_28_ = true;
     break;
+  }
+}
+
+bool CFlyingPirate::Listen(const CVector3f& pos, EListenNoiseType type) {
+  bool heard = false;
+  if (mAlive) {
+    const float hearingDistance = mData.GetHearingDistance() * mData.GetHearingDistance();
+    const CVector3f delta = pos - GetTranslation();
+    if (delta.MagSquared() < hearingDistance &&
+        (mDetectionHeightRange == 0.f ||
+         delta.GetZ() * delta.GetZ() < mDetectionHeightRange * mDetectionHeightRange)) {
+      mHearShot = true;
+      heard = true;
+    }
+    if (type == kLNT_PlayerFire) {
+      mCheckForProjectiles = true;
+    }
+  }
+  const bool result = heard;
+  return result;
+}
+
+void CFlyingPirate::DeliverGetUp() {
+  if (mBodyController->GetCurrentStateId() == pas::kAS_LieOnGround) {
+    mBodyController->CommandMgr().DeliverCmd(CBCGetupCmd(pas::kGetup_Zero));
   }
 }
 
@@ -1232,6 +1232,121 @@ bool CFlyingPirate::InRange(CStateManager& mgr, float arg) {
          pos.MagSquared() < mMaxAttackRange * mMaxAttackRange;
 }
 
+void CFlyingPirate::PathFind(CStateManager& mgr, EStateMsg msg, float dt) {
+  switch (msg) {
+  case kStateMsg_Activate: {
+    CVector3f target = mgr.GetPlayer()->GetAimPosition(mgr, 0.f);
+    if (mIsMoving) {
+      target = mDestPos;
+    } else if (const CScriptCoverPoint* cover = GetCoverPoint(mgr, mCurrentCoverPoint)) {
+      target = cover->GetTranslation();
+    }
+    if (GetSearchPath()->Search(GetTranslation(), target) != CPathFindSearch::kR_Success &&
+        (GetSearchPath()->GetResult() == CPathFindSearch::kR_NoDestPoint ||
+         GetSearchPath()->GetResult() == CPathFindSearch::kR_NoPath)) {
+      if (GetSearchPath()->FindClosestReachablePoint(GetTranslation(), target) ==
+          CPathFindSearch::kR_Success) {
+        GetSearchPath()->Search(GetTranslation(), target);
+      }
+    }
+    UpdateParticleEffects(mgr, 0.5f, true);
+    break;
+  }
+  case kStateMsg_Update: {
+    CVector3f move = CVector3f::Zero();
+    if (!GetSearchPath()->IsShagged() && !GetSearchPath()->IsOver()) {
+      CVector3f out = GetTranslation() + GetTransform().GetForward();
+      GetSearchPath()->GetSplinePointWithLookahead(out, GetTranslation(), 3.f);
+      if (GetSearchPath()->SegmentOver(out)) {
+        GetSearchPath()->Advance();
+      }
+      move = out - GetTranslation();
+      if (move.CanBeNormalized()) {
+        move.Normalize();
+      }
+    }
+    move += 3.f * AvoidActors(mgr);
+    if (move.CanBeNormalized()) {
+      move.Normalize();
+    }
+    float speed = x858_ < 2.f ? 4.f : 1.f;
+    const float multiplier = 1.5f * speed;
+    speed = dt * (dt * (speed * mData.xc4_));
+    x87c_ = speed * move;
+    x898_ = multiplier;
+    x870_ += x87c_;
+    const CVector3f face = (GetTargetPos(mgr) - GetTranslation()).AsNormalized();
+    mBodyController->CommandMgr().DeliverCmd(CBCLocomotionCmd(move, face, 1.f));
+    UpdateCantSeePlayer(mgr);
+    break;
+  }
+  case kStateMsg_Deactivate:
+    mIsMoving = false;
+    break;
+  }
+}
+
+void CFlyingPirate::Retreat(CStateManager& mgr, EStateMsg msg, float dt) {
+  switch (msg) {
+  case kStateMsg_Activate: {
+    const CVector3f playerPos = mgr.GetPlayer()->GetTranslation();
+    CVector3f target =
+        GetTranslation() - mMinAttackRange * (playerPos - GetTranslation()).AsNormalized();
+    float targetZ = playerPos.GetZ();
+    targetZ += mData.mFlyingHeight;
+    target.SetZ(targetZ);
+    if (GetSearchPath()->OnPath(target) == CPathFindSearch::kR_NoSourcePoint) {
+      GetSearchPath()->FindClosestReachablePoint(GetTranslation(), target);
+      target[kDZ] += mData.mFlyingHeight;
+      if ((playerPos - target).MagSquared() < 0.25f * mMinAttackRange * mMinAttackRange) {
+        target =
+            GetTranslation() + mMinAttackRange * (playerPos - GetTranslation()).AsNormalized();
+        float targetZ = playerPos.GetZ();
+        targetZ += mData.mFlyingHeight;
+        target.SetZ(targetZ);
+        if (GetSearchPath()->OnPath(target) == CPathFindSearch::kR_NoSourcePoint) {
+          GetSearchPath()->FindClosestReachablePoint(GetTranslation(), target);
+          target[kDZ] += mData.mFlyingHeight;
+        }
+      }
+    }
+    GetSearchPath()->Search(GetTranslation(), target);
+    UpdateParticleEffects(mgr, 0.5f, true);
+    break;
+  }
+  case kStateMsg_Update: {
+    CVector3f move = CVector3f::Zero();
+    if (!GetSearchPath()->IsOver()) {
+      CVector3f out = GetTranslation() + GetTransform().GetForward();
+      GetSearchPath()->GetSplinePointWithLookahead(out, GetTranslation(), 3.f);
+      if (GetSearchPath()->SegmentOver(out)) {
+        GetSearchPath()->Advance();
+      }
+      move = out - GetTranslation();
+      if (move.CanBeNormalized()) {
+        move.Normalize();
+      }
+    }
+    move += 3.f * AvoidActors(mgr);
+    if (move.CanBeNormalized()) {
+      move.Normalize();
+    }
+    float speed = x858_ < 2.f ? 4.f : 1.f;
+    const float multiplier = 1.5f * speed;
+    speed = dt * (dt * (speed * mData.xc4_));
+    x87c_ = speed * move;
+    x898_ = multiplier;
+    x870_ += x87c_;
+    const CVector3f face = (GetTargetPos(mgr) - GetTranslation()).AsNormalized();
+    mBodyController->CommandMgr().DeliverCmd(CBCLocomotionCmd(move, face, 1.f));
+    UpdateCantSeePlayer(mgr);
+    break;
+  }
+  case kStateMsg_Deactivate:
+    break;
+  }
+}
+
 void CFlyingPirate::TurnAround(CStateManager& mgr, EStateMsg msg, float dt) {
   switch (msg) {
   case kStateMsg_Activate: {
@@ -1410,121 +1525,6 @@ void CFlyingPirate::ProjectileAttack(CStateManager& mgr, EStateMsg msg, float dt
   }
 }
 
-void CFlyingPirate::PathFind(CStateManager& mgr, EStateMsg msg, float dt) {
-  switch (msg) {
-  case kStateMsg_Activate: {
-    CVector3f target = mgr.GetPlayer()->GetAimPosition(mgr, 0.f);
-    if (mIsMoving) {
-      target = mDestPos;
-    } else if (const CScriptCoverPoint* cover = GetCoverPoint(mgr, mCurrentCoverPoint)) {
-      target = cover->GetTranslation();
-    }
-    if (GetSearchPath()->Search(GetTranslation(), target) != CPathFindSearch::kR_Success &&
-        (GetSearchPath()->GetResult() == CPathFindSearch::kR_NoDestPoint ||
-         GetSearchPath()->GetResult() == CPathFindSearch::kR_NoPath)) {
-      if (GetSearchPath()->FindClosestReachablePoint(GetTranslation(), target) ==
-          CPathFindSearch::kR_Success) {
-        GetSearchPath()->Search(GetTranslation(), target);
-      }
-    }
-    UpdateParticleEffects(mgr, 0.5f, true);
-    break;
-  }
-  case kStateMsg_Update: {
-    CVector3f move = CVector3f::Zero();
-    if (!GetSearchPath()->IsShagged() && !GetSearchPath()->IsOver()) {
-      CVector3f out = GetTranslation() + GetTransform().GetForward();
-      GetSearchPath()->GetSplinePointWithLookahead(out, GetTranslation(), 3.f);
-      if (GetSearchPath()->SegmentOver(out)) {
-        GetSearchPath()->Advance();
-      }
-      move = out - GetTranslation();
-      if (move.CanBeNormalized()) {
-        move.Normalize();
-      }
-    }
-    move += 3.f * AvoidActors(mgr);
-    if (move.CanBeNormalized()) {
-      move.Normalize();
-    }
-    float speed = x858_ < 2.f ? 4.f : 1.f;
-    const float multiplier = 1.5f * speed;
-    speed = dt * (dt * (speed * mData.xc4_));
-    x87c_ = speed * move;
-    x898_ = multiplier;
-    x870_ += x87c_;
-    const CVector3f face = (GetTargetPos(mgr) - GetTranslation()).AsNormalized();
-    mBodyController->CommandMgr().DeliverCmd(CBCLocomotionCmd(move, face, 1.f));
-    UpdateCantSeePlayer(mgr);
-    break;
-  }
-  case kStateMsg_Deactivate:
-    mIsMoving = false;
-    break;
-  }
-}
-
-void CFlyingPirate::Retreat(CStateManager& mgr, EStateMsg msg, float dt) {
-  switch (msg) {
-  case kStateMsg_Activate: {
-    const CVector3f playerPos = mgr.GetPlayer()->GetTranslation();
-    CVector3f target =
-        GetTranslation() - mMinAttackRange * (playerPos - GetTranslation()).AsNormalized();
-    float targetZ = playerPos.GetZ();
-    targetZ += mData.mFlyingHeight;
-    target.SetZ(targetZ);
-    if (GetSearchPath()->OnPath(target) == CPathFindSearch::kR_NoSourcePoint) {
-      GetSearchPath()->FindClosestReachablePoint(GetTranslation(), target);
-      target[kDZ] += mData.mFlyingHeight;
-      if ((playerPos - target).MagSquared() < 0.25f * mMinAttackRange * mMinAttackRange) {
-        target =
-            GetTranslation() + mMinAttackRange * (playerPos - GetTranslation()).AsNormalized();
-        float targetZ = playerPos.GetZ();
-        targetZ += mData.mFlyingHeight;
-        target.SetZ(targetZ);
-        if (GetSearchPath()->OnPath(target) == CPathFindSearch::kR_NoSourcePoint) {
-          GetSearchPath()->FindClosestReachablePoint(GetTranslation(), target);
-          target[kDZ] += mData.mFlyingHeight;
-        }
-      }
-    }
-    GetSearchPath()->Search(GetTranslation(), target);
-    UpdateParticleEffects(mgr, 0.5f, true);
-    break;
-  }
-  case kStateMsg_Update: {
-    CVector3f move = CVector3f::Zero();
-    if (!GetSearchPath()->IsOver()) {
-      CVector3f out = GetTranslation() + GetTransform().GetForward();
-      GetSearchPath()->GetSplinePointWithLookahead(out, GetTranslation(), 3.f);
-      if (GetSearchPath()->SegmentOver(out)) {
-        GetSearchPath()->Advance();
-      }
-      move = out - GetTranslation();
-      if (move.CanBeNormalized()) {
-        move.Normalize();
-      }
-    }
-    move += 3.f * AvoidActors(mgr);
-    if (move.CanBeNormalized()) {
-      move.Normalize();
-    }
-    float speed = x858_ < 2.f ? 4.f : 1.f;
-    const float multiplier = 1.5f * speed;
-    speed = dt * (dt * (speed * mData.xc4_));
-    x87c_ = speed * move;
-    x898_ = multiplier;
-    x870_ += x87c_;
-    const CVector3f face = (GetTargetPos(mgr) - GetTranslation()).AsNormalized();
-    mBodyController->CommandMgr().DeliverCmd(CBCLocomotionCmd(move, face, 1.f));
-    UpdateCantSeePlayer(mgr);
-    break;
-  }
-  case kStateMsg_Deactivate:
-    break;
-  }
-}
-
 bool CFlyingPirate::ShouldMove(CStateManager& mgr, float arg) {
   CVector3f delta = GetTranslation() - mgr.GetPlayer()->GetTranslation();
   float random = mgr.Random()->Float();
@@ -1633,6 +1633,8 @@ bool CFlyingPirate::ShouldRetreat(CStateManager& mgr, float arg) {
   return shouldRetreat;
 }
 
+CProjectileInfo* CFlyingPirate::ProjectileInfo() { return &mData.GunProjectileInfo(); }
+
 bool CFlyingPirate::FireProjectile(CStateManager& mgr, float dt) {
   bool fired = false;
   const CTransform4f xf = GetLctrTransform(mGunSegId);
@@ -1681,8 +1683,6 @@ bool CFlyingPirate::FireProjectile(CStateManager& mgr, float dt) {
   const bool result = fired;
   return result;
 }
-
-CProjectileInfo* CFlyingPirate::ProjectileInfo() { return &mData.GunProjectileInfo(); }
 
 void CFlyingPirate::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node,
                                     EUserEventType type, float dt) {
@@ -1736,6 +1736,25 @@ void CFlyingPirate::CalculateRenderBounds() {
   } else {
     CActor::CalculateRenderBounds();
   }
+}
+
+void CFlyingPirate::AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const {
+  for (int i = 0; i < mParticleGens.size(); ++i) {
+    CElementGen* gen = mParticleGens[i].get();
+    if (frustum.BoxInFrustumPlanes(gen->GetBounds())) {
+      gpRender->AddParticleGen(*gen);
+    }
+  }
+  CPatterned::AddToRenderer(frustum, mgr);
+}
+
+void CFlyingPirate::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) {
+  if (!mRagDoll.null() && mRagDoll->IsPrimed()) {
+    mRagDoll->PreRender(GetTranslation(), *ModelData());
+  }
+  CPatterned::PreRender(mgr, frustum);
+  mBoneTracking.PreRender(mgr, *AnimationData(), GetTransform(), GetModelScale(),
+                              *mBodyController);
 }
 
 void CFlyingPirate::Think(const float dt, CStateManager& mgr) {
@@ -1951,25 +1970,6 @@ void CFlyingPirate::Think(const float dt, CStateManager& mgr) {
       }
     }
   }
-}
-
-void CFlyingPirate::AddToRenderer(const CFrustumPlanes& frustum, const CStateManager& mgr) const {
-  for (int i = 0; i < mParticleGens.size(); ++i) {
-    CElementGen* gen = mParticleGens[i].get();
-    if (frustum.BoxInFrustumPlanes(gen->GetBounds())) {
-      gpRender->AddParticleGen(*gen);
-    }
-  }
-  CPatterned::AddToRenderer(frustum, mgr);
-}
-
-void CFlyingPirate::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) {
-  if (!mRagDoll.null() && mRagDoll->IsPrimed()) {
-    mRagDoll->PreRender(GetTranslation(), *ModelData());
-  }
-  CPatterned::PreRender(mgr, frustum);
-  mBoneTracking.PreRender(mgr, *AnimationData(), GetTransform(), GetModelScale(),
-                              *mBodyController);
 }
 
 bool CFlyingPirate::KnockbackWhenFrozen() const { return false; }
