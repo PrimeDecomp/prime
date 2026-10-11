@@ -765,7 +765,7 @@ GuiSys/CAuiEnergyBarT01.cpp:
 Collision/CCollidableAABox.cpp:
 	.text       start:0x802277E0 end:0x802283AC
 	.ctors      start:0x8032131C end:0x80321320
-	.rodata     start:0x8032C638 end:0x8032C64C
+	.rodata     start:0x8032C638 end:0x8032C650
 	.data       start:0x803513B0 end:0x803513D8
 	.bss        start:0x803DF1F0 end:0x803DF238 align:4
 	.sdata      start:0x80534FC8 end:0x80534FD0
@@ -773,6 +773,7 @@ Collision/CCollidableAABox.cpp:
 
 Collision/CCollidableCollisionSurface.cpp:
 	.text       start:0x802283AC end:0x802283D0
+	.rodata     start:0x8032C650 end:0x8032C670
 	.sdata      start:0x80534FD0 end:0x80534FD8
 
 Collision/CCollisionInfo.cpp:
@@ -1081,6 +1082,7 @@ Kyoto/Text/CTextParser.cpp:
 Kyoto/Text/CWordBreakTables.cpp:
 	.text       start:0x80262C94 end:0x80262EDC
 	.rodata     start:0x8032C9B0 end:0x8032CE70
+	.sbss       start:0x805359F0 end:0x805359F8
 
 Kyoto/Text/CBlockInstruction.cpp:
 	.text       start:0x8026326C end:0x802632A4
