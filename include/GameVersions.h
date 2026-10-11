@@ -7,7 +7,7 @@
 #define VERSION_GM8E_48 3
 #define VERSION_GM8E_02 4
 #define VERSION_GM8P_00 5
-#define VERSION_GM8J_DD 7
+#define VERSION_GM8J_DD 6
 #define VERSION_GM8J_00 7
 #define VERSION_R3IJ_00 8
 #define VERSION_R3ME_00 9

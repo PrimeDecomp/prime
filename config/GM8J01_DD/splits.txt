@@ -12,3 +12,109 @@ Sections:
 	.sbss       type:bss align:32
 	.sdata2     type:rodata align:32
 	.sbss2      type:bss align:32
+
+dolphin/os/__start.c:
+	.init       start:0x80003100 end:0x80003354
+
+dolphin/os/__ppc_eabi_init.cpp:
+	.init       start:0x80003354 end:0x800033A8
+	.text       start:0x8036FBDC end:0x8036FC70
+
+runtime/__mem.c:
+	.init       start:0x800033A8 end:0x800034E0
+
+MetroTRK/mslsupp.c:
+	.text       start:0x80003640 end:0x80003658
+
+MetroidPrime/Cameras/CCameraManager.cpp:
+	.text       start:0x80009878 end:0x8000CFA0
+	.rodata     start:0x803B66B8 end:0x803B66C0
+	.data       start:0x803C3848 end:0x803C3858
+	.sdata      start:0x8058E150 end:0x8058E170
+	.sdata2     start:0x80591388 end:0x805913C8
+
+MetroidPrime/CControlMapper.cpp:
+	.text       start:0x8000CFA0 end:0x8000E8FC
+	.ctors      start:0x803B52A4 end:0x803B52A8
+	.rodata     start:0x803B66C0 end:0x803B6AB0
+	.data       start:0x803C3858 end:0x803C4000
+	.bss        start:0x8043ECA0 end:0x8043ECB0
+	.bss        start:0x80551B20 end:0x80551B68 align:4 common
+	.sdata      start:0x8058E170 end:0x8058E178
+	.sdata2     start:0x805913C8 end:0x805913D0
+
+MetroidPrime/Cameras/CFirstPersonCamera.cpp:
+	.text       start:0x8000E8FC end:0x80010514
+	.rodata     start:0x803B6AB0 end:0x803B6AC4
+	.data       start:0x803C4000 end:0x803C4078
+	.sdata      start:0x8058E178 end:0x8058E1C8
+	.sdata2     start:0x805913D0 end:0x80591400
+
+MetroidPrime/CObjectList.cpp:
+	.text       start:0x80010514 end:0x8001098C
+	.data       start:0x803C4078 end:0x803C4088
+
+MetroidPrime/CAxisAngle.cpp:
+	.text       start:0x8001C04C end:0x8001C1EC
+	.ctors      start:0x803B52AC end:0x803B52B0
+	.bss        start:0x80551B68 end:0x80551B74 align:4 common
+
+MetroidPrime/CEulerAngles.cpp:
+	.text       start:0x8001C1EC end:0x8001C5E4
+	.ctors      start:0x803B52B0 end:0x803B52B4
+	.bss        start:0x80551B74 end:0x80551B80 align:4 common
+	.sdata2     start:0x80591580 end:0x805915B0
+
+MetroidPrime/CMatrix3f_Ext.cpp:
+	.text       start:0x8001C5E4 end:0x8001C60C
+
+MetroidPrime/CArchMsgParmUserInput.cpp:
+	.text       start:0x8001C60C end:0x8001C714
+	.data       start:0x803C41B0 end:0x803C41C0
+
+MetroidPrime/CInputGenerator.cpp:
+	.text       start:0x800253EC end:0x80025908
+
+MetroidPrime/CAnimData.cpp:
+	.text       start:0x8002A56C end:0x80032DCC
+	.ctors      start:0x803B52C0 end:0x803B52C4
+	.rodata     start:0x803B7600 end:0x803B7658
+	.data       start:0x803C4410 end:0x803C4450
+	.bss        start:0x80442518 end:0x80442558
+	.bss        start:0x80551B80 end:0x80554984 align:4 common
+	.sdata      start:0x8058E310 end:0x8058E330
+	.sbss       start:0x80590298 end:0x805902A0
+	.sdata2     start:0x80591798 end:0x805917B8
+
+MetroidPrime/Factories/CCharacterFactory.cpp:
+	.text       start:0x80032DCC end:0x80035A9C
+	.rodata     start:0x803B7658 end:0x803B7660
+	.data       start:0x803C4450 end:0x803C4530
+
+MetroidPrime/Factories/CAssetFactory.cpp:
+	.text       start:0x80035A9C end:0x8003609C
+	.rodata     start:0x803B7660 end:0x803B7668
+	.data       start:0x803C4530 end:0x803C4560
+
+MetroidPrime/Tweaks/CTweakPlayer.cpp:
+	.text       start:0x80036174 end:0x80036CF8
+	.data       start:0x803C4560 end:0x803C4578
+	.sbss       start:0x805902A0 end:0x805902A8
+	.sdata2     start:0x805917C8 end:0x805917D0
+
+MetroidPrime/Tweaks/CTweaks.cpp:
+	.text       start:0x80036CF8 end:0x80038554
+	.rodata     start:0x803B7668 end:0x803B7700
+	.bss        start:0x80442558 end:0x80443908
+	.sbss       start:0x805902A8 end:0x80590340
+
+MetroidPrime/Tweaks/CTweakGame.cpp:
+	.text       start:0x80038554 end:0x80038770
+	.data       start:0x803C4578 end:0x803C4588
+
+MetroidPrime/Weapons/CGameProjectile.cpp:
+	.text       start:0x80038770 end:0x8003B1F0
+	.rodata     start:0x803B7700 end:0x803B7718
+	.data       start:0x803C4588 end:0x803C45F8
+	.sdata      start:0x8058E330 end:0x8058E358
+	.sdata2     start:0x805917D0 end:0x80591818
