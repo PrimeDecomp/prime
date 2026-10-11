@@ -665,38 +665,39 @@ void CCubeMaterial::SetCurrent(const CModelFlags& flags, const CCubeSurface& sur
     }
   }
 
-  scanner_t uvAnim;
-  uvAnim = texMapTexCoordFlags;
+  materialDataCur = texMapTexCoordFlags;
   uint tcgCount = 0;
   if (thermal) {
-    const uint fullTcgCount = SBig(uvAnim.words[0]);
+    const uint fullTcgCount = SBig(materialDataCur.words[0]);
     tcgCount = fullTcgCount <= 2 ? fullTcgCount : 2;
     for (uint i = 0; i < tcgCount; ++i) {
-      CGX::SetTexCoordGen_Compressed(static_cast< GXTexCoordID >(i), SBig(uvAnim.words[i + 1]));
+      CGX::SetTexCoordGen_Compressed(static_cast< GXTexCoordID >(i),
+                                    SBig(materialDataCur.words[i + 1]));
     }
-    uvAnim.words += fullTcgCount + 1;
+    materialDataCur.words += fullTcgCount + 1;
   } else {
-    tcgCount = SBig(uvAnim.words[0]);
+    tcgCount = SBig(materialDataCur.words[0]);
     for (uint i = 0; i < tcgCount; ++i) {
-      CGX::SetTexCoordGen_Compressed(static_cast< GXTexCoordID >(i), SBig(uvAnim.words[i + 1]));
+      CGX::SetTexCoordGen_Compressed(static_cast< GXTexCoordID >(i),
+                                    SBig(materialDataCur.words[i + 1]));
     }
-    uvAnim.words += tcgCount + 1;
+    materialDataCur.words += tcgCount + 1;
   }
 
-  const uint animCount = SBig(uvAnim.words[1]);
-  uvAnim.words += 2;
+  const uint animCount = SBig(materialDataCur.words[1]);
+  materialDataCur.words += 2;
   uint animIdx = 0;
   GXTexMtx texMtx = GX_TEXMTX0;
   GXPTTexMtx ptTexMtx = GX_PTTEXMTX0;
   for (; animIdx < animCount;) {
-    const int size = HandleAnimatedUV(uvAnim.words, texMtx, ptTexMtx);
+    const int size = HandleAnimatedUV(materialDataCur.words, texMtx, ptTexMtx);
     if (size == 0) {
       break;
     }
     ++animIdx;
     texMtx = static_cast< GXTexMtx >(texMtx + 3);
     ptTexMtx = static_cast< GXPTTexMtx >(ptTexMtx + 3);
-    uvAnim.words += size;
+    materialDataCur.words += size;
   }
 
   if (flags.GetTrans() != CModelFlags::kT_Opaque) {
