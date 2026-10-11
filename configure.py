@@ -3245,7 +3245,7 @@ config.libs = [
                 cflags=[*cflags_base, "-O0", "-sdata 0", "-sdata2 0", "-str noreuse"],
             ),
             Object(
-                NonMatching,
+                MatchingFor(*NTSC_GC_VERSIONS),
                 "NESemu/emu.cpp",
                 cflags=[*cflags_base, "-sdata 0", "-sdata2 0", "-pool on"],
             ),
@@ -3258,7 +3258,7 @@ config.libs = [
                 ],
             ),
             Object(
-                EquivalentFor("GM8E01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS),
                 "NESemu/emusound.cpp",
                 cflags=[
                     *cflags_base, "-O4,s", "-inline off", "-func_align 32", "-vector on",
@@ -3283,11 +3283,13 @@ if config.version == "GM8P01_00":
                 f"-i {(config.out_path() / 'include' / module).as_posix()}",
                 *options["cflags"],
             ]
+            if obj.name == "NESemu/emu.cpp" and module == "NESPALemuP":
+                options["cflags"].append("-DNES_PAL_50HZ")
             if obj.name == "NESemu/emusound.cpp":
                 options["cflags"].append("-rostr")
             objects.append(
                 Object(
-                    obj.name in ("NESemu/modwrapper.cpp", "NESemu/ksNesAudio.cpp"),
+                    Matching,
                     obj.name.replace("NESemu/", f"{module}/", 1),
                     **options,
                 )
