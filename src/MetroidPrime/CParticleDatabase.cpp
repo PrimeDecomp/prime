@@ -125,7 +125,7 @@ void CParticleDatabase::InsertParticleGen(const bool oneShot, int flags, const r
 
 template < class T, class U >
 static int _getGraphicLightId(const T& system, const U& desc) {
-  if (system->SystemHasLight()) {
+  if (system.GetPtr()->SystemHasLight()) {
     return desc.GetTag().GetId();
   }
   return -1;
@@ -300,6 +300,8 @@ void CParticleDatabase::SetExternalVarValue(const rstl::string& name, int index,
     system->SetExternalVar(index, value);
   }
 }
+
+rstl::ncrc_ptr< CParticleGen > CParticleGenInfoGeneric::GetParticleSystem() const { return mSystem; }
 
 void CParticleDatabase::Update(float dt, const CPoseAsTransforms& pose,
                                const CCharLayoutInfo& layout, const CTransform4f& xf,

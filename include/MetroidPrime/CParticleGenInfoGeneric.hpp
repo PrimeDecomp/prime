@@ -32,7 +32,7 @@ public:
   virtual void DeleteLight(CStateManager& stateMgr) override;
   virtual void SetModulationColor(const CColor& color) override;
 
-  rstl::ncrc_ptr< CParticleGen > GetParticleSystem() const { return mSystem; }
+  rstl::ncrc_ptr< CParticleGen > GetParticleSystem() const;
 
 private:
   rstl::ncrc_ptr< CParticleGen > mSystem;
