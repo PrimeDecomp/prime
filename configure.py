@@ -514,7 +514,7 @@ config.libs = [
         "game",
         [
             Object(
-                EquivalentFor("GM8E01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS),
                 "MetroidPrime/main.cpp",
                 extra_cflags=['-pragma "inline_max_size(245)"']
                 if version_num < VERSIONS.index("GM8P01_00")

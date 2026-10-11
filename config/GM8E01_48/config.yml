@@ -8,12 +8,10 @@ quick_analysis: false # Faster reruns after full analysis
 fill_gaps: true # Alignments known
 
 extract:
-- symbol: "lbl_803CB4A0"
-  rename: "sDefaultFontData"
+- symbol: "sDefaultFontData"
   binary: "MetroidPrime/DefaultFontData.bin"
   header: "MetroidPrime/DefaultFontData.inc"
-- symbol: "lbl_803CBAF0"
-  rename: "sDefaultFontTexture"
+- symbol: "sDefaultFontTexture"
   binary: "MetroidPrime/DefaultFontTexture.bin"
   header: "MetroidPrime/DefaultFontTexture.inc"
 
