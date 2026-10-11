@@ -325,7 +325,9 @@ CRasterFont* CGameGlobalObjects::LoadDefaultFont() {
   CRasterFont* font = rs_new CRasterFont(fontDataStream, nullptr);
   CZipInputStream fontTextureStream(
       rs_new CMemoryInStream(sDefaultFontTexture, sizeof(sDefaultFontTexture)));
-  font->SetTexture(rs_new CTexture(fontTextureStream, CTexture::kAM_Zero, CTexture::kBK_Zero));
+  TToken< CTexture > texture =
+      rs_new CTexture(fontTextureStream, CTexture::kAM_Zero, CTexture::kBK_Zero);
+  font->SetTexture(texture);
   return font;
 }
 
