@@ -3878,6 +3878,11 @@ CVector3f CPlayer::GetHomingPosition(const CStateManager& mgr, float dt) const {
   return GetTranslation();
 }
 
+const CDamageVulnerability* CPlayer::GetDamageVulnerability() const {
+  const CDamageInfo info(CWeaponMode(kWT_Power, false, false, false), 0.f, 0.f, 0.f);
+  return GetDamageVulnerability(CVector3f::Zero(), CVector3f::Up(), info);
+}
+
 const CDamageVulnerability* CPlayer::GetDamageVulnerability(const CVector3f& v1,
                                                             const CVector3f& v2,
                                                             const CDamageInfo& info) const {
@@ -3885,11 +3890,6 @@ const CDamageVulnerability* CPlayer::GetDamageVulnerability(const CVector3f& v1,
     return &CDamageVulnerability::ImmuneVulnerability();
   }
   return &CDamageVulnerability::NormalVulnerability();
-}
-
-const CDamageVulnerability* CPlayer::GetDamageVulnerability() const {
-  const CDamageInfo info(CWeaponMode(kWT_Power, false, false, false), 0.f, 0.f, 0.f);
-  return GetDamageVulnerability(CVector3f::Zero(), CVector3f::Up(), info);
 }
 
 bool CPlayer::CanRenderUnsorted(const CStateManager& mgr) const { return false; }
