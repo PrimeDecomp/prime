@@ -93,6 +93,11 @@ void CWallWalker::OrientToSurfaceNormal(const CVector3f& normal, float clampAngl
   SetRotation((CQuaternion::FromMatrix(GetTransform()) * localRotation).BuildNormalized());
 }
 
+static inline float PointToPlaneDistance(const CUnitVector3f& normal, const CVector3f& point,
+                                       float constant) {
+  return CMath::AbsF(CVector3f::Dot(normal, point) - constant);
+}
+
 void CWallWalker::AlignToFloor(CStateManager& mgr, float radius, const CVector3f& newPos,
                                float dt) {
   bool hasSurface = false;
@@ -101,6 +106,8 @@ void CWallWalker::AlignToFloor(CStateManager& mgr, float radius, const CVector3f
   const CAABox bounds(newPos - extent, newPos + extent);
   CAreaCollisionCache cache(bounds);
   CGameCollision::BuildAreaCollisionCache(mgr, cache);
+
+  float angle;
   float margin = radius + mCollisionCloseMargin;
   if (mHasAlignSurface) {
     mHasAlignSurface = PointOnSurface(mAlignNormal, newPos);
@@ -115,9 +122,8 @@ void CWallWalker::AlignToFloor(CStateManager& mgr, float radius, const CVector3f
         const int triangleCount = triangles.GetSize();
         for (int k = 0; k < triangleCount; ++k) {
           const CCollisionSurface& surface = tree.GetMasterListTriangle(triangles.GetAt(k));
-          const float planeConstant = surface.GetPlane().GetConstant();
           const float dist =
-              CMath::AbsF(CVector3f::Dot(surface.GetNormal(), newPos) - planeConstant);
+              PointToPlaneDistance(surface.GetNormal(), newPos, surface.GetPlane().GetConstant());
           if (dist < margin && PointOnSurface(surface, newPos)) {
             margin = dist;
             mAlignNormal = surface;
@@ -135,7 +141,7 @@ void CWallWalker::AlignToFloor(CStateManager& mgr, float radius, const CVector3f
   } else {
     const float angularVelocity =
         CMath::Rad2Deg(GetVelocityWR().Magnitude()) / mColSphere.GetSphere().GetRadius();
-    const float angle = angularVelocity * dt;
+    angle = angularVelocity * dt;
     OrientToSurfaceNormal(CVector3f(GetTransform().GetForward()), angle);
     if (mBodyController->HasBodyState(pas::kAS_Step)) {
       mBodyController->CommandMgr().DeliverCmd(CBCStepCmd(pas::kSD_Down, pas::kStep_Normal));
