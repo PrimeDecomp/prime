@@ -324,6 +324,8 @@ MetroidPrime/ScriptObjects/CScriptDoor.cpp:
 
 MetroidPrime/Enemies/CStateMachine.cpp:
 	.text       start:0x8007FB68 end:0x80080714
+	.rodata     start:0x803CE6E8 end:0x803CE6F0
+	.sdata2     start:0x805AB760 end:0x805AB768
 
 MetroidPrime/CMapArea.cpp:
 	.text       start:0x80080714 end:0x800815CC
@@ -1141,9 +1143,11 @@ MetroidPrime/Player/CPlayerOrbit.cpp:
 
 MetroidPrime/CGameCollision.cpp:
 	.text       start:0x80180368 end:0x80185C20
-	.sdata      start:0x805A8AC8 end:0x805A8AD0
-	.sdata2     start:0x805AD098 end:0x805AD0C8
-	.sdata2     start:0x805AD0C8 end:0x805AD0D8
+	.rodata     start:0x803D1750 end:0x803D1790
+	.data       start:0x803E5040 end:0x803E50B8
+	.sdata      start:0x805A8AC8 end:0x805A8AF0
+	.sbss       start:0x805AA0C0 end:0x805AA0C8
+	.sdata2     start:0x805AD088 end:0x805AD0D8
 
 MetroidPrime/CBallFilter.cpp:
 	.text       start:0x80185C20 end:0x80186034
@@ -1241,8 +1245,10 @@ MetroidPrime/HUD/CHudDecoInterface.cpp:
 MetroidPrime/Weapons/CFlameThrower.cpp:
 	.text       start:0x80197CA0 end:0x801995C4
 	.ctors      start:0x803CC324 end:0x803CC328
+	.rodata     start:0x803D22D0 end:0x803D22F0
+	.data       start:0x803E5698 end:0x803E5708
 	.bss        start:0x8057308C end:0x80573098 align:4 common
-	.sdata2     start:0x805AD490 end:0x805AD4A0
+	.sdata2     start:0x805AD480 end:0x805AD4A8
 
 MetroidPrime/Weapons/CBeamProjectile.cpp:
 	.text       start:0x801995C4 end:0x8019A078
@@ -2756,6 +2762,8 @@ Kyoto/Graphics/CLight.cpp:
 
 Kyoto/Graphics/CCubeModel.cpp:
 	.text       start:0x80307080 end:0x8030860C
+	.rodata     start:0x803D8448 end:0x803D8460
+	.sbss       start:0x805AA3E0 end:0x805AA3F8
 
 Kyoto/Graphics/CGX.cpp:
 	.text       start:0x8030860C end:0x803098F8
