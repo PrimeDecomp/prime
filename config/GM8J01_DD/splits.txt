@@ -2368,3 +2368,115 @@ GuiSys/CGuiSys.cpp:
 	.text       start:0x802B2408 end:0x802B25D8
 	.rodata     start:0x803C12C8 end:0x803C12D0
 	.sbss       start:0x805907D0 end:0x805907D8
+
+GuiSys/CGuiTableGroup.cpp:
+	.text       start:0x802B25D8 end:0x802B3568
+	.rodata     start:0x803C12D0 end:0x803C12D8
+	.data       start:0x803D3C88 end:0x803D3CD0
+	.sdata      start:0x8058FC60 end:0x8058FC68
+
+GuiSys/CGuiTextPane.cpp:
+	.text       start:0x802B3568 end:0x802B3D80
+	.rodata     start:0x803C12D8 end:0x803C12E0
+	.data       start:0x803D3CD0 end:0x803D3D28
+	.sbss       start:0x805907D8 end:0x805907E0
+	.sdata2     start:0x805958C8 end:0x805958F8
+
+GuiSys/CGuiTextSupport.cpp:
+	.text       start:0x802B3D80 end:0x802B6798
+	.sdata      start:0x8058FC68 end:0x8058FC78
+	.sdata2     start:0x80595908 end:0x80595920
+
+GuiSys/CGuiWidget.cpp:
+	.text       start:0x802B6874 end:0x802B71D0
+	.rodata     start:0x803C12F0 end:0x803C1340
+	.data       start:0x803D3D28 end:0x803D3D68
+	.sdata2     start:0x80595928 end:0x80595930
+
+GuiSys/CGuiWidgetIdDB.cpp:
+	.text       start:0x802B71D0 end:0x802B740C
+	.rodata     start:0x803C1340 end:0x803C13A0
+
+GuiSys/CGuiWidgetDrawParms.cpp:
+	.text       start:0x802B740C end:0x802B742C
+	.ctors      start:0x803B53CC end:0x803B53D0
+	.bss        start:0x80587288 end:0x80587298 align:4 common
+	.sdata2     start:0x80595930 end:0x80595938
+
+GuiSys/CAuiEnergyBarT01.cpp:
+	.text       start:0x802B742C end:0x802B7EF0
+	.rodata     start:0x803C13A0 end:0x803C13B8
+	.data       start:0x803D3D68 end:0x803D3DA8
+	.sdata      start:0x8058FC78 end:0x8058FC80
+	.sdata2     start:0x80595938 end:0x80595960
+
+GuiSys/CAuiImagePane.cpp:
+	.text       start:0x802B8038 end:0x802B9160
+	.rodata     start:0x803C13B8 end:0x803C13D0
+	.sdata      start:0x8058FC80 end:0x8058FC88
+	.sdata2     start:0x80595960 end:0x80595988
+
+GuiSys/CRepeatState.cpp:
+	.text       start:0x802B9698 end:0x802B970C
+	.sdata2     start:0x80595988 end:0x80595998
+
+Collision/CCollidableAABox.cpp:
+	.text       start:0x802B970C end:0x802BA1BC
+	.ctors      start:0x803B53D0 end:0x803B53D4
+	.rodata     start:0x803C13D8 end:0x803C13F0
+	.data       start:0x803D3DE8 end:0x803D3E10
+	.bss        start:0x80460A18 end:0x80460A60
+	.sdata      start:0x8058FC88 end:0x8058FC90
+	.sdata2     start:0x80595998 end:0x805959B0
+
+Collision/CCollidableCollisionSurface.cpp:
+	.text       start:0x802BA1BC end:0x802BA1E0
+	.rodata     start:0x803C13F0 end:0x803C1410
+	.sdata      start:0x8058FC90 end:0x8058FC98
+
+Collision/CCollisionInfo.cpp:
+	.text       start:0x802BA1E0 end:0x802BA648
+	.sdata2     start:0x805959B0 end:0x805959B8
+
+Collision/InternalColliders.cpp:
+	.text       start:0x802BA648 end:0x802BA7AC
+	.rodata     start:0x803C1410 end:0x803C1438
+
+Collision/CCollisionPrimitive.cpp:
+	.text       start:0x802BA7AC end:0x802BBBF8
+	.ctors      start:0x803B53D4 end:0x803B53D8
+	.rodata     start:0x803C1438 end:0x803C1440
+	.bss        start:0x80460A60 end:0x80460A90
+	.sbss       start:0x805907E8 end:0x80590810
+
+Collision/CMaterialList.cpp:
+	.text       start:0x802BBBF8 end:0x802BBCE4
+
+Collision/CollisionUtil.cpp:
+	.text       start:0x802BBCE4 end:0x802BFE60
+	.ctors      start:0x803B53D8 end:0x803B53DC
+	.rodata     start:0x803C1440 end:0x803C1480
+	.bss        start:0x80460A90 end:0x80460AD8
+	.sdata2     start:0x805959B8 end:0x80595A40
+
+Collision/CCollidableSphere.cpp:
+	.text       start:0x802BFE60 end:0x802C127C
+	.ctors      start:0x803B53DC end:0x803B53E0
+	.rodata     start:0x803C1480 end:0x803C1498
+	.data       start:0x803D3E10 end:0x803D3EE8
+	.bss        start:0x80460AD8 end:0x80460B20
+	.sdata      start:0x8058FC98 end:0x8058FCA0
+	.sdata2     start:0x80595A40 end:0x80595A58
+
+Collision/CMaterialFilter.cpp:
+	.text       start:0x802C127C end:0x802C13C4
+	.ctors      start:0x803B53E0 end:0x803B53E4
+	.bss        start:0x80587298 end:0x805872B0 align:4 common
+
+Collision/COBBox.cpp:
+	.text       start:0x802C13C4 end:0x802C1E84
+	.sdata2     start:0x80595A58 end:0x80595A68
+
+Collision/CMRay.cpp:
+	.text       start:0x802C1E84 end:0x802C204C
+	.sdata2     start:0x80595A68 end:0x80595A70
