@@ -818,3 +818,130 @@ MetroidPrime/BodyState/CBSStep.cpp:
 	.text       start:0x8012FADC end:0x8012FEFC
 	.data       start:0x803CB110 end:0x803CB148
 	.sdata2     start:0x80592E78 end:0x80592E80
+
+MetroidPrime/CStateManager.cpp:
+	.text       start:0x800449CC end:0x80051A24
+	.rodata     start:0x803B77C0 end:0x803B77F8
+	.sdata      start:0x8058E398 end:0x8058E3E0
+	.sbss       start:0x80590368 end:0x805903A8
+	.sdata2     start:0x80591910 end:0x80591A00
+	.bss        start:0x80443940 end:0x80452D6C
+
+MetroidPrime/HUD/CSamusHud.cpp:
+	.text       start:0x8006770C end:0x8006D588
+	.ctors      start:0x803B52D0 end:0x803B52D4
+	.rodata     start:0x803B7888 end:0x803B79A4
+	.data       start:0x803C4AD0 end:0x803C4B40
+	.bss        start:0x804537F0 end:0x804537FC
+	.sdata      start:0x8058E430 end:0x8058E4D0
+	.sbss       start:0x805903B8 end:0x805903C0
+	.sdata2     start:0x80591B00 end:0x80591BF0
+
+MetroidPrime/Enemies/CAi.cpp:
+	.text       start:0x800A1518 end:0x800A4264
+	.ctors      start:0x803B52E0 end:0x803B52E4
+	.data       start:0x803C5778 end:0x803C6780
+	.sdata      start:0x8058E758 end:0x8058E760
+	.sbss       start:0x80590448 end:0x80590454
+
+MetroidPrime/TypesMatch.cpp:
+	.text       start:0x800A4264 end:0x800A8F1C
+	.data       start:0x803C6780 end:0x803C8C00
+
+MetroidPrime/Enemies/CBeetle.cpp:
+	.text       start:0x800DA900 end:0x800DFCE4
+	.data       start:0x803C92F8 end:0x803C9658
+	.sdata      start:0x8058E8B8 end:0x8058E8E0
+	.sbss       start:0x80590490 end:0x805904A0
+	.sdata2     start:0x805923D0 end:0x80592428
+
+MetroidPrime/Enemies/CBloodFlower.cpp:
+	.text       start:0x8010FFF0 end:0x80111710
+	.data       start:0x803C9DA0 end:0x803CA090
+	.sdata      start:0x8058EBB0 end:0x8058EBB8
+	.sbss       start:0x80590510 end:0x80590518
+	.sdata2     start:0x80592A9C end:0x80592AC0
+
+MetroidPrime/Player/CGrappleArm.cpp:
+	.text       start:0x801158C8 end:0x8011754C
+	.rodata     start:0x803B9C88 end:0x803B9CB4
+	.data       start:0x803CA118 end:0x803CA168
+	.sdata      start:0x8058EBC0 end:0x8058EBD8
+	.sdata2     start:0x80592B68 end:0x80592BD0
+
+MetroidPrime/BodyState/CBSTurn.cpp:
+	.text       start:0x8012FEFC end:0x80130A78
+	.data       start:0x803CB148 end:0x803CB1C0
+	.sdata2     start:0x80592E80 end:0x80592E90
+
+MetroidPrime/BodyState/CBodyController.cpp:
+	.text       start:0x80130A78 end:0x80131BDC
+	.rodata     start:0x803BA9A0 end:0x803BA9B0
+	.sdata      start:0x8058ECC8 end:0x8058ECD0
+	.sdata2     start:0x80592E90 end:0x80592EA8
+
+MetroidPrime/BodyState/CBSLoopAttack.cpp:
+	.text       start:0x80131BDC end:0x8013258C
+	.data       start:0x803CB1C0 end:0x803CB1F8
+	.sdata2     start:0x80592EA8 end:0x80592EB8
+
+MetroidPrime/Weapons/CTargetableProjectile.cpp:
+	.text       start:0x8013258C end:0x80132C64
+	.rodata     start:0x803BA9B0 end:0x803BA9B8
+	.data       start:0x803CB1F8 end:0x803CB270
+	.sbss       start:0x80590558 end:0x80590560
+	.sdata2     start:0x80592EB8 end:0x80592EC8
+
+MetroidPrime/BodyState/CBSLoopReaction.cpp:
+	.text       start:0x80132C64 end:0x80133674
+	.data       start:0x803CB270 end:0x803CB2A8
+	.sdata2     start:0x80592EC8 end:0x80592ED8
+
+MetroidPrime/CSteeringBehaviors.cpp:
+	.text       start:0x801341EC end:0x801359DC
+	.sdata      start:0x8058ECD0 end:0x8058ECE0
+	.sdata2     start:0x80592ED8 end:0x80592F40
+
+MetroidPrime/BodyState/CBSGroundHit.cpp:
+	.text       start:0x801359DC end:0x80135F70
+	.data       start:0x803CB2A8 end:0x803CB2E0
+	.sdata2     start:0x80592F48 end:0x80592F78
+
+MetroidPrime/Enemies/CChozoGhost.cpp:
+	.text       start:0x80136048 end:0x801394BC
+	.ctors      start:0x803B5320 end:0x803B5324
+	.rodata     start:0x803BA9B8 end:0x803BA9D8
+	.data       start:0x803CB2E0 end:0x803CB680
+	.bss        start:0x80453B70 end:0x80453B80
+	.bss        start:0x80558F4C end:0x80558F5C align:4 common
+	.sdata      start:0x8058ECE0 end:0x8058ED08
+	.sdata2     start:0x80592F7C end:0x80592FE0
+
+MetroidPrime/Enemies/CFireFlea.cpp:
+	.text       start:0x801394BC end:0x8013AA4C
+	.ctors      start:0x803B5324 end:0x803B5328
+	.rodata     start:0x803BA9D8 end:0x803BA9E0
+	.data       start:0x803CB680 end:0x803CB970
+	.sdata      start:0x8058ED08 end:0x8058ED28
+	.sbss       start:0x80590560 end:0x80590570
+	.sdata2     start:0x80592FE0 end:0x80593010
+
+MetroidPrime/BodyState/CBSSlide.cpp:
+	.text       start:0x8013AA4C end:0x8013AED4
+	.data       start:0x803CB970 end:0x803CB9A8
+	.sdata2     start:0x80593010 end:0x80593038
+
+MetroidPrime/BodyState/CBSHurled.cpp:
+	.text       start:0x8013AED4 end:0x8013C098
+	.data       start:0x803CB9A8 end:0x803CBA00
+	.sdata2     start:0x80593038 end:0x80593080
+
+MetroidPrime/BodyState/CBSJump.cpp:
+	.text       start:0x8013C098 end:0x8013D114
+	.data       start:0x803CBA00 end:0x803CBA38
+	.sdata2     start:0x80593080 end:0x805930A0
+
+MetroidPrime/BodyState/CBSGenerate.cpp:
+	.text       start:0x8013D114 end:0x8013D50C
+	.data       start:0x803CBA38 end:0x803CBA70
+	.sdata2     start:0x805930A0 end:0x805930A8
