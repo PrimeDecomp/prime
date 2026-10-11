@@ -926,6 +926,21 @@ void CGameArea::OtherAreaOcclusionChanged() {
   }
 }
 
+IGameArea::Dock::Dock(CInputStream& in, const CTransform4f& xf)
+: mReferenceCount(0), mIsReferenced(false) {
+  int count = in.Get< int >();
+  mDockReferences.reserve(count);
+  for (int i = 0; i < count; ++i) {
+    TAreaId areaId(in.ReadLong());
+    short dock = in.ReadLong();
+    mDockReferences.push_back(SDockReference(areaId, dock, 0));
+  }
+  int vertCount = in.Get< int >();
+  for (int i = 0; i < vertCount; ++i) {
+    mPlaneVertices.push_back(xf * CVector3f(in));
+  }
+}
+
 bool IGameArea::Dock::IsReferenced() const { return mIsReferenced; }
 
 int IGameArea::Dock::GetReferenceCount() const { return mReferenceCount; }
@@ -1124,21 +1139,6 @@ int CGameArea::IGetAreaSaveId() const { return mAreaId; }
 
 rstl::pair< rstl::auto_ptr< char >, int > CGameArea::IGetScriptingMemoryAlways() const {
   return GetScriptingMemoryAlways(*this);
-}
-
-IGameArea::Dock::Dock(CInputStream& in, const CTransform4f& xf)
-: mReferenceCount(0), mIsReferenced(false) {
-  int count = in.Get< int >();
-  mDockReferences.reserve(count);
-  for (int i = 0; i < count; ++i) {
-    TAreaId areaId(in.ReadLong());
-    short dock = in.ReadLong();
-    mDockReferences.push_back(SDockReference(areaId, dock, 0));
-  }
-  int vertCount = in.Get< int >();
-  for (int i = 0; i < vertCount; ++i) {
-    mPlaneVertices.push_back(xf * CVector3f(in));
-  }
 }
 
 CDummyGameArea::CDummyGameArea(CInputStream& in, int idx, int mlvlVersion)
