@@ -167,34 +167,270 @@ CScriptWater::CScriptWater(
   SetupGrid(true);
 }
 
-int CScriptWater::GetSplashIndex(float scale) const {
-  scale *= 3.f;
-  int idx = static_cast< int >(scale);
-  if (idx >= 3) {
-    idx -= 1;
+CScriptWater::~CScriptWater() {}
+
+void CScriptWater::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) {
+  switch (msg) {
+  case kSM_Next:
+    if (GetActive()) {
+      mMorphIn = !mMorphIn;
+      if (mMorphIn) {
+        rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
+        for (; conn != GetConnectionList().end(); ++conn) {
+          if (conn->mState != kSS_Play || conn->mMsg != kSM_Activate) {
+            continue;
+          }
+          CStateManager::TIdListResult search = mgr.GetIdListForScript(conn->mObjId);
+          if (search.first != search.second) {
+            if (const CScriptTrigger* trig =
+                    TCastToConstPtr< CScriptTrigger >(mgr.GetObjectById(search.first->second))) {
+              mPositionMorphed = trig->GetTranslation();
+              mExtentMorphed =
+                  CVector3f(trig->mBounds.GetWidth(), trig->mBounds.GetHeight(),
+                            trig->mBounds.GetDepth());
+              mDamageMorphed = trig->mDamageInfo.GetDamage();
+              mPositionOrig = GetTranslation();
+              mExtentOrig = CVector3f(mBounds.GetWidth(), mBounds.GetHeight(),
+                                          mBounds.GetDepth());
+              mDamageOrig = mDamageInfo.GetDamage();
+              break;
+            }
+          }
+        }
+      }
+      SetMorphing(true);
+    }
+    break;
+  case kSM_Activate:
+    mAlphaOut = false;
+    if (close_enough(mAlphaInTime, 0.f)) {
+      mAlpha = mFluidPlane->GetAlpha();
+      mFogBias = mOrigFogBias;
+      mFogMagnitude = mOrigFogMagnitude;
+    } else {
+      mAlphaIn = true;
+    }
+    break;
+  case kSM_Action:
+    mAlphaIn = false;
+    if (close_enough(mAlphaOutTime, 0.f)) {
+      mAlpha = 0.f;
+      mFogBias = 0.f;
+      mFogMagnitude = 0.f;
+    } else {
+      mAlphaOut = true;
+    }
+    break;
+#if VERSION >= VERSION_GM8E_02
+  case kSM_Deleted:
+    RemoveSplashInhabitants(mgr);
+    break;
+#endif
+  default:
+    break;
   }
-  return idx;
+  CScriptTrigger::AcceptScriptMsg(msg, uid, mgr);
 }
 
-const rstl::optional_object< TLockedToken< CGenDescription > >&
-CScriptWater::GetSplashEffect(float scale) const {
-  return mSplashEffects[GetSplashIndex(scale)];
-}
-
-const ushort CScriptWater::GetSplashSound(float scale) const {
-  int idx = GetSplashIndex(scale);
-  return mSplashSounds[idx];
-}
-
-float CScriptWater::GetSplashEffectScale(float scale) const {
-  if (close_enough(scale, 1.f)) {
-    return kSplashScales[5];
+const CScriptWater* CScriptWater::GetNextConnectedWater(const CStateManager& mgr) const {
+  rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
+  for (; conn != GetConnectionList().end(); ++conn) {
+    if (conn->mState != kSS_Play || conn->mMsg != kSM_Activate) {
+      continue;
+    }
+    CStateManager::TIdListResult search = mgr.GetIdListForScript(conn->mObjId);
+    if (search.first != search.second) {
+      if (const CScriptWater* water =
+              TCastToConstPtr< CScriptWater >(mgr.GetObjectById(search.first->second))) {
+        return water;
+      }
+    }
   }
-  int idx = GetSplashIndex(scale);
-  scale *= 3.f;
-  scale = scale - CMath::FloorF(scale);
-  return (1.f - scale) * kSplashScales[idx * 2] + scale * kSplashScales[idx * 2 + 1];
+  return NULL;
 }
+void CScriptWater::Touch(CActor& otherAct, CStateManager& mgr) {
+  if (!GetActive()) {
+    return;
+  }
+
+  CScriptTrigger::Touch(otherAct, mgr);
+  if (otherAct.GetMaterialList().HasMaterial(kMT_Trigger)) {
+    return;
+  }
+
+  rstl::list< rstl::pair< TUniqueId, bool > >::iterator it = mWaterInhabitants.begin();
+  for (; it != mWaterInhabitants.end(); ++it) {
+    if (it->first == otherAct.GetUniqueId()) {
+      it->second = true;
+      return;
+    }
+  }
+
+  const rstl::optional_object< CAABox >& touchBounds = otherAct.GetTouchBounds();
+  if (!touchBounds) {
+    return;
+  }
+
+  mWaterInhabitants.push_back(rstl::pair< TUniqueId, bool >(otherAct.GetUniqueId(), true));
+  CAABox trigBounds = GetTriggerBoundsWR();
+  float trigMaxZ = trigBounds.GetMaxPoint().GetZ();
+  if (touchBounds.data().GetMinPoint().GetZ() <= trigMaxZ &&
+      touchBounds.data().GetMaxPoint().GetZ() >= trigMaxZ) {
+    otherAct.FluidFXThink(kFS_EnteredFluid, *this, mgr);
+  }
+  mgr.DeliverScriptMsg(&otherAct, GetUniqueId(), kSM_AddSplashInhabitant);
+}
+
+void CScriptWater::UpdateSplashInhabitants(CStateManager& mgr) {
+  rstl::list< rstl::pair< TUniqueId, bool > >::iterator it = mWaterInhabitants.begin();
+  while (it != mWaterInhabitants.end()) {
+    rstl::list< rstl::pair< TUniqueId, bool > >::iterator next = it;
+    ++next;
+    CActor* const act = TCastToPtr< CActor >(mgr.ObjectById(it->first));
+    bool intersects = false;
+    if (act != NULL) {
+      rstl::optional_object< CAABox > touchBounds = act->GetTouchBounds();
+      if (touchBounds) {
+        CAABox trigBounds = GetTriggerBoundsWR();
+        float trigMaxZ = trigBounds.GetMaxPoint().GetZ();
+        if (touchBounds.data().GetMinPoint().GetZ() <= trigMaxZ &&
+            touchBounds.data().GetMaxPoint().GetZ() >= trigMaxZ) {
+          intersects = true;
+        }
+      }
+    }
+
+    if (act != NULL && it->second) {
+      if (intersects) {
+        act->FluidFXThink(kFS_InFluid, *this, mgr);
+      }
+      mgr.DeliverScriptMsg(act, GetUniqueId(), kSM_UpdateSplashInhabitant);
+      it->second = false;
+    } else {
+      mWaterInhabitants.erase(it);
+      if (act != NULL) {
+        if (intersects) {
+          act->FluidFXThink(kFS_LeftFluid, *this, mgr);
+        }
+        mgr.DeliverScriptMsg(act, GetUniqueId(), kSM_RemoveSplashInhabitant);
+      }
+    }
+    it = next;
+  }
+}
+
+#if VERSION >= VERSION_GM8E_02
+void CScriptWater::RemoveSplashInhabitants(CStateManager& mgr) {
+  CEntity* curCam = &mgr.CameraManager()->CurrentCamera(mgr);
+  if (curCam != NULL && mCamSubmerged) {
+    mgr.DeliverScriptMsg(curCam, GetUniqueId(), kSM_RemoveSplashInhabitant);
+  }
+  rstl::list< rstl::pair< TUniqueId, bool > >::iterator it = mWaterInhabitants.begin();
+  while (it != mWaterInhabitants.end()) {
+    rstl::list< rstl::pair< TUniqueId, bool > >::iterator next = it;
+    ++next;
+    CActor* const act = TCastToPtr< CActor >(mgr.ObjectById(it->first));
+    if (act != NULL) {
+      act->AcceptScriptMsg(kSM_RemoveSplashInhabitant, GetUniqueId(), mgr);
+      mWaterInhabitants.erase(it);
+    }
+    it = next;
+  }
+}
+#endif
+
+// Real CVector3f::Lerp doesn't work, and demo map doesn't show anything relevant.
+// But this hacked up version works for now
+static inline CVector3f FakeLerp(const CVector3f& a, const CVector3f& b, float v) {
+  float inv = 1.f - v;
+  float by = v * b.GetY();
+  float bz = v * b.GetZ();
+  float ay = inv * a.GetY();
+  float az = inv * a.GetZ();
+  float ax = inv * a.GetX();
+  float bx = v * b.GetX();
+  float x = ax + bx;
+  float y = ay + by;
+  float z = az + bz;
+  return CVector3f(x, y, z);
+}
+
+void CScriptWater::Think(float dt, CStateManager& mgr) {
+  if (!GetActive()) {
+    return;
+  }
+
+  bool oldCamSubmerged = CameraInside();
+  CScriptTrigger::Think(dt, mgr);
+
+  CEntity* curCam = &mgr.CameraManager()->CurrentCamera(mgr);
+  if (mCamSubmerged && !oldCamSubmerged) {
+    mgr.DeliverScriptMsg(curCam, GetUniqueId(), kSM_AddSplashInhabitant);
+  } else if (!mCamSubmerged && oldCamSubmerged) {
+    mgr.DeliverScriptMsg(curCam, GetUniqueId(), kSM_RemoveSplashInhabitant);
+  }
+
+  UpdateSplashInhabitants(mgr);
+
+  if (mAlphaOut) {
+    mAlpha -= dt * mFluidPlane->GetAlpha() * mAlphaOutRecip;
+    mFogBias -= dt * mOrigFogBias * mAlphaOutRecip;
+    mFogMagnitude -= dt * mOrigFogMagnitude * mAlphaOutRecip;
+    if (mAlpha <= 0.f) {
+      mFogMagnitude = 0.f;
+      mFogBias = 0.f;
+      mAlpha = 0.f;
+      mAlphaOut = false;
+    }
+  } else if (mAlphaIn) {
+    mAlpha += dt * mFluidPlane->GetAlpha() * mAlphaInRecip;
+    mFogBias -= dt * mOrigFogBias * mAlphaInRecip;
+    mFogMagnitude -= dt * mOrigFogMagnitude * mAlphaInRecip;
+    if (mAlpha > mFluidPlane->GetAlpha()) {
+      mAlpha = mFluidPlane->GetAlpha();
+      mFogBias = mOrigFogBias;
+      mFogMagnitude = mOrigFogMagnitude;
+      mAlphaIn = false;
+    }
+  }
+
+  if (IsMorphing()) {
+    bool stillMorphing = true;
+    if (mMorphIn) {
+      mMorphFactor += dt / mMorphInTime;
+      if (mMorphFactor > 1.f) {
+        mMorphFactor = 1.f;
+        stillMorphing = false;
+      }
+    } else {
+      mMorphFactor -= dt / mMorphOutTime;
+      if (mMorphFactor < 0.f) {
+        mMorphFactor = 0.f;
+        stillMorphing = false;
+      }
+    }
+
+    SetTranslation(FakeLerp(mPositionOrig, mPositionMorphed, mMorphFactor));
+
+    mDamageInfo.SetDamage(mDamageOrig * (1.f - mMorphFactor) +
+                              mDamageMorphed * mMorphFactor);
+
+    CVector3f lerpExtent = FakeLerp(mExtentOrig, mExtentMorphed, mMorphFactor);
+    CAABox bounds = CAABox(lerpExtent * -0.5f, lerpExtent * 0.5f);
+    SetTriggerBounds(bounds);
+    CalculateRenderBounds();
+
+    if (!stillMorphing) {
+      SetMorphing(false);
+    } else {
+      SetupGrid(false);
+    }
+  }
+
+  SetupGridClipping(mgr, 4);
+}
+
+ENTITY_ACCEPT_IMPL(CScriptWater)
 
 void CScriptWater::CalculateRenderBounds() {
   const CAABox& bounds = GetTriggerBounds();
@@ -222,6 +458,17 @@ CAABox CScriptWater::GetSortingBounds(const CStateManager&) const {
   return CAABox(bounds.GetMinPoint(), maxPoint);
 }
 
+void CScriptWater::AddToRenderer(const CFrustumPlanes&, const CStateManager& mgr) const {
+  if (GetPreRenderClipped()) {
+    return;
+  }
+  const float transZ = GetTranslation().GetZ();
+  const float boundsMaxZ = mBounds.GetMaxPoint().GetZ();
+  mgr.AddDrawableActorPlane(
+      *this, CPlane(boundsMaxZ + transZ, CUnitVector3f(0.f, 0.f, 1.f, CUnitVector3f::kN_Yes)),
+      GetSortingBounds(mgr));
+}
+
 void CScriptWater::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) {
   if (mAllowRender) {
     SetPreRenderClipped(!frustum.BoxInFrustumPlanes(GetSortingBounds(mgr)));
@@ -244,17 +491,6 @@ void CScriptWater::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) 
   } else {
     SetPreRenderClipped(true);
   }
-}
-
-void CScriptWater::AddToRenderer(const CFrustumPlanes&, const CStateManager& mgr) const {
-  if (GetPreRenderClipped()) {
-    return;
-  }
-  const float transZ = GetTranslation().GetZ();
-  const float boundsMaxZ = mBounds.GetMaxPoint().GetZ();
-  mgr.AddDrawableActorPlane(
-      *this, CPlane(boundsMaxZ + transZ, CUnitVector3f(0.f, 0.f, 1.f, CUnitVector3f::kN_Yes)),
-      GetSortingBounds(mgr));
 }
 
 void CScriptWater::Render(const CStateManager& mgr) const {
@@ -300,6 +536,35 @@ void CScriptWater::Render(const CStateManager& mgr) const {
     CGraphics::DisableAllLights();
   }
   CActor::Render(mgr);
+}
+
+int CScriptWater::GetSplashIndex(float scale) const {
+  scale *= 3.f;
+  int idx = static_cast< int >(scale);
+  if (idx >= 3) {
+    idx -= 1;
+  }
+  return idx;
+}
+
+const rstl::optional_object< TLockedToken< CGenDescription > >&
+CScriptWater::GetSplashEffect(float scale) const {
+  return mSplashEffects[GetSplashIndex(scale)];
+}
+
+const ushort CScriptWater::GetSplashSound(float scale) const {
+  int idx = GetSplashIndex(scale);
+  return mSplashSounds[idx];
+}
+
+float CScriptWater::GetSplashEffectScale(float scale) const {
+  if (close_enough(scale, 1.f)) {
+    return kSplashScales[5];
+  }
+  int idx = GetSplashIndex(scale);
+  scale *= 3.f;
+  scale = scale - CMath::FloorF(scale);
+  return (1.f - scale) * kSplashScales[idx * 2] + scale * kSplashScales[idx * 2 + 1];
 }
 
 EWeaponCollisionResponseTypes CScriptWater::GetCollisionResponseType(const CVector3f&,
@@ -502,270 +767,4 @@ bool CScriptWater::CanRippleAtPoint(const CVector3f& point) const {
 
 int CScriptWater::GetPatchRenderFlags(int x, int y) const {
   return mPatchIntersects.get()[CalculateIndex(x, y, mPatchDimX)];
-}
-
-CScriptWater::~CScriptWater() {}
-
-ENTITY_ACCEPT_IMPL(CScriptWater)
-
-void CScriptWater::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateManager& mgr) {
-  switch (msg) {
-  case kSM_Next:
-    if (GetActive()) {
-      mMorphIn = !mMorphIn;
-      if (mMorphIn) {
-        rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
-        for (; conn != GetConnectionList().end(); ++conn) {
-          if (conn->mState != kSS_Play || conn->mMsg != kSM_Activate) {
-            continue;
-          }
-          CStateManager::TIdListResult search = mgr.GetIdListForScript(conn->mObjId);
-          if (search.first != search.second) {
-            if (const CScriptTrigger* trig =
-                    TCastToConstPtr< CScriptTrigger >(mgr.GetObjectById(search.first->second))) {
-              mPositionMorphed = trig->GetTranslation();
-              mExtentMorphed =
-                  CVector3f(trig->mBounds.GetWidth(), trig->mBounds.GetHeight(),
-                            trig->mBounds.GetDepth());
-              mDamageMorphed = trig->mDamageInfo.GetDamage();
-              mPositionOrig = GetTranslation();
-              mExtentOrig = CVector3f(mBounds.GetWidth(), mBounds.GetHeight(),
-                                          mBounds.GetDepth());
-              mDamageOrig = mDamageInfo.GetDamage();
-              break;
-            }
-          }
-        }
-      }
-      SetMorphing(true);
-    }
-    break;
-  case kSM_Activate:
-    mAlphaOut = false;
-    if (close_enough(mAlphaInTime, 0.f)) {
-      mAlpha = mFluidPlane->GetAlpha();
-      mFogBias = mOrigFogBias;
-      mFogMagnitude = mOrigFogMagnitude;
-    } else {
-      mAlphaIn = true;
-    }
-    break;
-  case kSM_Action:
-    mAlphaIn = false;
-    if (close_enough(mAlphaOutTime, 0.f)) {
-      mAlpha = 0.f;
-      mFogBias = 0.f;
-      mFogMagnitude = 0.f;
-    } else {
-      mAlphaOut = true;
-    }
-    break;
-#if VERSION >= VERSION_GM8E_02
-  case kSM_Deleted:
-    RemoveSplashInhabitants(mgr);
-    break;
-#endif
-  default:
-    break;
-  }
-  CScriptTrigger::AcceptScriptMsg(msg, uid, mgr);
-}
-
-// Real CVector3f::Lerp doesn't work, and demo map doesn't show anything relevant.
-// But this hacked up version works for now
-static inline CVector3f FakeLerp(const CVector3f& a, const CVector3f& b, float v) {
-  float inv = 1.f - v;
-  float by = v * b.GetY();
-  float bz = v * b.GetZ();
-  float ay = inv * a.GetY();
-  float az = inv * a.GetZ();
-  float ax = inv * a.GetX();
-  float bx = v * b.GetX();
-  float x = ax + bx;
-  float y = ay + by;
-  float z = az + bz;
-  return CVector3f(x, y, z);
-}
-
-void CScriptWater::Think(float dt, CStateManager& mgr) {
-  if (!GetActive()) {
-    return;
-  }
-
-  bool oldCamSubmerged = CameraInside();
-  CScriptTrigger::Think(dt, mgr);
-
-  CEntity* curCam = &mgr.CameraManager()->CurrentCamera(mgr);
-  if (mCamSubmerged && !oldCamSubmerged) {
-    mgr.DeliverScriptMsg(curCam, GetUniqueId(), kSM_AddSplashInhabitant);
-  } else if (!mCamSubmerged && oldCamSubmerged) {
-    mgr.DeliverScriptMsg(curCam, GetUniqueId(), kSM_RemoveSplashInhabitant);
-  }
-
-  UpdateSplashInhabitants(mgr);
-
-  if (mAlphaOut) {
-    mAlpha -= dt * mFluidPlane->GetAlpha() * mAlphaOutRecip;
-    mFogBias -= dt * mOrigFogBias * mAlphaOutRecip;
-    mFogMagnitude -= dt * mOrigFogMagnitude * mAlphaOutRecip;
-    if (mAlpha <= 0.f) {
-      mFogMagnitude = 0.f;
-      mFogBias = 0.f;
-      mAlpha = 0.f;
-      mAlphaOut = false;
-    }
-  } else if (mAlphaIn) {
-    mAlpha += dt * mFluidPlane->GetAlpha() * mAlphaInRecip;
-    mFogBias -= dt * mOrigFogBias * mAlphaInRecip;
-    mFogMagnitude -= dt * mOrigFogMagnitude * mAlphaInRecip;
-    if (mAlpha > mFluidPlane->GetAlpha()) {
-      mAlpha = mFluidPlane->GetAlpha();
-      mFogBias = mOrigFogBias;
-      mFogMagnitude = mOrigFogMagnitude;
-      mAlphaIn = false;
-    }
-  }
-
-  if (IsMorphing()) {
-    bool stillMorphing = true;
-    if (mMorphIn) {
-      mMorphFactor += dt / mMorphInTime;
-      if (mMorphFactor > 1.f) {
-        mMorphFactor = 1.f;
-        stillMorphing = false;
-      }
-    } else {
-      mMorphFactor -= dt / mMorphOutTime;
-      if (mMorphFactor < 0.f) {
-        mMorphFactor = 0.f;
-        stillMorphing = false;
-      }
-    }
-
-    SetTranslation(FakeLerp(mPositionOrig, mPositionMorphed, mMorphFactor));
-
-    mDamageInfo.SetDamage(mDamageOrig * (1.f - mMorphFactor) +
-                              mDamageMorphed * mMorphFactor);
-
-    CVector3f lerpExtent = FakeLerp(mExtentOrig, mExtentMorphed, mMorphFactor);
-    CAABox bounds = CAABox(lerpExtent * -0.5f, lerpExtent * 0.5f);
-    SetTriggerBounds(bounds);
-    CalculateRenderBounds();
-
-    if (!stillMorphing) {
-      SetMorphing(false);
-    } else {
-      SetupGrid(false);
-    }
-  }
-
-  SetupGridClipping(mgr, 4);
-}
-
-#if VERSION >= VERSION_GM8E_02
-void CScriptWater::RemoveSplashInhabitants(CStateManager& mgr) {
-  CEntity* curCam = &mgr.CameraManager()->CurrentCamera(mgr);
-  if (curCam != NULL && mCamSubmerged) {
-    mgr.DeliverScriptMsg(curCam, GetUniqueId(), kSM_RemoveSplashInhabitant);
-  }
-  rstl::list< rstl::pair< TUniqueId, bool > >::iterator it = mWaterInhabitants.begin();
-  while (it != mWaterInhabitants.end()) {
-    rstl::list< rstl::pair< TUniqueId, bool > >::iterator next = it;
-    ++next;
-    CActor* const act = TCastToPtr< CActor >(mgr.ObjectById(it->first));
-    if (act != NULL) {
-      act->AcceptScriptMsg(kSM_RemoveSplashInhabitant, GetUniqueId(), mgr);
-      mWaterInhabitants.erase(it);
-    }
-    it = next;
-  }
-}
-#endif
-
-void CScriptWater::UpdateSplashInhabitants(CStateManager& mgr) {
-  rstl::list< rstl::pair< TUniqueId, bool > >::iterator it = mWaterInhabitants.begin();
-  while (it != mWaterInhabitants.end()) {
-    rstl::list< rstl::pair< TUniqueId, bool > >::iterator next = it;
-    ++next;
-    CActor* const act = TCastToPtr< CActor >(mgr.ObjectById(it->first));
-    bool intersects = false;
-    if (act != NULL) {
-      rstl::optional_object< CAABox > touchBounds = act->GetTouchBounds();
-      if (touchBounds) {
-        CAABox trigBounds = GetTriggerBoundsWR();
-        float trigMaxZ = trigBounds.GetMaxPoint().GetZ();
-        if (touchBounds.data().GetMinPoint().GetZ() <= trigMaxZ &&
-            touchBounds.data().GetMaxPoint().GetZ() >= trigMaxZ) {
-          intersects = true;
-        }
-      }
-    }
-
-    if (act != NULL && it->second) {
-      if (intersects) {
-        act->FluidFXThink(kFS_InFluid, *this, mgr);
-      }
-      mgr.DeliverScriptMsg(act, GetUniqueId(), kSM_UpdateSplashInhabitant);
-      it->second = false;
-    } else {
-      mWaterInhabitants.erase(it);
-      if (act != NULL) {
-        if (intersects) {
-          act->FluidFXThink(kFS_LeftFluid, *this, mgr);
-        }
-        mgr.DeliverScriptMsg(act, GetUniqueId(), kSM_RemoveSplashInhabitant);
-      }
-    }
-    it = next;
-  }
-}
-
-void CScriptWater::Touch(CActor& otherAct, CStateManager& mgr) {
-  if (!GetActive()) {
-    return;
-  }
-
-  CScriptTrigger::Touch(otherAct, mgr);
-  if (otherAct.GetMaterialList().HasMaterial(kMT_Trigger)) {
-    return;
-  }
-
-  rstl::list< rstl::pair< TUniqueId, bool > >::iterator it = mWaterInhabitants.begin();
-  for (; it != mWaterInhabitants.end(); ++it) {
-    if (it->first == otherAct.GetUniqueId()) {
-      it->second = true;
-      return;
-    }
-  }
-
-  const rstl::optional_object< CAABox >& touchBounds = otherAct.GetTouchBounds();
-  if (!touchBounds) {
-    return;
-  }
-
-  mWaterInhabitants.push_back(rstl::pair< TUniqueId, bool >(otherAct.GetUniqueId(), true));
-  CAABox trigBounds = GetTriggerBoundsWR();
-  float trigMaxZ = trigBounds.GetMaxPoint().GetZ();
-  if (touchBounds.data().GetMinPoint().GetZ() <= trigMaxZ &&
-      touchBounds.data().GetMaxPoint().GetZ() >= trigMaxZ) {
-    otherAct.FluidFXThink(kFS_EnteredFluid, *this, mgr);
-  }
-  mgr.DeliverScriptMsg(&otherAct, GetUniqueId(), kSM_AddSplashInhabitant);
-}
-
-const CScriptWater* CScriptWater::GetNextConnectedWater(const CStateManager& mgr) const {
-  rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
-  for (; conn != GetConnectionList().end(); ++conn) {
-    if (conn->mState != kSS_Play || conn->mMsg != kSM_Activate) {
-      continue;
-    }
-    CStateManager::TIdListResult search = mgr.GetIdListForScript(conn->mObjId);
-    if (search.first != search.second) {
-      if (const CScriptWater* water =
-              TCastToConstPtr< CScriptWater >(mgr.GetObjectById(search.first->second))) {
-        return water;
-      }
-    }
-  }
-  return NULL;
 }
