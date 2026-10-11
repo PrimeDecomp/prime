@@ -65,9 +65,11 @@ void CPathCamera::Reset(const CTransform4f&, CStateManager& mgr) {
   }
 
   const CVector3f toNeg = negPoint - camPos;
-  mgr.RayStaticIntersection(camPos, toNeg.AsNormalized(), toNeg.Magnitude(), kLineOfSightFilter);
+  const CRayCastResult negResult =
+      mgr.RayStaticIntersection(camPos, toNeg.AsNormalized(), toNeg.Magnitude(), kLineOfSightFilter);
   const CVector3f toPos = posPoint - camPos;
-  mgr.RayStaticIntersection(camPos, toPos.AsNormalized(), toPos.Magnitude(), kLineOfSightFilter);
+  const CRayCastResult posResult =
+      mgr.RayStaticIntersection(camPos, toPos.AsNormalized(), toPos.Magnitude(), kLineOfSightFilter);
 
   CVector3f viewPoint = CVector3f::Zero();
   if (negative) {

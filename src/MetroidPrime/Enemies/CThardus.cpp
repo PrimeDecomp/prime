@@ -575,8 +575,9 @@ void CThardus::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EU
             rotation *
                 CVector3f((2.5f * xOffset + skRockProjectileForwardOffsets[i].x) * scale.GetX(),
                           skRockProjectileForwardOffsets[i].y * scale.GetY(), 5.f);
-        mgr.RayStaticIntersection(position, CVector3f(0.f, 1.f, 0.f), 100.f,
-                                  CMaterialFilter::skPassEverything);
+        const CRayCastResult result =
+            mgr.RayStaticIntersection(position, CVector3f(0.f, 1.f, 0.f), 100.f,
+                                      CMaterialFilter::skPassEverything);
         const CVector3f adjustedPosition =
             position + CVector3f(0.f, 0.f, (-7.f + zOffset) * scale.GetZ());
         rock->SetTransform(CTransform4f(rotation, adjustedPosition));
@@ -792,7 +793,11 @@ void CThardus::Think(float dt, CStateManager& mgr) {
         if (mgr.GetCameraManager()->GetCurrentCameraId() !=
                 mgr.GetCameraManager()->GetFirstPersonCamera()->GetUniqueId() &&
             x95d_ < 1) {
+#if VERSION >= VERSION_GM8P_00
+          const wchar_t* memo = gpStringTable->GetString(98);
+#else
           const wchar_t* memo = gpStringTable->GetString(104);
+#endif
           CSamusHud::DisplayHudMemo(rstl::wstring_l(memo), CHUDMemoParms(5.f, true, false, false));
           ++x95d_;
         }
@@ -835,7 +840,11 @@ void CThardus::TargetPatrol(CStateManager& mgr, EStateMsg msg, float arg) {
   case kStateMsg_Activate: {
     mStateProg = 0;
     if (!x95e_) {
+#if VERSION >= VERSION_GM8P_00
+      mgr.SetBossParams(GetUniqueId(), HealthInfo(mgr)->GetHP(), 82);
+#else
       mgr.SetBossParams(GetUniqueId(), HealthInfo(mgr)->GetHP(), 88);
+#endif
       x95e_ = true;
     }
     break;
