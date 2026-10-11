@@ -347,17 +347,19 @@ uint CCubeMaterial::HandleReflection(bool usesTevReg2, const GXTexMapID indTexSl
                                      const uint kColorCount, uint& finalCCFlags,
                                      uint& finalACFlags) {
   uint out = 0;
-  GXTevStageID finalTevCount = static_cast< GXTevStageID >(tevCount);
   GXTevColorArg colorArg = GX_CC_CPREV;
-  const GXTevKColorID finalKColorCount = static_cast< GXTevKColorID >(kColorCount);
+  const GXTevStageID firstStage = static_cast< GXTevStageID >(tevCount);
+  GXTevStageID finalTevCount;
   const GXTexMapID texMap = static_cast< GXTexMapID >(texCount);
+  const GXTevKColorID finalKColorCount = static_cast< GXTevKColorID >(kColorCount);
+
   if (usesTevReg2) {
     colorArg = GX_CC_C2;
-    CGX::SetTevColorIn(finalTevCount, GX_CC_ZERO, GX_CC_C2, GX_CC_KONST, GX_CC_ZERO);
-    CGX::SetTevAlphaIn(finalTevCount, GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO, GX_CA_A2);
-    CGX::SetTevColorOp(finalTevCount, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE, GX_TEVREG2);
-    CGX::SetTevAlphaOp(finalTevCount, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE, GX_TEVREG2);
-    CGX::SetTevOrder(finalTevCount, GX_TEXCOORD_NULL, GX_TEXMAP_NULL, GX_COLOR_ZERO);
+    CGX::SetTevColorIn(firstStage, GX_CC_ZERO, GX_CC_C2, GX_CC_KONST, GX_CC_ZERO);
+    CGX::SetTevAlphaIn(firstStage, GX_CA_ZERO, GX_CA_ZERO, GX_CA_ZERO, GX_CA_A2);
+    CGX::SetTevColorOp(firstStage, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE, GX_TEVREG2);
+    CGX::SetTevAlphaOp(firstStage, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE, GX_TEVREG2);
+    CGX::SetTevOrder(firstStage, GX_TEXCOORD_NULL, GX_TEXMAP_NULL, GX_COLOR_ZERO);
     out = 1;
   } else {
     colorArg = GX_CC_KONST;
@@ -366,10 +368,10 @@ uint CCubeMaterial::HandleReflection(bool usesTevReg2, const GXTexMapID indTexSl
   CColor reflectionColor;
   reflectionColor.Set(sReflectionAlpha, sReflectionAlpha, sReflectionAlpha, sReflectionAlpha);
   CGX::SetTevKColor(finalKColorCount, reflectionColor.GetGXColor());
-  CGX::SetTevKColorSel(finalTevCount,
-                       static_cast< GXTevKColorSel >(finalKColorCount + GX_TEV_KCSEL_K0));
+  CGX::SetTevKColorSel(firstStage,
+                      static_cast< GXTevKColorSel >(finalKColorCount + GX_TEV_KCSEL_K0));
 
-  finalTevCount = static_cast< GXTevStageID >(finalTevCount + out);
+  finalTevCount = static_cast< GXTevStageID >(tevCount + out);
 
   CCubeRenderer::That()->GetRealReflection()->Load(texMap, CTexture::kCM_Clamp);
 
