@@ -1590,11 +1590,14 @@ MetroidPrime/ScriptObjects/CScriptPlayerStateChange.cpp:
 	.data       start:0x803CEF30 end:0x803CEF50
 
 MetroidPrime/Enemies/CThardus.cpp:
-	.text       start:0x801CD37C end:0x801D56C8
+	.text       start:0x801CCE90 end:0x801D56C8
 	.ctors      start:0x803B5048 end:0x803B504C
+	.rodata     start:0x803BC5F0 end:0x803BC8E8
+	.data       start:0x803CEF50 end:0x803CF2E8
 	.bss        start:0x8043410C end:0x80434118 align:4 common
 	.sdata      start:0x80469E78 end:0x80469EB8
 	.sbss       start:0x8046B190 end:0x8046B198
+	.sdata2     start:0x8046EBB8 end:0x8046EC70
 
 MetroidPrime/CActorModelParticles.cpp:
 	.text       start:0x801D56C8 end:0x801D9398

@@ -500,6 +500,7 @@ MetroidPrime/CGameCollision.cpp:
 
 MetroidPrime/CAABoxFilter.cpp:
 	.text       start:0x80163258 end:0x80163418
+	.data       start:0x8034C560 end:0x8034C570
 	.sdata2     start:0x805382B8 end:0x805382C0
 
 MetroidPrime/CGroundMovement.cpp:
@@ -677,7 +678,7 @@ WorldFormat/CCollisionSurface.cpp:
 
 WorldFormat/CMetroidModelInstance.cpp:
 	.text       start:0x801EB65C end:0x801EB804
-	.rodata     start:0x8032BC60 end:0x8032BC70
+	.rodata     start:0x8032BC60 end:0x8032BC68
 
 WorldFormat/CAreaOctTree.cpp:
 	.text       start:0x801EC7D4 end:0x801ECF00
@@ -821,6 +822,7 @@ Kyoto/Basics/CStopwatch.cpp:
 
 Kyoto/Basics/CBasicsDolphin.cpp:
 	.text       start:0x802305D0 end:0x80230640
+	.sbss       start:0x80535900 end:0x80535908
 
 Kyoto/Alloc/CCallStackDolphin.cpp:
 	.text       start:0x80230640 end:0x8023065C
@@ -1133,6 +1135,7 @@ Kyoto/Math/CTransform4f.cpp:
 Kyoto/Math/CVector2f.cpp:
 	.text       start:0x80271080 end:0x80271420
 	.ctors      start:0x8032135C end:0x80321360
+	.sbss       start:0x80535B00 end:0x80535B08
 	.sdata2     start:0x80539A10 end:0x80539A20
 
 Kyoto/Math/CVector2i.cpp:
@@ -1220,6 +1223,7 @@ Kyoto/Streams/CInputStream.cpp:
 
 Kyoto/Streams/CMemoryInStream.cpp:
 	.text       start:0x8029CD7C end:0x8029CE08
+	.data       start:0x80352BD8 end:0x80352BE8
 
 Kyoto/Streams/CMemoryStreamOut.cpp:
 	.text       start:0x8029CE08 end:0x8029CF74
@@ -1230,6 +1234,7 @@ Kyoto/Streams/COutputStream.cpp:
 Kyoto/Streams/CZipInputStream.cpp:
 	.text       start:0x8029D21C end:0x8029D45C
 	.rodata     start:0x8033D728 end:0x8033D738
+	.data       start:0x80352C08 end:0x80352C18
 
 Kyoto/Streams/CZipSupport.cpp:
 	.text       start:0x8029D45C end:0x8029D4B8
@@ -1244,6 +1249,7 @@ Kyoto/CToken.cpp:
 Kyoto/IObj.cpp:
 	.text       start:0x8029EC74 end:0x8029ED90
 	.ctors      start:0x80321378 end:0x8032137C
+	.sbss       start:0x80535B98 end:0x80535BA8
 
 zlib-1.1.3/adler32.c:
 	.text       start:0x8029ED90 end:0x8029EF14
@@ -1262,9 +1268,12 @@ zlib-1.1.3/inffast.c:
 
 zlib-1.1.3/inflate.c:
 	.text       start:0x802A0FCC end:0x802A1830
+	.rodata     start:0x8033D8F0 end:0x8033D968
+	.data       start:0x80352CD0 end:0x80352D08
 
 zlib-1.1.3/inftrees.c:
 	.text       start:0x802A1830 end:0x802A207C
+	.rodata     start:0x8033D968 end:0x8033DC68
 	.data       start:0x80352D08 end:0x80353E08
 	.sdata      start:0x805351C0 end:0x805351C8
 
@@ -1302,7 +1311,7 @@ Kyoto/Graphics/CCubeSurface.cpp:
 Kyoto/Animation/CCharAnimTime.cpp:
 	.text       start:0x802A5BAC end:0x802A6610
 	.sdata      start:0x805351E0 end:0x80535200
-	.sdata2     start:0x80539D00 end:0x80539D08 align:4
+	.sdata2     start:0x80539D00 end:0x80539D08
 
 Kyoto/Animation/CSegIdList.cpp:
 	.text       start:0x802A6610 end:0x802A6650
@@ -1364,6 +1373,7 @@ Kyoto/Particles/CEffectComponent.cpp:
 
 Kyoto/Particles/CParticleData.cpp:
 	.text       start:0x802B5120 end:0x802B51FC
+	.sbss       start:0x80535CD8 end:0x80535CE0
 
 Kyoto/Animation/CVertexMorphEffect.cpp:
 	.text       start:0x802B51FC end:0x802B56C0
@@ -1402,6 +1412,7 @@ Kyoto/Text/CTextRenderBuffer.cpp:
 
 Kyoto/Audio/g721.cpp:
 	.text       start:0x802B8E48 end:0x802B97C4
+	.data       start:0x80353FE8 end:0x80354068
 
 Kyoto/Graphics/CCubeMoviePlayer.cpp:
 	.text       start:0x802BAFF0 end:0x802BBA40
@@ -1465,6 +1476,7 @@ dolphin/ar/arq.c:
 dolphin/db.c:
 	.text       start:0x802C5E68 end:0x802C5F54
 	.data       start:0x80354108 end:0x80354120
+	.sbss       start:0x80535DA8 end:0x80535DB0
 
 dolphin/dsp/dsp.c:
 	.text       start:0x802C5F54 end:0x802C6160
@@ -1475,6 +1487,7 @@ dolphin/dsp/dsp_debug.c:
 dolphin/dsp/dsp_task.c:
 	.text       start:0x802C61B0 end:0x802C6A34
 	.data       start:0x80354158 end:0x80354298
+	.sbss       start:0x80535DB8 end:0x80535DD0
 
 dolphin/dvd/dvdlow.c:
 	.text       start:0x802C6A34 end:0x802C7888
@@ -1597,9 +1610,11 @@ dolphin/os/OSMutex.c:
 
 dolphin/os/OSReset.c:
 	.text       start:0x802D7278 end:0x802D765C
+	.sbss       start:0x80535F50 end:0x80535F58
 
 dolphin/os/OSResetSW.c:
 	.text       start:0x802D765C end:0x802D79E8
+	.sbss       start:0x80535F58 end:0x80535F78
 
 dolphin/os/OSRtc.c:
 	.text       start:0x802D79E8 end:0x802D8414
@@ -1635,6 +1650,7 @@ runtime/__va_arg.c:
 runtime/global_destructor_chain.c:
 	.text       start:0x802DD920 end:0x802DD980
 	.dtors      start:0x803213C8 end:0x803213CC
+	.sbss       start:0x80536010 end:0x80536018
 
 runtime/CPlusLibPPC.cpp:
 	.text       start:0x802DD980 end:0x802DD9B0
@@ -1646,9 +1662,11 @@ runtime/NMWException.cpp:
 
 runtime/ptmf.c:
 	.text       start:0x802DDCD8 end:0x802DDD30
+	.rodata     start:0x8033EC70 end:0x8033EC80
 
 runtime/runtime.c:
 	.text       start:0x802DDD30 end:0x802DE428
+	.rodata     start:0x8033EC80 end:0x8033EC98
 
 runtime/Gecko_ExceptionPPC.cpp:
 	.text       start:0x802DE4A4 end:0x802DE50C
@@ -1727,13 +1745,16 @@ runtime/e_atan2.c:
 
 runtime/e_fmod.c:
 	.text       start:0x802E96A8 end:0x802E99E4
+	.rodata     start:0x8033EEC8 end:0x8033EED8
 
 runtime/e_log.c:
 	.text       start:0x802E99E4 end:0x802E9C60
+	.sbss       start:0x80536040 end:0x80536048
 	.sdata2     start:0x8053A1F0 end:0x8053A270
 
 runtime/e_rem_pio2.c:
 	.text       start:0x802EA514 end:0x802EA8B4
+	.rodata     start:0x8033EF08 end:0x8033F090
 	.sdata2     start:0x8053A380 end:0x8053A3D8
 
 runtime/k_cos.c:
@@ -1742,6 +1763,7 @@ runtime/k_cos.c:
 
 runtime/k_rem_pio2.c:
 	.text       start:0x802EA9A8 end:0x802EB7FC
+	.rodata     start:0x8033F090 end:0x8033F0E0
 	.sdata2     start:0x8053A420 end:0x8053A460
 
 runtime/k_sin.c:
@@ -1750,6 +1772,7 @@ runtime/k_sin.c:
 
 runtime/k_tan.c:
 	.text       start:0x802EB89C end:0x802EBAB0
+	.rodata     start:0x8033F0E0 end:0x8033F148
 	.sdata2     start:0x8053A498 end:0x8053A4D0
 
 runtime/s_atan.c:
@@ -1911,6 +1934,7 @@ dolphin/si/SISamplingRate.c:
 
 dolphin/exi/EXIUart.c:
 	.text       start:0x80319544 end:0x803197B4
+	.sbss       start:0x80536240 end:0x80536258
 
 dolphin/thp/THPDec.c:
 	.text       start:0x803197B4 end:0x80320CF4
@@ -1922,4 +1946,4 @@ dolphin/thp/THPAudio.c:
 	.text       start:0x80320CF4 end:0x80321224
 
 runtime/__mem.c:
-	.init       start:0x800033D8 end:0x800034E0
+	.init       start:0x800033A8 end:0x800034E0
