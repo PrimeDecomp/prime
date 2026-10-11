@@ -89,7 +89,7 @@ public:
               bool targetingManager);
   void Draw(const CStateManager& mgr, float alpha, uint helmetVis, bool hudVis,
             bool targetingManager) const;
-  void DrawHelmet(const CStateManager& mgr, float camYOff);
+  void DrawHelmet(const CStateManager& mgr, float camYOff) const;
   void ProcessControllerInput(const CFinalInput& input);
   void UpdateStateTransition(float dt, const CStateManager& mgr);
   bool CheckLoadComplete(const CStateManager& mgr);

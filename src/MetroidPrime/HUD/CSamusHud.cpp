@@ -724,8 +724,8 @@ void CSamusHud::UpdateEnergy(float dt, const CStateManager& mgr, bool init) {
         while (currentTankEnergy > CPlayerState::GetBaseHealthCapacity()) {
           currentTankEnergy -= CPlayerState::GetEnergyTankCapacity();
         }
-        mEnergyIntf->SetCurrEnergy(lastTankEnergy, (currentTankEnergy > lastTankEnergy) !=
-                                                           (mPlayerHealth > energy));
+        const bool wrapped = (currentTankEnergy > lastTankEnergy) != (mPlayerHealth > energy);
+        mEnergyIntf->SetCurrEnergy(lastTankEnergy, wrapped);
       }
       mPlayerHealth = energy;
       if (!mEnergyIntf.null()) {
@@ -1533,7 +1533,7 @@ void CSamusHud::LeaveFirstPerson(const CStateManager& mgr) {
   CSfxManager::SfxVolume(mStaticSfxLo, 0);
 }
 
-void CSamusHud::DrawHelmet(const CStateManager& mgr, float camYOff) {
+void CSamusHud::DrawHelmet(const CStateManager& mgr, float camYOff) const {
   bool unmorphed = mgr.GetPlayer()->GetMorphballTransitionState() == CPlayer::kMS_Unmorphed;
   if (mLoadedFrmeHelmet != nullptr && unmorphed && mNextState != kHS_Ball) {
     bool leavingBall = mActiveTransState == kTS_Transitioning && mCurState == kHS_Ball;
@@ -1810,11 +1810,11 @@ void CSamusHud::ApplyClassicLag(const CUnitVector3f& lookDir, CQuaternion& rotat
   targetRotation *= targetRotation;
   const CVector3f targetDirection = targetRotation.BuildTransform().GetColumn(1);
   const CVector3f currentDirection = rotation.BuildTransform().GetColumn(1);
-  float angularStep = 0.5f * (dt * gpTweakPlayer->GetFreeLookSpeed());
+  const CRelAngle angularStep(0.5f * (dt * gpTweakPlayer->GetFreeLookSpeed()));
   float dot = CVector3f::Dot(currentDirection, targetDirection);
   dot = CMath::Limit(dot, 1.f);
   const float angle = acosf(dot);
-  const float step = angle > 0.f ? angularStep / angle : 0.f;
+  const float step = angle > 0.f ? angularStep.AsRadians() / angle : 0.f;
   const float t = CMath::Clamp(0.f, (18.f * dt) * step, 1.f);
   targetRotation = CQuaternion::SlerpLocal(rotation, targetRotation, t);
   rotation = targetRotation;
