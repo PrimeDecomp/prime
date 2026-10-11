@@ -2480,3 +2480,106 @@ Collision/COBBox.cpp:
 Collision/CMRay.cpp:
 	.text       start:0x802C1E84 end:0x802C204C
 	.sdata2     start:0x80595A68 end:0x80595A70
+
+Kyoto/Graphics/DolphinCGraphics.cpp:
+	.text       start:0x802F256C end:0x802F7034
+	.ctors      start:0x803B53F8 end:0x803B53FC
+	.rodata     start:0x803C1D68 end:0x803C1D88
+	.data       start:0x803D4C50 end:0x803D4CA8
+	.bss        start:0x80461240 end:0x804A7290
+	.bss        start:0x8058CC18 end:0x8058DB7C align:4 common
+	.sdata      start:0x8058FDC8 end:0x8058FDEC
+	.sbss       start:0x80590948 end:0x80590A20
+	.sdata2     start:0x80595CC0 end:0x80595D50
+
+dolphin/os/OSRtc.c:
+	.text       start:0x8036DC50 end:0x8036E79C
+	.bss        start:0x80528B20 end:0x80528B78
+
+Kyoto/Basics/CStopwatch.cpp:
+	.text       start:0x802C2100 end:0x802C21F0
+	.ctors      start:0x803B53E4 end:0x803B53E8
+	.bss        start:0x805872B0 end:0x805872C8 align:4 common
+	.sbss       start:0x80590810 end:0x80590818
+	.sdata2     start:0x80595A70 end:0x80595A80
+
+Kyoto/Basics/CBasicsDolphin.cpp:
+	.text       start:0x802C21F0 end:0x802C2260
+	.sbss       start:0x80590818 end:0x80590820
+
+Kyoto/Basics/CSWDataDolphin.cpp:
+	.text       start:0x802C25D4 end:0x802C26E4
+	.sdata2     start:0x80595A88 end:0x80595A98
+
+Kyoto/Basics/RAssertDolphin.cpp:
+	.text       start:0x802C26E4 end:0x802C2CB4
+	.rodata     start:0x803C14A8 end:0x803C1720
+	.sbss       start:0x80590820 end:0x80590830
+	.sdata2     start:0x80595A98 end:0x80595AA8
+	.bss        start:0x80460D20 end:0x80461120
+
+Kyoto/Animation/CAnimation.cpp:
+	.text       start:0x802C2CB4 end:0x802C2D20
+
+Kyoto/Animation/CAnimationManager.cpp:
+	.text       start:0x802C2D20 end:0x802C2E68
+
+Kyoto/Animation/CAnimationSet.cpp:
+	.text       start:0x802C2E68 end:0x802C4010
+	.sbss       start:0x80590830 end:0x80590850
+	.sdata2     start:0x80595AA8 end:0x80595AB0
+
+Kyoto/Animation/CAnimCharacterSet.cpp:
+	.text       start:0x802C4010 end:0x802C45DC
+	.rodata     start:0x803C1720 end:0x803C1728
+	.data       start:0x803D3EE8 end:0x803D3EF8
+
+Kyoto/Animation/CAnimTreeLoopIn.cpp:
+	.text       start:0x802C45DC end:0x802C653C
+	.rodata     start:0x803C1728 end:0x803C1730
+	.data       start:0x803D3EF8 end:0x803D3F70
+	.sdata2     start:0x80595AB0 end:0x80595AB8
+
+Kyoto/Animation/CAnimTreeSequence.cpp:
+	.text       start:0x802C65E8 end:0x802C85B8
+	.rodata     start:0x803C1730 end:0x803C1738
+
+Kyoto/Animation/CCharacterInfo.cpp:
+	.text       start:0x802C8750 end:0x802CA48C
+	.sdata      start:0x8058FCA8 end:0x8058FCB0
+	.sbss       start:0x80590850 end:0x80590890
+
+Kyoto/Animation/CCharacterSet.cpp:
+	.text       start:0x802CA48C end:0x802CA884
+	.sbss       start:0x80590890 end:0x80590898
+
+Kyoto/Animation/CMetaAnimBlend.cpp:
+	.text       start:0x802CA884 end:0x802CAE20
+	.rodata     start:0x803C1738 end:0x803C1740
+	.data       start:0x803D3FE8 end:0x803D4008
+
+Kyoto/Animation/CMetaAnimFactory.cpp:
+	.text       start:0x802CAE20 end:0x802CB084
+	.rodata     start:0x803C1740 end:0x803C1748
+
+Kyoto/Animation/CMetaAnimPhaseBlend.cpp:
+	.text       start:0x802CB084 end:0x802CB808
+	.rodata     start:0x803C1748 end:0x803C1750
+	.data       start:0x803D4008 end:0x803D4048
+	.sdata      start:0x8058FCB0 end:0x8058FCC0
+	.sdata2     start:0x80595AC0 end:0x80595AC8
+
+Kyoto/Animation/CMetaAnimPlay.cpp:
+	.text       start:0x802CB808 end:0x802CBD14
+	.rodata     start:0x803C1750 end:0x803C1758
+	.data       start:0x803D4048 end:0x803D4068
+	.sdata      start:0x8058FCC0 end:0x8058FCC8
+
+Kyoto/Animation/CMetaAnimRandom.cpp:
+	.text       start:0x802CBD14 end:0x802CC3E4
+	.data       start:0x803D4068 end:0x803D4088
+
+Kyoto/Animation/CMetaAnimSequence.cpp:
+	.text       start:0x802CC3E4 end:0x802CC8EC
+	.rodata     start:0x803C1758 end:0x803C1760
+	.data       start:0x803D4088 end:0x803D40A8
