@@ -2141,3 +2141,116 @@ MetroidPrime/CGameCubeDoll.cpp:
 	.rodata     start:0x803C0888 end:0x803C08A0
 	.sdata      start:0x8058FB88 end:0x8058FB90
 	.sdata2     start:0x805955A8 end:0x805955E0
+
+MetroidPrime/ScriptObjects/CScriptProjectedShadow.cpp:
+	.text       start:0x8028C448 end:0x8028C9C0
+	.rodata     start:0x803C08A0 end:0x803C08A8
+	.data       start:0x803D3348 end:0x803D33B8
+	.sdata2     start:0x805955E0 end:0x805955F0
+
+MetroidPrime/ScriptObjects/CEnergyBall.cpp:
+	.text       start:0x8028C9C0 end:0x8028D664
+	.rodata     start:0x803C08A8 end:0x803C08D8
+	.data       start:0x803D33B8 end:0x803D3688
+	.sdata      start:0x8058FB90 end:0x8058FBA8
+	.sdata2     start:0x805955F0 end:0x80595608
+
+MetroidPrime/ScriptObjects/CSustainedPlayerDamage.cpp:
+	.text       start:0x8028D664 end:0x8028D948
+	.data       start:0x803D3688 end:0x803D36A8
+	.sdata      start:0x8058FBA8 end:0x8058FBB0
+	.sdata2     start:0x80595608 end:0x80595610
+
+MetroidPrime/Enemies/CPoisonProjectile.cpp:
+	.text       start:0x8028D948 end:0x8028DD60
+	.rodata     start:0x803C08D8 end:0x803C08E0
+	.data       start:0x803D36A8 end:0x803D3720
+	.sdata2     start:0x80595610 end:0x80595618
+
+MetroidPrime/Enemies/SPositionHistory.cpp:
+	.text       start:0x8028DD60 end:0x8028DF7C
+	.sdata2     start:0x80595618 end:0x80595620
+
+WorldFormat/CAreaOctTree_Tests.cpp:
+	.text       start:0x8028DF7C end:0x8028F9A8
+	.rodata     start:0x803C08E0 end:0x803C0A08
+	.bss        start:0x80455670 end:0x80455770
+	.sdata2     start:0x80595620 end:0x80595640
+	.sbss       start:0x80590748 end:0x80590750
+
+WorldFormat/CCollisionSurface.cpp:
+	.text       start:0x8028F9A8 end:0x8028FB00
+
+WorldFormat/CMetroidModelInstance.cpp:
+	.text       start:0x8028FB00 end:0x8028FC20
+
+WorldFormat/CAreaBspTree.cpp:
+	.text       start:0x8028FC20 end:0x8028FC70
+
+WorldFormat/CAreaOctTree.cpp:
+	.text       start:0x8028FC70 end:0x8029039C
+	.rodata     start:0x803C0A08 end:0x803C0A10
+	.data       start:0x803D3720 end:0x803D3740
+	.sdata2     start:0x80595640 end:0x80595648
+
+WorldFormat/CMetroidAreaCollider.cpp:
+	.text       start:0x8029039C end:0x80294278
+	.rodata     start:0x803C0A10 end:0x803C0A20
+	.bss        start:0x8055A12C end:0x8058712C align:4 common
+	.sbss       start:0x80590750 end:0x80590768
+
+WorldFormat/CWorldLight.cpp:
+	.text       start:0x802947CC end:0x80294B44
+	.ctors      start:0x803B53B8 end:0x803B53BC
+	.bss        start:0x8058712C end:0x80587150 align:4 common
+	.sdata      start:0x8058FBB0 end:0x8058FBC0
+	.sdata2     start:0x80595680 end:0x805956A0
+
+WorldFormat/COBBTree.cpp:
+	.text       start:0x80294B44 end:0x802963D4
+	.rodata     start:0x803C0A20 end:0x803C0AD8
+	.sdata      start:0x8058FBC0 end:0x8058FBD0
+	.sbss       start:0x80590768 end:0x80590770
+	.sdata2     start:0x805956A0 end:0x805956B0
+
+WorldFormat/CCollidableOBBTree.cpp:
+	.text       start:0x802963D4 end:0x80299004
+	.data       start:0x803D3760 end:0x803D3788
+	.sdata      start:0x8058FBD0 end:0x8058FBD8
+	.sdata2     start:0x805956BC end:0x805956C0
+
+WorldFormat/CCollidableOBBTreeGroup.cpp:
+	.text       start:0x80299004 end:0x8029AAB4
+	.rodata     start:0x803C0AD8 end:0x803C0AF8
+	.data       start:0x803D3788 end:0x803D37C0
+	.sdata      start:0x8058FBD8 end:0x8058FBE0
+	.sdata2     start:0x805956E0 end:0x805956E8
+
+WorldFormat/CPVSAreaSet.cpp:
+	.text       start:0x8029AAB4 end:0x8029AD94
+	.rodata     start:0x803C0AF8 end:0x803C0B00
+
+WorldFormat/CAreaRenderOctTree.cpp:
+	.text       start:0x8029AD94 end:0x8029B3D8
+	.rodata     start:0x803C0B00 end:0x803C0B70
+	.data       start:0x803D37C0 end:0x803D37E0
+	.sdata      start:0x8058FBE0 end:0x8058FBE8
+	.sdata2     start:0x805956E8 end:0x805956F0
+
+Weapons/CProjectileWeapon.cpp:
+	.text       start:0x8029B3D8 end:0x8029D804
+	.rodata     start:0x803C0B70 end:0x803C0B78
+	.data       start:0x803D37E0 end:0x803D3820
+	.sdata      start:0x8058FBE8 end:0x8058FBF0
+	.sdata2     start:0x805956F0 end:0x80595740
+
+Weapons/CProjectileWeaponDataFactory.cpp:
+	.text       start:0x8029D804 end:0x8029E7E4
+	.rodata     start:0x803C0B78 end:0x803C0B80
+	.data       start:0x803D3820 end:0x803D3830
+
+Weapons/CCollisionResponseData.cpp:
+	.text       start:0x8029E7E4 end:0x8029FDCC
+	.rodata     start:0x803C0B80 end:0x803C0F48
+	.data       start:0x803D3830 end:0x803D3840
+	.sdata2     start:0x80595740 end:0x80595750
