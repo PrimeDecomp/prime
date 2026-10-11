@@ -1766,10 +1766,7 @@ void CSamusHud::UpdateHudLag(float dt, const CStateManager& mgr) {
     if (const CFirstPersonCamera* camera =
             TCastToConstPtr< CFirstPersonCamera >(mgr.GetCameraManager()->GetCurrentCamera(mgr))) {
       const CMatrix3f rotation = camera->GetTransform().BuildMatrix3f();
-      const CVector3f direction = rotation.GetColumn(1);
-      cameraDirection.SetY(direction.GetY());
-      cameraDirection.SetX(direction.GetX());
-      cameraDirection.SetZ(direction.GetZ());
+      cameraDirection = CUnitVector3f(rotation.GetColumn(kDY), CUnitVector3f::kN_No);
     }
     ApplyClassicLag(cameraDirection, mHudLag, mgr, dt, false);
     ApplyClassicLag(cameraDirection, mInvHudLag, mgr, dt, true);
