@@ -12,18 +12,7 @@ public:
   inline TSegIdMap(uchar count);
 #endif
 
-  TSegIdMap(CInputStream& in)
-  : mBoneCount(0)
-  , mCapacity(in.Get< uint >())
-  , mIndirectionMap(100, rstl::pair< char, char >(-1, -1))
-  , mNodes(reinterpret_cast< T* >(rs_new char[mCapacity * sizeof(T)]))
-  , mCurPrevBone(0) {
-    for (int i = 0; i < mCapacity; i++) {
-      CSegId seg(in);
-      T node(in);
-      insert(seg, node);
-    }
-  }
+  TSegIdMap(CInputStream& in);
 
   T& operator[](const CSegId& id) {
     int index = mIndirectionMap[id.val()].second;
@@ -54,6 +43,20 @@ private:
   T* mNodes;
   char mCurPrevBone;
 };
+
+template < typename T >
+TSegIdMap< T >::TSegIdMap(CInputStream& in)
+: mBoneCount(0)
+, mCapacity(in.Get< uint >())
+, mIndirectionMap(100, rstl::pair< char, char >(-1, -1))
+, mNodes(reinterpret_cast< T* >(rs_new char[mCapacity * sizeof(T)]))
+, mCurPrevBone(0) {
+  for (int i = 0; i < mCapacity; i++) {
+    CSegId seg(in);
+    T node(in);
+    insert(seg, node);
+  }
+}
 
 template < typename T >
 TSegIdMap< T >::TSegIdMap(uchar count)
