@@ -1997,6 +1997,9 @@ WorldFormat/COBBTree.cpp:
 
 WorldFormat/CCollidableOBBTree.cpp:
 	.text       start:0x802A9A28 end:0x802AC880
+	.data       start:0x803EC538 end:0x803EC570
+	.sdata      start:0x805A8310 end:0x805A8318
+	.sdata2     start:0x805ADBA8 end:0x805ADBD8
 
 WorldFormat/CCollidableOBBTreeGroup.cpp:
 	.text       start:0x802AC880 end:0x802AE520

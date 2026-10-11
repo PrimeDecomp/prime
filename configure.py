@@ -1552,7 +1552,7 @@ config.libs = [
                 "WorldFormat/COBBTree.cpp",
             ),
             Object(
-                EquivalentFor("GM8E01_00"),
+                MatchingFor(*NTSC_GC_VERSIONS),
                 "WorldFormat/CCollidableOBBTree.cpp",
                 cflags=cflags_retro if version_num < VERSIONS.index("GM8P01_00") else None,
             ),

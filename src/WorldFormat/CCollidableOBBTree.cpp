@@ -559,9 +559,8 @@ CRayCastResult CCollidableOBBTree::CastRayInternal(const CInternalRayCastStructu
 
 static CPlane TransformPlane(const CPlane& pl, const CTransform4f& xf) {
   CVector3f transformed = xf * (pl.GetNormal() * pl.GetConstant());
-  CVector3f normal = xf.Rotate(pl.GetNormal());
-  return CPlane(CVector3f::Dot(transformed, normal),
-                CUnitVector3f(normal.GetX(), normal.GetY(), normal.GetZ()));
+  CUnitVector3f normal(xf.Rotate(pl.GetNormal()), CUnitVector3f::kN_No);
+  return CPlane(transformed, normal);
 }
 
 CRayCastResult CCollidableOBBTree::LineIntersectsTree(const CMRay& ray,
