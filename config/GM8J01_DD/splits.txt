@@ -3393,6 +3393,206 @@ Kyoto/Particles/CElectricDescription.cpp:
 Kyoto/Particles/CSwooshDescription.cpp:
 	.text       start:0x80350E88 end:0x803511C8
 
+Kyoto/Particles/CGenDescription.cpp:
+	.text       start:0x803511C8 end:0x8035159C
+	.rodata     start:0x803C2DC0 end:0x803C2E88
+
+Kyoto/CPakFile.cpp:
+	.text       start:0x8035159C end:0x80352FD4
+	.rodata     start:0x803C2E88 end:0x803C2EE0
+	.sdata      start:0x8058FFE8 end:0x8058FFF8
+	.sbss       start:0x80590C90 end:0x80590CA0
+
+Kyoto/Animation/CPoseAsTransformsVariableSize.cpp:
+	.text       start:0x80352FD4 end:0x803533B0
+	.rodata     start:0x803C2EE0 end:0x803C2EE8
+	.sdata      start:0x8058FFF8 end:0x80590000
+
+Kyoto/Input/CRumbleVoice.cpp:
+	.text       start:0x803533B0 end:0x80353B90
+	.sdata      start:0x80590000 end:0x80590008
+	.sdata2     start:0x80596310 end:0x80596320
+
+Kyoto/Input/RumbleAdsr.cpp:
+	.text       start:0x80353E30 end:0x80353F58
+	.sdata2     start:0x80596320 end:0x80596328
+
+Kyoto/Input/CRumbleGenerator.cpp:
+	.text       start:0x80353F58 end:0x803543D4
+	.rodata     start:0x803C2EE8 end:0x803C2EF8
+	.sdata2     start:0x80596328 end:0x80596338
+
+Kyoto/Audio/CDSPStream.cpp:
+	.text       start:0x803543D4 end:0x80355498
+	.rodata     start:0x803C2EF8 end:0x803C2F00
+	.bss        start:0x80527BC0 end:0x80527FA0
+
+Kyoto/Audio/g721.cpp:
+	.text       start:0x80355498 end:0x80355E14
+	.data       start:0x803D6B80 end:0x803D6C00
+
+Kyoto/Audio/CStaticAudioPlayer.cpp:
+	.text       start:0x80355E14 end:0x80356C88
+	.ctors      start:0x803B545C end:0x803B5460
+	.rodata     start:0x803C2F00 end:0x803C2F08
+	.bss        start:0x80527FA0 end:0x80527FC0
+	.sbss       start:0x80590CA0 end:0x80590CB0
+
+Kyoto/CFrameDelayedKiller.cpp:
+	.text       start:0x80356C88 end:0x80357220
+	.ctors      start:0x803B5460 end:0x803B5464
+	.bss        start:0x80527FC0 end:0x80528000
+	.sbss       start:0x80590CB0 end:0x80590CB8
+
+Kyoto/Animation/CTimeRemainderAndFraction.cpp:
+	.text       start:0x80357220 end:0x80357314
+	.sdata      start:0x80590008 end:0x80590010
+	.sdata2     start:0x80596338 end:0x80596340
+
+dolphin/ai.c:
+	.text       start:0x803573A8 end:0x80357D10
+	.data       start:0x803D6C40 end:0x803D6C88
+	.sdata      start:0x80590010 end:0x80590018
+	.sbss       start:0x80590CB8 end:0x80590CF8
+
+dolphin/ar/ar.c:
+	.text       start:0x80357D10 end:0x8035989C
+	.data       start:0x803D6C88 end:0x803D6CD0
+	.sdata      start:0x80590018 end:0x80590020
+	.sbss       start:0x80590CF8 end:0x80590D18
+
+dolphin/ar/arq.c:
+	.text       start:0x8035989C end:0x80359C40
+	.data       start:0x803D6CD0 end:0x803D6D18
+	.sdata      start:0x80590020 end:0x80590028
+	.sbss       start:0x80590D18 end:0x80590D40
+
+dolphin/PPCArch.c:
+	.text       start:0x80359C40 end:0x80359D38
+
+dolphin/db.c:
+	.text       start:0x80359D38 end:0x80359E24
+	.data       start:0x803D6D18 end:0x803D6D30
+	.sbss       start:0x80590D40 end:0x80590D48
+
+dolphin/dsp/dsp.c:
+	.text       start:0x80359E24 end:0x8035A03C
+	.data       start:0x803D6D30 end:0x803D6DB0
+	.sdata      start:0x80590028 end:0x80590030
+	.sbss       start:0x80590D48 end:0x80590D50
+
+dolphin/dsp/dsp_debug.c:
+	.text       start:0x8035A03C end:0x8035A08C
+
+dolphin/dsp/dsp_task.c:
+	.text       start:0x8035A08C end:0x8035A910
+	.data       start:0x803D6DB0 end:0x803D6EF0
+	.sbss       start:0x80590D50 end:0x80590D68
+
+dolphin/dvd/dvdlow.c:
+	.text       start:0x8035A910 end:0x8035B750
+	.bss        start:0x80528000 end:0x805280E0
+	.sdata      start:0x80590030 end:0x80590038
+	.sbss       start:0x80590D68 end:0x80590DB0
+
+dolphin/dvd/dvdfs.c:
+	.text       start:0x8035B750 end:0x8035C00C
+	.data       start:0x803D6EF0 end:0x803D72E0
+	.sdata      start:0x80590038 end:0x80590040
+	.sbss       start:0x80590DB0 end:0x80590DD0
+
+dolphin/dvd/dvd.c:
+	.text       start:0x8035C00C end:0x8035EA00
+	.data       start:0x803D72E0 end:0x803D7460
+	.bss        start:0x805280E0 end:0x80528178
+	.sdata      start:0x80590040 end:0x80590058
+	.sbss       start:0x80590DD0 end:0x80590E18
+
+dolphin/dvd/dvdqueue.c:
+	.text       start:0x8035EA00 end:0x8035EBF8
+	.bss        start:0x80528178 end:0x80528198
+
+dolphin/dvd/dvderror.c:
+	.text       start:0x8035EBF8 end:0x8035ED90
+	.data       start:0x803D7460 end:0x803D74A8
+
+dolphin/dvd/dvdidutils.c:
+	.text       start:0x8035ED90 end:0x8035EE88
+
+dolphin/dvd/dvdfatal.c:
+	.text       start:0x8035EE88 end:0x8035EFB4
+	.rodata     start:0x803C2F08 end:0x803C2F20
+	.data       start:0x803D74A8 end:0x803D78D8
+	.sdata      start:0x80590058 end:0x80590060
+	.sbss       start:0x80590E18 end:0x80590E20
+	.sdata2     start:0x80596340 end:0x80596348
+
+dolphin/dvd/fstload.c:
+	.text       start:0x8035EFB4 end:0x8035F1F4
+	.data       start:0x803D78D8 end:0x803D7948
+	.bss        start:0x80528198 end:0x80528208
+	.sdata      start:0x80590060 end:0x80590070
+	.sbss       start:0x80590E20 end:0x80590E30
+
+dolphin/gx/GXInit.c:
+	.text       start:0x8035F1F4 end:0x803603C4
+	.data       start:0x803D7948 end:0x803D7A78
+	.bss        start:0x80528208 end:0x80528780
+	.sdata      start:0x80590070 end:0x80590078
+	.sbss       start:0x80590E30 end:0x80590E40
+	.sdata2     start:0x80596348 end:0x80596370
+
+dolphin/gx/GXFifo.c:
+	.text       start:0x803603C4 end:0x80360F68
+	.sbss       start:0x80590E40 end:0x80590E60
+
+dolphin/gx/GXAttr.c:
+	.text       start:0x80360F68 end:0x8036244C
+	.data       start:0x803D7A78 end:0x803D7C40
+	.sdata      start:0x80590078 end:0x80590088
+
+dolphin/gx/GXMisc.c:
+	.text       start:0x8036244C end:0x803629FC
+	.sbss       start:0x80590E60 end:0x80590E78
+
+dolphin/gx/GXGeometry.c:
+	.text       start:0x803629FC end:0x80362DAC
+
+dolphin/gx/GXFrameBuf.c:
+	.text       start:0x80362DAC end:0x80363890
+	.data       start:0x803D7C40 end:0x803D7D30
+	.sdata2     start:0x80596370 end:0x80596378
+
+dolphin/gx/GXLight.c:
+	.text       start:0x80363890 end:0x80363DE8
+	.data       start:0x803D7D30 end:0x803D7D50
+	.sdata2     start:0x80596378 end:0x805963A8
+
+dolphin/gx/GXTexture.c:
+	.text       start:0x80363DE8 end:0x80364FD4
+	.data       start:0x803D7D50 end:0x803D7F78
+	.sdata      start:0x80590088 end:0x805900C8
+	.sdata2     start:0x805963A8 end:0x805963D0
+
+dolphin/gx/GXBump.c:
+	.text       start:0x80364FD4 end:0x803655C0
+	.sdata2     start:0x805963D0 end:0x805963D8
+
+dolphin/gx/GXTev.c:
+	.text       start:0x803655C0 end:0x80365DA4
+	.data       start:0x803D7F78 end:0x803D7FF0
+
+dolphin/gx/GXPixel.c:
+	.text       start:0x80365DA4 end:0x803663DC
+	.data       start:0x803D7FF0 end:0x803D8010
+	.sdata2     start:0x805963D8 end:0x80596410
+
+dolphin/gx/GXStubs.c:
+	.text       start:0x803663DC end:0x803663E0
+
+dolphin/gx/GXDisplayList.c:
+	.text       start:0x803663E0 end:0x80366450
+
 dolphin/os/OSRtc.c:
 	.text       start:0x8036DC50 end:0x8036E79C
 	.bss        start:0x80528B20 end:0x80528B78
