@@ -1348,9 +1348,14 @@ MetroidPrime/Player/CStaticInterference.cpp:
 	.sdata2     start:0x805AD858 end:0x805AD860
 
 MetroidPrime/Enemies/CMetroidBeta.cpp:
-	.text       start:0x801C1658 end:0x801C7384
+	.text       start:0x801C15DC end:0x801C7384
 	.ctors      start:0x803CC33C end:0x803CC340
+	.rodata     start:0x803D2B40 end:0x803D2B60
+	.data       start:0x803E6448 end:0x803E67D8
 	.bss        start:0x805730C8 end:0x805730EC align:4 common
+	.sdata      start:0x805A8D70 end:0x805A8DD0
+	.sbss       start:0x805AA100 end:0x805AA110
+	.sdata2     start:0x805AD860 end:0x805AD908
 
 MetroidPrime/PathFinding/CPathFindSearch.cpp:
 	.text       start:0x801C7384 end:0x801C96F8
@@ -1464,7 +1469,12 @@ MetroidPrime/ScriptObjects/CScriptPlayerStateChange.cpp:
 MetroidPrime/Enemies/CThardus.cpp:
 	.text       start:0x801DAF28 end:0x801E40F4
 	.ctors      start:0x803CC340 end:0x803CC344
+	.rodata     start:0x803D2C60 end:0x803D2F58
+	.data       start:0x803E6DA0 end:0x803E73C8
 	.bss        start:0x805730EC end:0x805730F8 align:4 common
+	.sdata      start:0x805A8E30 end:0x805A8E70
+	.sbss       start:0x805AA118 end:0x805AA120
+	.sdata2     start:0x805ADAA8 end:0x805ADB60
 
 MetroidPrime/CActorModelParticles.cpp:
 	.text       start:0x801E40F4 end:0x801E7DA8
@@ -2228,8 +2238,10 @@ GuiSys/CGuiTextPane.cpp:
 
 GuiSys/CGuiTextSupport.cpp:
 	.text       start:0x802C8718 end:0x802CAFF8
+	.rodata     start:0x803D79A0 end:0x803D79B8
 	.sdata      start:0x805A9758 end:0x805A9768
-	.sdata2     start:0x805AF1D0 end:0x805AF1F8
+	.sbss       start:0x805AA2A8 end:0x805AA2B0
+	.sdata2     start:0x805AF1C8 end:0x805AF1F8
 
 GuiSys/CGuiWidget.cpp:
 	.text       start:0x802CAFF8 end:0x802CB990
@@ -2534,7 +2546,9 @@ Kyoto/Animation/CAnimSourceReader.cpp:
 
 Kyoto/Animation/CAnimSourceReaderBase.cpp:
 	.text       start:0x802F0300 end:0x802F2288
-	.sdata      start:0x805A9830 end:0x805A9838
+	.rodata     start:0x803D7EA8 end:0x803D7EB0
+	.data       start:0x803EE020 end:0x803EE080
+	.sdata      start:0x805A9820 end:0x805A9838
 
 Kyoto/Animation/CAnimTreeAnimReaderContainer.cpp:
 	.text       start:0x802F2288 end:0x802F28AC
