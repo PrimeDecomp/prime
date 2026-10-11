@@ -267,6 +267,11 @@ MetroidPrime/Tweaks/CTweakPlayerGun.cpp:
 	.sdata      start:0x8058E4D0 end:0x8058E4D8
 	.sdata2     start:0x80591BF0 end:0x80591C00
 
+MetroidPrime/CPauseScreen.cpp:
+	.text       start:0x80070DF0 end:0x800748DC
+	.data       start:0x803C4BB0 end:0x803C4C60
+	.sdata2     start:0x80591C00 end:0x80591C58
+
 MetroidPrime/Tweaks/CTweakGui.cpp:
 	.text       start:0x800748DC end:0x8007558C
 	.data       start:0x803C4C60 end:0x803C4C70
@@ -1222,6 +1227,12 @@ MetroidPrime/ScriptObjects/CScriptEMPulse.cpp:
 	.sdata      start:0x8058F040 end:0x8058F048
 	.sdata2     start:0x805938C0 end:0x805938C8
 
+MetroidPrime/HUD/CHudEnergyInterface.cpp:
+	.text       start:0x80183608 end:0x80184598
+	.rodata     start:0x803BB30C end:0x803BB3A8
+	.sdata      start:0x8058F048 end:0x8058F068
+	.sdata2     start:0x805938C8 end:0x80593928
+
 MetroidPrime/HUD/CHudFreeLookInterface.cpp:
 	.text       start:0x80184598 end:0x80185024
 	.rodata     start:0x803BB3A8 end:0x803BB538
@@ -1250,6 +1261,13 @@ MetroidPrime/HUD/CHudThreatInterface.cpp:
 	.rodata     start:0x803BB6C8 end:0x803BB7A0
 	.sdata      start:0x8058F0C8 end:0x8058F0F0
 	.sdata2     start:0x805939E0 end:0x80593A30
+
+MetroidPrime/HUD/CHudDecoInterface.cpp:
+	.text       start:0x8018921C end:0x8018BEA0
+	.rodata     start:0x803BB880 end:0x803BBB88
+	.data       start:0x803CCFA8 end:0x803CD0C8
+	.sdata      start:0x8058F0F8 end:0x8058F11C
+	.sdata2     start:0x80593A98 end:0x80593AD0
 
 MetroidPrime/Weapons/CFlameThrower.cpp:
 	.text       start:0x8018BEA0 end:0x8018D8B0
@@ -1804,6 +1822,14 @@ MetroidPrime/Enemies/CAtomicAlpha.cpp:
 	.sdata      start:0x8058F840 end:0x8058F848
 	.sdata2     start:0x80594D00 end:0x80594D18
 
+MetroidPrime/CGBASupport.cpp:
+	.text       start:0x80238AF4 end:0x80239230
+	.rodata     start:0x803BF210 end:0x803BF238
+	.data       start:0x803D0620 end:0x803D0648
+	.sdata      start:0x8058F858 end:0x8058F860
+	.sbss       start:0x805906E0 end:0x805906E8
+	.sdata2     start:0x80594D3C end:0x80594D40
+
 MetroidPrime/CMemoryCard.cpp:
 	.text       start:0x80239310 end:0x8023B520
 	.rodata     start:0x803BF238 end:0x803BF250
@@ -1879,6 +1905,14 @@ MetroidPrime/Enemies/CTryclops.cpp:
 	.sdata      start:0x8058F940 end:0x8058F968
 	.sbss       start:0x805906F0 end:0x805906F8
 	.sdata2     start:0x80594EF8 end:0x80594F40
+
+MetroidPrime/Weapons/CNewFlameThrower.cpp:
+	.text       start:0x802506BC end:0x80254070
+	.ctors      start:0x803B539C end:0x803B53A0
+	.rodata     start:0x803BFB50 end:0x803BFB70
+	.bss        start:0x80455220 end:0x80455240
+	.sdata      start:0x8058F968 end:0x8058F96C
+	.sdata2     start:0x80594F40 end:0x80594F70
 
 MetroidPrime/Cameras/CInterpolationCamera.cpp:
 	.text       start:0x80254378 end:0x80254E64
@@ -3593,9 +3627,128 @@ dolphin/gx/GXStubs.c:
 dolphin/gx/GXDisplayList.c:
 	.text       start:0x803663E0 end:0x80366450
 
+dolphin/gx/GXTransform.c:
+	.text       start:0x80366450 end:0x803669F4
+	.sdata2     start:0x80596410 end:0x80596420
+
+dolphin/gx/GXPerf.c:
+	.text       start:0x803669F4 end:0x8036724C
+	.data       start:0x803D8010 end:0x803D8100
+
+dolphin/mtx/mtx.c:
+	.text       start:0x8036724C end:0x80367680
+	.sdata      start:0x805900C8 end:0x805900D0
+	.sdata2     start:0x80596420 end:0x80596428
+
+dolphin/mtx/mtxvec.c:
+	.text       start:0x80367680 end:0x80367728
+
+dolphin/mtx/mtx44.c:
+	.text       start:0x80367728 end:0x8036785C
+	.sdata2     start:0x80596428 end:0x80596438
+
+dolphin/mtx/vec.c:
+	.text       start:0x8036785C end:0x803678DC
+	.sdata2     start:0x80596438 end:0x80596440
+
+dolphin/mtx/psmtx.c:
+	.text       start:0x803678DC end:0x80367928
+
+dolphin/os/OS.c:
+	.text       start:0x80367928 end:0x80368270
+	.data       start:0x803D8100 end:0x803D8308
+	.bss        start:0x80528780 end:0x805287D0
+	.sdata      start:0x805900D0 end:0x805900D8
+	.sbss       start:0x80590E78 end:0x80590EA8
+
+dolphin/os/OSAlarm.c:
+	.text       start:0x80368270 end:0x8036899C
+	.sbss       start:0x80590EA8 end:0x80590EB0
+
+dolphin/os/OSArena.c:
+	.text       start:0x8036899C end:0x803689E8
+	.sdata      start:0x805900D8 end:0x805900E0
+	.sbss       start:0x80590EB0 end:0x80590EB8
+
+dolphin/os/OSAudioSystem.c:
+	.text       start:0x803689E8 end:0x80368C7C
+	.data       start:0x803D8308 end:0x803D8388
+
+dolphin/os/OSCache.c:
+	.text       start:0x80368C7C end:0x803693D0
+	.data       start:0x803D8388 end:0x803D85B8
+
+dolphin/os/OSContext.c:
+	.text       start:0x803693D0 end:0x80369BB4
+	.data       start:0x803D85B8 end:0x803D8790
+
+dolphin/os/OSError.c:
+	.text       start:0x80369BB4 end:0x8036A260
+	.data       start:0x803D8790 end:0x803D8AB0
+	.bss        start:0x805287D0 end:0x80528818
+	.sdata      start:0x805900E0 end:0x805900E8
+
+dolphin/os/OSFatal.c:
+	.text       start:0x8036A260 end:0x8036AE3C
+	.bss        start:0x80528818 end:0x80528B00
+	.sdata      start:0x805900E8 end:0x805900F0
+	.sdata2     start:0x80596440 end:0x80596480
+
+dolphin/os/OSFont.c:
+	.text       start:0x8036AE3C end:0x8036B868
+	.data       start:0x803D8AB0 end:0x803D95C0
+	.sdata      start:0x805900F0 end:0x805900F8
+	.sbss       start:0x80590EB8 end:0x80590EC8
+	.sdata2     start:0x80596480 end:0x80596488
+
+dolphin/os/OSInterrupt.c:
+	.text       start:0x8036B868 end:0x8036C0D4
+	.data       start:0x803D95C0 end:0x803D95F0
+	.sbss       start:0x80590EC8 end:0x80590EE0
+
+dolphin/os/OSLink.c:
+	.text       start:0x8036C0D4 end:0x8036CAC0
+	.data       start:0x803D95F0 end:0x803D9640
+
+dolphin/os/OSMessage.c:
+	.text       start:0x8036CAC0 end:0x8036CCC4
+
+dolphin/os/OSMemory.c:
+	.text       start:0x8036CCC4 end:0x8036D068
+	.data       start:0x803D9640 end:0x803D9650
+
+dolphin/os/OSMutex.c:
+	.text       start:0x8036D068 end:0x8036D0D8
+
+dolphin/os/OSReboot.c:
+	.text       start:0x8036D0D8 end:0x8036D454
+	.bss        start:0x80528B00 end:0x80528B20
+	.sbss       start:0x80590EE0 end:0x80590EE8
+
+dolphin/os/OSReset.c:
+	.text       start:0x8036D454 end:0x8036D8C4
+	.sbss       start:0x80590EF0 end:0x80590EF8
+
+dolphin/os/OSResetSW.c:
+	.text       start:0x8036D8C4 end:0x8036DC50
+	.sbss       start:0x80590EF8 end:0x80590F18
+
 dolphin/os/OSRtc.c:
 	.text       start:0x8036DC50 end:0x8036E79C
 	.bss        start:0x80528B20 end:0x80528B78
+
+dolphin/os/OSSync.c:
+	.text       start:0x8036E79C end:0x8036E820
+
+dolphin/os/OSThread.c:
+	.text       start:0x8036E820 end:0x8036F760
+	.bss        start:0x80528B78 end:0x80529570
+	.sdata      start:0x805900F8 end:0x80590100
+	.sbss       start:0x80590F18 end:0x80590F28
+
+dolphin/os/OSTime.c:
+	.text       start:0x8036F760 end:0x8036FBDC
+	.data       start:0x803D9650 end:0x803D96B0
 
 dolphin/os/__start.c:
 	.init       start:0x80003100 end:0x80003354
@@ -3603,6 +3756,44 @@ dolphin/os/__start.c:
 dolphin/os/__ppc_eabi_init.cpp:
 	.init       start:0x80003354 end:0x800033A8
 	.text       start:0x8036FBDC end:0x8036FC70
+
+dolphin/pad/PadClamp.c:
+	.text       start:0x8036FC70 end:0x8036FEB4
+	.rodata     start:0x803C2F20 end:0x803C2F30
+
+dolphin/pad/pad.c:
+	.text       start:0x8036FEB4 end:0x80371A3C
+	.data       start:0x803D96B0 end:0x803D9708
+	.bss        start:0x80529570 end:0x805295C0
+	.sdata      start:0x80590100 end:0x80590120
+	.sbss       start:0x80590F28 end:0x80590F50
+
+dolphin/vi.c:
+	.text       start:0x80371A3C end:0x803738F8
+	.data       start:0x803D9708 end:0x803D9AD8
+	.bss        start:0x805295C0 end:0x80529708
+	.sdata      start:0x80590120 end:0x80590130
+	.sbss       start:0x80590F50 end:0x80590FA8
+
+runtime/__va_arg.c:
+	.text       start:0x803738F8 end:0x803739C0
+
+runtime/global_destructor_chain.c:
+	.text       start:0x803739C0 end:0x80373A20
+	.dtors      start:0x803B5488 end:0x803B548C
+	.sbss       start:0x80590FA8 end:0x80590FB0
+
+runtime/CPlusLibPPC.cpp:
+	.text       start:0x80373A20 end:0x80373A50
+
+runtime/NMWException.cpp:
+	extab       start:0x800035A0 end:0x800035C8
+	extabindex  start:0x800035E0 end:0x80003604
+	.text       start:0x80373A50 end:0x80373C78
+
+runtime/ptmf.c:
+	.text       start:0x80373C78 end:0x80373CD0
+	.rodata     start:0x803C2F30 end:0x803C2F40
 
 runtime/__mem.c:
 	.init       start:0x800033A8 end:0x800034E0
