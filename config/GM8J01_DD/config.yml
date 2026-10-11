@@ -6,3 +6,12 @@ splits: config/GM8J01_DD/splits.txt
 mw_comment_version: 8
 quick_analysis: false # Faster reruns after full analysis
 fill_gaps: true # Alignments known
+
+# Extract embedded assets
+extract:
+- symbol: sDefaultFontData
+  binary: MetroidPrime/DefaultFontData.bin
+  header: MetroidPrime/DefaultFontData.inc
+- symbol: sDefaultFontTexture
+  binary: MetroidPrime/DefaultFontTexture.bin
+  header: MetroidPrime/DefaultFontTexture.inc

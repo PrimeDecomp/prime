@@ -1915,3 +1915,110 @@ MetroidPrime/CWorldSaveGameInfo.cpp:
 	.text       start:0x80259FE0 end:0x8025AE58
 	.rodata     start:0x803BFDE8 end:0x803BFDF0
 	.data       start:0x803D1DD8 end:0x803D1DE8
+
+MetroidPrime/main.cpp:
+	.text       start:0x80003658 end:0x800091C8
+	.rodata     start:0x803B54A0 end:0x803B66B8
+	.data       start:0x803C3700 end:0x803C3848
+	.bss        start:0x803DE900 end:0x8043ECA0
+	.sdata      start:0x8058E140 end:0x8058E148
+	.sbss       start:0x805901E0 end:0x80590238
+	.sdata2     start:0x80591340 end:0x80591388
+
+Kyoto/Alloc/CMemory.cpp:
+	.text       start:0x802FE968 end:0x802FEDE8
+	.ctors      start:0x803B5418 end:0x803B541C
+	.rodata     start:0x803C21A8 end:0x803C21C0
+	.bss        start:0x804A72D8 end:0x804A73A8
+	.sdata      start:0x8058FE10 end:0x8058FE18
+	.sbss       start:0x80590A58 end:0x80590A68
+
+Kyoto/Streams/CInputStream.cpp:
+	.text       start:0x8032784C end:0x80327DE8
+	.rodata     start:0x803C23D8 end:0x803C23E0
+	.data       start:0x803D56C8 end:0x803D56D8
+	.sbss       start:0x80590AE8 end:0x80590B00
+
+Kyoto/Streams/COutputStream.cpp:
+	.text       start:0x80327FE0 end:0x803283D0
+	.rodata     start:0x803C23E0 end:0x803C23E8
+	.data       start:0x803D56F8 end:0x803D5708
+
+Kyoto/Streams/CMemoryInStream.cpp:
+	.text       start:0x80327DE8 end:0x80327E74
+	.data       start:0x803D56D8 end:0x803D56E8
+
+Kyoto/Math/CVector3f.cpp:
+	.text       start:0x802FD770 end:0x802FDD98
+	.ctors      start:0x803B5414 end:0x803B5418
+	.bss        start:0x8058DC20 end:0x8058DCBC align:4 common
+	.sdata2     start:0x80595E28 end:0x80595E40
+
+Kyoto/Math/CVector2f.cpp:
+	.text       start:0x802FD024 end:0x802FD40C
+	.ctors      start:0x803B5410 end:0x803B5414
+	.sbss       start:0x80590A50 end:0x80590A58
+	.sdata2     start:0x80595E10 end:0x80595E20
+
+Kyoto/Math/CUnitVector3f.cpp:
+	.text       start:0x802FCF90 end:0x802FD024
+	.sdata2     start:0x80595E08 end:0x80595E10
+
+Kyoto/Math/CMatrix3f.cpp:
+	.text       start:0x802F9204 end:0x802F9904
+	.ctors      start:0x803B5400 end:0x803B5404
+	.bss        start:0x8058DB7C end:0x8058DBA0 align:4 common
+	.sdata2     start:0x80595D68 end:0x80595D70
+
+Kyoto/Math/CTransform4f.cpp:
+	.text       start:0x802FB8E4 end:0x802FCF90
+	.ctors      start:0x803B540C end:0x803B5410
+	.bss        start:0x8058DBF0 end:0x8058DC20 align:4 common
+	.sdata2     start:0x80595DE8 end:0x80595E08
+
+Kyoto/Math/CAABox.cpp:
+	.text       start:0x80320010 end:0x8032103C
+	.ctors      start:0x803B5420 end:0x803B5424
+	.data       start:0x803D5658 end:0x803D56A8
+	.bss        start:0x8058DCD4 end:0x8058DD1C align:4 common
+	.sdata2     start:0x805960A0 end:0x805960B8
+	.sbss2      start:0x80596CF8 end:0x80596D00
+
+Kyoto/Math/CPlane.cpp:
+	.text       start:0x8031FDB4 end:0x8031FF20
+	.sdata2     start:0x80596098 end:0x805960A0
+
+Kyoto/Graphics/CColor.cpp:
+	.text       start:0x80332788 end:0x80332828
+	.ctors      start:0x803B543C end:0x803B5440
+	.sbss       start:0x80590B60 end:0x80590B88
+
+Kyoto/Basics/CBasics.cpp:
+	.text       start:0x802C204C end:0x802C2100
+	.bss        start:0x80460B20 end:0x80460D20
+
+Kyoto/Alloc/IAllocator.cpp:
+	.text       start:0x802FEDE8 end:0x802FEEC8
+	.data       start:0x803D4D00 end:0x803D4D40
+
+Kyoto/Alloc/CGameAllocator.cpp:
+	.text       start:0x8033A470 end:0x8033B9A0
+	.rodata     start:0x803C2BB0 end:0x803C2C60
+	.data       start:0x803D6A18 end:0x803D6A58
+	.sbss       start:0x80590BD8 end:0x80590BE8
+	.sdata2     start:0x805961B0 end:0x805961B8
+
+Kyoto/Streams/CMemoryStreamOut.cpp:
+	.text       start:0x80327E74 end:0x80327FE0
+	.data       start:0x803D56E8 end:0x803D56F8
+
+Kyoto/Alloc/CCallStackDolphin.cpp:
+	.text       start:0x802C2260 end:0x802C227C
+	.rodata     start:0x803C1498 end:0x803C14A8
+
+Kyoto/Alloc/CCircularBuffer.cpp:
+	.text       start:0x802FE7B0 end:0x802FE968
+
+Kyoto/Alloc/CMediumAllocPool.cpp:
+	.text       start:0x803397D0 end:0x8033A15C
+	.sbss       start:0x80590BD0 end:0x80590BD8
