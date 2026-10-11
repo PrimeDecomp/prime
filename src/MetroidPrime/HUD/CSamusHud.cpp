@@ -632,7 +632,7 @@ void CSamusHud::UpdateFreeLook(float dt, const CStateManager& mgr) {
   }
   if (fpCam) {
     const CMatrix3f cameraRotation = fpCam->GetTransform().BuildMatrix3f();
-    const CUnitVector3f cameraDirection(cameraRotation.GetColumn(1));
+    const CUnitVector3f cameraDirection(cameraRotation.GetColumn(kDY));
     CVector3f horizonDirection(cameraDirection.GetX(), cameraDirection.GetY(), 0.f);
     horizonDirection.Normalize();
     const float dot = CMath::Limit(CVector3f::Dot(cameraDirection, horizonDirection), 1.f);
