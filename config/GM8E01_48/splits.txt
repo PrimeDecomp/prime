@@ -162,6 +162,7 @@ MetroidPrime/Player/CPlayerGun.cpp:
 
 MetroidPrime/CStateManager.cpp:
 	.text       start:0x80043E54 end:0x800510F8
+	.sbss       start:0x805A8A78 end:0x805A8AB8
 	.sdata2     start:0x805AA010 end:0x805AA030
 
 MetroidPrime/CEntity.cpp:
