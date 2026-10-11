@@ -30,15 +30,7 @@ class CCameraCollider {
 public:
   virtual ~CCameraCollider() {}
 
-  CCameraCollider(float radius, CVector3f vec, const CCameraSpring& spring, float scale)
-  : mRadius(radius)
-  , mLastLocalPos(vec)
-  , mLocalPos(vec)
-  , mScaledWorldPos(vec)
-  , mLastWorldPos(vec)
-  , mSpring(spring)
-  , mOcclusionCount(0)
-  , mScale(scale) {}
+  CCameraCollider(float radius, CVector3f vec, const CCameraSpring& spring, float scale);
 
   CCameraCollider(const CCameraCollider& other)
   : mRadius(other.mRadius)
