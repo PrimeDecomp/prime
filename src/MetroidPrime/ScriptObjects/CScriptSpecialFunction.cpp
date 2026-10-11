@@ -1,9 +1,12 @@
-#include "MetroidPrime/ScriptObjects/CScriptSpecialFunction.hpp"
+// MWCC template emission order depends on these includes.
+// clang-format off
+#include "MetroidPrime/CMain.hpp" // IWYU pragma: keep
+#include "MetroidPrime/ScriptObjects/CScriptSpecialFunction.hpp" // IWYU pragma: keep
+// clang-format on
 
 #include "MetroidPrime/CActorParameters.hpp"
 #include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CEnvFxManager.hpp"
-#include "MetroidPrime/CMain.hpp"
 #include "MetroidPrime/CMapWorld.hpp"
 #include "MetroidPrime/CMapWorldInfo.hpp"
 #include "MetroidPrime/CRumbleManager.hpp"
