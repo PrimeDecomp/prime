@@ -1179,7 +1179,7 @@ config.libs = [
                 "MetroidPrime/ScriptObjects/CScriptRoomAcoustics.cpp",
             ),
             Object(NonMatching, "MetroidPrime/Enemies/CIceSheegoth.cpp"),
-            Object(EquivalentFor("GM8E01_00"), "MetroidPrime/CCollisionActorManager.cpp"),
+            Object(MatchingFor("GM8E01_00"), "MetroidPrime/CCollisionActorManager.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/CCollisionActor.cpp"
             ),

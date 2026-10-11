@@ -86,8 +86,8 @@ CCollisionActorManager::CCollisionActorManager(
           if (distance <= FLT_EPSILON) {
             continue;
           }
-          CVector3f bounds(desc.GetBounds()[kDX], distance + desc.GetBounds()[kDY],
-                           desc.GetBounds()[kDZ]);
+          const float boundsY = desc.GetBounds()[kDY];
+          CVector3f bounds(desc.GetBounds()[kDX], distance + boundsY, desc.GetBounds()[kDZ]);
           TUniqueId uid = mgr.AllocateUniqueId();
           CCollisionActor* const colAct =
               rs_new CCollisionActor(uid, areaId, mOwnerId, bounds,
@@ -235,7 +235,11 @@ void CCollisionActorManager::Destroy(CStateManager& mgr) const {
 
 uchar CCollisionActorManager::GetActive() const { return mActive; }
 
+#if VERSION == VERSION_GM8EAB_00
 void CCollisionActorManager::SetActive(CStateManager& mgr, const bool active) {
+#else
+void CCollisionActorManager::SetActive(CStateManager& mgr, bool active) {
+#endif
   mActive = active;
   for (int i = 0; i < mJointDescriptions.size(); ++i) {
     CActor* act =
