@@ -145,10 +145,6 @@ const CMorphBall::SColorRgb CMorphBall::skBallBoostedHullGlowColors[9] = {
     {251, 152, 33},  // Orange
 };
 
-inline CColor CMorphBall::GetBallGlowColor(const SColorRgb& color) {
-  return CColor(color.mR, color.mG, color.mB, 0xff);
-}
-
 // lbl_803CEB24
 const CMorphBall::SColorRgb CMorphBall::skBallTailSwooshColors[9] = {
     {194, 143, 23},  // Ochre
