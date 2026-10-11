@@ -1222,8 +1222,6 @@ float CPatterned::CalcDyingThinkRate() {
   return thinkRate;
 }
 
-CDamageInfo CPatterned::GetContactDamage() const { return mContactDamage; }
-
 void CPatterned::DeathDelete(CStateManager& mgr) {
   SendScriptMsgs(kSS_Dead, mgr, kSM_None);
 
@@ -1235,6 +1233,8 @@ void CPatterned::DeathDelete(CStateManager& mgr) {
 
   mgr.DeleteObjectRequest(GetUniqueId());
 }
+
+CDamageInfo CPatterned::GetContactDamage() const { return mContactDamage; }
 
 CTransform4f CPatterned::GetLctrTransform(const rstl::string& name) const {
   return GetTransform() * GetScaledLocatorTransform(name);
@@ -1484,8 +1484,8 @@ CVector3f CAi::GetOrigin(const CStateManager&, const CTeamAiRole&, const CVector
 
 bool CAi::IsListening() const { return false; }
 
-rstl::optional_object< CAABox > CPatterned::GetTouchBounds() const { return GetBoundingBox(); }
+bool CPatterned::Default(CStateManager&, float) { return true; }
 
 void CPatterned::TakeDamage(const CVector3f&, float) { mDamageCooldownTimer = 0.33f; }
 
-bool CPatterned::Default(CStateManager&, float) { return true; }
+rstl::optional_object< CAABox > CPatterned::GetTouchBounds() const { return GetBoundingBox(); }
