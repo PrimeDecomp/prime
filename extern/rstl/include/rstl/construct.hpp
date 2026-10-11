@@ -56,6 +56,7 @@ static inline void destroy(T* const in) {
 #else
 template < typename T >
 static inline void destroy(T* in) {
+  RS_ASSERT(in != nullptr, "rstl precondition");
 #endif
   in->~T();
 }

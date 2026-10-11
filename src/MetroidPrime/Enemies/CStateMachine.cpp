@@ -128,7 +128,6 @@ CStateMachine::CStateMachine(CInputStream& in) {
 
     for (j = 0; j < state.GetNumTriggers(); ++j) {
       const int triggerCount = in.Get< int >();
-      const int lastTriggerIdx = triggerCount - 1;
 
       for (int k = 0; k < triggerCount; ++k) {
         nameLen = 0;
@@ -146,7 +145,7 @@ CStateMachine::CStateMachine(CInputStream& in) {
         const float arg = in.Get< float >();
         CAiTrigger* newTrig;
         const bool isNot = name[0] == '!';
-        if (k < lastTriggerIdx) {
+        if (k < triggerCount - 1) {
           mTriggers.push_back(CAiTrigger());
           newTrig = &mTriggers.back();
         } else {
