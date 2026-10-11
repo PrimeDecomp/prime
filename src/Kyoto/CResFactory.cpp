@@ -1,4 +1,8 @@
-#include "Kyoto/CResFactory.hpp"
+// MWCC template emission order depends on these includes.
+// clang-format off
+#include "rstl/list.hpp" // IWYU pragma: keep
+#include "Kyoto/CResFactory.hpp" // IWYU pragma: keep
+// clang-format on
 #include "Kyoto/Basics/CBasics.hpp"
 
 #include "Kyoto/Alloc/CMemory.hpp"
