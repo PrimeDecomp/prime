@@ -1,0 +1,8 @@
+object_base: orig/GM8J01_DD
+object: sys/main.dol
+hash: f04ce5883d5e51a0d71fae697dfd9f99ac233267
+symbols: config/GM8J01_DD/symbols.txt
+splits: config/GM8J01_DD/splits.txt
+mw_comment_version: 8
+quick_analysis: false # Faster reruns after full analysis
+fill_gaps: true # Alignments known

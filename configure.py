@@ -35,6 +35,7 @@ VERSIONS = [
     "GM8E01_48",  # mp-v1.097 NTSC-K
     "GM8E01_02",  # mp-v1.111 NTSC-U
     "GM8P01_00",  # mp-v1.110 PAL
+    "GM8J01_DD",  # mp-v1.111 NTSC-J DEMO
     "GM8J01_00",  # mp-v1.111 NTSC-J
     "R3IJ01_00",  # mp-v3.570 New Play Controls
     "R3ME01_00",  # mp-v3.593 Trilogy NTSC
@@ -47,7 +48,8 @@ RSTL_VERSIONS = {
     "GM8E01_48": 3,
     "GM8E01_02": 4,
     "GM8P01_00": 5,
-    "GM8J01_00": 6,
+    "GM8J01_DD": 6,
+    "GM8J01_00": 7,
     "R3IJ01_00": 30,
     "R3ME01_00": 40,
     "R3MP01_00": 41,
