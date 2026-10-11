@@ -19,8 +19,6 @@
 uint CParticleSwoosh::mSwooshAliveCount = 0;
 static float kFrameTime = 1.f / 60.f;
 
-#pragma sym on
-
 CParticleSwoosh::CParticleSwoosh(const TToken< CSwooshDescription > desc, const int leng)
 : mDesc(desc)
 , mCurFrame(0)
