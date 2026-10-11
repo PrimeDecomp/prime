@@ -83,6 +83,12 @@ MetroidPrime/CArchMsgParmUserInput.cpp:
 MetroidPrime/CInputGenerator.cpp:
 	.text       start:0x800253EC end:0x80025908
 
+MetroidPrime/CMainFlow.cpp:
+	.text       start:0x80025908 end:0x80025E0C
+	.rodata     start:0x803B7248 end:0x803B7258
+	.data       start:0x803C42E0 end:0x803C4340
+	.sdata      start:0x8058E2B0 end:0x8058E2D8
+
 MetroidPrime/CAnimData.cpp:
 	.text       start:0x8002A56C end:0x80032DCC
 	.ctors      start:0x803B52C0 end:0x803B52C4
@@ -3142,10 +3148,97 @@ zlib-1.1.3/infutil.c:
 zlib-1.1.3/zutil.c:
 	.text       start:0x8032D164 end:0x8032D1C0
 
+Kyoto/CARAMManager.cpp:
+	.text       start:0x8032D1C0 end:0x8032DBD4
+	.ctors      start:0x803B5430 end:0x803B5434
+	.rodata     start:0x803C28C0 end:0x803C28C8
+	.bss        start:0x804A74C0 end:0x804A74D0
+	.bss        start:0x8058DD1C end:0x8058DD34 align:4 common
+	.sdata      start:0x8058FEC8 end:0x8058FED0
+	.sbss       start:0x80590B18 end:0x80590B38
+	.sdata2     start:0x805960C0 end:0x805960C8
+
+Kyoto/Math/CFrustumPlanes.cpp:
+	.text       start:0x8032DBD4 end:0x8032E350
+	.sdata2     start:0x805960C8 end:0x805960D0
+
+Kyoto/Graphics/CCubeMaterial.cpp:
+	.text       start:0x8032E350 end:0x803309F0
+	.ctors      start:0x803B5434 end:0x803B5438
+	.rodata     start:0x803C28C8 end:0x803C2A48
+	.data       start:0x803D6950 end:0x803D69A0
+	.bss        start:0x804A74D0 end:0x804A7510
+	.bss        start:0x8058DD34 end:0x8058DD40 align:4 common
+	.sdata      start:0x8058FED0 end:0x8058FEE0
+	.sbss       start:0x80590B38 end:0x80590B60
+	.sdata2     start:0x805960D0 end:0x80596130
+
+Kyoto/Graphics/CCubeSurface.cpp:
+	.text       start:0x803309F0 end:0x80330A74
+	.ctors      start:0x803B5438 end:0x803B543C
+	.bss        start:0x8058DD40 end:0x8058DD4C align:4 common
+	.sdata2     start:0x80596130 end:0x80596138
+
+Kyoto/Animation/CCharAnimTime.cpp:
+	.text       start:0x80330A74 end:0x803315B4
+	.sdata      start:0x8058FEE0 end:0x8058FF00
+	.sdata2     start:0x80596138 end:0x80596140
+
+Kyoto/Animation/CSegIdList.cpp:
+	.text       start:0x803315B4 end:0x803315F4
+
+Kyoto/Input/CFinalInput.cpp:
+	.text       start:0x80331764 end:0x80332788
+	.data       start:0x803D69A0 end:0x803D69B0
+	.sdata      start:0x8058FF00 end:0x8058FF40
+	.sdata2     start:0x80596140 end:0x80596158
+
 Kyoto/Graphics/CColor.cpp:
 	.text       start:0x80332788 end:0x80332828
 	.ctors      start:0x803B543C end:0x803B5440
 	.sbss       start:0x80590B60 end:0x80590B88
+
+Kyoto/Audio/DolphinCAudioGroupSet.cpp:
+	.text       start:0x80332828 end:0x80332FD0
+	.rodata     start:0x803C2A78 end:0x803C2A80
+	.data       start:0x803D69B0 end:0x803D69C0
+
+Kyoto/Audio/DolphinCAudioSys.cpp:
+	.text       start:0x80332FD0 end:0x80335F50
+	.ctors      start:0x803B5440 end:0x803B5444
+	.rodata     start:0x803C2A80 end:0x803C2B90
+	.bss        start:0x804A7510 end:0x804A751C
+	.bss        start:0x8058DD4C end:0x8058DD5C align:4 common
+	.sdata      start:0x8058FF40 end:0x8058FF50
+	.sbss       start:0x80590B88 end:0x80590BB8
+	.sdata2     start:0x80596158 end:0x80596168
+
+Kyoto/DolphinCMemoryCardSys.cpp:
+	.text       start:0x80335F50 end:0x80338204
+	.ctors      start:0x803B5444 end:0x803B5448
+	.rodata     start:0x803C2B90 end:0x803C2B98
+	.bss        start:0x804A7520 end:0x804A7538
+	.bss        start:0x8058DD5C end:0x8058DD8C align:4 common
+	.sdata      start:0x8058FF50 end:0x8058FF58
+	.sbss       start:0x80590BB8 end:0x80590BC0
+
+Kyoto/Input/DolphinIController.cpp:
+	.text       start:0x80338204 end:0x803382B0
+	.rodata     start:0x803C2B98 end:0x803C2BA0
+	.data       start:0x803D69C0 end:0x803D69E0
+	.sdata2     start:0x80596168 end:0x80596178
+
+Kyoto/Input/CDolphinController.cpp:
+	.text       start:0x803382B0 end:0x80338B20
+	.data       start:0x803D69E0 end:0x803D6A18
+	.sbss       start:0x80590BC0 end:0x80590BC8
+	.sdata2     start:0x80596178 end:0x805961B0
+
+Kyoto/DolphinCDvdFile.cpp:
+	.text       start:0x80338B20 end:0x803397D0
+	.rodata     start:0x803C2BA0 end:0x803C2BB0
+	.sdata      start:0x8058FF58 end:0x8058FF68
+	.sbss       start:0x80590BC8 end:0x80590BD0
 
 Kyoto/Alloc/CMediumAllocPool.cpp:
 	.text       start:0x803397D0 end:0x8033A15C
@@ -3160,6 +3253,145 @@ Kyoto/Alloc/CGameAllocator.cpp:
 	.data       start:0x803D6A18 end:0x803D6A58
 	.sbss       start:0x80590BD8 end:0x80590BE8
 	.sdata2     start:0x805961B0 end:0x805961B8
+
+Kyoto/Animation/DolphinCSkinRules.cpp:
+	.text       start:0x8033CDAC end:0x8033DCF8
+	.rodata     start:0x803C2C68 end:0x803C2C70
+	.data       start:0x803D6A68 end:0x803D6A78
+	.sdata      start:0x8058FF68 end:0x8058FF78
+	.sbss       start:0x80590C00 end:0x80590C30
+
+Kyoto/Animation/DolphinCVirtualBone.cpp:
+	.text       start:0x8033DCF8 end:0x8033E7D0
+	.sdata2     start:0x805961B8 end:0x805961C0
+
+Kyoto/Graphics/DolphinCModel.cpp:
+	.text       start:0x8033E7D0 end:0x8033FBD0
+	.rodata     start:0x803C2C70 end:0x803C2C78
+	.data       start:0x803D6A78 end:0x803D6A88
+	.sdata      start:0x8058FF78 end:0x8058FF80
+	.sbss       start:0x80590C30 end:0x80590C48
+
+Kyoto/Text/CStringTable.cpp:
+	.text       start:0x8033FBD0 end:0x80340368
+	.ctors      start:0x803B544C end:0x803B5450
+	.rodata     start:0x803C2C78 end:0x803C2CB0
+	.sbss       start:0x80590C48 end:0x80590C50
+
+Kyoto/Particles/CEmitterElement.cpp:
+	.text       start:0x80340368 end:0x80340D74
+	.data       start:0x803D6A88 end:0x803D6AC8
+	.sdata2     start:0x805961C0 end:0x805961D8
+
+Kyoto/Particles/CEffectComponent.cpp:
+	.text       start:0x80340D74 end:0x80340E60
+
+Kyoto/Particles/CParticleData.cpp:
+	.text       start:0x80340E60 end:0x80340F3C
+	.sbss       start:0x80590C50 end:0x80590C58
+
+Kyoto/Animation/CVertexMorphEffect.cpp:
+	.text       start:0x80340F3C end:0x803413BC
+	.rodata     start:0x803C2CB0 end:0x803C2CB8
+	.sdata2     start:0x805961D8 end:0x805961F0
+
+Kyoto/Animation/CSkinnedModelWithAvgNormals.cpp:
+	.text       start:0x803413BC end:0x80341DD0
+	.rodata     start:0x803C2CB8 end:0x803C2CC0
+	.sdata2     start:0x805961F0 end:0x805961F8
+
+Kyoto/CTimeProvider.cpp:
+	.text       start:0x80341DD0 end:0x80341EA8
+	.sbss       start:0x80590C58 end:0x80590C60
+
+Kyoto/CARAMToken.cpp:
+	.text       start:0x80341EA8 end:0x803426D8
+	.rodata     start:0x803C2CC0 end:0x803C2CC8
+	.bss        start:0x8058DD8C end:0x8058DDA8 align:4 common
+
+Kyoto/Audio/CMidiManager.cpp:
+	.text       start:0x803426D8 end:0x80342FB0
+	.ctors      start:0x803B5450 end:0x803B5454
+	.rodata     start:0x803C2CC8 end:0x803C2CD0
+	.data       start:0x803D6AC8 end:0x803D6AD8
+	.bss        start:0x80527590 end:0x805275A0
+	.bss        start:0x8058DDA8 end:0x8058DDE0 align:4 common
+
+Kyoto/Text/CFontImageDef.cpp:
+	.text       start:0x80342FB0 end:0x80343180
+	.sdata2     start:0x805961F8 end:0x80596210
+
+Kyoto/Text/CImageInstruction.cpp:
+	.text       start:0x80343180 end:0x80343418
+	.data       start:0x803D6AD8 end:0x803D6AF8
+
+Kyoto/Text/CTextRenderBuffer.cpp:
+	.text       start:0x80343418 end:0x80345618
+	.rodata     start:0x803C2CD0 end:0x803C2D08
+	.sdata      start:0x8058FF80 end:0x8058FF88
+	.sdata2     start:0x80596210 end:0x80596230
+
+Kyoto/Graphics/CCubeMoviePlayer.cpp:
+	.text       start:0x80345618 end:0x80347E20
+	.rodata     start:0x803C2D20 end:0x803C2D88
+	.bss        start:0x805275A0 end:0x80527AA0
+	.sdata      start:0x8058FF88 end:0x8058FF98
+	.sbss       start:0x80590C60 end:0x80590C78
+	.sdata2     start:0x80596230 end:0x80596270
+
+Kyoto/Animation/CAdditiveAnimPlayback.cpp:
+	.text       start:0x80347E20 end:0x803481FC
+	.sdata      start:0x8058FF98 end:0x8058FFB0
+	.sdata2     start:0x80596270 end:0x80596278
+
+Kyoto/Particles/CParticleElectricDataFactory.cpp:
+	.text       start:0x803481FC end:0x80348B64
+	.rodata     start:0x803C2D88 end:0x803C2D90
+
+Kyoto/Particles/CParticleElectric.cpp:
+	.text       start:0x80348B64 end:0x8034D2C0
+	.rodata     start:0x803C2D90 end:0x803C2DA8
+	.data       start:0x803D6AF8 end:0x803D6B70
+	.sdata      start:0x8058FFB0 end:0x8058FFC0
+	.sdata2     start:0x80596278 end:0x805962C0
+
+Kyoto/Graphics/DolphinCColor.cpp:
+	.text       start:0x8034D2C0 end:0x8034D7EC
+	.sdata      start:0x8058FFC0 end:0x8058FFD0
+	.sdata2     start:0x805962D0 end:0x805962E8
+	.sbss2      start:0x80596D18 end:0x80596D1C
+
+Kyoto/Audio/CDSPStreamManager.cpp:
+	.text       start:0x8034D7EC end:0x8034F260
+	.ctors      start:0x803B5454 end:0x803B5458
+	.rodata     start:0x803C2DA8 end:0x803C2DB0
+	.bss        start:0x80527AA0 end:0x80527AD0
+	.bss        start:0x8058DDE0 end:0x8058E0E0 align:4 common
+	.sbss       start:0x80590C78 end:0x80590C80
+
+Kyoto/CDependencyGroup.cpp:
+	.text       start:0x8034F260 end:0x8034F6B4
+	.rodata     start:0x803C2DB0 end:0x803C2DB8
+	.data       start:0x803D6B70 end:0x803D6B80
+
+Kyoto/Audio/CStreamAudioManager.cpp:
+	.text       start:0x8034F6B4 end:0x80350AF0
+	.ctors      start:0x803B5458 end:0x803B545C
+	.rodata     start:0x803C2DB8 end:0x803C2DC0
+	.bss        start:0x80527AD0 end:0x80527BC0
+	.bss        start:0x8058E0E0 end:0x8058E130 align:4 common
+	.sdata      start:0x8058FFD0 end:0x8058FFE8
+	.sbss       start:0x80590C80 end:0x80590C90
+	.sdata2     start:0x805962E8 end:0x80596310
+
+Kyoto/Animation/CHalfTransition.cpp:
+	.text       start:0x80350AF0 end:0x80350B60
+
+Kyoto/Particles/CElectricDescription.cpp:
+	.text       start:0x80350B60 end:0x80350E88
+
+Kyoto/Particles/CSwooshDescription.cpp:
+	.text       start:0x80350E88 end:0x803511C8
 
 dolphin/os/OSRtc.c:
 	.text       start:0x8036DC50 end:0x8036E79C
