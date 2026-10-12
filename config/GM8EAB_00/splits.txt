@@ -22,7 +22,7 @@ MetroidPrime/CControlMapper.cpp:
 	.data       start:0x8033F700 end:0x8033FEA8
 
 MetroidPrime/CObjectList.cpp:
-	.text       start:0x8000E7A4 end:0x8000E9D0
+	.text       start:0x8000E7A4 end:0x8000EAE4
 	.data       start:0x8033FF40 end:0x8033FF50
 
 MetroidPrime/Player/CPlayer.cpp:
@@ -41,7 +41,8 @@ MetroidPrime/CAxisAngle.cpp:
 	.ctors      start:0x8032124C end:0x80321250
 
 MetroidPrime/CEulerAngles.cpp:
-	.text       start:0x8001D724 end:0x8001D960
+	.text       start:0x8001D724 end:0x8001D978
+	.sdata2     start:0x80536580 end:0x805365B0
 
 MetroidPrime/CArchMsgParmUserInput.cpp:
 	.text       start:0x8001D978 end:0x8001DA80
@@ -1625,7 +1626,8 @@ dolphin/os/OSCache.c:
 	.text       start:0x802D5094 end:0x802D5808
 
 dolphin/os/OSContext.c:
-	.text       start:0x802D5C1C end:0x802D5FB4
+	.text       start:0x802D5808 end:0x802D5FB4
+	.data       start:0x803552C0 end:0x80355498
 
 dolphin/os/OSFont.c:
 	.text       start:0x802D637C end:0x802D63D4
@@ -1926,7 +1928,9 @@ musyx/runtime/Chorus/chorus_fx.c:
 	.sdata2     start:0x8053A760 end:0x8053A768
 
 dolphin/dtk.c:
-	.text       start:0x803101A0 end:0x80310AFC
+	.text       start:0x803101A0 end:0x80310B0C
+	.bss        start:0x804F70C8 end:0x804F7218
+	.sbss       start:0x805361F8 end:0x80536228
 
 dolphin/card/CARDBios.c:
 	.text       start:0x80310B44 end:0x80311CC0
