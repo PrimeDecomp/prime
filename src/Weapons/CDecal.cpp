@@ -232,8 +232,7 @@ void CDecal::RenderMdl() const {
   } else if (color.GetAlpha() == 1.f) {
     (*mDescription->mDMDL)->Draw(CModelFlags::Normal());
   } else {
-    (*mDescription->mDMDL)
-        ->Draw(CModelFlags::AlphaBlendedDepthCompareUpdate(color, true, false));
+    (*mDescription->mDMDL)->Draw(CModelFlags::AlphaBlended(color).DepthCompareUpdate(true, false));
   }
 
   CGraphics::SetCullMode(kCM_Front);

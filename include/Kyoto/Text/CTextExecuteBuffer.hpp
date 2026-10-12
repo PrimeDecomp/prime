@@ -28,6 +28,7 @@ public:
   void AddFont(const TToken< CRasterFont >& font);
   void AddLineSpacing(float spacing);
   void AddLineExtraSpace(int space);
+  void AddCharacterExtraSpace(int space);
   void AddJustification(EJustification just);
   void AddVerticalJustification(EVerticalJustification just);
   void AddWordWrapping(const bool wrap) { mState.SetWordWrapping(wrap); }

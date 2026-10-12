@@ -44,10 +44,18 @@ void CMorphBallShadow::RenderIdBuffer(const CAABox& aabb, CStateManager& mgr, CP
   const float oldFar = CGraphics::GetDepthFar();
   const CGraphics::CProjectionState oldProjection = CGraphics::GetProjectionState();
   const CViewport oldViewport = CGraphics::GetViewport();
+#if VERSION >= VERSION_GM8P_00
+  const CVector3f& mn = aabb.GetMinPoint();
+  const CVector3f& mx = aabb.GetMaxPoint();
+  const CTransform4f view = CTransform4f::FromColumns(
+      CVector3f::Right(), CVector3f::Down(), CVector3f::Forward(),
+      CVector3f(0.5f * (mn.GetX() + mx.GetX()), 0.5f * (mn.GetY() + mx.GetY()), mx.GetZ()));
+#else
   const CVector3f center = aabb.CenterPoint();
   const CTransform4f view =
       CTransform4f::FromColumns(CVector3f::Right(), CVector3f::Down(), CVector3f::Forward(),
                                 CVector3f(center.GetX(), center.GetY(), aabb.GetMaxPoint().GetZ()));
+#endif
   CGraphics::SetModelMatrix(CTransform4f::Identity());
   CGraphics::SetDepthRange(0.f, 1.f);
   const float halfWidth = 0.5f * aabb.GetWidth();

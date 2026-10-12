@@ -4,6 +4,7 @@
 #include "MetroidPrime/CArchitectureMessage.hpp"
 #include "MetroidPrime/CArchitectureQueue.hpp"
 #include "MetroidPrime/CGameGlobalObjects.hpp"
+#include "MetroidPrime/CMain.hpp"
 
 #include "Kyoto/Graphics/CTexture.hpp"
 #include "Kyoto/Input/IController.hpp"
@@ -12,6 +13,51 @@
 #include "Kyoto/Text/CTextRenderBuffer.hpp"
 #include "MetaRender/CCubeRenderer.hpp"
 #include "MetroidPrime/Decode.hpp"
+
+#if VERSION >= VERSION_GM8P_00
+static const wchar_t* const skRefreshRatePrompt[6] = {
+    L"Would you like to display in 60Hz mode?\n",
+    L"Soll die Darstellung in den 60Hz-Modus umgeschaltet werden?\n",
+    L"Voulez-vous afficher l'image en mode 60 Hz?\n",
+    L"\x00BF" L"Deseas ver el juego en modo 60 Hz?\n",
+    L"Visualizzare in modalit\x00E0 60Hz?\n",
+    L"Wil je de 60Hz-stand gebruiken?\n",
+};
+static const wchar_t* const skYes[6] = {
+    L"Yes     ",
+    L"Ja     ",
+    L"Oui     ",
+    L"S\x00ED     ",
+    L"S\x00EC     ",
+    L"Ja     ",
+};
+static const wchar_t* const skNo[6] = {
+    L"No",
+    L"Nein",
+    L"Non",
+    L"No",
+    L"No",
+    L"Nee",
+};
+static const wchar_t* const skRefreshRateSet[6] = {
+    L"Screen display has been set to ",
+    L"Die Bildschirmdarstellung erfolgt im ",
+    L"L'affichage est en mode ",
+    L"La pantalla se ha configurado en modo ",
+    L"Visualizzazione impostata a ",
+    L"Het beeld staat in de ",
+};
+static const wchar_t* const skHzMode[6] = {
+    L"Hz mode.",
+    L"Hz-Modus.",
+    L" Hz.",
+    L" Hz.",
+    L"Hz.",
+    L"Hz-stand",
+};
+static const wchar_t* const sk50Hz = L"50";
+static const wchar_t* const sk60Hz = L"60";
+#endif
 
 const char* const skSplashScreenTextureNames[CSplashScreen::kSplashScreen_MAX] = {
     "TXTR_NintendoLogo",
@@ -43,13 +89,18 @@ CIOWin::EMessageReturn CSplashScreen::OnMessage(const CArchitectureMessage& mess
     }
 
     if (mProgressivePhase == kPP_Initial) {
+#if VERSION >= VERSION_GM8P_00
+      mProgressivePhase = kPP_Complete;
+#endif
       const CControllerGamepadData& data = gpController->GetGamepadData(0);
       const bool bPressed = data.GetButton(kBU_B).GetIsPressed();
       const bool curProgressiveMode = CGraphics::GetProgressiveMode();
       const bool canSet = CGraphics::CanSetProgressiveMode();
       const bool defaultMode = CGraphics::GetProgressiveDefault();
       const bool isNintendo = mSplash == kSplashScreen_Nintendo;
+#if VERSION < VERSION_GM8P_00
       mProgressivePhase = kPP_Complete;
+#endif
       if (!sProgressiveModePrompt && isNintendo && canSet && !curProgressiveMode) {
         mProgressiveMode = canSet && defaultMode;
         CGraphics::SetProgressiveMode(mProgressiveMode);
@@ -167,14 +218,36 @@ void CSplashScreen::Draw() const {
   const CViewport viewport = CGraphics::GetViewport();
   CTextExecuteBuffer text;
   text.AddWordWrapping(true);
+#if VERSION >= VERSION_GM8P_00
+  text.BeginBlock(viewport.mWidth / 4, 0, viewport.mWidth / 2, viewport.mHeight - 128, false,
+                  kTD_Horizontal, kJustification_Center, kVerticalJustification_Bottom);
+#else
   text.BeginBlock(0, 0, viewport.mWidth, viewport.mHeight - 128, false, kTD_Horizontal,
                   kJustification_Center, kVerticalJustification_Bottom);
+#endif
   text.AddFont(TToken< CRasterFont >(*gpDefaultFont));
   const int bright = static_cast< int >(255.f * alpha);
   const int dim = static_cast< int >(96.f * alpha);
   const CTextColor selected(bright, bright, bright, 255);
   const CTextColor unselected(dim, dim, dim, 255);
   text.AddColor(kCT_Foreground, selected);
+#if VERSION >= VERSION_GM8P_00
+  const int language = gpMain->GetOsContext().GetLanguage();
+  if (mProgressivePhase == kPP_Selection && mSplashTimeout <= 0.5f) {
+    const wchar_t* yes = skYes[language];
+    const wchar_t* no = skNo[language];
+    text.AddString(rstl::wstring_l(skRefreshRatePrompt[language]));
+    text.AddColor(kCT_Foreground, mProgressiveMode ? selected : unselected);
+    text.AddString(rstl::wstring_l(yes));
+    text.AddColor(kCT_Foreground, mProgressiveMode ? unselected : selected);
+    text.AddString(rstl::wstring_l(no));
+  } else if (mProgressivePhase == kPP_Confirmation) {
+    sProgressiveModePrompt = false;
+    text.AddString(rstl::wstring_l(skRefreshRateSet[language]) +
+                   rstl::wstring_l(mProgressiveMode ? sk60Hz : sk50Hz) +
+                   rstl::wstring_l(skHzMode[language]));
+  }
+#else
   if (mProgressivePhase == kPP_Selection && mSplashTimeout <= 0.5f) {
     text.AddString(rstl::wstring_l(L"Display in Progressive Scan mode?\n"));
     text.AddColor(kCT_Foreground, mProgressiveMode ? selected : unselected);
@@ -187,6 +260,7 @@ void CSplashScreen::Draw() const {
     text.AddString(
         rstl::wstring_l(mProgressiveMode ? L"Progressive Scan mode." : L"Interlace mode."));
   }
+#endif
   text.EndBlock();
 
   gpRender->SetViewportOrtho(false, -4096.f, 4096.f);

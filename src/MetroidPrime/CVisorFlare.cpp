@@ -144,7 +144,11 @@ void CVisorFlare::Render(const CVector3f& inPos, const CStateManager& mgr) const
       CVector3f camDist(CVector3f(toFlare.GetX(), toFlare.GetY(), 0.f).AsNormalized());
       CVector3f camDir(CVector3f(camFront.GetX(), camFront.GetY(), 0.f).AsNormalized());
       float acos = CMath::ArcCosineR(CVector3f::Dot(camDist, camDir));
+#if VERSION >= VERSION_GM8P_00
+      if (CVector3f::Cross(camDist, camDir).GetZ() < 0.f) {
+#else
       if (camDist.GetX() * camDir.GetY() - camDir.GetX() * camDist.GetY() < 0.f) {
+#endif
         acos = -acos;
       }
       angle = mRotationScale * acos;
