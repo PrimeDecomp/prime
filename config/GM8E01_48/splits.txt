@@ -2137,6 +2137,7 @@ GuiSys/CGuiFeeHelper.cpp:
 
 GuiSys/CGuiFrame.cpp:
 	.text       start:0x802C2280 end:0x802C34EC
+	.rodata     start:0x803D69A0 end:0x803D69A8
 
 GuiSys/CGuiGroup.cpp:
 	.text       start:0x802C34EC end:0x802C36F4
