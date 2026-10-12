@@ -20,8 +20,9 @@
 namespace {
 struct CArtifactScanSorter {
   bool operator()(rstl::pair< CAssetId, bool >& a, rstl::pair< CAssetId, bool >& b) const {
-    return CArtifactDoll::GetArtifactHeadScanIndex(a.first) <
-           CArtifactDoll::GetArtifactHeadScanIndex(b.first);
+    int bIndex = CArtifactDoll::GetArtifactHeadScanIndex(b.first);
+    int aIndex = CArtifactDoll::GetArtifactHeadScanIndex(a.first);
+    return aIndex < bIndex;
   }
 };
 

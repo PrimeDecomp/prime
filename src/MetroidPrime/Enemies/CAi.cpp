@@ -22,7 +22,10 @@ namespace {
 const float kMaxSplashEnergy = 30000.f;
 
 struct cstr_less {
-  bool operator()(const char* a, const char* b) const { return strcmp(a, b) < 0; }
+  bool operator()(const char* a, const char* b) const {
+    int result = strcmp(a, b);
+    return result < 0;
+  }
 };
 
 } // namespace
