@@ -165,6 +165,10 @@ void CTextParser::ParseTag(CTextExecuteBuffer& buffer, const wchar_t* string, in
     buffer.AddLineSpacing(v / 100.f);
   } else if (BeginsWith(string, len, L"line-extra-space=")) {
     buffer.AddLineExtraSpace(ParseInt(string + 17, len - 17, true));
+#if VERSION >= VERSION_GM8P_00
+  } else if (BeginsWith(string, len, L"character-extra-space=")) {
+    buffer.AddCharacterExtraSpace(ParseInt(string + 22, len - 22, true));
+#endif
   } else if (BeginsWith(string, len, L"just=")) {
     if (Equals(string + 5, len - 5, L"left")) {
       buffer.AddJustification(kJustification_Left);

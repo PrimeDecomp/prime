@@ -539,7 +539,7 @@ MetroidPrime/ScriptObjects/CScriptCameraHint.cpp:
 MetroidPrime/ScriptLoader.cpp:
 	.text       start:0x800BF05C end:0x800D3DE8
 	.rodata     start:0x803BA468 end:0x803BA6D0
-	.sdata      start:0x80590320 end:0x80590348
+	.sdata      start:0x80590320 end:0x80590338
 	.sdata2     start:0x80593D4C end:0x80593DA8
 
 MetroidPrime/CSamusDoll.cpp:
@@ -547,7 +547,7 @@ MetroidPrime/CSamusDoll.cpp:
 	.ctors      start:0x803B6D48 end:0x803B6D4C
 	.rodata     start:0x803BA6D0 end:0x803BA920
 	.bss        start:0x80455378 end:0x80455390
-	.sdata      start:0x80590378 end:0x80590390
+	.sdata      start:0x80590338 end:0x80590390
 	.sdata2     start:0x80593DA8 end:0x80593E58
 
 MetroidPrime/Factories/CStateMachineFactory.cpp:
@@ -2102,7 +2102,7 @@ MetroidPrime/Enemies/CPhazonHealingNodule.cpp:
 MetroidPrime/Player/CMorphBallShadow.cpp:
 	.text       start:0x802843A8 end:0x80285818
 	.rodata     start:0x803C2058 end:0x803C20B8
-	.sdata2     start:0x80596F98 end:0x80596FA4
+	.sdata2     start:0x80596F98 end:0x80596FB0
 	.sbss2      start:0x805987E0 end:0x805987E8
 
 MetroidPrime/Player/CPlayerStuckTracker.cpp:

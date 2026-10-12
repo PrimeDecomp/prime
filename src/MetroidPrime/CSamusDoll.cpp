@@ -324,11 +324,8 @@ void CSamusDoll::Update(float dt, CRandom16& rand) {
     const float interp = CMath::AbsF(mViewInterp);
     const float oneMinusInterp = 1.f - interp;
     mOffset = CVector3f::Lerp(skInitialOffset, mInterpStartOffset, interp);
-    mUserRot =
-        CQuaternion::Slerp(CQuaternion(CQuaternion::Dot(mUserInterpRot, mFixedRot) >= 0.f
-                                           ? mFixedRot
-                                           : mFixedRot.BuildEquivalent()),
-                           mUserInterpRot, interp);
+    mUserRot = CQuaternion::Slerp(CQuaternion::MadeLocalToFirst(mUserInterpRot, mFixedRot),
+                                  mUserInterpRot, interp);
     if (mViewInterp <= 0.f) {
       mUserZoom = mUserInterpZoom * interp + mFixedZoom * oneMinusInterp;
     } else {

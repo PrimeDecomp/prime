@@ -221,6 +221,8 @@ void CPlayerCameraBob::CalculateMovingTranslation(float& x, float& z) const {
   case kCBT_Zero: {
 #if VERSION >= VERSION_R3IJ_00
     double angle = 2.0 * M_PI * fmodf(mBobTime, 2.f * mBobPeriod) / mBobPeriod;
+#elif VERSION >= VERSION_GM8P_00
+    double angle = 2.0 * M_PI * fmod(mBobTime, 2.f * mBobPeriod) / mBobPeriod;
 #else
     double angle = 2.0 * M_PI * fmod(mBobTime, 2.0 * mBobPeriod) / mBobPeriod;
 #endif
@@ -231,6 +233,8 @@ void CPlayerCameraBob::CalculateMovingTranslation(float& x, float& z) const {
   case kCBT_One: {
 #if VERSION >= VERSION_R3IJ_00
     float time = CCast::ToReal32(fmodf(mBobTime, 2.f * mBobPeriod));
+#elif VERSION >= VERSION_GM8P_00
+    float time = CCast::ToReal32(fmod(mBobTime, 2.f * mBobPeriod));
 #else
     float time = CCast::ToReal32(fmod(mBobTime, 2.0 * mBobPeriod));
 #endif

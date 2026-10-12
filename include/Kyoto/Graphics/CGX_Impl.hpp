@@ -10,7 +10,11 @@
 
 #ifndef CGX_INLINE
 #define CGX_INLINE inline
+#define CGX_INLINE_HEADER
 #endif
+
+// Setters wrapped in "!defined(CGX_INLINE_HEADER) || VERSION < VERSION_GM8P_00" are only
+// defined in CGX.cpp from PAL on, so callers no longer inline them.
 
 CGX_INLINE void CGX::SetNumChans(uchar num) {
   sGXState.mNumChans = num;
@@ -42,6 +46,7 @@ CGX_INLINE void CGX::SetChanMatColor(EChannelId channel, const GXColor& color) {
   }
 }
 
+#if !defined(CGX_INLINE_HEADER) || VERSION < VERSION_GM8P_00
 CGX_INLINE void CGX::SetChanCtrl(EChannelId channel, GXBool enable, GXColorSrc ambSrc,
                                  GXColorSrc matSrc, GXLightID lights, GXDiffuseFn diffFn,
                                  GXAttnFn attnFn) {
@@ -57,7 +62,9 @@ CGX_INLINE void CGX::SetChanCtrl(EChannelId channel, GXBool enable, GXColorSrc a
   sGXState.mChanFlags =
       ((flags != prevFlags) << (channel + 1)) | (sGXState.mChanFlags & ~(1 << (channel + 1)));
 }
+#endif
 
+#if !defined(CGX_INLINE_HEADER) || VERSION < VERSION_GM8P_00
 CGX_INLINE void CGX::SetChanCtrl_Compressed(EChannelId channel, GXLightID lights, uint ctrl) {
   ushort& state = sGXState.mChanCtrls[channel];
   ushort prevFlags = sGXState.mPrevChanCtrls[channel];
@@ -66,6 +73,7 @@ CGX_INLINE void CGX::SetChanCtrl_Compressed(EChannelId channel, GXLightID lights
   sGXState.mChanFlags =
       ((flags != prevFlags) << (channel + 1)) | (sGXState.mChanFlags & ~(1 << (channel + 1)));
 }
+#endif
 
 CGX_INLINE void CGX::SetNumTevStages(uchar num) {
   if (sGXState.mNumTevStages != num) {
@@ -81,6 +89,7 @@ CGX_INLINE void CGX::SetTevKColor(GXTevKColorID id, const GXColor& color) {
   }
 }
 
+#if !defined(CGX_INLINE_HEADER) || VERSION < VERSION_GM8P_00
 CGX_INLINE void CGX::SetTevColorIn(GXTevStageID stageId, GXTevColorArg a, GXTevColorArg b,
                                    GXTevColorArg c, GXTevColorArg d) {
   const uint flags = (a & 0x1F) | ((b & 0x1F) << 5) | ((c & 0x1F) << 10) | ((d & 0x1F) << 15);
@@ -123,7 +132,9 @@ CGX_INLINE void CGX::SetTevAlphaIn_Compressed(GXTevStageID stageId, uint flags) 
                     static_cast< GXTevAlphaArg >(ShiftRightAndMask(flags, 0x1F, 15)));
   }
 }
+#endif
 
+#if !defined(CGX_INLINE_HEADER) || VERSION < VERSION_GM8P_00
 CGX_INLINE void CGX::SetTevColorOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias,
                                    GXTevScale scale, GXBool clamp, GXTevRegID outReg) {
   const uint flags = MaskAndShiftLeft(op, 0xF, 0) | MaskAndShiftLeft(bias, 3, 4) |
@@ -135,6 +146,7 @@ CGX_INLINE void CGX::SetTevColorOp(GXTevStageID stageId, GXTevOp op, GXTevBias b
     GXSetTevColorOp(stageId, op, bias, scale, clamp, outReg);
   }
 }
+#endif
 
 CGX_INLINE void CGX::SetTevColorOp_Compressed(GXTevStageID stageId, uint flags) {
   STevState& state = sGXState.mTevStates[stageId];
@@ -148,6 +160,7 @@ CGX_INLINE void CGX::SetTevColorOp_Compressed(GXTevStageID stageId, uint flags) 
   }
 }
 
+#if !defined(CGX_INLINE_HEADER) || VERSION < VERSION_GM8P_00
 CGX_INLINE void CGX::SetTevAlphaOp(GXTevStageID stageId, GXTevOp op, GXTevBias bias,
                                    GXTevScale scale, GXBool clamp, GXTevRegID outReg) {
   uint flags = MaskAndShiftLeft(op, 0xF, 0) | MaskAndShiftLeft(bias, 3, 4) |
@@ -159,6 +172,7 @@ CGX_INLINE void CGX::SetTevAlphaOp(GXTevStageID stageId, GXTevOp op, GXTevBias b
     GXSetTevAlphaOp(stageId, op, bias, scale, clamp, outReg);
   }
 }
+#endif
 
 CGX_INLINE void CGX::SetTevAlphaOp_Compressed(GXTevStageID stageId, uint flags) {
   STevState& state = sGXState.mTevStates[stageId];
@@ -219,6 +233,7 @@ CGX_INLINE void CGX::SetZMode(const GXBool compareEnable, GXCompare func,
   }
 }
 
+#if !defined(CGX_INLINE_HEADER) || VERSION < VERSION_GM8P_00
 CGX_INLINE void CGX::SetAlphaCompare(GXCompare comp0, uchar ref0, GXAlphaOp op, GXCompare comp1,
                                      uchar ref1) {
   uint flags = MaskAndShiftLeft(comp0, 7, 0) | MaskAndShiftLeft(ref0, 0xFF, 3) |
@@ -230,7 +245,9 @@ CGX_INLINE void CGX::SetAlphaCompare(GXCompare comp0, uchar ref0, GXAlphaOp op, 
     GXSetZCompLoc(comp0 == GX_ALWAYS);
   }
 }
+#endif
 
+#if !defined(CGX_INLINE_HEADER) || VERSION < VERSION_GM8P_00
 CGX_INLINE void CGX::SetTevIndirect(const GXTevStageID stageId, const GXIndTexStageID indStage,
                                     const GXIndTexFormat fmt, const GXIndTexBiasSel biasSel,
                                     const GXIndTexMtxID mtxSel, const GXIndTexWrap wrapS,
@@ -248,6 +265,7 @@ CGX_INLINE void CGX::SetTevIndirect(const GXTevStageID stageId, const GXIndTexSt
                      alphaSel);
   }
 }
+#endif
 
 CGX_INLINE void CGX::SetTevDirect(GXTevStageID stageId) {
   STevState& state = sGXState.mTevStates[stageId];
@@ -257,6 +275,7 @@ CGX_INLINE void CGX::SetTevDirect(GXTevStageID stageId) {
   }
 }
 
+#if !defined(CGX_INLINE_HEADER) || VERSION < VERSION_GM8P_00
 CGX_INLINE void CGX::SetTexCoordGen(GXTexCoordID dstCoord, GXTexGenType fn, GXTexGenSrc src,
                                     GXTexMtx mtx, GXBool normalize, GXPTTexMtx postMtx) {
   STexState& state = sGXState.mTexStates[dstCoord];
@@ -273,7 +292,9 @@ CGX_INLINE void CGX::SetTexCoordGen(GXTexCoordID dstCoord, GXTexGenType fn, GXTe
     GXSetTexCoordGen2(dstCoord, fn, src, mtx, normalize, postMtx);
   }
 }
+#endif
 
+#if !defined(CGX_INLINE_HEADER) || VERSION < VERSION_GM8P_00
 CGX_INLINE void CGX::SetTexCoordGen_Compressed(GXTexCoordID dstCoord, uint flags) {
   STexState& state = sGXState.mTexStates[dstCoord];
   if (state.mCoordGen != flags) {
@@ -285,6 +306,7 @@ CGX_INLINE void CGX::SetTexCoordGen_Compressed(GXTexCoordID dstCoord, uint flags
                       static_cast< GXBool >(flags >> 14 & 1), vp);
   }
 }
+#endif
 
 CGX_INLINE void CGX::SetNumIndStages(uchar num) {
   if (sGXState.mNumIndStages != num) {
