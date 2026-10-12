@@ -14,7 +14,15 @@
 #include "MetaRender/CCubeRenderer.hpp"
 #include "MetroidPrime/Decode.hpp"
 
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8J_00
+static const wchar_t skProgressivePrompt[] = L"\x30D7\x30ED\x30B0\x30EC\x30C3\x30B7\x30D6\x30E2\x30FC\x30C9\x3067\x8868\x793A\x3057\x307E\x3059\x304B\xFF1F\n\n";
+static const wchar_t skYes[] = L"\x306F\x3044    ";
+static const wchar_t skModeSetPrefix[] = L"\x753B\x9762\x8868\x793A\x30E2\x30FC\x30C9\x306F\n";
+static const wchar_t skModeSetSuffix[] = L"\x306B\n   \x30BB\x30C3\x30C8\x3055\x308C\x307E\x3057\x305F\x3002";
+static const wchar_t skProgressiveMode[] = L"\x30D7\x30ED\x30B0\x30EC\x30C3\x30B7\x30D6\x30E2\x30FC\x30C9";
+static const wchar_t skInterlaceMode[] = L"\x30A4\x30F3\x30BF\x30FC\x30EC\x30FC\x30B9\x30E2\x30FC\x30C9";
+static const wchar_t skNo[] = L"\x3044\x3044\x3048";
+#elif VERSION >= VERSION_GM8P_00
 static const wchar_t* const skRefreshRatePrompt[6] = {
     L"Would you like to display in 60Hz mode?\n",
     L"Soll die Darstellung in den 60Hz-Modus umgeschaltet werden?\n",
@@ -174,7 +182,11 @@ void CSplashScreen::Draw() const {
   }
 
   const CColor tint = IsCurrentSplashScreen(kSplashScreen_Nintendo)
+#if VERSION >= VERSION_GM8J_00
+                          ? CColor(uchar(0), uchar(70), uchar(255), uchar(255))
+#else
                           ? CColor(uchar(220), uchar(0), uchar(0), uchar(255))
+#endif
                           : CColor::White();
   float alpha = mSplashTimeout > 1.5f   ? 1.f - (mSplashTimeout - 1.5f) / 0.5f
                 : mSplashTimeout > 0.5f ? 1.f
@@ -218,7 +230,11 @@ void CSplashScreen::Draw() const {
   const CViewport viewport = CGraphics::GetViewport();
   CTextExecuteBuffer text;
   text.AddWordWrapping(true);
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8J_00
+  text.BeginBlock(10, 0, viewport.mWidth - 20,
+                  viewport.mHeight - (mProgressivePhase == kPP_Confirmation ? 78 : 96), false,
+                  kTD_Horizontal, kJustification_Center, kVerticalJustification_Bottom);
+#elif VERSION >= VERSION_GM8P_00
   text.BeginBlock(viewport.mWidth / 4, 0, viewport.mWidth / 2, viewport.mHeight - 128, false,
                   kTD_Horizontal, kJustification_Center, kVerticalJustification_Bottom);
 #else
@@ -231,7 +247,27 @@ void CSplashScreen::Draw() const {
   const CTextColor selected(bright, bright, bright, 255);
   const CTextColor unselected(dim, dim, dim, 255);
   text.AddColor(kCT_Foreground, selected);
-#if VERSION >= VERSION_GM8P_00
+#if VERSION >= VERSION_GM8J_00
+  if (mProgressivePhase == kPP_Selection && mSplashTimeout <= 0.5f) {
+    const wchar_t* yes = skYes;
+    const wchar_t* no = skNo;
+    text.AddString(rstl::wstring_l(skProgressivePrompt));
+    text.AddColor(kCT_Foreground, mProgressiveMode ? selected : unselected);
+    text.AddString(rstl::wstring_l(yes));
+    text.AddColor(kCT_Foreground, mProgressiveMode ? unselected : selected);
+    text.AddString(rstl::wstring_l(no));
+  } else if (mProgressivePhase == kPP_Confirmation) {
+    sProgressiveModePrompt = false;
+    text.AddLineExtraSpace(9);
+    text.AddString(rstl::wstring_l(skModeSetPrefix));
+    text.AddColor(kCT_Foreground, CTextColor(static_cast< uchar >(255.f * alpha),
+                                             static_cast< uchar >(255.f * alpha),
+                                             static_cast< uchar >(100.f * alpha), 255));
+    text.AddString(rstl::wstring_l(mProgressiveMode ? skProgressiveMode : skInterlaceMode));
+    text.AddColor(kCT_Foreground, selected);
+    text.AddString(rstl::wstring_l(skModeSetSuffix));
+  }
+#elif VERSION >= VERSION_GM8P_00
   const int language = gpMain->GetOsContext().GetLanguage();
   if (mProgressivePhase == kPP_Selection && mSplashTimeout <= 0.5f) {
     const wchar_t* yes = skYes[language];
