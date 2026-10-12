@@ -835,7 +835,7 @@ config.libs = [
                 "MetroidPrime/CMappableObject.cpp",
             ),
             Object(
-                EquivalentFor("GM8E01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Player/CPlayerCameraBob.cpp",
             ),
             Object(
