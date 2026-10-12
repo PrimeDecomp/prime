@@ -125,6 +125,7 @@ public:
 
   friend CVector3f operator-(const CVector3f& lhs, const CVector3f& rhs);
   friend CVector3f operator+(const CVector3f& lhs, const CVector3f& rhs);
+  friend CVector3f operator*(const CVector3f& lhs, const CVector3f& rhs);
   friend CVector3f operator*(const CVector3f& vec, const float f);
   friend CVector3f operator*(const float f, const CVector3f& vec);
   friend CVector3f operator/(const CVector3f& vec, const float f);
@@ -187,9 +188,9 @@ inline CVector3f operator+(const CVector3f& lhs, const CVector3f& rhs) {
 
 inline CVector3f operator*(const CVector3f& lhs, const CVector3f& rhs) {
   CVector3f ret(lhs);
-  ret[kDX] *= rhs[kDX];
-  ret[kDY] *= rhs[kDY];
-  ret[kDZ] *= rhs[kDZ];
+  ret.mX *= rhs.mX;
+  ret.mY *= rhs.mY;
+  ret.mZ *= rhs.mZ;
   return ret;
 }
 

@@ -987,7 +987,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/BodyState/CBSLieOnGround.cpp",
             ),
-            Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/BodyState/CBSLocomotion.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/BodyState/CBSLocomotion.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/BodyState/CBSStep.cpp",
