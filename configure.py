@@ -2183,7 +2183,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/CObjectReference.cpp",
             ),
-            Object(NonMatching, "Kyoto/CSimplePool.cpp"),
+            Object(MatchingFor("GM8E01_00"), "Kyoto/CSimplePool.cpp"),
             Object(
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "Kyoto/CToken.cpp"
             ),

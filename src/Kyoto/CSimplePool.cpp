@@ -14,7 +14,8 @@ CSimplePool::~CSimplePool() {
 }
 
 void CSimplePool::ObjectUnreferenced(const SObjectTag& tag) {
-  mResources.erase(mResources.find(tag));
+  AUTO(it, mResources.find(tag));
+  mResources.erase(it);
 }
 
 CToken CSimplePool::GetObj(const SObjectTag& tag, const CVParamTransfer& xfer) {
@@ -72,7 +73,7 @@ void CSimplePool::DebugDumpPool() const {
   }
 }
 
-rstl::vector< SObjectTag > CSimplePool::GetReferencedTags() {
+rstl::vector< SObjectTag > CSimplePool::GetReferencedTags() const {
   rstl::vector< SObjectTag > tags;
   tags.reserve(mResources.size());
   AUTO(it, mResources.begin());
