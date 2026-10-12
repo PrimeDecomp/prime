@@ -127,9 +127,9 @@ void CFluidPlaneManager::CreateSplash(TUniqueId splasher, CStateManager& mgr,
 }
 
 static inline float ComputeRippleAmplitude(float curX, float curY) {
-  float rVal = 1.f - curY;
   float minX = curY;
-  float maxX = 1.25f * (0.25f * rVal + 0.1f) + curY;
+  float maxX = 1.25f * (0.25f * (1.f - curY) + 0.1f) + curY;
+  float rVal = 1.f - curY;
   if (curY < 0.f) {
     minX = 0.f;
   } else if (maxX > 1.f) {
@@ -146,7 +146,7 @@ static inline float ComputeRippleAmplitude(float curX, float curY) {
       val = 1.f;
     }
   }
-  return val;
+  return val * (rVal * rVal);
 }
 
 void CFluidPlaneManager::SetupRippleMap() {
@@ -164,9 +164,9 @@ void CFluidPlaneManager::SetupRippleMap() {
     float curY = 0.f;
     float minY = 1.f;
     float maxY = curY;
-    for (int j = 64; j > 0; --j) {
+    for (int j = 0; j < 64; ++j) {
       float val = ComputeRippleAmplitude(curX, curY);
-      uchar valA = static_cast< char >(CCast::ToUint8(255.f * (val * ((1.f - curY) * (1.f - curY)))));
+      uchar valA = static_cast< char >(CCast::ToUint8(255.f * val));
       *rowPtr = valA;
       if (valA != 0 && curY < minY) {
         minY = curY;

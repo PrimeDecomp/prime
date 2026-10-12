@@ -862,7 +862,10 @@ MetroidPrime/CFluidPlane.cpp:
 
 MetroidPrime/CFluidPlaneManager.cpp:
 	.text       start:0x801263CC end:0x80126ACC
+	.rodata     start:0x803BAA78 end:0x803BAA88
 	.bss        start:0x80431954 end:0x80433A6C align:4 common
+	.sdata      start:0x80469790 end:0x80469798
+	.sdata2     start:0x8046D7A8 end:0x8046D7F0
 
 MetroidPrime/ScriptObjects/CScriptGrapplePoint.cpp:
 	.text       start:0x80126ACC end:0x80126DA4
