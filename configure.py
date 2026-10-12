@@ -581,7 +581,7 @@ config.libs = [
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "MetroidPrime/CAnimRes.cpp",
             ),
-            Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/Factories/CCharacterFactory.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/Factories/CCharacterFactory.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/Factories/CAssetFactory.cpp",
@@ -1744,7 +1744,7 @@ config.libs = [
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Animation/CAnimationManager.cpp",
             ),
-            Object(MatchingFor(*NTSC_GC_VERSIONS), "Kyoto/Animation/CAnimationSet.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "Kyoto/Animation/CAnimationSet.cpp"),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"),
                 "Kyoto/Animation/CAnimCharacterSet.cpp",
