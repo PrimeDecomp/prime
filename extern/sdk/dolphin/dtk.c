@@ -355,3 +355,5 @@ void DTKSetVolume(u8 left, u8 right) {
     AISetStreamVolRight(right);
   }
 }
+
+u16 DTKGetVolume(void) { return (__DTKVolumeL << 8) | __DTKVolumeR; }

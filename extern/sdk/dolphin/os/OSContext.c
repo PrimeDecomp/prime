@@ -283,11 +283,19 @@ asm void OSLoadContext(register OSContext* context) {
   lwz      r6,context->srr0
   addi     r5,r4,__RAS_OSDisableInterrupts_begin@l
   cmplw    r6,r5
+#if VERSION == VERSION_GM8EAB_00
+  blt      _notInRAS
+#else
   ble      _notInRAS
+#endif
   lis      r4,__RAS_OSDisableInterrupts_end@ha
   addi     r0,r4,__RAS_OSDisableInterrupts_end@l
   cmplw    r6,r0
+#if VERSION == VERSION_GM8EAB_00
+  bgt      _notInRAS
+#else
   bge      _notInRAS
+#endif
   stw      r5,context->srr0
 
 _notInRAS:

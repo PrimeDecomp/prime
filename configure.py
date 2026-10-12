@@ -547,7 +547,7 @@ config.libs = [
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CAxisAngle.cpp"
             ),
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/CEulerAngles.cpp"),
+            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/CEulerAngles.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                    "MetroidPrime/CMatrix3f_Ext.cpp"),
             Object(
@@ -2639,7 +2639,7 @@ config.libs = [
                 "dolphin/os/OSCache.c",
             ),
             Object(
-                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
+                MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "dolphin/os/OSContext.c",
             ),
             Object(
@@ -3095,7 +3095,7 @@ config.libs = [
     DolphinLib(
         "dtk",
         [
-            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
+            Object(MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                    "dolphin/dtk.c"),
         ],
     ),
