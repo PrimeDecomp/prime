@@ -37,7 +37,15 @@ public:
   rc_ptr(const T* ptr) : mRefData(rs_new CRefData(ptr)) {}
   rc_ptr(const rc_ptr& other) : mRefData(other.mRefData) { mRefData->AddRef(); }
 #endif
+#if RSTL_VERSION >= RSTL_R3IJ
   ~rc_ptr() { ReleaseData(); }
+#else
+  ~rc_ptr() {
+    RS_ASSERT(mRefData != nullptr, "rstl precondition");
+    RS_ASSERT(mRefData->GetRefCount() > 0, "rstl precondition");
+    ReleaseData();
+  }
+#endif
   rc_ptr& operator=(const rc_ptr& other) {
 #if RSTL_VERSION >= RSTL_R3IJ
     if (mCount != other.mCount) {
