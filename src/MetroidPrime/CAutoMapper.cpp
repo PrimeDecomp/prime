@@ -1925,27 +1925,29 @@ float CAutoMapper::GetClampedMapScreenCameraDistance(float value) const {
 }
 
 float CAutoMapper::GetDesiredMiniMapCameraDistance(const CStateManager& mgr) const {
+  CMapArea* mapa;
   CMapWorldInfo* mwInfo =
       gpGameState->StateForWorld(mWorld->IGetWorldAssetId()).GetMapWorldInfo().GetPtr();
   const CMapWorld* mw = mWorld->IGetMapWorld();
   CAABox aabb = CAABox::MakeMaxInvertedBox();
+  CMapArea* attMapa;
   const IGameArea* area = mWorld->IGetAreaAlways(TAreaId(mCurAreaId));
-  const CMapArea* mapa = mw->GetMapArea(mCurAreaId.value);
-  const bool oneMiniMapArea = gpTweakAutoMapper->mShowOneMiniMapArea;
+  mapa = mw->GetMapArea(mCurAreaId.value);
+  bool oneMiniMapArea = gpTweakAutoMapper->mShowOneMiniMapArea;
+
   for (int i = -1; i < (oneMiniMapArea ? 0 : static_cast< int >(area->IGetNumAttachedAreas()));
        ++i) {
     int aid = i == -1 ? mCurAreaId.value : area->IGetAttachedAreaId(i).value;
-    const CMapArea* attMapa = mw->GetMapArea(aid);
+    attMapa = mw->GetMapArea(aid);
     if (attMapa->GetIsVisibleToAutoMapper(mwInfo->IsWorldVisible(TAreaId(aid)),
                                           mwInfo->IsAreaVisible(TAreaId(aid)))) {
       aabb.Include(attMapa->GetBoundingBox().GetTransformedAABox(
-          const_cast< CMapArea* >(attMapa)->GetAreaPostTransform(*mWorld, aid)));
+          attMapa->GetAreaPostTransform(*mWorld, aid)));
     }
   }
 
   CVector3f xfPoint =
-      const_cast< CMapArea* >(mapa)->GetAreaPostTransform(*mWorld, mCurAreaId.value) *
-      mapa->GetAreaCenterPoint();
+      mapa->GetAreaPostTransform(*mWorld, mCurAreaId.value) * mapa->GetAreaCenterPoint();
   float maxX = rstl::max_val(xfPoint.GetX() - aabb.GetMinPoint().GetX(),
                              aabb.GetMaxPoint().GetX() - xfPoint.GetX());
   float maxY = rstl::max_val(xfPoint.GetY() - aabb.GetMinPoint().GetY(),
