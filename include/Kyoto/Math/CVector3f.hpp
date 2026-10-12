@@ -185,13 +185,13 @@ inline CVector3f operator+(const CVector3f& lhs, const CVector3f& rhs) {
   return CVector3f(x, y, z);
 }
 
-// Doesn't show up in map; use CVector3f::ByElementMultiply instead
-// inline CVector3f operator*(const CVector3f& lhs, const CVector3f& rhs) {
-//   float x = lhs.GetX() * rhs.GetX();
-//   float y = lhs.GetY() * rhs.GetY();
-//   float z = lhs.GetZ() * rhs.GetZ();
-//   return CVector3f(x, y, z);
-// }
+inline CVector3f operator*(const CVector3f& lhs, const CVector3f& rhs) {
+  CVector3f ret(lhs);
+  ret[kDX] *= rhs[kDX];
+  ret[kDY] *= rhs[kDY];
+  ret[kDZ] *= rhs[kDZ];
+  return ret;
+}
 
 inline CVector3f operator*(const CVector3f& vec, const float f) {
   float x = vec.GetX() * f;
