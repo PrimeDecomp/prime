@@ -855,7 +855,7 @@ config.libs = [
                 else [],
             ),
             Object(
-                NonMatching, "MetroidPrime/ScriptObjects/CScriptDamageableTrigger.cpp"
+                MatchingFor("GM8E01_00"), "MetroidPrime/ScriptObjects/CScriptDamageableTrigger.cpp"
             ),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptDebris.cpp"),
             Object(
