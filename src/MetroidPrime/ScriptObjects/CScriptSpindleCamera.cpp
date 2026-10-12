@@ -172,7 +172,7 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
 
   const CVector3f ballPos = mgr.GetPlayer()->GetBallPosition();
   CVector3f hintToBallDir = ballPos - hintPos;
-  const float hintToBallVOff = hintToBallDir.GetZ();
+  const float hintToBallVOff = ballPos.GetZ() - hintPos.GetZ();
   hintToBallDir[kDZ] = 0.f;
 
   float hintToBallDist = 0.f;
@@ -197,8 +197,8 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
   mInVars.push_back(hintToBallDist);
   mInVars.push_back(CMath::AbsF(hintToBallVOff));
 
-  float hintBallDot = CMath::Limit(CVector3f::Dot(hintToBallDir, hintDir), 1.f);
-  const float hintBallAngle = CMath::AbsF(acos(hintBallDot));
+  const float hintBallAngle =
+      CMath::AbsF(acosf(CMath::Limit(CVector3f::Dot(hintToBallDir, hintDir), 1.f)));
   mInVars.push_back(hintBallAngle);
 
   const float hintBallCross =
@@ -308,8 +308,7 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
           CMath::Limit(targetHintToCamDeltaAngleVel, targetHintToCamDeltaAngleVelRange);
     }
 
-    float targetHintToCamDeltaAngle =
-        targetHintToCamDeltaAngleVel * dt * hintToCamDeltaAngleSpeedFactor;
+    targetHintToCamDeltaAngleVel *= dt * hintToCamDeltaAngleSpeedFactor;
     CVector3f camToBall = ballPos - GetTranslation();
     camToBall[kDZ] = 0.f;
 
@@ -318,25 +317,24 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
       camToBallDist = camToBall.Magnitude();
     }
 
-    targetHintToCamDeltaAngle *=
-        (1.f - CMath::Clamp(0.f, (camToBallDist - 2.f) * 0.5f, 1.f)) * 10.f + 1.f;
-    targetHintToCamDeltaAngle = CMath::Limit(targetHintToCamDeltaAngle, hintToCamDeltaAngleRange);
+    const float distanceFactor = 1.f - CMath::Clamp(0.f, (camToBallDist - 2.f) / 2.f, 1.f);
+    targetHintToCamDeltaAngleVel *= distanceFactor * 10.f + 1.f;
+    targetHintToCamDeltaAngleVel = CMath::Limit(targetHintToCamDeltaAngleVel, hintToCamDeltaAngleRange);
 
     float hintToCamDot2 = CMath::Limit(CVector3f::Dot(hintToCamDir, targetHintToCam), 1.f);
     if (CMath::AbsF(hintToCamDot2) < 0.99999f) {
       hintBallToCamTargetAzimuthQuat =
-          CQuaternion::LookAt(hintToCamDir, targetHintToCam, targetHintToCamDeltaAngle);
+          CQuaternion::LookAt(hintToCamDir, targetHintToCam, targetHintToCamDeltaAngleVel);
       newHintToCamDir = hintBallToCamTargetAzimuthQuat.Transform(hintToCamDir);
     }
 
     float hintBallToCamDot = CMath::Limit(CVector3f::Dot(hintToBallDir, newHintToCamDir), 1.f);
     const float hintBallToCamAzimuth = acosf(hintBallToCamDot);
-    if ((mFlags & 0x10) != 0) {
-      if (CMath::AbsF(hintBallToCamAzimuth) <
-              mHintBallToCamAzimuth.InterpolateValue(GetInterpolant(mHintBallToCamAzimuth)) ||
-          (mFlags & 0x8) != 0 || mInResetThink) {
-        newHintToCamDir = targetHintToCam;
-      }
+    if (((mFlags & 0x10) != 0 &&
+         CMath::AbsF(hintBallToCamAzimuth) <
+             mHintBallToCamAzimuth.InterpolateValue(GetInterpolant(mHintBallToCamAzimuth))) ||
+        (mFlags & 0x8) != 0 || mInResetThink) {
+      newHintToCamDir = targetHintToCam;
     }
 
     const float maxHintBallToCamAzimuth =
@@ -374,8 +372,9 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
         hintDir2.Normalize();
 
         float hintCamDot = CMath::Limit(CVector3f::Dot(hintDir2, newHintToCamDir), 1.f);
-        float hintCamAzimuth = CMath::Limit(
-            CMath::AbsF(acosf(hintCamDot)),
+        float hintCamAzimuth = CMath::AbsF(acosf(hintCamDot));
+        hintCamAzimuth = CMath::Limit(
+            hintCamAzimuth,
             mClampedAzimuthFromHintDir.InterpolateValue(GetInterpolant(mClampedAzimuthFromHintDir)));
 
         const float hintDirCamCross = CVector3f::Cross(hintDir2, newHintToCamDir).GetZ();
@@ -408,6 +407,7 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
           hintPos.GetZ() + mLookPosZOffset.InterpolateValue(GetInterpolant(mLookPosZOffset));
     }
 
+    CVector3f adjustedLookPos = lookAheadPos;
     CVector3f newLookDelta = lookAheadPos - newCamPos;
     CVector3f newLookDirFlat = newLookDelta;
     newLookDirFlat[kDZ] = 0.f;
@@ -441,23 +441,18 @@ void CScriptSpindleCamera::Think(float dt, CStateManager& mgr) {
       CQuaternion camLookRelAzimuthQuat = CQuaternion::ZRotation(camLookRelAzimuth);
       CVector3f azimuthVec = camLookRelAzimuthQuat.Transform(newLookDirFlat);
       const float azimuthCos = cosf(camLookRelAzimuth);
-      float dx = azimuthCos * azimuthVec.GetX();
-      float dy = azimuthCos * azimuthVec.GetY();
-      dx *= newLookDistFlat;
-      dy *= newLookDistFlat;
-      lookAheadPos.SetX(newCamPos.GetX() + dx);
-      lookAheadPos.SetY(newCamPos.GetY() + dy);
+      adjustedLookPos = newCamPos + newLookDistFlat * (azimuthCos * azimuthVec);
+      adjustedLookPos.SetZ(lookAheadPos.GetZ());
     }
 
-    newLookDelta = lookAheadPos - newCamPos;
-
+    newLookDelta = adjustedLookPos - newCamPos;
     if ((mFlags & 0x1) != 0) {
-      const float lookDeltaY = hintPos.GetY() - newCamPos.GetY();
-      newLookDelta = CVector3f(hintPos.GetX() - newCamPos.GetX(), lookDeltaY, newLookDelta.GetZ());
+      adjustedLookPos.SetX(hintPos.GetX());
+      adjustedLookPos.SetY(hintPos.GetY());
+      newLookDelta = adjustedLookPos - newCamPos;
     }
-
     if ((mFlags & 0x2) != 0) {
-      newLookDelta = lookAheadPos - hintPos;
+      newLookDelta = adjustedLookPos - CVector3f(hintPos.GetX(), hintPos.GetY(), adjustedLookPos.GetZ());
     }
 
     if (newLookDelta.CanBeNormalized()) {
