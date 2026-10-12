@@ -151,14 +151,22 @@ static inline float ComputeRippleAmplitude(float curX, float curY) {
 
 void CFluidPlaneManager::SetupRippleMap() {
   float curX = 0.f;
+  struct {
+    uchar* values;
+    uchar* mins;
+    uchar* maxs;
+  } p;
+  p.values = sRippleValues[0];
+  p.mins = sRippleMins;
+  p.maxs = sRippleMaxs;
   for (int i = 0; i < 64; ++i) {
-    uchar* rowPtr = sRippleValues[i];
+    uchar* rowPtr = p.values;
     float curY = 0.f;
     float minY = 1.f;
     float maxY = curY;
     for (int j = 64; j > 0; --j) {
       float val = ComputeRippleAmplitude(curX, curY);
-      uchar valA = CCast::ToUint8(255.f * (val * ((1.f - curY) * (1.f - curY))));
+      uchar valA = static_cast< char >(CCast::ToUint8(255.f * (val * ((1.f - curY) * (1.f - curY)))));
       *rowPtr = valA;
       if (valA != 0 && curY < minY) {
         minY = curY;
@@ -170,10 +178,13 @@ void CFluidPlaneManager::SetupRippleMap() {
       rowPtr++;
     }
     int valB = static_cast< int >(CCast::ToUint8(255.f * minY)) - 1;
-    sRippleMins[i] = static_cast< uchar >(rstl::max_val(0, valB));
+    *p.mins = static_cast< uchar >(rstl::max_val(0, valB));
     int valC = static_cast< int >(CCast::ToUint8(255.f * maxY)) + 1;
-    sRippleMaxs[i] = static_cast< uchar >(rstl::min_val(255, valC));
+    *p.maxs = static_cast< uchar >(rstl::min_val(255, valC));
     curX += (1.f / 63.f);
+    ++p.mins;
+    ++p.maxs;
+    p.values += 64;
   }
 }
 
