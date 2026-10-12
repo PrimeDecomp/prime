@@ -44,7 +44,10 @@ MetroidPrime/CControlMapper.cpp:
 
 MetroidPrime/Cameras/CFirstPersonCamera.cpp:
 	.text       start:0x8000E158 end:0x8000FD40
-	.sdata2     start:0x805A9AC0 end:0x805A9AE0
+	.rodata     start:0x803CC520 end:0x803CC538
+	.data       start:0x803D9760 end:0x803D97D8
+	.sdata      start:0x805A68D8 end:0x805A6928
+	.sdata2     start:0x805A9AB0 end:0x805A9AE0
 
 MetroidPrime/CObjectList.cpp:
 	.text       start:0x8000FD40 end:0x800101B8
@@ -227,7 +230,10 @@ MetroidPrime/CEffect.cpp:
 
 MetroidPrime/Cameras/CGameCamera.cpp:
 	.text       start:0x8005AEB0 end:0x8005DF58
-	.sdata2     start:0x805AA0F0 end:0x805AA100
+	.rodata     start:0x803CD090 end:0x803CD098
+	.data       start:0x803DA288 end:0x803DA308
+	.sdata      start:0x805A6B60 end:0x805A6B78
+	.sdata2     start:0x805AA0B8 end:0x805AA100
 
 MetroidPrime/CGameArea.cpp:
 	.text       start:0x8005DF58 end:0x80064874
@@ -318,7 +324,12 @@ MetroidPrime/CMapArea.cpp:
 MetroidPrime/Cameras/CBallCamera.cpp:
 	.text       start:0x800810BC end:0x8008DAE4
 	.ctors      start:0x803CB2F8 end:0x803CB2FC
-	.sdata2     start:0x805AA468 end:0x805AA4C0
+	.rodata     start:0x803CD778 end:0x803CD790
+	.data       start:0x803DAC90 end:0x803DAD38
+	.bss        start:0x8046C0E8 end:0x8046C100
+	.sdata      start:0x805A6CF8 end:0x805A6DF0
+	.sbss       start:0x805A8B28 end:0x805A8B38
+	.sdata2     start:0x805AA3B0 end:0x805AA4C0
 
 MetroidPrime/ScriptObjects/CScriptEffect.cpp:
 	.text       start:0x8008DAE4 end:0x8008FB64
@@ -467,6 +478,7 @@ MetroidPrime/CDamageInfo.cpp:
 
 MetroidPrime/CMemoryDrawEnum.cpp:
 	.text       start:0x800C36C0 end:0x800C3774
+	.sbss       start:0x805A8B90 end:0x805A8B98
 
 MetroidPrime/ScriptObjects/CScriptDock.cpp:
 	.text       start:0x800C3774 end:0x800C4700
@@ -559,6 +571,8 @@ MetroidPrime/Player/CPlayerCameraBob.cpp:
 	.text       start:0x800E95E4 end:0x800EA558
 	.ctors      start:0x803CB314 end:0x803CB318
 	.sdata      start:0x805A7058 end:0x805A70B8
+	.sbss       start:0x805A8BB0 end:0x805A8BC0
+	.sdata2     start:0x805AAA78 end:0x805AAAC8
 
 MetroidPrime/ScriptObjects/CScriptCameraFilterKeyframe.cpp:
 	.text       start:0x800EA558 end:0x800EA7CC
@@ -586,6 +600,8 @@ MetroidPrime/Player/CMorphBall.cpp:
 
 MetroidPrime/ScriptObjects/CScriptDamageableTrigger.cpp:
 	.text       start:0x800FA698 end:0x800FB948
+	.data       start:0x803DFE08 end:0x803DFE78
+	.sdata      start:0x805A7190 end:0x805A71B8
 	.sdata2     start:0x805AAD38 end:0x805AAD60
 
 MetroidPrime/ScriptObjects/CScriptDebris.cpp:
@@ -2991,7 +3007,7 @@ Kyoto/CSimplePool.cpp:
 	.text       start:0x80340150 end:0x80340E34
 	.rodata     start:0x803D7BA8 end:0x803D7BB0
 	.data       start:0x803EE510 end:0x803EE540
-	.sdata      start:0x805A85E8 end:0x805A85F8
+	.sdata      start:0x805A85F0 end:0x805A85F8
 	.sbss       start:0x805A91E8 end:0x805A91F0
 
 Kyoto/CToken.cpp:

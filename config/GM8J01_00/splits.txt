@@ -3144,7 +3144,7 @@ Kyoto/CResFactory.cpp:
 	.text       start:0x80323AB4 end:0x803251B4
 	.rodata     start:0x803C3E48 end:0x803C3E58
 	.data       start:0x803D7180 end:0x803D71A0
-	.sdata      start:0x805919A8 end:0x805919AC
+	.sdata      start:0x805919A8 end:0x805919B0
 	.sdata2     start:0x80597BD8 end:0x80597BE0
 
 Kyoto/CResLoader.cpp:
@@ -3210,9 +3210,10 @@ Kyoto/CObjectReference.cpp:
 	.text       start:0x8032A178 end:0x8032A6A4
 
 Kyoto/CSimplePool.cpp:
-	.text       start:0x8032A7B0 end:0x8032B11C
+	.text       start:0x8032A6A4 end:0x8032B33C
 	.rodata     start:0x803C3EB0 end:0x803C3EB8
 	.data       start:0x803D7228 end:0x803D7258
+	.sdata      start:0x805919B0 end:0x805919B8
 	.sbss       start:0x805925E0 end:0x805925E8
 
 Kyoto/CToken.cpp:
