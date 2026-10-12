@@ -2905,11 +2905,12 @@ void CStateManager::UpdateThermalVisor() {
     const TAreaId nextArea = GetNextAreaId();
     if (nextArea != kInvalidAreaId) {
       CGameArea* bestArea = nullptr;
+      int i;
       CGameArea* const curArea = mWorld->Area(nextArea);
       const CVector3f playerPos = mPlayer->GetTranslation();
       float bestDistSq = FLT_MAX;
       const int dockCount = curArea->GetDockCount();
-      for (int i = 0; i < dockCount; ++i) {
+      for (i = 0; i < dockCount; ++i) {
         const IGameArea::Dock& dock = curArea->GetDock(i);
         const rstl::reserved_vector< CVector3f, 4 >& verts = dock.GetPlaneVertices();
         const CVector3f dockCenter = 0.25f * (verts[0] + verts[1] + verts[2] + verts[3]);
