@@ -765,8 +765,10 @@ MetroidPrime/CFluidPlane.cpp:
 
 MetroidPrime/CFluidPlaneManager.cpp:
 	.text       start:0x8012F10C end:0x8012F7E8
+	.rodata     start:0x803D0138 end:0x803D0148
 	.bss        start:0x8056F594 end:0x805716AC align:4 common
 	.sdata      start:0x805A73B8 end:0x805A73C0
+	.sdata2     start:0x805AB2E8 end:0x805AB330
 
 MetroidPrime/ScriptObjects/CScriptGrapplePoint.cpp:
 	.text       start:0x8012F7E8 end:0x8012FB4C
@@ -836,6 +838,10 @@ MetroidPrime/BodyState/CBSLieOnGround.cpp:
 MetroidPrime/BodyState/CBSLocomotion.cpp:
 	.text       start:0x80136BC4 end:0x80138E18
 	.ctors      start:0x803CB338 end:0x803CB33C
+	.data       start:0x803E15C0 end:0x803E1818
+	.sdata      start:0x805A73F8 end:0x805A7420
+	.sbss       start:0x805A8C60 end:0x805A8C68
+	.sdata2     start:0x805AB430 end:0x805AB458
 
 MetroidPrime/BodyState/CBSStep.cpp:
 	.text       start:0x80138E18 end:0x80139238
@@ -905,6 +911,8 @@ MetroidPrime/BodyState/CBSHurled.cpp:
 
 MetroidPrime/BodyState/CBSJump.cpp:
 	.text       start:0x80145684 end:0x80146728
+	.data       start:0x803E2108 end:0x803E2140
+	.sdata2     start:0x805AB660 end:0x805AB680
 
 MetroidPrime/BodyState/CBSGenerate.cpp:
 	.text       start:0x80146728 end:0x80146B20
@@ -1164,6 +1172,8 @@ MetroidPrime/ScriptObjects/CScriptTargetingPoint.cpp:
 
 MetroidPrime/BodyState/CBSWallHang.cpp:
 	.text       start:0x8018D530 end:0x8018EC28
+	.data       start:0x803E44A0 end:0x803E4500
+	.sdata2     start:0x805ABE68 end:0x805ABE90
 
 MetroidPrime/ScriptObjects/CScriptEMPulse.cpp:
 	.text       start:0x8018EC28 end:0x8018F3D8
