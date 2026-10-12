@@ -180,6 +180,7 @@ public:
     float x8_;
     float xc_;
     float x10_;
+    float x14_;
   };
 
   class CSplashRecord {

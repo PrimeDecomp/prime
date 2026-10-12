@@ -16,22 +16,6 @@
 static float skMaxPitchAngle = CRelAngle::FromDegrees(10.f).AsRadians();
 
 const float CBSBiPedLocomotion::skMinWalkPercent = 0.5f;
-static int skInvalidAnimId = -1;
-
-bool CBSFlyerLocomotion::IsPitchable() const { return mPitchable; }
-
-bool CBSFlyerLocomotion::IsBackPedal(CBodyController& bc) const {
-  (void)bc;
-  return false;
-}
-
-CBSFlyerLocomotion::~CBSFlyerLocomotion() {}
-
-CBSWallWalkerLocomotion::~CBSWallWalkerLocomotion() {}
-
-bool CBSBiPedLocomotion::IsMoving() const { return mAnim != pas::kLA_Idle; }
-
-CBSAiMovedFlyerLocomotion::~CBSAiMovedFlyerLocomotion() {}
 
 CBSLocomotion::CBSLocomotion() : mLocomotionType(pas::kLT_Invalid) {}
 
@@ -373,6 +357,8 @@ float CBSBiPedLocomotion::UpdateRun(float vel, CBodyController& bc, pas::ELocomo
   return rate;
 }
 
+static int skInvalidAnimId = -1;
+
 CBSRestrictedLocomotion::CBSRestrictedLocomotion(CActor& actor)
 : mAnims(14, skInvalidAnimId)
 , mAnim(pas::kLA_Invalid) {
@@ -478,7 +464,7 @@ float CBSAiMovedFlyerLocomotion::UpdateLocomotionAnimation(float dt, float velMa
     const CBodyStateCmdMgr& cmdMgr = bc.GetCommandMgr();
     if (cmdMgr.GetMoveVector().CanBeNormalized()) {
       CVector3f localVec = act->TransformWorldToLocalRotation(cmdMgr.GetMoveVector());
-      CVector3f localVecSq = CVector3f::ByElementMultiply(localVec, localVec);
+      CVector3f localVecSq = localVec * localVec;
       int maxComp = 0;
       for (int i = 0; i < 3; ++i) {
         if (localVecSq[i] >= localVecSq[maxComp]) {
@@ -519,18 +505,3 @@ float CBSFloaterLocomotion::ApplyLocomotionPhysics(float dt, CBodyController& bc
 
   return 0.f;
 }
-
-bool CBSLocomotion::IsPitchable() const { return false; }
-
-bool CBSLocomotion::CanShoot() const { return true; }
-
-float CBSRestrictedLocomotion::GetLocomotionSpeed(pas::ELocomotionType type,
-                                                  pas::ELocomotionAnim anim) const {
-  (void)type;
-  (void)anim;
-  return 0.f;
-}
-
-bool CBSRestrictedLocomotion::IsMoving() const { return false; }
-
-CBSFloaterLocomotion::~CBSFloaterLocomotion() {}

@@ -47,9 +47,10 @@ void CBSJump::Start(CBodyController& bc, CStateManager& mgr) {
   mHasWallBounced = false;
 
   if (mWallJump) {
+    const CVector3f& wp1 = mWaypoint1;
     const CVector3f toWall = mWaypoint1 - bc.GetOwner().GetTranslation();
     const CVector3f cross = CVector3f::Cross(toWall, CVector3f::Up());
-    const CVector3f toFinal = mWaypoint2 - mWaypoint1;
+    const CVector3f toFinal = mWaypoint2 - wp1;
     mWallBounceRight = CVector3f::Dot(cross, toFinal) < 0.f;
   }
 

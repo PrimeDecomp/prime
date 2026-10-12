@@ -14,11 +14,11 @@ public:
   ~CBSLocomotion() override {}
 
   bool IsMoving() const override = 0;
-  bool CanShoot() const override;
+  bool CanShoot() const override { return true; }
   void Start(CBodyController& bc, CStateManager& mgr) override;
   pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
   void Shutdown(CBodyController& bc) override;
-  virtual bool IsPitchable() const;
+  virtual bool IsPitchable() const { return false; }
   virtual float GetLocomotionSpeed(pas::ELocomotionType type, pas::ELocomotionAnim anim) const = 0;
   virtual float ApplyLocomotionPhysics(float dt, CBodyController& bc);
   virtual float UpdateLocomotionAnimation(float dt, float velMag, CBodyController& bc, bool init) = 0;
@@ -37,14 +37,14 @@ CHECK_SIZEOF(CBSLocomotion, 0x8)
 class CBSBiPedLocomotion : public CBSLocomotion {
 public:
   explicit CBSBiPedLocomotion(CActor& actor);
-  ~CBSBiPedLocomotion() override;
 
-  bool IsMoving() const override;
+  bool IsMoving() const override { return mAnim != pas::kLA_Idle; }
   void Start(CBodyController& bc, CStateManager& mgr) override;
   pas::EAnimationState UpdateBody(float dt, CBodyController& bc, CStateManager& mgr) override;
   float GetLocomotionSpeed(pas::ELocomotionType type, pas::ELocomotionAnim anim) const override;
   float UpdateLocomotionAnimation(float dt, float velMag, CBodyController& bc, bool init) override;
   virtual bool IsStrafing(CBodyController& bc) const;
+  ~CBSBiPedLocomotion() override;
 
 protected:
   static const float skMinWalkPercent;
@@ -63,7 +63,7 @@ CHECK_SIZEOF(CBSBiPedLocomotion, 0x3CC)
 class CBSWallWalkerLocomotion : public CBSBiPedLocomotion {
 public:
   explicit CBSWallWalkerLocomotion(CActor& actor);
-  ~CBSWallWalkerLocomotion() override;
+  ~CBSWallWalkerLocomotion() override {}
 
   float ApplyLocomotionPhysics(float dt, CBodyController& bc) override;
 };
@@ -72,7 +72,7 @@ CHECK_SIZEOF(CBSWallWalkerLocomotion, 0x3CC)
 class CBSAiMovedFlyerLocomotion : public CBSBiPedLocomotion {
 public:
   explicit CBSAiMovedFlyerLocomotion(CActor& actor);
-  ~CBSAiMovedFlyerLocomotion() override;
+  ~CBSAiMovedFlyerLocomotion() override {}
 
   float ApplyLocomotionPhysics(float dt, CBodyController& bc) override;
   float UpdateLocomotionAnimation(float dt, float velMag, CBodyController& bc, bool init) override;
@@ -82,11 +82,11 @@ CHECK_SIZEOF(CBSAiMovedFlyerLocomotion, 0x3CC)
 class CBSFlyerLocomotion : public CBSBiPedLocomotion {
 public:
   explicit CBSFlyerLocomotion(CActor& actor, bool pitchable);
-  ~CBSFlyerLocomotion() override;
+  ~CBSFlyerLocomotion() override {}
 
-  bool IsPitchable() const override;
+  virtual bool IsBackPedal(CBodyController& bc) const { return false; }
+  bool IsPitchable() const override { return mPitchable; }
   float ApplyLocomotionPhysics(float dt, CBodyController& bc) override;
-  virtual bool IsBackPedal(CBodyController& bc) const;
 
 private:
   bool mPitchable;
@@ -98,8 +98,10 @@ public:
   explicit CBSRestrictedLocomotion(CActor& actor);
   ~CBSRestrictedLocomotion() override {}
 
-  bool IsMoving() const override;
-  float GetLocomotionSpeed(pas::ELocomotionType type, pas::ELocomotionAnim anim) const override;
+  bool IsMoving() const override { return false; }
+  float GetLocomotionSpeed(pas::ELocomotionType type, pas::ELocomotionAnim anim) const override {
+    return 0.f;
+  }
   float UpdateLocomotionAnimation(float dt, float velMag, CBodyController& bc, bool init) override;
 
 private:
@@ -111,7 +113,7 @@ CHECK_SIZEOF(CBSRestrictedLocomotion, 0x48)
 class CBSFloaterLocomotion : public CBSRestrictedLocomotion {
 public:
   explicit CBSFloaterLocomotion(CActor& actor);
-  ~CBSFloaterLocomotion() override;
+  ~CBSFloaterLocomotion() override {}
 
   float ApplyLocomotionPhysics(float dt, CBodyController& bc) override;
 };
