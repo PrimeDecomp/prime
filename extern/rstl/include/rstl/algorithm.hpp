@@ -71,7 +71,8 @@ void __insertion_sort(const It first, It last, Cmp cmp) {
     It t1 = next;
     --t1;
     It t2 = next;
-    while (first < t2 && cmp(value, *t1)) {
+    bool less;
+    while (first < t2 && (less = cmp(value, *t1))) {
       *t2 = *t1;
       --t2;
       --t1;
@@ -106,11 +107,12 @@ void sort(It first, It last, Cmp cmp) {
   It it = first + 1;
   --end;
 
+  bool less;
   while (true) {
-    while (cmp(*it, pivot)) {
+    while ((less = cmp(*it, pivot))) {
       ++it;
     }
-    while (cmp(pivot, *end)) {
+    while ((less = cmp(pivot, *end))) {
       --end;
     }
     if (it >= end) {
