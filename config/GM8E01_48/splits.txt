@@ -127,7 +127,9 @@ MetroidPrime/CAnimData.cpp:
 	.sdata2     start:0x805A9DD0 end:0x805A9DF0
 
 MetroidPrime/Factories/CCharacterFactory.cpp:
-	.text       start:0x80031D20 end:0x800348C0
+	.text       start:0x80031D10 end:0x800348C0
+	.rodata     start:0x803CCE78 end:0x803CCE80
+	.data       start:0x803D9CA8 end:0x803D9D88
 
 MetroidPrime/Factories/CAssetFactory.cpp:
 	.text       start:0x800348C0 end:0x80034E78

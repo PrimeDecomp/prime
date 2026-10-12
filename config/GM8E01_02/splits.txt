@@ -133,6 +133,8 @@ MetroidPrime/CAnimRes.cpp:
 
 MetroidPrime/Factories/CCharacterFactory.cpp:
 	.text       start:0x80031F88 end:0x80034B38
+	.rodata     start:0x803CDE38 end:0x803CDE40
+	.data       start:0x803DAC68 end:0x803DAD48
 
 MetroidPrime/Factories/CAssetFactory.cpp:
 	.text       start:0x80034B38 end:0x800350F0
