@@ -34,6 +34,7 @@ extern u32 UNK_HOT_RESET2 AT_ADDRESS(0x817ffffc);
 
 static volatile BOOL Prepared = FALSE;
 
+extern void __OSDoHotReset(s32 arg0);
 extern void __DVDPrepareResetAsync(DVDCBCallback callback);
 extern BOOL DVDCheckDisk(void);
 extern BOOL DVDReadAbsAsyncForBS(DVDCommandBlock *block, void *addr, s32 length, s32 offset,
