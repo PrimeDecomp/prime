@@ -81,7 +81,7 @@ pas::EAnimationState CBSWallHang::UpdateBody(float dt, CBodyController& bc, CSta
           bc.LoopBestAnimation(loopParms, *mgr.Random());
         }
 
-        if (CPhysicsActor* actor = TCastToPtr< CPhysicsActor >(&bc.GetOwner())) {
+        if (CPhysicsActor* const actor = TCastToPtr< CPhysicsActor >(&bc.GetOwner())) {
           mgr.DeliverScriptMsg(actor, kInvalidUniqueId, kSM_Jumped);
           if (const CActor* waypoint = TCastToConstPtr< CActor >(mgr.GetObjectById(mWpId))) {
             const CVector3f toWaypoint = waypoint->GetTranslation() - actor->GetTranslation();
@@ -126,7 +126,7 @@ pas::EAnimationState CBSWallHang::UpdateBody(float dt, CBodyController& bc, CSta
       CBodyStateCmdMgr& cmdMgr = bc.CommandMgr();
       if (cmdMgr.GetTargetVector().IsNonZero()) {
         if (const CActor* waypoint = TCastToConstPtr< CActor >(mgr.GetObjectById(mWpId))) {
-          if (const CActor* actor = TCastToPtr< CActor >(&bc.GetOwner())) {
+          if (const CActor* const actor = TCastToPtr< CActor >(&bc.GetOwner())) {
             const CVector3f lookDir = cmdMgr.GetTargetVector().AsNormalized();
             const float actorDot = CVector3f::Dot(actor->GetTransform().GetForward(),
                                                   waypoint->GetTransform().GetForward());
@@ -169,7 +169,7 @@ pas::EAnimationState CBSWallHang::UpdateBody(float dt, CBodyController& bc, CSta
           bc.LoopBestAnimation(loopParms, *mgr.Random());
         }
 
-        if (CPhysicsActor* actor = TCastToPtr< CPhysicsActor >(&bc.GetOwner())) {
+        if (CPhysicsActor* const actor = TCastToPtr< CPhysicsActor >(&bc.GetOwner())) {
           mgr.DeliverScriptMsg(actor, kInvalidUniqueId, kSM_Jumped);
           mLaunched = false;
           if (const CActor* waypoint = TCastToConstPtr< CActor >(mgr.GetObjectById(mWpId))) {

@@ -1152,7 +1152,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/ScriptObjects/CScriptTargetingPoint.cpp",
             ),
-            Object(EquivalentFor("GM8E01_00") or MatchingFor("GM8P01_00", "GM8J01_00"), "MetroidPrime/BodyState/CBSWallHang.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8P01_00", "GM8J01_00"), "MetroidPrime/BodyState/CBSWallHang.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/ScriptObjects/CScriptEMPulse.cpp",
