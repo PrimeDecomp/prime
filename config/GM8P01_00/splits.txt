@@ -55,7 +55,8 @@ MetroidPrime/CObjectList.cpp:
 	.data       start:0x803C4B78 end:0x803C4B88
 
 MetroidPrime/Player/CPlayer.cpp:
-	.text       start:0x800106EC end:0x8001BB0C
+	.text       start:0x800106EC end:0x8001BD94
+	.ctors      start:0x803B4F8C end:0x803B4F90
 	.rodata     start:0x803B67E0 end:0x803B68C0
 	.data       start:0x803C4B88 end:0x803C4CB0
 	.bss        start:0x803DF8A8 end:0x803E2088
