@@ -240,14 +240,14 @@ void CPlayerCameraBob::CalculateMovingTranslation(float& x, float& z) const {
     } else {
       x = time / mBobPeriod * (mBobMagnitude * mVec[0]);
     }
-    float sine = CCast::ToReal32(sin(fmod(angle, M_PI)));
+    float sine = static_cast< float >(sin(fmod(angle, M_PI)));
 #if VERSION >= VERSION_R3IJ_00
     const float curve2 = (1.f - sine * sine) * (mBobMagnitude * mVec[1]);
     const float curve1 = (1.f - sine) * (mBobMagnitude * mVec[1]);
     float blend = 0.5f;
     z = curve1 * blend + (1.f - blend) * curve2;
 #else
-    z = ((1.f - sine) * (mBobMagnitude * mVec[1])) / 2.f +
+    z = ((1.f - sine) * (mBobMagnitude * mVec.GetY())) / 2.f +
         0.5f * (-(sine * sine - 1.f) * (mBobMagnitude * mVec[1]));
 #endif
     break;

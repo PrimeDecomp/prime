@@ -533,7 +533,10 @@ config.libs = [
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/CControlMapper.cpp"
             ),
-            Object(EquivalentFor("GM8E01_00"), "MetroidPrime/Cameras/CFirstPersonCamera.cpp"),
+            Object(
+                MatchingFor("GM8E01_00", "GM8E01_01", "GM8P01_00", "GM8J01_00"),
+                "MetroidPrime/Cameras/CFirstPersonCamera.cpp",
+            ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CObjectList.cpp",
@@ -835,7 +838,7 @@ config.libs = [
                 "MetroidPrime/CMappableObject.cpp",
             ),
             Object(
-                EquivalentFor("GM8E01_00"),
+                MatchingFor("GM8E01_00", "GM8E01_01"),
                 "MetroidPrime/Player/CPlayerCameraBob.cpp",
             ),
             Object(
@@ -855,7 +858,7 @@ config.libs = [
                 else [],
             ),
             Object(
-                NonMatching, "MetroidPrime/ScriptObjects/CScriptDamageableTrigger.cpp"
+                MatchingFor("GM8E01_00"), "MetroidPrime/ScriptObjects/CScriptDamageableTrigger.cpp"
             ),
             Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptDebris.cpp"),
             Object(
@@ -2180,7 +2183,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Kyoto/CObjectReference.cpp",
             ),
-            Object(NonMatching, "Kyoto/CSimplePool.cpp"),
+            Object(MatchingFor("GM8E01_00"), "Kyoto/CSimplePool.cpp"),
             Object(
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "Kyoto/CToken.cpp"
             ),

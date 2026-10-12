@@ -32,7 +32,7 @@ public:
   IFactory& GetFactory() const override { return mFactory; }
   void Flush() override;
   void ObjectUnreferenced(const SObjectTag& tag) override;
-  rstl::vector< SObjectTag > GetReferencedTags();
+  rstl::vector< SObjectTag > GetReferencedTags() const;
 
 private:
   ResourceMap mResources;
