@@ -2906,8 +2906,9 @@ void CStateManager::UpdateThermalVisor() {
     if (nextArea != kInvalidAreaId) {
       CGameArea* bestArea = nullptr;
       int i;
-      CGameArea* const curArea = mWorld->Area(nextArea);
-      const CVector3f playerPos = mPlayer->GetTranslation();
+      CGameArea* curArea = mWorld->Area(nextArea);
+      const CPlayer* const player = mPlayer;
+      const CVector3f playerPos = player->GetTranslation();
       float bestDistSq = FLT_MAX;
       const int dockCount = curArea->GetDockCount();
       for (i = 0; i < dockCount; ++i) {
@@ -2930,7 +2931,7 @@ void CStateManager::UpdateThermalVisor() {
         }
       }
 
-      const float areaThermal = curArea->GetPostConstructed()->mThermalCurrent;
+      const float areaThermal = curArea->GetPostConstructed()->GetThermalCurrent();
       if (bestArea != nullptr) {
         float dist = CMath::FastSqrtF(bestDistSq) - 2.f;
         if (dist < 8.f) {
@@ -2941,7 +2942,7 @@ void CStateManager::UpdateThermalVisor() {
           }
           mThermColdScale1 =
               dist * areaThermal +
-              (1.f - dist) * bestArea->GetPostConstructed()->mThermalCurrent;
+              (1.f - dist) * bestArea->GetPostConstructed()->GetThermalCurrent();
         } else {
           mThermColdScale1 = areaThermal;
         }
