@@ -1857,11 +1857,12 @@ MetroidPrime/Enemies/CScriptContraption.cpp:
 	.sdata2     start:0x80596760 end:0x80596768
 
 MetroidPrime/ScriptObjects/CScriptSpindleCamera.cpp:
-	.text       start:0x80231D7C end:0x80232698
+	.text       start:0x80230ADC end:0x80232698
 	.ctors      start:0x803B6DF0 end:0x803B6DF4
 	.data       start:0x803D1E28 end:0x803D1EA0
 	.bss        start:0x80456298 end:0x804562B0
 	.sdata      start:0x80591308 end:0x80591328
+	.sbss       start:0x805921A8 end:0x805921B8
 	.sdata2     start:0x80596768 end:0x805967A8
 
 MetroidPrime/ScriptObjects/CScriptMemoryRelay.cpp:
@@ -1979,7 +1980,7 @@ MetroidPrime/Weapons/CNewFlameThrower.cpp:
 	.sdata2     start:0x80596A58 end:0x80596A88
 
 MetroidPrime/Cameras/CInterpolationCamera.cpp:
-	.text       start:0x80255B5C end:0x80256648
+	.text       start:0x80255854 end:0x80256848
 	.rodata     start:0x803C1610 end:0x803C1628
 	.data       start:0x803D3250 end:0x803D32C8
 	.sdata2     start:0x80596A88 end:0x80596A90

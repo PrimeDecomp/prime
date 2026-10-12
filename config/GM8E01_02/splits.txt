@@ -1888,7 +1888,7 @@ MetroidPrime/Weapons/CNewFlameThrower.cpp:
 	.sdata2     start:0x805AE850 end:0x805AE880
 
 MetroidPrime/Cameras/CInterpolationCamera.cpp:
-	.text       start:0x80265BEC end:0x80266918
+	.text       start:0x80265894 end:0x80266918
 	.sdata2     start:0x805AE880 end:0x805AE8B0
 
 MetroidPrime/Enemies/CSeedling.cpp:
