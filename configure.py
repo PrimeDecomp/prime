@@ -643,7 +643,7 @@ config.libs = [
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/CExplosion.cpp"
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/CEffect.cpp"),
-            Object(NonMatching, "MetroidPrime/Cameras/CGameCamera.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Cameras/CGameCamera.cpp"),
             Object(NonMatching, "MetroidPrime/CGameArea.cpp"),
             Object(NonMatching, "MetroidPrime/HUD/CSamusHud.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
@@ -683,7 +683,7 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/ScriptObjects/CScriptDoor.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/Enemies/CStateMachine.cpp"),
             Object(MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02", "GM8P01_00", "GM8J01_00"), "MetroidPrime/CMapArea.cpp"),
-            Object(NonMatching, "MetroidPrime/Cameras/CBallCamera.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/Cameras/CBallCamera.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/ScriptObjects/CScriptEffect.cpp",
