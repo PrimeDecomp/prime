@@ -213,6 +213,10 @@ public:
     int mPlayerActorsLoading;
 
     CPostConstructed();
+    float GetThermalCurrent() const {
+      float ret = mThermalCurrent;
+      return ret;
+    }
   };
 
   CGameArea(CInputStream& in, int idx, const int mlvlVersion);

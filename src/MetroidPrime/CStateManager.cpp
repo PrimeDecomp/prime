@@ -2931,13 +2931,7 @@ void CStateManager::UpdateThermalVisor() {
         }
       }
 
-      struct ThermalGetter {
-        static inline float Get(const CGameArea* area) {
-          float ret = area->GetPostConstructed()->mThermalCurrent;
-          return ret;
-        }
-      };
-      const float areaThermal = ThermalGetter::Get(curArea);
+      const float areaThermal = curArea->GetPostConstructed()->GetThermalCurrent();
       if (bestArea != nullptr) {
         float dist = CMath::FastSqrtF(bestDistSq) - 2.f;
         if (dist < 8.f) {
@@ -2948,7 +2942,7 @@ void CStateManager::UpdateThermalVisor() {
           }
           mThermColdScale1 =
               dist * areaThermal +
-              (1.f - dist) * bestArea->GetPostConstructed()->mThermalCurrent;
+              (1.f - dist) * bestArea->GetPostConstructed()->GetThermalCurrent();
         } else {
           mThermColdScale1 = areaThermal;
         }
