@@ -105,7 +105,6 @@ void CCameraSpline::Initialise(TUniqueId uid, const rstl::vector< SConnection >&
   mLength = CalculateSplineLength();
 }
 
-// TODO: non-matching
 void CCameraSpline::CalculateKnots(TUniqueId uid, const rstl::vector< SConnection >& connections,
                                    CStateManager& mgr) {
   const SConnection* lastConn = nullptr;
@@ -131,9 +130,8 @@ void CCameraSpline::CalculateKnots(TUniqueId uid, const rstl::vector< SConnectio
         break;
       }
 
-      // what is going on here?
       if (mWpTracker.size() == mWpTracker.capacity()) {
-        mWpTracker.reserve(mWpTracker.size());
+        mWpTracker.reserve(mWpTracker.mCount * 2);
       }
       mWpTracker.push_back(waypoint->GetUniqueId());
       size += 1;
@@ -361,7 +359,6 @@ CVector3f CCameraSpline::GetInterpolatedSplinePointByTime(float time, float rang
   return CVector3f::Zero();
 }
 
-// TODO: non-matching
 CTransform4f CCameraSpline::GetInterpolatedSplinePointByLength(float pos) const {
   if (mPositions.size() > 0) {
     int baseIdx = 0;
@@ -398,7 +395,8 @@ CTransform4f CCameraSpline::GetInterpolatedSplinePointByLength(float pos) const 
         range -= mT[mPositions.size() - 2];
       }
     } else {
-      range = mT[baseIdx + 1] - mT[baseIdx];
+      const float& start = mT[baseIdx];
+      range = mT[baseIdx + 1] - start;
     }
 
     float tRaw = (pos - mT[baseIdx]) / range;
@@ -434,7 +432,6 @@ CTransform4f CCameraSpline::GetInterpolatedSplinePointByLength(float pos) const 
   return CTransform4f::Identity();
 }
 
-// TODO: non-matching
 float CCameraSpline::FindClosestLengthOnSpline(float time, CVector3f p) const {
   float ret = -1.f;
   float minLenDelta = 10000.f;
@@ -446,76 +443,53 @@ float CCameraSpline::FindClosestLengthOnSpline(float time, CVector3f p) const {
   }
 
   for (int i = 0; i < iterations; ++i) {
-    const float thisPosX = mPositions[i].GetX();
-    const float thisPosY = mPositions[i].GetY();
-    const float thisPosZ = mPositions[i].GetZ();
-
-    float nextPosX, nextPosY, nextPosZ;
+    const CVector3f thisPos = mPositions[i];
+    CVector3f nextPos;
     if (!mClosedLoop) {
-      nextPosX = mPositions[i + 1].GetX();
-      nextPosY = mPositions[i + 1].GetY();
-      nextPosZ = mPositions[i + 1].GetZ();
+      nextPos = mPositions[i + 1];
     } else if (i == mPositions.size() - 1) {
-      nextPosX = mPositions[0].GetX();
-      nextPosY = mPositions[0].GetY();
-      nextPosZ = mPositions[0].GetZ();
+      nextPos = mPositions[0];
     } else {
-      nextPosX = mPositions[i + 1].GetX();
-      nextPosY = mPositions[i + 1].GetY();
-      nextPosZ = mPositions[i + 1].GetZ();
+      nextPos = mPositions[i + 1];
     }
 
-    const float deltaX = nextPosX - thisPosX;
-    const float deltaY = nextPosY - thisPosY;
-    const float deltaZ = nextPosZ - thisPosZ;
-    const float revDeltaX = -deltaX;
-    const float revDeltaY = -deltaY;
-    const float revDeltaZ = -deltaZ;
-
-    CVector3f forwardDir(deltaX, deltaY, deltaZ);
-    CVector3f backwardDir(revDeltaX, revDeltaY, revDeltaZ);
+    CVector3f forwardDir = nextPos - thisPos;
+    CVector3f backwardDir = thisPos - nextPos;
 
     if (i != 0) {
-      forwardDir = CVector3f((thisPosX - mPositions[i - 1].GetX()) + deltaX,
-                             (thisPosY - mPositions[i - 1].GetY()) + deltaY,
-                             (thisPosZ - mPositions[i - 1].GetZ()) + deltaZ);
+      forwardDir = (thisPos - mPositions[i - 1]) + (nextPos - thisPos);
     } else {
-      CVector3f extrap = mPositions[0] - (mPositions[1] - mPositions[0]);
+      CVector3f extrap = mPositions[0] + (mPositions[0] - mPositions[1]);
       if (mClosedLoop) {
         extrap = mPositions[mPositions.size() - 1];
       }
-      forwardDir =
-          CVector3f((thisPosX - extrap.GetX()) + deltaX, (thisPosY - extrap.GetY()) + deltaY,
-                    (thisPosZ - extrap.GetZ()) + deltaZ);
+      forwardDir = (thisPos - extrap) + (nextPos - thisPos);
     }
     forwardDir.Normalize();
 
     if (i < mPositions.size() - 2) {
-      backwardDir = CVector3f((nextPosX - mPositions[i + 2].GetX()) + revDeltaX,
-                              (nextPosY - mPositions[i + 2].GetY()) + revDeltaY,
-                              (nextPosZ - mPositions[i + 2].GetZ()) + revDeltaZ);
+      backwardDir = (nextPos - mPositions[i + 2]) + (thisPos - nextPos);
     } else {
+      const CVector3f& first = mPositions[0];
       CVector3f extrap;
       if (mClosedLoop) {
-        extrap = (i == iterations - 1) ? mPositions[1] : mPositions[0];
+        if (i == iterations - 1) {
+          extrap = mPositions[1];
+        } else {
+          extrap = first;
+        }
       } else {
-        extrap = mPositions[i + 1] + (mPositions[i + 1] - mPositions[i]);
+        const CVector3f current = mPositions[i];
+        extrap = mPositions[i + 1] + (mPositions[i + 1] - current);
       }
-      backwardDir =
-          CVector3f((nextPosX - extrap.GetX()) + revDeltaX, (nextPosY - extrap.GetY()) + revDeltaY,
-                    (nextPosZ - extrap.GetZ()) + revDeltaZ);
+      backwardDir = (nextPos - extrap) + (thisPos - nextPos);
     }
     backwardDir.Normalize();
 
-    const CVector3f thisToPoint(p.GetX() - thisPosX, p.GetY() - thisPosY, p.GetZ() - thisPosZ);
-    const CVector3f delta(deltaX, deltaY, deltaZ);
-    const float projA = CVector3f::Dot(thisToPoint, forwardDir);
-    const float dotA = CVector3f::Dot(forwardDir, delta.AsNormalized());
-
-    const CVector3f nextToPoint(p.GetX() - nextPosX, p.GetY() - nextPosY, p.GetZ() - nextPosZ);
-    const CVector3f revDelta(revDeltaX, revDeltaY, revDeltaZ);
-    const float projB = CVector3f::Dot(nextToPoint, backwardDir);
-    const float dotB = CVector3f::Dot(backwardDir, revDelta.AsNormalized());
+    const float projA = CVector3f::Dot(p - thisPos, forwardDir);
+    const float dotA = CVector3f::Dot(forwardDir, CVector3f(nextPos - thisPos).AsNormalized());
+    const float projB = CVector3f::Dot(p - nextPos, backwardDir);
+    const float dotB = CVector3f::Dot(backwardDir, CVector3f(thisPos - nextPos).AsNormalized());
 
     float t = (projA / dotA) / ((projA / dotA) + (projB / dotB));
 
