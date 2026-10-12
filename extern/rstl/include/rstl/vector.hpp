@@ -129,7 +129,7 @@ public:
 
   void push_back(const T& in) {
     if (mCount >= mCapacity) {
-      reserve(mCapacity != 0 ? mCapacity * 2 : 4);
+      reserve(mCapacity ? mCapacity * 2 : 4);
     }
     rstl::construct(mItems + mCount, in);
     ++mCount;
