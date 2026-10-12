@@ -2678,7 +2678,7 @@ config.libs = [
                 "dolphin/os/OSMutex.c",
             ),
             Object(
-                MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_48"),
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "dolphin/os/OSReboot.c",
             ),
             Object(
