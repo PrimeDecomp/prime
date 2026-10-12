@@ -49,9 +49,10 @@ CGuiFrame::~CGuiFrame() {
 
 CGuiFrame* CGuiFrame::CreateFrame(uint id, CGuiSys& sys, CInputStream& in, CSimplePool* sp) {
   uint version = in.Get< uint >();
-  int a = in.ReadLong();
-  int b = in.ReadLong();
-  int c = in.ReadLong();
+  int a = in.Get< uint >();
+  int b = in.Get< uint >();
+  int c = in.Get< uint >();
+
   CGuiFrame* frame = rs_new CGuiFrame(id, sys, a, b, c, sp);
   CGuiFeeHelper::SetCurrentLoadingFrame(frame);
 #if VERSION >= VERSION_GM8P_00
