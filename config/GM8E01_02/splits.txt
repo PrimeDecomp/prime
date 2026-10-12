@@ -43,7 +43,7 @@ MetroidPrime/CControlMapper.cpp:
 	.sdata2     start:0x805AAE88 end:0x805AAE90
 
 MetroidPrime/Cameras/CFirstPersonCamera.cpp:
-	.text       start:0x8000E5D4 end:0x8000FF88
+	.text       start:0x8000E3A0 end:0x8000FF88
 	.sdata2     start:0x805AAEA0 end:0x805AAEC0
 
 MetroidPrime/CObjectList.cpp:
@@ -1871,7 +1871,7 @@ MetroidPrime/Weapons/CNewFlameThrower.cpp:
 	.sdata2     start:0x805AE850 end:0x805AE880
 
 MetroidPrime/Cameras/CInterpolationCamera.cpp:
-	.text       start:0x80265BEC end:0x80266918
+	.text       start:0x80265894 end:0x80266918
 	.sdata2     start:0x805AE880 end:0x805AE8B0
 
 MetroidPrime/Enemies/CSeedling.cpp:
