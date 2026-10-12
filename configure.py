@@ -947,7 +947,7 @@ config.libs = [
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/Cameras/CPathCamera.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/CFluidPlane.cpp"),
-            Object(MatchingFor("GM8E01_00"), "MetroidPrime/CFluidPlaneManager.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/CFluidPlaneManager.cpp"),
             Object(
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/ScriptObjects/CScriptGrapplePoint.cpp",
@@ -987,7 +987,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/BodyState/CBSLieOnGround.cpp",
             ),
-            Object(MatchingFor("GM8E01_00"), "MetroidPrime/BodyState/CBSLocomotion.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/BodyState/CBSLocomotion.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/BodyState/CBSStep.cpp",
@@ -1031,7 +1031,7 @@ config.libs = [
                 "MetroidPrime/BodyState/CBSSlide.cpp",
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/BodyState/CBSHurled.cpp"),
-            Object(MatchingFor("GM8E01_00", "GM8P01_00", "GM8J01_00"), "MetroidPrime/BodyState/CBSJump.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/BodyState/CBSJump.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/BodyState/CBSGenerate.cpp",
@@ -1152,7 +1152,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/ScriptObjects/CScriptTargetingPoint.cpp",
             ),
-            Object(MatchingFor("GM8E01_00", "GM8P01_00", "GM8J01_00"), "MetroidPrime/BodyState/CBSWallHang.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/BodyState/CBSWallHang.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/ScriptObjects/CScriptEMPulse.cpp",
