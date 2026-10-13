@@ -34,6 +34,11 @@
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "rstl/math.hpp"
 
+static EMaterialTypes skMissileTargetMaterial = kMT_Target;
+static EMaterialTypes skExcludeFromRadarMaterial = kMT_ExcludeFromRadar;
+static EMaterialTypes skSolidMaterial = kMT_Solid;
+
+const float CMetroidPrime::skInitialSwooshTime = 0.3f;
 static const float skJumpDistances[] = {3.f, 7.f, 15.f};
 static const float skHealthConstants[] = {2420.f, 1760.f, 880.f, 0.f};
 static const char* const skDrillerLocators[] = {"driller_LCTR1", "driller_LCTR2"};
@@ -76,7 +81,6 @@ static const pas::ELocomotionType skLocomotionSeverity[CMetroidPrime::kAT_Count]
     {pas::kLT_Invalid, pas::kLT_Invalid, pas::kLT_Invalid},
     {pas::kLT_Invalid, pas::kLT_Invalid, pas::kLT_Invalid},
 };
-static const float skInitialSwooshTime = 0.3f;
 
 struct SPrimeOBBJointInfo {
   const char* from;
@@ -484,7 +488,7 @@ void CMetroidPrime::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& nod
                                  scale * xeb4_.GetKnockBackPower());
         mgr.ApplyDamage(
             GetUniqueId(), mgr.GetPlayer()->GetUniqueId(), GetUniqueId(), damage,
-            CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()),
+            CMaterialFilter::MakeIncludeExclude(CMaterialList(skSolidMaterial), CMaterialList()),
             CVector3f::Zero());
       }
       shake = xed0_;
@@ -639,7 +643,7 @@ void CMetroidPrime::DoContactDamage(TUniqueId id, CStateManager& mgr) {
       if (0.f >= mCurDamageRemTime) {
         mgr.ApplyDamage(
             GetUniqueId(), touched, GetUniqueId(), damage,
-            CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()),
+            CMaterialFilter::MakeIncludeExclude(CMaterialList(skSolidMaterial), CMaterialList()),
             CVector3f::Zero());
         mCurDamageRemTime = mDamageWaitTime;
       }
@@ -649,7 +653,7 @@ void CMetroidPrime::DoContactDamage(TUniqueId id, CStateManager& mgr) {
         const CWeaponMode& mode = CWeaponMode(kWT_AI, false, false, true);
         mgr.ApplyDamage(
             GetUniqueId(), touched, GetUniqueId(), damage,
-            CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()),
+            CMaterialFilter::MakeIncludeExclude(CMaterialList(skSolidMaterial), CMaterialList()),
             CVector3f::Zero());
       }
     }
@@ -898,7 +902,7 @@ void CMetroidPrime::UpdateUnderbodyDamage(CStateManager& mgr) {
   x904_ = bounds.GetMaxPoint();
   if (player->GetTouchBounds()->DoBoundsOverlap(bounds) && 0.f >= mCurDamageRemTime) {
     mgr.ApplyDamage(GetUniqueId(), player->GetUniqueId(), GetUniqueId(), GetContactDamage(),
-                    CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()),
+                    CMaterialFilter::MakeIncludeExclude(CMaterialList(skSolidMaterial), CMaterialList()),
                     CVector3f::Zero());
     mCurDamageRemTime = mDamageWaitTime;
   }
@@ -1014,7 +1018,7 @@ void CMetroidPrime::EnableParasiteQueenProjectile(CStateManager& mgr, bool enabl
   }
 }
 
-bool CMetroidPrime::CanJump(CStateManager& mgr, float distance) {
+bool CMetroidPrime::CanJump(CStateManager& mgr, float distance) const {
   const TUniqueId id = FindBestAttackWaypoint(mgr, distance >= 0.f);
   if (const CScriptWaypoint* const waypoint =
           TCastToConstPtr< CScriptWaypoint >(mgr.GetObjectById(id))) {
@@ -1111,7 +1115,7 @@ void CMetroidPrime::AttachToRelayInRoom(CStateManager& mgr, const TAreaId& areaI
 }
 
 TUniqueId CMetroidPrime::GetConnectedRelayObject(CStateManager& mgr, EScriptObjectState state,
-                                                 EScriptObjectMessage msg) {
+                                                 EScriptObjectMessage msg) const {
   if (const CMetroidPrimeRelay* const relay =
           TCastToConstPtr< CMetroidPrimeRelay >(mgr.GetObjectById(mRelayId))) {
     rstl::reserved_vector< TUniqueId, 8 > ids;
@@ -1135,7 +1139,7 @@ TUniqueId CMetroidPrime::GetConnectedRelayObject(CStateManager& mgr, EScriptObje
   return kInvalidUniqueId;
 }
 
-TUniqueId CMetroidPrime::FindBestAttackWaypoint(CStateManager& mgr, bool forward) {
+TUniqueId CMetroidPrime::FindBestAttackWaypoint(CStateManager& mgr, bool forward) const {
   TUniqueId id = GetConnectedRelayObject(mgr, kSS_Attack, kSM_Follow);
   TUniqueId bestId = kInvalidUniqueId;
   float bestDistance = 0.f;
@@ -1673,7 +1677,7 @@ void CMetroidPrime::EnableTractorBeamVisorEffect(CStateManager& mgr, bool enable
 CMetroidPrime::CMissileTarget::CMissileTarget(TUniqueId uid, bool active, const rstl::string& name,
                                               const CEntityInfo& info)
 : CPhysicsActor(uid, active, name, info, CTransform4f::Identity(), CModelData::CModelDataNull(),
-                CMaterialList(kMT_Target, kMT_ExcludeFromRadar),
+                CMaterialList(skMissileTargetMaterial, skExcludeFromRadarMaterial),
                 CAABox(CVector3f(-1.f, -1.f, -1.f), CVector3f(1.f, 1.f, 1.f)), SMoverData(1.f),
                 CActorParameters::None(), 0.3f, 0.1f) {}
 
@@ -2214,7 +2218,7 @@ void CMetroidPrime::Flinch(CStateManager& mgr, EStateMsg msg, float arg) {
     x8f4_27_ = false;
     break;
   case kStateMsg_Update:
-    TryCommand(mgr, pas::kAS_KnockBack, &CPatterned::TryKnockBack, 5);
+    TryCommand(mgr, pas::kAS_KnockBack, &CPatterned::TryKnockBack_Front, 5);
     if (mDamageCooldownTimer < 0.25f * skDamageHitTime) {
       mDamageCooldownTimer = skDamageHitTime;
     }

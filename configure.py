@@ -1470,7 +1470,7 @@ config.libs = [
             Object(NonMatching, "MetroidPrime/CFluidPlaneRender.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/Enemies/CBurrower.cpp"),
             Object(
-                NonMatching,
+                MatchingFor(*NTSC_GC_VERSIONS),
                 "MetroidPrime/Enemies/CMetroidPrime.cpp",
                 extra_cflags=['-pragma "inline_max_size(256)"'] if version_num < VERSIONS.index("GM8P01_00") else [],
             ),

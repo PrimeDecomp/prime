@@ -224,6 +224,8 @@ public:
   };
 
 private:
+  static const float skInitialSwooshTime;
+
   enum ETractorbeamPosition {};
   void UpdateTractorBeamFX(const CVector3f& from, const CVector3f& to, ETractorbeamPosition index,
                            float width, float height, float phase);
@@ -290,9 +292,9 @@ private:
   void ResetMissileTarget(CStateManager& mgr);
   void ResetAttackTimeOut(CStateManager& mgr);
   TUniqueId GetConnectedRelayObject(CStateManager& mgr, EScriptObjectState state,
-                                    EScriptObjectMessage msg);
-  bool CanJump(CStateManager& mgr, float distance);
-  TUniqueId FindBestAttackWaypoint(CStateManager& mgr, bool forward);
+                                    EScriptObjectMessage msg) const;
+  bool CanJump(CStateManager& mgr, float distance) const;
+  TUniqueId FindBestAttackWaypoint(CStateManager& mgr, bool forward) const;
 
   TUniqueId mRelayId;
   rstl::single_ptr< CCollisionActorManager > mCollisionManager;
