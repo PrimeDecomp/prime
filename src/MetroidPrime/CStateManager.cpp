@@ -1517,7 +1517,13 @@ const bool CStateManager::MultiRayCollideWorld(const CMRay& ray,
                                                const CMaterialFilter& filter) const {
   CVector3f crossed2 =
       CVector3f(ray.GetDirection().GetY(), -ray.GetDirection().GetZ(), ray.GetDirection().GetX());
-  CVector3f crossed = CVector3f::Cross(crossed2, ray.GetDirection()).AsNormalized();
+  const float crossX =
+      crossed2.GetY() * ray.GetDirection().GetZ() - ray.GetDirection().GetY() * crossed2.GetZ();
+  const float crossY =
+      crossed2.GetZ() * ray.GetDirection().GetX() - ray.GetDirection().GetZ() * crossed2.GetX();
+  const float crossZ =
+      crossed2.GetX() * ray.GetDirection().GetY() - ray.GetDirection().GetX() * crossed2.GetY();
+  CVector3f crossed = CVector3f(crossX, crossY, crossZ).AsNormalized();
   crossed2 = 0.35355338f * CVector3f::Cross(ray.GetDirection(), crossed);
   crossed *= 0.35355338f;
 
