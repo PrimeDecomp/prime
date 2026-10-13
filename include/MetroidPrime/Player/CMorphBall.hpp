@@ -6,6 +6,7 @@
 #include "Kyoto/Math/CQuaternion.hpp"
 #include "Kyoto/Math/CTransform4f.hpp"
 #include "Kyoto/Math/CVector3f.hpp"
+#include "Kyoto/SObjectTag.hpp"
 #include "MetroidPrime/CActor.hpp"
 #include "MetroidPrime/CEntityInfo.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
@@ -17,6 +18,8 @@
 
 #include "Collision/CCollidableSphere.hpp"
 #include "Collision/CCollisionInfoList.hpp"
+
+#include "rstl/list.hpp"
 
 class CActor;
 class CActorLights;

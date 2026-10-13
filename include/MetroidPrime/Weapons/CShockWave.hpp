@@ -3,6 +3,7 @@
 
 #include "MetroidPrime/CActor.hpp"
 #include "MetroidPrime/CDamageInfo.hpp"
+#include "MetroidPrime/CGroundMovement.hpp"
 
 #include <Kyoto/Particles/CElectricDescription.hpp>
 #include <rstl/optional_object.hpp>

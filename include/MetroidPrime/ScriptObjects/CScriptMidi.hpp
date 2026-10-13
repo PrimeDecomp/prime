@@ -4,6 +4,7 @@
 #include "MetroidPrime/CEntity.hpp"
 
 #include "Kyoto/Audio/CMidiManager.hpp"
+#include "Kyoto/TToken.hpp"
 
 class CScriptMidi : public CEntity {
 public:

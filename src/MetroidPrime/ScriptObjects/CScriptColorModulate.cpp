@@ -1,4 +1,5 @@
 #include "MetroidPrime/ScriptObjects/CScriptColorModulate.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "Kyoto/Graphics/CModel.hpp"
 #include "Kyoto/Math/CloseEnough.hpp"

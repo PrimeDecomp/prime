@@ -1,4 +1,5 @@
 #include "MetroidPrime/Enemies/CTeamAiMgr.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "Kyoto/Streams/CInputStream.hpp"
 #include "MetroidPrime/Enemies/CAi.hpp"

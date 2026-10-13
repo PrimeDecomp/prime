@@ -1,4 +1,5 @@
 #include "MetroidPrime/Enemies/CBloodFlower.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/BodyState/CBodyController.hpp"
 #include "MetroidPrime/CAnimData.hpp"

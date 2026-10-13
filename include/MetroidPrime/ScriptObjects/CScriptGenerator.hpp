@@ -2,6 +2,7 @@
 #define _CSCRIPTGENERATOR
 
 #include "MetroidPrime/CEntity.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 
 class CScriptGenerator : public CEntity {
 public:

@@ -1,4 +1,5 @@
 #include "MetroidPrime/ScriptObjects/CSustainedPlayerDamage.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/Player/CPlayer.hpp"
 

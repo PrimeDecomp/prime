@@ -2,6 +2,7 @@
 #define _CFIREFLEA
 
 #include "Kyoto/Graphics/CColor.hpp"
+#include "MetroidPrime/CGroundMovement.hpp"
 #include "MetroidPrime/Enemies/CPatterned.hpp"
 #include "MetroidPrime/PathFinding/CPathFindSearch.hpp"
 

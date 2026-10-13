@@ -1,4 +1,5 @@
 #include "MetroidPrime/ScriptObjects/CScriptPointOfInterest.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/CActorParameters.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"

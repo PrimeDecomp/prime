@@ -1,4 +1,5 @@
 #include "MetroidPrime/CEntity.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/CValidEntityPredicate.hpp"
 #include "MetroidPrime/TGameTypes.hpp"

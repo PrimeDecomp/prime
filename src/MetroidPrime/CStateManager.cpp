@@ -2,6 +2,7 @@
 
 #if VERSION >= VERSION_R3IJ_00
 
+#include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CActor.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
@@ -902,8 +903,8 @@ void CStateManager::InitializeState(unsigned int mlvlId, TAreaId aid, unsigned i
     }
 
     mNextAreaId = mWorld->GetCurrentAreaId();
-    CGameArea* area = mWorld->Area(GetNextAreaId());
-    if (mWorld->ScheduleAreaToLoad(area, *this)) {
+    CGameArea* area = mWorld->Area(mNextAreaId);
+    if (mWorld->ScheduleAreaToLoad(mWorld->Area(mNextAreaId), *this)) {
       area->StartStreamIn(*this);
       return;
     }
@@ -1517,7 +1518,17 @@ const bool CStateManager::MultiRayCollideWorld(const CMRay& ray,
                                                const CMaterialFilter& filter) const {
   CVector3f crossed2 =
       CVector3f(ray.GetDirection().GetY(), -ray.GetDirection().GetZ(), ray.GetDirection().GetX());
+#if VERSION >= VERSION_GM8P_00
   CVector3f crossed = CVector3f::Cross(crossed2, ray.GetDirection()).AsNormalized();
+#else
+  const float crossX =
+      crossed2.GetY() * ray.GetDirection().GetZ() - ray.GetDirection().GetY() * crossed2.GetZ();
+  const float crossY =
+      crossed2.GetZ() * ray.GetDirection().GetX() - ray.GetDirection().GetZ() * crossed2.GetX();
+  const float crossZ =
+      crossed2.GetX() * ray.GetDirection().GetY() - ray.GetDirection().GetX() * crossed2.GetY();
+  CVector3f crossed = CVector3f(crossX, crossY, crossZ).AsNormalized();
+#endif
   crossed2 = 0.35355338f * CVector3f::Cross(ray.GetDirection(), crossed);
   crossed *= 0.35355338f;
 
@@ -2125,19 +2136,11 @@ void CStateManager::PreRender() {
 
   for (CGameArea::CChainIterator areaIt = mWorld->ChainHead(CWorld::kC_Alive);
        areaIt != CWorld::AliveAreasEnd(); ++areaIt) {
-    CGameArea::EOcclusionState occState;
-    if (areaIt->IsPostConstructed()) {
-      occState = areaIt->GetPostConstructed()->mOcclusionState;
-    } else {
-      occState = CGameArea::kOS_Occluded;
-    }
-
-    if (occState == CGameArea::kOS_Visible) {
-      CObjectList* const areaObjList =
-          static_cast< CObjectList* >(areaIt->GetPostConstructed()->mAreaObjectList.get());
-      for (int i = areaObjList->GetFirstObjectIndex(); i != -1;
-           i = areaObjList->GetNextObjectIndex(i)) {
-        CActor* actor = TCastToPtr< CActor >((*areaObjList)[i]);
+    if (areaIt->GetOcclusionState() == CGameArea::kOS_Visible) {
+      CObjectList& areaObjList = *areaIt->ObjectList();
+      for (int i = areaObjList.GetFirstObjectIndex(); i != -1;
+           i = areaObjList.GetNextObjectIndex(i)) {
+        CActor* actor = TCastToPtr< CActor >(areaObjList[i]);
         if (actor != nullptr && actor->IsDrawEnabled()) {
           actor->CalculateRenderBounds();
           actor->PreRender(*this, frustum);
@@ -2316,9 +2319,12 @@ void CStateManager::DrawWorld() const {
     mask = 0x34;
     targetMask = 0;
   } else {
-    int bit = visor == CPlayerState::kPV_XRay ? 3 : 1;
-    mThermalFlag = kTD_Bypass;
+    int bit = 1;
+    if (visor == CPlayerState::kPV_XRay) {
+      bit = 3;
+    }
     mask = 1 << bit;
+    mThermalFlag = kTD_Bypass;
     targetMask = 0;
   }
 
@@ -2373,9 +2379,10 @@ void CStateManager::DrawWorld() const {
         }
         if (actor == mPlayer) {
           if (!thermal) {
-            const CPlayer::EPlayerMorphBallState state = mPlayer->GetMorphballTransitionState();
+            CPlayer* player = mPlayer;
+            const CPlayer::EPlayerMorphBallState state = player->GetMorphballTransitionState();
             if (state == CPlayer::kMS_Morphed || state == CPlayer::kMS_Unmorphed) {
-              mPlayer->AddToRenderer(frustum, *this);
+              player->AddToRenderer(frustum, *this);
             } else {
               morphingPlayerVisible = true;
             }
@@ -2697,7 +2704,7 @@ void CStateManager::MurderScriptInstanceNames() {
   while (!done) {
     done = true;
 
-    for (rstl::set< rstl::string >::iterator it = mUniqueInstanceNames.begin();
+    for (TInstanceNameIterator it = mUniqueInstanceNames.begin();
          it != mUniqueInstanceNames.end(); ++it) {
       if (it->refcount() == 1) {
         mUniqueInstanceNames.erase(it);

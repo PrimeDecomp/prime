@@ -1,4 +1,5 @@
 #include "MetroidPrime/Player/CMorphBall.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "Collision/CMaterialList.hpp"
 #include "Collision/CollisionUtil.hpp"

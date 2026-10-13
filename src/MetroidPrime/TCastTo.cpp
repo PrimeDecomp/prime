@@ -1,4 +1,5 @@
 #include "MetroidPrime/TCastTo.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/CActor.hpp"
 #include "MetroidPrime/CEntity.hpp"

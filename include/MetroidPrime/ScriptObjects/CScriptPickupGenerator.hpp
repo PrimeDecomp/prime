@@ -2,6 +2,7 @@
 #define _CSCRIPTPICKUPGENERATOR
 
 #include "MetroidPrime/CEntity.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
 
 class CScriptPickupGenerator : public CEntity {
 public:

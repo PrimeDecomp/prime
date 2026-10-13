@@ -1,4 +1,5 @@
 #include "MetroidPrime/Enemies/CFlaahgraPlants.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/BodyState/CBodyController.hpp"
 #include "MetroidPrime/CCollisionActor.hpp"

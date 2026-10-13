@@ -1,4 +1,5 @@
 #include "MetroidPrime/Enemies/CRipperControlledPlatform.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/CActorParameters.hpp"
 #include "MetroidPrime/CGameCollision.hpp"

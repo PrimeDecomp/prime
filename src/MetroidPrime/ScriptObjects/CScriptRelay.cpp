@@ -1,4 +1,5 @@
 #include "MetroidPrime/ScriptObjects/CScriptRelay.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 CScriptRelay::CScriptRelay(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                            const bool active)

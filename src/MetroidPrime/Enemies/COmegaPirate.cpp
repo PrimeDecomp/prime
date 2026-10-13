@@ -1,4 +1,5 @@
 #include "MetroidPrime/Enemies/COmegaPirate.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "Collision/CRayCastResult.hpp"
 #include "Kyoto/Animation/CInt32POINode.hpp"

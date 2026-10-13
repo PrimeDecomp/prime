@@ -1098,7 +1098,7 @@ ApplyKnockBack__13CStateManagerFR6CActorRC11CDamageInfoRC20CDamageVulnerabilityR
 ApplyDamageToWorld__13CStateManagerF9TUniqueIdRC6CActorRC9CVector3fRC11CDamageInfoRC15CMaterialFilter = .text:0x80048F98; // type:function size:0x364
 ProcessRadiusDamage__13CStateManagerFRC6CActorR6CActor9TUniqueIdRC11CDamageInfoRC15CMaterialFilter = .text:0x800492FC; // type:function size:0x1DC
 ApplyRadiusDamage__13CStateManagerFRC6CActorRC9CVector3fR6CActorRC11CDamageInfo = .text:0x800494D8; // type:function size:0x2F4
-TestRayDamage__13CStateManagerCFRC9CVector3fRC6CActorRCQ24rstl49reserved_vector<9TUniqueId,1024> = .text:0x800497CC; // type:function size:0x3F8 scope:global
+TestRayDamage__13CStateManagerCFRC9CVector3fRC6CActorRCQ24rstl32reserved_vector<9TUniqueId,1024> = .text:0x800497CC; // type:function size:0x3F8 scope:global
 MultiRayCollideWorld__13CStateManagerCFRC5CMRayRC15CMaterialFilter = .text:0x80049BC4; // type:function size:0x1F4
 TestBombHittingWater__13CStateManagerFRC6CActorRC9CVector3fR6CActor = .text:0x80049DB8; // type:function size:0x308
 ApplyLocalDamage__13CStateManagerFRC9CVector3fRC9CVector3fR6CActorfRC11CWeaponMode = .text:0x8004A0C0; // type:function size:0x2CC
@@ -1463,7 +1463,7 @@ SetThermalSpeedAndTarget__9CGameAreaFff = .text:0x8005E780; // type:function siz
 SetAreaAttributes__9CGameAreaFP21CScriptAreaAttributes = .text:0x8005E794; // type:function size:0x2C
 GetXRayFogDistance__9CGameAreaFv = .text:0x8005E7C0; // type:function size:0x20
 SetLoadPauseState__9CGameAreaFb = .text:0x8005E7E0; // type:function size:0x90
-GetLayerScriptBuffer__9CGameAreaFRCi = .text:0x8005E870; // type:function size:0x50 scope:global
+GetLayerScriptBuffer__9CGameAreaCF8TLayerId = .text:0x8005E870; // type:function size:0x50 scope:global
 IsFinishedOccluding__9CGameAreaCFv = .text:0x8005E8C0; // type:function size:0x24
 IGetScriptingMemoryAlways__14CDummyGameAreaCFv = .text:0x8005E8E4; // type:function size:0x2C
 IGetAreaSaveId__14CDummyGameAreaCFv = .text:0x8005E910; // type:function size:0x8 scope:global

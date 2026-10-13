@@ -1,4 +1,5 @@
 #include "MetroidPrime/ScriptObjects/CScriptMemoryRelay.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/CScriptMailbox.hpp"
 

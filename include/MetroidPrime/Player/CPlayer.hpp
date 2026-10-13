@@ -13,8 +13,10 @@
 #include "MetroidPrime/CPhysicsActor.hpp"
 #include "MetroidPrime/Player/CPlayerEnergyDrain.hpp"
 #include "MetroidPrime/Player/CPlayerState.hpp"
+#include "MetroidPrime/Weapons/WeaponTypes.hpp"
 
 #include "Kyoto/Math/CMath.hpp"
+#include "Kyoto/TOneStatic.hpp"
 #include "Kyoto/TReservedAverage.hpp"
 
 #include "rstl/auto_ptr.hpp"

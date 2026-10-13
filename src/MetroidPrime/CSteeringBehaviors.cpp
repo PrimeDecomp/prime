@@ -1,4 +1,5 @@
 #include "MetroidPrime/CSteeringBehaviors.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CPhysicsActor.hpp"
 
 #include "Kyoto/Math/CMath.hpp"

@@ -1,4 +1,5 @@
 #include "MetroidPrime/ScriptObjects/CScriptPlatform.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetaRender/CCubeRenderer.hpp"
 #include "MetroidPrime/CActorModelParticles.hpp"
