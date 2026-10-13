@@ -23,9 +23,9 @@ rstl::auto_ptr< CPVSAreaSet > CPVSAreaSet::MakeAreaSet(const char* data, int len
   const int numFeatures = in.ReadLong();
   const int numLights = in.ReadLong();
   const int num2ndLights = in.ReadLong();
-  const int numActors = in.ReadLong();
-  const int leafSize = in.ReadLong();
-  const int lightIndexCount = in.ReadLong();
+  const int numActors = in.Get< uint >();
+  const int leafSize = in.Get< uint >();
+  const int lightIndexCount = in.Get< uint >();
 
   data += in.GetReadPosition();
   const char* const entityIndexEnd = data + numActors * 4;
