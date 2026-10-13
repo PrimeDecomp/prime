@@ -1,4 +1,5 @@
 #include "MetroidPrime/ScriptObjects/CScriptAiJumpPoint.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/CActorParameters.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptWaypoint.hpp"

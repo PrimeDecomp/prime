@@ -1,4 +1,5 @@
 #include "MetroidPrime/ScriptObjects/CScriptCameraHint.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/CActorParameters.hpp"
 #include "MetroidPrime/Cameras/CCameraManager.hpp"

@@ -1,4 +1,5 @@
 #include "MetroidPrime/ScriptObjects/CScriptSpiderBallWaypoint.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CActorParameters.hpp"
 #include "MetroidPrime/CEntityInfo.hpp"
 #include "MetroidPrime/TCastTo.hpp"

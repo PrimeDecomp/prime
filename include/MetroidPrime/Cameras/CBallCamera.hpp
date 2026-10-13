@@ -5,6 +5,7 @@
 
 #include "MetroidPrime/Cameras/CCameraSpline.hpp"
 #include "MetroidPrime/Cameras/CGameCamera.hpp"
+#include "MetroidPrime/CGroundMovement.hpp"
 
 #include "Kyoto/Math/CMath.hpp"
 

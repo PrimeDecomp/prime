@@ -2,6 +2,8 @@
 #define _CSCRIPTHUDMEMO
 
 #include "MetroidPrime/CEntity.hpp"
+#include "Kyoto/SObjectTag.hpp"
+#include "Kyoto/TToken.hpp"
 
 #include "MetroidPrime/HUD/CHUDMemoParms.hpp"
 

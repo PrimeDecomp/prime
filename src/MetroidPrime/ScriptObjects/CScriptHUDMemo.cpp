@@ -1,4 +1,5 @@
 #include "MetroidPrime/ScriptObjects/CScriptHUDMemo.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/HUD/CSamusHud.hpp"
 

@@ -6,6 +6,7 @@
 #include "MetroidPrime/CDamageVulnerability.hpp"
 #include "MetroidPrime/CHealthInfo.hpp"
 #include "MetroidPrime/CPhysicsActor.hpp"
+#include "MetroidPrime/CGroundMovement.hpp"
 
 #include "Kyoto/CRandom16.hpp"
 #include "Kyoto/Math/CQuaternion.hpp"

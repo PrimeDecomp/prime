@@ -1,4 +1,5 @@
 #include "MetroidPrime/CGameLight.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/CActorParameters.hpp"
 

@@ -1,4 +1,5 @@
 #include "MetroidPrime/Enemies/CPuffer.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/Math/CAbsAngle.hpp"

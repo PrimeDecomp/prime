@@ -1,4 +1,5 @@
 #include "MetroidPrime/Cameras/CPathCamera.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "Collision/CRayCastResult.hpp"
 #include "Kyoto/Math/CMath.hpp"

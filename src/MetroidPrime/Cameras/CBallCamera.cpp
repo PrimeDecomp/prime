@@ -1,5 +1,6 @@
 #define CSTATEMANAGER_OUT_OF_LINE_GETPLAYER
 #include "MetroidPrime/Cameras/CBallCamera.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "Kyoto/Math/CRelAngle.hpp"
 #include "Kyoto/Math/CVector3f.hpp"

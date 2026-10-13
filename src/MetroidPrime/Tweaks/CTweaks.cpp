@@ -1,3 +1,4 @@
+#include "MetroidPrime/CStateManager.hpp"
 #include <MetroidPrime/CMappableObject.hpp>
 #include <MetroidPrime/Player/CPlayerCameraBob.hpp>
 

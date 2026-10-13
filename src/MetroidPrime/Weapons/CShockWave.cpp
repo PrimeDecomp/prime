@@ -1,5 +1,6 @@
 #define CSTATEMANAGER_OUT_OF_LINE_GETPLAYER
 #include "MetroidPrime/Weapons/CShockWave.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "Kyoto/Audio/CSfxManager.hpp"
 #include "Kyoto/Math/CAABox.hpp"

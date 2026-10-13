@@ -1,4 +1,5 @@
 #include "MetroidPrime/Enemies/CAmbientAI.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/CAnimData.hpp"
 #include "MetroidPrime/CModelData.hpp"

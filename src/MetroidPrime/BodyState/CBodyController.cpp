@@ -1,4 +1,5 @@
 #include "MetroidPrime/BodyState/CBodyController.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/BodyState/CAdditiveBodyState.hpp"
 #include "MetroidPrime/BodyState/CBodyState.hpp"

@@ -2,6 +2,7 @@
 
 #if VERSION >= VERSION_R3IJ_00
 
+#include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/CActor.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"

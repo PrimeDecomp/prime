@@ -2,8 +2,11 @@
 #define _CSCRIPTACTORROTATE
 
 #include "MetroidPrime/CEntity.hpp"
+#include "Kyoto/Math/CVector3f.hpp"
+#include "Kyoto/Math/CTransform4f.hpp"
 
 #include "rstl/map.hpp"
+#include "rstl/vector.hpp"
 
 struct SRiders;
 class CScriptPlatform;

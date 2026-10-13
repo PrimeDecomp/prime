@@ -1,4 +1,5 @@
 #include "MetroidPrime/Weapons/CProjectileInfo.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/CSteeringBehaviors.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"

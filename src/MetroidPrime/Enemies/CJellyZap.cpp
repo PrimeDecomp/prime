@@ -1,4 +1,5 @@
 #include "MetroidPrime/Enemies/CJellyZap.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "Kyoto/Math/CloseEnough.hpp"
 

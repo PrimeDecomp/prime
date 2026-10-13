@@ -1,4 +1,5 @@
 #include "MetroidPrime/ScriptObjects/CScriptMidi.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/CGameArea.hpp"
 #include "MetroidPrime/CInGameTweakManager.hpp"

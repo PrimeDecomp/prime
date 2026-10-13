@@ -1,4 +1,5 @@
 #include "MetroidPrime/BodyState/CBSSlide.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/BodyState/CBodyController.hpp"
 #include "MetroidPrime/CActor.hpp"

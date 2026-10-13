@@ -1,3 +1,4 @@
+#include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
 
 #include "Kyoto/Math/CAABox.hpp"

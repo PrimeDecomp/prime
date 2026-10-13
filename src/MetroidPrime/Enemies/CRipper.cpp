@@ -1,4 +1,5 @@
 #include "MetroidPrime/Enemies/CRipper.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "Collision/CMaterialList.hpp"
 #include "Kyoto/Math/CAABox.hpp"

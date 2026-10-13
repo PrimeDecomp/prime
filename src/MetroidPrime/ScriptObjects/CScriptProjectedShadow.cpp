@@ -1,4 +1,5 @@
 #include "MetroidPrime/ScriptObjects/CScriptProjectedShadow.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/CActorParameters.hpp"
 #include "MetroidPrime/CAnimData.hpp"

@@ -4,7 +4,7 @@
 #include "types.h"
 
 #include "MetroidPrime/CEntityInfo.hpp"
-#include "MetroidPrime/CStateManager.hpp"
+class CStateManager;
 #include "MetroidPrime/TCastTo.hpp"
 #include "MetroidPrime/TGameTypes.hpp"
 

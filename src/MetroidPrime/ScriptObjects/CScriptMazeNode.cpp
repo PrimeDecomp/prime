@@ -1,3 +1,4 @@
+#include "MetroidPrime/CStateManager.hpp"
 #include "MetroidPrime/ScriptObjects/CScriptMazeNode.hpp"
 
 #include "Kyoto/CResFactory.hpp"

@@ -1,4 +1,5 @@
 #include "MetroidPrime/Enemies/CStateMachine.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/Enemies/CAi.hpp"
 

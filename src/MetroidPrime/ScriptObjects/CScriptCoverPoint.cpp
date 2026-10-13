@@ -1,4 +1,5 @@
 #include "MetroidPrime/ScriptObjects/CScriptCoverPoint.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/CActorParameters.hpp"
 

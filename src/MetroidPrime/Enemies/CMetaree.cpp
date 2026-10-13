@@ -1,4 +1,5 @@
 #include "MetroidPrime/Enemies/CMetaree.hpp"
+#include "MetroidPrime/CStateManager.hpp"
 
 #include "MetroidPrime/BodyState/CBodyController.hpp"
 #include "MetroidPrime/Player/CPlayer.hpp"
