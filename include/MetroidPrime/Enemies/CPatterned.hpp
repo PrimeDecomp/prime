@@ -313,6 +313,10 @@ public:
 #ifndef HAS_TYPES_MATCH
   template < class T >
   static T* CastTo(const TPatternedCast< T >& ent);
+  template < class T >
+  static const T* CastToConst(const CEntity* ent) {
+    return CastTo(TPatternedCast< T >(const_cast< CEntity* >(ent)));
+  }
 #endif
 
   void TryKnockBack(CStateManager& mgr, int arg);
@@ -512,8 +516,10 @@ CHECK_CHILD_SIZEOF(CPatterned, CAi, 0x290)
 
 #ifdef HAS_TYPES_MATCH
 #define PATTERNED_CAST_TO(CLS, obj) TCastToPtr< CLS >(obj)
+#define PATTERNED_CONST_CAST_TO(CLS, obj) TCastToConstPtr< CLS >(obj)
 #else
 #define PATTERNED_CAST_TO(CLS, obj) CPatterned::CastTo(TPatternedCast< CLS >(obj))
+#define PATTERNED_CONST_CAST_TO(CLS, obj) CPatterned::CastToConst< CLS >(obj)
 #endif
 
 #endif // _CPATTERNED

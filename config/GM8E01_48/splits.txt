@@ -1900,6 +1900,12 @@ MetroidPrime/Enemies/CBurrower.cpp:
 MetroidPrime/Enemies/CMetroidPrime.cpp:
 	.text       start:0x802713B8 end:0x8027C6D8
 	.ctors      start:0x803CB3C0 end:0x803CB3C4
+	.rodata     start:0x803D5538 end:0x803D5978
+	.data       start:0x803EAB90 end:0x803EB280
+	.bss        start:0x8046DDA0 end:0x8046DDB8
+	.sdata      start:0x805A80F0 end:0x805A8180
+	.sbss       start:0x805A8E20 end:0x805A8E30
+	.sdata2     start:0x805AD5C8 end:0x805AD6F8
 
 MetroidPrime/ScriptObjects/CScriptBeam.cpp:
 	.text       start:0x8027C6D8 end:0x8027CC44
