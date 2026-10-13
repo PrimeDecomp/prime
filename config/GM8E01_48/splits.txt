@@ -2092,6 +2092,7 @@ WorldFormat/CCollidableOBBTreeGroup.cpp:
 
 WorldFormat/CPVSAreaSet.cpp:
 	.text       start:0x802AE520 end:0x802AE800
+	.rodata     start:0x803D6220 end:0x803D6228
 
 WorldFormat/CAreaRenderOctTree.cpp:
 	.text       start:0x802AE800 end:0x802AEE44

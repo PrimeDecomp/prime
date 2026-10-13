@@ -1571,7 +1571,10 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "WorldFormat/CCollidableOBBTreeGroup.cpp"
             ),
-            Object(NonMatching, "WorldFormat/CPVSAreaSet.cpp"),
+            Object(
+                MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
+                "WorldFormat/CPVSAreaSet.cpp",
+            ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"), "WorldFormat/CAreaRenderOctTree.cpp"
             ),
