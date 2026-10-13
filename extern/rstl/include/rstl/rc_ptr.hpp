@@ -35,7 +35,11 @@ public:
 #else
   rc_ptr() : mRefData(&CRefData::sNull) { mRefData->AddRef(); }
   rc_ptr(const T* ptr) : mRefData(rs_new CRefData(ptr)) {}
-  rc_ptr(const rc_ptr& other) : mRefData(other.mRefData) { mRefData->AddRef(); }
+  rc_ptr(const rc_ptr& other) : mRefData(other.mRefData) {
+    RS_ASSERT(mRefData != nullptr, "rstl precondition");
+    RS_ASSERT(mRefData->GetRefCount() > 0, "rstl precondition");
+    mRefData->AddRef();
+  }
 #endif
   ~rc_ptr() {
 #if RSTL_VERSION >= RSTL_R3IJ
@@ -56,6 +60,9 @@ public:
       ++*mCount;
     }
 #else
+    RS_ASSERT(mRefData != nullptr, "rstl precondition");
+    RS_ASSERT(other.mRefData != nullptr, "rstl precondition");
+    RS_ASSERT(other.mRefData->GetRefCount() > 0, "rstl precondition");
     if (mRefData != other.mRefData) {
       ReleaseData();
       mRefData = other.mRefData;

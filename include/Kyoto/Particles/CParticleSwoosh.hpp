@@ -31,7 +31,7 @@ public:
     , mInitialRot(irot)
     , mRotm(rotm)
     , mOrientation(orient)
-    , mColor(color)
+    , mColor(CColor(color))
     , mStartFrame(startFrame)
     , mVelocity(velocity) {}
 
