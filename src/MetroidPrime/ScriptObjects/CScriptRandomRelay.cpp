@@ -2,6 +2,8 @@
 
 #include "MetroidPrime/CStateManager.hpp"
 
+#include "Kyoto/Basics/CCast.hpp"
+
 #include "rstl/math.hpp"
 
 CScriptRandomRelay::CScriptRandomRelay(TUniqueId uid, const rstl::string& name,
@@ -41,7 +43,7 @@ void CScriptRandomRelay::SendLocalScriptMsgs(EScriptObjectState state, CStateMan
 
     rstl::vector< SConnection >::const_iterator conn = GetConnectionList().begin();
     for (; conn != GetConnectionList().end(); ++conn) {
-      if (conn->mState == kSS_Zero) {
+      if (state == conn->mState) {
         CObjectList& objList = stateMgr.ObjectListById(kOL_All);
         CStateManager::TIdListResult list = stateMgr.GetIdListForScript(conn->mObjId);
         if (!(list.first == list.second)) {
@@ -55,17 +57,22 @@ void CScriptRandomRelay::SendLocalScriptMsgs(EScriptObjectState state, CStateMan
       }
     }
 
-    int targetSetSize = mPercentSize ? int(0.5f + (float(mSendSetSize * objs.size()) / 100.f))
-                                        : mSendSetSize;
-    targetSetSize +=
-        int(float(mSendSetVariance) * (stateMgr.Random()->Float() * 2.0f)) - mSendSetVariance;
+    int targetSetSize = 0;
+    int currentSetSize = objs.size();
+    if (mPercentSize) {
+      targetSetSize = int(0.5f + (float(currentSetSize * mSendSetSize) / 100.f));
+    } else {
+      targetSetSize = mSendSetSize;
+    }
+    targetSetSize += CCast::FtoS(float(mSendSetVariance) * (stateMgr.Random()->Float() * 2.f)) -
+                     mSendSetVariance;
 
-    targetSetSize = rstl::min_val(rstl::max_val(0, targetSetSize), 64);
+    targetSetSize = rstl::min_val(rstl::max_val(0, targetSetSize), 100);
 
-    while (objs.size() > targetSetSize) {
-      const int randomRemoveIdx = int(stateMgr.Random()->Float() * float(objs.size()) * 0.99f);
+    while (currentSetSize > targetSetSize) {
       rstl::vector< rstl::pair< CEntity*, EScriptObjectMessage > >::iterator it = objs.begin();
-      for (int i = 0; i < randomRemoveIdx; ++i) {
+      int randomRemoveIdx = int(stateMgr.Random()->Float() * float(objs.size()) * 0.99f);
+      for (; randomRemoveIdx > 0; --randomRemoveIdx) {
         ++it;
         if (objs.end() == it) {
           break;
@@ -73,6 +80,7 @@ void CScriptRandomRelay::SendLocalScriptMsgs(EScriptObjectState state, CStateMan
       }
       if (objs.end() != it) {
         objs.erase(it);
+        --currentSetSize;
       }
     }
 
