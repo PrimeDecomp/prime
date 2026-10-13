@@ -2699,7 +2699,7 @@ void CStateManager::MurderScriptInstanceNames() {
   while (!done) {
     done = true;
 
-    for (rstl::set< rstl::string >::iterator it = mUniqueInstanceNames.begin();
+    for (TInstanceNameIterator it = mUniqueInstanceNames.begin();
          it != mUniqueInstanceNames.end(); ++it) {
       if (it->refcount() == 1) {
         mUniqueInstanceNames.erase(it);

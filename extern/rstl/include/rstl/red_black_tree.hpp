@@ -360,10 +360,10 @@ red_black_tree< T, P, IsMulti, S, Cmp, Alloc >::insert_into(node* start, const P
 
 template < typename T, typename P, bool IsMulti, typename S, typename Cmp, typename Alloc >
 void red_black_tree< T, P, IsMulti, S, Cmp, Alloc >::free_node_and_sub_nodes(node* n) {
-  if (node* left = n->get_left()) {
+  if (node* left = n->mLeft) {
     free_node_and_sub_nodes(left);
   }
-  if (node* right = n->get_right()) {
+  if (node* right = n->mRight) {
     free_node_and_sub_nodes(right);
   }
   free_node(n);

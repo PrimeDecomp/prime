@@ -102,6 +102,8 @@ struct SScriptObjectStream {
 
 class CStateManager : public TOneStatic< CStateManager > {
 public:
+  typedef rstl::set< rstl::string > TInstanceNameSet;
+  typedef TInstanceNameSet::iterator TInstanceNameIterator;
   typedef rstl::multimap< TEditorId, TUniqueId > TIdList;
   typedef rstl::pair< TIdList::const_iterator, TIdList::const_iterator > TIdListResult;
 
@@ -454,7 +456,7 @@ private:
   EGameState mGameState;
   rstl::reserved_vector< FScriptLoader, int(kST_MAX) > mLoaderFuncs;
   EInitPhase mInitPhase;
-  rstl::set< rstl::string > mUniqueInstanceNames;
+  TInstanceNameSet mUniqueInstanceNames;
 
   CFinalInput mFinalInput;
   rstl::reserved_vector< CCameraFilterPass, kCFS_Max > mCamFilterPasses;
