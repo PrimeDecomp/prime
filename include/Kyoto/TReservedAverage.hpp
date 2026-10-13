@@ -19,7 +19,10 @@ public:
 };
 
 template < typename T, int N >
-/* inline */ void TReservedAverage< T, N >::AddValue(const T& value) {
+#if VERSION == VERSION_GM8J_DD
+inline
+#endif
+void TReservedAverage< T, N >::AddValue(const T& value) {
   if (this->size() < this->capacity()) {
     this->push_back(value);
   }

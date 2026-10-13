@@ -136,7 +136,7 @@ void* CSaveRegion::mNonVolatileSettingsBuf;
 bool COsContext::mProgressiveMode;
 u32 sARAMMemArray[2];
 float sInfiniteLoopTime;
-#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_GM8J_00
+#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_GM8J_DD
 float sFramePeriod = 1.f / 50.f;
 float sMaxFrameTime = 2.1f * sFramePeriod;
 #define FRAME_PERIOD (sFramePeriod)
@@ -145,7 +145,7 @@ float sMaxFrameTime = 2.1f * sFramePeriod;
 #endif
 extern bool sIs50Hz;
 
-#if VERSION < VERSION_GM8P_00 || VERSION >= VERSION_GM8J_00
+#if VERSION < VERSION_GM8P_00 || VERSION >= VERSION_GM8J_DD
 #define GRAPHICS_FIFO_SIZE 0x60000
 static uchar sGraphicsFifo[GRAPHICS_FIFO_SIZE];
 #endif
@@ -169,6 +169,7 @@ bool sProgressiveModePrompt = true;
 
 extern "C" void OSGetSavedRegion(void** start, void** end);
 extern "C" void OSSetSaveRegion(void* start, void* end);
+#if VERSION != VERSION_GM8J_DD
 static inline void AddFrameTime(TReservedAverage< float, 4 >& average, const float& value) {
   if (average.size() < average.capacity()) {
     average.push_back(value);
@@ -178,6 +179,7 @@ static inline void AddFrameTime(TReservedAverage< float, 4 >& average, const flo
   }
   average[0] = value;
 }
+#endif
 
 #define UNUSED_STACK_VAL 0x7337D00D
 
@@ -208,23 +210,13 @@ COsContext& CMain::OpenWindow() {
     CMemoryInStream stream(CSaveRegion::GetNonVolatileSettingsBuffer(), 128);
     COsContext::SetProgressiveMode(stream.ReadBits(1));
   }
-#if VERSION < VERSION_GM8P_00 || VERSION >= VERSION_GM8J_00
+#if VERSION < VERSION_GM8P_00 || VERSION >= VERSION_GM8J_DD
   mOsContext.OpenWindow("Metaforce", 0, 0, 640, 480, true);
 #endif
   return mOsContext;
 }
 
-#if VERSION >= VERSION_GM8P_00
-int CMain::GetLanguage() {
-  int language = mOsContext.GetLanguage();
-  if (language == 5) {
-    language = 0;
-  }
-  return language;
-}
-#endif
-
-#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_GM8J_00
+#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_GM8J_DD
 void CMain::SetTiming() { sFramePeriod = sIs50Hz ? 1.f / 50.f : 1.f / 60.f; }
 #endif
 
@@ -305,14 +297,18 @@ void CMain::ShutdownSubsystems() {
 
 CGameGlobalObjects::CGameGlobalObjects(COsContext& osContext, CMemorySys& memorySys)
 : mSimplePool(mResFactory)
-#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_GM8J_00
+#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_GM8J_DD
 , mGraphicsSys(osContext, memorySys, COsContext::GetProgressiveMode())
 #else
 , mGraphicsSys(osContext, memorySys, GRAPHICS_FIFO_SIZE, sGraphicsFifo)
 #endif
 , mGameState(rs_new CGameState())
 , mInGameTweakManager(rs_new CInGameTweakManager())
-, mDefaultFont(LoadDefaultFont()) {
+, mDefaultFont(LoadDefaultFont())
+#if VERSION == VERSION_GM8J_DD
+, mJapaneseFont(nullptr)
+#endif
+{
   gpResourceFactory = &mResFactory;
   gpSimplePool = &mSimplePool;
   gpCharacterFactoryBuilder = &mCharacterFactoryBuilder;
@@ -334,7 +330,7 @@ CRasterFont* CGameGlobalObjects::LoadDefaultFont() {
 }
 
 void CGameGlobalObjects::PostInitialize(COsContext& osContext, CMemorySys& memorySys) {
-#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_GM8J_00
+#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_GM8J_DD
   CMain::SetTiming();
 #endif
 #if VERSION >= VERSION_GM8E_01
@@ -343,6 +339,10 @@ void CGameGlobalObjects::PostInitialize(COsContext& osContext, CMemorySys& memor
   AddPaksAndFactories();
 #endif
   LoadStringTable();
+#if VERSION == VERSION_GM8J_DD
+  mJapaneseFont = gpSimplePool->GetObj("FONT_DFSoGei-W5_18");
+  mJapaneseFont.Lock();
+#endif
   printf("Initializing renderer...\n");
   mRenderer = Renderer::AllocateRenderer(mSimplePool, osContext, memorySys, mResFactory);
   gpRender = reinterpret_cast< CCubeRenderer* >(mRenderer.get());
@@ -428,7 +428,7 @@ bool CGameArchitectureSupport::UpdateTicks() {
   OSRestoreInterrupts(interrupts);
   sInfiniteLoopTime = 0.f;
   mTickRemainder += elapsed;
-#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_GM8J_00
+#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_GM8J_DD
   if (gpMain->GetScreenFading() || elapsed > sMaxFrameTime) {
 #else
   if (gpMain->GetScreenFading() || elapsed > 0.035f) {
@@ -440,7 +440,7 @@ bool CGameArchitectureSupport::UpdateTicks() {
   mArchQueue.Push(MakeMsg::CreateFrameBegin(kAMT_Game, mGameFrameCount));
   while (first || mTickRemainder >= FRAME_PERIOD) {
     first = false;
-#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_GM8J_00
+#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_GM8J_DD
     const float tickPeriod = FRAME_PERIOD;
 #else
     static const float tickPeriod = FRAME_PERIOD;
@@ -783,8 +783,13 @@ int CMain::RsMain(int argc, const char* const* argv) {
 #endif
 
   for (int i = 0; i < 4; ++i) {
+#if VERSION == VERSION_GM8J_DD
+    mTickTimes.AddValue(0.3f);
+    mDrawTimes.AddValue(0.2f);
+#else
     AddFrameTime(mTickTimes, 0.3f);
     AddFrameTime(mDrawTimes, 0.2f);
+#endif
   }
 
   mAverageTickTime = 0.3f;
@@ -826,7 +831,7 @@ int CMain::RsMain(int argc, const char* const* argv) {
     CDvdFile::FileExists("Strings.pak");
 #endif
     while (!mFinished) {
-#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_GM8J_00
+#if VERSION >= VERSION_GM8P_00 && VERSION < VERSION_GM8J_DD
       SetTiming();
 #endif
       archSupport->GetStopwatch2().Reset();
@@ -840,7 +845,11 @@ int CMain::RsMain(int argc, const char* const* argv) {
         mFinished = true;
       }
       double t1 = archSupport->GetStopwatch2().GetElapsedTime();
+#if VERSION == VERSION_GM8J_DD
+      mTickTimes.AddValue(t1 / FRAME_PERIOD);
+#else
       AddFrameTime(mTickTimes, t1 / FRAME_PERIOD);
+#endif
       mAverageTickTime = mTickTimes.GetAverage().data();
       archSupport->GetStopwatch2().Reset();
       DoPredrawMetrics();
@@ -855,7 +864,11 @@ int CMain::RsMain(int argc, const char* const* argv) {
         DrawDebugMetrics(t1, archSupport->GetStopwatch2());
 
         double t2 = archSupport->GetStopwatch2().GetElapsedTime();
+#if VERSION == VERSION_GM8J_DD
+        mDrawTimes.AddValue(t2 / FRAME_PERIOD);
+#else
         AddFrameTime(mDrawTimes, t2 / FRAME_PERIOD);
+#endif
         mAverageDrawTime = mDrawTimes.GetAverage().data();
 
         uint idleMicros;
@@ -996,10 +1009,13 @@ void CMain::CheckTweakManagerDebugOptions() {}
 
 void CMain::RefreshGameState() {
   CSystemState systemState = gpGameState->SystemState();
-  uint saveIdx = gpGameState->SaveIdx();
+  u32 saveIdx = gpGameState->GetFileIdx();
   u64 cardSerial = gpGameState->CardSerial();
   rstl::vector< uchar > backupBuf = gpGameState->BackupBuf();
   CGameOptions gameOptions = gpGameState->GameOptions();
+#if VERSION == VERSION_GM8J_DD
+  rstl::vector< rstl::pair< CAssetId, TEditorId > > cinematicStates = gpGameState->CinematicStates();
+#endif
   mGameGlobalObjects->GameState() = nullptr;
   gpGameState = nullptr;
   {
@@ -1010,6 +1026,9 @@ void CMain::RefreshGameState() {
   gpGameState->SystemState() = systemState;
   gpGameState->GameOptions() = gameOptions;
   gpGameState->GameOptions().EnsureOptions();
+#if VERSION == VERSION_GM8J_DD
+  gpGameState->CinematicStates() = cinematicStates;
+#endif
   gpGameState->CardSerial() = cardSerial;
   gpGameState->PlayerState()->SetIsFusionEnabled(gpGameState->SystemState().GetHasFusion());
 }
@@ -1038,7 +1057,15 @@ void CMain::ResetGameState() {
   gpGameState->PlayerState()->SetIsFusionEnabled(gpGameState->SystemState().GetHasFusion());
 }
 
-void CMain::RegisterResourceTweaks() { mTweaks.RegisterResourceTweaks(); }
+#if VERSION >= VERSION_GM8P_00
+int CMain::GetLanguage() {
+  int language = mOsContext.GetLanguage();
+  if (language == 5) {
+    language = 0;
+  }
+  return language;
+}
+#endif
 
 #if VERSION >= VERSION_GM8P_00
 void CMain::ReloadStringTables() {
@@ -1052,5 +1079,7 @@ void CMain::ReloadStringTables() {
 }
 
 #endif
+
+void CMain::RegisterResourceTweaks() { mTweaks.RegisterResourceTweaks(); }
 
 void CMain::UpdateStreamedAudio() { CStreamAudioManager::Update(FRAME_PERIOD); }

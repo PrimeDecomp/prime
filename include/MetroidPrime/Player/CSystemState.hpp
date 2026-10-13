@@ -62,7 +62,7 @@ public:
 private:
   static uint GetBitCount(uint value);
 
-#if VERSION == VERSION_GM8J_00
+#if VERSION == VERSION_GM8J_DD || VERSION == VERSION_GM8J_00
   enum { kNESStateSize = 1526 };
 #elif VERSION >= VERSION_GM8P_00
   enum { kNESStateSize = 18 };
@@ -91,7 +91,7 @@ private:
 };
 #if VERSION >= VERSION_R3IJ_00
 CHECK_SIZEOF(CSystemState, 0x78)
-#elif VERSION == VERSION_GM8J_00
+#elif VERSION == VERSION_GM8J_DD || VERSION == VERSION_GM8J_00
 CHECK_SIZEOF(CSystemState, 0x66c)
 #elif VERSION >= VERSION_GM8P_00
 CHECK_SIZEOF(CSystemState, 0x88)

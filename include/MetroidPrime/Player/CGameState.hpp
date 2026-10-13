@@ -47,6 +47,11 @@ public:
   uint& SaveIdx() { return mSaveIdx; }
   u64& CardSerial() { return mCardSerial; }
   rstl::vector< uchar >& BackupBuf() { return mBackupBuf; }
+#if VERSION == VERSION_GM8J_DD || VERSION == VERSION_GM8J_00
+  rstl::vector< rstl::pair< CAssetId, TEditorId > >& CinematicStates() {
+    return mCinematicStates;
+  }
+#endif
   u32 GetFileIdx() const { return mSaveIdx; }
   void SetFileIdx(u32 idx) { mSaveIdx = idx; }
   void SetCardSerial(u64 serial) { mCardSerial = serial; }
@@ -83,7 +88,7 @@ private:
   CSystemState mSystemState;
   CGameOptions mGameOptions;
   CHintOptions mHintOptions;
-#if VERSION == VERSION_GM8J_00
+#if VERSION == VERSION_GM8J_DD || VERSION == VERSION_GM8J_00
   rstl::vector< rstl::pair< CAssetId, TEditorId > > mCinematicStates;
 #endif
   uint mSaveIdx;
@@ -92,7 +97,7 @@ private:
   bool mHardMode : 1;
   bool mInitPowerupsAtFirstSpawn : 1;
 };
-#if VERSION == VERSION_GM8J_00
+#if VERSION == VERSION_GM8J_DD || VERSION == VERSION_GM8J_00
 CHECK_SIZEOF(CGameState, 0x7e0)
 #elif VERSION >= VERSION_GM8P_00
 #if VERSION < VERSION_R3IJ_00
