@@ -902,8 +902,8 @@ void CStateManager::InitializeState(unsigned int mlvlId, TAreaId aid, unsigned i
     }
 
     mNextAreaId = mWorld->GetCurrentAreaId();
-    CGameArea* area = mWorld->Area(GetNextAreaId());
-    if (mWorld->ScheduleAreaToLoad(area, *this)) {
+    CGameArea* area = mWorld->Area(mNextAreaId);
+    if (mWorld->ScheduleAreaToLoad(mWorld->Area(mNextAreaId), *this)) {
       area->StartStreamIn(*this);
       return;
     }
