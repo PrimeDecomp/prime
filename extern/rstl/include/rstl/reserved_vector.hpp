@@ -99,6 +99,10 @@ public:
   };
 #endif
   reserved_vector(const reserved_vector& other) : mCount(other.mCount) {
+#if RSTL_VERSION < RSTL_GM8P_00
+    RS_ASSERT(mCount >= 0, "rstl precondition");
+    RS_ASSERT(mCount <= N, "rstl precondition");
+#endif
     uninitialized_copy_n(other.data(), mCount, data());
   }
   reserved_vector(CInputStream& in);

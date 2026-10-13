@@ -87,10 +87,12 @@ public:
 #endif
     mCount(other.mCount)
   , mCapacity(other.mCapacity) {
+    RS_ASSERT(other.mCount <= other.mCapacity, "rstl precondition");
     if (other.mCount == 0 && other.mCapacity == 0) {
       mItems = nullptr;
     } else {
       Alloc::allocate(mItems, mCapacity);
+      RS_ASSERT(mItems != nullptr, "rstl precondition");
       uninitialized_copy_n(other.mItems, mCount, mItems);
     }
   }
@@ -109,6 +111,8 @@ public:
     rstl::uninitialized_copy(first, last, mItems);
   }
   ~vector() {
+    RS_ASSERT(mCount <= mCapacity, "rstl invariant");
+    RS_ASSERT(mCapacity == 0 || mItems != nullptr, "rstl invariant");
     destroy(begin(), end());
     Alloc::deallocate(mItems);
   }
