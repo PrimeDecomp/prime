@@ -1002,11 +1002,10 @@ void CMetroidPrime::AttachToRelayInRoom(CStateManager& mgr, const TAreaId& areaI
   CObjectList& list = mgr.ObjectListById(kOL_All);
   TEditorId editorId = kInvalidEditorId;
   for (int i = list.GetFirstObjectIndex(); i != -1; i = list.GetNextObjectIndex(i)) {
-    CEntity* entity = list[i];
-    if (CMetroidPrimeRelay* const relay = TCastToPtr< CMetroidPrimeRelay >(entity)) {
-      if (relay->GetActive() && relay->GetCurrentAreaId() == areaId) {
-        editorId = relay->GetEditorId();
-      }
+    const CEntity* entity = list[i];
+    const CMetroidPrimeRelay* const relay = TCastToConstPtr< CMetroidPrimeRelay >(entity);
+    if (relay && relay->GetActive() && relay->GetCurrentAreaId() == areaId) {
+      editorId = relay->GetEditorId();
     }
   }
   mRelayId = kInvalidUniqueId;
@@ -1200,8 +1199,8 @@ void CMetroidPrime::LaunchEnergyBall(CStateManager& mgr) {
   }
   static uint locator = 0;
   for (AUTO(it, x1058_.begin()); it != x1058_.end(); ++it) {
-    const CEnergyBall* const original = PATTERNED_CAST_TO(
-        CEnergyBall, const_cast< CEntity* >(mgr.GetObjectById(mgr.GetIdForScript(*it))));
+    const CEnergyBall* const original =
+        PATTERNED_CONST_CAST_TO(CEnergyBall, mgr.GetObjectById(mgr.GetIdForScript(*it)));
     if (original && original->GetBallType() == type) {
       const TUniqueId id = mgr.GenerateObject(*it).second;
       CEnergyBall* const ball = PATTERNED_CAST_TO(CEnergyBall, mgr.ObjectById(id));
