@@ -331,7 +331,12 @@ else:
 
 # Most Retro code uses this inline limit. Objects that inline far past it in
 # retail (compiler default or "-inline auto") keep cflags_retro explicitly.
-retro_inline_max_size = 256 if version_num < VERSIONS.index("GM8P01_00") else 125
+if version_num < VERSIONS.index("GM8P01_00"):
+    retro_inline_max_size = 256
+elif version_num < VERSIONS.index("R3IJ01_00"):
+    retro_inline_max_size = 128
+else:
+    retro_inline_max_size = 125
 cflags_retro_inline = [*cflags_retro, f'-pragma "inline_max_size({retro_inline_max_size})"', '-pragma "inline_max_total_size(10000)"']
 
 cflags_musyx = [
@@ -651,9 +656,6 @@ config.libs = [
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CTransitionDatabaseGame.cpp",
-                extra_cflags=['-pragma "inline_max_size(126)"']
-                if version_num >= VERSIONS.index("GM8P01_00")
-                else [],
             ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
@@ -707,9 +709,6 @@ config.libs = [
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS),
                 "MetroidPrime/Enemies/CAi.cpp",
-                extra_cflags=['-pragma "inline_max_size(126)"']
-                if version_num >= VERSIONS.index("GM8P01_00")
-                else [],
             ),
             Object(
                 MatchingFor("GM8E01_00", "GM8E01_01", "GM8E01_02"),
@@ -1526,9 +1525,6 @@ config.libs = [
             Object(
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "WorldFormat/CAreaOctTree.cpp",
-                extra_cflags=['-pragma "inline_max_size(250)"']
-                if version_num >= VERSIONS.index("GM8P01_00")
-                else [],
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "WorldFormat/CMetroidAreaCollider.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "WorldFormat/CWorldLight.cpp"),
