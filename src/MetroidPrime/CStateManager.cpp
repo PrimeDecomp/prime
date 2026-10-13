@@ -2314,9 +2314,12 @@ void CStateManager::DrawWorld() const {
     mask = 0x34;
     targetMask = 0;
   } else {
-    int bit = visor == CPlayerState::kPV_XRay ? 3 : 1;
-    mThermalFlag = kTD_Bypass;
+    int bit = 1;
+    if (visor == CPlayerState::kPV_XRay) {
+      bit = 3;
+    }
     mask = 1 << bit;
+    mThermalFlag = kTD_Bypass;
     targetMask = 0;
   }
 
@@ -2371,9 +2374,10 @@ void CStateManager::DrawWorld() const {
         }
         if (actor == mPlayer) {
           if (!thermal) {
-            const CPlayer::EPlayerMorphBallState state = mPlayer->GetMorphballTransitionState();
+            CPlayer* player = mPlayer;
+            const CPlayer::EPlayerMorphBallState state = player->GetMorphballTransitionState();
             if (state == CPlayer::kMS_Morphed || state == CPlayer::kMS_Unmorphed) {
-              mPlayer->AddToRenderer(frustum, *this);
+              player->AddToRenderer(frustum, *this);
             } else {
               morphingPlayerVisible = true;
             }
