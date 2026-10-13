@@ -21,9 +21,9 @@ MetroidPrime/main.cpp:
 	.rodata     start:0x803B54A0 end:0x803B66B8
 	.data       start:0x803C3700 end:0x803C3848
 	.bss        start:0x803DE900 end:0x8043ECA0
-	.sdata      start:0x8058E140 end:0x8058E148
+	.sdata      start:0x8058E140 end:0x8058E150
 	.sbss       start:0x805901E0 end:0x80590238
-	.sdata2     start:0x80591340 end:0x80591388
+	.sdata2     start:0x80591320 end:0x80591388
 
 MetroidPrime/Cameras/CCameraManager.cpp:
 	.text       start:0x80009878 end:0x8000CFA0

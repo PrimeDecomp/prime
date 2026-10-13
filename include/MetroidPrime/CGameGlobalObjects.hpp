@@ -54,8 +54,15 @@ private:
   rstl::single_ptr< IRenderer > mRenderer;
   rstl::single_ptr< CInGameTweakManager > mInGameTweakManager;
   TToken< CRasterFont > mDefaultFont;
+#if VERSION == VERSION_GM8J_DD
+  TToken< CRasterFont > mJapaneseFont;
+#endif
 };
+#if VERSION == VERSION_GM8J_DD
+CHECK_SIZEOF(CGameGlobalObjects, 0x164)
+#else
 CHECK_SIZEOF(CGameGlobalObjects, 0x15c)
+#endif
 
 class IController;
 // TODO move to related headers
