@@ -324,7 +324,8 @@ private:
   bool x8f4_26_ : 1;
   bool x8f4_27_ : 1;
   bool x8f4_28_ : 1;
-  CAABox x8f8_;
+  CVector3f x8f8_;
+  CVector3f x904_;
   float x910_;
   bool x914_24_ : 1;
   int x918_;

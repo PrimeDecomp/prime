@@ -204,7 +204,8 @@ CMetroidPrime::CMetroidPrime(
 , x8f4_26_(false)
 , x8f4_27_(false)
 , x8f4_28_(false)
-, x8f8_()
+, x8f8_(CVector3f::Zero())
+, x904_(CVector3f::Zero())
 , x910_(5.f)
 , x914_24_(false)
 , x918_(-1)
@@ -960,7 +961,8 @@ void CMetroidPrime::UpdateUnderbodyDamage(CStateManager& mgr) {
   const float scale = 0.57735026f * modelData->ScaleCopy().Magnitude();
   CAABox bounds(GetTranslation() + scale * CVector3f(-6.f, -6.f, 2.f),
                 GetTranslation() + scale * CVector3f(6.f, 6.f, 5.5f));
-  x8f8_ = bounds;
+  x8f8_ = bounds.GetMinPoint();
+  x904_ = bounds.GetMaxPoint();
   if (player->GetTouchBounds()->DoBoundsOverlap(bounds) && 0.f >= mCurDamageRemTime) {
     mgr.ApplyDamage(GetUniqueId(), player->GetUniqueId(), GetUniqueId(), GetContactDamage(),
                     CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()),
