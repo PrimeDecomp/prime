@@ -603,7 +603,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/Player/CPlayerGun.cpp",
             ),
-            Object(NonMatching, "MetroidPrime/CStateManager.cpp"),
+            Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/CStateManager.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00", "R3ME01_00"),
                 "MetroidPrime/CEntity.cpp",
