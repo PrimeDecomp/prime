@@ -622,7 +622,7 @@ void CMetroidPrime::UpdateTractorBeamFX(const CVector3f& from, const CVector3f& 
   if (!close_enough(delta, CVector3f::Zero(), 0.0001f)) {
     CVector3f position = from;
     const CTransform4f orientation = CTransform4f::LookAt(CVector3f::Zero(), delta);
-    int count = static_cast< int >(2.f * distance + 1.f);
+    int count = CCast::ToInt32(2.f * distance + 1.f);
     const float particleCount = count;
     const float step = 1.f / particleCount;
     delta *= step;
@@ -1610,7 +1610,7 @@ void CMetroidPrime::UpdateElectricity(CStateManager& mgr, float dt) {
       if (xfbc_) {
         CSfxManager::UpdateEmitter(xfbc_, GetTranslation(), CVector3f::Zero(), 127);
       }
-      const CAnimData* const animData = GetAnimationData();
+      const CAnimData* animData = GetAnimationData();
       xfac_->SetParticleEmission(true);
       for (int i = 0; i < 4; ++i) {
         const CSegId from = animData->GetLocatorSegId(
