@@ -100,6 +100,7 @@ void CStateManager::ApplyDamageToWorld(TUniqueId damagerId, const CActor& actor,
 #include "MetroidPrime/CWorld.hpp"
 #include "MetroidPrime/Cameras/CBallCamera.hpp"
 #include "MetroidPrime/Cameras/CCinematicCamera.hpp"
+#include "MetroidPrime/Enemies/CMetroid.hpp"
 #include "MetroidPrime/Enemies/CPatterned.hpp"
 #include "MetroidPrime/Enemies/CThardus.hpp"
 #include "MetroidPrime/Enemies/CWallCrawlerSwarm.hpp"
@@ -255,7 +256,7 @@ CStateManager::CStateManager(const rstl::ncrc_ptr< CScriptMailbox >& mailbox,
 , mInitPhase(kIP_LoadWorld)
 
 // based on map, uses the call with the count.
-, mCamFilterPasses(CCameraFilterPass())
+, mCamFilterPasses(kCFS_Max, CCameraFilterPass())
 
 // TODO: should not be inlined, but the constructor above is inlined
 , mCamBlurPasses(kCFS_Max, CCameraBlurPass())
@@ -924,7 +925,7 @@ void CStateManager::InitializeState(unsigned int mlvlId, TAreaId aid, unsigned i
 
   allList = mObjectLists[kOL_All].get();
   for (int i = allList->GetFirstObjectIndex(); i != -1; i = allList->GetNextObjectIndex(i)) {
-    CScriptSpawnPoint* const spawnPoint = TCastToPtr< CScriptSpawnPoint >((*allList)[i]);
+    const CScriptSpawnPoint* const spawnPoint = TCastToConstPtr< CScriptSpawnPoint >((*allList)[i]);
     if (spawnPoint != nullptr && spawnPoint->GetActive() && spawnPoint->FirstSpawn()) {
       const CVector3f pos = spawnPoint->GetTransform().GetTranslation();
       CVector3f lookDir = spawnPoint->GetTransform().GetForward();
@@ -1004,11 +1005,12 @@ void CStateManager::MovePlatforms(float dt) {
 
 void CStateManager::MoveDoors(float dt) {
   CObjectList* physActorList = mObjectLists[kOL_PhysicsActor].get();
+  CPatterned* patterned;
   for (int i = physActorList->GetFirstObjectIndex(); i != -1;
        i = physActorList->GetNextObjectIndex(i)) {
     CPhysicsActor* actor = static_cast< CPhysicsActor* >((*physActorList)[i]);
     if (actor != nullptr && actor->GetActive() && actor->GetMass() != 0.f) {
-      CPatterned* patterned = TCastToPtr< CPatterned >(actor);
+      patterned = TCastToPtr< CPatterned >(actor);
       if (patterned != nullptr) {
         if (!ShouldThink(*patterned)) {
           SendScriptMsgAlways(patterned->GetUniqueId(), kInvalidUniqueId, kSM_SuspendedMove);
@@ -1036,7 +1038,13 @@ void CStateManager::CrossTouchActors() {
         continue;
       }
       TEntityList nearList;
-      const CMaterialFilter filter = actor->GetMaterialList().HasMaterial(kMT_Trigger)
+#if VERSION >= VERSION_GM8J_00
+      const bool excludeTriggers = actor->GetMaterialList().HasMaterial(kMT_Trigger) &&
+                                   TCastToPtr< CMetroid >(actor) == nullptr;
+#else
+      const bool excludeTriggers = actor->GetMaterialList().HasMaterial(kMT_Trigger);
+#endif
+      const CMaterialFilter filter = excludeTriggers
                                          ? CMaterialFilter::MakeExclude(CMaterialList(kMT_Trigger))
                                          : CMaterialFilter::skPassEverything;
       BuildNearList(nearList, *touchBounds, filter, actor);
@@ -1063,7 +1071,7 @@ void CStateManager::CrossTouchActors() {
 }
 
 inline bool CStateManager::ShouldThink(const CEntity& actor) const {
-  bool doThink = mCinematicPause == false;
+  bool doThink = !mCinematicPause;
   if (doThink && actor.GetCurrentAreaId() != kInvalidAreaId) {
     const CGameArea& area = mWorld->GetAreaAlways(actor.GetCurrentAreaId());
     float occTime;
@@ -1086,7 +1094,7 @@ void CStateManager::Think(float dt) {
     return;
   }
 
-  CObjectList* const allList = mObjectLists[kOL_All].get();
+  CObjectList* allList = mObjectLists[kOL_All].get();
   if (mGameState == kGS_SoftPaused) {
     for (int i = allList->GetFirstObjectIndex(); i != -1; i = allList->GetNextObjectIndex(i)) {
       CScriptEffect* effect = TCastToPtr< CScriptEffect >((*allList)[i]);
@@ -1095,7 +1103,7 @@ void CStateManager::Think(float dt) {
       }
     }
   } else {
-    CObjectList* const camList = mObjectLists[kOL_GameCamera].get();
+    CObjectList* camList = mObjectLists[kOL_GameCamera].get();
     for (int i = allList->GetFirstObjectIndex(); i != -1; i = allList->GetNextObjectIndex(i)) {
       CEntity* ent = (*allList)[i];
       if (ent != nullptr) {
@@ -1463,11 +1471,6 @@ static inline CVector3f GetWaterSurfacePosition(const CScriptWater& water, const
   return CVector3f(pos.GetX(), pos.GetY(), water.GetTriggerBoundsWR().GetMaxPoint().GetZ());
 }
 
-static inline CPlane GetWaterSurfacePlane(const CScriptWater& water) {
-  return CPlane(water.GetTriggerBoundsWR().GetMaxPoint().GetZ(),
-                CUnitVector3f(0.f, 0.f, 1.f, CUnitVector3f::kN_Yes));
-}
-
 void CStateManager::TestBombHittingWater(const CActor& damager, const CVector3f& pos,
                                          CActor& damagee) {
   int idx = 0;
@@ -1479,7 +1482,7 @@ void CStateManager::TestBombHittingWater(const CActor& damager, const CVector3f&
       }
       if (CScriptWater* const water = TCastToPtr< CScriptWater >(damagee)) {
         CVector3f hitPos = GetWaterSurfacePosition(*water, pos);
-        const float depth = -GetWaterSurfacePlane(*water).GetHeight(pos);
+        const float depth = -water->GetWRSurfacePlane().GetHeight(pos);
 
         if (depth <= skBombUnderwaterRanges[idx] && depth > 0.f) {
           const float rippleFactor = 1.f - depth / skBombUnderwaterRanges[idx];
@@ -1836,9 +1839,9 @@ rstl::pair< TEditorId, TUniqueId > CStateManager::LoadScriptObject(TAreaId aid,
 
   const uint propCount = in.ReadLong();
   bytesLeft -= 4;
-  const uint readPos = in.GetReadPosition();
-
   CEntity* ent = nullptr;
+  const int readPos = in.GetReadPosition();
+
   FScriptLoader loader = nullptr;
   if (type <= kST_EnergyBall && type >= kST_Actor) {
     loader = mLoaderFuncs[type];
@@ -2165,8 +2168,10 @@ CFrustumPlanes CStateManager::SetupViewForDraw(const CViewport& viewport) const 
   const CVector3f playerPos = mPlayer->GetTranslation();
   CCubeModel::SetNewPlayerPositionAndTime(playerPos, CStopwatch::GetGlobalTimerObj());
 
-  const float scaledWidth = mViewportScaleX * static_cast< float >(viewport.mWidth);
-  const float scaledHeight = mViewportScaleY * static_cast< float >(viewport.mHeight);
+  const float& vpWidth = static_cast< float >(viewport.mWidth);
+  const float& vpHeight = static_cast< float >(viewport.mHeight);
+  const float scaledWidth = mViewportScaleX * vpWidth;
+  const float scaledHeight = mViewportScaleY * vpHeight;
   const float aspect = (mViewportScaleX * cam.GetAspectRatio()) / mViewportScaleY;
   const int width = static_cast< int >(scaledWidth);
   const int height = (static_cast< int >(scaledHeight) / 2) * 2;
@@ -2181,8 +2186,13 @@ CFrustumPlanes CStateManager::SetupViewForDraw(const CViewport& viewport) const 
   CGraphics::SetDepthRange(0.125f, 1.f);
 
   const float zFar = cam.GetFarClipDistance();
+#if VERSION == VERSION_GM8P_00
+  gpRender->SetPerspective(360.f * ((1.f / (2.f * M_PIF)) * fov), aspect, cam.GetNearClipDistance(),
+                           zFar);
+#else
   gpRender->SetPerspective(360.f * ((1.f / (2.f * M_PIF)) * fov), scaledWidth, scaledHeight,
                            cam.GetNearClipDistance(), zFar);
+#endif
 
   CFrustumPlanes frustum(camXf, fov, aspect, cam.GetNearClipDistance(), false, 100.f);
   gpRender->SetClippingPlanes(frustum);

@@ -69,7 +69,8 @@ public:
   CFluidPlaneCPU& FluidPlane() { return *mFluidPlane; }
   const CFluidPlaneCPU& GetFluidPlane() const { return *mFluidPlane; }
   CPlane GetWRSurfacePlane() const {
-    return CPlane(GetSurfaceZ(), CUnitVector3f(0.f, 0.f, 1.f, CUnitVector3f::kN_Yes));
+    return CPlane(GetTriggerBoundsWR().GetMaxPoint().GetZ(),
+                  CUnitVector3f(0.f, 0.f, 1.f, CUnitVector3f::kN_Yes));
   }
   float GetSurfaceZ() const { return GetTriggerBoundsWR().GetMaxPoint().GetZ(); }
   const CColor& GetUnderwaterFogColor() const { return mInsideFogColor; }
