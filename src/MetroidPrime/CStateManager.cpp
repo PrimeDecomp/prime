@@ -2125,19 +2125,11 @@ void CStateManager::PreRender() {
 
   for (CGameArea::CChainIterator areaIt = mWorld->ChainHead(CWorld::kC_Alive);
        areaIt != CWorld::AliveAreasEnd(); ++areaIt) {
-    CGameArea::EOcclusionState occState;
-    if (areaIt->IsPostConstructed()) {
-      occState = areaIt->GetPostConstructed()->mOcclusionState;
-    } else {
-      occState = CGameArea::kOS_Occluded;
-    }
-
-    if (occState == CGameArea::kOS_Visible) {
-      CObjectList* const areaObjList =
-          static_cast< CObjectList* >(areaIt->GetPostConstructed()->mAreaObjectList.get());
-      for (int i = areaObjList->GetFirstObjectIndex(); i != -1;
-           i = areaObjList->GetNextObjectIndex(i)) {
-        CActor* actor = TCastToPtr< CActor >((*areaObjList)[i]);
+    if (areaIt->GetOcclusionState() == CGameArea::kOS_Visible) {
+      CObjectList& areaObjList = *areaIt->ObjectList();
+      for (int i = areaObjList.GetFirstObjectIndex(); i != -1;
+           i = areaObjList.GetNextObjectIndex(i)) {
+        CActor* actor = TCastToPtr< CActor >(areaObjList[i]);
         if (actor != nullptr && actor->IsDrawEnabled()) {
           actor->CalculateRenderBounds();
           actor->PreRender(*this, frustum);
