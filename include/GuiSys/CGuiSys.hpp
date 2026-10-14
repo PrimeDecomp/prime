@@ -37,9 +37,8 @@ public:
   static CGuiSys* GetGlobalGuiSys() { return spGuiSys; }
 #if VERSION < VERSION_GM8P_00
   static CGuiWidget* CreateWidgetInGame(uint type, CInputStream& in, CGuiFrame* parent, CSimplePool* sp);
-#endif
-
   void AddFactories(EUsageMode mode);
+#endif
 
   bool GetIsUsedInGame() const { return mMode == kUM_Zero; }
   EUsageMode GetUsageMode() const { return mMode; }

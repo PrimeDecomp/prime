@@ -9,7 +9,9 @@ CGuiSys* CGuiSys::spGuiSys = nullptr;
 
 CGuiSys::CGuiSys(IFactory* factory, CSimplePool* pool, EUsageMode mode)
 : mResFactory(factory), mResStore(pool), mMode(mode) {
+#if VERSION < VERSION_GM8P_00
   AddFactories(mMode);
+#endif
   mTextExecuteBuffer = rs_new CTextExecuteBuffer();
   mTextParser = rs_new CTextParser(*pool);
 
@@ -24,4 +26,6 @@ CGuiWidget* CGuiSys::CreateWidgetInGame(FourCC type, CInputStream& in, CGuiFrame
 }
 #endif
 
+#if VERSION < VERSION_GM8P_00
 void CGuiSys::AddFactories(EUsageMode mode) {}
+#endif
