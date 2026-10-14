@@ -1555,7 +1555,7 @@ void CPlayer::UpdateAssistedAiming(const CTransform4f& xf, CStateManager& mgr) {
       }
 
       bool targetToLeft = CVector3f::Cross(gunDirFlat, gunToTargetFlat).GetZ() > 0.f;
-      float hAngleDelta = acosf(CMath::Limit(CVector3f::Dot(gunToTargetFlat, gunDirFlat), 1.f));
+      float hAngleDelta = acosf(CMath::Limit(CVector3f::Dot(gunDirFlat, gunToTargetFlat), 1.f));
       bool hasHAngleDelta = true;
       if (!mAimingAtProjectile &&
           fabsf(hAngleDelta) > gpTweakPlayer->mAimAssistHorizontalAngle) {
