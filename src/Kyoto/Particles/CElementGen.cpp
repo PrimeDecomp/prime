@@ -1524,9 +1524,9 @@ void CElementGen::RenderParticles() {
     for (int i = 0; i < particleCount; ++i) {
       CParticle* particle = &mParticles[i];
 
-      CVector3f delta = particle->mPos - particle->mPrevPos;
-      CVector3f vec = delta * mTimeDeltaScale + particle->mPrevPos;
-      CVector3f mbspVec = delta * mbspFac;
+      CVector3f mbspVec = (particle->mPos - particle->mPrevPos) * mbspFac;
+      CVector3f vec =
+          (particle->mPos - particle->mPrevPos) * mTimeDeltaScale + particle->mPrevPos;
 
       CColor col = particle->mColor;
       col.SetAlpha(col.GetAlpha() * mbspFac);
