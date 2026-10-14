@@ -26,6 +26,4 @@ CGuiWidget* CGuiSys::CreateWidgetInGame(FourCC type, CInputStream& in, CGuiFrame
 }
 #endif
 
-#if VERSION < VERSION_GM8P_00
 void CGuiSys::AddFactories(EUsageMode mode) {}
-#endif
