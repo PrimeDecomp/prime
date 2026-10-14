@@ -330,26 +330,38 @@ rstl::optional_object< CAABox > CScriptDebris::GetTouchBounds() const {
   return rstl::optional_object_null();
 }
 
+static inline CVector3f debris_impulse(CStateManager& mgr, float mass, const CVector3f& velocity,
+                                       const float& zImpulse) {
+  const float zRand = debris_frand(mgr);
+  const float z = mass * velocity.GetZ() * CMath::AbsF(zRand) + zImpulse;
+  const float yRand = debris_frand(mgr);
+  const float yScale = mass * velocity.GetY();
+  const float y = yScale * yRand;
+  const float xRand = debris_frand(mgr);
+  const float xScale = mass * velocity.GetX();
+  const float x = xScale * xRand;
+  return CVector3f(x, y, z);
+}
+
+static inline CVector3f debris_rotation(CStateManager& mgr) {
+  return CVector3f(45.f * debris_frand(mgr), 15.f * debris_frand(mgr), 35.f * debris_frand(mgr));
+}
+
+static inline float debris_duration(CStateManager& mgr, const float& min, const float& max) {
+  return debris_frand_range(mgr, min, max);
+}
+
 void CScriptDebris::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender,
                                     CStateManager& mgr) {
   switch (msg) {
   case kSM_Activate:
     if (!mDebrisExtended) {
-      const float mass = GetMass();
-      const float zRand = debris_frand(mgr);
-      const float z = mass * mVelocity.GetZ() * CMath::AbsF(zRand) + mZImpulse;
-      const float yRand = debris_frand(mgr);
-      const float yScale = mass * mVelocity.GetY();
-      const float y = yScale * yRand;
-      const float xRand = debris_frand(mgr);
-      const float xScale = mass * mVelocity.GetX();
-      const float x = xScale * xRand;
-      const CVector3f linImpulse = GetTransform().GetColumn(kDZ) + CVector3f(x, y, z);
+      const CVector3f impulse = debris_impulse(mgr, GetMass(), mVelocity, mZImpulse);
+      const CVector3f linImpulse = GetTransform().GetColumn(kDZ) + impulse;
       CAxisAngle angImpulse = CAxisAngle::Identity();
       if (mRandomAngImpulse) {
         if (mgr.Random()->Next() % 100 < 50) {
-          angImpulse = CAxisAngle(CVector3f(45.f * debris_frand(mgr), 15.f * debris_frand(mgr),
-                                            35.f * debris_frand(mgr)));
+          angImpulse = CAxisAngle(debris_rotation(mgr));
         } else {
           angImpulse = CAxisAngle::Identity();
         }
@@ -360,7 +372,7 @@ void CScriptDebris::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender,
           debris_cone(mgr, mLinConeAngle, mLinMinMag, mLinMaxMag);
       const CAxisAngle angImpulse(debris_cone(mgr, 360.f, mAngMinMag, mAngMaxMag));
       ApplyImpulseOR(linImpulse, angImpulse);
-      mDuration = debris_frand_range(mgr, mMinDuration, mMaxDuration);
+      mDuration = debris_duration(mgr, mMinDuration, mMaxDuration);
     }
     if (!mParticleGen0.null()) {
       mParticleGen0->SetParticleEmission(true);
