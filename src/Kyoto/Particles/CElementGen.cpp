@@ -32,9 +32,6 @@
 
 #include "dolphin/gx.h"
 
-#pragma inline_max_size(250)
-#pragma inline_max_total_size(20000) // for RenderParticles vector inlining
-
 #ifdef __MWERKS__
 #define frsqrte(x) static_cast< float >(__frsqrte(x))
 #else
