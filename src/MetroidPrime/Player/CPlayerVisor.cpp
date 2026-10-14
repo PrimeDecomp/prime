@@ -857,7 +857,7 @@ void CPlayerVisor::UpdateScanObjectIndicators(const CStateManager& mgr, float dt
 #if VERSION >= VERSION_R3IJ_00
     const float timer = target.mTimer - dt;
     target.mTimer = 0.f < timer ? timer : 0.f;
-    if (const_cast< CPlayer* >(mgr.GetPlayer())->ObjectInScanningRange(target.mObjId, mgr)) {
+    if (mgr.GetPlayer()->ObjectInScanningRange(target.mObjId, mgr)) {
       const float step = 2.f * dt;
       const float timer = target.mInRangeTimer - step;
       target.mInRangeTimer = 0.f < timer ? timer : 0.f;
@@ -868,7 +868,7 @@ void CPlayerVisor::UpdateScanObjectIndicators(const CStateManager& mgr, float dt
     }
 #else
     target.mTimer = rstl::max_val(0.f, target.mTimer - dt);
-    if (const_cast< CPlayer* >(mgr.GetPlayer())->ObjectInScanningRange(target.mObjId, mgr))
+    if (mgr.GetPlayer()->ObjectInScanningRange(target.mObjId, mgr))
       target.mInRangeTimer = rstl::max_val(0.f, target.mInRangeTimer - dt2);
     else
       target.mInRangeTimer = rstl::min_val(1.f, target.mInRangeTimer + dt2);

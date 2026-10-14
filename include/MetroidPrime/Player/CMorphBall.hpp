@@ -110,7 +110,8 @@ public:
   void RenderEnergyDrainEffects(const CStateManager&) const;
   void RenderMorphBallTransitionFlash(const CStateManager&) const;
   const CModelData& GetModel() const { return *mBallModel.get(); }
-  // GetBallContactSurfaceNormal__10CMorphBallCFv weak
+  CVector3f GetBallContactSurfaceNormal() const { return mCollisionInfos.GetAverageLeftNormal(); }
+  CVector3f GetBallContactSurfacePoint() const { return mCollisionInfos.GetAveragePoint(); }
   void PreRender(CStateManager&, const CFrustumPlanes&);
   bool IsInFrustum(const CFrustumPlanes&) const;
   float GetBallTouchRadius() const;
@@ -136,7 +137,9 @@ public:
   bool IsBoosting() const { return mInBoost; }
   float GetBoostChargeTimer() const { return mBoostChargeTime; }
   // GetWallBumpCounter__10CMorphBallCFv weak
-  // GetBallContactMaterials__10CMorphBallCFv weak
+  CMaterialList GetBallContactMaterials() const {
+    return mCollisionInfos.GetUnionOfAllLeftMaterials();
+  }
   void ComputeBallMovement(const CFinalInput&, CStateManager&, float);
   bool CheckGroundUnderBallForSpring(const CStateManager& mgr) const;
   void CheckSpringBallJump(const CFinalInput& input, CStateManager& mgr);

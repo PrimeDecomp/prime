@@ -354,12 +354,7 @@ bool operator==(const string& lhs, const char* rhs);
 bool operator==(const char* lhs, const string& rhs);
 bool operator!=(const string& lhs, const char* rhs);
 
-#ifdef __MWERKS__
-__declspec(weak) // TODO
-#else
-static
-#endif
-wstring wstring_l(const wchar_t* data) {
+inline wstring wstring_l(const wchar_t* data) {
   return wstring(wstring::literal_t(), data);
 }
 

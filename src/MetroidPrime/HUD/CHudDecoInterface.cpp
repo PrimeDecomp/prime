@@ -451,7 +451,7 @@ void CHudDecoInterfaceScan::UpdateScanDisplay(const CStateManager& mgr, float dt
   if (orbitTarget != mLatestHudPoi) {
     mLatestHudPoi = orbitTarget;
     if (orbitTarget != kInvalidUniqueId) {
-      if (!const_cast< CPlayer* >(mgr.GetPlayer())->ObjectInScanningRange(orbitTarget, mgr)) {
+      if (!mgr.GetPlayer()->ObjectInScanningRange(orbitTarget, mgr)) {
         mFlat_textpane_scanning->TextSupport().SetText(rstl::wstring_l(L""));
         mFlat_textpane_scanning->TextSupport().SetText(
             rstl::wstring_l(gpStringTable->GetString(16)));
@@ -482,7 +482,7 @@ void CHudDecoInterfaceScan::UpdateScanDisplay(const CStateManager& mgr, float dt
   }
   if (mLatestScanState != CPlayer::kSS_Scanning) {
     if (mLatestHudPoi == kInvalidUniqueId ||
-        const_cast< CPlayer* >(mgr.GetPlayer())->ObjectInScanningRange(mLatestHudPoi, mgr)) {
+        mgr.GetPlayer()->ObjectInScanningRange(mLatestHudPoi, mgr)) {
       mScanningTextAlpha = rstl::max_val(0.f, mScanningTextAlpha - dt);
     }
   }

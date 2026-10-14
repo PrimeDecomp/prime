@@ -1555,7 +1555,7 @@ void CPlayer::UpdateAssistedAiming(const CTransform4f& xf, CStateManager& mgr) {
       }
 
       bool targetToLeft = CVector3f::Cross(gunDirFlat, gunToTargetFlat).GetZ() > 0.f;
-      float hAngleDelta = acosf(CMath::Limit(CVector3f::Dot(gunToTargetFlat, gunDirFlat), 1.f));
+      float hAngleDelta = acosf(CMath::Limit(CVector3f::Dot(gunDirFlat, gunToTargetFlat), 1.f));
       bool hasHAngleDelta = true;
       if (!mAimingAtProjectile &&
           fabsf(hAngleDelta) > gpTweakPlayer->mAimAssistHorizontalAngle) {
@@ -1775,7 +1775,6 @@ void CPlayer::Update(float dt, CStateManager& mgr) {
 
 #if VERSION < VERSION_R3IJ_00
 
-// TODO nonmatching
 bool CPlayer::ShouldSampleFailsafe(CStateManager& mgr) const {
   const CCinematicCamera* cineCam =
       TCastToConstPtr< CCinematicCamera >(mgr.GetCameraManager()->GetCurrentCamera(mgr));
@@ -2332,7 +2331,12 @@ void CPlayer::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CState
       if (mMovementState != NPlayer::kMS_Falling) {
         static const float minLandVol = 95.f;
         static const float maxLandVol = 127.f;
-        float hardThres = CMath::FastSqrtF(-gpTweakPlayer->mNormalGravAccel * 2.f * 30.f);
+        float hardThres = -gpTweakPlayer->mNormalGravAccel * 2.f * 30.f;
+        if (hardThres == 0.f) {
+          hardThres = 0.f;
+        } else {
+          hardThres = hardThres * __frsqrte(hardThres);
+        }
         const float landVolume =
 #if VERSION >= VERSION_R3IJ_00
             CMath::FastClamp(minLandVol, -mLastVelocity.GetZ() * 1.6f + 95.f, maxLandVol);
@@ -3433,7 +3437,6 @@ void CPlayer::SetScanningState(EPlayerScanState state, CStateManager& mgr) {
   mScanState = state;
 }
 
-// TODO nonmatching
 bool CPlayer::ValidateScanning(const CFinalInput& input, CStateManager& mgr) {
 #if VERSION >= VERSION_R3IJ_00
   if (mControlMapper.GetDigitalInput(CControlMapper::kC_ScanItem, input,
@@ -3768,6 +3771,18 @@ float CPlayer::GetPrevDamageAmount() const { return mPrevDamageAmt; }
 
 CVector3f CPlayer::GetDamageLocationWR() const { return mDamageLocation; }
 
+CVector3f CPlayer::GetBallContactSurfaceNormal() const {
+  return mMorphball->GetBallContactSurfaceNormal();
+}
+
+CVector3f CPlayer::GetBallContactSurfacePoint() const {
+  return mMorphball->GetBallContactSurfacePoint();
+}
+
+CMaterialList CPlayer::GetBallContactMaterials() const {
+  return mMorphball->GetBallContactMaterials();
+}
+
 void CPlayer::FluidFXThink(EFluidState state, CScriptWater& water, CStateManager& mgr) {
   if (mMorphBallState == kMS_Morphed) {
     mMorphball->FluidFXThink(state, water, mgr);
@@ -3837,8 +3852,7 @@ void CPlayer::FluidFXThink(EFluidState state, CScriptWater& water, CStateManager
 
 #endif
 
-// TODO nonmatching
-bool CPlayer::ObjectInScanningRange(TUniqueId id, const CStateManager& mgr) {
+bool CPlayer::ObjectInScanningRange(TUniqueId id, const CStateManager& mgr) const {
   if (const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(id))) {
     CVector3f delta = act->GetTranslation() - GetTranslation();
     if (delta.CanBeNormalized() && delta.Magnitude() < gpTweakPlayer->GetScanningRange()) {
@@ -3994,10 +4008,9 @@ void CPlayer::UpdateEnvironmentDamageCameraShake(float dt, CStateManager& mgr) {
   }
 }
 
-// TODO nonmatching
 void CPlayer::UpdatePhazonDamage(float dt, CStateManager& mgr) {
   const TAreaId areaId = GetCurrentAreaId();
-  if (areaId == kInvalidAreaId || !mgr.GetWorld()->GetAreaAlways(areaId).IsPostConstructed()) {
+  if (areaId == kInvalidAreaId || !mgr.GetWorld()->IsAreaValid(areaId)) {
     return;
   }
 
@@ -4055,7 +4068,7 @@ void CPlayer::UpdatePhazonDamage(float dt, CStateManager& mgr) {
                         damage, 0.f, 0.f, true);
       mgr.ApplyDamage(
           kInvalidUniqueId, GetUniqueId(), kInvalidUniqueId, dInfo,
-          CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()),
+          CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()),
           CVector3f::Zero());
     }
   } else {

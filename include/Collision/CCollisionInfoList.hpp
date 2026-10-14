@@ -23,6 +23,27 @@ public:
     }
   }
   void Clear() { mList.clear(); }
+  CVector3f GetAverageLeftNormal() const {
+    CVector3f ret = CVector3f::Zero();
+    for (const_iterator it = Begin(); it != End(); ++it) {
+      ret += it->GetNormalLeft();
+    }
+    return ret / static_cast< float >(GetCount());
+  }
+  CVector3f GetAveragePoint() const {
+    CVector3f ret = CVector3f::Zero();
+    for (const_iterator it = Begin(); it != End(); ++it) {
+      ret += it->GetPoint();
+    }
+    return ret / static_cast< float >(GetCount());
+  }
+  CMaterialList GetUnionOfAllLeftMaterials() const {
+    CMaterialList ret;
+    for (const_iterator it = Begin(); it != End(); ++it) {
+      ret.Add(it->GetMaterialLeft());
+    }
+    return ret;
+  }
   int GetCount() const { return mList.size(); }
   rstl::reserved_vector< CCollisionInfo, 32 >& GetList() { return mList; }
   const rstl::reserved_vector< CCollisionInfo, 32 >& GetList() const { return mList; }
