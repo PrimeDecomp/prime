@@ -32,9 +32,6 @@
 
 #include "dolphin/gx.h"
 
-#pragma inline_max_size(250)
-#pragma inline_max_total_size(20000) // for RenderParticles vector inlining
-
 #ifdef __MWERKS__
 #define frsqrte(x) static_cast< float >(__frsqrte(x))
 #else
@@ -1269,10 +1266,9 @@ void CElementGen::RenderParticles() {
         static_cast< CParticleListItem* >(alloca(particleCount * sizeof(CParticleListItem)));
     for (int i = 0; i < particleCount; ++i) {
       CParticle& particle = mParticles[i];
-      const CVector3f& delta = particle.mPos - particle.mPrevPos;
-      const CVector3f& pos = delta * mTimeDeltaScale + particle.mPrevPos;
-      // TODO: I think this is the constructor, but need the copy to be elided
-      sortItems[i].mViewPoint = systemCameraCopy * pos;
+      sortItems[i].mViewPoint =
+          systemCameraCopy *
+          ((particle.mPos - particle.mPrevPos) * mTimeDeltaScale + particle.mPrevPos);
       sortItems[i].mPartIdx = static_cast< ushort >(i);
     }
     rstl::sort(sortItems, sortItems + particleCount, CParticleListItemViewPointComp());
@@ -1296,9 +1292,8 @@ void CElementGen::RenderParticles() {
         }
       }
     } else if (!mORNT) {
-      CParticleListItem* sortIt = sortItems;
       for (int i = 0; i < particleCount; ++i) {
-        CParticle& particle = SORT ? mParticles[sortIt->mPartIdx] : mParticles[i];
+        CParticle& particle = SORT ? mParticles[sortItems[i].mPartIdx] : mParticles[i];
         CVector3f viewPoint =
             systemCameraCopy *
             ((particle.mPos - particle.mPrevPos) * mTimeDeltaScale + particle.mPrevPos);
@@ -1344,6 +1339,7 @@ void CElementGen::RenderParticles() {
             float cosMinusSin = cosT - sinT;
             float sinMinusCos = sinT - cosT;
             float negSinPlusCos = -sinT + cosT;
+            float negCosMinusSin = -cosT - sinT;
 
             float vpX = viewPoint.GetX();
             float vpY = viewPoint.GetY();
@@ -1361,7 +1357,7 @@ void CElementGen::RenderParticles() {
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMin, uvs.yMin);
 
-            GXPosition3f32(negSinPlusCos + vpX, vpY, (-cosT - sinT) + vpZ);
+            GXPosition3f32(negSinPlusCos + vpX, vpY, negCosMinusSin + vpZ);
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMax, uvs.yMin);
           }
@@ -1417,14 +1413,6 @@ void CElementGen::RenderParticles() {
           GXColor1u32(color);
           GXTexCoord1s16(0x0200);
         }
-
-#if NONMATCHING
-        if (SORT) {
-          ++sortIt;
-        }
-#else
-        sortIt++;
-#endif
       }
     } else {
       // ORNT
@@ -1432,12 +1420,11 @@ void CElementGen::RenderParticles() {
       CVector3f origin = systemViewCopy.GetTranslation();
       float canBeNormEps = FLT_EPSILON;
 
-      CParticleListItem* sortIt = sortItems;
       for (int i = 0; i < particleCount; ++i) {
-        CParticle* particle = SORT ? &mParticles[sortIt->mPartIdx] : &mParticles[i];
+        CParticle* particle = SORT ? &mParticles[sortItems[i].mPartIdx] : &mParticles[i];
 
-        CVector3f delta = particle->mPos - particle->mPrevPos;
-        const CVector3f& pos = delta * mTimeDeltaScale + particle->mPrevPos;
+        CVector3f pos =
+            (particle->mPos - particle->mPrevPos) * mTimeDeltaScale + particle->mPrevPos;
 
         uint color = particle->mColor.GetColor_u32();
         float rota = mLoadedGenDesc->mROTA == nullptr ? 1.f : particle->mLineWidthOrRota;
@@ -1465,15 +1452,16 @@ void CElementGen::RenderParticles() {
 
           if (crMagSq > canBeNormEps) {
             float invMag = frsqrte(crMagSq);
-            right *= particle->mLineLengthOrSize * rota * invMag;
+            float width = particle->mLineLengthOrSize * rota;
+            right *= width * invMag;
           } else {
-            CVector3f camDelta = origin - particle->mPos;
-            right = CVector3f::Cross(dir, camDelta.AsNormalized());
+            right = CVector3f::Cross(dir, (origin - particle->mPos).AsNormalized());
             float cr2MagSq = right.MagSquared();
 
             if (cr2MagSq > canBeNormEps) {
               float invMag = frsqrte(cr2MagSq);
-              right *= particle->mLineLengthOrSize * rota * invMag;
+              float width = particle->mLineLengthOrSize * rota;
+              right *= width * invMag;
             }
           }
         } else {
@@ -1486,54 +1474,48 @@ void CElementGen::RenderParticles() {
           CParticleGlobals::UpdateParticleLifetimeTweenValues(partFrame);
           mLoadedGenDesc->mTEXR->GetValueUV(partFrame, uvs);
 
-          CVector3f p = pos + right * 0.5f + fore * 0.5f;
-          GXPositionVector3f(p);
+          pos += right * 0.5f;
+          pos += fore * 0.5f;
+          GXPositionVector3f(pos);
           GXColor1u32(color);
           GXTexCoord2f32(uvs.xMax, uvs.yMax);
 
-          p -= fore;
-          GXPositionVector3f(p);
+          pos -= fore;
+          GXPositionVector3f(pos);
           GXColor1u32(color);
           GXTexCoord2f32(uvs.xMin, uvs.yMax);
 
-          p -= right;
-          GXPositionVector3f(p);
+          pos -= right;
+          GXPositionVector3f(pos);
           GXColor1u32(color);
           GXTexCoord2f32(uvs.xMin, uvs.yMin);
 
-          p += fore;
-          GXPositionVector3f(p);
+          pos += fore;
+          GXPositionVector3f(pos);
           GXColor1u32(color);
           GXTexCoord2f32(uvs.xMax, uvs.yMin);
         } else {
-          CVector3f p = pos + right * 0.5f + fore * 0.5f;
-          GXPositionVector3f(p);
+          pos += right * 0.5f;
+          pos += fore * 0.5f;
+          GXPositionVector3f(pos);
           GXColor1u32(color);
           GXTexCoord1s16(0x0202);
 
-          p -= fore;
-          GXPositionVector3f(p);
+          pos -= fore;
+          GXPositionVector3f(pos);
           GXColor1u32(color);
           GXTexCoord1s16(0x0002);
 
-          p -= right;
-          GXPositionVector3f(p);
+          pos -= right;
+          GXPositionVector3f(pos);
           GXColor1u32(color);
           GXTexCoord1s16(0x0000);
 
-          p += fore;
-          GXPositionVector3f(p);
+          pos += fore;
+          GXPositionVector3f(pos);
           GXColor1u32(color);
           GXTexCoord1s16(0x0200);
         }
-
-#if NONMATCHING
-        if (SORT) {
-          ++sortIt;
-        }
-#else
-        sortIt++;
-#endif
       }
     }
   } else {
@@ -1542,9 +1524,9 @@ void CElementGen::RenderParticles() {
     for (int i = 0; i < particleCount; ++i) {
       CParticle* particle = &mParticles[i];
 
-      CVector3f delta = particle->mPos - particle->mPrevPos;
-      CVector3f vec = delta * mTimeDeltaScale + particle->mPrevPos;
-      CVector3f mbspVec = delta * mbspFac;
+      CVector3f mbspVec = (particle->mPos - particle->mPrevPos) * mbspFac;
+      CVector3f vec =
+          (particle->mPos - particle->mPrevPos) * mTimeDeltaScale + particle->mPrevPos;
 
       CColor col = particle->mColor;
       col.SetAlpha(col.GetAlpha() * mbspFac);
@@ -1595,6 +1577,7 @@ void CElementGen::RenderParticles() {
 
             float sinPlusCos = sinT + cosT;
             float negSinPlusCos = -sinT + cosT;
+            float negCosMinusSin = -cosT - sinT;
             float sinMinusCos = sinT - cosT;
             float cosMinusSin = cosT - sinT;
 
@@ -1614,7 +1597,7 @@ void CElementGen::RenderParticles() {
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMin, uvs.yMin);
 
-            GXPosition3f32(negSinPlusCos + vpX, vpY, (-cosT - sinT) + vpZ);
+            GXPosition3f32(negSinPlusCos + vpX, vpY, negCosMinusSin + vpZ);
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMax, uvs.yMin);
           }
@@ -1716,6 +1699,7 @@ void CElementGen::RenderParticlesFlameThrower(CElementGen* const* gens, int coun
 
   CGX::SetVtxDescv(sVtxDescList);
 
+  int activeCount;
   int nStages = 1;
   CGX::SetNumChans(1);
 
@@ -1747,14 +1731,14 @@ void CElementGen::RenderParticlesFlameThrower(CElementGen* const* gens, int coun
   CTexturedParticleListItem* sortItems = static_cast< CTexturedParticleListItem* >(
       alloca(totalParticles * sizeof(CTexturedParticleListItem)));
 
-  int activeCount = 0;
+  activeCount = 0;
   for (int i = 0; i < count; ++i) {
     CElementGen* gen = gens[i];
     int numParts = gen->GetParticleCount();
     float timeDelta = gen->mTimeDeltaScale;
 
     for (int j = 0; j < numParts; ++j) {
-      CParticle& particle = gen->mParticles[j];
+      CParticle& particle = gen->mParticles[static_cast< uint >(j)];
       if (particle.mEndFrame == -1)
         continue;
 
@@ -1773,9 +1757,9 @@ void CElementGen::RenderParticlesFlameThrower(CElementGen* const* gens, int coun
 
   rstl::sort(sortItems, sortItems + activeCount, CTexturedParticleListItemViewPointComp());
 
-  CGenDescription* genDesc = nullptr;
   ushort lastMap = 0xFFFF;
   CElementGen* gen = nullptr;
+  CGenDescription* genDesc = nullptr;
   int emitterTime = 0;
 
   float cosMinusSin;
@@ -1952,14 +1936,12 @@ void CElementGen::RenderParticlesIndirectTexture() {
   if (SORT) {
     sortItems =
         static_cast< CParticleListItem* >(alloca(particleCount * sizeof(CParticleListItem)));
-    CParticleListItem* cur = sortItems;
     for (int i = 0; i < particleCount; ++i) {
       CParticle& particle = mParticles[i];
-      const CVector3f& delta = particle.mPos - particle.mPrevPos;
-      const CVector3f& pos = delta * mTimeDeltaScale + particle.mPrevPos;
-      cur->mViewPoint = systemCameraCopy * pos;
-      cur->mPartIdx = static_cast< ushort >(i);
-      cur++;
+      sortItems[i].mViewPoint =
+          systemCameraCopy *
+          ((particle.mPos - particle.mPrevPos) * mTimeDeltaScale + particle.mPrevPos);
+      sortItems[i].mPartIdx = static_cast< ushort >(i);
     }
 
     static CParticleListItemViewPointComp sComp;
@@ -1972,9 +1954,8 @@ void CElementGen::RenderParticlesIndirectTexture() {
   };
   CGX::SetVtxDescv(skIndVtxDescList);
 
-  CParticleListItem* sortIt = sortItems;
   for (int i = 0; i < particleCount; ++i) {
-    CParticle* particle = SORT ? &mParticles[sortIt->mPartIdx] : &mParticles[i];
+    CParticle* particle = SORT ? &mParticles[sortItems[i].mPartIdx] : &mParticles[i];
     const CVector3f& viewPoint =
         systemCameraCopy *
         ((particle->mPos - particle->mPrevPos) * mTimeDeltaScale + particle->mPrevPos);
@@ -2023,13 +2004,13 @@ void CElementGen::RenderParticlesIndirectTexture() {
     float maxV = clipRect.GetMaxV();
 
     if (clipRect.IsValid()) {
-      void* dest = CGraphics::GetDolphinSpareBuffer();
+      void* const dest = CGraphics::GetDolphinSpareBuffer();
       GXSetTexCopySrc(static_cast< u16 >(clipRect.GetX()), static_cast< u16 >(clipRect.GetY()),
                       static_cast< u16 >(clipRect.GetWidth()), static_cast< u16 >(height));
       GXSetTexCopyDst(static_cast< u16 >(width), static_cast< u16 >(height), GX_TF_RGB565,
                       GX_FALSE);
 
-      size_t bufSize = CGraphics::GetSpareBufferSize();
+      int bufSize = CGraphics::GetSpareBufferSize();
       size_t texBufSize = GXGetTexBufferSize(width, height, GX_TF_RGB565, GX_FALSE, 0);
       if (texBufSize <= bufSize) {
         const bool useVideoFilter = CGraphics::GetUseVideoFilter();
@@ -2071,14 +2052,6 @@ void CElementGen::RenderParticlesIndirectTexture() {
         CGX::End();
       }
     }
-
-#if NONMATCHING
-    if (SORT) {
-      ++sortIt;
-    }
-#else
-    sortIt++;
-#endif
   }
 
   CGX::SetNumIndStages(0);
