@@ -554,9 +554,7 @@ config.libs = [
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CArchMsgParmUserInput.cpp",
                 # Verified difference
-                extra_cflags=['-pragma "inline_max_size(256)"']
-                if version_num >= VERSIONS.index("GM8P01_00")
-                else [],
+                extra_cflags=['-pragma "inline_max_size(256)"'],
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/CFrontEndUI.cpp"),
             Object(
@@ -864,9 +862,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CDamageVulnerability.cpp",
                 # Verified difference
-                extra_cflags=['-pragma "inline_max_size(256)"']
-                if version_num >= VERSIONS.index("GM8P01_00")
-                else [],
+                extra_cflags=['-pragma "inline_max_size(256)"'],
             ),
             Object(EquivalentFor("GM8E01_00"), "MetroidPrime/CActorLights.cpp"),
             Object(
@@ -915,9 +911,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CFluidUVMotion.cpp",
                 # Verified difference
-                extra_cflags=['-pragma "inline_max_size(256)"']
-                if version_num >= VERSIONS.index("GM8P01_00")
-                else [],
+                extra_cflags=['-pragma "inline_max_size(256)"'],
             ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS),
@@ -1207,9 +1201,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/PathFinding/CPathFindRegion.cpp",
                 # Verified difference
-                extra_cflags=['-pragma "inline_max_size(256)"']
-                if version_num >= VERSIONS.index("GM8P01_00")
-                else [],
+                extra_cflags=['-pragma "inline_max_size(256)"'],
             ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS),
