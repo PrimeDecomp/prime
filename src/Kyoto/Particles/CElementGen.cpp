@@ -1699,6 +1699,7 @@ void CElementGen::RenderParticlesFlameThrower(CElementGen* const* gens, int coun
 
   CGX::SetVtxDescv(sVtxDescList);
 
+  int activeCount;
   int nStages = 1;
   CGX::SetNumChans(1);
 
@@ -1730,14 +1731,14 @@ void CElementGen::RenderParticlesFlameThrower(CElementGen* const* gens, int coun
   CTexturedParticleListItem* sortItems = static_cast< CTexturedParticleListItem* >(
       alloca(totalParticles * sizeof(CTexturedParticleListItem)));
 
-  int activeCount = 0;
+  activeCount = 0;
   for (int i = 0; i < count; ++i) {
     CElementGen* gen = gens[i];
     int numParts = gen->GetParticleCount();
     float timeDelta = gen->mTimeDeltaScale;
 
     for (int j = 0; j < numParts; ++j) {
-      CParticle& particle = gen->mParticles[j];
+      CParticle& particle = gen->mParticles[static_cast< uint >(j)];
       if (particle.mEndFrame == -1)
         continue;
 
@@ -1756,9 +1757,9 @@ void CElementGen::RenderParticlesFlameThrower(CElementGen* const* gens, int coun
 
   rstl::sort(sortItems, sortItems + activeCount, CTexturedParticleListItemViewPointComp());
 
-  CGenDescription* genDesc = nullptr;
   ushort lastMap = 0xFFFF;
   CElementGen* gen = nullptr;
+  CGenDescription* genDesc = nullptr;
   int emitterTime = 0;
 
   float cosMinusSin;
