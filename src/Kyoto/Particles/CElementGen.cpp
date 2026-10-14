@@ -1935,14 +1935,12 @@ void CElementGen::RenderParticlesIndirectTexture() {
   if (SORT) {
     sortItems =
         static_cast< CParticleListItem* >(alloca(particleCount * sizeof(CParticleListItem)));
-    CParticleListItem* cur = sortItems;
     for (int i = 0; i < particleCount; ++i) {
       CParticle& particle = mParticles[i];
-      const CVector3f& delta = particle.mPos - particle.mPrevPos;
-      const CVector3f& pos = delta * mTimeDeltaScale + particle.mPrevPos;
-      cur->mViewPoint = systemCameraCopy * pos;
-      cur->mPartIdx = static_cast< ushort >(i);
-      cur++;
+      sortItems[i].mViewPoint =
+          systemCameraCopy *
+          ((particle.mPos - particle.mPrevPos) * mTimeDeltaScale + particle.mPrevPos);
+      sortItems[i].mPartIdx = static_cast< ushort >(i);
     }
 
     static CParticleListItemViewPointComp sComp;
@@ -1955,9 +1953,8 @@ void CElementGen::RenderParticlesIndirectTexture() {
   };
   CGX::SetVtxDescv(skIndVtxDescList);
 
-  CParticleListItem* sortIt = sortItems;
   for (int i = 0; i < particleCount; ++i) {
-    CParticle* particle = SORT ? &mParticles[sortIt->mPartIdx] : &mParticles[i];
+    CParticle* particle = SORT ? &mParticles[sortItems[i].mPartIdx] : &mParticles[i];
     const CVector3f& viewPoint =
         systemCameraCopy *
         ((particle->mPos - particle->mPrevPos) * mTimeDeltaScale + particle->mPrevPos);
@@ -2054,14 +2051,6 @@ void CElementGen::RenderParticlesIndirectTexture() {
         CGX::End();
       }
     }
-
-#if NONMATCHING
-    if (SORT) {
-      ++sortIt;
-    }
-#else
-    sortIt++;
-#endif
   }
 
   CGX::SetNumIndStages(0);
