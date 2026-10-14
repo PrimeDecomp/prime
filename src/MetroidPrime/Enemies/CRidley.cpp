@@ -31,7 +31,6 @@ const int CRidley::skNumProperties = 39;
 const int CRidley::skNumProperties = 47;
 #endif
 
-static const float skMinFlightScale = 0.3f;
 static const float skFlightScaleDistance = 250.f;
 
 const rstl::string CRidley::skBreastPlate = rstl::string_l("breastPlate_LCTR");
@@ -77,95 +76,96 @@ struct SStage2Attack {
   SStage2Attack(int primary = -1, float probability = 100.f, int alternate = -1)
   : mPrimary(primary), mProbability(probability), mAlternate(alternate) {}
 };
+static inline const SStage2Attack& AttackRef(const SStage2Attack& attack) { return attack; }
 static const SStage2Attack skStage2Attacks[5][12] = {
     {
-        SStage2Attack(0, 100.f, -1),
-        SStage2Attack(3, 100.f, -1),
-        SStage2Attack(2, 100.f, -1),
-        SStage2Attack(3, 50.f, 4),
-        SStage2Attack(0, 100.f, -1),
-        SStage2Attack(3, 100.f, -1),
-        SStage2Attack(2, 100.f, -1),
-        SStage2Attack(3, 50.f, 4),
-        SStage2Attack(5, 100.f, -1),
-        SStage2Attack(-1, 100.f, -1),
+        AttackRef(SStage2Attack(0, 100.f, -1)),
+        AttackRef(SStage2Attack(3, 100.f, -1)),
+        AttackRef(SStage2Attack(2, 100.f, -1)),
+        AttackRef(SStage2Attack(3, 50.f, 4)),
+        AttackRef(SStage2Attack(0, 100.f, -1)),
+        AttackRef(SStage2Attack(3, 100.f, -1)),
+        AttackRef(SStage2Attack(2, 100.f, -1)),
+        AttackRef(SStage2Attack(3, 50.f, 4)),
+        AttackRef(SStage2Attack(5, 100.f, -1)),
+        AttackRef(SStage2Attack(-1, 100.f, -1)),
     },
     {
-        SStage2Attack(5, 100.f, -1),
-        SStage2Attack(1, 100.f, -1),
-        SStage2Attack(1, 100.f, -1),
-        SStage2Attack(1, 100.f, -1),
-        SStage2Attack(1, 100.f, -1),
-        SStage2Attack(-1, 100.f, -1),
+        AttackRef(SStage2Attack(5, 100.f, -1)),
+        AttackRef(SStage2Attack(1, 100.f, -1)),
+        AttackRef(SStage2Attack(1, 100.f, -1)),
+        AttackRef(SStage2Attack(1, 100.f, -1)),
+        AttackRef(SStage2Attack(1, 100.f, -1)),
+        AttackRef(SStage2Attack(-1, 100.f, -1)),
     },
     {
-        SStage2Attack(5, 100.f, -1),
-        SStage2Attack(0, 100.f, -1),
-        SStage2Attack(0, 50.f, 4),
-        SStage2Attack(2, 100.f, -1),
-        SStage2Attack(3, 50.f, 4),
-        SStage2Attack(2, 100.f, -1),
-        SStage2Attack(3, 50.f, 4),
-        SStage2Attack(0, 100.f, -1),
-        SStage2Attack(2, 50.f, 3),
-        SStage2Attack(2, 100.f, -1),
-        SStage2Attack(-1, 100.f, -1),
+        AttackRef(SStage2Attack(5, 100.f, -1)),
+        AttackRef(SStage2Attack(0, 100.f, -1)),
+        AttackRef(SStage2Attack(0, 50.f, 4)),
+        AttackRef(SStage2Attack(2, 100.f, -1)),
+        AttackRef(SStage2Attack(3, 50.f, 4)),
+        AttackRef(SStage2Attack(2, 100.f, -1)),
+        AttackRef(SStage2Attack(3, 50.f, 4)),
+        AttackRef(SStage2Attack(0, 100.f, -1)),
+        AttackRef(SStage2Attack(2, 50.f, 3)),
+        AttackRef(SStage2Attack(2, 100.f, -1)),
+        AttackRef(SStage2Attack(-1, 100.f, -1)),
     },
     {
-        SStage2Attack(5, 100.f, -1),
-        SStage2Attack(1, 100.f, -1),
-        SStage2Attack(1, 100.f, -1),
-        SStage2Attack(1, 100.f, -1),
-        SStage2Attack(1, 100.f, -1),
-        SStage2Attack(-1, 100.f, -1),
+        AttackRef(SStage2Attack(5, 100.f, -1)),
+        AttackRef(SStage2Attack(1, 100.f, -1)),
+        AttackRef(SStage2Attack(1, 100.f, -1)),
+        AttackRef(SStage2Attack(1, 100.f, -1)),
+        AttackRef(SStage2Attack(1, 100.f, -1)),
+        AttackRef(SStage2Attack(-1, 100.f, -1)),
     },
     {
-        SStage2Attack(5, 100.f, -1),
-        SStage2Attack(0, 100.f, -1),
-        SStage2Attack(0, 50.f, 3),
-        SStage2Attack(3, 100.f, -1),
-        SStage2Attack(0, 50.f, 3),
-        SStage2Attack(2, 100.f, -1),
-        SStage2Attack(2, 50.f, 4),
-        SStage2Attack(0, 100.f, -1),
-        SStage2Attack(-1, 100.f, -1),
+        AttackRef(SStage2Attack(5, 100.f, -1)),
+        AttackRef(SStage2Attack(0, 100.f, -1)),
+        AttackRef(SStage2Attack(0, 50.f, 3)),
+        AttackRef(SStage2Attack(3, 100.f, -1)),
+        AttackRef(SStage2Attack(0, 50.f, 3)),
+        AttackRef(SStage2Attack(2, 100.f, -1)),
+        AttackRef(SStage2Attack(2, 50.f, 4)),
+        AttackRef(SStage2Attack(0, 100.f, -1)),
+        AttackRef(SStage2Attack(-1, 100.f, -1)),
     },
 };
 
 #if VERSION >= VERSION_GM8P_00
 static const SStage2Attack skStage3Attacks[4][7] = {
     {
-        SStage2Attack(2, 100.f, -1),
-        SStage2Attack(1, 100.f, -1),
-        SStage2Attack(2, 100.f, -1),
-        SStage2Attack(5, 100.f, 7),
-        SStage2Attack(1, 100.f, -1),
-        SStage2Attack(-1, 100.f, -1),
+        AttackRef(SStage2Attack(2, 100.f, -1)),
+        AttackRef(SStage2Attack(1, 100.f, -1)),
+        AttackRef(SStage2Attack(2, 100.f, -1)),
+        AttackRef(SStage2Attack(5, 100.f, 7)),
+        AttackRef(SStage2Attack(1, 100.f, -1)),
+        AttackRef(SStage2Attack(-1, 100.f, -1)),
     },
     {
-        SStage2Attack(5, 100.f, 2),
-        SStage2Attack(6, 100.f, -1),
-        SStage2Attack(5, 100.f, 2),
-        SStage2Attack(2, 100.f, -1),
-        SStage2Attack(1, 100.f, -1),
-        SStage2Attack(-1, 100.f, -1),
+        AttackRef(SStage2Attack(5, 100.f, 2)),
+        AttackRef(SStage2Attack(6, 100.f, -1)),
+        AttackRef(SStage2Attack(5, 100.f, 2)),
+        AttackRef(SStage2Attack(2, 100.f, -1)),
+        AttackRef(SStage2Attack(1, 100.f, -1)),
+        AttackRef(SStage2Attack(-1, 100.f, -1)),
     },
     {
-        SStage2Attack(5, 100.f, -1),
-        SStage2Attack(2, 50.f, 7),
-        SStage2Attack(6, 100.f, -1),
-        SStage2Attack(5, 100.f, 6),
-        SStage2Attack(1, 100.f, -1),
-        SStage2Attack(-1, 100.f, -1),
+        AttackRef(SStage2Attack(5, 100.f, -1)),
+        AttackRef(SStage2Attack(2, 50.f, 7)),
+        AttackRef(SStage2Attack(6, 100.f, -1)),
+        AttackRef(SStage2Attack(5, 100.f, 6)),
+        AttackRef(SStage2Attack(1, 100.f, -1)),
+        AttackRef(SStage2Attack(-1, 100.f, -1)),
     },
     {
-        SStage2Attack(2, 30.f, 7),
-        SStage2Attack(5, 100.f, 5),
-        SStage2Attack(5, 100.f, 5),
-        SStage2Attack(5, 100.f, 5),
-        SStage2Attack(1, 100.f, -1),
-        SStage2Attack(6, 50.f, 7),
-        SStage2Attack(-1, 100.f, -1),
+        AttackRef(SStage2Attack(2, 30.f, 7)),
+        AttackRef(SStage2Attack(5, 100.f, 5)),
+        AttackRef(SStage2Attack(5, 100.f, 5)),
+        AttackRef(SStage2Attack(5, 100.f, 5)),
+        AttackRef(SStage2Attack(1, 100.f, -1)),
+        AttackRef(SStage2Attack(6, 50.f, 7)),
+        AttackRef(SStage2Attack(-1, 100.f, -1)),
     },
 };
 #endif
@@ -711,7 +711,7 @@ void CRidley::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
         damage.SetRadius(0.f);
         mgr.ApplyDamage(
             uid, target, projectile->GetOwnerId(), damage,
-            CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()),
+            CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()),
             CVector3f::Zero());
       }
     }
@@ -725,7 +725,7 @@ void CRidley::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
               GetUniqueId(), platform->GetUniqueId(), GetUniqueId(),
               CDamageInfo(CWeaponMode(kWT_AI), 1.f + platform->GetHealthInfo(mgr)->GetHP(), 0.f,
                           1.f),
-              CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()),
+              CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()),
               CVector3f::Zero());
         }
       }
@@ -733,7 +733,7 @@ void CRidley::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
           mCurDamageRemTime <= 0.f) {
         mgr.ApplyDamage(
             GetUniqueId(), mgr.GetPlayer()->GetUniqueId(), GetUniqueId(), xc8c_,
-            CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()),
+            CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()),
             CVector3f::Zero());
         mCurDamageRemTime = mDamageWaitTime;
       }
@@ -899,7 +899,7 @@ void CRidley::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUs
 #else
           mData.x298_,
 #endif
-          CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()),
+          CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()),
           CVector3f::Zero());
     }
     break;
@@ -985,7 +985,7 @@ void CRidley::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) {
                                  : flags.GetOtherFlags() & ~CModelFlags::kF_ThermalUnsortedOnly));
   if (xa33_27_) {
     const float height =
-        rstl::max_val(0.f, GetTranslation().GetZ() - xa84_.GetTranslation().GetZ());
+        rstl::max_val(0.f, GetTransform().GetTranslation().GetZ() - xa84_.GetTranslation().GetZ());
     xccc_ = 1.f + CMath::Clamp(0.f, 0.05f * (height - 20.f), 1.f);
     const CVector3f& min = GetRenderBoundsCached().GetMinPoint();
     const CVector3f extents = GetRenderBoundsCached().GetMaxPoint() - min;
@@ -1581,8 +1581,7 @@ void CRidley::Attack(CStateManager& mgr, EStateMsg msg, float arg) {
     break;
   case kStateMsg_Update:
     if (xa31_29_) {
-      const float maxSpeed = 0.5f;
-      xc0c_ = CMath::Min(maxSpeed, 0.5f * arg + xc0c_);
+      xc0c_ = CMath::Min(skMaxSpeed, 0.5f * arg + xc0c_);
       xc08_ = arg * xc0c_ + xc08_;
       xbe4_ += xc08_ * xbf0_;
     } else {
@@ -1676,6 +1675,7 @@ void CRidley::Retreat(CStateManager& mgr, EStateMsg msg, float arg) {
 void CRidley::Lurk(CStateManager& mgr, EStateMsg msg, float arg) {
   switch (msg) {
   case kStateMsg_Activate: {
+    float y, height;
     if (!xa33_25_) {
       CVector3f delta = GetTranslation() - xa84_.GetTranslation();
       delta.SetZ(0.f);
@@ -1683,8 +1683,10 @@ void CRidley::Lurk(CStateManager& mgr, EStateMsg msg, float arg) {
       if (CVector3f::Dot(delta, xa84_.GetRight()) < 0.f) {
         angle = -angle;
       }
+      float newAngle = mgr.Random()->Range(-1.2566371f, 1.2566371f);
       for (int i = 0; i < 1; ++i) {
-        if (CMath::AbsF(mgr.Random()->Range(-1.2566371f, 1.2566371f) - angle) < 0.39269909f) {
+        if (CMath::AbsF(newAngle - angle) < 0.39269909f) {
+          newAngle = -newAngle;
           continue;
         }
         break;
@@ -1694,8 +1696,8 @@ void CRidley::Lurk(CStateManager& mgr, EStateMsg msg, float arg) {
       mTailCollision->SetActive(mgr, true);
     }
     xa33_25_ = false;
-    const float height = xac0_ - xadc_;
-    const float y = xabc_ * CMath::FastCosR(0.f);
+    height = xac0_ - xadc_;
+    y = xabc_ * CMath::FastCosR(0.f);
     const float x = xabc_ * CMath::FastSinR(0.f);
     const CVector3f offset(x, y, height);
     SetDestPos(xa84_ * offset);
@@ -2602,6 +2604,11 @@ EWeaponCollisionResponseTypes CRidley::GetCollisionResponseType(const CVector3f&
   return kWCR_EnemyNormal;
 }
 
-float CRidley::GetGravityConstant() const { return 50.f; }
+float CRidley::GetGravityConstant() const { return skGravityConstant; }
 
 CRidley::~CRidley() {}
+
+// Defined after use so GetGravityConstant loads the object instead of a pooled literal.
+const float CRidley::skGravityConstant = 50.f;
+const float CRidley::skMinFlightScale = 0.3f;
+const float CRidley::skMaxSpeed = 0.5f;
