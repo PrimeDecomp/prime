@@ -62,6 +62,9 @@ private:
   void AddStringFragment(const wchar_t* str, int len);
   int WrapOneLTR(const wchar_t* str, int len);
   void MoveWordLTR();
+#if VERSION >= VERSION_GM8P_00
+  bool ShouldWrapImage(const CFontImageDef& image) const;
+#endif
   void StartNewLine();
   void StartNewWord();
   void TerminateLine();

@@ -135,6 +135,7 @@ public:
     if (mCount >= mCapacity) {
       reserve(mCapacity ? mCapacity * 2 : 4);
     }
+    RS_ASSERT(mCount < mCapacity, "rstl invariant");
     rstl::construct(mItems + mCount, in);
     ++mCount;
   }

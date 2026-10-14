@@ -82,7 +82,8 @@ public:
   const rstl::vector< CSoundPOINode >& GetSoundPOIStream() const;
   CSegId GetPrimaryOffsetChannel() const { return mRoot; }
   CVector3f GetOverallOffset(const CCharAnimTime& time) const {
-    return GetOffset(GetPrimaryOffsetChannel(), time);
+    CSegId root = GetPrimaryOffsetChannel();
+    return GetOffset(root, time);
   }
   CSteadyStateAnimInfo GetSteadyStateAnimInfo(const CCharAnimTime& time) const {
     return CSteadyStateAnimInfo(false, GetAnimationDuration(), GetOverallOffset(time));

@@ -13,7 +13,7 @@ public:
   CDamageInfo()
   : mWeaponMode(CWeaponMode::Invalid())
   , mDamage(0.f)
-  , mRadiusDamage(mDamage)
+  , mRadiusDamage(GetDamage())
   , mRadius(0.f)
   , mKnockback(0.f)
   , mNoImmunity(false) {}

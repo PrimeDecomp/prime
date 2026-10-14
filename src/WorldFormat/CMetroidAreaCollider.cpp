@@ -227,9 +227,7 @@ bool CMetroidAreaCollider::AABoxCollisionCheck(const CAreaOctTree& octTree, cons
 
   ResetInternalCounters();
 
-  CAreaOctTree::Node node(octTree.GetTreeMemory(), octTree.GetBoundingBox(), octTree,
-                          octTree.GetTreeType());
-  return AABoxCollisionCheck_Internal(node, cache);
+  return AABoxCollisionCheck_Internal(octTree.GetRootNode(), cache);
 }
 
 bool CMetroidAreaCollider::AABoxCollisionCheckBoolean_Internal(
@@ -300,9 +298,7 @@ bool CMetroidAreaCollider::AABoxCollisionCheckBoolean(const CAreaOctTree& octTre
                                                       const CAABox& aabb,
                                                       const CMaterialFilter& filter) {
   CBooleanAABoxAreaCache cache(aabb, filter);
-  CAreaOctTree::Node node(octTree.GetTreeMemory(), octTree.GetBoundingBox(), octTree,
-                          octTree.GetTreeType());
-  return AABoxCollisionCheckBoolean_Internal(node, cache);
+  return AABoxCollisionCheckBoolean_Internal(octTree.GetRootNode(), cache);
 }
 
 bool CMetroidAreaCollider::SphereCollisionCheck_Internal(const CAreaOctTree::Node& node,
@@ -398,9 +394,7 @@ bool CMetroidAreaCollider::SphereCollisionCheck(const CAreaOctTree& octTree, con
                                                 CCollisionInfoList& list) {
   CSphereAreaCache cache(aabb, sphere, filter, matList, list);
   ResetInternalCounters();
-  CAreaOctTree::Node node(octTree.GetTreeMemory(), octTree.GetBoundingBox(), octTree,
-                          octTree.GetTreeType());
-  return SphereCollisionCheck_Internal(node, cache);
+  return SphereCollisionCheck_Internal(octTree.GetRootNode(), cache);
 }
 
 bool CMetroidAreaCollider::SphereCollisionCheckBoolean_Internal(
@@ -462,9 +456,7 @@ bool CMetroidAreaCollider::SphereCollisionCheckBoolean(const CAreaOctTree& octTr
                                                        const CAABox& aabb, const CSphere& sphere,
                                                        const CMaterialFilter& filter) {
   CBooleanSphereAreaCache cache(aabb, sphere, filter);
-  CAreaOctTree::Node node(octTree.GetTreeMemory(), octTree.GetBoundingBox(), octTree,
-                          octTree.GetTreeType());
-  return SphereCollisionCheckBoolean_Internal(node, cache);
+  return SphereCollisionCheckBoolean_Internal(octTree.GetRootNode(), cache);
 }
 
 static inline CVector3f TriangleEdgeNormal(const CVector3f& lhs, const CVector3f& rhs) {

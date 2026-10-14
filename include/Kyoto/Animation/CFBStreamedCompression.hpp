@@ -309,6 +309,7 @@ public:
     FrameIterator it(reinterpret_cast< const uint* >(this + 1) + word, 1u << bit);
     do {
       ++frame;
+      RS_ASSERT(frame < mBitCount, "Ran past the last keyframe");
       Advance(it);
     } while (!FrameAt(it));
     return frame;
@@ -377,10 +378,9 @@ public:
   }
 
   uint GetNumKeyframes() const {
-    return GetPerChannelHeaderList(TimeHeader(MainHeader()))
-        .begin()
-        ->GetRotationBitStorage()
-        .GetWidth();
+    const CFBStreamedPerChannelHeaderList& channels =
+        GetPerChannelHeaderList(TimeHeader(MainHeader()));
+    return channels.begin()->GetRotationBitStorage().GetWidth();
   }
 
 private:

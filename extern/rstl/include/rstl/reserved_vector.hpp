@@ -95,15 +95,12 @@ public:
 #else
   explicit reserved_vector(const T& value) : mCount(N) { uninitialized_fill_n(data(), N, value); }
   explicit reserved_vector(int count, const T& value) : mCount(count) {
+    RS_ASSERT(count <= N, "rstl precondition");
     uninitialized_fill_n(data(), count, value);
   };
 #endif
   reserved_vector(const reserved_vector& other) : mCount(other.mCount) {
-#if RSTL_VERSION < RSTL_GM8P_00
-    RS_ASSERT(mCount >= 0, "rstl precondition");
-    RS_ASSERT(mCount <= N, "rstl precondition");
-#endif
-    uninitialized_copy_n(other.data(), mCount, data());
+    uninitialized_copy_n(const_iterator(other.data()), mCount, begin());
   }
   reserved_vector(CInputStream& in);
 
@@ -127,6 +124,7 @@ public:
   }
 
   void clear() {
+    RS_ASSERT(mCount <= N, "rstl invariant");
 #if RSTL_VERSION >= RSTL_R3IJ
     if (!reserved_vector_traits< T >::trivial_destructor) {
 #endif
@@ -158,6 +156,7 @@ public:
 #else
   void push_back(const T& in) {
 #endif
+    RS_ASSERT(mCount < N, "rstl precondition");
     construct(data() + mCount, in);
     ++mCount;
   }

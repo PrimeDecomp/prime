@@ -101,16 +101,13 @@ static inline void destroy(It begin, It end) {
 
 template < typename It, typename T >
 static inline T uninitialized_copy(It begin, It end, T out) {
-#if RSTL_VERSION < RSTL_GM8P_00
-  RS_ASSERT(begin == end || &*begin != nullptr, "rstl precondition");
-  RS_ASSERT(begin == end || &*out != nullptr, "rstl precondition");
-#endif
+  RS_ASSERT(begin == end || (&*begin != nullptr && &*out != nullptr), "rstl precondition");
   T tmp = out;
   It cur = begin;
 #if RSTL_VERSION >= RSTL_R3IJ
   for (; cur != end; ++cur, ++tmp) {
 #else
-  for (; cur != end; ++tmp, ++cur) {
+  for (; cur != end; tmp += 1, ++cur) {
 #endif
     construct(tmp, *cur);
   }

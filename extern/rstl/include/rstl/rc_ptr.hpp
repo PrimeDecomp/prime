@@ -48,6 +48,7 @@ public:
 #else
     RS_ASSERT(mRefData != nullptr, "rstl precondition");
     RS_ASSERT(mRefData->GetRefCount() > 0, "rstl precondition");
+    RS_ASSERT(mRefData != &CRefData::sNull || mRefData->GetPtr() == nullptr, "rstl precondition");
 #endif
     ReleaseData();
   }

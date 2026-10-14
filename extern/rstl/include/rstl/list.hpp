@@ -102,6 +102,7 @@ public:
 
   iterator erase(const iterator& item) { return do_erase(item.get_node()); }
   iterator erase(const iterator& start, const iterator& end) {
+    RS_ASSERT(start.get_node() != nullptr, "rstl precondition");
     iterator it = start;
     while (it != end) {
       it = erase(it);
