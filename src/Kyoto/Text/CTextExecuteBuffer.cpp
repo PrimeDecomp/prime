@@ -85,11 +85,18 @@ void CTextExecuteBuffer::AddFont(const TToken< CRasterFont >& font) {
   }
 }
 
+#if VERSION >= VERSION_GM8P_00
+int CFontImageDef::GetWidth() const { return GetMonoWidth(); }
+
+int CFontImageDef::GetHeight() const { return GetMonoHeight(); }
+#endif
+
 void CTextExecuteBuffer::AddImage(const CFontImageDef& image) {
   if (!mCurLine) {
     StartNewLine();
   }
   if (mCurBlock && image.IsLoaded()) {
+#if VERSION < VERSION_GM8P_00
     bool wrap = mState.mEnableWordWrap;
     if (wrap) {
       const int width = mCurLine->GetWidth() + image.GetWidth();
@@ -98,12 +105,27 @@ void CTextExecuteBuffer::AddImage(const CFontImageDef& image) {
     if (wrap) {
       wrap = mCurLine->GetWordCount() > 1;
     }
+#else
+    bool wrap = false;
+    bool tooWide = false;
+    if (mState.IsWordWrapping() &&
+        mCurLine->GetWidth() + image.GetWidth() > mCurBlock->GetOutputWidth()) {
+      tooWide = true;
+    }
+    if (tooWide && mCurLine->GetWordCount() > 0) {
+      wrap = true;
+    }
+#endif
     if (wrap) {
       StartNewLine();
     }
-    // For PAL only, using GetHeight instead of GetMonoHeight improves the match, but not fully
+#if VERSION < VERSION_GM8P_00
     mCurLine->TestLargestImage(image.GetMonoWidth(), image.GetMonoHeight(),
                                   image.CalculateBaseline());
+#else
+    mCurLine->TestLargestImage(image.GetMonoWidth(), image.GetHeight(),
+                                  image.CalculateBaseline());
+#endif
     if (mCurBlock->GetTextDirection() == kTD_Horizontal) {
       mCurLine->AddWidth(image.GetWidth());
       if (mCurLine->GetWidth() > image.GetWidth()) {
