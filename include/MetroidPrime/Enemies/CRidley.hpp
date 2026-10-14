@@ -308,6 +308,9 @@ private:
   static const CDamageVulnerability skDirectNormal;
   static const CDamageVulnerability skIceWeakness;
   static const int skNumProperties;
+  static const float skGravityConstant;
+  static const float skMinFlightScale;
+  static const float skMaxSpeed;
   static const rstl::string skBreastPlate;
   static const rstl::string skMouth;
   static const rstl::string skHead;

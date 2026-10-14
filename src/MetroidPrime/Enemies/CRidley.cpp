@@ -31,7 +31,6 @@ const int CRidley::skNumProperties = 39;
 const int CRidley::skNumProperties = 47;
 #endif
 
-static const float skMinFlightScale = 0.3f;
 static const float skFlightScaleDistance = 250.f;
 
 const rstl::string CRidley::skBreastPlate = rstl::string_l("breastPlate_LCTR");
@@ -712,7 +711,7 @@ void CRidley::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
         damage.SetRadius(0.f);
         mgr.ApplyDamage(
             uid, target, projectile->GetOwnerId(), damage,
-            CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()),
+            CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()),
             CVector3f::Zero());
       }
     }
@@ -726,7 +725,7 @@ void CRidley::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
               GetUniqueId(), platform->GetUniqueId(), GetUniqueId(),
               CDamageInfo(CWeaponMode(kWT_AI), 1.f + platform->GetHealthInfo(mgr)->GetHP(), 0.f,
                           1.f),
-              CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()),
+              CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()),
               CVector3f::Zero());
         }
       }
@@ -734,7 +733,7 @@ void CRidley::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CStateMan
           mCurDamageRemTime <= 0.f) {
         mgr.ApplyDamage(
             GetUniqueId(), mgr.GetPlayer()->GetUniqueId(), GetUniqueId(), xc8c_,
-            CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()),
+            CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()),
             CVector3f::Zero());
         mCurDamageRemTime = mDamageWaitTime;
       }
@@ -900,7 +899,7 @@ void CRidley::DoUserAnimEvent(CStateManager& mgr, const CInt32POINode& node, EUs
 #else
           mData.x298_,
 #endif
-          CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()),
+          CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()),
           CVector3f::Zero());
     }
     break;
@@ -1582,8 +1581,7 @@ void CRidley::Attack(CStateManager& mgr, EStateMsg msg, float arg) {
     break;
   case kStateMsg_Update:
     if (xa31_29_) {
-      const float maxSpeed = 0.5f;
-      xc0c_ = CMath::Min(maxSpeed, 0.5f * arg + xc0c_);
+      xc0c_ = CMath::Min(skMaxSpeed, 0.5f * arg + xc0c_);
       xc08_ = arg * xc0c_ + xc08_;
       xbe4_ += xc08_ * xbf0_;
     } else {
@@ -2606,6 +2604,11 @@ EWeaponCollisionResponseTypes CRidley::GetCollisionResponseType(const CVector3f&
   return kWCR_EnemyNormal;
 }
 
-float CRidley::GetGravityConstant() const { return 50.f; }
+float CRidley::GetGravityConstant() const { return skGravityConstant; }
 
 CRidley::~CRidley() {}
+
+// Defined after use so GetGravityConstant loads the object instead of a pooled literal.
+const float CRidley::skGravityConstant = 50.f;
+const float CRidley::skMinFlightScale = 0.3f;
+const float CRidley::skMaxSpeed = 0.5f;
