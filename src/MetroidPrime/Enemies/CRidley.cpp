@@ -985,7 +985,7 @@ void CRidley::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) {
                                  : flags.GetOtherFlags() & ~CModelFlags::kF_ThermalUnsortedOnly));
   if (xa33_27_) {
     const float height =
-        rstl::max_val(0.f, GetTranslation().GetZ() - xa84_.GetTranslation().GetZ());
+        rstl::max_val(0.f, GetTransform().GetTranslation().GetZ() - xa84_.GetTranslation().GetZ());
     xccc_ = 1.f + CMath::Clamp(0.f, 0.05f * (height - 20.f), 1.f);
     const CVector3f& min = GetRenderBoundsCached().GetMinPoint();
     const CVector3f extents = GetRenderBoundsCached().GetMaxPoint() - min;
