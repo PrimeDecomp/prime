@@ -1775,7 +1775,6 @@ void CPlayer::Update(float dt, CStateManager& mgr) {
 
 #if VERSION < VERSION_R3IJ_00
 
-// TODO nonmatching
 bool CPlayer::ShouldSampleFailsafe(CStateManager& mgr) const {
   const CCinematicCamera* cineCam =
       TCastToConstPtr< CCinematicCamera >(mgr.GetCameraManager()->GetCurrentCamera(mgr));
@@ -3438,7 +3437,6 @@ void CPlayer::SetScanningState(EPlayerScanState state, CStateManager& mgr) {
   mScanState = state;
 }
 
-// TODO nonmatching
 bool CPlayer::ValidateScanning(const CFinalInput& input, CStateManager& mgr) {
 #if VERSION >= VERSION_R3IJ_00
   if (mControlMapper.GetDigitalInput(CControlMapper::kC_ScanItem, input,
@@ -3842,7 +3840,6 @@ void CPlayer::FluidFXThink(EFluidState state, CScriptWater& water, CStateManager
 
 #endif
 
-// TODO nonmatching
 bool CPlayer::ObjectInScanningRange(TUniqueId id, const CStateManager& mgr) const {
   if (const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(id))) {
     CVector3f delta = act->GetTranslation() - GetTranslation();
@@ -3999,10 +3996,9 @@ void CPlayer::UpdateEnvironmentDamageCameraShake(float dt, CStateManager& mgr) {
   }
 }
 
-// TODO nonmatching
 void CPlayer::UpdatePhazonDamage(float dt, CStateManager& mgr) {
   const TAreaId areaId = GetCurrentAreaId();
-  if (areaId == kInvalidAreaId || !mgr.GetWorld()->GetAreaAlways(areaId).IsPostConstructed()) {
+  if (areaId == kInvalidAreaId || !mgr.GetWorld()->IsAreaValid(areaId)) {
     return;
   }
 
