@@ -2332,7 +2332,12 @@ void CPlayer::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, CState
       if (mMovementState != NPlayer::kMS_Falling) {
         static const float minLandVol = 95.f;
         static const float maxLandVol = 127.f;
-        float hardThres = CMath::FastSqrtF(-gpTweakPlayer->mNormalGravAccel * 2.f * 30.f);
+        float hardThres = -gpTweakPlayer->mNormalGravAccel * 2.f * 30.f;
+        if (hardThres == 0.f) {
+          hardThres = 0.f;
+        } else {
+          hardThres = hardThres * __frsqrte(hardThres);
+        }
         const float landVolume =
 #if VERSION >= VERSION_R3IJ_00
             CMath::FastClamp(minLandVol, -mLastVelocity.GetZ() * 1.6f + 95.f, maxLandVol);
