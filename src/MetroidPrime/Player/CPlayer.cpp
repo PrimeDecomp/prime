@@ -3771,6 +3771,18 @@ float CPlayer::GetPrevDamageAmount() const { return mPrevDamageAmt; }
 
 CVector3f CPlayer::GetDamageLocationWR() const { return mDamageLocation; }
 
+CVector3f CPlayer::GetBallContactSurfaceNormal() const {
+  return mMorphball->GetBallContactSurfaceNormal();
+}
+
+CVector3f CPlayer::GetBallContactSurfacePoint() const {
+  return mMorphball->GetBallContactSurfacePoint();
+}
+
+CMaterialList CPlayer::GetBallContactMaterials() const {
+  return mMorphball->GetBallContactMaterials();
+}
+
 void CPlayer::FluidFXThink(EFluidState state, CScriptWater& water, CStateManager& mgr) {
   if (mMorphBallState == kMS_Morphed) {
     mMorphball->FluidFXThink(state, water, mgr);
@@ -4056,7 +4068,7 @@ void CPlayer::UpdatePhazonDamage(float dt, CStateManager& mgr) {
                         damage, 0.f, 0.f, true);
       mgr.ApplyDamage(
           kInvalidUniqueId, GetUniqueId(), kInvalidUniqueId, dInfo,
-          CMaterialFilter::MakeIncludeExclude(CMaterialList(kMT_Solid), CMaterialList()),
+          CMaterialFilter::MakeIncludeExclude(CMaterialList(SolidMaterial), CMaterialList()),
           CVector3f::Zero());
     }
   } else {

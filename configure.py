@@ -538,10 +538,7 @@ config.libs = [
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CObjectList.cpp",
             ),
-            Object(
-                NonMatching,
-                "MetroidPrime/Player/CPlayer.cpp",
-            ),
+            Object(MatchingFor("GM8E01_00"), "MetroidPrime/Player/CPlayer.cpp"),
             Object(MatchingFor("R3ME01_00"), "MetroidPrime/Player/CTrilogyOptions.cpp"),
             Object(
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),

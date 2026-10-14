@@ -447,6 +447,9 @@ public:
                   CStateManager& mgr);
   bool WasDamaged() const;
   CVector3f GetDamageLocationWR() const;
+  CVector3f GetBallContactSurfaceNormal() const;
+  CVector3f GetBallContactSurfacePoint() const;
+  CMaterialList GetBallContactMaterials() const;
   float GetPrevDamageAmount() const;
   float GetDamageAmount() const;
   bool ObjectInScanningRange(TUniqueId id, const CStateManager& mgr) const;
