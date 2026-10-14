@@ -89,6 +89,19 @@ void CTextExecuteBuffer::AddFont(const TToken< CRasterFont >& font) {
 int CFontImageDef::GetWidth() const { return GetMonoWidth(); }
 
 int CFontImageDef::GetHeight() const { return GetMonoHeight(); }
+
+inline bool CTextExecuteBuffer::ShouldWrapImage(const CFontImageDef& image) const {
+  bool wrap = false;
+  bool tooWide = false;
+  if (mState.IsWordWrapping() &&
+      mCurLine->GetWidth() + image.GetWidth() > mCurBlock->GetOutputWidth()) {
+    tooWide = true;
+  }
+  if (tooWide && mCurLine->GetWordCount() > 0) {
+    wrap = true;
+  }
+  return wrap;
+}
 #endif
 
 void CTextExecuteBuffer::AddImage(const CFontImageDef& image) {
@@ -106,15 +119,7 @@ void CTextExecuteBuffer::AddImage(const CFontImageDef& image) {
       wrap = mCurLine->GetWordCount() > 1;
     }
 #else
-    bool wrap = false;
-    bool tooWide = false;
-    if (mState.IsWordWrapping() &&
-        mCurLine->GetWidth() + image.GetWidth() > mCurBlock->GetOutputWidth()) {
-      tooWide = true;
-    }
-    if (tooWide && mCurLine->GetWordCount() > 0) {
-      wrap = true;
-    }
+    bool wrap = ShouldWrapImage(image);
 #endif
     if (wrap) {
       StartNewLine();
