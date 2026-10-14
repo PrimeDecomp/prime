@@ -1266,10 +1266,9 @@ void CElementGen::RenderParticles() {
         static_cast< CParticleListItem* >(alloca(particleCount * sizeof(CParticleListItem)));
     for (int i = 0; i < particleCount; ++i) {
       CParticle& particle = mParticles[i];
-      const CVector3f& delta = particle.mPos - particle.mPrevPos;
-      const CVector3f& pos = delta * mTimeDeltaScale + particle.mPrevPos;
-      // TODO: I think this is the constructor, but need the copy to be elided
-      sortItems[i].mViewPoint = systemCameraCopy * pos;
+      sortItems[i].mViewPoint =
+          systemCameraCopy *
+          ((particle.mPos - particle.mPrevPos) * mTimeDeltaScale + particle.mPrevPos);
       sortItems[i].mPartIdx = static_cast< ushort >(i);
     }
     rstl::sort(sortItems, sortItems + particleCount, CParticleListItemViewPointComp());
@@ -1293,9 +1292,8 @@ void CElementGen::RenderParticles() {
         }
       }
     } else if (!mORNT) {
-      CParticleListItem* sortIt = sortItems;
       for (int i = 0; i < particleCount; ++i) {
-        CParticle& particle = SORT ? mParticles[sortIt->mPartIdx] : mParticles[i];
+        CParticle& particle = SORT ? mParticles[sortItems[i].mPartIdx] : mParticles[i];
         CVector3f viewPoint =
             systemCameraCopy *
             ((particle.mPos - particle.mPrevPos) * mTimeDeltaScale + particle.mPrevPos);
@@ -1414,14 +1412,6 @@ void CElementGen::RenderParticles() {
           GXColor1u32(color);
           GXTexCoord1s16(0x0200);
         }
-
-#if NONMATCHING
-        if (SORT) {
-          ++sortIt;
-        }
-#else
-        sortIt++;
-#endif
       }
     } else {
       // ORNT
@@ -1429,12 +1419,11 @@ void CElementGen::RenderParticles() {
       CVector3f origin = systemViewCopy.GetTranslation();
       float canBeNormEps = FLT_EPSILON;
 
-      CParticleListItem* sortIt = sortItems;
       for (int i = 0; i < particleCount; ++i) {
-        CParticle* particle = SORT ? &mParticles[sortIt->mPartIdx] : &mParticles[i];
+        CParticle* particle = SORT ? &mParticles[sortItems[i].mPartIdx] : &mParticles[i];
 
-        CVector3f delta = particle->mPos - particle->mPrevPos;
-        const CVector3f& pos = delta * mTimeDeltaScale + particle->mPrevPos;
+        CVector3f pos =
+            (particle->mPos - particle->mPrevPos) * mTimeDeltaScale + particle->mPrevPos;
 
         uint color = particle->mColor.GetColor_u32();
         float rota = mLoadedGenDesc->mROTA == nullptr ? 1.f : particle->mLineWidthOrRota;
@@ -1464,8 +1453,7 @@ void CElementGen::RenderParticles() {
             float invMag = frsqrte(crMagSq);
             right *= particle->mLineLengthOrSize * rota * invMag;
           } else {
-            CVector3f camDelta = origin - particle->mPos;
-            right = CVector3f::Cross(dir, camDelta.AsNormalized());
+            right = CVector3f::Cross(dir, (origin - particle->mPos).AsNormalized());
             float cr2MagSq = right.MagSquared();
 
             if (cr2MagSq > canBeNormEps) {
@@ -1483,54 +1471,48 @@ void CElementGen::RenderParticles() {
           CParticleGlobals::UpdateParticleLifetimeTweenValues(partFrame);
           mLoadedGenDesc->mTEXR->GetValueUV(partFrame, uvs);
 
-          CVector3f p = pos + right * 0.5f + fore * 0.5f;
-          GXPositionVector3f(p);
+          pos += right * 0.5f;
+          pos += fore * 0.5f;
+          GXPositionVector3f(pos);
           GXColor1u32(color);
           GXTexCoord2f32(uvs.xMax, uvs.yMax);
 
-          p -= fore;
-          GXPositionVector3f(p);
+          pos -= fore;
+          GXPositionVector3f(pos);
           GXColor1u32(color);
           GXTexCoord2f32(uvs.xMin, uvs.yMax);
 
-          p -= right;
-          GXPositionVector3f(p);
+          pos -= right;
+          GXPositionVector3f(pos);
           GXColor1u32(color);
           GXTexCoord2f32(uvs.xMin, uvs.yMin);
 
-          p += fore;
-          GXPositionVector3f(p);
+          pos += fore;
+          GXPositionVector3f(pos);
           GXColor1u32(color);
           GXTexCoord2f32(uvs.xMax, uvs.yMin);
         } else {
-          CVector3f p = pos + right * 0.5f + fore * 0.5f;
-          GXPositionVector3f(p);
+          pos += right * 0.5f;
+          pos += fore * 0.5f;
+          GXPositionVector3f(pos);
           GXColor1u32(color);
           GXTexCoord1s16(0x0202);
 
-          p -= fore;
-          GXPositionVector3f(p);
+          pos -= fore;
+          GXPositionVector3f(pos);
           GXColor1u32(color);
           GXTexCoord1s16(0x0002);
 
-          p -= right;
-          GXPositionVector3f(p);
+          pos -= right;
+          GXPositionVector3f(pos);
           GXColor1u32(color);
           GXTexCoord1s16(0x0000);
 
-          p += fore;
-          GXPositionVector3f(p);
+          pos += fore;
+          GXPositionVector3f(pos);
           GXColor1u32(color);
           GXTexCoord1s16(0x0200);
         }
-
-#if NONMATCHING
-        if (SORT) {
-          ++sortIt;
-        }
-#else
-        sortIt++;
-#endif
       }
     }
   } else {
