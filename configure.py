@@ -1463,9 +1463,6 @@ config.libs = [
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00", "R3ME01_00"),
                 "MetroidPrime/Player/CPlayerStuckTracker.cpp",
-                extra_cflags=['-pragma "inline_max_size(256)"']
-                if VERSIONS.index("GM8P01_00") <= version_num < VERSIONS.index("R3IJ01_00")
-                else [],
             ),
             Object(NonMatching, "MetroidPrime/CSlideShow.cpp"),
             Object(

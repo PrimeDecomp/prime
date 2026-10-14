@@ -10,24 +10,39 @@
 #include "rstl/reserved_vector.hpp"
 
 template < typename T, int N >
-static inline void AddSample(rstl::reserved_vector< T, N >& samples, const T& value) {
-  if (samples.size() < N) {
-    samples.push_back(value);
-  }
+static inline void ShiftSamples(rstl::reserved_vector< T, N >& samples) {
   for (int i = samples.size() - 1; i > 0; --i) {
     samples[i] = samples[i - 1u];
   }
-  samples[0] = value;
 }
 
 CPlayer::CPlayerStuckTracker::CPlayerStuckTracker() {}
 
 void CPlayer::CPlayerStuckTracker::AddState(EPlayerState state, const CVector3f& position,
                                             const CVector3f& velocity, const CVector2f& input) {
-  AddSample(mStates, static_cast< int >(state));
-  AddSample(mPositions, position);
-  AddSample(mVelocities, velocity);
-  AddSample(mInputs, input);
+  if (mStates.size() < 20) {
+    mStates.push_back(state);
+  }
+  ShiftSamples(mStates);
+  mStates[0] = state;
+
+  if (mPositions.size() < 20) {
+    mPositions.push_back(position);
+  }
+  ShiftSamples(mPositions);
+  mPositions[0] = position;
+
+  if (mVelocities.size() < 20) {
+    mVelocities.push_back(velocity);
+  }
+  ShiftSamples(mVelocities);
+  mVelocities[0] = velocity;
+
+  if (mInputs.size() < 20) {
+    mInputs.push_back(input);
+  }
+  ShiftSamples(mInputs);
+  mInputs[0] = input;
 }
 
 template < typename T, int N >
