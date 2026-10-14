@@ -1677,6 +1677,7 @@ void CRidley::Retreat(CStateManager& mgr, EStateMsg msg, float arg) {
 void CRidley::Lurk(CStateManager& mgr, EStateMsg msg, float arg) {
   switch (msg) {
   case kStateMsg_Activate: {
+    float y, height;
     if (!xa33_25_) {
       CVector3f delta = GetTranslation() - xa84_.GetTranslation();
       delta.SetZ(0.f);
@@ -1684,8 +1685,10 @@ void CRidley::Lurk(CStateManager& mgr, EStateMsg msg, float arg) {
       if (CVector3f::Dot(delta, xa84_.GetRight()) < 0.f) {
         angle = -angle;
       }
+      float newAngle = mgr.Random()->Range(-1.2566371f, 1.2566371f);
       for (int i = 0; i < 1; ++i) {
-        if (CMath::AbsF(mgr.Random()->Range(-1.2566371f, 1.2566371f) - angle) < 0.39269909f) {
+        if (CMath::AbsF(newAngle - angle) < 0.39269909f) {
+          newAngle = -newAngle;
           continue;
         }
         break;
@@ -1695,8 +1698,8 @@ void CRidley::Lurk(CStateManager& mgr, EStateMsg msg, float arg) {
       mTailCollision->SetActive(mgr, true);
     }
     xa33_25_ = false;
-    const float height = xac0_ - xadc_;
-    const float y = xabc_ * CMath::FastCosR(0.f);
+    height = xac0_ - xadc_;
+    y = xabc_ * CMath::FastCosR(0.f);
     const float x = xabc_ * CMath::FastSinR(0.f);
     const CVector3f offset(x, y, height);
     SetDestPos(xa84_ * offset);
