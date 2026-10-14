@@ -331,12 +331,7 @@ else:
 
 # Most Retro code uses this inline limit. Objects that inline far past it in
 # retail (compiler default or "-inline auto") keep cflags_retro explicitly.
-if version_num < VERSIONS.index("GM8P01_00"):
-    retro_inline_max_size = 256
-elif version_num < VERSIONS.index("R3IJ01_00"):
-    retro_inline_max_size = 128
-else:
-    retro_inline_max_size = 125
+retro_inline_max_size = 256 if version_num < VERSIONS.index("GM8P01_00") else 128
 cflags_retro_inline = [*cflags_retro, f'-pragma "inline_max_size({retro_inline_max_size})"', '-pragma "inline_max_total_size(10000)"']
 
 cflags_musyx = [
