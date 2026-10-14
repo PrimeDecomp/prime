@@ -159,7 +159,7 @@ public:
     for (It it = first; it != last; it = it + 1, ++i) {
       const_cast< _CharTp& >(mPtr[i]) = *it;
     }
-    const_cast< _CharTp& >(mPtr[i]) = Traits::eos();
+    const_cast< _CharTp& >(mPtr[i]) = 0;
     mSize = len;
   }
 

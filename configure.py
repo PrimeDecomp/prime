@@ -1155,7 +1155,6 @@ config.libs = [
             Object(
                 MatchingFor("GM8EAB_00"),
                 "MetroidPrime/CFluidPlaneDoor.cpp",
-                cflags=cflags_retro,
             ),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
@@ -1312,7 +1311,6 @@ config.libs = [
             Object(
                 NonMatching,
                 "MetroidPrime/ScriptObjects/CScriptStreamedMusic.cpp",
-                cflags=cflags_retro,
             ),
             Object(NonMatching, "MetroidPrime/CRagDoll.cpp"),
             Object(
