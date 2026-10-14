@@ -449,7 +449,7 @@ public:
   CVector3f GetDamageLocationWR() const;
   float GetPrevDamageAmount() const;
   float GetDamageAmount() const;
-  bool ObjectInScanningRange(TUniqueId id, const CStateManager& mgr);
+  bool ObjectInScanningRange(TUniqueId id, const CStateManager& mgr) const;
   void AsyncLoadSuit(CStateManager& mgr);
   bool IsPlayerDeadEnough() const;
   void SetControlDirectionInterpolation(float time);

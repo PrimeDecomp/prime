@@ -3843,7 +3843,7 @@ void CPlayer::FluidFXThink(EFluidState state, CScriptWater& water, CStateManager
 #endif
 
 // TODO nonmatching
-bool CPlayer::ObjectInScanningRange(TUniqueId id, const CStateManager& mgr) {
+bool CPlayer::ObjectInScanningRange(TUniqueId id, const CStateManager& mgr) const {
   if (const CActor* act = TCastToConstPtr< CActor >(mgr.GetObjectById(id))) {
     CVector3f delta = act->GetTranslation() - GetTranslation();
     if (delta.CanBeNormalized() && delta.Magnitude() < gpTweakPlayer->GetScanningRange()) {
