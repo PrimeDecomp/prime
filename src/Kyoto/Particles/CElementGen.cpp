@@ -1339,6 +1339,7 @@ void CElementGen::RenderParticles() {
             float cosMinusSin = cosT - sinT;
             float sinMinusCos = sinT - cosT;
             float negSinPlusCos = -sinT + cosT;
+            float negCosMinusSin = -cosT - sinT;
 
             float vpX = viewPoint.GetX();
             float vpY = viewPoint.GetY();
@@ -1356,7 +1357,7 @@ void CElementGen::RenderParticles() {
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMin, uvs.yMin);
 
-            GXPosition3f32(negSinPlusCos + vpX, vpY, (-cosT - sinT) + vpZ);
+            GXPosition3f32(negSinPlusCos + vpX, vpY, negCosMinusSin + vpZ);
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMax, uvs.yMin);
           }
@@ -1451,14 +1452,16 @@ void CElementGen::RenderParticles() {
 
           if (crMagSq > canBeNormEps) {
             float invMag = frsqrte(crMagSq);
-            right *= particle->mLineLengthOrSize * rota * invMag;
+            float width = particle->mLineLengthOrSize * rota;
+            right *= width * invMag;
           } else {
             right = CVector3f::Cross(dir, (origin - particle->mPos).AsNormalized());
             float cr2MagSq = right.MagSquared();
 
             if (cr2MagSq > canBeNormEps) {
               float invMag = frsqrte(cr2MagSq);
-              right *= particle->mLineLengthOrSize * rota * invMag;
+              float width = particle->mLineLengthOrSize * rota;
+              right *= width * invMag;
             }
           }
         } else {
@@ -1574,6 +1577,7 @@ void CElementGen::RenderParticles() {
 
             float sinPlusCos = sinT + cosT;
             float negSinPlusCos = -sinT + cosT;
+            float negCosMinusSin = -cosT - sinT;
             float sinMinusCos = sinT - cosT;
             float cosMinusSin = cosT - sinT;
 
@@ -1593,7 +1597,7 @@ void CElementGen::RenderParticles() {
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMin, uvs.yMin);
 
-            GXPosition3f32(negSinPlusCos + vpX, vpY, (-cosT - sinT) + vpZ);
+            GXPosition3f32(negSinPlusCos + vpX, vpY, negCosMinusSin + vpZ);
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMax, uvs.yMin);
           }
