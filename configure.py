@@ -553,6 +553,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CArchMsgParmUserInput.cpp",
+                # Verified difference
                 extra_cflags=['-pragma "inline_max_size(256)"']
                 if version_num >= VERSIONS.index("GM8P01_00")
                 else [],
@@ -561,6 +562,7 @@ config.libs = [
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CInputGenerator.cpp",
+                # Verified difference
                 cflags=cflags_retro,
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "MetroidPrime/CMainFlow.cpp"),
@@ -659,6 +661,7 @@ config.libs = [
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/Tweaks/CTweakPlayerGun.cpp",
+                # Verified difference
                 cflags=cflags_retro,
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/CPauseScreen.cpp"),
@@ -754,12 +757,14 @@ config.libs = [
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/Tweaks/CTweakGunRes.cpp",
+                # Verified difference
                 cflags=cflags_retro,
             ),
             Object(EquivalentFor("GM8E01_00"), "MetroidPrime/CTargetReticles.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CWeaponMgr.cpp",
+                # Verified difference
                 cflags=cflags_retro,
             ),
             Object(
@@ -858,6 +863,7 @@ config.libs = [
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CDamageVulnerability.cpp",
+                # Verified difference
                 extra_cflags=['-pragma "inline_max_size(256)"']
                 if version_num >= VERSIONS.index("GM8P01_00")
                 else [],
@@ -908,6 +914,7 @@ config.libs = [
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CFluidUVMotion.cpp",
+                # Verified difference
                 extra_cflags=['-pragma "inline_max_size(256)"']
                 if version_num >= VERSIONS.index("GM8P01_00")
                 else [],
@@ -937,6 +944,7 @@ config.libs = [
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/BodyState/CBodyStateCmdMgr.cpp",
+                # Verified difference
                 cflags=[*cflags_retro, "-inline auto"],
             ),
             Object(
@@ -1084,6 +1092,7 @@ config.libs = [
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/Factories/CScannableObjectInfo.cpp",
+                # Verified difference
                 cflags=cflags_retro,
             ),
             Object(MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/Enemies/CMetroid.cpp"),
@@ -1115,6 +1124,7 @@ config.libs = [
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CBallFilter.cpp",
+                # Verified difference
                 cflags=cflags_retro,
             ),
             Object(
@@ -1196,6 +1206,7 @@ config.libs = [
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/PathFinding/CPathFindRegion.cpp",
+                # Verified difference
                 extra_cflags=['-pragma "inline_max_size(256)"']
                 if version_num >= VERSIONS.index("GM8P01_00")
                 else [],
@@ -1203,6 +1214,7 @@ config.libs = [
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS),
                 "MetroidPrime/PathFinding/CPathFindArea.cpp",
+                # Verified difference
                 cflags=[*cflags_retro, "-inline auto"],
             ),
             Object(
@@ -1334,6 +1346,7 @@ config.libs = [
             Object(
                 EquivalentFor("GM8E01_00"),
                 "MetroidPrime/CInGameTweakManager.cpp",
+                # Verified difference
                 cflags=cflags_retro,
             ),
             Object(NonMatching, "MetroidPrime/Enemies/CBabygoth.cpp"),
@@ -1432,6 +1445,7 @@ config.libs = [
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/CWorldSaveGameInfo.cpp",
+                # Verified difference
                 cflags=cflags_retro,
             ),
             Object(NonMatching, "MetroidPrime/CFluidPlaneRender.cpp"),
@@ -1594,6 +1608,7 @@ config.libs = [
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "GuiSys/CGuiHeadWidget.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "GuiSys/CGuiLight.cpp"),
             Object(EquivalentFor("GM8E01_00"), "GuiSys/CGuiModel.cpp"),
+            # Verified difference
             Object(NonMatching, "GuiSys/CGuiObject.cpp", cflags=[*cflags_retro, "-inline auto"]),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "GuiSys/CGuiPane.cpp"),
             Object(MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"), "GuiSys/CGuiSliderGroup.cpp"),
@@ -1643,6 +1658,7 @@ config.libs = [
             Object(
                 MatchingFor("GM8EAB_00", *NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_DD", "GM8J01_00"),
                 "Collision/CCollisionInfo.cpp",
+                # Verified difference
                 cflags=cflags_retro,
             ),
             Object(
