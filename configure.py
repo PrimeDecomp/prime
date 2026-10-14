@@ -840,7 +840,7 @@ config.libs = [
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS), "MetroidPrime/ScriptObjects/CScriptDamageableTrigger.cpp"
             ),
-            Object(NonMatching, "MetroidPrime/ScriptObjects/CScriptDebris.cpp"),
+            Object(MatchingFor("GM8E01_00", "GM8E01_01"), "MetroidPrime/ScriptObjects/CScriptDebris.cpp"),
             Object(
                 MatchingFor(*NTSC_GC_VERSIONS, "GM8P01_00", "GM8J01_00"),
                 "MetroidPrime/ScriptObjects/CScriptCameraShaker.cpp",

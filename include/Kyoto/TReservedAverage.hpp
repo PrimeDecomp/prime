@@ -19,10 +19,11 @@ public:
 };
 
 template < typename T, int N >
-#if VERSION == VERSION_GM8J_DD
 inline
-#endif
 void TReservedAverage< T, N >::AddValue(const T& value) {
+  RS_ASSERT(this->size() < this->capacity(), "rstl precondition");
+  RS_ASSERT(this->size() < this->capacity(), "rstl precondition");
+  RS_ASSERT(this->size() < this->capacity(), "rstl precondition");
   if (this->size() < this->capacity()) {
     this->push_back(value);
   }
