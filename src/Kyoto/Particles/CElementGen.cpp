@@ -2004,13 +2004,13 @@ void CElementGen::RenderParticlesIndirectTexture() {
     float maxV = clipRect.GetMaxV();
 
     if (clipRect.IsValid()) {
-      void* dest = CGraphics::GetDolphinSpareBuffer();
+      void* const dest = CGraphics::GetDolphinSpareBuffer();
       GXSetTexCopySrc(static_cast< u16 >(clipRect.GetX()), static_cast< u16 >(clipRect.GetY()),
                       static_cast< u16 >(clipRect.GetWidth()), static_cast< u16 >(height));
       GXSetTexCopyDst(static_cast< u16 >(width), static_cast< u16 >(height), GX_TF_RGB565,
                       GX_FALSE);
 
-      size_t bufSize = CGraphics::GetSpareBufferSize();
+      int bufSize = CGraphics::GetSpareBufferSize();
       size_t texBufSize = GXGetTexBufferSize(width, height, GX_TF_RGB565, GX_FALSE, 0);
       if (texBufSize <= bufSize) {
         const bool useVideoFilter = CGraphics::GetUseVideoFilter();
