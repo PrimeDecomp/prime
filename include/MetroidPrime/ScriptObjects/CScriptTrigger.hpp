@@ -88,8 +88,7 @@ public:
   virtual void InhabitantRejected(CActor&, CStateManager&);
 
 private:
-  void ActivatePlayer(CStateManager&);
-  void DeactivatePlayer(CStateManager&);
+  void SetPlayerInside(CStateManager& mgr, const bool inside);
 };
 
 CHECK_CHILD_SIZEOF(CScriptTrigger, CActor, VERSION >= VERSION_R3IJ_00 ? 0x60 : 0x68)

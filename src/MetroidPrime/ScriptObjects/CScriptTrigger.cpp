@@ -9,16 +9,20 @@
 #include "MetroidPrime/Player/CPlayer.hpp"
 #include "MetroidPrime/Weapons/CWeapon.hpp"
 
-inline void CScriptTrigger::ActivatePlayer(CStateManager& mgr) {
-  if (mPlayerTriggerProc != true) {
-    mPlayerTriggerProc = true;
+inline void CScriptTrigger::SetPlayerInside(CStateManager& mgr, const bool inside) {
+  if (inside != mPlayerTriggerProc) {
+    mPlayerTriggerProc = inside;
 
     CPlayer* pl = mgr.Player();
     if (mDidPhazonDamage) {
       pl->DecrementEnvironmentDamage();
       mDidPhazonDamage = false;
     }
-    if (!mDamageInfo.HasNoDamage()) {
+    if (!inside) {
+      if (mgr.GetLastTriggerId() == GetUniqueId()) {
+        mgr.SetLastTriggerId(kInvalidUniqueId);
+      }
+    } else if (!mDamageInfo.HasNoDamage()) {
       const CDamageVulnerability* dVuln = pl->GetDamageVulnerability();
       bool phazonHurt =
           dVuln->WeaponHurts(mDamageInfo.GetWeaponMode(), CDamageVulnerability::kRD_No);
@@ -32,18 +36,6 @@ inline void CScriptTrigger::ActivatePlayer(CStateManager& mgr) {
         mDidPhazonDamage = true;
       }
     }
-  }
-}
-
-inline void CScriptTrigger::DeactivatePlayer(CStateManager& mgr) {
-  mPlayerTriggerProc = false;
-  CPlayer* player = mgr.Player();
-  if (mDidPhazonDamage) {
-    player->DecrementEnvironmentDamage();
-    mDidPhazonDamage = false;
-  }
-  if (mgr.GetLastTriggerId() == GetUniqueId()) {
-    mgr.SetLastTriggerId(kInvalidUniqueId);
   }
 }
 
@@ -124,7 +116,7 @@ void CScriptTrigger::Touch(CActor& act, CStateManager& mgr) {
         InhabitantAdded(act, mgr);
 
         if ((testFlags & kTFL_DetectPlayer) && pl) {
-          ActivatePlayer(mgr);
+          SetPlayerInside(mgr, true);
         }
 
         SendScriptMsgs(kSS_Entered, mgr, kSM_None);
@@ -177,14 +169,10 @@ void CScriptTrigger::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId uid, CS
       mInhabitants.clear();
       mCamSubmerged = false;
 
-      if (mPlayerTriggerProc) {
-        DeactivatePlayer(mgr);
-      }
+      SetPlayerInside(mgr, false);
 
     } else if (msg == kSM_Deleted) {
-      if (mPlayerTriggerProc) {
-        DeactivatePlayer(mgr);
-      }
+      SetPlayerInside(mgr, false);
     }
   }
 
@@ -226,9 +214,7 @@ void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
         if (!playerValid) {
           mInhabitants.erase(it);
           sendExited = true;
-          if (mPlayerTriggerProc) {
-            DeactivatePlayer(mgr);
-          }
+          SetPlayerInside(mgr, false);
 
           InhabitantExited(*act, mgr);
         }
@@ -271,11 +257,11 @@ void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
           mInhabitants.erase(it);
           sendExited = true;
 #if NONMATCHING
-          if (objectId == mgr.GetPlayer()->GetUniqueId() && mPlayerTriggerProc) {
+          if (objectId == mgr.GetPlayer()->GetUniqueId()) {
 #else
-          if (it->GetObjectId() == mgr.GetPlayer()->GetUniqueId() && mPlayerTriggerProc) {
+          if (it->GetObjectId() == mgr.GetPlayer()->GetUniqueId()) {
 #endif
-            DeactivatePlayer(mgr);
+            SetPlayerInside(mgr, false);
           }
 
           InhabitantExited(*act, mgr);
@@ -284,11 +270,11 @@ void CScriptTrigger::UpdateInhabitants(float dt, CStateManager& mgr) {
     } else {
       mInhabitants.erase(it);
 #if NONMATCHING
-      if (objectId == mgr.GetPlayer()->GetUniqueId() && mPlayerTriggerProc) {
+      if (objectId == mgr.GetPlayer()->GetUniqueId()) {
 #else
-      if (it->GetObjectId() == mgr.GetPlayer()->GetUniqueId() && mPlayerTriggerProc) {
+      if (it->GetObjectId() == mgr.GetPlayer()->GetUniqueId()) {
 #endif
-        DeactivatePlayer(mgr);
+        SetPlayerInside(mgr, false);
       }
     }
     it = nextIt;

@@ -294,6 +294,7 @@ private:
   node* create_node(node* left, node* right, node* parent, node_color color, const P& value) {
     node* n;
     Alloc::allocate(n, 1);
+    RS_ASSERT(n != nullptr, "rstl precondition");
     new (n) node(left, right, parent, color, value);
     return n;
   }

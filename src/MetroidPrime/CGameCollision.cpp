@@ -155,9 +155,7 @@ bool CGameCollision::RayStaticIntersectionBool(const CStateManager& mgr, const C
   for (CGameArea::CConstChainIterator it = world->GetChainHead(CWorld::kC_Alive);
        it != CWorld::skGlobalEnd; ++it) {
     const CAreaOctTree& collision = (*it).GetOctTree();
-    CAreaOctTree::Node node(collision.GetTreeMemory(), collision.GetBoundingBox(), collision,
-                            collision.GetTreeType());
-    if (!node.LineTest(line, filter, length)) {
+    if (!collision.GetRootNode().LineTest(line, filter, length)) {
       return false;
     }
   }
@@ -173,9 +171,7 @@ bool CGameCollision::RayStaticIntersectionArea(const CGameArea& area, const CVec
   float length = mag > 0.f ? mag : 100000.f;
 
   const CAreaOctTree& collision = area.GetOctTree();
-  CAreaOctTree::Node node(collision.GetTreeMemory(), collision.GetBoundingBox(), collision,
-                          collision.GetTreeType());
-  if (!node.LineTest(line, filter, length)) {
+  if (!collision.GetRootNode().LineTest(line, filter, length)) {
     return false;
   }
   return true;
@@ -193,9 +189,7 @@ CRayCastResult CGameCollision::RayStaticIntersection(const CStateManager& mgr, c
        it != CWorld::skGlobalEnd; ++it) {
     CAreaOctTree::SRayResult rayRes;
     const CAreaOctTree& collision = (*it).GetOctTree();
-    CAreaOctTree::Node node(collision.GetTreeMemory(), collision.GetBoundingBox(), collision,
-                            collision.GetTreeType());
-    node.LineTestEx(line, filter, rayRes, mag);
+    collision.GetRootNode().LineTestEx(line, filter, rayRes, mag);
 
     if (!rayRes.mSurface || (mag != 0.f && mag < rayRes.mT)) {
       continue;
@@ -218,9 +212,8 @@ void CGameCollision::BuildAreaCollisionCache(const CStateManager& mgr, CAreaColl
        it != CWorld::skGlobalEnd; ++it) {
     CMetroidAreaCollider::COctreeLeafCache leafCache(*(*it).GetPostConstructed()->mCollision);
     const CAreaOctTree& collision = *(*it).GetPostConstructed()->mCollision;
-    CAreaOctTree::Node node(collision.GetTreeMemory(), collision.GetBoundingBox(), collision,
-                            collision.GetTreeType());
-    CMetroidAreaCollider::BuildOctreeLeafCache(node, cache.GetCacheBounds(), leafCache);
+    CMetroidAreaCollider::BuildOctreeLeafCache(collision.GetRootNode(), cache.GetCacheBounds(),
+                                               leafCache);
     cache.AddOctreeLeafCache(leafCache);
   }
 

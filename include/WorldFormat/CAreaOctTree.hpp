@@ -98,7 +98,9 @@ public:
                ushort* triangles, uint vertexCount, CVector3f* vertices);
   static void MakeFromMemory(void* buf, uint bufLen, CAreaOctTree** treeOut, bool* valid);
   CCollisionSurface GetMasterListTriangle(ushort idx) const;
-  Node GetRootNode() const { return Node(mTreeBuf, mAabb, *this, mTreeType); }
+  Node GetRootNode() const {
+    return Node(GetTreeMemory(), GetBoundingBox(), *this, GetTreeType());
+  }
   const void* GetTreeMemory() const { return mTreeBuf; }
   const CAABox& GetBoundingBox() const { return mAabb; }
   Node::ETreeType GetTreeType() const { return mTreeType; }

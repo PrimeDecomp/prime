@@ -2066,7 +2066,7 @@ GetInhabitants__14CScriptTriggerCFv = .text:0x8007686C; // type:function size:0x
 UpdateInhabitants__14CScriptTriggerFfR13CStateManager = .text:0x80076874; // type:function size:0x5C4
 __as__Q24rstl30optional_object<11CDamageInfo>FRC11CDamageInfo = .text:0x80076E38; // type:function size:0x30
 assign__Q24rstl30optional_object<11CDamageInfo>FRC11CDamageInfo = .text:0x80076E68; // type:function size:0x94
-fn_80076EFC = .text:0x80076EFC; // type:function size:0x134
+SetPlayerInside__14CScriptTriggerFR13CStateManagerb = .text:0x80076EFC; // type:function size:0x134 scope:weak
 Think__14CScriptTriggerFfR13CStateManager = .text:0x80077030; // type:function size:0x2C
 AcceptScriptMsg__14CScriptTriggerF20EScriptObjectMessage9TUniqueIdR13CStateManager = .text:0x8007705C; // type:function size:0xBC
 clear__Q24rstl67list<Q214CScriptTrigger14CObjectTracker,Q24rstl17rmemory_allocator>Fv = .text:0x80077118; // type:function size:0x40
@@ -5631,7 +5631,7 @@ DetectCollision__14CGameCollisionFRC13CStateManagerRC19CCollisionPrimitiveRC12CT
 DetectCollisionBoolean_Cached__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCacheRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024> = .text:0x80179AA4; // type:function size:0xB0
 DetectCollisionBoolean__14CGameCollisionFRC13CStateManagerRC19CCollisionPrimitiveRC12CTransform4fRC15CMaterialFilterRCQ24rstl32reserved_vector<9TUniqueId,1024> = .text:0x80179B54; // type:function size:0xB0
 BuildAreaCollisionCache__14CGameCollisionFRC13CStateManagerR19CAreaCollisionCache = .text:0x80179C04; // type:function size:0x108
-__ct__Q212CAreaOctTree4NodeFPCvRC6CAABoxRC12CAreaOctTreeQ312CAreaOctTree4Node9ETreeType = .text:0x80179D0C; // type:function size:0x48
+GetRootNode__12CAreaOctTreeCFv = .text:0x80179D0C; // type:function size:0x48 scope:weak
 RayStaticIntersection__14CGameCollisionFRC13CStateManagerRC9CVector3fRC9CVector3ffRC15CMaterialFilter = .text:0x80179D54; // type:function size:0x1F8
 __ct__Q212CAreaOctTree10SRayResultFv = .text:0x80179F4C; // type:function size:0x28
 RayStaticIntersectionArea__14CGameCollisionFRC9CGameAreaRC9CVector3fRC9CVector3ffRC15CMaterialFilter = .text:0x80179F74; // type:function size:0xB8
