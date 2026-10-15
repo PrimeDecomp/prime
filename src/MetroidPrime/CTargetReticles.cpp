@@ -634,7 +634,7 @@ void CCompoundTargetReticle::DrawCurrLockOnGroupRS5(const CMatrix3f& rot,
     const CTransform4f bracketPositionXf(rot, mCurrReticlePosition);
     const CTransform4f bracketXf = bracketPositionXf * bracketOrientationXf;
     gpRender->SetModelMatrix(bracketXf);
-    CGX::SetAlphaCompare(GX_ALWAYS, 0, GX_AOP_AND, GX_ALWAYS, 0);
+    CGraphics::SetAlphaCompare(kAF_Always, 0, kAO_And, kAF_Always, 0);
     const CModelFlags bracketFlags = CModelFlags::AlphaBlendedDepthCompareUpdate(
         mCurrReticleDetailColor.WithAlphaOf(mCurrReticleBracketAlpha), false, false);
     mOrbitLockBrackets->Draw(bracketFlags);
@@ -649,7 +649,7 @@ void CCompoundTargetReticle::DrawCurrLockOnGroupRS5(const CMatrix3f& rot,
       const CTransform4f techXf = techPositionXf * techOrientationXf;
       const CTimeProvider time(mCurrReticleTechTime);
       gpRender->SetModelMatrix(techXf);
-      CGX::SetAlphaCompare(GX_ALWAYS, 0, GX_AOP_AND, GX_ALWAYS, 0);
+      CGraphics::SetAlphaCompare(kAF_Always, 0, kAO_And, kAF_Always, 0);
       const CModelFlags techFlags = CModelFlags::AlphaBlendedDepthCompareUpdate(
           mCurrReticleDetailColor.WithAlphaOf(mCurrReticleDetailAlpha), false, false);
       mOrbitLockTech->Draw(techFlags);
