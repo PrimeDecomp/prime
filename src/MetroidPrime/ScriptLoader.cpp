@@ -853,10 +853,10 @@ CEntity* ScriptLoader::LoadActor(CStateManager& mgr, CInputStream& in, int propC
   if (collisionExtent == CVector3f::Zero() || negativeCollisionExtent)
     aabb = data.GetBounds(xf.GetRotation());
 
-  return rs_new CScriptActor(mgr.AllocateUniqueId(), head.mActorHead.mName, info, xf, data, aabb,
-                             list, mass, zMomentum, hInfo, dVuln, actParms, looping, active,
-                             shaderIdx, xrayAlpha, noThermalHotZ, castsShadow,
-                             scaleAdvancementDelta, materialFlag54);
+  return rs_new CScriptActor(mgr.AllocateUniqueId(), head.mActorHead.mName, info,
+                             head.mActorHead.mTransform, data, aabb, list, mass, zMomentum, hInfo,
+                             dVuln, actParms, looping, active, shaderIdx, xrayAlpha, noThermalHotZ,
+                             castsShadow, scaleAdvancementDelta, materialFlag54);
 }
 
 CEntity* ScriptLoader::LoadPickup(CStateManager& mgr, CInputStream& in, int propCount,
@@ -902,7 +902,7 @@ CEntity* ScriptLoader::LoadPickup(CStateManager& mgr, CInputStream& in, int prop
   }
 
   if (extent == CVector3f::Zero() || negativeExtent)
-    aabb = data.GetBounds(xf.GetRotation());
+    aabb = data.GetBounds(head.mActorHead.mTransform.GetRotation());
 
   return rs_new CScriptPickup(mgr.AllocateUniqueId(), head.mActorHead.mName, info, xf, data,
                               actParms, aabb, itemType, amount, capacity, pickupEffect, possibility,
@@ -1047,7 +1047,7 @@ CEntity* ScriptLoader::LoadDoor(CStateManager& mgr, CInputStream& in, int propCo
   CModelData mData(CAnimRes(aParms.GetACSFile(), CAnimRes::kDefaultCharIdx, head.mScale, 0, false));
 
   if (collisionExtent == CVector3f::Zero())
-    aabb = mData.GetBounds(xf.GetRotation());
+    aabb = mData.GetBounds(head.mActorHead.mTransform.GetRotation());
 
   bool isMorphballDoor = false;
   if (propCount == 13) {
@@ -2875,13 +2875,11 @@ CEntity* ScriptLoader::LoadWorldTeleporter(CStateManager& mgr, CInputStream& in,
 
   const ushort elevatorSound =
       propCount >= 12 ? static_cast< ushort >(in.ReadLong()) : CSfxManager::kInternalInvalidSfxId;
-  const uchar volume = propCount >= 13 ? static_cast< uchar >(in.ReadLong()) : uchar(127);
-  const uchar panning = propCount >= 14 ? static_cast< uchar >(in.ReadLong()) : uchar(64);
+  const uchar volume = propCount >= 13 ? static_cast< uchar >(in.Get< int >()) : uchar(127);
+  const uchar panning = propCount >= 14 ? static_cast< uchar >(in.Get< int >()) : uchar(64);
   const bool showText = propCount >= 15 ? in.ReadBool() : false;
-  const CAssetId fontId =
-      propCount >= 16 ? static_cast< CAssetId >(in.ReadLong()) : kInvalidAssetId;
-  const CAssetId stringId =
-      propCount >= 17 ? static_cast< CAssetId >(in.ReadLong()) : kInvalidAssetId;
+  const CAssetId fontId = propCount >= 16 ? in.Get< CAssetId >() : kInvalidAssetId;
+  const CAssetId stringId = propCount >= 17 ? in.Get< CAssetId >() : kInvalidAssetId;
   const bool fadeWhite = propCount >= 18 ? in.ReadBool() : false;
 
   const float charFadeInTime = propCount >= 19 ? in.Get< float >() : 0.1f;
@@ -3400,17 +3398,15 @@ CEntity* ScriptLoader::LoadEyeBall(CStateManager& mgr, CInputStream& in, int pro
   uint anim3 = in.ReadLong();
   uint beamSfx = in.ReadLong();
 
-  FourCC animType =
-      gpResourceFactory->GetResourceTypeById(pInfo.GetAnimationParameters().GetACSFile());
-  if (animType != 'ANCS')
+  const CAnimationParameters& anim = pInfo.GetAnimationParameters();
+  if (gpResourceFactory->GetResourceTypeById(anim.GetACSFile()) != 'ANCS')
     return nullptr;
 
   bool attackDisabled = in.ReadBool();
 
   return rs_new CEyeBall(
       mgr.AllocateUniqueId(), name, CPatterned::EFlavorType(flavor), info, xf,
-      CModelData(CAnimRes(pInfo.GetAnimationParameters().GetACSFile(),
-                          pInfo.GetAnimationParameters().GetCharacter(), scale,
+      CModelData(CAnimRes(anim.GetACSFile(), pInfo.GetAnimationParameters().GetCharacter(), scale,
                           pInfo.GetAnimationParameters().GetInitialAnimation(), true)),
       pInfo, attackDelay, attackStartTime, wpscId, dInfo, beamContactFxId, beamPulseFxId,
       beamTextureId, beamGlowTextureId, anim0, anim1, anim2, anim3, beamSfx, attackDisabled,
@@ -3659,7 +3655,7 @@ CEntity* ScriptLoader::LoadActorContraption(CStateManager& mgr, CInputStream& in
                            aParms.GetInitialAnimation(), true));
 
   if (collisionExtent == CVector3f::Zero() || negativeExtent)
-    aabb = data.GetBounds(xf.GetRotation());
+    aabb = data.GetBounds(head.mActorHead.mTransform.GetRotation());
 
   return rs_new CScriptContraption(mgr.AllocateUniqueId(), head.mActorHead.mName, info, xf, data,
                                    aabb, list, mass, zMomentum, hInfo, dVuln, actParms, flameFxId,
@@ -3853,7 +3849,7 @@ CEntity* ScriptLoader::LoadAmbientAI(CStateManager& mgr, CInputStream& in, int p
                             animParms.GetInitialAnimation(), true));
 
   if (collisionExtent == CVector3f::Zero() || negativeExtent)
-    aabox = mData.GetBounds(xf.GetRotation());
+    aabox = mData.GetBounds(head.mActorHead.mTransform.GetRotation());
 
   return rs_new CAmbientAI(mgr.AllocateUniqueId(), head.mActorHead.mName, info, xf, mData, aabox,
                            matList, mass, hInfo, dVuln, actParms, alertRange, impactRange,
