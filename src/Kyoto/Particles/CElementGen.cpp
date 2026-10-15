@@ -1353,23 +1353,20 @@ void CElementGen::RenderParticles() {
             float negSinPlusCos = -sinT + cosT;
             float negCosMinusSin = -cosT - sinT;
 
-            float vpX = viewPoint.GetX();
-            float vpY = viewPoint.GetY();
-            float vpZ = viewPoint.GetZ();
 
-            GXPosition3f32(sinPlusCos + vpX, vpY, cosMinusSin + vpZ);
+            GXPosition3f32(sinPlusCos + viewPoint.GetX(), viewPoint.GetY(), cosMinusSin + viewPoint.GetZ());
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMax, uvs.yMax);
 
-            GXPosition3f32(sinMinusCos + vpX, vpY, sinPlusCos + vpZ);
+            GXPosition3f32(sinMinusCos + viewPoint.GetX(), viewPoint.GetY(), sinPlusCos + viewPoint.GetZ());
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMin, uvs.yMax);
 
-            GXPosition3f32(vpX - sinPlusCos, vpY, vpZ - cosMinusSin);
+            GXPosition3f32(viewPoint.GetX() - sinPlusCos, viewPoint.GetY(), viewPoint.GetZ() - cosMinusSin);
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMin, uvs.yMin);
 
-            GXPosition3f32(negSinPlusCos + vpX, vpY, negCosMinusSin + vpZ);
+            GXPosition3f32(negSinPlusCos + viewPoint.GetX(), viewPoint.GetY(), negCosMinusSin + viewPoint.GetZ());
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMax, uvs.yMin);
           }
@@ -1593,23 +1590,20 @@ void CElementGen::RenderParticles() {
             float sinMinusCos = sinT - cosT;
             float cosMinusSin = cosT - sinT;
 
-            float vpX = viewPoint.GetX();
-            float vpY = viewPoint.GetY();
-            float vpZ = viewPoint.GetZ();
 
-            GXPosition3f32(sinPlusCos + vpX, vpY, cosMinusSin + vpZ);
+            GXPosition3f32(sinPlusCos + viewPoint.GetX(), viewPoint.GetY(), cosMinusSin + viewPoint.GetZ());
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMax, uvs.yMax);
 
-            GXPosition3f32(sinMinusCos + vpX, vpY, sinPlusCos + vpZ);
+            GXPosition3f32(sinMinusCos + viewPoint.GetX(), viewPoint.GetY(), sinPlusCos + viewPoint.GetZ());
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMin, uvs.yMax);
 
-            GXPosition3f32(vpX - sinPlusCos, vpY, vpZ - cosMinusSin);
+            GXPosition3f32(viewPoint.GetX() - sinPlusCos, viewPoint.GetY(), viewPoint.GetZ() - cosMinusSin);
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMin, uvs.yMin);
 
-            GXPosition3f32(negSinPlusCos + vpX, vpY, negCosMinusSin + vpZ);
+            GXPosition3f32(negSinPlusCos + viewPoint.GetX(), viewPoint.GetY(), negCosMinusSin + viewPoint.GetZ());
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMax, uvs.yMin);
           }
