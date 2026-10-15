@@ -119,6 +119,7 @@ void CGroundMovement::MoveGroundCollider(CStateManager& mgr, CPhysicsActor& acto
   } else {
     CheckFalling(actor, mgr, dt);
   }
+
   actor.ClearForcesAndTorques();
   actor.MoveCollisionPrimitive(CVector3f::Zero());
   if (actor.GetMaterialList().HasMaterial(kMT_Player)) {
@@ -376,15 +377,14 @@ void CGroundMovement::MoveGroundCollider_New(CStateManager& mgr, CPhysicsActor& 
   CPlayer& player = *TCastToPtr< CPlayer >(&actor);
   player.SetPlayerIsSlidingOnWall(false);
   bool applyJump = player.GetPlayerMovementState() == NPlayer::kMS_ApplyJump;
-  bool dampUnderwater = false;
-  if (player.IsInsideFluid() && !mgr.GetPlayerState()->HasPowerUp(CPlayerState::kIT_GravitySuit)) {
-    dampUnderwater = true;
-  }
+  const bool dampUnderwater =
+      player.IsInsideFluid() && !mgr.GetPlayerState()->HasPowerUp(CPlayerState::kIT_GravitySuit);
   const bool noJump = player.GetPlayerMovementState() != NPlayer::kMS_ApplyJump &&
                       player.GetPlayerMovementState() != NPlayer::kMS_Jump;
-  bool doStepDown = true;
   float stepDown = actor.GetStepDownHeight();
+  float quarterStepUp;
   float stepUp = actor.GetStepUpHeight();
+  bool doStepDown = true;
   CMaterialList materials(kMT_NoStepLogic);
   SMoveObjectResult result;
   if (!applyJump) {
@@ -411,9 +411,15 @@ void CGroundMovement::MoveGroundCollider_New(CStateManager& mgr, CPhysicsActor& 
       CVector3f velocity = actor.GetVelocityWR();
       velocity.SetZ(0.f);
       actor.SetVelocityWR(velocity);
-      actor.ForceWR().SetZ(0.f);
-      actor.MomentumWR().SetZ(0.f);
-      actor.ImpulseWR().SetZ(0.f);
+      CVector3f force = actor.GetForceWR();
+      force.SetZ(0.f);
+      actor.SetForceWR(force);
+      CVector3f momentum = actor.GetMomentumWR();
+      momentum.SetZ(0.f);
+      actor.SetMomentumWR(momentum);
+      CVector3f impulse = actor.GetImpulseWR();
+      impulse.SetZ(0.f);
+      actor.SetImpulseWR(impulse);
     }
     CPhysicsState before = actor.GetPhysicsState();
     CMaterialList moveMaterials =
@@ -423,21 +429,21 @@ void CGroundMovement::MoveGroundCollider_New(CStateManager& mgr, CPhysicsActor& 
       SMovementOptions stepOptions = options;
       stepOptions.mAlwaysClip = noJump;
       stepOptions.mWallElasticConstant = 0.03f;
-      const CVector3f& movement = before.GetTranslation() - after.GetTranslation();
-      float movementMag = movement.MagSquared();
-      float quarterStepUp = 0.25f * stepUp;
       rstl::reserved_vector< CPhysicsState, 2 > states;
       rstl::reserved_vector< float, 2 > stepDeltas;
       rstl::reserved_vector< CCollisionInfo, 2 > collisions;
       rstl::reserved_vector< TUniqueId, 2 > ids;
       rstl::reserved_vector< CMaterialList, 2 > stepMaterials;
+      const CVector3f& movement = before.GetTranslation() - after.GetTranslation();
+      float movementMag = movement.MagSquared();
+      quarterStepUp = 0.25f * stepUp;
       bool done = false;
       for (int i = 0; i < 2 && !done; ++i) {
         float stepAmount = i == 0 ? quarterStepUp : stepUp;
         actor.SetPhysicsState(before);
         CCollisionInfo upCollision;
-        TUniqueId upId = kInvalidUniqueId;
         double useStepUp = stepAmount;
+        TUniqueId upId = kInvalidUniqueId;
         CGameCollision::DetectCollision_Cached_Moving(
             mgr, cache, *actor.GetCollisionPrimitive(), actor.GetTransform(),
             actor.GetMaterialFilter(), nearList, CVector3f(0.f, 0.f, 1.f), upId, upCollision,
@@ -463,8 +469,9 @@ void CGroundMovement::MoveGroundCollider_New(CStateManager& mgr, CPhysicsActor& 
           } else {
             useStepDown = 0.0;
           }
-          float minStep = rstl::min_val(useStepDown, useStepUp);
-          CVector3f endPosition = actor.GetTranslation() - minStep * CVector3f(0.f, 0.f, 1.f);
+          const double& minStep = rstl::min_val(useStepDown, useStepUp);
+          CVector3f endPosition =
+              actor.GetTranslation() - static_cast< float >(minStep) * CVector3f(0.f, 0.f, 1.f);
           bool floor =
               downCollision.IsValid() && CGameCollision::CanBlock(downCollision.GetMaterialLeft(),
                                                                   downCollision.GetNormalLeft());
@@ -472,8 +479,8 @@ void CGroundMovement::MoveGroundCollider_New(CStateManager& mgr, CPhysicsActor& 
           float stepDelta = stepMovement.MagSquared();
           if (floor && movementMag < stepDelta) {
             useStepDown = rstl::max_val(useStepDown - 0.0005f, 0.0);
-            const CVector3f& up = CVector3f(0.f, 0.f, 1.f);
-            actor.SetTranslation(actor.GetTranslation() - static_cast< float >(useStepDown) * up);
+            actor.SetTranslation(actor.GetTranslation() -
+                                 CVector3f(0.f, 0.f, 1.f) * static_cast< float >(useStepDown));
             states.push_back(actor.GetPhysicsState());
             stepDeltas.push_back(stepDelta);
             collisions.push_back(upCollision);
@@ -514,18 +521,11 @@ void CGroundMovement::MoveGroundCollider_New(CStateManager& mgr, CPhysicsActor& 
   } else {
     SMovementOptions options;
     options.mSetWaterLandingForce = true;
-    options.mWaterLandingForceCoefficient = 1.f;
-    options.mMinimumWaterLandingForce = 0.f;
-    options.mAnyZThreshold = 0.37f;
-    options.mDownwardZThreshold = 0.25f;
-    options.mWaterLandingVelocityReduction = 0.f;
-    if (dampUnderwater) {
-      options.mWaterLandingForceCoefficient = 35.f;
-      options.mMinimumWaterLandingForce = 5.f;
-      options.mAnyZThreshold = 0.05f;
-      options.mDownwardZThreshold = 0.01f;
-      options.mWaterLandingVelocityReduction = 0.2f;
-    }
+    options.mWaterLandingForceCoefficient = dampUnderwater ? 35.f : 1.f;
+    options.mMinimumWaterLandingForce = dampUnderwater ? 5.f : 0.f;
+    options.mAnyZThreshold = dampUnderwater ? 0.05f : 0.37f;
+    options.mDownwardZThreshold = dampUnderwater ? 0.01f : 0.25f;
+    options.mWaterLandingVelocityReduction = dampUnderwater ? 0.2f : 0.f;
     options.mDampForceAndMomentum = false;
     options.mAlwaysClip = false;
     options.mDisableClipForFloorOnly = false;
@@ -534,7 +534,7 @@ void CGroundMovement::MoveGroundCollider_New(CStateManager& mgr, CPhysicsActor& 
     options.mDampedNormalCoefficient = 0.f;
     options.mDampedDeltaCoefficient = 1.f;
     options.mFloorElasticForce = 0.1f;
-    options.mWallElasticConstant = 0.2f;
+    options.mWallElasticConstant = dampUnderwater ? 0.2f : 0.2f;
     options.mMaxPositiveVerticalVelocity = player.GetMaximumPlayerPositiveVerticalVelocity(mgr);
     materials = MoveObjectAnalytical(mgr, actor, dt, nearList, cache, options, result);
   }
@@ -549,9 +549,9 @@ void CGroundMovement::MoveGroundCollider_New(CStateManager& mgr, CPhysicsActor& 
       if (!CGameCollision::DetectCollisionBoolean_Cached(mgr, cache, *actor.GetCollisionPrimitive(),
                                                          transform, actor.GetMaterialFilter(),
                                                          nearList)) {
-        actor.SetTranslation(transform.GetTranslation());
         zOffset = 0.0005f;
-        useStepDown += 0.0005f;
+        actor.SetTranslation(transform.GetTranslation());
+        useStepDown += zOffset;
       }
       CGameCollision::DetectCollision_Cached_Moving(
           mgr, cache, *actor.GetCollisionPrimitive(), actor.GetTransform(),
@@ -575,8 +575,8 @@ void CGroundMovement::MoveGroundCollider_New(CStateManager& mgr, CPhysicsActor& 
     } else {
       mgr.DeliverScriptMsg(&actor, kInvalidUniqueId, kSM_OnFloor);
       useStepDown = rstl::max_val(useStepDown - 0.0005f, 0.0);
-      const CVector3f& up = CVector3f(0.f, 0.f, 1.f);
-      actor.SetTranslation(actor.GetTranslation() - static_cast< float >(useStepDown) * up);
+      actor.SetTranslation(actor.GetTranslation() -
+                           CVector3f(0.f, 0.f, 1.f) * static_cast< float >(useStepDown));
       CEntity* entity = mgr.ObjectById(id);
       if (TCastToPtr< CScriptPlatform >(entity)) {
         mgr.DeliverScriptMsg(entity, actor.GetUniqueId(), kSM_AddPlatformRider);
@@ -585,6 +585,7 @@ void CGroundMovement::MoveGroundCollider_New(CStateManager& mgr, CPhysicsActor& 
       actor.SetLastFloorPlaneNormal(info.GetNormalLeft());
     }
   }
+
   actor.ClearForcesAndTorques();
   if (materials.HasMaterial(kMT_Wall)) {
     player.SetPlayerHitWallDuringMove();
@@ -594,11 +595,15 @@ void CGroundMovement::MoveGroundCollider_New(CStateManager& mgr, CPhysicsActor& 
     collisionList.Add(*result.mCollision, false);
     CGameCollision::MakeCollisionCallbacks(mgr, actor, *result.mId, collisionList);
   }
+
   CMotionState motion = actor.GetMotionState();
-  motion.SetTranslation(actor.GetLastNonCollidingState().GetTranslation());
-  motion.SetVelocity(actor.GetLastNonCollidingState().GetVelocity());
+  const CVector3f lastTranslation = CVector3f(actor.mLastNonCollidingState.GetTranslation());
+  const CVector3f lastVelocity = CVector3f(actor.mLastNonCollidingState.GetVelocity());
+  motion.SetTranslation(lastTranslation);
+  motion.SetVelocity(lastVelocity);
   actor.SetLastNonCollidingState(motion);
-  uchar primitiveStorage[64];
+
+  uchar primitiveStorage[72];
   const CCollisionPrimitive* primitive = actor.GetCollisionPrimitive();
   const CCollisionPrimitive* usePrimitive = primitive;
   void* storage = primitiveStorage;
