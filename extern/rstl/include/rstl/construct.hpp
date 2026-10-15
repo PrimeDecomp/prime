@@ -39,6 +39,11 @@ inline void construct(void* dest, T* const& src) {
   *static_cast< T** >(dest) = src;
 }
 
+template < typename T >
+struct is_trivially_destructible< T* > {
+  enum { value = true };
+};
+
 template < >
 inline void construct< bool >(void* dest, const bool& src) {
   *static_cast< bool* >(dest) = src;

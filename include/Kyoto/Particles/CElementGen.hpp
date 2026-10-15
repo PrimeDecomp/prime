@@ -13,6 +13,15 @@
 #include "Kyoto/Particles/CParticleGen.hpp"
 #include "Kyoto/TToken.hpp"
 
+#if RSTL_VERSION >= RSTL_R3ME_00
+namespace rstl {
+template < >
+struct is_trivially_destructible< CMatrix3f > {
+  enum { value = true };
+};
+} // namespace rstl
+#endif
+
 class CGenDescription;
 class CModVectorElement;
 
@@ -203,6 +212,9 @@ private:
   bool mEnableADV : 1;
   int mMBSP;
   uchar mBackupLightActive;
+#if VERSION >= VERSION_R3IJ_00
+  bool mHasVMD[4];
+#else
   // uchar x275_pad[3];
   union {
     struct {
@@ -210,6 +222,7 @@ private:
     };
     uint mVmdStates;
   };
+#endif
   CRandom16 mRandState;
   CModVectorElement* mVELSources[4];
   rstl::vector< CParticleGen* > mActivePartChildren;
