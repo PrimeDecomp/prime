@@ -180,7 +180,11 @@ void vector< T, Alloc >::assign(int size, const T& in) {
   clear();
   reserve(size);
   for (int i = 0; i < size; ++i) {
+#if RSTL_VERSION >= RSTL_R3ME_00
+    push_back_unsafe(in);
+#else
     push_back(in);
+#endif
   }
 }
 

@@ -19,7 +19,9 @@ public:
     , mPrev(mCurrentParticleSystem) {
       mCurrentParticleSystem = this;
     }
+#if VERSION < VERSION_R3IJ_00
     ~SParticleSystem() { mCurrentParticleSystem = mPrev; }
+#endif
   };
 
   static void SetEmitterTime(int time);

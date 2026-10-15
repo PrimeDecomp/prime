@@ -175,8 +175,8 @@ CElementGen::CElementGen(TToken< CGenDescription > gen, EModelOrientationType or
     mHasVMD[idx] = mLoadedGenDesc->mVMD4;
     ++idx;
   }
-  for (int i = idx; i < 4; ++i) {
-    mVELSources[i] = nullptr;
+  for (; idx < 4; ++idx) {
+    mVELSources[idx] = nullptr;
   }
 
   if (mLoadedGenDesc->mADV1 || mLoadedGenDesc->mADV2 ||
@@ -409,7 +409,13 @@ const bool CElementGen::Update(double dt) {
     mWarmedUp = true;
   }
 
+#if VERSION >= VERSION_R3IJ_00
+  const bool ret = InternalUpdate(dt);
+  CParticleGlobals::SetCurrentParticleSystem(thisSystem.mPrev);
+  return ret;
+#else
   return InternalUpdate(dt);
+#endif
 }
 
 bool CElementGen::InternalUpdate(double dt) {
@@ -910,6 +916,9 @@ void CElementGen::ForceParticleCreation(int amount) {
   CParticleGlobals::SParticleSystem thisSystem('PART', this);
   CParticleGlobals::SetEmitterTime(mCurFrame);
   CreateNewParticles(amount);
+#if VERSION >= VERSION_R3IJ_00
+  CParticleGlobals::SetCurrentParticleSystem(thisSystem.mPrev);
+#endif
 }
 
 void CElementGen::EndLifetime() {
@@ -970,6 +979,9 @@ void CElementGen::Render() {
     }
   }
 
+#if VERSION >= VERSION_R3IJ_00
+  CParticleGlobals::SetCurrentParticleSystem(sys.mPrev);
+#endif
   x2d0 = timer.GetElapsedTime();
 }
 
