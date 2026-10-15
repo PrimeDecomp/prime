@@ -1696,12 +1696,9 @@ void CElementGen::RenderParticlesFlameThrower(CElementGen* const* gens, int coun
   const bool moveRedToAlpha = sMoveRedToAlphaBuffer;
   SUVElementSet uvs;
 
-  CElementGen* const* genPtr = gens;
-  for (GXTexMapID mapId = GX_TEXMAP0; mapId < count;
-       ++genPtr, mapId = static_cast< GXTexMapID >(mapId + 1)) {
-    const TLockedToken< CTexture >& tex =
-        (*genPtr)->mLoadedGenDesc->mTEXR->GetValueTexture(0);
-    (*tex)->Load(mapId, CTexture::kCM_Repeat);
+  for (int i = 0; i < count; ++i) {
+    const TLockedToken< CTexture >& tex = gens[i]->mLoadedGenDesc->mTEXR->GetValueTexture(0);
+    (*tex)->Load(static_cast< GXTexMapID >(i), CTexture::kCM_Repeat);
   }
 
   CGX::SetVtxDescv(sVtxDescList);
