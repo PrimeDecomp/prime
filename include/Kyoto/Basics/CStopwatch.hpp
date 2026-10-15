@@ -35,7 +35,8 @@ public:
     mStartTime = mData.GetCPUCycles();
   }
   inline float GetElapsedTime() const {
-    return (mData.GetCPUCycles() - mStartTime) * mData.GetTimerPeriod();
+    float elapsed = mData.GetCPUCycles() - mStartTime;
+    return elapsed * mData.GetTimerPeriod();
   }
   inline s64 GetElapsedMicros() const {
     return (mData.GetCPUCycles() - mStartTime) / mData.GetTimerFreqO1M();
