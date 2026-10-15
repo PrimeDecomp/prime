@@ -93,8 +93,8 @@ public:
     this->current -= v;
     return *this;
   }
-  pointer_iterator operator+(int v) const { return pointer_iterator(this->current) += v; }
-  pointer_iterator operator-(int v) const { return pointer_iterator(this->current - v); }
+  pointer_iterator operator+(int v) const { return pointer_iterator(*this) += v; }
+  pointer_iterator operator-(int v) const { return pointer_iterator(*this) -= v; }
   difference_type operator-(const base& other) const { return this->current - other.get_pointer(); }
 };
 
