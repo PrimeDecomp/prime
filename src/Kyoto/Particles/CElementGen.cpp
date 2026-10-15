@@ -1425,9 +1425,11 @@ void CElementGen::RenderParticles() {
       }
     } else {
       // ORNT
-      CVector3f fwd = systemViewCopy.GetForward();
-      CVector3f origin = systemViewCopy.GetTranslation();
+      const CVector3f fwd = systemViewCopy.GetForward();
+      const CVector3f origin = systemViewCopy.GetTranslation();
       float canBeNormEps = FLT_EPSILON;
+      CVector3f dir = CVector3f::Zero();
+      CVector3f right = CVector3f::Zero();
 
       for (int i = 0; i < particleCount; ++i) {
         CParticle* particle = SORT ? &mParticles[sortItems[i].mPartIdx] : &mParticles[i];
@@ -1439,14 +1441,14 @@ void CElementGen::RenderParticles() {
         float rota = mLoadedGenDesc->mROTA == nullptr ? 1.f : particle->mLineWidthOrRota;
         float velMagSq = particle->mVel.MagSquared();
 
-        CVector3f dir;
         if (velMagSq > canBeNormEps) {
           dir = particle->mVel * frsqrte(velMagSq);
         } else {
           const CVector3f& dv = particle->mPos - particle->mPrevPos;
           float dMagSq = dv.MagSquared();
           if (dMagSq > canBeNormEps) {
-            dir = dv * frsqrte(dMagSq);
+            CVector3f tmp = dv;
+            dir = tmp * frsqrte(dMagSq);
           } else {
             dir = CVector3f(0.f, 0.f, 1.f);
           }
@@ -1454,7 +1456,6 @@ void CElementGen::RenderParticles() {
 
         CVector3f fore = dir * particle->mLineLengthOrSize;
 
-        CVector3f right;
         if (mLoadedGenDesc->mRSOP) {
           right = CVector3f::Cross(dir, fwd);
           float crMagSq = right.MagSquared();
