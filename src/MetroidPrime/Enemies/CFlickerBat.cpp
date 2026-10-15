@@ -45,7 +45,7 @@ void CFlickerBat::AcceptScriptMsg(const EScriptObjectMessage msg, const TUniqueI
     BodyCtrl()->BodyStateInfo().SetMaximumPitch(CMath::Deg2Rad(60.f));
     break;
   case kSM_Deleted:
-    mgr.RemoveActiveFlickerBat(GetUniqueId());
+    mgr.GetActiveFlickerBats().remove(GetUniqueId());
     break;
   default:
     break;

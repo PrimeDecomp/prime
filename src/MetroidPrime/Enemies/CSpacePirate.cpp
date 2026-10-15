@@ -1,8 +1,4 @@
-// MWCC template emission order depends on these includes.
-// clang-format off
-#include "rstl/list.hpp" // IWYU pragma: keep
-#include "MetroidPrime/Enemies/CSpacePirate.hpp" // IWYU pragma: keep
-// clang-format on
+#include "MetroidPrime/Enemies/CSpacePirate.hpp"
 
 #include "Kyoto/Animation/CCharLayoutInfo.hpp"
 #include "Kyoto/Animation/CInt32POINode.hpp"
@@ -159,38 +155,6 @@ rstl::list< TUniqueId > CSpacePirate::mChargePlayerList;
 
 rstl::string skOneEye = rstl::string_l("OneEye");
 rstl::string skTwoEyes = rstl::string_l("TwoEyes");
-
-CSpacePirate::CSpacePirateData::CSpacePirateData(CInputStream& in, int propCount)
-: mAggressionCheck(in.ReadFloat())
-, mCoverCheck(in.ReadFloat())
-, mSearchRadius(in.ReadFloat())
-, mFallBackCheck(in.ReadFloat())
-, mFallBackRadius(in.ReadFloat())
-, mHearingRadius(in.ReadFloat())
-, mFlags(in.ReadLong())
-, x1c_(in.ReadBool())
-, mProjectile(in)
-, mSound_Projectile(CSfxManager::TranslateSFXID(in.ReadLong()))
-, mBladeDamage(in)
-, mKneelAttackChance(in.ReadFloat())
-, mKneelAttackShot(in)
-, mDodgeCheck(in.ReadFloat())
-, mSound_Impact(CSfxManager::TranslateSFXID(in.ReadLong()))
-, mAverageNextShotTime(in.ReadFloat())
-, mNextShotTimeVariation(in.ReadFloat())
-, mSound_Alert(CSfxManager::TranslateSFXID(in.ReadLong()))
-, mGunTrackDelay(in.ReadFloat())
-, mFirstBurstCount(in.ReadLong())
-, mCloakOpacity(in.ReadFloat())
-, mMaxCloakOpacity(in.ReadFloat())
-, mDodgeDelayTimeMin(in.ReadFloat())
-, mDodgeDelayTimeMax(in.ReadFloat())
-, mSound_Hurled(CSfxManager::TranslateSFXID(in.ReadLong()))
-, mSound_Death(CSfxManager::TranslateSFXID(in.ReadLong()))
-, xc4_(propCount >= 35 ? in.ReadFloat() : 0.2f)
-, mAvoidDistance(propCount >= 36 ? in.ReadFloat() : 8.f) {
-  mProjectile.Token().Lock();
-}
 
 CPirateRagDoll::CPirateRagDoll(CStateManager& mgr, CSpacePirate* pirate, ushort thudSfx, uint flags)
 : CRagDoll(-pirate->GetGravityConstant(), -pirate->GetFloatingGravityConstant(), 8.f, flags)
@@ -422,6 +386,38 @@ void CPirateRagDoll::PreRender(const CVector3f& pos, CModelData& mData) {
     builder.Insert(mParticles[13].GetBone(), ankleRot);
     animData->SetPoseBuilderValid(false);
   }
+}
+
+CSpacePirate::CSpacePirateData::CSpacePirateData(CInputStream& in, int propCount)
+: mAggressionCheck(in.ReadFloat())
+, mCoverCheck(in.ReadFloat())
+, mSearchRadius(in.ReadFloat())
+, mFallBackCheck(in.ReadFloat())
+, mFallBackRadius(in.ReadFloat())
+, mHearingRadius(in.ReadFloat())
+, mFlags(in.ReadLong())
+, x1c_(in.ReadBool())
+, mProjectile(in)
+, mSound_Projectile(CSfxManager::TranslateSFXID(in.ReadLong()))
+, mBladeDamage(in)
+, mKneelAttackChance(in.ReadFloat())
+, mKneelAttackShot(in)
+, mDodgeCheck(in.ReadFloat())
+, mSound_Impact(CSfxManager::TranslateSFXID(in.ReadLong()))
+, mAverageNextShotTime(in.ReadFloat())
+, mNextShotTimeVariation(in.ReadFloat())
+, mSound_Alert(CSfxManager::TranslateSFXID(in.ReadLong()))
+, mGunTrackDelay(in.ReadFloat())
+, mFirstBurstCount(in.ReadLong())
+, mCloakOpacity(in.ReadFloat())
+, mMaxCloakOpacity(in.ReadFloat())
+, mDodgeDelayTimeMin(in.ReadFloat())
+, mDodgeDelayTimeMax(in.ReadFloat())
+, mSound_Hurled(CSfxManager::TranslateSFXID(in.ReadLong()))
+, mSound_Death(CSfxManager::TranslateSFXID(in.ReadLong()))
+, xc4_(propCount >= 35 ? in.ReadFloat() : 0.2f)
+, mAvoidDistance(propCount >= 36 ? in.ReadFloat() : 8.f) {
+  mProjectile.Token().Lock();
 }
 
 CSpacePirate::CSpacePirate(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
@@ -757,11 +753,10 @@ void CSpacePirate::AcceptScriptMsg(EScriptObjectMessage msg, TUniqueId sender, C
 void CSpacePirate::Touch(CActor& actor, CStateManager& mgr) {
   CPatterned::Touch(actor, mgr);
   if (mRagDoll.get() && mRagDoll->IsPrimed()) {
-    if (const CScriptTrigger* trigger = TCastToConstPtr< CScriptTrigger >(actor)) {
+    if (CScriptTrigger* trigger = TCastToPtr< CScriptTrigger >(actor)) {
       if (trigger->GetActive() && (trigger->GetTriggerFlags() & kTFL_DetectAI) &&
           trigger->GetForceMagnitude() > 0.f) {
-        CVector3f& impulse = mRagDoll->TorsoImpulse();
-        impulse += trigger->GetForceField();
+        mRagDoll->TorsoImpulse() += trigger->GetForceField();
       }
     }
   }
@@ -825,8 +820,6 @@ void CSpacePirate::SetAttackTarget(TUniqueId id) {
   mAttackRemTime = 0.f;
 }
 
-void CSpacePirate::DetachActorFromPirate() { mAttachedActor = kInvalidUniqueId; }
-
 bool CSpacePirate::AttachActorToPirate(TUniqueId id) {
   if (mAttachedActor == kInvalidUniqueId) {
     mAttachedActor = id;
@@ -834,6 +827,8 @@ bool CSpacePirate::AttachActorToPirate(TUniqueId id) {
   }
   return false;
 }
+
+void CSpacePirate::DetachActorFromPirate() { mAttachedActor = kInvalidUniqueId; }
 
 CVector3f CSpacePirate::GetOrigin(const CStateManager& mgr, const CTeamAiRole& role,
                                   const CVector3f& aimPos) const {
@@ -913,19 +908,6 @@ bool CSpacePirate::LineOfSightTest(CStateManager& mgr, const CVector3f& eyePos,
   return mgr.RayCollideWorld(eyePos, targetPos, filter, this);
 }
 
-void CPatterned::TryCover(CStateManager& mgr, int arg) {
-  CBodyStateCmdMgr& cmdMgr = BodyCtrl()->CommandMgr();
-  if (CScriptCoverPoint* cp = GetCoverPoint(mgr, mDestObj)) {
-    cmdMgr.DeliverCmd(CBCCoverCmd(static_cast< pas::ECoverDirection >(arg), cp->GetTranslation(),
-                                  -cp->GetTransform().GetForward()));
-  }
-}
-
-void CPatterned::TryWallHang(CStateManager&, int) {
-  CBodyStateCmdMgr& cmdMgr = BodyCtrl()->CommandMgr();
-  cmdMgr.DeliverCmd(CBCWallHangCmd(mDestObj));
-}
-
 void CSpacePirate::UpdateCantSeePlayer(CStateManager& mgr) {
   if (++mCantSeePlayerCycleCounter % 7 == 0) {
     CVector3f eyePos = GetTranslation() + CVector3f(0.f, 0.f, mEyeHeight);
@@ -950,16 +932,6 @@ void CSpacePirate::UpdateCantSeePlayer(CStateManager& mgr) {
   }
 }
 
-static CVector3f Random2f(CStateManager& mgr, float min, float max) {
-  CVector3f result(mgr.Random()->Float() - 0.5f, mgr.Random()->Float() - 0.5f, 0.f);
-  if (CMath::AbsF(result.GetX()) < 0.001f) {
-    result.SetX(0.001f);
-  }
-  result.Normalize();
-  result *= (max - min) * mgr.Random()->Float() + min;
-  return result;
-}
-
 void CSpacePirate::UpdateHeldPosition(CStateManager& mgr, float dt) {
   CVector2f pos = mgr.GetPlayer()->GetTranslation().ToVec2f();
   if ((pos - mHeldPosition).MagSquared() < 3.f) {
@@ -968,6 +940,16 @@ void CSpacePirate::UpdateHeldPosition(CStateManager& mgr, float dt) {
     mHeldPosition = pos;
     mHoldPositionTime = 0.f;
   }
+}
+
+static CVector3f Random2f(CStateManager& mgr, float min, float max) {
+  CVector3f result(mgr.Random()->Float() - 0.5f, mgr.Random()->Float() - 0.5f, 0.f);
+  if (CMath::AbsF(result.GetX()) < 0.001f) {
+    result.SetX(0.001f);
+  }
+  result.Normalize();
+  result *= (max - min) * mgr.Random()->Float() + min;
+  return result;
 }
 
 void CSpacePirate::AvoidActors(CStateManager& mgr) {
@@ -1099,6 +1081,19 @@ void CSpacePirate::SetNonCinematicCollision(CStateManager& mgr) {
   SetMaterialFilter(CMaterialFilter::MakeIncludeExclude(
       GetMaterialFilter().GetIncludeList().Union(CMaterialList(kMT_AIBlock)),
       GetMaterialFilter().GetExcludeList()));
+}
+
+void CPatterned::TryCover(CStateManager& mgr, int arg) {
+  CBodyStateCmdMgr& cmdMgr = BodyCtrl()->CommandMgr();
+  if (CScriptCoverPoint* cp = GetCoverPoint(mgr, mDestObj)) {
+    cmdMgr.DeliverCmd(CBCCoverCmd(static_cast< pas::ECoverDirection >(arg), cp->GetTranslation(),
+                                  -cp->GetTransform().GetForward()));
+  }
+}
+
+void CPatterned::TryWallHang(CStateManager&, int) {
+  CBodyStateCmdMgr& cmdMgr = BodyCtrl()->CommandMgr();
+  cmdMgr.DeliverCmd(CBCWallHangCmd(mDestObj));
 }
 
 void CSpacePirate::KnockBack(const CVector3f& dir, CStateManager& mgr, const CDamageInfo& info,
@@ -2534,6 +2529,8 @@ void CSpacePirate::UpdateLeashTimer(float dt) {
   }
 }
 
+CProjectileInfo* CSpacePirate::ProjectileInfo() { return &mPirateData.mProjectile; }
+
 bool CSpacePirate::FireProjectile(float dt, CStateManager& mgr) {
   bool result = false;
   CTransform4f gunXf = GetLctrTransform(mGunSeg);
@@ -2670,10 +2667,8 @@ void CSpacePirate::PreRender(CStateManager& mgr, const CFrustumPlanes& frustum) 
   }
   CPatterned::PreRender(mgr, frustum);
   if (!mRagDoll.get() || !mRagDoll->IsPrimed()) {
-    mBoneTracking.PreRender(mgr, *ModelData()->AnimationData(), GetTransform(),
-                                CVector3f(ModelData()->GetScale()), *BodyCtrl());
-    mIkChain.PreRender(*ModelData()->AnimationData(), GetTransform(),
-                           CVector3f(ModelData()->GetScale()));
+    mBoneTracking.PreRender(mgr, *AnimationData(), GetTransform(), GetModelScale(), *BodyCtrl());
+    mIkChain.PreRender(*AnimationData(), GetTransform(), GetModelScale());
   }
 }
 

@@ -164,12 +164,12 @@ public:
 
   template < typename Pred >
   void remove_if(Pred pred) {
-    node* it = mStart;
-    while (it != mEnd) {
-      if (pred(*it->get_value())) {
-        it = do_erase(it);
+    iterator it = begin();
+    while (it != end()) {
+      if (pred(*it)) {
+        it = erase(it);
       } else {
-        it = it->get_next();
+        it++;
       }
     }
   }
@@ -281,7 +281,7 @@ void list< T, Alloc >::insert(const iterator& pos, InputIterator first, InputIte
 }
 
 template < typename T, typename Alloc >
-void list< T, Alloc >::remove(const T& val) {
+inline void list< T, Alloc >::remove(const T& val) {
   rstl::equal_to< T > equal;
   remove_if(rstl::bind1st(equal, val));
 }
