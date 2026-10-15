@@ -157,8 +157,8 @@ private:
 
   static ushort sSeed;
 };
-CHECK_SIZEOF(CParticleElectric, 0x458)
-NESTED_CHECK_SIZEOF(CParticleElectric, CLineManager, 0x40)
+CHECK_SIZEOF(CParticleElectric, VERSION >= VERSION_R3IJ_00 ? 0x440 : 0x458)
+NESTED_CHECK_SIZEOF(CParticleElectric, CLineManager, VERSION >= VERSION_R3IJ_00 ? 0x3c : 0x40)
 NESTED_CHECK_SIZEOF(CParticleElectric, CParticleElectricManager, 0x18)
 
 #endif // _CPARTICLEELECTRIC
