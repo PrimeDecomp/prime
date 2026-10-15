@@ -32,7 +32,6 @@ public:
   void Death(CStateManager& mgr, const CVector3f& dir, EScriptObjectState state) override;
   void KnockBack(const CVector3f& dir, CStateManager& mgr, const CDamageInfo& info, float magnitude,
                  bool direct, const bool inDeferred) override;
-  bool IsListening() const override { return true; }
   bool Listen(const CVector3f& pos, EListenNoiseType type) override;
   CVector3f GetOrigin(const CStateManager& mgr, const CTeamAiRole& role,
                       const CVector3f& aimPos) const override;
@@ -102,10 +101,11 @@ public:
   bool LostInterest(CStateManager& mgr, float arg) override;
   bool BounceFind(CStateManager& mgr, float arg) override;
   CPathFindSearch* GetSearchPath() override { return &mPathFindSearch; }
+  bool IsListening() const override { return true; }
   uchar GetModelAlphau8(const CStateManager& mgr) const override;
   float GetGravityConstant() const override { return skGravityConstant; }
   float GetFloatingGravityConstant() const { return skFloatingGravityConstant; }
-  CProjectileInfo* ProjectileInfo() override { return &mPirateData.mProjectile; }
+  CProjectileInfo* ProjectileInfo() override;
 
   CSpacePirate(TUniqueId uid, const rstl::string& name, const CEntityInfo& info,
                const CTransform4f& xf, const CModelData& mData, const CActorParameters& actParms,
