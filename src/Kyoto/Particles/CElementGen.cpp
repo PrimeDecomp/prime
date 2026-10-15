@@ -572,7 +572,7 @@ void CElementGen::UpdateExistingParticles() {
     if (p->mEndFrame < mCurFrame) {
       --mParticleAliveCount;
       if (p + 1 == mParticles.end()) {
-        mParticles.mCount = mParticles.size() - 1;
+        --mParticles.mCount;
         break;
       }
       *p = mParticles.back();
