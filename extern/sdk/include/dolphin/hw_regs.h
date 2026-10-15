@@ -5,8 +5,8 @@
 volatile u16 __VIRegs[59]     : 0xCC002000;
 volatile u32 __PIRegs[12]     : 0xCC003000;
 volatile u16 __MEMRegs[64]    : 0xCC004000;
-volatile u16 __DSPRegs[]      : 0xCC005000;
-volatile u32 __DIRegs[]       : 0xCC006000;
+volatile u16 __DSPRegs[32]    : 0xCC005000;
+volatile u32 __DIRegs[16]     : 0xCC006000;
 volatile u32 __SIRegs[64]     : 0xCC006400;
 volatile u32 __EXIRegs[0x40]  : 0xCC006800;
 volatile u32 __AIRegs[8]      : 0xCC006C00;

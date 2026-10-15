@@ -175,8 +175,8 @@ CElementGen::CElementGen(TToken< CGenDescription > gen, EModelOrientationType or
     mHasVMD[idx] = mLoadedGenDesc->mVMD4;
     ++idx;
   }
-  for (int i = idx; i < 4; ++i) {
-    mVELSources[i] = nullptr;
+  for (; idx < 4; ++idx) {
+    mVELSources[idx] = nullptr;
   }
 
   if (mLoadedGenDesc->mADV1 || mLoadedGenDesc->mADV2 ||
@@ -409,7 +409,13 @@ const bool CElementGen::Update(double dt) {
     mWarmedUp = true;
   }
 
+#if VERSION >= VERSION_R3IJ_00
+  const bool ret = InternalUpdate(dt);
+  CParticleGlobals::SetCurrentParticleSystem(thisSystem.mPrev);
+  return ret;
+#else
   return InternalUpdate(dt);
+#endif
 }
 
 bool CElementGen::InternalUpdate(double dt) {
@@ -566,7 +572,7 @@ void CElementGen::UpdateExistingParticles() {
     if (p->mEndFrame < mCurFrame) {
       --mParticleAliveCount;
       if (p + 1 == mParticles.end()) {
-        mParticles.mCount = mParticles.size() - 1;
+        --mParticles.mCount;
         break;
       }
       *p = mParticles.back();
@@ -910,6 +916,9 @@ void CElementGen::ForceParticleCreation(int amount) {
   CParticleGlobals::SParticleSystem thisSystem('PART', this);
   CParticleGlobals::SetEmitterTime(mCurFrame);
   CreateNewParticles(amount);
+#if VERSION >= VERSION_R3IJ_00
+  CParticleGlobals::SetCurrentParticleSystem(thisSystem.mPrev);
+#endif
 }
 
 void CElementGen::EndLifetime() {
@@ -971,6 +980,9 @@ void CElementGen::Render() {
   }
 
   x2d0 = timer.GetElapsedTime();
+#if VERSION >= VERSION_R3IJ_00
+  CParticleGlobals::SetCurrentParticleSystem(sys.mPrev);
+#endif
 }
 
 void CElementGen::RenderBasicParticlesNoRotTS(const CTransform4f& xf) {
@@ -1341,23 +1353,20 @@ void CElementGen::RenderParticles() {
             float negSinPlusCos = -sinT + cosT;
             float negCosMinusSin = -cosT - sinT;
 
-            float vpX = viewPoint.GetX();
-            float vpY = viewPoint.GetY();
-            float vpZ = viewPoint.GetZ();
 
-            GXPosition3f32(sinPlusCos + vpX, vpY, cosMinusSin + vpZ);
+            GXPosition3f32(sinPlusCos + viewPoint.GetX(), viewPoint.GetY(), cosMinusSin + viewPoint.GetZ());
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMax, uvs.yMax);
 
-            GXPosition3f32(sinMinusCos + vpX, vpY, sinPlusCos + vpZ);
+            GXPosition3f32(sinMinusCos + viewPoint.GetX(), viewPoint.GetY(), sinPlusCos + viewPoint.GetZ());
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMin, uvs.yMax);
 
-            GXPosition3f32(vpX - sinPlusCos, vpY, vpZ - cosMinusSin);
+            GXPosition3f32(viewPoint.GetX() - sinPlusCos, viewPoint.GetY(), viewPoint.GetZ() - cosMinusSin);
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMin, uvs.yMin);
 
-            GXPosition3f32(negSinPlusCos + vpX, vpY, negCosMinusSin + vpZ);
+            GXPosition3f32(negSinPlusCos + viewPoint.GetX(), viewPoint.GetY(), negCosMinusSin + viewPoint.GetZ());
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMax, uvs.yMin);
           }
@@ -1416,9 +1425,11 @@ void CElementGen::RenderParticles() {
       }
     } else {
       // ORNT
-      CVector3f fwd = systemViewCopy.GetForward();
-      CVector3f origin = systemViewCopy.GetTranslation();
+      const CVector3f fwd = systemViewCopy.GetForward();
+      const CVector3f origin = systemViewCopy.GetTranslation();
       float canBeNormEps = FLT_EPSILON;
+      CVector3f dir = CVector3f::Zero();
+      CVector3f right = CVector3f::Zero();
 
       for (int i = 0; i < particleCount; ++i) {
         CParticle* particle = SORT ? &mParticles[sortItems[i].mPartIdx] : &mParticles[i];
@@ -1430,14 +1441,14 @@ void CElementGen::RenderParticles() {
         float rota = mLoadedGenDesc->mROTA == nullptr ? 1.f : particle->mLineWidthOrRota;
         float velMagSq = particle->mVel.MagSquared();
 
-        CVector3f dir;
         if (velMagSq > canBeNormEps) {
           dir = particle->mVel * frsqrte(velMagSq);
         } else {
           const CVector3f& dv = particle->mPos - particle->mPrevPos;
           float dMagSq = dv.MagSquared();
           if (dMagSq > canBeNormEps) {
-            dir = dv * frsqrte(dMagSq);
+            CVector3f tmp = dv;
+            dir = tmp * frsqrte(dMagSq);
           } else {
             dir = CVector3f(0.f, 0.f, 1.f);
           }
@@ -1445,7 +1456,6 @@ void CElementGen::RenderParticles() {
 
         CVector3f fore = dir * particle->mLineLengthOrSize;
 
-        CVector3f right;
         if (mLoadedGenDesc->mRSOP) {
           right = CVector3f::Cross(dir, fwd);
           float crMagSq = right.MagSquared();
@@ -1581,23 +1591,20 @@ void CElementGen::RenderParticles() {
             float sinMinusCos = sinT - cosT;
             float cosMinusSin = cosT - sinT;
 
-            float vpX = viewPoint.GetX();
-            float vpY = viewPoint.GetY();
-            float vpZ = viewPoint.GetZ();
 
-            GXPosition3f32(sinPlusCos + vpX, vpY, cosMinusSin + vpZ);
+            GXPosition3f32(sinPlusCos + viewPoint.GetX(), viewPoint.GetY(), cosMinusSin + viewPoint.GetZ());
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMax, uvs.yMax);
 
-            GXPosition3f32(sinMinusCos + vpX, vpY, sinPlusCos + vpZ);
+            GXPosition3f32(sinMinusCos + viewPoint.GetX(), viewPoint.GetY(), sinPlusCos + viewPoint.GetZ());
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMin, uvs.yMax);
 
-            GXPosition3f32(vpX - sinPlusCos, vpY, vpZ - cosMinusSin);
+            GXPosition3f32(viewPoint.GetX() - sinPlusCos, viewPoint.GetY(), viewPoint.GetZ() - cosMinusSin);
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMin, uvs.yMin);
 
-            GXPosition3f32(negSinPlusCos + vpX, vpY, negCosMinusSin + vpZ);
+            GXPosition3f32(negSinPlusCos + viewPoint.GetX(), viewPoint.GetY(), negCosMinusSin + viewPoint.GetZ());
             GXColor1u32(color);
             GXTexCoord2f32(uvs.xMax, uvs.yMin);
           }
@@ -1689,12 +1696,9 @@ void CElementGen::RenderParticlesFlameThrower(CElementGen* const* gens, int coun
   const bool moveRedToAlpha = sMoveRedToAlphaBuffer;
   SUVElementSet uvs;
 
-  CElementGen* const* genPtr = gens;
-  for (GXTexMapID mapId = GX_TEXMAP0; mapId < count;
-       ++genPtr, mapId = static_cast< GXTexMapID >(mapId + 1)) {
-    const TLockedToken< CTexture >& tex =
-        (*genPtr)->mLoadedGenDesc->mTEXR->GetValueTexture(0);
-    (*tex)->Load(mapId, CTexture::kCM_Repeat);
+  for (int i = 0; i < count; ++i) {
+    const TLockedToken< CTexture >& tex = gens[i]->mLoadedGenDesc->mTEXR->GetValueTexture(0);
+    (*tex)->Load(static_cast< GXTexMapID >(i), CTexture::kCM_Repeat);
   }
 
   CGX::SetVtxDescv(sVtxDescList);
@@ -1944,8 +1948,12 @@ void CElementGen::RenderParticlesIndirectTexture() {
       sortItems[i].mPartIdx = static_cast< ushort >(i);
     }
 
+#if VERSION >= VERSION_R3IJ_00
+    rstl::sort(sortItems, sortItems + particleCount, CParticleListItemViewPointComp());
+#else
     static CParticleListItemViewPointComp sComp;
     rstl::sort(sortItems, sortItems + particleCount, sComp);
+#endif
   }
 
   static const GXVtxDescList skIndVtxDescList[] = {
@@ -1956,6 +1964,11 @@ void CElementGen::RenderParticlesIndirectTexture() {
 
   for (int i = 0; i < particleCount; ++i) {
     CParticle* particle = SORT ? &mParticles[sortItems[i].mPartIdx] : &mParticles[i];
+#if VERSION >= VERSION_R3IJ_00
+    const CVector3f viewPoint =
+        systemCameraCopy *
+        ((particle->mPos - particle->mPrevPos) * mTimeDeltaScale + particle->mPrevPos);
+#else
     const CVector3f& viewPoint =
         systemCameraCopy *
         ((particle->mPos - particle->mPrevPos) * mTimeDeltaScale + particle->mPrevPos);
@@ -1963,6 +1976,7 @@ void CElementGen::RenderParticlesIndirectTexture() {
     float vpX = viewPoint.GetX();
     float vpY = viewPoint.GetY();
     float vpZ = viewPoint.GetZ();
+#endif
 
     if (!constTexr) {
       TToken< CTexture > tex =
@@ -1987,12 +2001,66 @@ void CElementGen::RenderParticlesIndirectTexture() {
     }
 
     if (!constIndUVs) {
-      mLoadedGenDesc->mTIND->GetValueUV(mCurFrame - mParticles[i].mStartFrame,
-                                              uvsInd);
+      mLoadedGenDesc->mTIND->GetValueUV(mCurFrame - mParticles[i].mStartFrame, uvsInd);
     }
 
     float size = particle->mLineLengthOrSize * 0.5f;
 
+#if VERSION >= VERSION_R3IJ_00
+    CGraphics::CClippedScreenRect clipRect = CGraphics::ClipScreenRectFromMS(
+        CVector3f(viewPoint.GetX() - size, viewPoint.GetY(), viewPoint.GetZ() - size),
+        CVector3f(size + viewPoint.GetX(), viewPoint.GetY(), size + viewPoint.GetZ()), kTF_RGB565);
+
+    if (clipRect.IsValid()) {
+      void* const dest = CGraphics::GetDolphinSpareBuffer();
+      GXSetTexCopySrc(static_cast< u16 >(clipRect.GetX()), static_cast< u16 >(clipRect.GetY()),
+                      static_cast< u16 >(clipRect.GetWidth()),
+                      static_cast< u16 >(clipRect.GetHeight()));
+      GXSetTexCopyDst(static_cast< u16 >(clipRect.GetTexWidth()),
+                      static_cast< u16 >(clipRect.GetHeight()), GX_TF_RGB565, GX_FALSE);
+
+      int bufSize = CGraphics::GetSpareBufferSize();
+      size_t texBufSize = GXGetTexBufferSize(clipRect.GetTexWidth(), clipRect.GetHeight(),
+                                             GX_TF_RGB565, GX_FALSE, 0);
+      if (texBufSize <= bufSize) {
+        const bool useVideoFilter = CGraphics::GetUseVideoFilter();
+        CGraphics::SetUseVideoFilter(false);
+        GXCopyTex(dest, GX_FALSE);
+        CGraphics::SetUseVideoFilter(useVideoFilter);
+        GXPixModeSync();
+
+        CGraphics::LoadDolphinSpareTexture(clipRect.GetTexWidth(), clipRect.GetHeight(),
+                                           GX_TF_RGB565, NULL, CGraphics::kSpareBufferTexMapID);
+
+        uint color = particle->mColor.GetColor_u32();
+        CGX::Begin(GX_QUADS, GX_VTXFMT0, 4);
+
+        GXPosition3f32(size + viewPoint.GetX(), viewPoint.GetY(), size + viewPoint.GetZ());
+        GXColor1u32(color);
+        GXTexCoord2f32(uvs.xMax, uvs.yMax);
+        GXTexCoord2f32(clipRect.GetMaxU(), clipRect.GetMinV());
+        GXTexCoord2f32(uvsInd.xMax, uvsInd.yMax);
+
+        GXPosition3f32(viewPoint.GetX() - size, viewPoint.GetY(), size + viewPoint.GetZ());
+        GXColor1u32(color);
+        GXTexCoord2f32(uvs.xMin, uvs.yMax);
+        GXTexCoord2f32(clipRect.GetMinU(), clipRect.GetMinV());
+        GXTexCoord2f32(uvsInd.xMin, uvsInd.yMax);
+
+        GXPosition3f32(viewPoint.GetX() - size, viewPoint.GetY(), viewPoint.GetZ() - size);
+        GXColor1u32(color);
+        GXTexCoord2f32(uvs.xMin, uvs.yMin);
+        GXTexCoord2f32(clipRect.GetMinU(), clipRect.GetMaxV());
+        GXTexCoord2f32(uvsInd.xMin, uvsInd.yMin);
+
+        GXPosition3f32(size + viewPoint.GetX(), viewPoint.GetY(), viewPoint.GetZ() - size);
+        GXColor1u32(color);
+        GXTexCoord2f32(uvs.xMax, uvs.yMin);
+        GXTexCoord2f32(clipRect.GetMaxU(), clipRect.GetMaxV());
+        GXTexCoord2f32(uvsInd.xMax, uvsInd.yMin);
+
+        CGX::End();
+#else
     CGraphics::CClippedScreenRect clipRect = CGraphics::ClipScreenRectFromMS(
         CVector3f(vpX - size, vpY, vpZ - size), CVector3f(size + vpX, vpY, size + vpZ), kTF_RGB565);
 
@@ -2050,6 +2118,7 @@ void CElementGen::RenderParticlesIndirectTexture() {
         GXTexCoord2f32(uvsInd.xMax, uvsInd.yMin);
 
         CGX::End();
+#endif
       }
     }
   }
@@ -2523,17 +2592,20 @@ bool CElementGen::SystemHasLight() const { return mLightType != kLT_None; }
 CLight CElementGen::GetLight() const {
   switch (mLightType) {
   case kLT_Directional: {
-    return CLight::BuildDirectional(
-        mLDIR.AsNormalized(),
-        CColor(mLCLR.GetRed() * mLINT, mLCLR.GetGreen() * mLINT,
-               mLCLR.GetBlue() * mLINT, mLCLR.GetAlpha() * mLINT));
+    float r = mLCLR.GetRed();
+    float g = mLCLR.GetGreen();
+    float b = mLCLR.GetBlue();
+    float a = mLCLR.GetAlpha();
+    return CLight::BuildDirectional(mLDIR.AsNormalized(),
+                                    CColor(mLINT * r, mLINT * g, mLINT * b, mLINT * a));
   }
   case kLT_Spot: {
-    CLight spotLight =
-        CLight::BuildSpot(mLOFF, mLDIR.AsNormalized(),
-                          CColor(mLCLR.GetRed() * mLINT, mLCLR.GetGreen() * mLINT,
-                                 mLCLR.GetBlue() * mLINT, mLCLR.GetAlpha() * mLINT),
-                          mLSLA);
+    float r = mLCLR.GetRed();
+    float g = mLCLR.GetGreen();
+    float b = mLCLR.GetBlue();
+    float a = mLCLR.GetAlpha();
+    CLight spotLight = CLight::BuildSpot(mLOFF, mLDIR.AsNormalized(),
+                                         CColor(mLINT * r, mLINT * g, mLINT * b, mLINT * a), mLSLA);
     float quad = mFalloffType == kFT_Quadratic ? mLFOR : 0.f;
     float linear = mFalloffType == kFT_Linear ? mLFOR : 0.f;
     float constant = mFalloffType == kFT_Constant ? 1.f : 0.f;

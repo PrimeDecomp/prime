@@ -131,6 +131,9 @@ public:
   iterator erase(iterator it);
   iterator erase(iterator first, iterator last);
 
+#if RSTL_VERSION >= RSTL_R3IJ
+  void push_back(const T& in) { rstl::construct(mItems + mCount++, in); }
+#else
   void push_back(const T& in) {
     if (mCount >= mCapacity) {
       reserve(mCapacity ? mCapacity * 2 : 4);
@@ -139,6 +142,7 @@ public:
     rstl::construct(mItems + mCount, in);
     ++mCount;
   }
+#endif
 
   void pop_back() {
     destroy(mItems + mCount - 1);

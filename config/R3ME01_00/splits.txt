@@ -214,6 +214,15 @@ Kyoto/Input/CControllerData.cpp:
 	.text       start:0x802E47B4 end:0x802E4B78
 	.sdata2     start:0x805C7BF8 end:0x805C7C00
 
+Kyoto/Particles/CElementGen.cpp:
+	.text       start:0x802ECA68 end:0x802F5C58
+	.rodata     start:0x8047B548 end:0x8047B638
+	.data       start:0x80492808 end:0x80492888
+	.bss        start:0x804E4030 end:0x804E40C8
+	.sdata      start:0x805C1CC0 end:0x805C1CC8
+	.sbss       start:0x805C29C0 end:0x805C29D0
+	.sdata2     start:0x805C7C88 end:0x805C7CC8
+
 Kyoto/Input/CInputFilter.cpp:
 	.text       start:0x802FAE64 end:0x802FB7C8
 	.rodata     start:0x8047B670 end:0x8047B678
