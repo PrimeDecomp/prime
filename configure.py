@@ -449,12 +449,20 @@ def KyotoLib(lib_name, progress_category, objects):
 
 def MusyX(
         objects,
-        mw_version="GC/1.3.2",
+        mw_version=None,
         debug=False,
         major=2,
         minor=0,
         patch=3 if config.version == "R3ME01_00" else 0,
 ):
+    if mw_version is None:
+        # 1.5.0 was built with GC/1.2.5, the remaining 1.5 patches with GC/1.2.5n and 2.x with GC/1.3.2
+        if (major, minor, patch) == (1, 5, 0):
+            mw_version = "GC/1.2.5"
+        elif major < 2:
+            mw_version = "GC/1.2.5n"
+        else:
+            mw_version = "GC/1.3.2"
     cflags = cflags_musyx if not debug else cflags_musyx_debug
     return {
         "lib": "musyx",
@@ -2880,7 +2888,6 @@ config.libs = [
     },
     MusyX(
         debug=False,
-        # mw_version="GC/1.2.5n",
         major=2,
         minor=0,
         patch=0,
