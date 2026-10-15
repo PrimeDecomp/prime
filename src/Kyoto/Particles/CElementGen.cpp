@@ -979,10 +979,10 @@ void CElementGen::Render() {
     }
   }
 
+  x2d0 = timer.GetElapsedTime();
 #if VERSION >= VERSION_R3IJ_00
   CParticleGlobals::SetCurrentParticleSystem(sys.mPrev);
 #endif
-  x2d0 = timer.GetElapsedTime();
 }
 
 void CElementGen::RenderBasicParticlesNoRotTS(const CTransform4f& xf) {
@@ -2535,17 +2535,20 @@ bool CElementGen::SystemHasLight() const { return mLightType != kLT_None; }
 CLight CElementGen::GetLight() const {
   switch (mLightType) {
   case kLT_Directional: {
-    return CLight::BuildDirectional(
-        mLDIR.AsNormalized(),
-        CColor(mLCLR.GetRed() * mLINT, mLCLR.GetGreen() * mLINT,
-               mLCLR.GetBlue() * mLINT, mLCLR.GetAlpha() * mLINT));
+    float r = mLCLR.GetRed();
+    float g = mLCLR.GetGreen();
+    float b = mLCLR.GetBlue();
+    float a = mLCLR.GetAlpha();
+    return CLight::BuildDirectional(mLDIR.AsNormalized(),
+                                    CColor(mLINT * r, mLINT * g, mLINT * b, mLINT * a));
   }
   case kLT_Spot: {
-    CLight spotLight =
-        CLight::BuildSpot(mLOFF, mLDIR.AsNormalized(),
-                          CColor(mLCLR.GetRed() * mLINT, mLCLR.GetGreen() * mLINT,
-                                 mLCLR.GetBlue() * mLINT, mLCLR.GetAlpha() * mLINT),
-                          mLSLA);
+    float r = mLCLR.GetRed();
+    float g = mLCLR.GetGreen();
+    float b = mLCLR.GetBlue();
+    float a = mLCLR.GetAlpha();
+    CLight spotLight = CLight::BuildSpot(mLOFF, mLDIR.AsNormalized(),
+                                         CColor(mLINT * r, mLINT * g, mLINT * b, mLINT * a), mLSLA);
     float quad = mFalloffType == kFT_Quadratic ? mLFOR : 0.f;
     float linear = mFalloffType == kFT_Linear ? mLFOR : 0.f;
     float constant = mFalloffType == kFT_Constant ? 1.f : 0.f;
