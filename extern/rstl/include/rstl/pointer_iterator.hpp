@@ -93,8 +93,13 @@ public:
     this->current -= v;
     return *this;
   }
+#if RSTL_VERSION >= RSTL_R3ME_00
   pointer_iterator operator+(int v) const { return pointer_iterator(*this) += v; }
   pointer_iterator operator-(int v) const { return pointer_iterator(*this) -= v; }
+#else
+  pointer_iterator operator+(int v) const { return pointer_iterator(this->current) += v; }
+  pointer_iterator operator-(int v) const { return pointer_iterator(this->current - v); }
+#endif
   difference_type operator-(const base& other) const { return this->current - other.get_pointer(); }
 };
 

@@ -1967,9 +1967,19 @@ void CElementGen::RenderParticlesIndirectTexture() {
 
   for (int i = 0; i < particleCount; ++i) {
     CParticle* particle = SORT ? &mParticles[sortItems[i].mPartIdx] : &mParticles[i];
+#if VERSION >= VERSION_R3IJ_00
     const CVector3f viewPoint =
         systemCameraCopy *
         ((particle->mPos - particle->mPrevPos) * mTimeDeltaScale + particle->mPrevPos);
+#else
+    const CVector3f& viewPoint =
+        systemCameraCopy *
+        ((particle->mPos - particle->mPrevPos) * mTimeDeltaScale + particle->mPrevPos);
+
+    float vpX = viewPoint.GetX();
+    float vpY = viewPoint.GetY();
+    float vpZ = viewPoint.GetZ();
+#endif
 
     if (!constTexr) {
       TToken< CTexture > tex =
@@ -1999,6 +2009,7 @@ void CElementGen::RenderParticlesIndirectTexture() {
 
     float size = particle->mLineLengthOrSize * 0.5f;
 
+#if VERSION >= VERSION_R3IJ_00
     CGraphics::CClippedScreenRect clipRect = CGraphics::ClipScreenRectFromMS(
         CVector3f(viewPoint.GetX() - size, viewPoint.GetY(), viewPoint.GetZ() - size),
         CVector3f(size + viewPoint.GetX(), viewPoint.GetY(), size + viewPoint.GetZ()), kTF_RGB565);
@@ -2052,6 +2063,65 @@ void CElementGen::RenderParticlesIndirectTexture() {
         GXTexCoord2f32(uvsInd.xMax, uvsInd.yMin);
 
         CGX::End();
+#else
+    CGraphics::CClippedScreenRect clipRect = CGraphics::ClipScreenRectFromMS(
+        CVector3f(vpX - size, vpY, vpZ - size), CVector3f(size + vpX, vpY, size + vpZ), kTF_RGB565);
+
+    int width = clipRect.GetTexWidth();
+    int height = clipRect.GetHeight();
+    float minU = clipRect.GetMinU();
+    float maxU = clipRect.GetMaxU();
+    float minV = clipRect.GetMinV();
+    float maxV = clipRect.GetMaxV();
+
+    if (clipRect.IsValid()) {
+      void* const dest = CGraphics::GetDolphinSpareBuffer();
+      GXSetTexCopySrc(static_cast< u16 >(clipRect.GetX()), static_cast< u16 >(clipRect.GetY()),
+                      static_cast< u16 >(clipRect.GetWidth()), static_cast< u16 >(height));
+      GXSetTexCopyDst(static_cast< u16 >(width), static_cast< u16 >(height), GX_TF_RGB565,
+                      GX_FALSE);
+
+      int bufSize = CGraphics::GetSpareBufferSize();
+      size_t texBufSize = GXGetTexBufferSize(width, height, GX_TF_RGB565, GX_FALSE, 0);
+      if (texBufSize <= bufSize) {
+        const bool useVideoFilter = CGraphics::GetUseVideoFilter();
+        CGraphics::SetUseVideoFilter(false);
+        GXCopyTex(dest, GX_FALSE);
+        CGraphics::SetUseVideoFilter(useVideoFilter);
+        GXPixModeSync();
+
+        CGraphics::LoadDolphinSpareTexture(width, height, GX_TF_RGB565, NULL,
+                                           CGraphics::kSpareBufferTexMapID);
+
+        uint color = particle->mColor.GetColor_u32();
+        CGX::Begin(GX_QUADS, GX_VTXFMT0, 4);
+
+        GXPosition3f32(size + vpX, vpY, size + vpZ);
+        GXColor1u32(color);
+        GXTexCoord2f32(uvs.xMax, uvs.yMax);
+        GXTexCoord2f32(maxU, minV);
+        GXTexCoord2f32(uvsInd.xMax, uvsInd.yMax);
+
+        GXPosition3f32(vpX - size, vpY, size + vpZ);
+        GXColor1u32(color);
+        GXTexCoord2f32(uvs.xMin, uvs.yMax);
+        GXTexCoord2f32(minU, minV);
+        GXTexCoord2f32(uvsInd.xMin, uvsInd.yMax);
+
+        GXPosition3f32(vpX - size, vpY, vpZ - size);
+        GXColor1u32(color);
+        GXTexCoord2f32(uvs.xMin, uvs.yMin);
+        GXTexCoord2f32(minU, maxV);
+        GXTexCoord2f32(uvsInd.xMin, uvsInd.yMin);
+
+        GXPosition3f32(size + vpX, vpY, vpZ - size);
+        GXColor1u32(color);
+        GXTexCoord2f32(uvs.xMax, uvs.yMin);
+        GXTexCoord2f32(maxU, maxV);
+        GXTexCoord2f32(uvsInd.xMax, uvsInd.yMin);
+
+        CGX::End();
+#endif
       }
     }
   }
