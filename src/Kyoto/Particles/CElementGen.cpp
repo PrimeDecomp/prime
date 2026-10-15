@@ -1956,8 +1956,12 @@ void CElementGen::RenderParticlesIndirectTexture() {
       sortItems[i].mPartIdx = static_cast< ushort >(i);
     }
 
+#if VERSION >= VERSION_R3IJ_00
+    rstl::sort(sortItems, sortItems + particleCount, CParticleListItemViewPointComp());
+#else
     static CParticleListItemViewPointComp sComp;
     rstl::sort(sortItems, sortItems + particleCount, sComp);
+#endif
   }
 
   static const GXVtxDescList skIndVtxDescList[] = {
@@ -1968,13 +1972,9 @@ void CElementGen::RenderParticlesIndirectTexture() {
 
   for (int i = 0; i < particleCount; ++i) {
     CParticle* particle = SORT ? &mParticles[sortItems[i].mPartIdx] : &mParticles[i];
-    const CVector3f& viewPoint =
+    const CVector3f viewPoint =
         systemCameraCopy *
         ((particle->mPos - particle->mPrevPos) * mTimeDeltaScale + particle->mPrevPos);
-
-    float vpX = viewPoint.GetX();
-    float vpY = viewPoint.GetY();
-    float vpZ = viewPoint.GetZ();
 
     if (!constTexr) {
       TToken< CTexture > tex =
@@ -1999,31 +1999,26 @@ void CElementGen::RenderParticlesIndirectTexture() {
     }
 
     if (!constIndUVs) {
-      mLoadedGenDesc->mTIND->GetValueUV(mCurFrame - mParticles[i].mStartFrame,
-                                              uvsInd);
+      mLoadedGenDesc->mTIND->GetValueUV(mCurFrame - mParticles[i].mStartFrame, uvsInd);
     }
 
     float size = particle->mLineLengthOrSize * 0.5f;
 
     CGraphics::CClippedScreenRect clipRect = CGraphics::ClipScreenRectFromMS(
-        CVector3f(vpX - size, vpY, vpZ - size), CVector3f(size + vpX, vpY, size + vpZ), kTF_RGB565);
-
-    int width = clipRect.GetTexWidth();
-    int height = clipRect.GetHeight();
-    float minU = clipRect.GetMinU();
-    float maxU = clipRect.GetMaxU();
-    float minV = clipRect.GetMinV();
-    float maxV = clipRect.GetMaxV();
+        CVector3f(viewPoint.GetX() - size, viewPoint.GetY(), viewPoint.GetZ() - size),
+        CVector3f(size + viewPoint.GetX(), viewPoint.GetY(), size + viewPoint.GetZ()), kTF_RGB565);
 
     if (clipRect.IsValid()) {
       void* const dest = CGraphics::GetDolphinSpareBuffer();
       GXSetTexCopySrc(static_cast< u16 >(clipRect.GetX()), static_cast< u16 >(clipRect.GetY()),
-                      static_cast< u16 >(clipRect.GetWidth()), static_cast< u16 >(height));
-      GXSetTexCopyDst(static_cast< u16 >(width), static_cast< u16 >(height), GX_TF_RGB565,
-                      GX_FALSE);
+                      static_cast< u16 >(clipRect.GetWidth()),
+                      static_cast< u16 >(clipRect.GetHeight()));
+      GXSetTexCopyDst(static_cast< u16 >(clipRect.GetTexWidth()),
+                      static_cast< u16 >(clipRect.GetHeight()), GX_TF_RGB565, GX_FALSE);
 
       int bufSize = CGraphics::GetSpareBufferSize();
-      size_t texBufSize = GXGetTexBufferSize(width, height, GX_TF_RGB565, GX_FALSE, 0);
+      size_t texBufSize = GXGetTexBufferSize(clipRect.GetTexWidth(), clipRect.GetHeight(),
+                                             GX_TF_RGB565, GX_FALSE, 0);
       if (texBufSize <= bufSize) {
         const bool useVideoFilter = CGraphics::GetUseVideoFilter();
         CGraphics::SetUseVideoFilter(false);
@@ -2031,34 +2026,34 @@ void CElementGen::RenderParticlesIndirectTexture() {
         CGraphics::SetUseVideoFilter(useVideoFilter);
         GXPixModeSync();
 
-        CGraphics::LoadDolphinSpareTexture(width, height, GX_TF_RGB565, NULL,
-                                           CGraphics::kSpareBufferTexMapID);
+        CGraphics::LoadDolphinSpareTexture(clipRect.GetTexWidth(), clipRect.GetHeight(),
+                                           GX_TF_RGB565, NULL, CGraphics::kSpareBufferTexMapID);
 
         uint color = particle->mColor.GetColor_u32();
         CGX::Begin(GX_QUADS, GX_VTXFMT0, 4);
 
-        GXPosition3f32(size + vpX, vpY, size + vpZ);
+        GXPosition3f32(size + viewPoint.GetX(), viewPoint.GetY(), size + viewPoint.GetZ());
         GXColor1u32(color);
         GXTexCoord2f32(uvs.xMax, uvs.yMax);
-        GXTexCoord2f32(maxU, minV);
+        GXTexCoord2f32(clipRect.GetMaxU(), clipRect.GetMinV());
         GXTexCoord2f32(uvsInd.xMax, uvsInd.yMax);
 
-        GXPosition3f32(vpX - size, vpY, size + vpZ);
+        GXPosition3f32(viewPoint.GetX() - size, viewPoint.GetY(), size + viewPoint.GetZ());
         GXColor1u32(color);
         GXTexCoord2f32(uvs.xMin, uvs.yMax);
-        GXTexCoord2f32(minU, minV);
+        GXTexCoord2f32(clipRect.GetMinU(), clipRect.GetMinV());
         GXTexCoord2f32(uvsInd.xMin, uvsInd.yMax);
 
-        GXPosition3f32(vpX - size, vpY, vpZ - size);
+        GXPosition3f32(viewPoint.GetX() - size, viewPoint.GetY(), viewPoint.GetZ() - size);
         GXColor1u32(color);
         GXTexCoord2f32(uvs.xMin, uvs.yMin);
-        GXTexCoord2f32(minU, maxV);
+        GXTexCoord2f32(clipRect.GetMinU(), clipRect.GetMaxV());
         GXTexCoord2f32(uvsInd.xMin, uvsInd.yMin);
 
-        GXPosition3f32(size + vpX, vpY, vpZ - size);
+        GXPosition3f32(size + viewPoint.GetX(), viewPoint.GetY(), viewPoint.GetZ() - size);
         GXColor1u32(color);
         GXTexCoord2f32(uvs.xMax, uvs.yMin);
-        GXTexCoord2f32(maxU, maxV);
+        GXTexCoord2f32(clipRect.GetMaxU(), clipRect.GetMaxV());
         GXTexCoord2f32(uvsInd.xMax, uvsInd.yMin);
 
         CGX::End();
