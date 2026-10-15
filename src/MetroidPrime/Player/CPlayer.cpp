@@ -1528,7 +1528,7 @@ void CPlayer::UpdateAimTargetPrediction(const CTransform4f& xf, CStateManager& m
 
 void CPlayer::UpdateAssistedAiming(const CTransform4f& xf, CStateManager& mgr) {
   CTransform4f assistXf = xf;
-  if (const CActor* target = TCastToConstPtr< CActor >(mgr.GetObjectById(GetAimTargetId()))) {
+  if (TCastToConstPtr< CActor >(mgr.GetObjectById(GetAimTargetId()))) {
     CVector3f gunToTarget = mAssistedTargetAim - xf.GetTranslation();
     CVector3f gunToTargetFlat(gunToTarget.GetX(), gunToTarget.GetY(), 0.f);
     float gunToTargetFlatMag = gunToTargetFlat.Magnitude();
