@@ -66,7 +66,6 @@ public:
     CVector3f mPrevPos;
     CVector3f mVel;
     int mStartFrame;
-#if VERSION >= VERSION_R3IJ_00
     union {
       float mLineLengthOrSize;
       uint mLineLengthOrSizeBits;
@@ -75,10 +74,6 @@ public:
       float mLineWidthOrRota;
       uint mLineWidthOrRotaBits;
     };
-#else
-    float mLineLengthOrSize;
-    float mLineWidthOrRota;
-#endif
     CColor mColor;
 
     CParticle()
