@@ -162,6 +162,7 @@ class ProjectConfig:
         self.non_matching: bool = False
         self.build_rels: bool = True  # Build REL files
         self.check_sha_path: Optional[Path] = None  # Path to version.sha1
+        self.build_string_path: Optional[Path] = None  # Optional Metroid build stamp
         self.config_path: Optional[Path] = None  # Path to config.yml
         self.generate_map: bool = False  # Generate map file(s)
         self.asflags: Optional[List[str]] = None  # Assembler flags
@@ -1225,8 +1226,14 @@ def generate_build_ninja(
         ###
         # Generate DOL
         ###
+        dol_path = link_steps[0].output()
+        unstamped_dol_path = (
+            dol_path.with_suffix(".unstamped.dol")
+            if config.build_string_path
+            else dol_path
+        )
         n.build(
-            outputs=link_steps[0].output(),
+            outputs=unstamped_dol_path,
             rule="elf2dol",
             inputs=link_steps[0].partial_output(),
             implicit=dtk,
@@ -1296,8 +1303,33 @@ def generate_build_ninja(
             )
             n.newline()
 
+        # Burn the version's build stamp after conversion, before checking the hash.
+        if config.build_string_path:
+            n.comment("Burn Metroid build stamp")
+            n.rule(
+                name="metroidbuildinfo",
+                command=(
+                    f"{CHAIN}{dtk} vfs cp --no-decompress -q $in $out"
+                    f' && {dtk} metroidbuildinfo $out "$build_string"'
+                ),
+                description="BUILD INFO $out",
+            )
+            n.build(
+                outputs=dol_path,
+                rule="metroidbuildinfo",
+                inputs=unstamped_dol_path,
+                implicit=[dtk, config.build_string_path],
+                variables={"build_string": config.build_string_path},
+                order_only="post-link",
+            )
+            n.newline()
+
         # Add all build steps needed post-build (re-building archives and such)
-        write_custom_step("post-build", "post-link")
+        write_custom_step(
+            "post-build",
+            "post-link",
+            extra_inputs=[str(dol_path)] if config.build_string_path else None,
+        )
 
         ###
         # Helper rule for building all source files

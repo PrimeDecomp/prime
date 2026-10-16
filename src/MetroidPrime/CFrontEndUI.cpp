@@ -83,20 +83,7 @@ static const char* const skPressStartTextures[] = {
 };
 #endif
 
-// TODO: set this to the default value and bake version string as a post-build step
-#if VERSION == VERSION_GM8E_00
-const char MetroidBuildInfo[] = BUILD_INFO_TAG "Build v1.088 10/29/2002 2:21:25\0PAD";
-#elif VERSION == VERSION_GM8E_01
-const char MetroidBuildInfo[] = BUILD_INFO_TAG "Build v1.093 11/5/2002 19:50:01\0PAD";
-#elif VERSION == VERSION_GM8E_48
-const char MetroidBuildInfo[] = BUILD_INFO_TAG "Build v1.097 12/19/2002 16:03:43\0AD";
-#elif VERSION == VERSION_GM8E_02
-const char MetroidBuildInfo[] = BUILD_INFO_TAG "Build v1.111 3/10/2003 17:56:21\0PAD";
-#elif VERSION == VERSION_GM8P_00
-const char MetroidBuildInfo[] = BUILD_INFO_TAG "Build v1.110 2/4/2003 22:16:07\0_PAD";
-#else
 const char MetroidBuildInfo[] = BUILD_INFO;
-#endif
 const char* const BuildTime = MetroidBuildInfo + BUILD_INFO_TAG_SIZE;
 
 static const s16 FETransitionBackSFX[3][2] = {

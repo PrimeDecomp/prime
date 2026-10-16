@@ -190,6 +190,8 @@ config.wibo_tag = "1.0.3"
 # Project
 config.config_path = Path("config") / config.version / "config.yml"
 config.check_sha_path = Path("config") / config.version / "build.sha1"
+if config.version != "GM8EAB_00":
+    config.build_string_path = Path("config") / config.version / "build_string.txt"
 config.asflags = [
     "-mgekko",
     "--strip-local-absolute",
